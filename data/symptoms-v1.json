@@ -466,5 +466,78 @@
       "m082"
     ],
     "symptom_group_id": "sg003"
+  },
+  {
+    "id": "sx23",
+    "title": "정중신경 분포 저림·야간증상",
+    "summary": "엄지-중지 중심의 야간 저림과 손목터널 관련 증상을 평가하는 경로입니다.",
+    "conditions": "손목터널증후군, 근위 정중신경병증, 경추성 증상 감별.",
+    "nerves": "정중신경",
+    "ultrasound": "손목터널 정중신경 단축/장축, 굴곡지대와 굴곡건을 확인. CSA 수치는 측정 위치·프로토콜 의존적으로 해석.",
+    "muscleIds": [
+      "m087",
+      "m088",
+      "m089",
+      "m102",
+      "m103",
+      "m104",
+      "m105"
+    ],
+    "symptom_group_id": "sg004"
+  },
+  {
+    "id": "sx24",
+    "title": "척골측 손 저림·내재근 약화",
+    "summary": "제4-5지 저림과 내재근 약화에서 Guyon관과 주관 병변을 구분하는 경로입니다.",
+    "conditions": "Guyon관 증후군, 주관 증후군, 근위 척골신경병증 감별.",
+    "nerves": "척골신경 및 심부운동가지",
+    "ultrasound": "Guyon관에서 척골신경·척골동맥과 운동/감각 분지 경로를 확인.",
+    "muscleIds": [
+      "m106",
+      "m107",
+      "m108",
+      "m109",
+      "m110",
+      "m116",
+      "m117",
+      "m118",
+      "m119",
+      "m120",
+      "m121",
+      "m122"
+    ],
+    "symptom_group_id": "sg004"
+  },
+  {
+    "id": "sx25",
+    "title": "손가락·엄지 걸림/방아쇠",
+    "summary": "A1 pulley와 굴곡건의 동적 활주를 중심으로 보는 증상군입니다.",
+    "conditions": "방아쇠수지/방아쇠엄지, 굴곡건 병변, 관절성 catching 감별.",
+    "nerves": "정중신경·척골신경 분포는 동반 신경증상 시 별도 평가.",
+    "ultrasound": "A1 pulley와 굴곡건을 단축·장축으로 보고 능동 굴곡-신전 중 catching을 확인.",
+    "muscleIds": [
+      "m087",
+      "m088",
+      "m089"
+    ],
+    "symptom_group_id": "sg004"
+  },
+  {
+    "id": "sx26",
+    "title": "배측 손목 통증·click",
+    "summary": "주상월상인대와 신전건 구획, ECU를 함께 보는 경로입니다.",
+    "conditions": "주상월상인대 손상, intersection syndrome, ECU 병변, 관절내 병변 감별.",
+    "nerves": "요골신경 감각분지는 감각증상 동반 시 확인.",
+    "ultrasound": "배측 SL ligament, 1-6 신전구획과 ECU 동적 평가를 시행.",
+    "muscleIds": [
+      "m092",
+      "m093",
+      "m094",
+      "m095",
+      "m096",
+      "m100",
+      "m101"
+    ],
+    "symptom_group_id": "sg004"
   }
 ]

@@ -1,0 +1,289 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "wrist_hand_ultrasound_v1",
+  "region_ids": [
+    "r007",
+    "r008",
+    "r009"
+  ],
+  "primary_references": [
+    {
+      "title": "USMSIT/NMUSIT Fundamental Guide on Diagnostic and Interventional Wrist/Hand Ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
+    },
+    {
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines – Wrist",
+      "url": "https://www.essr.org/content-essr/uploads/2016/10/wrist.pdf"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv018",
+      "name_ko": "제1·2 신전구획",
+      "name_en": "First and second dorsal extensor compartments",
+      "target_structure_ids": [
+        "t010",
+        "t011"
+      ],
+      "patient_position": "전완 회내, 손목 중립.",
+      "probe_orientation": "요골 경상돌기 배요측에서 횡단면으로 APL/EPB와 ECRL/ECRB를 확인하고 장축으로 회전.",
+      "landmarks": [
+        "APL",
+        "EPB",
+        "ECRL",
+        "ECRB",
+        "요골경상돌기"
+      ],
+      "normal_finding": "각 건의 연속된 fibrillar pattern과 구획/중격을 확인한다.",
+      "pitfalls": [
+        "APL/EPB 분리 중격 변이를 확인",
+        "anisotropy를 건초염으로 오인하지 않는다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv019",
+      "name_ko": "제3–6 신전구획",
+      "name_en": "Third to sixth dorsal extensor compartments",
+      "target_structure_ids": [
+        "t012",
+        "t013",
+        "t014",
+        "t015"
+      ],
+      "patient_position": "전완 회내, 손목 중립.",
+      "probe_orientation": "Lister 결절을 기준으로 횡단면에서 제3–6 구획을 순서대로 추적하고 ECU는 동적 회내·회외를 추가.",
+      "landmarks": [
+        "Lister tubercle",
+        "EPL",
+        "EDC/EIP",
+        "EDM",
+        "ECU"
+      ],
+      "normal_finding": "각 구획의 건과 retinaculum, ECU groove 내 위치를 확인한다.",
+      "pitfalls": [
+        "ECU 위치는 전완 회전과 검사 자세에 따라 달라진다",
+        "무증상 아탈구 가능성을 임상증상과 구분한다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv020",
+      "name_ko": "주상월상인대",
+      "name_en": "Scapholunate ligament",
+      "target_structure_ids": [
+        "lig003"
+      ],
+      "patient_position": "전완 회내, 손목을 편안히 둔다.",
+      "probe_orientation": "배측 주상골-월상골 사이를 횡단/장축으로 확인하고 필요 시 동적 편위.",
+      "landmarks": [
+        "scaphoid",
+        "lunate",
+        "dorsal scapholunate ligament"
+      ],
+      "normal_finding": "연속적인 배측 SL ligament와 양측 골피질을 확인한다.",
+      "pitfalls": [
+        "동적 간격 변화만으로 파열 확정 금지",
+        "초음파는 배측 구성요소 평가에 특히 유용하다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv021",
+      "name_ko": "TFCC 척측 접근",
+      "name_en": "Triangular fibrocartilage complex",
+      "target_structure_ids": [
+        "lig004"
+      ],
+      "patient_position": "전완 회내 또는 중립, 손목을 약간 요측편위.",
+      "probe_orientation": "척골경상돌기와 삼각골 사이에서 TFCC/ECU/DRUJ 관계를 장·단축으로 확인.",
+      "landmarks": [
+        "ulnar styloid",
+        "triquetrum",
+        "TFCC",
+        "ECU",
+        "DRUJ"
+      ],
+      "normal_finding": "척측 복합체의 해부학적 층과 연속성을 확인한다.",
+      "pitfalls": [
+        "TFCC 전체 구성요소가 초음파 한 평면에서 모두 보이는 것은 아니다",
+        "MRI/관절경과 역할이 다르다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv022",
+      "name_ko": "손목터널 정중신경 단축",
+      "name_en": "Median nerve in carpal tunnel SAX",
+      "target_structure_ids": [
+        "n005",
+        "lig002",
+        "t018"
+      ],
+      "patient_position": "전완 회외, 손목 중립, 손가락 이완.",
+      "probe_orientation": "두상골/주상골 결절 수준에서 횡단면으로 정중신경과 굴곡건을 확인하고 근위-원위로 추적.",
+      "landmarks": [
+        "median nerve",
+        "flexor retinaculum",
+        "pisiform",
+        "scaphoid",
+        "flexor tendons"
+      ],
+      "normal_finding": "정중신경 fascicular pattern, 형태와 굴곡건 관계를 확인한다.",
+      "pitfalls": [
+        "CSA cutoff는 측정 위치·프로토콜 의존적",
+        "probe 압박으로 신경을 변형시키지 않는다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv023",
+      "name_ko": "정중신경 장축·동적 평가",
+      "name_en": "Median nerve longitudinal/dynamic",
+      "target_structure_ids": [
+        "n005",
+        "lig002"
+      ],
+      "patient_position": "전완 회외, 손목 중립.",
+      "probe_orientation": "단축에서 정중신경을 찾은 뒤 90° 회전하여 장축으로 추적하고 손가락 굴곡 시 신경-건 관계를 관찰.",
+      "landmarks": [
+        "median nerve",
+        "flexor tendons",
+        "flexor retinaculum"
+      ],
+      "normal_finding": "연속적인 fascicular 구조와 터널 내 이동을 확인한다.",
+      "pitfalls": [
+        "장축 anisotropy와 부분 부피효과 주의",
+        "초음파만으로 CTS 중증도 전체를 결정하지 않는다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv024",
+      "name_ko": "Guyon관 척골신경",
+      "name_en": "Ulnar nerve at Guyon canal",
+      "target_structure_ids": [
+        "n006",
+        "n012"
+      ],
+      "patient_position": "전완 회외, 손목 중립.",
+      "probe_orientation": "두상골 수준에서 척골동맥과 함께 척골신경을 찾고 원위로 감각/운동 분지를 추적.",
+      "landmarks": [
+        "pisiform",
+        "hook of hamate",
+        "ulnar artery",
+        "ulnar nerve"
+      ],
+      "normal_finding": "Guyon관 내 신경/혈관의 위치와 fascicular pattern을 확인한다.",
+      "pitfalls": [
+        "혈관을 신경으로 오인하지 않는다",
+        "분지 형태와 변이가 흔하다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv025",
+      "name_ko": "손가락 A1 pulley 단축",
+      "name_en": "Finger A1 pulley SAX",
+      "target_structure_ids": [
+        "t018"
+      ],
+      "patient_position": "손바닥을 위로 하고 검사 손가락을 편안히 신전.",
+      "probe_orientation": "MCP 관절 장측에서 굴곡건을 횡단면으로 두고 A1 pulley를 확인, 필요 시 동적 굴곡.",
+      "landmarks": [
+        "A1 pulley",
+        "FDS",
+        "FDP",
+        "MCP head"
+      ],
+      "normal_finding": "얇은 pulley와 굴곡건의 부드러운 활주를 확인한다.",
+      "pitfalls": [
+        "probe 압박이 활주를 제한하지 않게 한다",
+        "두께만으로 임상 trigger finger를 확정하지 않는다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv026",
+      "name_ko": "엄지 A1 pulley 단축",
+      "name_en": "Thumb A1 pulley SAX",
+      "target_structure_ids": [
+        "m089"
+      ],
+      "patient_position": "엄지 손바닥면을 위로 둔다.",
+      "probe_orientation": "엄지 MCP 장측에서 FPL과 A1 pulley를 횡단면으로 확인하고 동적 굴곡·신전.",
+      "landmarks": [
+        "A1 pulley",
+        "FPL",
+        "MCP head"
+      ],
+      "normal_finding": "FPL과 pulley의 연속성과 활주를 확인한다.",
+      "pitfalls": [
+        "sesamoid와 pulley/건을 구분한다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv027",
+      "name_ko": "손가락 A1 pulley 장축",
+      "name_en": "Finger A1 pulley LAX",
+      "target_structure_ids": [
+        "t018"
+      ],
+      "patient_position": "손가락을 신전하고 손바닥을 위로 둔다.",
+      "probe_orientation": "굴곡건 방향과 평행하게 장축으로 놓고 MCP 수준에서 A1 pulley와 활주를 관찰.",
+      "landmarks": [
+        "A1 pulley",
+        "FDS",
+        "FDP",
+        "proximal phalanx"
+      ],
+      "normal_finding": "건의 fibrillar pattern과 pulley 아래 활주를 확인한다.",
+      "pitfalls": [
+        "동적 검사 시 통증과 catching을 함께 기록하되 영상만으로 확정하지 않는다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv028",
+      "name_ko": "엄지 A1 pulley 장축",
+      "name_en": "Thumb A1 pulley LAX",
+      "target_structure_ids": [
+        "m089"
+      ],
+      "patient_position": "엄지를 편안히 신전.",
+      "probe_orientation": "FPL 장축을 따라 MCP 수준의 A1 pulley를 확인하며 동적 굴곡·신전.",
+      "landmarks": [
+        "FPL",
+        "A1 pulley",
+        "proximal phalanx"
+      ],
+      "normal_finding": "FPL의 연속성과 pulley 통과를 확인한다.",
+      "pitfalls": [
+        "장축 anisotropy 주의."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    },
+    {
+      "ultrasound_view_id": "usv029",
+      "name_ko": "수지 측부인대",
+      "name_en": "Digital collateral ligament",
+      "target_structure_ids": [
+        "lig005"
+      ],
+      "patient_position": "해당 손가락 관절을 중립에 두고 측면을 노출.",
+      "probe_orientation": "관절 측면에서 인대 장축을 맞추고 필요 시 가벼운 stress를 동적으로 적용.",
+      "landmarks": [
+        "collateral ligament",
+        "metacarpal/phalangeal head",
+        "joint line"
+      ],
+      "normal_finding": "연속적인 ligament fibrillar pattern과 부착부를 확인한다.",
+      "pitfalls": [
+        "과도한 stress를 주지 않는다",
+        "급성 불안정성은 임상검사·방사선과 함께 평가한다."
+      ],
+      "source_ref": "USMSIT/NMUSIT wrist-hand guide 2026"
+    }
+  ]
+}

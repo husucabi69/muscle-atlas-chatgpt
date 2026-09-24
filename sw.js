@@ -1,6 +1,6 @@
 const CACHE_PREFIX='muscle-atlas-chatgpt-';
-const CACHE=CACHE_PREFIX+'v8.1-elbow-stage2-complete';
-const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./data/media-v1.json','./data/knowledge-core-v1.json','./data/regions-v1.json','./data/schema/msk-knowledge-schema-v1.json','./data/examination-shoulder-v1.json','./data/ultrasound-shoulder-v1.json','./data/quiz-shoulder-v1.json','./data/differential-shoulder-v1.json','./data/media-audit-shoulder-v1.json','./data/symptom-groups-v1.json','./data/examination-elbow-v1.json','./data/ultrasound-elbow-v1.json','./data/differential-elbow-v1.json','./data/quiz-elbow-v1.json','./data/media-audit-elbow-v1.json'];
+const CACHE=CACHE_PREFIX+'v8.2-wrist-hand-stage3';
+const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./data/media-v1.json','./data/knowledge-core-v1.json','./data/regions-v1.json','./data/schema/msk-knowledge-schema-v1.json','./data/examination-shoulder-v1.json','./data/ultrasound-shoulder-v1.json','./data/quiz-shoulder-v1.json','./data/differential-shoulder-v1.json','./data/media-audit-shoulder-v1.json','./data/symptom-groups-v1.json','./data/examination-elbow-v1.json','./data/ultrasound-elbow-v1.json','./data/differential-elbow-v1.json','./data/quiz-elbow-v1.json','./data/media-audit-elbow-v1.json','./data/examination-wrist-hand-v1.json','./data/ultrasound-wrist-hand-v1.json','./data/quiz-wrist-hand-v1.json','./data/differential-wrist-hand-v1.json','./data/media-audit-wrist-hand-v1.json'];
 
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()));

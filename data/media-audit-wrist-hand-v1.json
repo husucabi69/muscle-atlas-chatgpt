@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "wrist_hand_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "Every wrist/hand ultrasound view maps to actual ultrasound figures in an open-access source. The article figure page is the canonical reference; no generated or generic substitute is used.",
+  "coverage": {
+    "views_total": 12,
+    "embedded_verified": 0,
+    "exact_figure_reference": 12,
+    "unverified": 0
+  },
+  "stage3_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv018",
+      "status": "verified_fixed_reference",
+      "title": "First and second dorsal extensor compartments",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 1",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv019",
+      "status": "verified_fixed_reference",
+      "title": "Third to sixth dorsal extensor compartments",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 2",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv020",
+      "status": "verified_fixed_reference",
+      "title": "Scapholunate ligament",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 3",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv021",
+      "status": "verified_fixed_reference",
+      "title": "Triangular fibrocartilage complex",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 4",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv022",
+      "status": "verified_fixed_reference",
+      "title": "Carpal tunnel / median nerve and ulnar side landmarks",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 5",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv023",
+      "status": "verified_fixed_reference",
+      "title": "Median nerve longitudinal/dynamic assessment",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 6",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv024",
+      "status": "verified_fixed_reference",
+      "title": "Guyon canal / ulnar nerve at volar wrist",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 5",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv025",
+      "status": "verified_fixed_reference",
+      "title": "Finger A1 pulley short-axis",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 7",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv026",
+      "status": "verified_fixed_reference",
+      "title": "Thumb A1 pulley short-axis",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 8",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv027",
+      "status": "verified_fixed_reference",
+      "title": "Finger A1 pulley long-axis",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 9",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv028",
+      "status": "verified_fixed_reference",
+      "title": "Thumb A1 pulley long-axis",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 10",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    },
+    {
+      "ultrasound_view_id": "usv029",
+      "status": "verified_fixed_reference",
+      "title": "Digital collateral ligament",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "figure_label": "Figure 11",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "원문 figure의 실제 초음파를 canonical reference로 사용. 재가공·직접 복제 대신 출처와 라이선스 문맥을 보존."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src_wrist_hand_guide_2026",
+      "title": "USMSIT/NMUSIT Fundamental Guide on Diagnostic and Interventional Wrist/Hand Ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "license": "CC BY-NC-ND 4.0"
+    },
+    {
+      "source_id": "src_essr_wrist",
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines – Wrist",
+      "url": "https://www.essr.org/content-essr/uploads/2016/10/wrist.pdf",
+      "use": "standard positioning, probe orientation, compartment sequence"
+    }
+  ]
+}
