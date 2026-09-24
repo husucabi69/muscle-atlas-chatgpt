@@ -87,3 +87,14 @@ Stage 1 — 어깨·견갑대·상완
 - [x] 증상 찾기 2단계: 해당 부위 증상
 - [x] 증상 상세 → 관련 근육/신경/초음파 흐름 유지
 - [x] Knowledge Core에 symptom_group 계층 반영
+
+
+## v7.8 PWA 독립 실행 / Fullscreen
+- [x] manifest start_url 절대경로 고정
+- [x] manifest scope 절대경로 고정
+- [x] display=fullscreen, standalone fallback
+- [x] Android 설치 여부를 앱 내부 display-mode로 자가 판별
+- [x] 브라우저로 열린 경우에만 설치 안내 표시
+- [x] 설치 prompt 사용 가능 시 앱 내부 설치 버튼 제공
+- [x] safe-area 대응
+- [ ] 실기기에서 기존 바로가기 제거 후 재설치 확인
