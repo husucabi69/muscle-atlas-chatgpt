@@ -70,7 +70,7 @@ button,input{font:inherit} button{cursor:pointer}
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.4 · Shoulder Exam + US</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.5 · Shoulder Differential + Media Audit</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
@@ -124,7 +124,7 @@ button,input{font:inherit} button{cursor:pointer}
     <p>진찰법과 초음파 view를 Stable ID로 분리했습니다. 검사 하나를 확정진단으로 취급하지 않고 관련 구조·소견·영상과 함께 학습합니다.</p>
     <div class="quiz-actions"><button class="primary" onclick="startShoulderClinicalQuiz()">어깨 임상 10문제</button></div>
   </div>
-  <div class="section-title"><h3>진찰법</h3><span id="shoulderExamCount">불러오는 중…</span></div>
+  <div class="section-title"><h3>감별진단 흐름</h3><span>후보 지식 · 확정진단 아님</span></div><div id="shoulderDifferentialGrid" class="grid2"><div class="status">감별진단 모듈을 불러오는 중…</div></div><div class="section-title"><h3>진찰법</h3><span id="shoulderExamCount">불러오는 중…</span></div>
   <div id="shoulderExamGrid" class="grid2"><div class="status">진찰 모듈을 불러오는 중…</div></div>
   <div class="section-title"><h3>초음파 View</h3><span id="shoulderUSCount">불러오는 중…</span></div>
   <div id="shoulderUSGrid" class="grid2"><div class="status">초음파 모듈을 불러오는 중…</div></div>
@@ -193,19 +193,44 @@ function curatedCard(x){
   return mediaCard({title:x.title,url,page:x.sourcePage,license:[x.author,x.license,'검수 고정 영상'].filter(Boolean).join(' · ')});
 }
 
-let shoulderExamModule=null, shoulderUSModule=null, shoulderQuizModule=null;
+let shoulderExamModule=null, shoulderUSModule=null, shoulderQuizModule=null, shoulderDifferentialModule=null, shoulderMediaAudit=null;
 async function loadShoulderClinicalModule(){
   try{
-    const [er,ur,qr]=await Promise.all([
+    const [er,ur,qr,dr,mr]=await Promise.all([
       fetch('./data/examination-shoulder-v1.json',{cache:'no-cache'}),
       fetch('./data/ultrasound-shoulder-v1.json',{cache:'no-cache'}),
-      fetch('./data/quiz-shoulder-v1.json',{cache:'no-cache'})
+      fetch('./data/quiz-shoulder-v1.json',{cache:'no-cache'}),
+      fetch('./data/differential-shoulder-v1.json',{cache:'no-cache'}),
+      fetch('./data/media-audit-shoulder-v1.json',{cache:'no-cache'})
     ]);
-    if(!er.ok||!ur.ok||!qr.ok) throw new Error('shoulder module unavailable');
-    [shoulderExamModule,shoulderUSModule,shoulderQuizModule]=await Promise.all([er.json(),ur.json(),qr.json()]);
+    if(!er.ok||!ur.ok||!qr.ok||!dr.ok||!mr.ok) throw new Error('shoulder module unavailable');
+    [shoulderExamModule,shoulderUSModule,shoulderQuizModule,shoulderDifferentialModule,shoulderMediaAudit]=await Promise.all([er.json(),ur.json(),qr.json(),dr.json(),mr.json()]);
     renderShoulderClinicalModule();
     return true;
   }catch(e){console.warn('Shoulder clinical module fallback',e);return false;}
+}
+function commonsAssetUrl(file){return 'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(file);}
+function renderShoulderMediaAudit(viewId){
+  const audit=shoulderMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
+  if(!audit)return '<div class="note"><b>영상 상태</b><br>감사 정보 없음</div>';
+  let out='<div class="note"><b>영상 상태</b><br>'+esc(audit.status)+'</div>';
+  for(const a of (audit.assets||[])){
+    const src=commonsAssetUrl(a.file);
+    if(a.asset_type==='video'){
+      out+='<div class="media"><video controls preload="metadata" style="width:100%;border-radius:10px;background:#000" src="'+src+'"></video><div class="meta"><b>'+esc(a.title)+'</b><br>'+esc(a.license)+' · '+esc(a.author||'')+'<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">원본/라이선스</a></div></div>';
+    }else{
+      out+='<div class="media"><img src="'+src+'" alt="'+esc(a.title)+'"><div class="meta"><b>'+esc(a.title)+'</b><br>'+esc(a.license)+' · '+esc(a.author||'')+'<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">원본/라이선스</a></div></div>';
+    }
+  }
+  if(audit.reference_page) out+='<div class="note">공개 참고자료: <a href="'+esc(audit.reference_page)+'" target="_blank" rel="noopener">원문 figure 보기</a><br>'+esc(audit.note||'')+'</div>';
+  return out;
+}
+function renderShoulderDifferential(){
+  const el=document.getElementById('shoulderDifferentialGrid');
+  if(!el||!shoulderDifferentialModule)return;
+  el.innerHTML=shoulderDifferentialModule.differential_groups.map(g=>'<div class="card"><h3>'+esc(g.title_ko)+'</h3>'+
+    g.candidates.map(c=>{const d=shoulderDifferentialModule.diagnosis_concepts.find(x=>x.diagnosis_concept_id===c.diagnosis_concept_id);return '<div class="note"><b>'+esc(d?.name_ko||c.diagnosis_concept_id)+'</b><br>확인: '+esc((c.look_for||[]).join(' · '))+'<br><span style="color:var(--muted)">단독 확정 금지: '+esc((c.not_diagnostic_alone||[]).join(' · '))+'</span></div>';}).join('')+
+    '</div>').join('');
 }
 function renderShoulderClinicalModule(){
   const eg=document.getElementById('shoulderExamGrid'),ug=document.getElementById('shoulderUSGrid');
@@ -213,6 +238,7 @@ function renderShoulderClinicalModule(){
     document.getElementById('shoulderExamCount').textContent=shoulderExamModule.clinical_tests.length+'개 검사';
     eg.innerHTML=shoulderExamModule.clinical_tests.map(t=>'<div class="card"><h3>'+esc(t.name_ko)+'</h3><p><b>'+esc(t.name_en)+'</b></p><div class="note"><b>방법</b><br>'+esc(t.setup)+' '+esc(t.maneuver)+'</div><div class="note"><b>양성 기록</b><br>'+esc(t.positive_definition)+'</div><div class="note"><b>해석</b><br>'+esc(t.interpretation_note)+'</div><small style="color:var(--muted)">'+esc(t.clinical_test_id)+' · '+esc(t.limitation)+'</small></div>').join('');
   }
+  renderShoulderDifferential();
   if(ug&&shoulderUSModule){
     document.getElementById('shoulderUSCount').textContent=shoulderUSModule.ultrasound_views.length+'개 view';
     ug.innerHTML=shoulderUSModule.ultrasound_views.map(v=>'<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p><div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div><div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div><div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div><div class="note"><b>정상 확인</b><br>'+esc(v.normal_finding)+'</div><small style="color:var(--muted)">'+esc(v.ultrasound_view_id)+' · '+esc((v.pitfalls||[]).join(' / '))+'</small></div>').join('');
