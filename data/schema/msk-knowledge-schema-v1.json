@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://husucabi69.github.io/muscle-atlas-chatgpt/data/schema/msk-knowledge-schema-v1.json",
+  "title": "MSK Knowledge Schema v1",
+  "description": "Versioned, patient-independent MSK knowledge contract for Muscle Atlas and future LYS OrthoOS integration.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "ownership",
+    "id_policy",
+    "regions",
+    "muscles",
+    "symptom_patterns",
+    "relationships"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "dataset_version": {
+      "type": "string"
+    },
+    "ownership": {
+      "type": "object",
+      "required": [
+        "contains_patient_data",
+        "canonical_patient_owner"
+      ],
+      "properties": {
+        "contains_patient_data": {
+          "type": "boolean",
+          "const": false
+        },
+        "canonical_patient_owner": {
+          "type": "string",
+          "const": "LYS OrthoOS"
+        }
+      }
+    },
+    "id_policy": {
+      "type": "object"
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/region"
+      }
+    },
+    "muscles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/muscle"
+      }
+    },
+    "symptom_patterns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/symptom"
+      }
+    },
+    "tendons": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "nerves": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "joints": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "bursae": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "ligaments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "clinical_findings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "clinical_tests": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "diagnosis_concepts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "ultrasound_views": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "content_assets": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relationship"
+      }
+    }
+  },
+  "$defs": {
+    "region": {
+      "type": "object",
+      "required": [
+        "region_id",
+        "entity_type",
+        "name_ko"
+      ],
+      "properties": {
+        "region_id": {
+          "type": "string",
+          "pattern": "^r[0-9]{3}$"
+        },
+        "entity_type": {
+          "const": "region"
+        },
+        "name_ko": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        }
+      }
+    },
+    "muscle": {
+      "type": "object",
+      "required": [
+        "muscle_id",
+        "structure_id",
+        "region_id",
+        "name_ko",
+        "name_en"
+      ],
+      "properties": {
+        "muscle_id": {
+          "type": "string",
+          "pattern": "^m[0-9]{3}$"
+        },
+        "structure_id": {
+          "type": "string",
+          "pattern": "^str_m[0-9]{3}$"
+        },
+        "region_id": {
+          "type": "string",
+          "pattern": "^r[0-9]{3}$"
+        },
+        "name_ko": {
+          "type": "string"
+        },
+        "name_en": {
+          "type": "string"
+        }
+      }
+    },
+    "symptom": {
+      "type": "object",
+      "required": [
+        "symptom_id",
+        "title_ko"
+      ],
+      "properties": {
+        "symptom_id": {
+          "type": "string",
+          "pattern": "^sx[0-9]{2}$"
+        },
+        "title_ko": {
+          "type": "string"
+        },
+        "related_muscle_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^m[0-9]{3}$"
+          }
+        }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "required": [
+        "relationship_id",
+        "from_type",
+        "from_id",
+        "relation",
+        "to_type",
+        "to_id"
+      ],
+      "properties": {
+        "relationship_id": {
+          "type": "string",
+          "pattern": "^rel_[0-9]{4}$"
+        },
+        "from_type": {
+          "type": "string"
+        },
+        "from_id": {
+          "type": "string"
+        },
+        "relation": {
+          "type": "string"
+        },
+        "to_type": {
+          "type": "string"
+        },
+        "to_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
