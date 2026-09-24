@@ -47,3 +47,14 @@
 Stage 1 — 어깨·견갑대·상완
 현재 목표: v7.4 Examination + Ultrasound Knowledge Module
 완료 예정: 2026-10-02
+
+
+## v7.4 진행 체크 — Shoulder Examination + Ultrasound
+- [x] 어깨 clinical test 11개 Stable ID 구조화
+- [x] 어깨 ultrasound view 9개 Stable ID 구조화
+- [x] Knowledge Core relationship 연결
+- [x] Shoulder clinical quiz 20문항 생성
+- [x] 앱 임상 모듈 화면 연결
+- [ ] 모든 shoulder ultrasound view의 검수된 실제 공개 영상 고정 매칭
+- [ ] shoulder diagnosis/differential graph 확장
+- [ ] Stage 1 최종 media/license audit
