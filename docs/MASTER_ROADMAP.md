@@ -229,6 +229,8 @@ Stage 4 — 고관절·골반·둔부. Iliopsoas, gluteal tendons, GTPS, adducto
 - [x] Hip/Pelvis clinical quiz 30문항
 - [x] 단일 검사·영상소견을 확정진단으로 사용하지 않는 안전 문구 반영
 - [x] Patient/PHI boundary 유지
+- [x] Stable ID 중복 0 / orphan relationship 0 — PASS
+- [x] Shoulder / Elbow / Wrist-Hand / adaptive quiz / hierarchy / fullscreen PWA 회귀검사 — PASS
 
 ### 근거·미디어 원칙
 - 2026 open-access hip ultrasonography guide와 ESSR hip protocol을 표준 스캔 기준으로 사용.
