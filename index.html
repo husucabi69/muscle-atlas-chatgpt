@@ -70,11 +70,12 @@ button,input{font:inherit} button{cursor:pointer}
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.3 · Knowledge Schema v1</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.4 · Shoulder Exam + US</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
       <button class="tab" data-page="regions">해부학 부위</button>
+      <button class="tab" data-page="clinical">임상 모듈</button>
       <button class="tab" data-page="quiz">퀴즈</button>
     </div>
   </div>
@@ -83,7 +84,7 @@ button,input{font:inherit} button{cursor:pointer}
 <section id="home" class="page active">
   <div class="hero">
     <h2>근육 이름이 아니라<br>증상에서 시작하도록 바꿨습니다.</h2>
-    <p>v7에서는 외래 흐름에 맞춘 <b>증상 → 관련 근육 → 상세 Atlas</b> 구조에 더해, 183개 근육 데이터에서 자동 출제되는 <b>퀴즈·오답복습</b> 학습 엔진을 시작했습니다.</p>
+    <p>v7.4에서는 <b>증상 → 근육 → 진찰법 → 초음파 view → 퀴즈</b>까지 어깨 임상 지식 흐름을 Stable ID로 연결하기 시작했습니다.</p>
     <div class="quick">
       <button class="pill" onclick="openSymptom('sx01')">외측 어깨 통증</button>
       <button class="pill" onclick="openSymptom('sx04')">견갑 내측 통증</button>
@@ -116,6 +117,19 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 
+<section id="clinical" class="page">
+  <div class="section-title"><h3>어깨 임상 모듈</h3><span>Examination + Ultrasound · v7.4</span></div>
+  <div class="card" style="margin-bottom:16px">
+    <h3>Shoulder Knowledge Module</h3>
+    <p>진찰법과 초음파 view를 Stable ID로 분리했습니다. 검사 하나를 확정진단으로 취급하지 않고 관련 구조·소견·영상과 함께 학습합니다.</p>
+    <div class="quiz-actions"><button class="primary" onclick="startShoulderClinicalQuiz()">어깨 임상 10문제</button></div>
+  </div>
+  <div class="section-title"><h3>진찰법</h3><span id="shoulderExamCount">불러오는 중…</span></div>
+  <div id="shoulderExamGrid" class="grid2"><div class="status">진찰 모듈을 불러오는 중…</div></div>
+  <div class="section-title"><h3>초음파 View</h3><span id="shoulderUSCount">불러오는 중…</span></div>
+  <div id="shoulderUSGrid" class="grid2"><div class="status">초음파 모듈을 불러오는 중…</div></div>
+</section>
+
 <section id="quiz" class="page">
   <div class="section-title"><h3>퀴즈 학습</h3><span>O · I · F · N · Clinical</span></div>
   <div class="card">
@@ -138,7 +152,7 @@ button,input{font:inherit} button{cursor:pointer}
       </select></div>
       <button class="primary" onclick="startQuiz('normal')">10문제 시작</button>
     </div>
-    <div class="quiz-actions"><button class="pill" onclick="startQuiz('wrong')">오답 10문제 복습</button><button class="pill" onclick="startQuiz('due')">오늘 복습</button><button class="pill" onclick="resetQuizStats()">학습기록 초기화</button></div>
+    <div class="quiz-actions"><button class="pill" onclick="startQuiz('wrong')">오답 10문제 복습</button><button class="pill" onclick="startQuiz('due')">오늘 복습</button><button class="pill" onclick="startShoulderClinicalQuiz()">어깨 임상 10문제</button><button class="pill" onclick="resetQuizStats()">학습기록 초기화</button></div>
   </div>
   <div class="quiz-stats">
     <div class="quiz-stat"><span>누적 풀이</span><b id="quizTotal">0</b></div>
@@ -177,6 +191,48 @@ async function getCuratedMedia(){
 function curatedCard(x){
   const url='https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(x.file);
   return mediaCard({title:x.title,url,page:x.sourcePage,license:[x.author,x.license,'검수 고정 영상'].filter(Boolean).join(' · ')});
+}
+
+let shoulderExamModule=null, shoulderUSModule=null, shoulderQuizModule=null;
+async function loadShoulderClinicalModule(){
+  try{
+    const [er,ur,qr]=await Promise.all([
+      fetch('./data/examination-shoulder-v1.json',{cache:'no-cache'}),
+      fetch('./data/ultrasound-shoulder-v1.json',{cache:'no-cache'}),
+      fetch('./data/quiz-shoulder-v1.json',{cache:'no-cache'})
+    ]);
+    if(!er.ok||!ur.ok||!qr.ok) throw new Error('shoulder module unavailable');
+    [shoulderExamModule,shoulderUSModule,shoulderQuizModule]=await Promise.all([er.json(),ur.json(),qr.json()]);
+    renderShoulderClinicalModule();
+    return true;
+  }catch(e){console.warn('Shoulder clinical module fallback',e);return false;}
+}
+function renderShoulderClinicalModule(){
+  const eg=document.getElementById('shoulderExamGrid'),ug=document.getElementById('shoulderUSGrid');
+  if(eg&&shoulderExamModule){
+    document.getElementById('shoulderExamCount').textContent=shoulderExamModule.clinical_tests.length+'개 검사';
+    eg.innerHTML=shoulderExamModule.clinical_tests.map(t=>'<div class="card"><h3>'+esc(t.name_ko)+'</h3><p><b>'+esc(t.name_en)+'</b></p><div class="note"><b>방법</b><br>'+esc(t.setup)+' '+esc(t.maneuver)+'</div><div class="note"><b>양성 기록</b><br>'+esc(t.positive_definition)+'</div><div class="note"><b>해석</b><br>'+esc(t.interpretation_note)+'</div><small style="color:var(--muted)">'+esc(t.clinical_test_id)+' · '+esc(t.limitation)+'</small></div>').join('');
+  }
+  if(ug&&shoulderUSModule){
+    document.getElementById('shoulderUSCount').textContent=shoulderUSModule.ultrasound_views.length+'개 view';
+    ug.innerHTML=shoulderUSModule.ultrasound_views.map(v=>'<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p><div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div><div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div><div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div><div class="note"><b>정상 확인</b><br>'+esc(v.normal_finding)+'</div><small style="color:var(--muted)">'+esc(v.ultrasound_view_id)+' · '+esc((v.pitfalls||[]).join(' / '))+'</small></div>').join('');
+  }
+}
+async function startShoulderClinicalQuiz(){
+  if(!shoulderQuizModule) await loadShoulderClinicalModule();
+  const bank=shoulderQuizModule?.questions||[];
+  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">어깨 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
+    muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'어깨 임상',
+    direction:'clinical',stem:q.question,
+    options:q.options.map(o=>o.label),
+    correct:q.options.find(o=>o.value===q.correct_value)?.label||''
+  }));
+  quizIndex=0;quizScore=0;quizAnswered=false;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('quiz').classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
+  renderQuiz();
 }
 
 let knowledgeCoreMeta={loaded:false,schema_version:null,dataset_version:null,source:'embedded-fallback'};
@@ -462,7 +518,7 @@ function renderQuiz(){
     updateQuizStats();return;
   }
   const q=quizSession[quizIndex];quizAnswered=false;
-  area.innerHTML='<div style="color:var(--muted);font-size:14px;margin-bottom:8px">문제 '+(quizIndex+1)+' / '+quizSession.length+' · '+esc(quizFields[q.type].label)+' · '+(q.direction==='reverse'?'역방향':'정방향')+'</div>'+
+  area.innerHTML='<div style="color:var(--muted);font-size:14px;margin-bottom:8px">문제 '+(quizIndex+1)+' / '+quizSession.length+' · '+esc(q.quizLabel||quizFields[q.type]?.label||'임상')+' · '+(q.direction==='reverse'?'역방향':q.direction==='clinical'?'임상':'정방향')+'</div>'+
     '<div class="quiz-q" style="white-space:pre-wrap">'+esc(q.stem)+'</div>'+
     '<div class="quiz-options">'+q.options.map((o,i)=>'<button class="quiz-option" onclick="answerQuiz('+i+')">'+esc(o)+'</button>').join('')+'</div>'+
     '<div id="quizFeedback" class="quiz-feedback"></div>'+
