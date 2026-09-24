@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.24-e",
+  "dataset_version": "2026.09.24-f",
   "ownership": {
     "owner": "Muscle Atlas / MSK Knowledge Layer",
     "contains_patient_data": false,
@@ -4977,6 +4977,41 @@
       ],
       "status": "active",
       "symptom_group_id": "sg007"
+    },
+    {
+      "symptom_id": "sx21",
+      "entity_type": "symptom_pattern",
+      "legacy_id": "sx21",
+      "title_ko": "전방 팔꿈치 통증·회외 약화",
+      "summary_ko": "원위 상완이두건과 상완근, 전방 신경혈관 구조를 우선 확인하는 경로입니다.",
+      "conditions_text": "원위 이두건 건병증/부분파열/완전파열, 상완근 손상, 전방 관절병변 감별.",
+      "nerves_text": "근피신경, 정중신경",
+      "ultrasound_text": "원위 상완이두건을 요골조면까지 추적하고 전방 상완근·혈관·정중신경을 함께 확인.",
+      "related_muscle_ids": [
+        "m075",
+        "m076",
+        "m077"
+      ],
+      "status": "active",
+      "symptom_group_id": "sg003"
+    },
+    {
+      "symptom_id": "sx22",
+      "entity_type": "symptom_pattern",
+      "legacy_id": "sx22",
+      "title_ko": "후방 팔꿈치 통증",
+      "summary_ko": "삼두건 삽입부와 주두점액낭, 후방 관절 구조를 우선 보는 경로입니다.",
+      "conditions_text": "삼두건병증/파열, 주두점액낭염, 후방 충돌/관절병변 감별.",
+      "nerves_text": "요골신경",
+      "ultrasound_text": "삼두건 장·단축과 주두점액낭을 확인하고 필요 시 후방 관절 recess를 평가.",
+      "related_muscle_ids": [
+        "m079",
+        "m080",
+        "m081",
+        "m082"
+      ],
+      "status": "active",
+      "symptom_group_id": "sg003"
     }
   ],
   "tendons": [
@@ -5023,6 +5058,64 @@
       "name_en": "Teres minor tendon",
       "parent_muscle_id": "m072",
       "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "tendon_id": "t006",
+      "entity_type": "tendon",
+      "name_ko": "공통신근건",
+      "name_en": "Common extensor tendon",
+      "parent_muscle_id": null,
+      "parent_muscle_ids": [
+        "m093",
+        "m094",
+        "m095",
+        "m096"
+      ],
+      "region_id": "r008",
+      "status": "active"
+    },
+    {
+      "tendon_id": "t007",
+      "entity_type": "tendon",
+      "name_ko": "공통굴곡-회내건",
+      "name_en": "Common flexor-pronator tendon",
+      "parent_muscle_id": null,
+      "parent_muscle_ids": [
+        "m083",
+        "m084",
+        "m085",
+        "m086",
+        "m087"
+      ],
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "tendon_id": "t008",
+      "entity_type": "tendon",
+      "name_ko": "원위 상완이두건",
+      "name_en": "Distal biceps tendon",
+      "parent_muscle_id": "m075",
+      "parent_muscle_ids": [
+        "m075",
+        "m076"
+      ],
+      "region_id": "r006",
+      "status": "active"
+    },
+    {
+      "tendon_id": "t009",
+      "entity_type": "tendon",
+      "name_ko": "삼두건",
+      "name_en": "Triceps tendon",
+      "parent_muscle_id": "m079",
+      "parent_muscle_ids": [
+        "m079",
+        "m080",
+        "m081"
+      ],
+      "region_id": "r006",
       "status": "active"
     }
   ],
@@ -5089,6 +5182,13 @@
       "name_ko": "부신경",
       "name_en": "Spinal accessory nerve",
       "status": "active"
+    },
+    {
+      "nerve_id": "n010",
+      "entity_type": "nerve",
+      "name_ko": "후골간신경(PIN)",
+      "name_en": "Posterior interosseous nerve",
+      "status": "active"
     }
   ],
   "joints": [
@@ -5107,6 +5207,30 @@
       "name_en": "Acromioclavicular joint",
       "region_id": "r005",
       "status": "active"
+    },
+    {
+      "joint_id": "j003",
+      "entity_type": "joint",
+      "name_ko": "상완요골관절",
+      "name_en": "Humeroradial joint",
+      "region_id": "r008",
+      "status": "active"
+    },
+    {
+      "joint_id": "j004",
+      "entity_type": "joint",
+      "name_ko": "상완척골관절",
+      "name_en": "Humeroulnar joint",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "joint_id": "j005",
+      "entity_type": "joint",
+      "name_ko": "근위요척관절",
+      "name_en": "Proximal radioulnar joint",
+      "region_id": "r008",
+      "status": "active"
     }
   ],
   "bursae": [
@@ -5117,9 +5241,34 @@
       "name_en": "Subacromial-subdeltoid bursa",
       "region_id": "r005",
       "status": "active"
+    },
+    {
+      "bursa_id": "b002",
+      "entity_type": "bursa",
+      "name_ko": "주두점액낭",
+      "name_en": "Olecranon bursa",
+      "region_id": "r006",
+      "status": "active"
+    },
+    {
+      "bursa_id": "b003",
+      "entity_type": "bursa",
+      "name_ko": "이두요골점액낭",
+      "name_en": "Bicipitoradial bursa",
+      "region_id": "r006",
+      "status": "active"
     }
   ],
-  "ligaments": [],
+  "ligaments": [
+    {
+      "ligament_id": "lig001",
+      "entity_type": "ligament",
+      "name_ko": "내측측부인대 / 내측척측측부인대",
+      "name_en": "Medial ulnar collateral ligament",
+      "region_id": "r007",
+      "status": "active"
+    }
+  ],
   "clinical_findings": [
     {
       "finding_id": "f001",
@@ -5215,6 +5364,70 @@
       "name_ko": "후방 어깨 통증",
       "key": "posterior_shoulder_pain",
       "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f013",
+      "entity_type": "clinical_finding",
+      "name_ko": "외측 팔꿈치 통증",
+      "key": "lateral_elbow_pain",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f014",
+      "entity_type": "clinical_finding",
+      "name_ko": "내측 팔꿈치 통증",
+      "key": "medial_elbow_pain",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f015",
+      "entity_type": "clinical_finding",
+      "name_ko": "저항성 손목 신전 시 외측 통증",
+      "key": "pain_resisted_wrist_extension",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f016",
+      "entity_type": "clinical_finding",
+      "name_ko": "저항성 손목 굴곡/회내 시 내측 통증",
+      "key": "pain_resisted_wrist_flexion_pronation",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f017",
+      "entity_type": "clinical_finding",
+      "name_ko": "제4-5지 저림/척측 감각증상",
+      "key": "ulnar_distribution_paresthesia",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f018",
+      "entity_type": "clinical_finding",
+      "name_ko": "회외·굴곡 약화",
+      "key": "supination_flexion_weakness",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f019",
+      "entity_type": "clinical_finding",
+      "name_ko": "내측 팔꿈치 snapping",
+      "key": "medial_elbow_snapping",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f020",
+      "entity_type": "clinical_finding",
+      "name_ko": "후방 주두부 통증",
+      "key": "posterior_olecranon_pain",
+      "region_id": "r007",
       "status": "active"
     }
   ],
@@ -5497,6 +5710,248 @@
         "pubmed_shoulder_test_review"
       ],
       "status": "active"
+    },
+    {
+      "clinical_test_id": "ct012",
+      "name_ko": "Cozen 검사",
+      "name_en": "Cozen test",
+      "category": "lateral_elbow",
+      "target_structure_ids": [
+        "t006",
+        "m093"
+      ],
+      "setup": "팔꿈치를 약간 굴곡하고 전완 회내, 손목은 요측편위와 신전 방향으로 준비한다.",
+      "maneuver": "검사자가 손목 굴곡 방향 저항을 주고 환자가 손목 신전을 유지한다.",
+      "positive_definition": "외측상과/공통신근 기시부의 익숙한 통증이 재현되면 양성 소견으로 기록한다.",
+      "interpretation_note": "외측 팔꿈치 건병증을 지지하는 도발검사 중 하나다.",
+      "limitation": "단독 검사만으로 원인을 확정하지 않으며 요골신경/PIN, 관절내 병변 등과 감별한다.",
+      "related_diagnosis_concept_ids": [
+        "d017"
+      ],
+      "evidence_refs": [
+        "let_review",
+        "elbow_exam_review"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct013",
+      "name_ko": "Mill 검사",
+      "name_en": "Mill test",
+      "category": "lateral_elbow",
+      "target_structure_ids": [
+        "t006"
+      ],
+      "setup": "팔꿈치를 펴고 전완을 회내한 상태에서 손목을 굴곡시켜 공통신근군을 신장한다.",
+      "maneuver": "외측상과 부위 통증 재현 여부를 확인한다.",
+      "positive_definition": "외측상과의 익숙한 통증이 재현되면 기록한다.",
+      "interpretation_note": "공통신근건/외측 팔꿈치 통증을 유발하는 신장 검사다.",
+      "limitation": "검사 정확도 근거가 제한적이며 다른 구조의 통증도 유발할 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d017"
+      ],
+      "evidence_refs": [
+        "elbow_exam_review"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct014",
+      "name_ko": "Maudsley 검사 / 중지 저항 신전",
+      "name_en": "Maudsley / resisted middle-finger extension",
+      "category": "lateral_elbow",
+      "target_structure_ids": [
+        "m094",
+        "m093",
+        "n010"
+      ],
+      "setup": "팔꿈치를 펴거나 약간 굽힌 상태에서 중지를 신전시킨다.",
+      "maneuver": "검사자가 중지 신전에 저항을 가한다.",
+      "positive_definition": "외측 팔꿈치 통증 또는 요골터널 부위 통증이 재현되는 위치를 기록한다.",
+      "interpretation_note": "공통신근계와 요골터널/PIN 관련 통증을 구분하는 보조검사로 사용한다.",
+      "limitation": "특정 단일 구조에 특이적이지 않아 통증 위치와 다른 검사·초음파를 함께 본다.",
+      "related_diagnosis_concept_ids": [
+        "d017",
+        "d021"
+      ],
+      "evidence_refs": [
+        "elbow_exam_review"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct015",
+      "name_ko": "저항성 손목굴곡·회내 검사",
+      "name_en": "Resisted wrist flexion/pronation",
+      "category": "medial_elbow",
+      "target_structure_ids": [
+        "t007",
+        "m083",
+        "m084"
+      ],
+      "setup": "팔꿈치를 펴거나 약간 굽히고 전완을 회외한 자세에서 시작한다.",
+      "maneuver": "환자가 손목 굴곡과 전완 회내를 시도하고 검사자가 반대 저항을 준다.",
+      "positive_definition": "내측상과/굴곡-회내군 기시부 통증이 재현되면 기록한다.",
+      "interpretation_note": "내측 팔꿈치 건병증을 지지할 수 있다.",
+      "limitation": "척골신경병증과 UCL 병변 등 다른 내측 통증 원인과 구분해야 한다.",
+      "related_diagnosis_concept_ids": [
+        "d018"
+      ],
+      "evidence_refs": [
+        "elbow_exam_review"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct016",
+      "name_ko": "주관 증후군 Tinel 징후",
+      "name_en": "Tinel sign at cubital tunnel",
+      "category": "ulnar_nerve",
+      "target_structure_ids": [
+        "n006"
+      ],
+      "setup": "팔꿈치 내측의 척골신경 고랑/주관을 확인한다.",
+      "maneuver": "척골신경 위를 가볍게 타진한다.",
+      "positive_definition": "제4-5지 또는 척측 손의 익숙한 저림/전기감이 재현되면 기록한다.",
+      "interpretation_note": "주관 부위 척골신경 자극을 시사하는 보조검사다.",
+      "limitation": "양성/음성 단독으로 척골신경병증을 확정 또는 배제하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d019"
+      ],
+      "evidence_refs": [
+        "cubital_provocative"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct017",
+      "name_ko": "주관 압박-팔꿈치 굴곡 검사",
+      "name_en": "Pressure-flexion test for cubital tunnel",
+      "category": "ulnar_nerve",
+      "target_structure_ids": [
+        "n006"
+      ],
+      "setup": "팔꿈치를 굴곡하고 주관 부위 척골신경에 지속적 압박을 가할 준비를 한다.",
+      "maneuver": "척골신경에 압박을 유지하며 팔꿈치 굴곡을 일정 시간 유지한다.",
+      "positive_definition": "척골신경 분포의 익숙한 저림/감각증상이 재현되면 기록한다.",
+      "interpretation_note": "Tinel보다 민감도가 높게 보고된 고전적 도발검사 조합이지만 임상·전기진단·영상과 함께 해석한다.",
+      "limitation": "검사시간/압박 강도에 따라 결과가 달라질 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d019"
+      ],
+      "evidence_refs": [
+        "cubital_provocative"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct018",
+      "name_ko": "원위 이두건 Hook 검사",
+      "name_en": "Distal biceps hook test",
+      "category": "distal_biceps",
+      "target_structure_ids": [
+        "t008"
+      ],
+      "setup": "팔꿈치 약 90° 굴곡, 전완 능동 회외 자세.",
+      "maneuver": "외측에서 검지로 원위 이두건 아래를 걸 수 있는지 촉지한다.",
+      "positive_definition": "정상적인 cord-like tendon을 걸 수 없으면 이상 소견으로 기록한다.",
+      "interpretation_note": "완전 파열 평가에 유용하지만 최근 연구에서 완전하지 않은 정확도가 보고되어 단독 확진검사로 사용하지 않는다.",
+      "limitation": "부분파열·lacertus fibrosus 보존·검사자 경험에 따라 결과가 달라질 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d023"
+      ],
+      "evidence_refs": [
+        "hook_test"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct019",
+      "name_ko": "Biceps Squeeze 검사",
+      "name_en": "Biceps squeeze test",
+      "category": "distal_biceps",
+      "target_structure_ids": [
+        "t008",
+        "m075",
+        "m076"
+      ],
+      "setup": "환자의 팔꿈치를 약간 굴곡하고 전완을 편안히 둔다.",
+      "maneuver": "상완이두근 근복을 압박하면서 전완의 회외 반응을 관찰한다.",
+      "positive_definition": "압박에도 전완 회외가 유발되지 않으면 완전 원위 이두건 파열을 의심하는 소견으로 기록한다.",
+      "interpretation_note": "원위 이두건 연속성 평가의 보조검사다.",
+      "limitation": "통증·긴장·불완전 파열에서는 해석에 주의한다.",
+      "related_diagnosis_concept_ids": [
+        "d023"
+      ],
+      "evidence_refs": [
+        "biceps_squeeze"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct020",
+      "name_ko": "Moving Valgus Stress 검사",
+      "name_en": "Moving valgus stress test",
+      "category": "ucl",
+      "target_structure_ids": [
+        "lig001"
+      ],
+      "setup": "어깨 외전·외회전, 팔꿈치를 깊게 굴곡하고 일정한 valgus torque를 유지한다.",
+      "maneuver": "valgus stress를 유지하며 팔꿈치를 약 120°에서 70° 방향으로 빠르게 신전한다.",
+      "positive_definition": "내측 UCL 부위 통증이 재현되고 특히 중간 굴곡 범위에서 최대가 되면 기록한다.",
+      "interpretation_note": "투구동작 관련 내측측부인대 병변 평가에 유용한 도발검사다.",
+      "limitation": "주로 운동선수 자료에 근거하며 내측 건병증/척골신경 증상과 구분해야 한다.",
+      "related_diagnosis_concept_ids": [
+        "d026"
+      ],
+      "evidence_refs": [
+        "moving_valgus"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct021",
+      "name_ko": "저항성 팔꿈치 신전 검사",
+      "name_en": "Resisted elbow extension test",
+      "category": "triceps",
+      "target_structure_ids": [
+        "t009",
+        "m079",
+        "m080",
+        "m081"
+      ],
+      "setup": "팔꿈치를 굴곡한 상태에서 전완을 지지한다.",
+      "maneuver": "환자가 팔꿈치를 펴려 하고 검사자가 굴곡 방향으로 저항한다.",
+      "positive_definition": "주두 부착부 통증, 신전 약화 또는 뚜렷한 신전 결손을 기록한다.",
+      "interpretation_note": "삼두건 기능을 평가하는 기본 기능검사다.",
+      "limitation": "통증 억제와 신경학적 약화가 결과에 영향을 줄 수 있어 파열 여부는 촉진·초음파와 함께 확인한다.",
+      "related_diagnosis_concept_ids": [
+        "d024"
+      ],
+      "evidence_refs": [
+        "elbow_exam_review"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r007",
+      "status": "active"
     }
   ],
   "diagnosis_concepts": [
@@ -5626,6 +6081,86 @@
       "name_ko": "상완이두근 장두 불안정성",
       "name_en": "Long-head biceps tendon instability",
       "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d017",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "외측 팔꿈치 건병증",
+      "name_en": "Lateral elbow tendinopathy",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d018",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "내측 팔꿈치 건병증",
+      "name_en": "Medial elbow tendinopathy",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d019",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "주관 증후군 / 팔꿈치 척골신경병증",
+      "name_en": "Ulnar neuropathy at the elbow",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d020",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "척골신경 불안정성 / snapping",
+      "name_en": "Ulnar nerve instability",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d021",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "요골터널/PIN 포착",
+      "name_en": "Radial tunnel / posterior interosseous nerve entrapment",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d022",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "원위 상완이두건 건병증·부분파열",
+      "name_en": "Distal biceps tendinopathy / partial tear",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d023",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "원위 상완이두건 완전파열",
+      "name_en": "Complete distal biceps rupture",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d024",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "삼두건 건병증·파열",
+      "name_en": "Triceps tendinopathy / tear",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d025",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "주두점액낭염",
+      "name_en": "Olecranon bursitis",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d026",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "내측측부인대(UCL) 병변",
+      "name_en": "Medial ulnar collateral ligament injury",
+      "region_id": "r007",
       "status": "active"
     }
   ],
@@ -5851,6 +6386,208 @@
         "관절 변화의 임상적 의미는 증상 및 진찰과 함께 판단한다."
       ],
       "source_ref": "ESSR shoulder guideline p.7",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv010",
+      "name_ko": "공통신근건 장축",
+      "name_en": "Common extensor tendon LAX",
+      "target_structure_ids": [
+        "t006"
+      ],
+      "patient_position": "팔꿈치를 굴곡하고 전완 회내 또는 중립으로 외측상과를 노출한다.",
+      "probe_orientation": "외측상과에서 총신근건 섬유 방향과 평행하게 장축.",
+      "landmarks": [
+        "외측상과",
+        "공통신근건",
+        "요골두",
+        "상완요골관절"
+      ],
+      "normal_finding": "외측상과에서 연속되는 균일한 fibrillar tendon과 골피질 윤곽을 확인한다.",
+      "pitfalls": [
+        "anisotropy를 병변으로 오인하지 않는다",
+        "ECRB 중심이지만 인접 신근건 섬유가 함께 보인다."
+      ],
+      "source_ref": "Elbow ultrasound review, lateral compartment",
+      "entity_type": "ultrasound_view",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv011",
+      "name_ko": "공통신근건 단축",
+      "name_en": "Common extensor tendon SAX",
+      "target_structure_ids": [
+        "t006"
+      ],
+      "patient_position": "장축과 동일.",
+      "probe_orientation": "장축에서 90° 회전하고 외측상과 기시부를 전후로 sweep.",
+      "landmarks": [
+        "외측상과",
+        "공통신근건",
+        "요골측부인대 복합체"
+      ],
+      "normal_finding": "건의 횡단면 두께와 균질성을 직교면에서 확인한다.",
+      "pitfalls": [
+        "한 평면의 저에코만으로 건병증을 확정하지 않는다."
+      ],
+      "source_ref": "Elbow ultrasound review, lateral compartment",
+      "entity_type": "ultrasound_view",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv012",
+      "name_ko": "공통굴곡-회내건",
+      "name_en": "Common flexor-pronator tendon",
+      "target_structure_ids": [
+        "t007"
+      ],
+      "patient_position": "팔꿈치를 약간 굽히고 전완을 회외하여 내측상과를 노출한다.",
+      "probe_orientation": "내측상과에서 굴곡-회내군 공통기시부를 장축과 단축으로 확인.",
+      "landmarks": [
+        "내측상과",
+        "공통굴곡건",
+        "UCL",
+        "척골신경"
+      ],
+      "normal_finding": "짧고 두꺼운 공통건의 fibrillar pattern과 깊은 UCL 층을 구분한다.",
+      "pitfalls": [
+        "UCL과 건을 혼동하지 않는다",
+        "척골신경을 과도하게 압박하지 않는다."
+      ],
+      "source_ref": "Elbow ultrasound review, medial compartment",
+      "entity_type": "ultrasound_view",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv013",
+      "name_ko": "척골신경 주관 동적 평가",
+      "name_en": "Dynamic ulnar nerve at cubital tunnel",
+      "target_structure_ids": [
+        "n006"
+      ],
+      "patient_position": "어깨 약간 외회전, 팔꿈치 신전에서 시작해 굴곡한다.",
+      "probe_orientation": "내측상과와 주두 사이에서 척골신경을 단축으로 놓고 굴곡-신전 중 위치 변화를 관찰.",
+      "landmarks": [
+        "내측상과",
+        "주두",
+        "주관",
+        "척골신경"
+      ],
+      "normal_finding": "신경의 fascicular pattern과 연속성을 확인하고 굴곡 시 불안정/전방 이동 여부를 기록한다.",
+      "pitfalls": [
+        "신경 단면적만으로 진단하지 않는다",
+        "snapping triceps와 동반 여부를 함께 본다."
+      ],
+      "source_ref": "Dynamic elbow ultrasound / ulnar nerve reviews",
+      "entity_type": "ultrasound_view",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv014",
+      "name_ko": "원위 상완이두건",
+      "name_en": "Distal biceps tendon",
+      "target_structure_ids": [
+        "t008"
+      ],
+      "patient_position": "팔꿈치 신전 또는 약간 굴곡, 전완 최대 회외를 기본으로 하고 필요 시 동적 회내-회외.",
+      "probe_orientation": "전방 또는 내측/외측 접근으로 건을 요골조면 삽입부까지 장축·단축 추적.",
+      "landmarks": [
+        "상완이두건",
+        "상완동맥",
+        "정중신경",
+        "요골조면",
+        "상완근"
+      ],
+      "normal_finding": "요골조면까지 연속되는 fibrillar tendon을 확인한다.",
+      "pitfalls": [
+        "깊은 삽입부 anisotropy가 흔함",
+        "부분파열과 완전파열은 여러 접근과 동적 검사로 확인한다."
+      ],
+      "source_ref": "Distal biceps ultrasound review",
+      "entity_type": "ultrasound_view",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv015",
+      "name_ko": "요골신경 분지와 PIN",
+      "name_en": "Radial nerve bifurcation and PIN",
+      "target_structure_ids": [
+        "n004",
+        "n010"
+      ],
+      "patient_position": "팔꿈치 약간 굴곡, 전완 중립/회외.",
+      "probe_orientation": "상완요골근과 상완근 사이에서 요골신경을 찾고 원위로 추적해 표재지와 심부지/PIN 분지를 확인.",
+      "landmarks": [
+        "상완요골근",
+        "상완근",
+        "요골두",
+        "회외근",
+        "Frohse arcade"
+      ],
+      "normal_finding": "fascicular nerve가 분지 후 PIN이 회외근 표층/심층 사이로 진입하는 경로를 확인한다.",
+      "pitfalls": [
+        "작은 PIN은 probe 압박에 민감",
+        "통증만으로 radial tunnel/PIN 병변을 확정하지 않는다."
+      ],
+      "source_ref": "Elbow ultrasound review, radial nerve",
+      "entity_type": "ultrasound_view",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv016",
+      "name_ko": "삼두건·주두점액낭",
+      "name_en": "Triceps tendon and olecranon bursa",
+      "target_structure_ids": [
+        "t009",
+        "b002"
+      ],
+      "patient_position": "팔꿈치를 굴곡하여 후방 주두를 노출한다.",
+      "probe_orientation": "주두 삽입부의 삼두건을 장축·단축으로 보고 피하 주두점액낭을 함께 확인.",
+      "landmarks": [
+        "주두",
+        "삼두건",
+        "주두점액낭"
+      ],
+      "normal_finding": "연속된 삼두건 fibrillar pattern과 최소한의 점액낭 공간을 확인한다.",
+      "pitfalls": [
+        "점액낭 액체 존재만으로 감염성/비감염성 원인을 구분하지 않는다."
+      ],
+      "source_ref": "Elbow ultrasound standards, posterior compartment",
+      "entity_type": "ultrasound_view",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv017",
+      "name_ko": "전방 팔꿈치 관절·상완근",
+      "name_en": "Anterior elbow joint and brachialis",
+      "target_structure_ids": [
+        "j003",
+        "j004",
+        "m077"
+      ],
+      "patient_position": "팔꿈치 신전, 전완 회외.",
+      "probe_orientation": "전방 횡단면에서 trochlea/capitellum, 상완근, 원위 이두건, 혈관·신경을 확인하고 관절낭을 본다.",
+      "landmarks": [
+        "상완근",
+        "원위 이두건",
+        "상완동맥",
+        "정중신경",
+        "capitellum/trochlea"
+      ],
+      "normal_finding": "전방 관절 recess와 주변 연부조직 층을 확인한다.",
+      "pitfalls": [
+        "관절액과 지방패드/연부조직을 구분한다."
+      ],
+      "source_ref": "Elbow ultrasound review, anterior compartment",
+      "entity_type": "ultrasound_view",
+      "region_id": "r007",
       "status": "active"
     }
   ],
@@ -8322,6 +9059,630 @@
       "relation": "INVOLVES",
       "to_type": "tendon",
       "to_id": "t002"
+    },
+    {
+      "relationship_id": "rel_0241",
+      "from_type": "symptom_pattern",
+      "from_id": "sx21",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m075"
+    },
+    {
+      "relationship_id": "rel_0242",
+      "from_type": "symptom_pattern",
+      "from_id": "sx21",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m076"
+    },
+    {
+      "relationship_id": "rel_0243",
+      "from_type": "symptom_pattern",
+      "from_id": "sx21",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m077"
+    },
+    {
+      "relationship_id": "rel_0244",
+      "from_type": "symptom_pattern",
+      "from_id": "sx22",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m079"
+    },
+    {
+      "relationship_id": "rel_0245",
+      "from_type": "symptom_pattern",
+      "from_id": "sx22",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m080"
+    },
+    {
+      "relationship_id": "rel_0246",
+      "from_type": "symptom_pattern",
+      "from_id": "sx22",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m081"
+    },
+    {
+      "relationship_id": "rel_0247",
+      "from_type": "symptom_pattern",
+      "from_id": "sx22",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m082"
+    },
+    {
+      "relationship_id": "rel_0248",
+      "from_type": "tendon",
+      "from_id": "t006",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m093"
+    },
+    {
+      "relationship_id": "rel_0249",
+      "from_type": "tendon",
+      "from_id": "t006",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m094"
+    },
+    {
+      "relationship_id": "rel_0250",
+      "from_type": "tendon",
+      "from_id": "t006",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m095"
+    },
+    {
+      "relationship_id": "rel_0251",
+      "from_type": "tendon",
+      "from_id": "t006",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m096"
+    },
+    {
+      "relationship_id": "rel_0252",
+      "from_type": "tendon",
+      "from_id": "t007",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m083"
+    },
+    {
+      "relationship_id": "rel_0253",
+      "from_type": "tendon",
+      "from_id": "t007",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m084"
+    },
+    {
+      "relationship_id": "rel_0254",
+      "from_type": "tendon",
+      "from_id": "t007",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m085"
+    },
+    {
+      "relationship_id": "rel_0255",
+      "from_type": "tendon",
+      "from_id": "t007",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m086"
+    },
+    {
+      "relationship_id": "rel_0256",
+      "from_type": "tendon",
+      "from_id": "t007",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m087"
+    },
+    {
+      "relationship_id": "rel_0257",
+      "from_type": "tendon",
+      "from_id": "t008",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m075"
+    },
+    {
+      "relationship_id": "rel_0258",
+      "from_type": "tendon",
+      "from_id": "t008",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m076"
+    },
+    {
+      "relationship_id": "rel_0259",
+      "from_type": "tendon",
+      "from_id": "t009",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m079"
+    },
+    {
+      "relationship_id": "rel_0260",
+      "from_type": "tendon",
+      "from_id": "t009",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m080"
+    },
+    {
+      "relationship_id": "rel_0261",
+      "from_type": "tendon",
+      "from_id": "t009",
+      "relation": "CONTINUATION_OF",
+      "to_type": "muscle",
+      "to_id": "m081"
+    },
+    {
+      "relationship_id": "rel_0262",
+      "from_type": "diagnosis_concept",
+      "from_id": "d017",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t006"
+    },
+    {
+      "relationship_id": "rel_0263",
+      "from_type": "diagnosis_concept",
+      "from_id": "d018",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t007"
+    },
+    {
+      "relationship_id": "rel_0264",
+      "from_type": "diagnosis_concept",
+      "from_id": "d019",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n006"
+    },
+    {
+      "relationship_id": "rel_0265",
+      "from_type": "diagnosis_concept",
+      "from_id": "d020",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n006"
+    },
+    {
+      "relationship_id": "rel_0266",
+      "from_type": "diagnosis_concept",
+      "from_id": "d021",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n010"
+    },
+    {
+      "relationship_id": "rel_0267",
+      "from_type": "diagnosis_concept",
+      "from_id": "d021",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m097"
+    },
+    {
+      "relationship_id": "rel_0268",
+      "from_type": "diagnosis_concept",
+      "from_id": "d022",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t008"
+    },
+    {
+      "relationship_id": "rel_0269",
+      "from_type": "diagnosis_concept",
+      "from_id": "d022",
+      "relation": "INVOLVES",
+      "to_type": "bursa",
+      "to_id": "b003"
+    },
+    {
+      "relationship_id": "rel_0270",
+      "from_type": "diagnosis_concept",
+      "from_id": "d023",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t008"
+    },
+    {
+      "relationship_id": "rel_0271",
+      "from_type": "diagnosis_concept",
+      "from_id": "d024",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t009"
+    },
+    {
+      "relationship_id": "rel_0272",
+      "from_type": "diagnosis_concept",
+      "from_id": "d025",
+      "relation": "INVOLVES",
+      "to_type": "bursa",
+      "to_id": "b002"
+    },
+    {
+      "relationship_id": "rel_0273",
+      "from_type": "diagnosis_concept",
+      "from_id": "d026",
+      "relation": "INVOLVES",
+      "to_type": "ligament",
+      "to_id": "lig001"
+    },
+    {
+      "relationship_id": "rel_0274",
+      "from_type": "clinical_finding",
+      "from_id": "f013",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d017"
+    },
+    {
+      "relationship_id": "rel_0275",
+      "from_type": "clinical_finding",
+      "from_id": "f013",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d021"
+    },
+    {
+      "relationship_id": "rel_0276",
+      "from_type": "clinical_finding",
+      "from_id": "f014",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d018"
+    },
+    {
+      "relationship_id": "rel_0277",
+      "from_type": "clinical_finding",
+      "from_id": "f014",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d019"
+    },
+    {
+      "relationship_id": "rel_0278",
+      "from_type": "clinical_finding",
+      "from_id": "f014",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d026"
+    },
+    {
+      "relationship_id": "rel_0279",
+      "from_type": "clinical_finding",
+      "from_id": "f015",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d017"
+    },
+    {
+      "relationship_id": "rel_0280",
+      "from_type": "clinical_finding",
+      "from_id": "f016",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d018"
+    },
+    {
+      "relationship_id": "rel_0281",
+      "from_type": "clinical_finding",
+      "from_id": "f017",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d019"
+    },
+    {
+      "relationship_id": "rel_0282",
+      "from_type": "clinical_finding",
+      "from_id": "f018",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d022"
+    },
+    {
+      "relationship_id": "rel_0283",
+      "from_type": "clinical_finding",
+      "from_id": "f018",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d023"
+    },
+    {
+      "relationship_id": "rel_0284",
+      "from_type": "clinical_finding",
+      "from_id": "f019",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d020"
+    },
+    {
+      "relationship_id": "rel_0285",
+      "from_type": "clinical_finding",
+      "from_id": "f020",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d024"
+    },
+    {
+      "relationship_id": "rel_0286",
+      "from_type": "clinical_finding",
+      "from_id": "f020",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d025"
+    },
+    {
+      "relationship_id": "rel_0287",
+      "from_type": "clinical_test",
+      "from_id": "ct012",
+      "relation": "TARGETS",
+      "to_type": "tendon",
+      "to_id": "t006"
+    },
+    {
+      "relationship_id": "rel_0288",
+      "from_type": "clinical_test",
+      "from_id": "ct012",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m093"
+    },
+    {
+      "relationship_id": "rel_0289",
+      "from_type": "clinical_test",
+      "from_id": "ct013",
+      "relation": "TARGETS",
+      "to_type": "tendon",
+      "to_id": "t006"
+    },
+    {
+      "relationship_id": "rel_0290",
+      "from_type": "clinical_test",
+      "from_id": "ct014",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m094"
+    },
+    {
+      "relationship_id": "rel_0291",
+      "from_type": "clinical_test",
+      "from_id": "ct014",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m093"
+    },
+    {
+      "relationship_id": "rel_0292",
+      "from_type": "clinical_test",
+      "from_id": "ct014",
+      "relation": "TARGETS",
+      "to_type": "nerve",
+      "to_id": "n010"
+    },
+    {
+      "relationship_id": "rel_0293",
+      "from_type": "clinical_test",
+      "from_id": "ct015",
+      "relation": "TARGETS",
+      "to_type": "tendon",
+      "to_id": "t007"
+    },
+    {
+      "relationship_id": "rel_0294",
+      "from_type": "clinical_test",
+      "from_id": "ct015",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m083"
+    },
+    {
+      "relationship_id": "rel_0295",
+      "from_type": "clinical_test",
+      "from_id": "ct015",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m084"
+    },
+    {
+      "relationship_id": "rel_0296",
+      "from_type": "clinical_test",
+      "from_id": "ct016",
+      "relation": "TARGETS",
+      "to_type": "nerve",
+      "to_id": "n006"
+    },
+    {
+      "relationship_id": "rel_0297",
+      "from_type": "clinical_test",
+      "from_id": "ct017",
+      "relation": "TARGETS",
+      "to_type": "nerve",
+      "to_id": "n006"
+    },
+    {
+      "relationship_id": "rel_0298",
+      "from_type": "clinical_test",
+      "from_id": "ct018",
+      "relation": "TARGETS",
+      "to_type": "tendon",
+      "to_id": "t008"
+    },
+    {
+      "relationship_id": "rel_0299",
+      "from_type": "clinical_test",
+      "from_id": "ct019",
+      "relation": "TARGETS",
+      "to_type": "tendon",
+      "to_id": "t008"
+    },
+    {
+      "relationship_id": "rel_0300",
+      "from_type": "clinical_test",
+      "from_id": "ct019",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m075"
+    },
+    {
+      "relationship_id": "rel_0301",
+      "from_type": "clinical_test",
+      "from_id": "ct019",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m076"
+    },
+    {
+      "relationship_id": "rel_0302",
+      "from_type": "clinical_test",
+      "from_id": "ct020",
+      "relation": "TARGETS",
+      "to_type": "ligament",
+      "to_id": "lig001"
+    },
+    {
+      "relationship_id": "rel_0303",
+      "from_type": "clinical_test",
+      "from_id": "ct021",
+      "relation": "TARGETS",
+      "to_type": "tendon",
+      "to_id": "t009"
+    },
+    {
+      "relationship_id": "rel_0304",
+      "from_type": "clinical_test",
+      "from_id": "ct021",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m079"
+    },
+    {
+      "relationship_id": "rel_0305",
+      "from_type": "clinical_test",
+      "from_id": "ct021",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m080"
+    },
+    {
+      "relationship_id": "rel_0306",
+      "from_type": "clinical_test",
+      "from_id": "ct021",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m081"
+    },
+    {
+      "relationship_id": "rel_0307",
+      "from_type": "ultrasound_view",
+      "from_id": "usv010",
+      "relation": "VISUALIZES",
+      "to_type": "tendon",
+      "to_id": "t006"
+    },
+    {
+      "relationship_id": "rel_0308",
+      "from_type": "ultrasound_view",
+      "from_id": "usv011",
+      "relation": "VISUALIZES",
+      "to_type": "tendon",
+      "to_id": "t006"
+    },
+    {
+      "relationship_id": "rel_0309",
+      "from_type": "ultrasound_view",
+      "from_id": "usv012",
+      "relation": "VISUALIZES",
+      "to_type": "tendon",
+      "to_id": "t007"
+    },
+    {
+      "relationship_id": "rel_0310",
+      "from_type": "ultrasound_view",
+      "from_id": "usv013",
+      "relation": "VISUALIZES",
+      "to_type": "nerve",
+      "to_id": "n006"
+    },
+    {
+      "relationship_id": "rel_0311",
+      "from_type": "ultrasound_view",
+      "from_id": "usv014",
+      "relation": "VISUALIZES",
+      "to_type": "tendon",
+      "to_id": "t008"
+    },
+    {
+      "relationship_id": "rel_0312",
+      "from_type": "ultrasound_view",
+      "from_id": "usv015",
+      "relation": "VISUALIZES",
+      "to_type": "nerve",
+      "to_id": "n004"
+    },
+    {
+      "relationship_id": "rel_0313",
+      "from_type": "ultrasound_view",
+      "from_id": "usv015",
+      "relation": "VISUALIZES",
+      "to_type": "nerve",
+      "to_id": "n010"
+    },
+    {
+      "relationship_id": "rel_0314",
+      "from_type": "ultrasound_view",
+      "from_id": "usv016",
+      "relation": "VISUALIZES",
+      "to_type": "tendon",
+      "to_id": "t009"
+    },
+    {
+      "relationship_id": "rel_0315",
+      "from_type": "ultrasound_view",
+      "from_id": "usv016",
+      "relation": "VISUALIZES",
+      "to_type": "bursa",
+      "to_id": "b002"
+    },
+    {
+      "relationship_id": "rel_0316",
+      "from_type": "ultrasound_view",
+      "from_id": "usv017",
+      "relation": "VISUALIZES",
+      "to_type": "joint",
+      "to_id": "j003"
+    },
+    {
+      "relationship_id": "rel_0317",
+      "from_type": "ultrasound_view",
+      "from_id": "usv017",
+      "relation": "VISUALIZES",
+      "to_type": "joint",
+      "to_id": "j004"
+    },
+    {
+      "relationship_id": "rel_0318",
+      "from_type": "ultrasound_view",
+      "from_id": "usv017",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m077"
     }
   ],
   "symptom_groups": [
@@ -8363,7 +9724,9 @@
       ],
       "symptom_ids": [
         "sx06",
-        "sx07"
+        "sx07",
+        "sx21",
+        "sx22"
       ],
       "status": "active"
     },
