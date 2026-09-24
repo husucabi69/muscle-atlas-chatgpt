@@ -90,7 +90,11 @@
       "symptom_ids": [
         "sx13",
         "sx14",
-        "sx15"
+        "sx15",
+        "sx31",
+        "sx32",
+        "sx33",
+        "sx34"
       ],
       "status": "active"
     },
