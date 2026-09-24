@@ -56,5 +56,16 @@ Stage 1 — 어깨·견갑대·상완
 - [x] Shoulder clinical quiz 20문항 생성
 - [x] 앱 임상 모듈 화면 연결
 - [ ] 모든 shoulder ultrasound view의 검수된 실제 공개 영상 고정 매칭
-- [ ] shoulder diagnosis/differential graph 확장
-- [ ] Stage 1 최종 media/license audit
+- [x] shoulder diagnosis/differential graph 확장
+- [x] Stage 1 media/license audit 1차 완료 (9개 view 전수 상태표)
+
+
+## v7.5 진행 체크 — Shoulder Differential + Media Audit
+- [x] 어깨 diagnosis concept 16개 정본화
+- [x] clinical finding 12개 정본화
+- [x] differential group 6개 구조화
+- [x] 초음파 9개 view 전수 media/license audit
+- [x] 검증 실제 영상 고정: supraspinatus LAX/SAX, biceps transverse, infraspinatus, dynamic subacromial
+- [x] 어깨 임상 문제은행 20 → 30문항
+- [ ] biceps LAX, subscapularis LAX/SAX, AC joint의 안정적 직접 자산 URL 고정
+- [ ] Shoulder Stage 1 final COMPLETE 판정

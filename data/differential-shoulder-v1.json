@@ -1,0 +1,464 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "shoulder_differential_v1",
+  "region_id": "r005",
+  "safety_rule": "This dataset provides differential knowledge candidates only. It does not establish a patient diagnosis.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d001",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "극상건병증",
+      "name_en": "Supraspinatus tendinopathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d002",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "극상건 부분파열",
+      "name_en": "Partial-thickness supraspinatus tear",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d003",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견봉하-삼각근하 점액낭염",
+      "name_en": "Subacromial-subdeltoid bursitis",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d004",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "상완이두근 장두 건병증",
+      "name_en": "Long-head biceps tendinopathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d005",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "후방 회전근개 병변",
+      "name_en": "Posterior rotator cuff pathology",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d006",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견갑하건 병변",
+      "name_en": "Subscapularis tendon pathology",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d007",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "상완이두근-상부 관절와순 관련 병변",
+      "name_en": "Biceps-labrum complex pathology",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d008",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "회전근개 전층파열",
+      "name_en": "Full-thickness rotator cuff tear",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d009",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "석회성 회전근개 건병증",
+      "name_en": "Calcific rotator cuff tendinopathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d010",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견봉쇄골관절 병변",
+      "name_en": "Acromioclavicular joint pathology",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d011",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "유착성 관절낭염",
+      "name_en": "Adhesive capsulitis",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d012",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견관절 퇴행성 관절병증",
+      "name_en": "Glenohumeral degenerative arthropathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d013",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경추성 연관통",
+      "name_en": "Cervical referred pain",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d014",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "액와신경병증",
+      "name_en": "Axillary neuropathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d015",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견갑상신경병증",
+      "name_en": "Suprascapular neuropathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d016",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "상완이두근 장두 불안정성",
+      "name_en": "Long-head biceps tendon instability",
+      "region_id": "r005",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f001",
+      "entity_type": "clinical_finding",
+      "name_ko": "외측 어깨 통증",
+      "key": "lateral_shoulder_pain",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f002",
+      "entity_type": "clinical_finding",
+      "name_ko": "Painful arc 양성",
+      "key": "positive_painful_arc",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f003",
+      "entity_type": "clinical_finding",
+      "name_ko": "외전 근력저하",
+      "key": "abduction_weakness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f004",
+      "entity_type": "clinical_finding",
+      "name_ko": "전방 어깨 통증",
+      "key": "anterior_shoulder_pain",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f005",
+      "entity_type": "clinical_finding",
+      "name_ko": "이두구 압통",
+      "key": "bicipital_groove_tenderness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f006",
+      "entity_type": "clinical_finding",
+      "name_ko": "외회전 근력저하",
+      "key": "external_rotation_weakness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f007",
+      "entity_type": "clinical_finding",
+      "name_ko": "내회전 근력저하",
+      "key": "internal_rotation_weakness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f008",
+      "entity_type": "clinical_finding",
+      "name_ko": "야간통",
+      "key": "night_pain",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f009",
+      "entity_type": "clinical_finding",
+      "name_ko": "수동 관절운동 제한",
+      "key": "restricted_passive_rom",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f010",
+      "entity_type": "clinical_finding",
+      "name_ko": "AC 관절 국소 압통",
+      "key": "ac_joint_tenderness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f011",
+      "entity_type": "clinical_finding",
+      "name_ko": "삼각근 부위 감각저하",
+      "key": "deltoid_patch_sensory_change",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f012",
+      "entity_type": "clinical_finding",
+      "name_ko": "후방 어깨 통증",
+      "key": "posterior_shoulder_pain",
+      "region_id": "r005",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg001",
+      "symptom_id": "sx01",
+      "title_ko": "외측 어깨 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d001",
+          "look_for": [
+            "Jobe/Full Can에서 통증 또는 약화",
+            "극상건 초음파 변화"
+          ],
+          "not_diagnostic_alone": [
+            "Painful arc 단독",
+            "Jobe 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d002",
+          "look_for": [
+            "근력저하",
+            "극상건 직교면 초음파에서 국소 결손"
+          ],
+          "not_diagnostic_alone": [
+            "통증만으로 파열 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d003",
+          "look_for": [
+            "견봉하 통증",
+            "점액낭 비후/액체",
+            "동적 외전 시 통증"
+          ],
+          "not_diagnostic_alone": [
+            "점액낭 소량 액체만으로 증상 원인 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d009",
+          "look_for": [
+            "건 내 고에코 석회",
+            "후방 음영 여부와 주변 염증"
+          ],
+          "not_diagnostic_alone": [
+            "단순 석회 존재만으로 현재 통증 원인 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d013",
+          "look_for": [
+            "경부 유발 증상",
+            "신경학적 증상",
+            "어깨 구조검사와 불일치"
+          ],
+          "not_diagnostic_alone": [
+            "어깨 통증 위치만으로 경추성 판단"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg002",
+      "symptom_id": "sx02",
+      "title_ko": "전방 어깨 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d004",
+          "look_for": [
+            "이두구 압통",
+            "Speed/Yergason 보조 소견",
+            "장두건 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "Speed 또는 Yergason 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d016",
+          "look_for": [
+            "동적 회전에서 장두건 위치 변화",
+            "상부 견갑하건 동반 병변"
+          ],
+          "not_diagnostic_alone": [
+            "이두구 통증만으로 불안정성 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d006",
+          "look_for": [
+            "내회전 약화",
+            "Lift-off/Belly-press/Bear-hug",
+            "견갑하건 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "한 개 special test 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d007",
+          "look_for": [
+            "상부 관절와순/이두 complex를 시사하는 임상 문맥"
+          ],
+          "not_diagnostic_alone": [
+            "Speed/Yergason만으로 SLAP 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg003",
+      "symptom_id": "sx03",
+      "title_ko": "후방 어깨 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d005",
+          "look_for": [
+            "외회전 약화",
+            "External Rotation Lag",
+            "극하건/소원근 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "후방 압통만으로 cuff tear 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d015",
+          "look_for": [
+            "극하근/극상근 위축 또는 약화",
+            "신경 분포에 맞는 소견"
+          ],
+          "not_diagnostic_alone": [
+            "근육통만으로 신경병증 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d013",
+          "look_for": [
+            "경추 움직임과 연동되는 증상",
+            "상지 방사 증상"
+          ],
+          "not_diagnostic_alone": [
+            "후방 어깨 통증만으로 경추성 판단"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg004",
+      "symptom_id": "sx01",
+      "title_ko": "현저한 어깨 근력저하",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d008",
+          "look_for": [
+            "명확한 기능저하",
+            "직교면 초음파에서 tendon discontinuity/retraction"
+          ],
+          "not_diagnostic_alone": [
+            "나이 또는 통증만으로 전층파열 판단"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d014",
+          "look_for": [
+            "삼각근 약화",
+            "삼각근 부위 감각 변화",
+            "외상/탈구 문맥"
+          ],
+          "not_diagnostic_alone": [
+            "외전 약화만으로 액와신경병증 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d015",
+          "look_for": [
+            "극상근/극하근 선택적 약화 또는 위축"
+          ],
+          "not_diagnostic_alone": [
+            "Jobe 약화만으로 신경병증 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg005",
+      "symptom_id": "sx01",
+      "title_ko": "통증 + 전반적 수동 ROM 제한",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d011",
+          "look_for": [
+            "능동뿐 아니라 수동 ROM도 제한",
+            "특히 외회전 제한 패턴"
+          ],
+          "not_diagnostic_alone": [
+            "통증만으로 유착성 관절낭염 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d012",
+          "look_for": [
+            "관절성 통증/강직",
+            "연령·영상·관절소견 일치"
+          ],
+          "not_diagnostic_alone": [
+            "ROM 감소만으로 퇴행성 관절병증 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg006",
+      "symptom_id": "sx02",
+      "title_ko": "상부/AC 부위 국소 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d010",
+          "look_for": [
+            "AC joint 국소 압통",
+            "관절 초음파의 피막/정렬/퇴행 변화",
+            "대측 비교"
+          ],
+          "not_diagnostic_alone": [
+            "영상상 퇴행 변화만으로 증상 원인 확정"
+          ]
+        }
+      ]
+    }
+  ]
+}
