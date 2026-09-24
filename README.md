@@ -1,3 +1,3 @@
-# muscle-atlas-chatgpt
+# 근육학 · MSK Muscle Atlas
 
-MSK Muscle Anatomy & Ultrasound Atlas - ChatGPT
+ChatGPT edition. Installable PWA for muscle anatomy, clinical review, and ultrasound study.
