@@ -1,0 +1,308 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "hip_pelvis_ultrasound_v1",
+  "region_ids": [
+    "r003",
+    "r010",
+    "r011"
+  ],
+  "primary_references": [
+    {
+      "title": "USMSIT/NMUSIT Fundamental Guide on Diagnostic and Interventional Hip Ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
+    },
+    {
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines IV. Hip",
+      "url": "https://essr.org/content-essr/uploads/2016/10/hip.pdf"
+    },
+    {
+      "title": "Internal snapping hip syndrome in dynamic ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5034024/"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv030",
+      "name_ko": "전방 고관절 관절오목",
+      "name_en": "Anterior hip joint recess",
+      "target_structure_ids": [
+        "j009",
+        "lig006"
+      ],
+      "patient_position": "앙와위, 다리를 편안히 둔다.",
+      "probe_orientation": "대퇴경부 장축을 따라 사선 종축으로 probe를 놓는다.",
+      "landmarks": [
+        "femoral head",
+        "femoral neck",
+        "anterior recess",
+        "labrum"
+      ],
+      "normal_finding": "전방 recess가 평평/오목하며 capsule과 labrum의 해부층을 확인한다.",
+      "pitfalls": [
+        "관절삼출은 임상 문맥과 함께 해석",
+        "초음파로 감염을 배제할 수 없다."
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv031",
+      "name_ko": "장요근·대퇴 신경혈관 다발",
+      "name_en": "Iliopsoas and femoral neurovascular bundle",
+      "target_structure_ids": [
+        "t019",
+        "b004",
+        "n014"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "전방 고관절 횡단/사선면에서 장요근건을 찾고 내측의 femoral nerve-artery-vein을 확인한다.",
+      "landmarks": [
+        "iliopsoas tendon",
+        "iliacus",
+        "femoral nerve",
+        "femoral artery",
+        "femoral vein"
+      ],
+      "normal_finding": "장요근건의 fibrillar pattern과 정상적으로 collapsed한 점액낭, 신경혈관 위치를 확인한다.",
+      "pitfalls": [
+        "혈관 압박 금지",
+        "점액낭은 정상에서 보이지 않을 수 있다.",
+        "anisotropy 주의"
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv032",
+      "name_ko": "대퇴직근 근위건",
+      "name_en": "Proximal rectus femoris tendon",
+      "target_structure_ids": [
+        "t025",
+        "m128"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "AIIS에서 direct tendon을 장축으로, 약간 외측에서 indirect head를 추적한다.",
+      "landmarks": [
+        "AIIS",
+        "direct tendon",
+        "indirect tendon",
+        "rectus femoris"
+      ],
+      "normal_finding": "근위건의 연속 fibrillar pattern과 정상적인 anisotropy 변화를 확인한다.",
+      "pitfalls": [
+        "indirect head의 낮은 에코를 병변으로 오인하지 않는다."
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv033",
+      "name_ko": "외측대퇴피신경",
+      "name_en": "Lateral femoral cutaneous nerve",
+      "target_structure_ids": [
+        "n015"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "ASIS 내측에서 iliacus 표면의 신경을 찾고 서혜인대 아래 sartorius-TFL 사이로 추적한다.",
+      "landmarks": [
+        "ASIS",
+        "inguinal ligament",
+        "sartorius",
+        "TFL",
+        "LFCN"
+      ],
+      "normal_finding": "작은 fascicular nerve가 해부학적 tunnel을 통과하는 것을 확인한다.",
+      "pitfalls": [
+        "해부 변이가 흔함",
+        "CSA 수치 하나만으로 포착 확정 금지"
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv034",
+      "name_ko": "내전근 기시부",
+      "name_en": "Adductor origin / proximal adductor longus",
+      "target_structure_ids": [
+        "t024",
+        "m134",
+        "m135",
+        "m136",
+        "m138"
+      ],
+      "patient_position": "고관절 외전·외회전, 무릎 굴곡.",
+      "probe_orientation": "치골에서 adductor longus를 장축으로 추적하고 횡단면에서 3층을 확인한다.",
+      "landmarks": [
+        "pubis",
+        "adductor longus",
+        "adductor brevis",
+        "adductor magnus",
+        "gracilis"
+      ],
+      "normal_finding": "건과 근육층의 연속성, 대측과의 대칭을 확인한다.",
+      "pitfalls": [
+        "conjoint attachment 변이와 anisotropy 주의"
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv035",
+      "name_ko": "중둔근·소둔근건 단축",
+      "name_en": "Gluteus medius/minimus tendon SAX",
+      "target_structure_ids": [
+        "t020",
+        "t021",
+        "b005"
+      ],
+      "patient_position": "반대측으로 측와위.",
+      "probe_orientation": "대전자 위 axial plane에서 anterior/lateral/posterior facet을 확인한다.",
+      "landmarks": [
+        "greater trochanter",
+        "anterior facet",
+        "lateral facet",
+        "gluteus minimus tendon",
+        "gluteus medius tendon",
+        "IT band"
+      ],
+      "normal_finding": "GMIN은 anterior facet, GMED anterior band는 lateral facet에 부착하는 fibrillar pattern을 확인한다.",
+      "pitfalls": [
+        "facet orientation에 따른 anisotropy",
+        "무증상 구조 변화 가능"
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv036",
+      "name_ko": "중둔근건 장축",
+      "name_en": "Gluteus medius tendon LAX",
+      "target_structure_ids": [
+        "t020",
+        "t021"
+      ],
+      "patient_position": "반대측 측와위.",
+      "probe_orientation": "대전자에서 iliac crest 방향으로 probe를 회전해 anterior/posterior band를 장축으로 본다.",
+      "landmarks": [
+        "greater trochanter",
+        "lateral facet",
+        "gluteus medius tendon",
+        "gluteus minimus"
+      ],
+      "normal_finding": "건의 연속 fibrillar pattern과 cortical attachment를 확인한다.",
+      "pitfalls": [
+        "대전자 피질 불규칙만으로 증상 원인 확정 금지"
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv037",
+      "name_ko": "이상근·좌골신경",
+      "name_en": "Piriformis and sciatic nerve",
+      "target_structure_ids": [
+        "m050",
+        "n016"
+      ],
+      "patient_position": "복와위, 다리를 편안히 둔다.",
+      "probe_orientation": "PSIS 수준에서 distal로 이동해 greater sciatic notch를 찾고 piriformis와 그 아래 좌골신경을 정렬한다.",
+      "landmarks": [
+        "greater sciatic notch",
+        "piriformis",
+        "sciatic nerve",
+        "gluteus maximus"
+      ],
+      "normal_finding": "수동 회전 시 piriformis 움직임과 좌골신경의 fascicular pattern을 확인한다.",
+      "pitfalls": [
+        "좌골신경의 해부 변이",
+        "증상 없는 형태차이를 포착으로 오인 금지"
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv038",
+      "name_ko": "근위 햄스트링 단축",
+      "name_en": "Proximal hamstring origin SAX",
+      "target_structure_ids": [
+        "t022",
+        "t023",
+        "n016"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "좌골결절을 기준으로 횡단면에서 conjoint tendon, semimembranosus, 좌골신경을 확인한다.",
+      "landmarks": [
+        "ischial tuberosity",
+        "conjoint tendon",
+        "semimembranosus tendon",
+        "sciatic nerve"
+      ],
+      "normal_finding": "근위건의 균질 fibrillar pattern과 좌골결절 부착을 확인한다.",
+      "pitfalls": [
+        "깊이에 따라 curvilinear probe 필요",
+        "anisotropy 최소화"
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv039",
+      "name_ko": "근위 햄스트링 장축",
+      "name_en": "Proximal hamstring origin LAX",
+      "target_structure_ids": [
+        "t022",
+        "t023"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "좌골결절에서 tendon fibers와 평행하게 sagittal/oblique LAX를 얻는다.",
+      "landmarks": [
+        "ischial tuberosity",
+        "conjoint tendon",
+        "semimembranosus tendon"
+      ],
+      "normal_finding": "건의 연속성, enthesis와 정상 fibrillar architecture를 확인한다.",
+      "pitfalls": [
+        "부분파열과 anisotropy 구분",
+        "반대측 비교가 유용"
+      ],
+      "source_ref": "hip_us_2026"
+    },
+    {
+      "ultrasound_view_id": "usv040",
+      "name_ko": "장요근 동적 snapping",
+      "name_en": "Dynamic iliopsoas snapping assessment",
+      "target_structure_ids": [
+        "t019",
+        "b004"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "iliopsoas를 transverse-oblique로 유지하며 hip을 flexion-abduction-external rotation에서 중립으로 되돌린다.",
+      "landmarks": [
+        "iliopsoas tendon",
+        "iliopectineal eminence",
+        "femoral head"
+      ],
+      "normal_finding": "증상과 일치하는 실제 tendon snap이 동적으로 재현되는지 확인한다.",
+      "pitfalls": [
+        "무증상 snapping도 가능",
+        "통증/소리와 영상의 시간적 일치가 중요"
+      ],
+      "source_ref": "snapping"
+    },
+    {
+      "ultrasound_view_id": "usv041",
+      "name_ko": "대전자 점액낭·둔근건 병리 sweep",
+      "name_en": "Peritrochanteric bursa and gluteal tendon sweep",
+      "target_structure_ids": [
+        "b005",
+        "t020",
+        "t021"
+      ],
+      "patient_position": "반대측 측와위.",
+      "probe_orientation": "대전자 주위에서 SAX/LAX sweep으로 tendon과 bursal plane을 확인한다.",
+      "landmarks": [
+        "IT band",
+        "gluteus medius",
+        "gluteus minimus",
+        "greater trochanter",
+        "trochanteric bursa"
+      ],
+      "normal_finding": "정상 bursa는 거의 보이지 않을 수 있으며 건은 균질 fibrillar pattern을 보인다.",
+      "pitfalls": [
+        "소량 액체나 영상 변화만으로 통증 원인 확정 금지"
+      ],
+      "source_ref": "hip_us_2026"
+    }
+  ]
+}
