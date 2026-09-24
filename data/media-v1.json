@@ -1,7 +1,7 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "updated": "2026-09-24",
-  "note": "Curated open-license media registry. Fixed media is shown before live Wikimedia fallback. Ultrasound is added only when structure/plane is sufficiently clear.",
+  "note": "Curated open-license media registry. Fixed media is shown before live Wikimedia fallback. v1.1 expands fixed anatomy through upper arm and forearm. Ultrasound remains fixed only when structure/plane is sufficiently clear.",
   "muscles": {
     "m060": {
       "anatomy": [
@@ -252,6 +252,237 @@
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle01.png"
+        }
+      ]
+    },
+    "m078": {
+      "anatomy": [
+        {
+          "title": "Coracobrachialis",
+          "file": "Coracobrachialis muscle01.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Coracobrachialis_muscle01.png"
+        }
+      ]
+    },
+    "m082": {
+      "anatomy": [
+        {
+          "title": "Anconeus — highlighted",
+          "file": "Gray — musculus anconeus.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_anconeus.png"
+        }
+      ]
+    },
+    "m083": {
+      "anatomy": [
+        {
+          "title": "Pronator teres — highlighted",
+          "file": "Gray — musculus pronator teres.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_pronator_teres.png"
+        }
+      ]
+    },
+    "m084": {
+      "anatomy": [
+        {
+          "title": "Flexor carpi radialis",
+          "file": "Flexor-carpi-radialis.png",
+          "author": "Gray’s Anatomy; modified by Selket",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Flexor-carpi-radialis.png"
+        }
+      ]
+    },
+    "m085": {
+      "anatomy": [
+        {
+          "title": "Palmaris longus",
+          "file": "Palmaris-longus-horizontal.png",
+          "author": "Henry Gray / Gray’s Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Palmaris-longus-horizontal.png"
+        }
+      ]
+    },
+    "m086": {
+      "anatomy": [
+        {
+          "title": "Flexor carpi ulnaris",
+          "file": "Flexor carpi ulnaris.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Flexor_carpi_ulnaris.png"
+        }
+      ]
+    },
+    "m087": {
+      "anatomy": [
+        {
+          "title": "Flexor digitorum superficialis — highlighted",
+          "file": "Gray — musculus flexor digitorum superficialis.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_flexor_digitorum_superficialis.png"
+        }
+      ]
+    },
+    "m088": {
+      "anatomy": [
+        {
+          "title": "Flexor digitorum profundus — attachment areas",
+          "file": "Gerrish's Text-book of Anatomy (1902) - Fig. 327.png",
+          "author": "Frederick Henry Gerrish",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gerrish%27s_Text-book_of_Anatomy_(1902)_-_Fig._327.png"
+        }
+      ]
+    },
+    "m089": {
+      "anatomy": [
+        {
+          "title": "Flexor pollicis longus",
+          "file": "Musculus flexor pollicis longus.png",
+          "author": "Gray’s Anatomy derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_flexor_pollicis_longus.png"
+        }
+      ]
+    },
+    "m090": {
+      "anatomy": [
+        {
+          "title": "Pronator quadratus — highlighted",
+          "file": "Gray — musculus pronator quadratus.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_pronator_quadratus.png"
+        }
+      ]
+    },
+    "m091": {
+      "anatomy": [
+        {
+          "title": "Brachioradialis — highlighted",
+          "file": "Gray — musculus brachioradialis.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_brachioradialis.png"
+        }
+      ]
+    },
+    "m092": {
+      "anatomy": [
+        {
+          "title": "Extensor carpi radialis longus",
+          "file": "Extensor carpi radialis longus.png",
+          "author": "Gray’s Anatomy derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Extensor_carpi_radialis_longus.png"
+        }
+      ]
+    },
+    "m093": {
+      "anatomy": [
+        {
+          "title": "Extensor carpi radialis brevis — attachment areas",
+          "file": "Gerrish's Text-book of Anatomy (1902) - Fig. 321.png",
+          "author": "Frederick Henry Gerrish",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gerrish%27s_Text-book_of_Anatomy_(1902)_-_Fig._321.png"
+        }
+      ]
+    },
+    "m094": {
+      "anatomy": [
+        {
+          "title": "Extensor digitorum",
+          "file": "Musculus extensor digitorum.PNG",
+          "author": "Gray’s Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_extensor_digitorum.PNG"
+        }
+      ]
+    },
+    "m095": {
+      "anatomy": [
+        {
+          "title": "Extensor digiti minimi — highlighted",
+          "file": "Gray — musculus extensor digiti minimi.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_digiti_minimi.png"
+        }
+      ]
+    },
+    "m096": {
+      "anatomy": [
+        {
+          "title": "Extensor carpi ulnaris",
+          "file": "Extensor carpi ulnaris muscle.png",
+          "author": "Gray’s Anatomy / Mikael Häggström",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Extensor_carpi_ulnaris_muscle.png"
+        }
+      ]
+    },
+    "m097": {
+      "anatomy": [
+        {
+          "title": "Supinator and deep radial nerve",
+          "file": "Supinator.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Supinator.png"
+        }
+      ]
+    },
+    "m098": {
+      "anatomy": [
+        {
+          "title": "Abductor pollicis longus — highlighted",
+          "file": "Gray — musculus abductor pollicis longus.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_abductor_pollicis_longus.png"
+        }
+      ]
+    },
+    "m099": {
+      "anatomy": [
+        {
+          "title": "Extensor pollicis brevis — highlighted",
+          "file": "Gray — musculus extensor pollicis brevis.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_pollicis_brevis.png"
+        }
+      ]
+    },
+    "m100": {
+      "anatomy": [
+        {
+          "title": "Extensor pollicis longus — highlighted",
+          "file": "Gray — musculus extensor pollicis longus.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_pollicis_longus.png"
+        }
+      ]
+    },
+    "m101": {
+      "anatomy": [
+        {
+          "title": "Extensor indicis — highlighted",
+          "file": "Gray — musculus extensor indicis.png",
+          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_indicis.png"
         }
       ]
     }
