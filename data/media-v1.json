@@ -1,0 +1,259 @@
+{
+  "version": "1.0",
+  "updated": "2026-09-24",
+  "note": "Curated open-license media registry. Fixed media is shown before live Wikimedia fallback. Ultrasound is added only when structure/plane is sufficiently clear.",
+  "muscles": {
+    "m060": {
+      "anatomy": [
+        {
+          "title": "Trapezius muscle",
+          "file": "Trapezius muscle.svg",
+          "author": "InjuryMap",
+          "license": "CC BY-SA 4.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Trapezius_muscle.svg"
+        }
+      ]
+    },
+    "m061": {
+      "anatomy": [
+        {
+          "title": "Levator scapulae muscle — posterior view",
+          "file": "Levator scapulae muscle back.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Levator_scapulae_muscle_back.png"
+        }
+      ]
+    },
+    "m062": {
+      "anatomy": [
+        {
+          "title": "Rhomboid minor — lateral view",
+          "file": "Rhomboid minor muscle lateral.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhomboid_minor_muscle_lateral.png"
+        }
+      ]
+    },
+    "m063": {
+      "anatomy": [
+        {
+          "title": "Rhomboid major — posterior view",
+          "file": "Rhomboid major muscle back.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhomboid_major_muscle_back.png"
+        }
+      ]
+    },
+    "m064": {
+      "anatomy": [
+        {
+          "title": "Serratus anterior — lateral view",
+          "file": "Serratus anterior muscles lateral.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Serratus_anterior_muscles_lateral.png"
+        }
+      ]
+    },
+    "m067": {
+      "anatomy": [
+        {
+          "title": "Pectoralis major",
+          "file": "202304 Pectoralis major muscle.svg",
+          "author": "DBCLS",
+          "license": "CC BY 4.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:202304_Pectoralis_major_muscle.svg"
+        }
+      ]
+    },
+    "m068": {
+      "anatomy": [
+        {
+          "title": "Latissimus dorsi — posterior view",
+          "file": "Latissimus dorsi muscle back.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Latissimus_dorsi_muscle_back.png"
+        }
+      ]
+    },
+    "m069": {
+      "anatomy": [
+        {
+          "title": "Deltoid — lateral view",
+          "file": "Deltoid muscle lateral.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Deltoid_muscle_lateral.png"
+        },
+        {
+          "title": "Deltoid origin and insertion",
+          "file": "Deltoid muscle origin and insertion.jpg",
+          "author": "Vishram Singh",
+          "license": "CC0 1.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Deltoid_muscle_origin_and_insertion.jpg"
+        }
+      ]
+    },
+    "m070": {
+      "anatomy": [
+        {
+          "title": "Supraspinatus — superior view",
+          "file": "Supraspinatus muscle top.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Supraspinatus_muscle_top.png"
+        }
+      ],
+      "ultrasound": [
+        {
+          "title": "Supraspinatus tendon — longitudinal (LAX)",
+          "file": "Longitudinal US supraspinatus.jpg",
+          "author": "RSatUSZ / UniversitätsSpital Zürich",
+          "license": "CC BY-SA 4.0 / GFDL",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Longitudinal_US_supraspinatus.jpg",
+          "kind": "normal"
+        },
+        {
+          "title": "Supraspinatus tendon — transverse (SAX)",
+          "file": "Transversal US supraspinatus.jpg",
+          "author": "RSatUSZ / UniversitätsSpital Zürich",
+          "license": "CC BY-SA 4.0 / GFDL",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Transversal_US_supraspinatus.jpg",
+          "kind": "normal"
+        },
+        {
+          "title": "Rotator cuff tear — ultrasound example",
+          "file": "Rotator cuff tear ultrasound.jpg",
+          "author": "Mme Mim",
+          "license": "CC BY-SA 3.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Rotator_cuff_tear_ultrasound.jpg",
+          "kind": "pathology"
+        }
+      ]
+    },
+    "m071": {
+      "anatomy": [
+        {
+          "title": "Infraspinatus — superior view",
+          "file": "Infraspinatus muscle top.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Infraspinatus_muscle_top.png"
+        }
+      ]
+    },
+    "m072": {
+      "anatomy": [
+        {
+          "title": "Teres minor — lateral view",
+          "file": "Teres minor muscle lateral.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Teres_minor_muscle_lateral.png"
+        }
+      ]
+    },
+    "m073": {
+      "anatomy": [
+        {
+          "title": "Subscapularis — superior view",
+          "file": "Subscapularis muscle top.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Subscapularis_muscle_top.png"
+        }
+      ]
+    },
+    "m074": {
+      "anatomy": [
+        {
+          "title": "Teres major — posterior view",
+          "file": "Teres major muscle back.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Teres_major_muscle_back.png"
+        }
+      ]
+    },
+    "m075": {
+      "anatomy": [
+        {
+          "title": "Biceps brachii",
+          "file": "Biceps brachii muscle01.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Biceps_brachii_muscle01.png"
+        }
+      ],
+      "ultrasound": [
+        {
+          "title": "Long-head biceps tendon in bicipital groove",
+          "file": "US. Biceps tendon..jpg",
+          "author": "RSatUSZ",
+          "license": "Wikimedia Commons open license",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:US._Biceps_tendon..jpg",
+          "kind": "normal"
+        }
+      ]
+    },
+    "m076": {
+      "anatomy": [
+        {
+          "title": "Biceps brachii",
+          "file": "Biceps brachii muscle01.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Biceps_brachii_muscle01.png"
+        }
+      ]
+    },
+    "m077": {
+      "anatomy": [
+        {
+          "title": "Brachialis",
+          "file": "Brachialis muscle01.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Brachialis_muscle01.png"
+        }
+      ]
+    },
+    "m079": {
+      "anatomy": [
+        {
+          "title": "Triceps brachii — three heads",
+          "file": "Triceps brachii muscle01.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle01.png"
+        }
+      ]
+    },
+    "m080": {
+      "anatomy": [
+        {
+          "title": "Triceps brachii — three heads",
+          "file": "Triceps brachii muscle01.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle01.png"
+        }
+      ]
+    },
+    "m081": {
+      "anatomy": [
+        {
+          "title": "Triceps brachii — three heads",
+          "file": "Triceps brachii muscle01.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle01.png"
+        }
+      ]
+    }
+  }
+}
