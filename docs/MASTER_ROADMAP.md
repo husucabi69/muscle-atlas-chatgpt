@@ -168,3 +168,16 @@ Stage 2 — 팔꿈치·전완. Anatomy → structure/nerve → findings → exam
 
 ### 다음
 Stage 3 — 손목·손. 1~6 신전구획, 굴곡건, CTS/Guyon, TFCC 주변, intrinsic hand를 동일 completion gate로 확장.
+
+
+## v8.2 Wrist/Hand Stage 3 — QA 진행
+- [x] Tendon · Nerve · Joint · Ligament Stable ID
+- [x] 손목·손 증상 경로 7개(기존 3 + 신규 4)
+- [x] Clinical Finding 10개
+- [x] Examination / Special Test 14개
+- [x] Ultrasound View 12개
+- [x] Diagnosis Concept 12개 + differential group 6개
+- [x] 실제 공개 wrist/hand ultrasound media 12/12 고정 reference + license audit
+- [x] Wrist/hand clinical quiz 30문항
+- [x] 앱 임상 모듈 / 퀴즈 UI 연결
+- [ ] Stage 3 final COMPLETE 판정 — 회귀검사 후
