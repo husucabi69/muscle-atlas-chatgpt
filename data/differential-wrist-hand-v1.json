@@ -1,0 +1,421 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "wrist_hand_differential_v1",
+  "region_ids": [
+    "r007",
+    "r008",
+    "r009"
+  ],
+  "safety_rule": "Differential candidates support clinical reasoning only. They are not confirmed patient diagnoses.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d027",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "드퀘르벵 건초염",
+      "name_en": "De Quervain tenosynovitis",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d028",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "교차증후군",
+      "name_en": "Intersection syndrome",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d029",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "손목터널증후군",
+      "name_en": "Carpal tunnel syndrome",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d030",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Guyon관 증후군 / 손목 척골신경병증",
+      "name_en": "Guyon canal syndrome / ulnar neuropathy at wrist",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d031",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "표재 요골감각신경병증",
+      "name_en": "Superficial radial sensory neuropathy (Wartenberg syndrome)",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d032",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "TFCC 관련 병변",
+      "name_en": "TFCC-related injury",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d033",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "ECU 건병증·불안정성",
+      "name_en": "ECU tendinopathy / instability",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d034",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "FCR 건병증",
+      "name_en": "FCR tendinopathy",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d035",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "엄지 CMC 골관절염",
+      "name_en": "Thumb CMC osteoarthritis",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d036",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "방아쇠수지·방아쇠엄지",
+      "name_en": "Trigger finger / trigger thumb",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d037",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "주상월상인대 손상",
+      "name_en": "Scapholunate ligament injury",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d038",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "수지 측부인대 손상",
+      "name_en": "Digital collateral ligament injury",
+      "region_id": "r009",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f021",
+      "entity_type": "clinical_finding",
+      "name_ko": "요측 손목 통증",
+      "key": "radial_wrist_pain",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f022",
+      "entity_type": "clinical_finding",
+      "name_ko": "척측 손목 통증",
+      "key": "ulnar_wrist_pain",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f023",
+      "entity_type": "clinical_finding",
+      "name_ko": "정중신경 분포 저림",
+      "key": "median_distribution_paresthesia",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f024",
+      "entity_type": "clinical_finding",
+      "name_ko": "무지구 약화·위축",
+      "key": "thenar_weakness_atrophy",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f025",
+      "entity_type": "clinical_finding",
+      "name_ko": "척골신경 분포 손 저림",
+      "key": "ulnar_hand_paresthesia",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f026",
+      "entity_type": "clinical_finding",
+      "name_ko": "손 내재근 약화",
+      "key": "intrinsic_hand_weakness",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f027",
+      "entity_type": "clinical_finding",
+      "name_ko": "ECU snapping",
+      "key": "ecu_snapping",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f028",
+      "entity_type": "clinical_finding",
+      "name_ko": "엄지 기저부 통증",
+      "key": "thumb_base_pain",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f029",
+      "entity_type": "clinical_finding",
+      "name_ko": "수지·엄지 걸림/딸깍거림",
+      "key": "digit_triggering",
+      "region_id": "r009",
+      "status": "active"
+    },
+    {
+      "finding_id": "f030",
+      "entity_type": "clinical_finding",
+      "name_ko": "배측 손목 통증·click",
+      "key": "dorsal_wrist_pain_click",
+      "region_id": "r009",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg011",
+      "symptom_id": "sx08",
+      "title_ko": "요측 손목·엄지 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d027",
+          "look_for": [
+            "요골경상돌기 압통",
+            "Finkelstein/WHAT 통증",
+            "1st compartment 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "Eichhoff/Finkelstein 단독",
+            "건초 액체 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d028",
+          "look_for": [
+            "요골경상돌기보다 근위 배요측 통증",
+            "1·2구획 교차부 압통/마찰음",
+            "동적 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "요측 통증 위치만으로 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d034",
+          "look_for": [
+            "손바닥쪽 요측 통증",
+            "FCR 주행 압통",
+            "FCR 동적 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "굴곡 통증만으로 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d031",
+          "look_for": [
+            "요배측 손 감각이상",
+            "표재 요골신경 분포",
+            "감각신경 초음파/신경검사"
+          ],
+          "not_diagnostic_alone": [
+            "Finkelstein 유사 통증만으로 건초염 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d035",
+          "look_for": [
+            "엄지 CMC 국소통증",
+            "grind/pressure-shear",
+            "방사선/초음파 관절소견"
+          ],
+          "not_diagnostic_alone": [
+            "영상 퇴행변화만으로 통증원인 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg012",
+      "symptom_id": "sx09",
+      "title_ko": "척측 손목 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d032",
+          "look_for": [
+            "fovea 통증",
+            "DRUJ 불안정/회전부하 증상",
+            "TFCC 초음파/MRI 문맥"
+          ],
+          "not_diagnostic_alone": [
+            "fovea sign 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d033",
+          "look_for": [
+            "ECU 주행 통증",
+            "ECU synergy",
+            "회전 중 snapping/동적 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "무증상 ECU 이동만으로 불안정성 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d030",
+          "look_for": [
+            "제4-5지 장측 저림",
+            "내재근 약화",
+            "Guyon관 신경 평가"
+          ],
+          "not_diagnostic_alone": [
+            "척측 통증만으로 신경병증 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg013",
+      "symptom_id": "sx23",
+      "title_ko": "정중신경 분포 저림·야간증상",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d029",
+          "look_for": [
+            "야간 저림",
+            "Phalen/Tinel/Durkan 보조소견",
+            "정중신경 초음파·필요 시 전기진단"
+          ],
+          "not_diagnostic_alone": [
+            "단일 provocative test",
+            "CSA 한 수치만으로 확진"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d031",
+          "look_for": [
+            "감각영역이 요배측에 치우침",
+            "손목터널 운동소견과 불일치"
+          ],
+          "not_diagnostic_alone": [
+            "요측 저림만으로 CTS 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg014",
+      "symptom_id": "sx24",
+      "title_ko": "척골측 손 저림·내재근 약화",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d030",
+          "look_for": [
+            "손바닥 척측 제4-5지 증상",
+            "Froment/Wartenberg",
+            "Guyon관 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "Tinel 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d019",
+          "look_for": [
+            "팔꿈치 굴곡과 증상 연동",
+            "주관부 Tinel/pressure-flexion",
+            "등쪽 척측 손 감각 포함 여부"
+          ],
+          "not_diagnostic_alone": [
+            "제5지 저림만으로 병변 위치 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg015",
+      "symptom_id": "sx25",
+      "title_ko": "손가락·엄지 걸림",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d036",
+          "look_for": [
+            "A1 pulley 압통/결절",
+            "능동 굴곡-신전 catching",
+            "A1 pulley/굴곡건 동적 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "pulley 두께만으로 증상 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d038",
+          "look_for": [
+            "외상 후 측부 압통/불안정",
+            "stress 통증",
+            "측부인대 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "통증만으로 완전파열 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg016",
+      "symptom_id": "sx26",
+      "title_ko": "배측 손목 통증·click",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d037",
+          "look_for": [
+            "주상월상 부위 압통",
+            "Watson 통증/clunk",
+            "SL ligament 동적 초음파/추가영상"
+          ],
+          "not_diagnostic_alone": [
+            "Watson 단독",
+            "무통성 click 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d028",
+          "look_for": [
+            "1·2 신전구획 교차부 근위통증",
+            "반복 신전 활동"
+          ],
+          "not_diagnostic_alone": [
+            "배측 통증만으로 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d033",
+          "look_for": [
+            "척측으로 치우친 배측 통증",
+            "ECU synergy/snapping"
+          ],
+          "not_diagnostic_alone": [
+            "ECU 초음파 이상만으로 현재 통증원인 확정"
+          ]
+        }
+      ]
+    }
+  ]
+}
