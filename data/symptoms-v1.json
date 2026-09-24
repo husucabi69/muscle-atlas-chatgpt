@@ -539,5 +539,66 @@
       "m101"
     ],
     "symptom_group_id": "sg004"
+  },
+  {
+    "id": "sx27",
+    "title": "전방 고관절 통증·snapping",
+    "summary": "장요근, 대퇴직근, 관절내 원인을 구분하는 전방 고관절 경로입니다.",
+    "conditions": "iliopsoas-related pain/snapping, rectus femoris proximal pathology, FAI/labral-related pain, hip joint disease 감별.",
+    "nerves": "대퇴신경, 외측대퇴피신경",
+    "ultrasound": "전방 관절 recess, iliopsoas tendon/bursa, rectus femoris proximal tendon, dynamic snapping 평가.",
+    "muscles": [],
+    "muscleIds": [
+      "m047",
+      "m049",
+      "m128"
+    ],
+    "symptom_group_id": "sg005"
+  },
+  {
+    "id": "sx28",
+    "title": "심부 둔부 통증·좌골신경성 증상",
+    "summary": "이상근과 deep gluteal space, 좌골신경을 함께 보는 경로입니다.",
+    "conditions": "deep gluteal sciatic entrapment, piriformis-related pain, lumbar referred pain, proximal hamstring pathology 감별.",
+    "nerves": "좌골신경",
+    "ultrasound": "piriformis-greater sciatic notch와 sciatic nerve를 정적/동적으로 확인.",
+    "muscles": [],
+    "muscleIds": [
+      "m050",
+      "m051",
+      "m052",
+      "m053",
+      "m055"
+    ],
+    "symptom_group_id": "sg005"
+  },
+  {
+    "id": "sx29",
+    "title": "좌골결절·근위 햄스트링 통증",
+    "summary": "앉을 때 아프거나 달리기·가속 시 악화되는 근위 햄스트링 경로입니다.",
+    "conditions": "proximal hamstring tendinopathy, partial/complete tear, ischial avulsion, deep gluteal referred pain 감별.",
+    "nerves": "좌골신경 인접",
+    "ultrasound": "ischial tuberosity의 conjoint tendon과 semimembranosus tendon을 SAX/LAX로 확인.",
+    "muscles": [],
+    "muscleIds": [
+      "m139",
+      "m141",
+      "m142"
+    ],
+    "symptom_group_id": "sg005"
+  },
+  {
+    "id": "sx30",
+    "title": "전외측 대퇴 저림·화끈거림",
+    "summary": "운동약화 없이 전외측 대퇴 감각증상이 주된 경우 외측대퇴피신경을 확인합니다.",
+    "conditions": "meralgia paresthetica, L2-L3 radiculopathy, femoral neuropathy, 국소 피부/연부조직 원인 감별.",
+    "nerves": "외측대퇴피신경",
+    "ultrasound": "ASIS 내측부터 inguinal ligament 아래를 지나는 LFCN을 추적.",
+    "muscles": [],
+    "muscleIds": [
+      "m127",
+      "m126"
+    ],
+    "symptom_group_id": "sg005"
   }
 ]
