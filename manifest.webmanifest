@@ -2,7 +2,7 @@
   "name": "근육학 · MSK Muscle Atlas",
   "short_name": "근육학",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "정형외과 근육 해부·임상·초음파·적응형 퀴즈 앱 · MSK Knowledge Schema v1 · v7.3",
+  "description": "정형외과 근육·진찰·초음파·퀴즈 학습 앱 · Shoulder Clinical Module v7.4",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

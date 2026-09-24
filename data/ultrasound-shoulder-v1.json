@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "shoulder_ultrasound_v1",
+  "region_id": "r005",
+  "primary_reference": "ESSR Musculoskeletal Ultrasound Technical Guidelines I. Shoulder",
+  "reference_url": "https://www.essr.org/content-essr/uploads/2016/10/shoulder.pdf",
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv001",
+      "name_ko": "극상건 장축",
+      "name_en": "Supraspinatus tendon LAX",
+      "target_structure_ids": [
+        "t001"
+      ],
+      "patient_position": "앉은 자세. 손을 뒤쪽 장골능/뒷주머니 쪽에 두는 Crass 또는 modified Crass 계열 자세를 사용할 수 있다.",
+      "probe_orientation": "상완이두근 관절내 구간을 기준으로 극상건 섬유와 평행하게 맞춘다.",
+      "landmarks": [
+        "상완골 대결절",
+        "삼각근",
+        "극상건",
+        "견봉하-삼각근하 점액낭"
+      ],
+      "normal_finding": "건의 섬유성 echotexture와 연속성을 확인하고 점액낭은 얇은 층으로 관찰한다.",
+      "pitfalls": [
+        "삽입부 anisotropy를 피하기 위해 probe tilt 필요",
+        "과도한 내회전 자세는 tear 크기 평가에 영향을 줄 수 있음"
+      ],
+      "source_ref": "ESSR shoulder guideline pp.4-5"
+    },
+    {
+      "ultrasound_view_id": "usv002",
+      "name_ko": "극상건 단축",
+      "name_en": "Supraspinatus tendon SAX",
+      "target_structure_ids": [
+        "t001"
+      ],
+      "patient_position": "극상건 장축과 동일한 어깨 자세.",
+      "probe_orientation": "장축에서 약 90° 회전하여 단축으로 tendon footprint를 sweep한다.",
+      "landmarks": [
+        "상완이두근 장두",
+        "대결절",
+        "삼각근",
+        "극상건"
+      ],
+      "normal_finding": "biceps landmark에서 후방으로 이어지는 cuff 두께와 섬유 배열을 확인한다.",
+      "pitfalls": [
+        "후방으로 지나치게 이동하면 극하건을 극상건으로 오인할 수 있음",
+        "anisotropy"
+      ],
+      "source_ref": "ESSR shoulder guideline p.4"
+    },
+    {
+      "ultrasound_view_id": "usv003",
+      "name_ko": "상완이두근 장두건 단축",
+      "name_en": "Long-head biceps tendon transverse",
+      "target_structure_ids": [
+        "t002"
+      ],
+      "patient_position": "팔을 약간 내회전하고 팔꿈치 90° 굴곡, 손바닥을 위로 둔다.",
+      "probe_orientation": "결절간구에서 건을 단축으로 찾는다.",
+      "landmarks": [
+        "대결절",
+        "소결절",
+        "결절간구",
+        "상완이두근 장두건"
+      ],
+      "normal_finding": "결절간구 안의 건 위치와 균일한 섬유성 echotexture를 확인한다.",
+      "pitfalls": [
+        "probe 압박과 anisotropy",
+        "건초액과 병적 fluid를 임상 문맥 없이 과해석하지 않음"
+      ],
+      "source_ref": "ESSR shoulder guideline p.1"
+    },
+    {
+      "ultrasound_view_id": "usv004",
+      "name_ko": "상완이두근 장두건 장축",
+      "name_en": "Long-head biceps tendon longitudinal",
+      "target_structure_ids": [
+        "t002"
+      ],
+      "patient_position": "단축과 동일.",
+      "probe_orientation": "건의 장축을 따라 회전하여 근위 관절내 구간부터 원위 근건접합부 방향으로 sweep한다.",
+      "landmarks": [
+        "결절간구",
+        "상완골",
+        "장두건",
+        "대흉근 건 부근 근건접합부"
+      ],
+      "normal_finding": "연속된 fibrillar pattern을 확인한다.",
+      "pitfalls": [
+        "장축은 단축보다 국소 탈구/아탈구 확인에 제한이 있을 수 있어 두 평면을 함께 본다."
+      ],
+      "source_ref": "ESSR shoulder guideline p.1"
+    },
+    {
+      "ultrasound_view_id": "usv005",
+      "name_ko": "견갑하건 장축",
+      "name_en": "Subscapularis tendon LAX",
+      "target_structure_ids": [
+        "t003"
+      ],
+      "patient_position": "팔꿈치를 몸통에 고정하고 어깨를 외회전한다.",
+      "probe_orientation": "소결절 삽입부에서 tendon fascicle과 평행하게 transverse plane으로 본다.",
+      "landmarks": [
+        "소결절",
+        "오훼돌기",
+        "삼각근",
+        "견갑하건"
+      ],
+      "normal_finding": "여러 tendon fascicle과 사이의 근육성 조직을 확인한다.",
+      "pitfalls": [
+        "팔꿈치가 몸통에서 들리지 않도록 하고 동적 내·외회전으로 전체 폭을 확인한다."
+      ],
+      "source_ref": "ESSR shoulder guideline p.2"
+    },
+    {
+      "ultrasound_view_id": "usv006",
+      "name_ko": "견갑하건 단축",
+      "name_en": "Subscapularis tendon SAX",
+      "target_structure_ids": [
+        "t003"
+      ],
+      "patient_position": "견갑하건 장축과 동일.",
+      "probe_orientation": "장축에서 90° 회전해 sagittal plane으로 건 전체 폭을 위아래로 sweep한다.",
+      "landmarks": [
+        "소결절",
+        "견갑하건 fascicles",
+        "삼각근"
+      ],
+      "normal_finding": "건의 fascicular architecture와 연속성을 확인한다.",
+      "pitfalls": [
+        "부분 파열은 한 평면만으로 판단하지 않고 직교면과 동적 평가를 병행한다."
+      ],
+      "source_ref": "ESSR shoulder guideline p.2"
+    },
+    {
+      "ultrasound_view_id": "usv007",
+      "name_ko": "후방 회전근개",
+      "name_en": "Posterior cuff: infraspinatus and teres minor",
+      "target_structure_ids": [
+        "m071",
+        "m072",
+        "t004",
+        "t005"
+      ],
+      "patient_position": "손을 반대쪽 어깨에 두거나 중립 자세로 후방 접근한다.",
+      "probe_orientation": "견갑극을 landmark로 극하와/소원근 방향을 sagittal 및 transverse sweep한다.",
+      "landmarks": [
+        "견갑극",
+        "극하근",
+        "소원근",
+        "삼각근",
+        "대결절"
+      ],
+      "normal_finding": "극하근과 소원근을 별도 구조로 확인하고 대결절 방향으로 각 tendon을 추적한다.",
+      "pitfalls": [
+        "견갑극 기준을 사용해 극상와와 극하와를 혼동하지 않는다."
+      ],
+      "source_ref": "ESSR shoulder guideline pp.6-7"
+    },
+    {
+      "ultrasound_view_id": "usv008",
+      "name_ko": "견봉하 동적 평가",
+      "name_en": "Dynamic subacromial assessment",
+      "target_structure_ids": [
+        "t001",
+        "b001"
+      ],
+      "patient_position": "팔을 내회전한 상태에서 능동 외전을 시행한다.",
+      "probe_orientation": "견봉 외측 경계에 probe의 내측 끝을 둔 coronal plane.",
+      "landmarks": [
+        "견봉",
+        "대결절",
+        "극상건",
+        "견봉하-삼각근하 점액낭"
+      ],
+      "normal_finding": "극상건과 점액낭이 coracoacromial arch 아래를 통과하는 움직임을 관찰한다.",
+      "pitfalls": [
+        "통증 유발 자체를 구조적 충돌의 확정진단으로 해석하지 않는다."
+      ],
+      "source_ref": "ESSR shoulder guideline p.5"
+    },
+    {
+      "ultrasound_view_id": "usv009",
+      "name_ko": "견봉쇄골관절",
+      "name_en": "Acromioclavicular joint",
+      "target_structure_ids": [
+        "j002"
+      ],
+      "patient_position": "앉은 자세.",
+      "probe_orientation": "어깨 상부에서 coronal plane으로 AC joint를 찾고 전후로 sweep한다.",
+      "landmarks": [
+        "견봉",
+        "쇄골",
+        "AC joint space",
+        "상부 AC ligament"
+      ],
+      "normal_finding": "관절 간격과 주변 골성 윤곽을 확인한다.",
+      "pitfalls": [
+        "관절 변화의 임상적 의미는 증상 및 진찰과 함께 판단한다."
+      ],
+      "source_ref": "ESSR shoulder guideline p.7"
+    }
+  ]
+}

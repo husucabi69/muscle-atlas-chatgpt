@@ -1,0 +1,567 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "shoulder_quiz_v1",
+  "question_count": 20,
+  "questions": [
+    {
+      "quiz_id": "sq001",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "극상근 기능 평가에 흔히 사용되지만 극상근만 선택적으로 활성화한다고 볼 수 없는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Jobe / Empty Can"
+        },
+        {
+          "value": "B",
+          "label": "Lift-off"
+        },
+        {
+          "value": "C",
+          "label": "Yergason"
+        },
+        {
+          "value": "D",
+          "label": "Belly-press"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m070",
+      "related_entity_id": "ct001",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq002",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "손등을 허리 뒤에 두고 손을 등에서 떼도록 하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Lift-off"
+        },
+        {
+          "value": "B",
+          "label": "Speed"
+        },
+        {
+          "value": "C",
+          "label": "Painful Arc"
+        },
+        {
+          "value": "D",
+          "label": "Hawkins-Kennedy"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m073",
+      "related_entity_id": "ct005",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq003",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "손바닥을 복부에 대고 내회전 힘과 보상 동작을 보는 견갑하근 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Belly-press"
+        },
+        {
+          "value": "B",
+          "label": "Full Can"
+        },
+        {
+          "value": "C",
+          "label": "Yergason"
+        },
+        {
+          "value": "D",
+          "label": "Neer"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m073",
+      "related_entity_id": "ct006",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq004",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "검사할 손을 반대쪽 어깨에 두고 검사자가 손을 떼려 할 때 유지하게 하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Bear-hug"
+        },
+        {
+          "value": "B",
+          "label": "Jobe"
+        },
+        {
+          "value": "C",
+          "label": "Speed"
+        },
+        {
+          "value": "D",
+          "label": "Painful Arc"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m073",
+      "related_entity_id": "ct007",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq005",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "전완 회외 상태의 저항성 전방 거상으로 전방 어깨/이두구 통증을 보는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Speed"
+        },
+        {
+          "value": "B",
+          "label": "Yergason"
+        },
+        {
+          "value": "C",
+          "label": "Lift-off"
+        },
+        {
+          "value": "D",
+          "label": "External Rotation Lag"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "ct008",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq006",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "팔꿈치 굴곡 상태에서 저항성 회외를 이용해 이두장건 관련 증상을 평가하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Yergason"
+        },
+        {
+          "value": "B",
+          "label": "Full Can"
+        },
+        {
+          "value": "C",
+          "label": "Neer"
+        },
+        {
+          "value": "D",
+          "label": "Bear-hug"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "ct009",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq007",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "외회전 위치를 유지하지 못하고 내회전 방향으로 되돌아가는 lag를 보는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "External Rotation Lag Sign"
+        },
+        {
+          "value": "B",
+          "label": "Painful Arc"
+        },
+        {
+          "value": "C",
+          "label": "Jobe"
+        },
+        {
+          "value": "D",
+          "label": "Belly-press"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m071",
+      "related_entity_id": "ct004",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq008",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "중간 거상 범위에서 익숙한 어깨 통증이 재현되는지 보는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Painful Arc"
+        },
+        {
+          "value": "B",
+          "label": "Speed"
+        },
+        {
+          "value": "C",
+          "label": "Lift-off"
+        },
+        {
+          "value": "D",
+          "label": "Yergason"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m070",
+      "related_entity_id": "ct002",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq009",
+      "module_id": "shoulder_v1",
+      "domain": "ultrasound",
+      "question": "ESSR 방식에서 상완이두근 장두건을 처음 찾는 대표적 landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "대결절과 소결절 사이 결절간구"
+        },
+        {
+          "value": "B",
+          "label": "견갑극"
+        },
+        {
+          "value": "C",
+          "label": "AC joint space"
+        },
+        {
+          "value": "D",
+          "label": "오훼쇄골 인대"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "usv003",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq010",
+      "module_id": "shoulder_v1",
+      "domain": "ultrasound",
+      "question": "극상건 장축 정렬 시 probe 방향을 맞추는 데 유용한 기준 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "관절내 상완이두근 장두건"
+        },
+        {
+          "value": "B",
+          "label": "척골신경"
+        },
+        {
+          "value": "C",
+          "label": "후방 관절와순"
+        },
+        {
+          "value": "D",
+          "label": "대흉근 근복"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m070",
+      "related_entity_id": "usv001",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq011",
+      "module_id": "shoulder_v1",
+      "domain": "ultrasound",
+      "question": "극상건 삽입부 초음파에서 거짓 저에코를 줄이기 위해 특히 주의할 artifact는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Anisotropy"
+        },
+        {
+          "value": "B",
+          "label": "Posterior enhancement"
+        },
+        {
+          "value": "C",
+          "label": "Mirror artifact"
+        },
+        {
+          "value": "D",
+          "label": "Ring-down"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m070",
+      "related_entity_id": "usv001",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq012",
+      "module_id": "shoulder_v1",
+      "domain": "ultrasound",
+      "question": "견갑하건을 보기 위해 일반적으로 사용하는 팔의 움직임은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "외회전"
+        },
+        {
+          "value": "B",
+          "label": "최대 외전"
+        },
+        {
+          "value": "C",
+          "label": "완전 신전"
+        },
+        {
+          "value": "D",
+          "label": "회내"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m073",
+      "related_entity_id": "usv005",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq013",
+      "module_id": "shoulder_v1",
+      "domain": "ultrasound",
+      "question": "후방 어깨 초음파에서 극상와와 극하와를 구분하는 핵심 골성 landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "견갑극"
+        },
+        {
+          "value": "B",
+          "label": "오훼돌기"
+        },
+        {
+          "value": "C",
+          "label": "소결절"
+        },
+        {
+          "value": "D",
+          "label": "쇄골 원위단"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m071",
+      "related_entity_id": "usv007",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq014",
+      "module_id": "shoulder_v1",
+      "domain": "ultrasound",
+      "question": "견봉하 동적 평가에서 관찰하는 대표 구조 조합은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "극상건과 견봉하-삼각근하 점액낭"
+        },
+        {
+          "value": "B",
+          "label": "상완이두근 단두와 액와동맥"
+        },
+        {
+          "value": "C",
+          "label": "견갑하근과 척골신경"
+        },
+        {
+          "value": "D",
+          "label": "대흉근과 흉배신경"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m070",
+      "related_entity_id": "usv008",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq015",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_reasoning",
+      "question": "Jobe 양성 하나만으로 극상건 파열을 확정하는 것이 적절한가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "아니다. 다른 진찰·영상·임상 문맥과 함께 해석한다."
+        },
+        {
+          "value": "B",
+          "label": "그렇다. Jobe 양성은 파열을 확정한다."
+        },
+        {
+          "value": "C",
+          "label": "통증이 없으면 항상 전층파열이다."
+        },
+        {
+          "value": "D",
+          "label": "근력과 무관하게 진단 가능하다."
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m070",
+      "related_entity_id": "ct001",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq016",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_reasoning",
+      "question": "Speed와 Yergason 검사의 가장 적절한 사용 방식은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "이두장건/상부 관절와순 관련 증상의 보조 정보로 사용"
+        },
+        {
+          "value": "B",
+          "label": "SLAP 병변을 단독 확진"
+        },
+        {
+          "value": "C",
+          "label": "회전근개 파열 크기를 정량화"
+        },
+        {
+          "value": "D",
+          "label": "AC 관절염을 배제"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "ct008",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq017",
+      "module_id": "shoulder_v1",
+      "domain": "ultrasound",
+      "question": "극상건 단축에서 너무 후방으로 이동하면 어떤 구조를 극상건으로 오인할 수 있는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "극하건"
+        },
+        {
+          "value": "B",
+          "label": "견갑하건"
+        },
+        {
+          "value": "C",
+          "label": "대흉근건"
+        },
+        {
+          "value": "D",
+          "label": "오훼완근"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m070",
+      "related_entity_id": "usv002",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq018",
+      "module_id": "shoulder_v1",
+      "domain": "ultrasound",
+      "question": "AC joint 초음파의 기본 probe plane은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "어깨 상부의 coronal plane"
+        },
+        {
+          "value": "B",
+          "label": "액와부 transverse plane"
+        },
+        {
+          "value": "C",
+          "label": "전완의 longitudinal plane"
+        },
+        {
+          "value": "D",
+          "label": "경추 parasagittal plane"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m069",
+      "related_entity_id": "usv009",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq019",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_test",
+      "question": "견갑하근 검사를 여러 개 함께 해석해야 하는 가장 적절한 이유는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "각 검사의 민감도·특이도가 제한적이고 서로 다른 기능저하를 반영할 수 있어서"
+        },
+        {
+          "value": "B",
+          "label": "모든 검사가 완전히 동일해서"
+        },
+        {
+          "value": "C",
+          "label": "초음파보다 항상 정확해서"
+        },
+        {
+          "value": "D",
+          "label": "통증과 무관하게 진단을 확정해서"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m073",
+      "related_entity_id": "ct005",
+      "status": "active"
+    },
+    {
+      "quiz_id": "sq020",
+      "module_id": "shoulder_v1",
+      "domain": "clinical_reasoning",
+      "question": "Muscle Atlas에서 special test 결과를 다룰 때 가장 적절한 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "지식 후보와 실제 환자의 확정 진단을 구분한다."
+        },
+        {
+          "value": "B",
+          "label": "양성 검사 하나를 자동 확진으로 저장한다."
+        },
+        {
+          "value": "C",
+          "label": "좌우가 없으면 AI가 추정한다."
+        },
+        {
+          "value": "D",
+          "label": "시행하지 않은 검사를 자동 생성한다."
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m070",
+      "related_entity_id": "ct001",
+      "status": "active"
+    }
+  ]
+}
