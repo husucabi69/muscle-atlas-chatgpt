@@ -1,0 +1,847 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "wrist_hand_quiz_v1",
+  "question_count": 30,
+  "questions": [
+    {
+      "quiz_id": "wq001",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "드퀘르벵 평가에서 Eichhoff와 구분해야 하는 진짜 검사명은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Finkelstein 검사"
+        },
+        {
+          "value": "B",
+          "label": "Phalen 검사"
+        },
+        {
+          "value": "C",
+          "label": "Watson 검사"
+        },
+        {
+          "value": "D",
+          "label": "Froment 징후"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m098",
+      "related_entity_id": "ct022",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq002",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "손목 과굴곡 상태에서 엄지 외전에 저항을 주는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "WHAT 검사"
+        },
+        {
+          "value": "B",
+          "label": "Durkan 검사"
+        },
+        {
+          "value": "C",
+          "label": "Grind 검사"
+        },
+        {
+          "value": "D",
+          "label": "ECU synergy"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m099",
+      "related_entity_id": "ct023",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq003",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "정중신경 분포 저림을 손목 굴곡으로 유발하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Phalen 검사"
+        },
+        {
+          "value": "B",
+          "label": "Froment 징후"
+        },
+        {
+          "value": "C",
+          "label": "Fovea sign"
+        },
+        {
+          "value": "D",
+          "label": "Watson 검사"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m087",
+      "related_entity_id": "ct024",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq004",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "손목터널을 직접 압박해 증상을 재현하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Durkan 검사"
+        },
+        {
+          "value": "B",
+          "label": "ECU synergy"
+        },
+        {
+          "value": "C",
+          "label": "DRUJ ballottement"
+        },
+        {
+          "value": "D",
+          "label": "Finkelstein 검사"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m088",
+      "related_entity_id": "ct026",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq005",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "종이를 엄지-검지 사이에 끼워 무지내전근 약화를 보는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Froment 징후"
+        },
+        {
+          "value": "B",
+          "label": "Wartenberg 징후"
+        },
+        {
+          "value": "C",
+          "label": "Phalen 검사"
+        },
+        {
+          "value": "D",
+          "label": "Grind 검사"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m106",
+      "related_entity_id": "ct028",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq006",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "소지가 지속적으로 외전되는 척골신경 운동징후는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Wartenberg 징후"
+        },
+        {
+          "value": "B",
+          "label": "Tinel 징후"
+        },
+        {
+          "value": "C",
+          "label": "Finkelstein 검사"
+        },
+        {
+          "value": "D",
+          "label": "Watson 검사"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m109",
+      "related_entity_id": "ct029",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq007",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "TFCC 관련 척측 손목 통증에서 촉진하는 보조 소견은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Ulnar fovea sign"
+        },
+        {
+          "value": "B",
+          "label": "Phalen"
+        },
+        {
+          "value": "C",
+          "label": "WHAT"
+        },
+        {
+          "value": "D",
+          "label": "CMC grind"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m086",
+      "related_entity_id": "ct030",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq008",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "DRUJ 불안정성 평가에 사용하는 전후방 이동 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "DRUJ ballottement"
+        },
+        {
+          "value": "B",
+          "label": "Finkelstein"
+        },
+        {
+          "value": "C",
+          "label": "Durkan"
+        },
+        {
+          "value": "D",
+          "label": "Froment"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m086",
+      "related_entity_id": "ct031",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq009",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "ECU 이상과 연관된 만성 배측-척측 손목 통증 도발검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "ECU synergy test"
+        },
+        {
+          "value": "B",
+          "label": "Watson test"
+        },
+        {
+          "value": "C",
+          "label": "Phalen test"
+        },
+        {
+          "value": "D",
+          "label": "WHAT test"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m096",
+      "related_entity_id": "ct032",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq010",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "엄지 CMC 관절에 축성 압박과 회전을 가하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "CMC grind test"
+        },
+        {
+          "value": "B",
+          "label": "Durkan test"
+        },
+        {
+          "value": "C",
+          "label": "Fovea sign"
+        },
+        {
+          "value": "D",
+          "label": "Tinel at Guyon"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m102",
+      "related_entity_id": "ct033",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq011",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "한 연구에서 CMC grind보다 높은 진단성능이 보고된 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Pressure-shear test"
+        },
+        {
+          "value": "B",
+          "label": "Phalen test"
+        },
+        {
+          "value": "C",
+          "label": "ECU synergy"
+        },
+        {
+          "value": "D",
+          "label": "Watson test"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m105",
+      "related_entity_id": "ct034",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq012",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_test",
+      "question": "주상월상인대의 예비 평가에 사용하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Watson scaphoid shift"
+        },
+        {
+          "value": "B",
+          "label": "Froment"
+        },
+        {
+          "value": "C",
+          "label": "WHAT"
+        },
+        {
+          "value": "D",
+          "label": "Durkan"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m100",
+      "related_entity_id": "ct035",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq013",
+      "module_id": "wrist_hand_v1",
+      "domain": "ultrasound",
+      "question": "드퀘르벵 초음파의 핵심 구획은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "제1 신전구획 APL/EPB"
+        },
+        {
+          "value": "B",
+          "label": "제6 구획 ECU"
+        },
+        {
+          "value": "C",
+          "label": "손목터널 FDS"
+        },
+        {
+          "value": "D",
+          "label": "Guyon관"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m098",
+      "related_entity_id": "usv018",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq014",
+      "module_id": "wrist_hand_v1",
+      "domain": "ultrasound",
+      "question": "Lister 결절을 기준으로 확인하는 대표 건은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "EPL"
+        },
+        {
+          "value": "B",
+          "label": "FCU"
+        },
+        {
+          "value": "C",
+          "label": "FPL"
+        },
+        {
+          "value": "D",
+          "label": "APL"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m100",
+      "related_entity_id": "usv019",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq015",
+      "module_id": "wrist_hand_v1",
+      "domain": "ultrasound",
+      "question": "손목터널 단축에서 신경과 함께 확인하는 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "굴곡지대와 굴곡건"
+        },
+        {
+          "value": "B",
+          "label": "ECU groove"
+        },
+        {
+          "value": "C",
+          "label": "TFCC만"
+        },
+        {
+          "value": "D",
+          "label": "주두점액낭"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m087",
+      "related_entity_id": "usv022",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq016",
+      "module_id": "wrist_hand_v1",
+      "domain": "ultrasound",
+      "question": "Guyon관에서 척골신경과 함께 중요한 혈관은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "척골동맥"
+        },
+        {
+          "value": "B",
+          "label": "요골동맥만"
+        },
+        {
+          "value": "C",
+          "label": "상완동맥"
+        },
+        {
+          "value": "D",
+          "label": "후골간동맥"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m109",
+      "related_entity_id": "usv024",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq017",
+      "module_id": "wrist_hand_v1",
+      "domain": "ultrasound",
+      "question": "trigger finger에서 동적으로 확인하는 핵심 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "A1 pulley와 굴곡건"
+        },
+        {
+          "value": "B",
+          "label": "EPL만"
+        },
+        {
+          "value": "C",
+          "label": "ECU만"
+        },
+        {
+          "value": "D",
+          "label": "TFCC"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m087",
+      "related_entity_id": "usv025",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq018",
+      "module_id": "wrist_hand_v1",
+      "domain": "ultrasound",
+      "question": "TFCC 초음파 평가의 올바른 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "한 평면으로 전체 TFCC를 모두 확정할 수 없다"
+        },
+        {
+          "value": "B",
+          "label": "초음파 한 장으로 모든 파열을 확정한다"
+        },
+        {
+          "value": "C",
+          "label": "MRI는 항상 불필요하다"
+        },
+        {
+          "value": "D",
+          "label": "ECU는 볼 필요 없다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m096",
+      "related_entity_id": "usv021",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq019",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "Finkelstein 양성만으로 가장 적절한 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "드퀘르벵을 고려하되 다른 요측 통증과 함께 판단"
+        },
+        {
+          "value": "B",
+          "label": "드퀘르벵을 자동 확진"
+        },
+        {
+          "value": "C",
+          "label": "표재 요골신경병증을 배제"
+        },
+        {
+          "value": "D",
+          "label": "CMC OA를 배제"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m098",
+      "related_entity_id": "d027",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq020",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "Phalen/Tinel/Durkan 중 하나가 양성일 때 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "병력·다른 검사·필요 시 EDX/US와 함께 판단"
+        },
+        {
+          "value": "B",
+          "label": "CTS 확진"
+        },
+        {
+          "value": "C",
+          "label": "CTS 중증도 확정"
+        },
+        {
+          "value": "D",
+          "label": "경추병변 자동 배제"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m087",
+      "related_entity_id": "d029",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq021",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "정중신경 CSA 수치 해석에서 중요한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "측정 위치와 프로토콜에 따라 cutoff가 달라질 수 있다"
+        },
+        {
+          "value": "B",
+          "label": "10 mm²는 모든 위치에서 절대 기준이다"
+        },
+        {
+          "value": "C",
+          "label": "CSA는 임상증상과 무관하다"
+        },
+        {
+          "value": "D",
+          "label": "초음파는 항상 EDX를 대체한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m087",
+      "related_entity_id": "d029",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq022",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "척측 손 저림에서 Guyon과 주관 병변을 구분할 때 도움이 되는 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "증상 분포와 병변 위치를 함께 본다"
+        },
+        {
+          "value": "B",
+          "label": "제5지 저림만으로 Guyon 확진"
+        },
+        {
+          "value": "C",
+          "label": "Fovea sign만 본다"
+        },
+        {
+          "value": "D",
+          "label": "CMC grind만 본다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m109",
+      "related_entity_id": "d030",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq023",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "ECU가 동적 초음파에서 움직인다고 할 때 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "증상 없는 이동도 가능해 통증·snapping과 함께 판단"
+        },
+        {
+          "value": "B",
+          "label": "무조건 병적 불안정성"
+        },
+        {
+          "value": "C",
+          "label": "TFCC 파열 확진"
+        },
+        {
+          "value": "D",
+          "label": "CTS 확진"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m096",
+      "related_entity_id": "d033",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq024",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "CMC grind가 음성이어도 엄지 기저부 통증이 지속될 때?",
+      "options": [
+        {
+          "value": "A",
+          "label": "CMC OA를 완전히 배제할 수 없다"
+        },
+        {
+          "value": "B",
+          "label": "CMC OA가 절대 아니다"
+        },
+        {
+          "value": "C",
+          "label": "CTS로 확정"
+        },
+        {
+          "value": "D",
+          "label": "드퀘르벵으로 자동 전환"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m105",
+      "related_entity_id": "d035",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq025",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "Watson 검사가 음성일 때 주상월상인대 손상은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "의미 있는 병변을 완전히 배제하지 못한다"
+        },
+        {
+          "value": "B",
+          "label": "완전히 배제된다"
+        },
+        {
+          "value": "C",
+          "label": "TFCC로 확정된다"
+        },
+        {
+          "value": "D",
+          "label": "ECU 병변으로 확정된다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m100",
+      "related_entity_id": "d037",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq026",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "trigger finger 초음파에서 pulley가 두꺼우면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "임상 catching과 함께 해석한다"
+        },
+        {
+          "value": "B",
+          "label": "두께만으로 증상성 trigger를 확진한다"
+        },
+        {
+          "value": "C",
+          "label": "측부인대 파열이다"
+        },
+        {
+          "value": "D",
+          "label": "CTS다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m087",
+      "related_entity_id": "d036",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq027",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "척측 fovea 압통이 양성일 때?",
+      "options": [
+        {
+          "value": "A",
+          "label": "TFCC 관련 병변을 고려하지만 단독 확진하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "TFCC 파열 확진"
+        },
+        {
+          "value": "C",
+          "label": "ECU 병변 배제"
+        },
+        {
+          "value": "D",
+          "label": "DRUJ 안정성 평가 불필요"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m086",
+      "related_entity_id": "d032",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq028",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "요측 손목 통증이 요골경상돌기보다 근위 배측에 있고 반복 신전활동과 연관되면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Intersection syndrome을 감별한다"
+        },
+        {
+          "value": "B",
+          "label": "Guyon syndrome만 고려"
+        },
+        {
+          "value": "C",
+          "label": "TFCC만 고려"
+        },
+        {
+          "value": "D",
+          "label": "Cubital tunnel만 고려"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m092",
+      "related_entity_id": "d028",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq029",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "요배측 손 감각이상이 주증상이고 건 도발검사와 불일치하면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "표재 요골감각신경병증을 감별한다"
+        },
+        {
+          "value": "B",
+          "label": "드퀘르벵만 확진한다"
+        },
+        {
+          "value": "C",
+          "label": "CTS만 확진한다"
+        },
+        {
+          "value": "D",
+          "label": "TFCC만 확진한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m098",
+      "related_entity_id": "d031",
+      "status": "active"
+    },
+    {
+      "quiz_id": "wq030",
+      "module_id": "wrist_hand_v1",
+      "domain": "clinical_reasoning",
+      "question": "손목·손 임상 모듈의 기본 안전원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "검사·초음파는 후보를 좁히는 자료이며 확정진단과 구분한다"
+        },
+        {
+          "value": "B",
+          "label": "양성 검사 하나면 진단 확정"
+        },
+        {
+          "value": "C",
+          "label": "좌우 정보가 없으면 자동 추정"
+        },
+        {
+          "value": "D",
+          "label": "시행하지 않은 검사를 기록한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m102",
+      "related_entity_id": "d035",
+      "status": "active"
+    }
+  ]
+}
