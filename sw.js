@@ -1,5 +1,5 @@
 const CACHE_PREFIX='muscle-atlas-chatgpt-';
-const CACHE=CACHE_PREFIX+'v7.2-upperlimb-adaptive-quiz';
+const CACHE=CACHE_PREFIX+'v7.3-schema-v1';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./data/media-v1.json','./data/knowledge-core-v1.json','./data/regions-v1.json','./data/schema/msk-knowledge-schema-v1.json'];
 
 self.addEventListener('install',e=>{
