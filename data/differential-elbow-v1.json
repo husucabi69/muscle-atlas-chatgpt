@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "elbow_differential_v1",
+  "region_ids": [
+    "r006",
+    "r007",
+    "r008"
+  ],
+  "safety_rule": "Differential candidates support clinical reasoning only. They are not confirmed patient diagnoses.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d017",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "외측 팔꿈치 건병증",
+      "name_en": "Lateral elbow tendinopathy",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d018",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "내측 팔꿈치 건병증",
+      "name_en": "Medial elbow tendinopathy",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d019",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "주관 증후군 / 팔꿈치 척골신경병증",
+      "name_en": "Ulnar neuropathy at the elbow",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d020",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "척골신경 불안정성 / snapping",
+      "name_en": "Ulnar nerve instability",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d021",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "요골터널/PIN 포착",
+      "name_en": "Radial tunnel / posterior interosseous nerve entrapment",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d022",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "원위 상완이두건 건병증·부분파열",
+      "name_en": "Distal biceps tendinopathy / partial tear",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d023",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "원위 상완이두건 완전파열",
+      "name_en": "Complete distal biceps rupture",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d024",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "삼두건 건병증·파열",
+      "name_en": "Triceps tendinopathy / tear",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d025",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "주두점액낭염",
+      "name_en": "Olecranon bursitis",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d026",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "내측측부인대(UCL) 병변",
+      "name_en": "Medial ulnar collateral ligament injury",
+      "region_id": "r007",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f013",
+      "entity_type": "clinical_finding",
+      "name_ko": "외측 팔꿈치 통증",
+      "key": "lateral_elbow_pain",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f014",
+      "entity_type": "clinical_finding",
+      "name_ko": "내측 팔꿈치 통증",
+      "key": "medial_elbow_pain",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f015",
+      "entity_type": "clinical_finding",
+      "name_ko": "저항성 손목 신전 시 외측 통증",
+      "key": "pain_resisted_wrist_extension",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f016",
+      "entity_type": "clinical_finding",
+      "name_ko": "저항성 손목 굴곡/회내 시 내측 통증",
+      "key": "pain_resisted_wrist_flexion_pronation",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f017",
+      "entity_type": "clinical_finding",
+      "name_ko": "제4-5지 저림/척측 감각증상",
+      "key": "ulnar_distribution_paresthesia",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f018",
+      "entity_type": "clinical_finding",
+      "name_ko": "회외·굴곡 약화",
+      "key": "supination_flexion_weakness",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f019",
+      "entity_type": "clinical_finding",
+      "name_ko": "내측 팔꿈치 snapping",
+      "key": "medial_elbow_snapping",
+      "region_id": "r007",
+      "status": "active"
+    },
+    {
+      "finding_id": "f020",
+      "entity_type": "clinical_finding",
+      "name_ko": "후방 주두부 통증",
+      "key": "posterior_olecranon_pain",
+      "region_id": "r007",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg007",
+      "symptom_id": "sx06",
+      "title_ko": "외측 팔꿈치 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d017",
+          "look_for": [
+            "외측상과 압통",
+            "저항성 손목 신전/Cozen 통증",
+            "공통신근건 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "Cozen 단독",
+            "초음파 저에코 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d021",
+          "look_for": [
+            "요골터널을 따라 더 원위부 압통/통증",
+            "PIN 경로와 회외근/Frohse arcade 평가"
+          ],
+          "not_diagnostic_alone": [
+            "중지 신전 통증 하나만으로 PIN 포착 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d022",
+          "look_for": [
+            "전외측 팔꿈치 통증",
+            "회외 통증/약화",
+            "원위 이두건 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "외측 통증 위치만으로 이두건 병변 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg008",
+      "symptom_id": "sx07",
+      "title_ko": "내측 팔꿈치 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d018",
+          "look_for": [
+            "내측상과/공통굴곡건 압통",
+            "저항성 손목 굴곡·회내 통증"
+          ],
+          "not_diagnostic_alone": [
+            "내측 압통만으로 건병증 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d019",
+          "look_for": [
+            "제4-5지 저림",
+            "Tinel/pressure-flexion 증상 재현",
+            "척골신경 초음파/전기진단"
+          ],
+          "not_diagnostic_alone": [
+            "Tinel 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d020",
+          "look_for": [
+            "굴곡 시 snapping",
+            "동적 초음파에서 척골신경 전방 이동"
+          ],
+          "not_diagnostic_alone": [
+            "무증상 신경 이동만으로 병적 불안정성 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d026",
+          "look_for": [
+            "투구/valgus 부하 관련 통증",
+            "Moving valgus stress",
+            "UCL 구조 평가"
+          ],
+          "not_diagnostic_alone": [
+            "내측 통증만으로 UCL 병변 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg009",
+      "symptom_id": "sx21",
+      "title_ko": "전방 팔꿈치 통증·회외 약화",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d022",
+          "look_for": [
+            "원위 이두건 압통",
+            "회외 저항 통증",
+            "건 연속성 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "통증만으로 부분파열 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d023",
+          "look_for": [
+            "갑작스런 손상",
+            "Hook/Biceps squeeze 이상",
+            "초음파상 tendon discontinuity/retraction"
+          ],
+          "not_diagnostic_alone": [
+            "Hook test 음성만으로 완전파열 배제"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg010",
+      "symptom_id": "sx22",
+      "title_ko": "후방 팔꿈치 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d024",
+          "look_for": [
+            "저항성 신전 통증/약화",
+            "삼두건 삽입부 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "주두 압통만으로 건파열 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d025",
+          "look_for": [
+            "피하 주두부 종창",
+            "점액낭 액체/벽 비후"
+          ],
+          "not_diagnostic_alone": [
+            "액체만으로 감염 여부 확정"
+          ]
+        }
+      ]
+    }
+  ]
+}
