@@ -70,7 +70,7 @@ button,input{font:inherit} button{cursor:pointer}
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.2 · 상지 40 + 적응형 퀴즈</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.3 · Knowledge Schema v1</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
@@ -98,7 +98,7 @@ button,input{font:inherit} button{cursor:pointer}
   </div>
   <div id="searchResults" class="result-wrap"></div>
 
-  <div class="section-title"><h3>이번 개정 핵심</h3><span>외래 친화적 구조로 첫 전환</span></div>
+  <div class="section-title"><h3>이번 개정 핵심</h3><span id="knowledgeSchemaBadge">Schema v1 · embedded fallback</span></div>
   <div class="grid3">
     <div class="card"><h3>1. 증상 기반 진입</h3><p>환자가 말하는 통증 부위/증상군에서 시작해 관련 근육과 감별 포인트로 연결합니다.</p></div>
     <div class="card"><h3>2. 근육별 임상 연결</h3><p>각 근육 카드에 해당 근육이 자주 등장하는 증상군을 역으로 표시합니다.</p></div>
@@ -177,6 +177,50 @@ async function getCuratedMedia(){
 function curatedCard(x){
   const url='https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(x.file);
   return mediaCard({title:x.title,url,page:x.sourcePage,license:[x.author,x.license,'검수 고정 영상'].filter(Boolean).join(' · ')});
+}
+
+let knowledgeCoreMeta={loaded:false,schema_version:null,dataset_version:null,source:'embedded-fallback'};
+async function hydrateKnowledgeCore(){
+  try{
+    const r=await fetch('./data/knowledge-core-v1.json',{cache:'no-cache'});
+    if(!r.ok) throw new Error('knowledge core unavailable');
+    const core=await r.json();
+    if(core.schema_version!=='1.0.0'||!Array.isArray(core.muscles)||!Array.isArray(core.symptom_patterns)) throw new Error('knowledge core invalid');
+    const regionName=Object.fromEntries((core.regions||[]).map(x=>[x.region_id,x.name_ko]));
+    const nextMuscles=core.muscles.map(x=>({
+      id:x.muscle_id,region:regionName[x.region_id]||'',ko:x.name_ko,en:x.name_en,abbr:x.abbreviation||'',
+      origin:x.anatomy?.origin||'',insertion:x.anatomy?.insertion||'',function:x.anatomy?.function||'',
+      nerve:x.innervation_text||'',blood:x.blood_supply_text||'',palpation:x.palpation_text||'',
+      stretch:x.stretch_text||'',mmt:x.mmt_text||'',pathology:x.clinical_text||''
+    }));
+    const nextSymptoms=core.symptom_patterns.map(x=>({
+      id:x.symptom_id,title:x.title_ko,summary:x.summary_ko,conditions:x.conditions_text,
+      nerves:x.nerves_text,ultrasound:x.ultrasound_text,muscles:[],
+      muscleIds:Array.isArray(x.related_muscle_ids)?x.related_muscle_ids:[]
+    }));
+    muscles.splice(0,muscles.length,...nextMuscles);
+    symptoms.splice(0,symptoms.length,...nextSymptoms);
+    if(Array.isArray(core.regions)&&core.regions.length){
+      regions.splice(0,regions.length,...core.regions.map(x=>x.name_ko));
+    }
+    Object.keys(byId).forEach(k=>delete byId[k]); muscles.forEach(m=>byId[m.id]=m);
+    Object.keys(symptomById).forEach(k=>delete symptomById[k]); symptoms.forEach(s=>symptomById[s.id]=s);
+    Object.keys(symptomsByMuscle).forEach(k=>delete symptomsByMuscle[k]);
+    muscles.forEach(m=>symptomsByMuscle[m.id]=[]);
+    symptoms.forEach(s=>(s.muscleIds||[]).forEach(mid=>{
+      if(!symptomsByMuscle[mid]) symptomsByMuscle[mid]=[];
+      symptomsByMuscle[mid].push({id:s.id,title:s.title});
+    }));
+    const qr=document.getElementById('quizRegion');
+    if(qr) qr.innerHTML='<option value="all">전체 부위</option>'+regions.map(r=>'<option value="'+esc(r)+'">'+esc(r)+'</option>').join('');
+    knowledgeCoreMeta={loaded:true,schema_version:core.schema_version,dataset_version:core.dataset_version,source:'data/knowledge-core-v1.json'};
+    const badge=document.getElementById('knowledgeSchemaBadge');
+    if(badge) badge.textContent='Schema '+core.schema_version+' · '+core.dataset_version;
+    return true;
+  }catch(e){
+    console.warn('MSK Knowledge Core fallback active',e);
+    return false;
+  }
 }
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s||'').toLowerCase().replace(/\s+/g,'').replace(/[·\-_/()]/g,'');
@@ -449,6 +493,7 @@ function answerQuiz(i){
 function nextQuiz(){quizIndex++;renderQuiz();}
 document.getElementById('quizRegion').innerHTML='<option value="all">전체 부위</option>'+regions.map(r=>'<option value="'+esc(r)+'">'+esc(r)+'</option>').join('');
 updateQuizStats();
+hydrateKnowledgeCore();
 
 
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeSymptom(); closeMuscle();}});
