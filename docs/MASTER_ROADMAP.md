@@ -46,8 +46,9 @@
 ## 현재 단계
 Stage 1 — 어깨·견갑대·상완
 현재 상태: Stage 1 어깨·견갑대·상완 COMPLETE — 2026-09-24 조기 완료
-현재 개발: Stage 2 팔꿈치·전완
-목표 완료일: 2026-10-12
+Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
+현재 개발: Stage 3 손목·손
+목표 완료일: 2026-10-24
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -128,9 +129,9 @@ Stage 2 — 팔꿈치·전완. Anatomy → structure/nerve → findings → exam
 ### Claude anatomy audit
 - [x] Claude 186 vs Knowledge Core 전수 구조 대조
 - [x] 단순 개수 비교가 아닌 grouping/splitting 차이 확인
-- [x] 검증 누락 근육 21개 Stable ID 편입 (m184~m204)
-- [x] canonical 근육 기록 183 → 204
-- [x] Articularis cubiti 및 흔적성 sacrococcygeus는 variant 후보로 보류
+- [x] 검증 누락 근육 22개 Stable ID 편입 (m184~m205)
+- [x] canonical 근육 기록 183 → 205
+- [x] Articularis cubiti는 신규 근거 재검토 후 m205로 승격; 흔적성 sacrococcygeus만 보류
 - [x] Claude의 비어 있거나 근거가 약한 임상/초음파 문구는 자동 이식하지 않음
 
 ### Stage 2 팔꿈치·전완
@@ -143,5 +144,27 @@ Stage 2 — 팔꿈치·전완. Anatomy → structure/nerve → findings → exam
 - [x] Diagnosis Concept 10개 + differential group 4개
 - [x] Elbow clinical quiz 20문항
 - [x] 앱 임상 모듈 / 퀴즈 UI 연결
-- [ ] 실제 공개 elbow ultrasound media 고정 + license audit
-- [ ] Stage 2 final COMPLETE 판정
+- [x] 실제 공개 elbow ultrasound media 8/8 고정 reference + license audit
+- [x] Stage 2 final COMPLETE — 2026-09-25
+
+
+## v8.1 Elbow Stage 2 COMPLETE — 2026-09-25
+- [x] Canonical anatomy 205 records (Articularis cubiti m205 포함)
+- [x] Tendon · Nerve · Joint · Bursa · Ligament Stable ID
+- [x] Clinical Finding 8개
+- [x] Examination / Special Test 10개
+- [x] Ultrasound View 8개
+- [x] Diagnosis Concept 10개 + differential group 4개
+- [x] 실제 공개 초음파 source/figure/license audit 8/8
+- [x] Elbow clinical quiz 24문항
+- [x] Stable ID / relationship integrity
+- [x] Patient/PHI boundary 유지
+- [x] 기존 Shoulder/PWA/증상/해부 계층 회귀검사
+
+### 미디어 원칙
+- 직접 파일 복제보다 출처·라이선스 문맥을 보존하는 open-access article figure reference를 우선.
+- 실제 초음파가 아닌 생성·도식 이미지는 대체 영상으로 사용하지 않음.
+- 병리 예시(예: olecranon bursitis)는 정상 영상으로 오인하지 않도록 명시.
+
+### 다음
+Stage 3 — 손목·손. 1~6 신전구획, 굴곡건, CTS/Guyon, TFCC 주변, intrinsic hand를 동일 completion gate로 확장.
