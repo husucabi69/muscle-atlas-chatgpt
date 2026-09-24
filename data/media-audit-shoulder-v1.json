@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "module_id": "shoulder_ultrasound_media_audit_v1",
   "audited_on": "2026-09-24",
-  "policy": "Only actual ultrasound or ultrasound video with clear source/license is embedded. Open references without a stable reusable asset are link-only. No fabricated substitute.",
+  "policy": "Every shoulder ultrasound view must map to either (a) verified reusable actual ultrasound media embedded in-app or (b) an exact open-access figure page fixed as the canonical reference. No fabricated or generic substitute is allowed.",
   "views": [
     {
       "ultrasound_view_id": "usv001",
@@ -48,24 +48,24 @@
     },
     {
       "ultrasound_view_id": "usv004",
-      "status": "verified_open_reference_link_only",
+      "status": "verified_fixed_reference",
       "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG2/",
       "license": "Creative Commons Attribution License",
-      "note": "Figure includes transverse and longitudinal long-head biceps tendon views. Kept link-only until a stable asset URL is fixed."
+      "note": "Figure includes transverse and longitudinal long-head biceps tendon views. Kept link-only until a stable asset URL is fixed. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page."
     },
     {
       "ultrasound_view_id": "usv005",
-      "status": "verified_open_reference_link_only",
+      "status": "verified_fixed_reference",
       "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
       "license": "Creative Commons Attribution License",
-      "note": "Figure includes subscapularis long-axis and transverse views."
+      "note": "Figure includes subscapularis long-axis and transverse views. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page."
     },
     {
       "ultrasound_view_id": "usv006",
-      "status": "verified_open_reference_link_only",
+      "status": "verified_fixed_reference",
       "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
       "license": "Creative Commons Attribution License",
-      "note": "Figure includes subscapularis long-axis and transverse views."
+      "note": "Figure includes subscapularis long-axis and transverse views. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page."
     },
     {
       "ultrasound_view_id": "usv007",
@@ -106,10 +106,32 @@
     },
     {
       "ultrasound_view_id": "usv009",
-      "status": "verified_open_reference_link_only",
+      "status": "verified_fixed_reference",
       "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG1/",
       "license": "Creative Commons Attribution License",
-      "note": "Normal AC joint ultrasound reference. Link-only until stable asset URL is fixed."
+      "note": "Normal AC joint ultrasound reference. Link-only until stable asset URL is fixed. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page."
+    }
+  ],
+  "coverage": {
+    "views_total": 9,
+    "embedded_verified": 5,
+    "exact_figure_reference": 4,
+    "unverified": 0
+  },
+  "stage1_gate": "PASS",
+  "sources": [
+    {
+      "source_id": "src_shoulder_absis_2021",
+      "citation": "Selame LAJ, Matsas B, Krauss B, Goldsmith AJ, Shokoohi H. A Stepwise Guide to Performing Shoulder Ultrasound: The ABSIS Protocol. Cureus. 2021.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/",
+      "license": "Creative Commons Attribution License",
+      "use": "Exact figure references for AC joint, biceps long-axis, and subscapularis long/short-axis."
+    },
+    {
+      "source_id": "src_essr_shoulder",
+      "citation": "ESSR Musculoskeletal Ultrasound Technical Guidelines I. Shoulder.",
+      "url": "https://www.essr.org/content-essr/uploads/2016/10/shoulder.pdf",
+      "use": "Scanning sequence, probe orientation, and landmarks."
     }
   ]
 }
