@@ -29,3 +29,11 @@ EMR의 환자 기록은 근육학 앱으로 복제하지 않는다. OrthoOS가 �
 - 실제 초음파 고정: 극상건 정상 LAX/SAX, 상완이두근 장두 정상, 회전근개 파열 예시
 - 원칙: 구조/면이 불확실한 초음파는 고정하지 않고 임의 대체 금지
 - 다음: pectoralis minor, coracobrachialis, anconeus 및 전완 고빈도 근육으로 확대
+
+
+## 현재 진행 상태 — v7.2 상지 40 + 적응형 퀴즈
+- 고정 해부학 영상: 기존 19개 + 상완/전완 21개 = 총 40개 근육/근군
+- 추가 대상: 오훼완근, 주근, 원회내근, FCR, palmaris longus, FCU, FDS, FDP, FPL, pronator quadratus, brachioradialis, ECRL, ECRB, ED, EDM, ECU, supinator, APL, EPB, EPL, EI
+- 퀴즈: 정방향 + 역방향, 오답 가중 출제, 간격 반복(spaced repetition) 기반 오늘 복습
+- 초음파 원칙 유지: 확인 가능한 실제 영상만 고정, 불확실 영상은 임의 대체 금지
+- 다음: 손 내재근/하지 고빈도 근육 영상 정본화와 임상 감별진단 v8
