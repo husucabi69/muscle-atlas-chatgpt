@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "elbow_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "Every elbow ultrasound view must map to an actual ultrasound source with a clear publication/license context. Direct image copying is avoided when a canonical open-access article figure is safer. No generated or generic substitute is permitted.",
+  "coverage": {
+    "views_total": 8,
+    "embedded_verified": 0,
+    "exact_figure_reference": 8,
+    "unverified": 0
+  },
+  "stage2_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv010",
+      "status": "verified_fixed_reference",
+      "title": "공통신근건 장축 정상 초음파",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11697989/",
+      "figure_label": "Figures 2a/b — Normal extensor mass in long axis",
+      "license": "CC BY-NC 4.0",
+      "note": "공통신근건과 심부 radial collateral ligament의 층을 확인."
+    },
+    {
+      "ultrasound_view_id": "usv011",
+      "status": "verified_fixed_reference",
+      "title": "공통신근건 단축 정상 초음파",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11697989/",
+      "figure_label": "Figures 3a/b — Normal extensor mass in short axis",
+      "license": "CC BY-NC 4.0",
+      "note": "단축에서 건 섬유와 신근군 근복을 확인."
+    },
+    {
+      "ultrasound_view_id": "usv012",
+      "status": "verified_fixed_reference",
+      "title": "공통굴곡-회내건 및 UCL 장축",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11374584/",
+      "figure_label": "Figure 2 — Normal long-axis medial elbow",
+      "license": "CC BY-NC 4.0",
+      "note": "공통굴곡건과 그 심부의 UCL 전방다발을 함께 확인."
+    },
+    {
+      "ultrasound_view_id": "usv013",
+      "status": "verified_fixed_reference",
+      "title": "척골신경 주관 동적 초음파",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11374584/",
+      "figure_label": "Figure 8 — Dynamic ulnar nerve instability assessment",
+      "license": "CC BY-NC 4.0",
+      "note": "최소한의 probe 압력으로 굴곡 시 척골신경 위치 변화를 관찰. 무증상 불안정성도 가능하므로 임상증상과 함께 판단."
+    },
+    {
+      "ultrasound_view_id": "usv014",
+      "status": "verified_fixed_reference",
+      "title": "원위 상완이두건 장축 표준 view",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11744171/",
+      "figure_label": "Figure 1, column IV — Long-axis distal biceps tendon",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "표준 원위 이두건 장축 view. 깊은 부착부에서는 anisotropy에 주의."
+    },
+    {
+      "ultrasound_view_id": "usv015",
+      "status": "verified_fixed_reference",
+      "title": "요골신경 심부운동가지/PIN",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6423902/",
+      "figure_label": "Figures 3-4 — Deep motor branch entering supinator and PIN",
+      "license": "CC BY 4.0",
+      "note": "Arcade of Frohse와 회외근 두 층 사이를 통과하는 PIN을 추적."
+    },
+    {
+      "ultrasound_view_id": "usv016",
+      "status": "verified_fixed_reference",
+      "title": "삼두건 및 주두점액낭",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12129630/",
+      "figure_label": "Figure 6 — Triceps tendon with olecranon bursa example",
+      "license": "CC BY-NC 4.0",
+      "note": "주두점액낭은 정상에서는 뚜렷하지 않을 수 있음. Figure는 실제 bursitis 예시이므로 정상 영상으로 오인하지 않도록 표시."
+    },
+    {
+      "ultrasound_view_id": "usv017",
+      "status": "verified_fixed_reference",
+      "title": "전방 팔꿈치 관절 표준 초음파",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11744171/",
+      "figure_label": "Figure 1, columns I-III — Standard anterior elbow views",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "capitellum, trochlea, humeroradial/humeroulnar anterior landmarks를 확인."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src_elbow_essr",
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines II. Elbow",
+      "url": "https://essr.org/content-essr/uploads/2016/10/elbow.pdf",
+      "use": "표준 환자 자세, probe orientation, 4면 scan sequence"
+    },
+    {
+      "source_id": "src_lateral_elbow_2025",
+      "title": "Diagnostic Musculoskeletal Ultrasound for the Evaluation of the Lateral Elbow",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11697989/",
+      "license": "CC BY-NC 4.0"
+    },
+    {
+      "source_id": "src_medial_elbow_2024",
+      "title": "Ultrasonographic differential diagnosis of medial elbow pain",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11374584/",
+      "license": "CC BY-NC 4.0"
+    },
+    {
+      "source_id": "src_elbow_standard_2025",
+      "title": "Automated elbow ultrasound image recognition: a two-stage deep learning system",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11744171/",
+      "license": "CC BY-NC-ND 4.0"
+    },
+    {
+      "source_id": "src_radial_nerve_2019",
+      "title": "Ultrasound in the Evaluation of Radial Neuropathies at the Elbow",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6423902/",
+      "license": "CC BY 4.0"
+    },
+    {
+      "source_id": "src_triceps_2025",
+      "title": "Diagnostic Musculoskeletal Ultrasound in the Evaluation of the Triceps Tendon",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12129630/",
+      "license": "CC BY-NC 4.0"
+    }
+  ]
+}
