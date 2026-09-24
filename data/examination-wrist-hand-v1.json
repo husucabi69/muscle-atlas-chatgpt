@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "wrist_hand_examination_v1",
+  "region_ids": [
+    "r007",
+    "r008",
+    "r009"
+  ],
+  "source_refs": {
+    "wrist_us_guide": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+    "cts_meta": "https://pubmed.ncbi.nlm.nih.gov/37621797/",
+    "finkelstein": "https://pubmed.ncbi.nlm.nih.gov/30154628/",
+    "what": "https://pubmed.ncbi.nlm.nih.gov/23340762/",
+    "ecu_synergy": "https://pubmed.ncbi.nlm.nih.gov/26589644/",
+    "cmc_grind": "https://pubmed.ncbi.nlm.nih.gov/20452743/",
+    "cmc_pressure_shear": "https://pubmed.ncbi.nlm.nih.gov/29150383/",
+    "scaphoid_shift": "https://pubmed.ncbi.nlm.nih.gov/36362552/",
+    "tfcc_fovea": "https://pubmed.ncbi.nlm.nih.gov/34459533/",
+    "druj_ballottement": "https://pubmed.ncbi.nlm.nih.gov/37999702/",
+    "guyon_review": "https://pubmed.ncbi.nlm.nih.gov/25344595/"
+  },
+  "clinical_tests": [
+    {
+      "clinical_test_id": "ct022",
+      "name_ko": "Finkelstein 검사",
+      "name_en": "True Finkelstein test",
+      "category": "radial_wrist",
+      "target_structure_ids": [
+        "t010"
+      ],
+      "setup": "전완을 중립 또는 회내로 두고 엄지는 손바닥 밖에 편안히 둔다.",
+      "maneuver": "검사자가 엄지를 잡아 수동으로 척측 편위 방향으로 견인·신장하여 제1 신전구획을 긴장시킨다.",
+      "positive_definition": "요골경상돌기 부위의 익숙한 통증이 재현되면 기록한다.",
+      "interpretation_note": "드퀘르벵 건초염을 지지하는 도발검사다. 주먹 안에 엄지를 넣는 Eichhoff 검사와 구분한다.",
+      "limitation": "단독 확진검사가 아니며 교차증후군, CMC 관절통, 표재요골신경병증과 감별한다.",
+      "related_diagnosis_concept_ids": [
+        "d027"
+      ],
+      "evidence_refs": [
+        "finkelstein"
+      ]
+    },
+    {
+      "clinical_test_id": "ct023",
+      "name_ko": "WHAT 검사",
+      "name_en": "Wrist hyperflexion and abduction of the thumb test",
+      "category": "radial_wrist",
+      "target_structure_ids": [
+        "t010"
+      ],
+      "setup": "손목을 과굴곡한 상태에서 엄지를 능동 외전하도록 한다.",
+      "maneuver": "검사자가 엄지 외전에 반대 저항을 준다.",
+      "positive_definition": "제1 신전구획/요골경상돌기 부위의 익숙한 통증이 재현되면 기록한다.",
+      "interpretation_note": "드퀘르벵 평가를 보조하며 한 연구에서 높은 민감도와 낮은 특이도가 보고됐다.",
+      "limitation": "단독 진단에 사용하지 않고 초음파와 임상 문맥을 함께 본다.",
+      "related_diagnosis_concept_ids": [
+        "d027"
+      ],
+      "evidence_refs": [
+        "what"
+      ]
+    },
+    {
+      "clinical_test_id": "ct024",
+      "name_ko": "Phalen 검사",
+      "name_en": "Phalen test",
+      "category": "median_nerve",
+      "target_structure_ids": [
+        "n005",
+        "lig002"
+      ],
+      "setup": "양 손목을 최대한 굴곡시켜 손등끼리 맞댄다.",
+      "maneuver": "최대 약 60초 동안 유지하며 증상 재현을 확인한다.",
+      "positive_definition": "정중신경 분포의 익숙한 저림·감각이상이 재현되면 기록한다.",
+      "interpretation_note": "손목터널증후군을 지지하는 도발검사 중 하나다.",
+      "limitation": "메타분석에서 성능 변이가 크므로 단독으로 확정·배제하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d029"
+      ],
+      "evidence_refs": [
+        "cts_meta"
+      ]
+    },
+    {
+      "clinical_test_id": "ct025",
+      "name_ko": "손목터널 Tinel 징후",
+      "name_en": "Tinel sign at carpal tunnel",
+      "category": "median_nerve",
+      "target_structure_ids": [
+        "n005",
+        "lig002"
+      ],
+      "setup": "손바닥쪽 손목 주름 근처의 정중신경 경로를 확인한다.",
+      "maneuver": "손목터널 위를 가볍게 반복 타진한다.",
+      "positive_definition": "정중신경 분포로 퍼지는 익숙한 저림/전기감이 재현되면 기록한다.",
+      "interpretation_note": "정중신경 자극을 지지하는 보조 소견이다.",
+      "limitation": "민감도·특이도가 가변적이며 단독 진단 금지.",
+      "related_diagnosis_concept_ids": [
+        "d029"
+      ],
+      "evidence_refs": [
+        "cts_meta"
+      ]
+    },
+    {
+      "clinical_test_id": "ct026",
+      "name_ko": "Durkan 손목터널 압박검사",
+      "name_en": "Durkan carpal compression test",
+      "category": "median_nerve",
+      "target_structure_ids": [
+        "n005",
+        "lig002"
+      ],
+      "setup": "손목을 중립에 가깝게 둔다.",
+      "maneuver": "손목터널 부위에 직접 압박을 일정 시간 가한다.",
+      "positive_definition": "정중신경 분포의 익숙한 감각증상이 재현되면 기록한다.",
+      "interpretation_note": "CTS 평가에서 흔히 사용하는 압박 도발검사다.",
+      "limitation": "개별 검사 성능은 연구마다 다르므로 병력·감각/운동검사·필요 시 전기진단/초음파와 함께 해석한다.",
+      "related_diagnosis_concept_ids": [
+        "d029"
+      ],
+      "evidence_refs": [
+        "cts_meta"
+      ]
+    },
+    {
+      "clinical_test_id": "ct027",
+      "name_ko": "Guyon관 Tinel 징후",
+      "name_en": "Tinel sign at Guyon canal",
+      "category": "ulnar_nerve",
+      "target_structure_ids": [
+        "n006",
+        "n012"
+      ],
+      "setup": "두상골과 유구골 갈고리 사이 Guyon관 위치를 확인한다.",
+      "maneuver": "Guyon관의 척골신경 위를 가볍게 타진한다.",
+      "positive_definition": "제4-5지/척측 손바닥의 익숙한 저림이 재현되면 기록한다.",
+      "interpretation_note": "손목 수준 척골신경 자극의 보조 소견이다.",
+      "limitation": "주관 증후군과 감각 분포를 비교하고, 단독으로 병변 위치를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d030"
+      ],
+      "evidence_refs": [
+        "guyon_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct028",
+      "name_ko": "Froment 징후",
+      "name_en": "Froment sign",
+      "category": "ulnar_motor",
+      "target_structure_ids": [
+        "n012",
+        "m106",
+        "m107"
+      ],
+      "setup": "엄지와 검지 사이에 종이를 끼운다.",
+      "maneuver": "검사자가 종이를 당기는 동안 환자가 엄지 내전으로 유지하게 한다.",
+      "positive_definition": "무지내전 약화를 보상하려 엄지 IP 관절이 굴곡되면 양성 소견으로 기록한다.",
+      "interpretation_note": "척골신경 심부운동가지/무지내전근 약화를 시사한다.",
+      "limitation": "병변 위치는 팔꿈치·손목·근위부를 함께 평가해야 한다.",
+      "related_diagnosis_concept_ids": [
+        "d030"
+      ],
+      "evidence_refs": [
+        "guyon_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct029",
+      "name_ko": "Wartenberg 징후",
+      "name_en": "Wartenberg sign",
+      "category": "ulnar_motor",
+      "target_structure_ids": [
+        "n012",
+        "m109"
+      ],
+      "setup": "손을 편안히 펴고 손가락을 모으게 한다.",
+      "maneuver": "소지가 지속적으로 외전되는지와 능동 내전 가능 여부를 관찰한다.",
+      "positive_definition": "소지가 외전된 채 유지되거나 내전이 어려우면 기록한다.",
+      "interpretation_note": "척골신경 지배 골간근 기능저하를 시사하는 운동징후다.",
+      "limitation": "척골신경병증의 위치·원인은 다른 신경학적 검사와 함께 판단한다.",
+      "related_diagnosis_concept_ids": [
+        "d030"
+      ],
+      "evidence_refs": [
+        "guyon_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct030",
+      "name_ko": "척측 fovea 징후",
+      "name_en": "Ulnar fovea sign",
+      "category": "ulnar_wrist",
+      "target_structure_ids": [
+        "lig004"
+      ],
+      "setup": "척골경상돌기와 FCU, 두상골 사이 연부조직 fovea를 찾는다.",
+      "maneuver": "해당 부위를 깊지 않게 국소 압박한다.",
+      "positive_definition": "반대측보다 뚜렷한 익숙한 척측 손목 통증이 재현되면 기록한다.",
+      "interpretation_note": "TFCC/척측 손목 병변을 고려하게 하는 보조 소견이다.",
+      "limitation": "연구별 진단성능 차이가 커 단독으로 TFCC 파열을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d032"
+      ],
+      "evidence_refs": [
+        "tfcc_fovea"
+      ]
+    },
+    {
+      "clinical_test_id": "ct031",
+      "name_ko": "DRUJ ballottement 검사",
+      "name_en": "Distal radioulnar joint ballottement test",
+      "category": "ulnar_wrist",
+      "target_structure_ids": [
+        "j007",
+        "lig004"
+      ],
+      "setup": "전완을 중립 또는 회내/회외 여러 위치에서 원위 요골을 고정한다.",
+      "maneuver": "척골두를 전후방으로 부드럽게 이동시키며 대측과 비교한다.",
+      "positive_definition": "통증, 과도한 이동 또는 단단한 종말감 소실을 기록한다.",
+      "interpretation_note": "DRUJ 불안정성/TFCC 관련 병변 평가의 보조검사다.",
+      "limitation": "검사자 의존성이 있으며 대측 비교와 영상·손상기전을 함께 본다.",
+      "related_diagnosis_concept_ids": [
+        "d032"
+      ],
+      "evidence_refs": [
+        "druj_ballottement"
+      ]
+    },
+    {
+      "clinical_test_id": "ct032",
+      "name_ko": "ECU synergy 검사",
+      "name_en": "ECU synergy test",
+      "category": "ulnar_wrist",
+      "target_structure_ids": [
+        "t015",
+        "m096"
+      ],
+      "setup": "팔꿈치 90° 굴곡, 전완 최대 회외, 손목 중립.",
+      "maneuver": "검사자가 중지/수지의 요측 방향 힘과 ECU 긴장을 유도하면서 척측 손목 통증을 확인한다.",
+      "positive_definition": "ECU 주행을 따라 익숙한 통증이 재현되면 기록한다.",
+      "interpretation_note": "만성 배측-척측 손목통증에서 ECU 이상을 선별하는 보조검사다.",
+      "limitation": "초음파 이상과의 연관성을 보는 검사이며 ECU 병변을 단독 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d033"
+      ],
+      "evidence_refs": [
+        "ecu_synergy"
+      ]
+    },
+    {
+      "clinical_test_id": "ct033",
+      "name_ko": "엄지 CMC grind 검사",
+      "name_en": "Thumb CMC grind test",
+      "category": "thumb_cmc",
+      "target_structure_ids": [
+        "j008"
+      ],
+      "setup": "제1 중수골을 잡아 CMC 관절을 안정화한다.",
+      "maneuver": "축성 압박과 회전을 가한다.",
+      "positive_definition": "엄지 기저부 통증/염발음이 재현되면 기록한다.",
+      "interpretation_note": "양성은 CMC 골관절염을 지지할 수 있으나 음성으로 배제하기 어렵다.",
+      "limitation": "민감도가 낮게 보고돼 단독 선별검사로는 제한적이다.",
+      "related_diagnosis_concept_ids": [
+        "d035"
+      ],
+      "evidence_refs": [
+        "cmc_grind"
+      ]
+    },
+    {
+      "clinical_test_id": "ct034",
+      "name_ko": "엄지 CMC pressure-shear 검사",
+      "name_en": "Thumb CMC pressure-shear test",
+      "category": "thumb_cmc",
+      "target_structure_ids": [
+        "j008"
+      ],
+      "setup": "제1 중수골 기저부를 CMC 관절면에 맞춰 지지한다.",
+      "maneuver": "관절면을 따라 압박·전단력을 가해 증상을 유발한다.",
+      "positive_definition": "익숙한 엄지 기저부 통증이 재현되면 기록한다.",
+      "interpretation_note": "한 임상 연구에서 grind보다 높은 진단성능이 보고됐다.",
+      "limitation": "단일 연구 결과를 보편적 확진 기준으로 사용하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d035"
+      ],
+      "evidence_refs": [
+        "cmc_pressure_shear"
+      ]
+    },
+    {
+      "clinical_test_id": "ct035",
+      "name_ko": "Watson 주상골 이동 검사",
+      "name_en": "Watson scaphoid shift test",
+      "category": "dorsal_wrist",
+      "target_structure_ids": [
+        "lig003"
+      ],
+      "setup": "주상골 결절을 촉지하고 손목을 척측편위·약간 신전에서 시작한다.",
+      "maneuver": "주상골에 압박을 유지하며 손목을 요측편위·굴곡 방향으로 이동한다.",
+      "positive_definition": "통증성 clunk 또는 반대측과 다른 비정상 이동이 있으면 기록한다.",
+      "interpretation_note": "주상월상인대 손상의 예비평가에 사용하는 검사다.",
+      "limitation": "민감도와 특이도가 제한적이며 음성 검사로 의미 있는 병변을 배제하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d037"
+      ],
+      "evidence_refs": [
+        "scaphoid_shift"
+      ]
+    }
+  ]
+}
