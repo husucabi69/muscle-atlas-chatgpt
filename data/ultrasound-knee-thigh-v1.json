@@ -1,0 +1,350 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "knee_thigh_ultrasound_v1",
+  "region_ids": [
+    "r011"
+  ],
+  "primary_references": [
+    {
+      "title": "Enhancing knee imaging via histology and anatomy-driven high-resolution musculoskeletal ultrasound",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "license": "CC BY-NC-ND 4.0"
+    },
+    {
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines: Knee",
+      "url": "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf",
+      "use": "standard positioning and scan sequence"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv042",
+      "name_ko": "대퇴사두건 장축",
+      "name_en": "Quadriceps tendon LAX",
+      "target_structure_ids": [
+        "t026",
+        "m132"
+      ],
+      "patient_position": "앙와위, 무릎 약 20–30° 굴곡.",
+      "probe_orientation": "슬개골 상극에서 대퇴사두건 섬유와 평행한 종축.",
+      "landmarks": [
+        "superior pole of patella",
+        "quadriceps tendon layers",
+        "suprapatellar fat pad",
+        "suprapatellar recess"
+      ],
+      "normal_finding": "건의 섬유성 연속성과 층상 구조를 추적한다.",
+      "pitfalls": [
+        "anisotropy를 줄이기 위해 distal tilt 필요",
+        "층수의 해부학적 변이가 존재"
+      ],
+      "source_ref": "knee_atlas_2025_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv043",
+      "name_ko": "대퇴사두건 단축·층상",
+      "name_en": "Quadriceps tendon SAX / layered view",
+      "target_structure_ids": [
+        "t026",
+        "m128",
+        "m129",
+        "m130",
+        "m131"
+      ],
+      "patient_position": "앙와위, 무릎 약 20–30° 굴곡.",
+      "probe_orientation": "원위 대퇴사두건을 횡축으로 sweep.",
+      "landmarks": [
+        "rectus femoris superficial layer",
+        "vastus medialis/lateralis intermediate layer",
+        "vastus intermedius deep layer",
+        "femur"
+      ],
+      "normal_finding": "단축에서 건 폭·층상 구조와 주변 연부조직을 좌우 비교한다.",
+      "pitfalls": [
+        "섬유 방향 차이로 각 층의 echogenicity가 달라질 수 있음",
+        "영상 변화만으로 건병증 확정 금지"
+      ],
+      "source_ref": "essr_knee_p1"
+    },
+    {
+      "ultrasound_view_id": "usv044",
+      "name_ko": "슬개상낭·대퇴활차",
+      "name_en": "Suprapatellar recess and femoral trochlea",
+      "target_structure_ids": [
+        "j010",
+        "m132"
+      ],
+      "patient_position": "앙와위; recess는 경도 굴곡, trochlear cartilage는 더 큰 굴곡에서 확인.",
+      "probe_orientation": "슬개상부 횡축/종축 후 필요 시 슬개골 아래에서 활차 횡축.",
+      "landmarks": [
+        "suprapatellar recess",
+        "prefemoral fat pad",
+        "suprapatellar fat pad",
+        "trochlear cartilage"
+      ],
+      "normal_finding": "recess와 지방체, 활차 연골의 경계를 확인한다.",
+      "pitfalls": [
+        "소량 관절액은 임상 맥락 필요",
+        "초음파가 깊은 관절내 병변을 완전히 배제하지 못함"
+      ],
+      "source_ref": "knee_atlas_2025_fig2_fig6"
+    },
+    {
+      "ultrasound_view_id": "usv045",
+      "name_ko": "슬개건 장축",
+      "name_en": "Patellar tendon LAX",
+      "target_structure_ids": [
+        "t027"
+      ],
+      "patient_position": "앙와위, 무릎 약 20–30° 굴곡.",
+      "probe_orientation": "슬개골 하극에서 경골조면까지 섬유와 평행한 종축.",
+      "landmarks": [
+        "inferior pole of patella",
+        "patellar tendon",
+        "Hoffa fat pad",
+        "tibial tuberosity"
+      ],
+      "normal_finding": "근위·중간·원위 건의 섬유 패턴과 연속성을 추적한다.",
+      "pitfalls": [
+        "삽입부 anisotropy",
+        "두께·저에코만으로 증상 원인 확정 금지"
+      ],
+      "source_ref": "knee_atlas_2025_fig5"
+    },
+    {
+      "ultrasound_view_id": "usv046",
+      "name_ko": "슬개건 단축·슬개하 점액낭",
+      "name_en": "Patellar tendon SAX with infrapatellar bursae",
+      "target_structure_ids": [
+        "t027",
+        "b007",
+        "b008"
+      ],
+      "patient_position": "앙와위, 20–30° 굴곡 후 필요 시 최대 굴곡 비교.",
+      "probe_orientation": "슬개건을 횡축으로 근위부터 경골조면까지 sweep.",
+      "landmarks": [
+        "patellar tendon",
+        "superficial infrapatellar bursa",
+        "deep infrapatellar bursa",
+        "Hoffa fat pad"
+      ],
+      "normal_finding": "정상 superficial bursa는 대개 보이지 않으며 deep bursa에는 굴곡 시 소량 액체가 보일 수 있다.",
+      "pitfalls": [
+        "소량 deep bursal fluid를 병적 bursitis로 과진단 금지"
+      ],
+      "source_ref": "knee_atlas_2025_fig5"
+    },
+    {
+      "ultrasound_view_id": "usv047",
+      "name_ko": "슬개주위 retinaculum·MPFL 영역",
+      "name_en": "Peripatellar retinaculum / MPFL region",
+      "target_structure_ids": [
+        "lig009",
+        "j010"
+      ],
+      "patient_position": "앙와위, 무릎 신전 또는 경도 굴곡.",
+      "probe_orientation": "슬개골 내측연에서 대퇴 내측으로 횡/사선 sweep.",
+      "landmarks": [
+        "medial patellar margin",
+        "medial retinaculum",
+        "medial femoral condyle",
+        "parapatellar recess"
+      ],
+      "normal_finding": "얇은 fibrillar retinacular layer와 인접 recess를 해부학적으로 확인한다.",
+      "pitfalls": [
+        "MPFL 전체를 한 영상으로 단순화하지 않음",
+        "급성 불안정성은 임상·MRI 등과 통합"
+      ],
+      "source_ref": "knee_atlas_2025_fig3_fig4"
+    },
+    {
+      "ultrasound_view_id": "usv048",
+      "name_ko": "내측측부인대 장축·동적 외반",
+      "name_en": "MCL LAX with dynamic valgus",
+      "target_structure_ids": [
+        "lig007",
+        "j010"
+      ],
+      "patient_position": "앙와위, 무릎 약 20–30° 굴곡 및 약간 외회전.",
+      "probe_orientation": "내측 대퇴상과에서 근위 경골까지 MCL 장축.",
+      "landmarks": [
+        "medial femoral condyle",
+        "MCL superficial/deep layers",
+        "medial joint line",
+        "tibia"
+      ],
+      "normal_finding": "규칙적인 fibrillar MCL 층과 연속성을 추적한다.",
+      "pitfalls": [
+        "deep MCL/meniscocapsular 구조와 혼동 주의",
+        "stress opening을 임상 안정성 검사와 함께 해석"
+      ],
+      "source_ref": "knee_atlas_2025_fig7"
+    },
+    {
+      "ultrasound_view_id": "usv049",
+      "name_ko": "거위발 힘줄·점액낭",
+      "name_en": "Pes anserine tendons and bursal plane",
+      "target_structure_ids": [
+        "t029",
+        "t031",
+        "t032",
+        "b009",
+        "n021"
+      ],
+      "patient_position": "앙와위, 무릎 약간 굴곡·고관절 외회전.",
+      "probe_orientation": "MCL 원위부의 전내측 경골에서 종축과 단축으로 sweep.",
+      "landmarks": [
+        "sartorius",
+        "gracilis tendon",
+        "semitendinosus tendon",
+        "distal MCL",
+        "saphenous nerve region"
+      ],
+      "normal_finding": "세 거위발 구성 힘줄의 관계를 확인하며 정상 bursa는 보이지 않을 수 있다.",
+      "pitfalls": [
+        "정상 bursa 비가시성이 흔함",
+        "MCL 및 semimembranosus arm과 혼동 주의"
+      ],
+      "source_ref": "knee_atlas_2025_fig7"
+    },
+    {
+      "ultrasound_view_id": "usv050",
+      "name_ko": "원위 장경인대·Gerdy 결절",
+      "name_en": "Distal iliotibial band to Gerdy tubercle",
+      "target_structure_ids": [
+        "m126",
+        "j010"
+      ],
+      "patient_position": "앙와위, 무릎 약 20–30° 굴곡 및 약간 내회전.",
+      "probe_orientation": "외측 대퇴과에서 Gerdy 결절까지 ITB 장축.",
+      "landmarks": [
+        "lateral femoral epicondyle",
+        "iliotibial band",
+        "Gerdy tubercle",
+        "lateral joint line"
+      ],
+      "normal_finding": "얇고 균일한 fibrillar ITB를 원위 부착부까지 추적한다.",
+      "pitfalls": [
+        "압박으로 소량 액체가 소실될 수 있음",
+        "영상 이상만으로 ITBS 확정 금지"
+      ],
+      "source_ref": "knee_atlas_2025_fig8"
+    },
+    {
+      "ultrasound_view_id": "usv051",
+      "name_ko": "외측측부인대·대퇴이두건·슬와건",
+      "name_en": "LCL / distal biceps femoris / popliteus complex",
+      "target_structure_ids": [
+        "lig008",
+        "t028",
+        "t033"
+      ],
+      "patient_position": "앙와위 또는 반측와위, 무릎 약 20–30° 굴곡.",
+      "probe_orientation": "외측 대퇴상과에서 비골두까지 LCL 장축 후 probe를 회전해 biceps/popliteus를 구분.",
+      "landmarks": [
+        "LCL",
+        "fibular head",
+        "distal biceps femoris tendon",
+        "popliteus tendon"
+      ],
+      "normal_finding": "LCL과 distal biceps tendon의 해부 변이를 인지하며 각각의 연속성을 확인한다.",
+      "pitfalls": [
+        "biceps tendon이 LCL을 둘러싸는 정상 변이",
+        "소량 subpopliteal recess fluid는 정상일 수 있음"
+      ],
+      "source_ref": "knee_atlas_2025_fig9"
+    },
+    {
+      "ultrasound_view_id": "usv052",
+      "name_ko": "후내측 햄스트링·Baker cyst 경로",
+      "name_en": "Posteromedial hamstrings and semimembranosus-gastrocnemius bursa",
+      "target_structure_ids": [
+        "t029",
+        "t030",
+        "b010"
+      ],
+      "patient_position": "복와위 또는 서서 무릎 신전/굴곡 비교.",
+      "probe_orientation": "반막양건과 내측 비복근 사이를 횡·종축으로 확인.",
+      "landmarks": [
+        "semimembranosus tendon",
+        "semitendinosus tendon",
+        "medial gastrocnemius",
+        "semimembranosus-gastrocnemius bursa"
+      ],
+      "normal_finding": "건 층을 구분하고 bursal interval을 확인한다.",
+      "pitfalls": [
+        "후방 낭성 구조에서 혈관을 Doppler로 구분",
+        "Baker cyst를 혈관성 병변과 혼동 금지"
+      ],
+      "source_ref": "knee_atlas_2025_fig10_fig12"
+    },
+    {
+      "ultrasound_view_id": "usv053",
+      "name_ko": "슬와와 경골신경·혈관 다발",
+      "name_en": "Popliteal fossa tibial nerve and neurovascular bundle",
+      "target_structure_ids": [
+        "n019",
+        "j010"
+      ],
+      "patient_position": "복와위, 무릎 편안히 신전.",
+      "probe_orientation": "슬와와를 횡축으로 시작해 경골신경을 종축으로 추적.",
+      "landmarks": [
+        "tibial nerve",
+        "popliteal vein",
+        "popliteal artery",
+        "posterior capsule"
+      ],
+      "normal_finding": "표재에서 심부로 경골신경-슬와정맥-슬와동맥 순서를 확인한다.",
+      "pitfalls": [
+        "혈관 압박 최소화",
+        "후방 종괴 평가에서 Doppler 확인 필요"
+      ],
+      "source_ref": "knee_atlas_2025_fig10"
+    },
+    {
+      "ultrasound_view_id": "usv054",
+      "name_ko": "총비골신경 비골두·경부",
+      "name_en": "Common fibular nerve at fibular head/neck",
+      "target_structure_ids": [
+        "n020",
+        "j011"
+      ],
+      "patient_position": "복와위 또는 측와위.",
+      "probe_orientation": "대퇴이두건 뒤에서 총비골신경을 찾아 비골두·경부 주위를 단축/장축 추적.",
+      "landmarks": [
+        "biceps femoris tendon",
+        "fibular head",
+        "fibular neck",
+        "common fibular nerve"
+      ],
+      "normal_finding": "fascicular pattern과 주행 연속성을 확인한다.",
+      "pitfalls": [
+        "신경 단면적 하나만으로 neuropathy 확정 금지",
+        "probe pressure로 신경 형태 왜곡 가능"
+      ],
+      "source_ref": "knee_atlas_2025_fig11"
+    },
+    {
+      "ultrasound_view_id": "usv055",
+      "name_ko": "근위 경비관절",
+      "name_en": "Proximal tibiofibular joint",
+      "target_structure_ids": [
+        "j011",
+        "n020"
+      ],
+      "patient_position": "앙와위 또는 측와위, 무릎 약간 굴곡.",
+      "probe_orientation": "비골두와 외측 경골과 사이 관절선을 횡/사선으로 확인.",
+      "landmarks": [
+        "fibular head",
+        "lateral tibia",
+        "proximal tibiofibular joint",
+        "common fibular nerve nearby"
+      ],
+      "normal_finding": "관절 윤곽과 주변 연부조직, 인접 신경을 함께 확인한다.",
+      "pitfalls": [
+        "작은 관절액·ganglion의 임상 의미는 증상과 신경소견을 함께 해석"
+      ],
+      "source_ref": "knee_atlas_2025_table3"
+    }
+  ]
+}

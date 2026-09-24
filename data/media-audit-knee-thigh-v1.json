@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "knee_thigh_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "Every Knee/Thigh ultrasound view maps to actual ultrasound in a verified public source. CC BY-NC-ND figures are linked as canonical references without modification or local redistribution. ESSR guideline panels are also referenced canonically rather than copied. No generated or generic substitute is used.",
+  "coverage": {
+    "views_total": 14,
+    "embedded_verified": 0,
+    "exact_figure_reference": 14,
+    "unverified": 0
+  },
+  "stage5_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv042",
+      "status": "verified_fixed_reference",
+      "title": "Quadriceps tendon LAX",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figure 1",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv043",
+      "status": "verified_fixed_reference",
+      "title": "Quadriceps tendon SAX / layers",
+      "source_page": "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf",
+      "figure_label": "ESSR Knee p.1",
+      "license": "Canonical guideline reference; no local copy",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv044",
+      "status": "verified_fixed_reference",
+      "title": "Suprapatellar recess / trochlea",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figures 2 and 6",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv045",
+      "status": "verified_fixed_reference",
+      "title": "Patellar tendon LAX",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figure 5",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv046",
+      "status": "verified_fixed_reference",
+      "title": "Patellar tendon SAX / infrapatellar bursae",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figures 5 and 6",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv047",
+      "status": "verified_fixed_reference",
+      "title": "Peripatellar retinaculum / MPFL region",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figures 3 and 4",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv048",
+      "status": "verified_fixed_reference",
+      "title": "MCL LAX / dynamic medial knee",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figure 7",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv049",
+      "status": "verified_fixed_reference",
+      "title": "Pes anserine tendons / bursal plane",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figure 7",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv050",
+      "status": "verified_fixed_reference",
+      "title": "Distal ITB / Gerdy tubercle",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figure 8",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv051",
+      "status": "verified_fixed_reference",
+      "title": "LCL / biceps femoris / popliteus complex",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figure 9",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv052",
+      "status": "verified_fixed_reference",
+      "title": "Posteromedial hamstrings / Baker cyst interval",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figures 10 and 12",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv053",
+      "status": "verified_fixed_reference",
+      "title": "Popliteal fossa tibial nerve / vessels",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figure 10",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv054",
+      "status": "verified_fixed_reference",
+      "title": "Common fibular nerve at fibular head/neck",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Figure 11",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv055",
+      "status": "verified_fixed_reference",
+      "title": "Proximal tibiofibular joint",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "figure_label": "Table 3 + lateral ultrasound atlas sequence",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src_knee_atlas_2025",
+      "title": "Enhancing knee imaging via histology and anatomy-driven high-resolution musculoskeletal ultrasound",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "license": "CC BY-NC-ND 4.0"
+    },
+    {
+      "source_id": "src_essr_knee",
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines: Knee",
+      "url": "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf",
+      "use": "standard positioning and supplemental actual ultrasound reference"
+    }
+  ]
+}

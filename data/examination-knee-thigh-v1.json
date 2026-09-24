@@ -1,0 +1,339 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "knee_thigh_examination_v1",
+  "region_ids": [
+    "r011"
+  ],
+  "source_refs": {
+    "pfp_cpg": "https://pubmed.ncbi.nlm.nih.gov/31475628/",
+    "knee_us_atlas": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+    "essr_knee": "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf"
+  },
+  "clinical_tests": [
+    {
+      "clinical_test_id": "ct050",
+      "name_ko": "스쿼트 통증유발 평가",
+      "name_en": "Squat pain provocation",
+      "category": "patellofemoral",
+      "target_structure_ids": [
+        "j010"
+      ],
+      "setup": "양발 스쿼트를 안전한 범위에서 시행한다.",
+      "maneuver": "무릎 굴곡이 증가하는 동안 전방·슬개주위 통증의 위치와 재현 여부를 확인한다.",
+      "positive_definition": "평소의 슬개후방/슬개주위 통증이 재현되면 양성 소견으로 기록한다.",
+      "interpretation_note": "부하 시 전방 무릎 통증을 재현하는 기능검사로 patellofemoral pain 가능성을 지지한다.",
+      "limitation": "단독으로 patellofemoral pain을 확정하지 않으며 힘줄·점액낭·관절내·골성 원인을 함께 감별한다.",
+      "related_diagnosis_concept_ids": [
+        "d053"
+      ],
+      "evidence_refs": [
+        "pfp_cpg"
+      ]
+    },
+    {
+      "clinical_test_id": "ct051",
+      "name_ko": "계단/스텝다운 통증유발 평가",
+      "name_en": "Stair or step-down pain provocation",
+      "category": "patellofemoral",
+      "target_structure_ids": [
+        "j010"
+      ],
+      "setup": "낮은 스텝에서 올라가기 또는 내려가기를 안전하게 시행한다.",
+      "maneuver": "전방 무릎 통증, 동작 질, 좌우 차이를 관찰한다.",
+      "positive_definition": "평소의 슬개후방/슬개주위 통증이 계단 부하에서 재현되면 기록한다.",
+      "interpretation_note": "patellofemoral loading symptom을 확인하는 기능 평가다.",
+      "limitation": "동적 valgus나 통증 재현 하나로 특정 구조 병변을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d053"
+      ],
+      "evidence_refs": [
+        "pfp_cpg"
+      ]
+    },
+    {
+      "clinical_test_id": "ct052",
+      "name_ko": "슬개골 tilt·mobility 평가",
+      "name_en": "Patellar tilt and mobility assessment",
+      "category": "patellofemoral",
+      "target_structure_ids": [
+        "j010",
+        "lig009"
+      ],
+      "setup": "대퇴사두근을 이완한 앙와위에서 슬개골의 이동성과 tilt를 비교한다.",
+      "maneuver": "내외측 glide와 tilt를 부드럽게 평가하고 통증·비대칭을 기록한다.",
+      "positive_definition": "현저한 제한, 과이동성 또는 익숙한 통증이 재현되면 소견으로 기록한다.",
+      "interpretation_note": "patellofemoral pain 또는 불안정성의 보조 소견이다.",
+      "limitation": "patellar tilt/mobility 단독으로 원인이나 진단을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d053",
+        "d067"
+      ],
+      "evidence_refs": [
+        "pfp_cpg"
+      ]
+    },
+    {
+      "clinical_test_id": "ct053",
+      "name_ko": "슬개골 불안검사",
+      "name_en": "Patellar apprehension test",
+      "category": "patellar_instability",
+      "target_structure_ids": [
+        "j010",
+        "lig009"
+      ],
+      "setup": "앙와위에서 무릎을 편안하게 약간 굴곡하고 대퇴사두근을 이완시킨다.",
+      "maneuver": "슬개골을 조심스럽게 외측으로 이동시키며 불안감·방어·통증을 확인한다.",
+      "positive_definition": "탈구될 것 같은 뚜렷한 불안감 또는 방어 반응을 기록한다.",
+      "interpretation_note": "과거/현재 슬개골 불안정성을 평가하는 보조검사다.",
+      "limitation": "급성 손상에서 과도한 도발을 피하고 단독으로 MPFL 파열을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d067"
+      ],
+      "evidence_refs": [
+        "pfp_cpg"
+      ]
+    },
+    {
+      "clinical_test_id": "ct054",
+      "name_ko": "직거상·신전지연 평가",
+      "name_en": "Straight-leg raise and extensor lag",
+      "category": "extensor_mechanism",
+      "target_structure_ids": [
+        "t026",
+        "t027"
+      ],
+      "setup": "앙와위에서 무릎을 완전히 편 상태로 시작한다.",
+      "maneuver": "환자가 무릎을 편 채 다리를 들어 올리도록 하고 능동 신전 유지 여부를 본다.",
+      "positive_definition": "직거상 불가 또는 뚜렷한 extensor lag가 있으면 기록한다.",
+      "interpretation_note": "급성 외상 맥락에서는 신전기전 연속성 손상 가능성을 높이는 중요한 소견이다.",
+      "limitation": "통증 억제·관절삼출·신경학적 약화도 원인이 될 수 있어 파열을 단독 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d056",
+        "d057"
+      ],
+      "evidence_refs": [
+        "knee_us_atlas"
+      ]
+    },
+    {
+      "clinical_test_id": "ct055",
+      "name_ko": "저항성 무릎 신전 평가",
+      "name_en": "Resisted knee extension",
+      "category": "extensor_mechanism",
+      "target_structure_ids": [
+        "m128",
+        "m129",
+        "m130",
+        "m131",
+        "t026",
+        "t027"
+      ],
+      "setup": "앉거나 누운 자세에서 무릎을 중간 범위로 둔다.",
+      "maneuver": "무릎 신전에 저항을 가해 통증과 힘을 좌우 비교한다.",
+      "positive_definition": "국소 전방 통증 또는 명확한 약화가 재현되면 기록한다.",
+      "interpretation_note": "대퇴사두근-건-슬개건 연속체의 기능적 부하 반응을 본다.",
+      "limitation": "통증 위치·촉진·영상과 함께 해석하며 하나의 구조를 선택적으로 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d054",
+        "d055",
+        "d056",
+        "d057"
+      ],
+      "evidence_refs": [
+        "knee_us_atlas"
+      ]
+    },
+    {
+      "clinical_test_id": "ct056",
+      "name_ko": "슬개건 촉진·부하 평가",
+      "name_en": "Patellar tendon palpation and load provocation",
+      "category": "patellar_tendon",
+      "target_structure_ids": [
+        "t027"
+      ],
+      "setup": "슬개골 하극부터 경골조면까지 슬개건을 이완 상태에서 확인한다.",
+      "maneuver": "국소 촉진 후 스쿼트/점프 등 적절한 부하에서 증상 재현 여부를 확인한다.",
+      "positive_definition": "슬개건 주행 또는 부착부의 국소적인 익숙한 통증이 부하와 함께 재현되면 기록한다.",
+      "interpretation_note": "슬개건병증 가능성을 지지하는 임상 맥락을 만든다.",
+      "limitation": "압통이나 초음파 두께 변화만으로 건병증을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d054"
+      ],
+      "evidence_refs": [
+        "knee_us_atlas"
+      ]
+    },
+    {
+      "clinical_test_id": "ct057",
+      "name_ko": "대퇴사두건 촉진·연속성 평가",
+      "name_en": "Quadriceps tendon palpation and continuity assessment",
+      "category": "quadriceps_tendon",
+      "target_structure_ids": [
+        "t026"
+      ],
+      "setup": "슬개골 상극과 원위 대퇴사두건을 노출하고 무릎을 약간 굴곡한다.",
+      "maneuver": "건 주행을 촉진하고 능동 신전과 함께 결손·통증 여부를 확인한다.",
+      "positive_definition": "국소 통증, 촉지되는 결손, 또는 신전기능 이상이 있으면 기록한다.",
+      "interpretation_note": "건병증 또는 파열 후보를 구분하는 초기 평가다.",
+      "limitation": "부종·체형 때문에 결손 촉진이 어려울 수 있으므로 의심 시 영상과 임상 맥락이 필요하다.",
+      "related_diagnosis_concept_ids": [
+        "d055",
+        "d057"
+      ],
+      "evidence_refs": [
+        "knee_us_atlas"
+      ]
+    },
+    {
+      "clinical_test_id": "ct058",
+      "name_ko": "30도 외반 스트레스 검사",
+      "name_en": "Valgus stress test at approximately 30 degrees",
+      "category": "medial_collateral",
+      "target_structure_ids": [
+        "lig007"
+      ],
+      "setup": "무릎을 약 20–30° 굴곡하고 대퇴를 안정화한다.",
+      "maneuver": "외반력을 점진적으로 적용하여 통증과 medial opening을 반대측과 비교한다.",
+      "positive_definition": "내측 통증 또는 비대칭적인 외반 이완이 있으면 기록한다.",
+      "interpretation_note": "표재 MCL을 포함한 내측 안정성 평가에 사용한다.",
+      "limitation": "통증 또는 이완 하나만으로 grade나 동반 손상을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d060"
+      ],
+      "evidence_refs": [
+        "essr_knee"
+      ]
+    },
+    {
+      "clinical_test_id": "ct059",
+      "name_ko": "0도 외반 스트레스 검사",
+      "name_en": "Valgus stress test in full extension",
+      "category": "medial_collateral",
+      "target_structure_ids": [
+        "lig007",
+        "j010"
+      ],
+      "setup": "무릎을 가능한 중립 신전으로 두고 대퇴를 안정화한다.",
+      "maneuver": "외반력을 점진적으로 적용하고 end point와 좌우 차이를 확인한다.",
+      "positive_definition": "신전 상태에서도 비대칭적인 외반 이완이 있으면 기록한다.",
+      "interpretation_note": "MCL 단독보다 더 넓은 관절낭·인대 손상 가능성을 시사할 수 있다.",
+      "limitation": "급성 통증이 심하면 강한 stress를 피하고 단독으로 손상 범위를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d060",
+        "d069"
+      ],
+      "evidence_refs": [
+        "essr_knee"
+      ]
+    },
+    {
+      "clinical_test_id": "ct060",
+      "name_ko": "30도 내반 스트레스 검사",
+      "name_en": "Varus stress test at approximately 30 degrees",
+      "category": "lateral_collateral",
+      "target_structure_ids": [
+        "lig008"
+      ],
+      "setup": "무릎을 약 20–30° 굴곡하고 대퇴를 안정화한다.",
+      "maneuver": "내반력을 점진적으로 적용하여 외측 통증과 lateral opening을 반대측과 비교한다.",
+      "positive_definition": "외측 통증 또는 비대칭적인 내반 이완이 있으면 기록한다.",
+      "interpretation_note": "LCL을 포함한 외측 안정성 평가에 사용한다.",
+      "limitation": "posterolateral corner의 전체 손상을 이 검사 하나로 규정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d061"
+      ],
+      "evidence_refs": [
+        "essr_knee"
+      ]
+    },
+    {
+      "clinical_test_id": "ct061",
+      "name_ko": "거위발 촉진·저항성 굴곡 평가",
+      "name_en": "Pes anserine palpation with resisted flexion",
+      "category": "pes_anserine",
+      "target_structure_ids": [
+        "t029",
+        "t031",
+        "t032",
+        "b009"
+      ],
+      "setup": "내측 관절선 아래 전내측 경골부에서 거위발 부착부를 찾는다.",
+      "maneuver": "국소 압통을 확인하고 무릎 굴곡/내회전에 가벼운 저항을 준다.",
+      "positive_definition": "거위발 부위의 익숙한 국소 통증이 재현되면 기록한다.",
+      "interpretation_note": "pes anserine tendon/bursal complex의 증상 연관성을 지지할 수 있다.",
+      "limitation": "MCL·내측 관절선·신경통 등과 감별해야 하며 촉진 단독 확정 금지.",
+      "related_diagnosis_concept_ids": [
+        "d062"
+      ],
+      "evidence_refs": [
+        "knee_us_atlas"
+      ]
+    },
+    {
+      "clinical_test_id": "ct062",
+      "name_ko": "원위 햄스트링 저항성 굴곡 평가",
+      "name_en": "Resisted knee flexion for distal hamstrings",
+      "category": "distal_hamstring",
+      "target_structure_ids": [
+        "t028",
+        "t029",
+        "t030"
+      ],
+      "setup": "엎드리거나 앉은 자세에서 무릎을 굴곡한다.",
+      "maneuver": "굴곡 및 필요 시 경골 회전에 저항을 가하며 내측·외측 원위 힘줄의 통증/약화를 비교한다.",
+      "positive_definition": "특정 원위 햄스트링 주행에서 익숙한 통증 또는 뚜렷한 약화가 재현되면 기록한다.",
+      "interpretation_note": "원위 햄스트링 strain/tendinopathy 후보 평가에 사용한다.",
+      "limitation": "근위 햄스트링·요추 방사통·관절내 원인을 함께 감별한다.",
+      "related_diagnosis_concept_ids": [
+        "d063"
+      ],
+      "evidence_refs": [
+        "knee_us_atlas"
+      ]
+    },
+    {
+      "clinical_test_id": "ct063",
+      "name_ko": "외측 대퇴과 ITB 부하·촉진 평가",
+      "name_en": "Lateral femoral epicondyle ITB load-palpation assessment",
+      "category": "lateral_overuse",
+      "target_structure_ids": [
+        "m126",
+        "j010"
+      ],
+      "setup": "외측 대퇴과와 원위 장경인대 주행을 확인한다.",
+      "maneuver": "무릎 반복 굴곡·신전 또는 증상 유발 활동과 함께 외측 대퇴과 국소 통증을 확인한다.",
+      "positive_definition": "주행/굴곡 반복에서 평소의 국소 외측 통증이 재현되면 기록한다.",
+      "interpretation_note": "ITB-related lateral knee pain의 임상 패턴을 지지할 수 있다.",
+      "limitation": "LCL·외측 반월상연골·대퇴이두건·근위 경비관절 원인과 구분해야 한다.",
+      "related_diagnosis_concept_ids": [
+        "d064",
+        "d061",
+        "d063",
+        "d068"
+      ],
+      "evidence_refs": [
+        "knee_us_atlas"
+      ]
+    },
+    {
+      "clinical_test_id": "ct064",
+      "name_ko": "후내측 무릎 종괴·Foucher 소견 평가",
+      "name_en": "Posteromedial knee fullness / Foucher sign assessment",
+      "category": "posterior_knee",
+      "target_structure_ids": [
+        "b010"
+      ],
+      "setup": "서거나 엎드린 자세에서 후내측 무릎의 팽륜을 관찰·촉진한다.",
+      "maneuver": "무릎 신전과 굴곡에 따라 종괴의 긴장도 변화가 있는지 확인한다.",
+      "positive_definition": "신전에서 팽팽해지고 굴곡에서 부드러워지는 후내측 낭성 팽륜은 Baker cyst 후보를 지지하는 소견으로 기록한다.",
+      "interpretation_note": "semimembranosus-gastrocnemius bursa distension의 임상 단서다.",
+      "limitation": "혈관성 종괴·DVT 등 위험 원인을 배제하지 못하므로 비전형적 소견은 혈관 평가가 우선이다.",
+      "related_diagnosis_concept_ids": [
+        "d066"
+      ],
+      "evidence_refs": [
+        "knee_us_atlas"
+      ]
+    }
+  ]
+}

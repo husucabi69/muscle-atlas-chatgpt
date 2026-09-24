@@ -600,5 +600,87 @@
       "m126"
     ],
     "symptom_group_id": "sg005"
+  },
+  {
+    "id": "sx31",
+    "title": "외측 무릎·비골두 통증",
+    "summary": "장경인대, 외측측부인대, 원위 대퇴이두건, 슬와건과 근위 경비관절을 함께 보는 경로입니다.",
+    "conditions": "ITB-related lateral knee pain, LCL injury, distal biceps femoris/popliteus pathology, proximal tibiofibular joint disorder 감별.",
+    "nerves": "총비골신경",
+    "ultrasound": "distal ITB, LCL-biceps femoris-popliteus complex, proximal tibiofibular joint와 common fibular nerve를 확인.",
+    "muscles": [
+      "대퇴근막장근",
+      "대퇴이두근-장두",
+      "대퇴이두근-단두",
+      "슬와근"
+    ],
+    "muscleIds": [
+      "m126",
+      "m139",
+      "m140",
+      "m153"
+    ],
+    "symptomGroupId": "sg006"
+  },
+  {
+    "id": "sx32",
+    "title": "후방 무릎 팽륜·통증",
+    "summary": "Baker cyst 경로와 후내측 햄스트링, 슬와근, 신경혈관 구조를 구분하는 경로입니다.",
+    "conditions": "Baker cyst, distal semimembranosus/hamstring pathology, popliteus pathology, joint effusion 감별. 박동성 종괴·급격한 종창은 혈관성 원인 평가 우선.",
+    "nerves": "경골신경, 총비골신경",
+    "ultrasound": "semimembranosus-medial gastrocnemius interval, popliteal fossa neurovascular bundle, distal hamstring tendons를 확인.",
+    "muscles": [
+      "반건양근",
+      "반막양근",
+      "비복근-내측두",
+      "슬와근"
+    ],
+    "muscleIds": [
+      "m141",
+      "m142",
+      "m149",
+      "m153"
+    ],
+    "symptomGroupId": "sg006"
+  },
+  {
+    "id": "sx33",
+    "title": "급성 무릎 신전기전 약화",
+    "summary": "직거상 불가 또는 extensor lag가 있을 때 대퇴사두건-슬개골-슬개건 연속성을 우선 확인하는 경로입니다.",
+    "conditions": "quadriceps tendon tear, patellar tendon tear, severe pain/effusion-related inhibition, fracture/dislocation 포함 감별.",
+    "nerves": "대퇴신경",
+    "ultrasound": "quadriceps tendon과 patellar tendon을 장·단축으로 확인하되 급성 외상은 적절한 방사선/추가영상과 함께 평가.",
+    "muscles": [
+      "대퇴직근",
+      "외측광근",
+      "내측광근",
+      "중간광근"
+    ],
+    "muscleIds": [
+      "m128",
+      "m129",
+      "m130",
+      "m131"
+    ],
+    "symptomGroupId": "sg006"
+  },
+  {
+    "id": "sx34",
+    "title": "외상 후 내측 무릎 불안정감",
+    "summary": "valgus injury 이후 MCL, 내측 관절, 슬개골 불안정성 가능성을 구분하는 경로입니다.",
+    "conditions": "MCL sprain/tear, patellar instability/MPFL injury, tibiofemoral joint/intra-articular injury 감별.",
+    "nerves": "복재신경(인접 구조)",
+    "ultrasound": "MCL 장축과 동적 stress, medial peripatellar structures를 확인하며 깊은 관절내 손상은 초음파만으로 배제하지 않음.",
+    "muscles": [
+      "내측광근",
+      "박근",
+      "반건양근"
+    ],
+    "muscleIds": [
+      "m130",
+      "m138",
+      "m141"
+    ],
+    "symptomGroupId": "sg006"
   }
 ]

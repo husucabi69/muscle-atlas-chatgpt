@@ -1,0 +1,587 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "knee_thigh_differential_v1",
+  "region_ids": [
+    "r011"
+  ],
+  "safety_rule": "Knowledge candidates are educational differentials, not patient diagnoses. Do not infer laterality or unperformed examination. Acute extensor failure, major instability, neurovascular deficit, fever/red hot joint, or atypical posterior mass requires appropriate urgent clinical evaluation.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d053",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "슬개대퇴통증",
+      "name_en": "Patellofemoral pain",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d054",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "슬개건병증",
+      "name_en": "Patellar tendinopathy",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d055",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "대퇴사두건병증",
+      "name_en": "Quadriceps tendinopathy",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d056",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "슬개건 부분/완전 파열",
+      "name_en": "Patellar tendon partial or complete tear",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d057",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "대퇴사두건 부분/완전 파열",
+      "name_en": "Quadriceps tendon partial or complete tear",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d058",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "슬개전 점액낭염",
+      "name_en": "Prepatellar bursitis",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d059",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "슬개하 점액낭염",
+      "name_en": "Infrapatellar bursitis",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d060",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "내측측부인대 염좌/파열",
+      "name_en": "Medial collateral ligament sprain or tear",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d061",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "외측측부인대 염좌/파열",
+      "name_en": "Lateral collateral ligament sprain or tear",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d062",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "거위발 건·점액낭 통증 증후군",
+      "name_en": "Pes anserine tendon/bursal pain syndrome",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d063",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "원위 햄스트링 strain/건병증",
+      "name_en": "Distal hamstring strain or tendinopathy",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d064",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "장경인대 관련 외측 무릎 통증",
+      "name_en": "Iliotibial band related lateral knee pain",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d065",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "슬와근·슬와건 손상/건병증",
+      "name_en": "Popliteus muscle/tendon injury or tendinopathy",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d066",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Baker 낭종 / 반막양근-비복근 점액낭 팽창",
+      "name_en": "Baker cyst / semimembranosus-gastrocnemius bursa distension",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d067",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "슬개골 불안정성 / MPFL 손상",
+      "name_en": "Patellar instability / MPFL injury",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d068",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "근위 경비관절 관련 통증·ganglion",
+      "name_en": "Proximal tibiofibular joint related pain or ganglion",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d069",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경대퇴관절 관련 통증·삼출",
+      "name_en": "Tibiofemoral joint related pain or effusion",
+      "region_id": "r011",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f043",
+      "entity_type": "clinical_finding",
+      "name_ko": "스쿼트에서 슬개주위 통증 재현",
+      "key": "patellofemoral_pain_with_squat",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f044",
+      "entity_type": "clinical_finding",
+      "name_ko": "슬개건 국소 부하통·압통",
+      "key": "focal_patellar_tendon_load_pain",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f045",
+      "entity_type": "clinical_finding",
+      "name_ko": "신전지연 또는 직거상 불가",
+      "key": "extensor_lag_or_slr_failure",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f046",
+      "entity_type": "clinical_finding",
+      "name_ko": "슬개상부 대퇴사두건 국소 통증/결손",
+      "key": "quadriceps_tendon_focal_pain_or_gap",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f047",
+      "entity_type": "clinical_finding",
+      "name_ko": "외반 외상 후 내측 통증·압통",
+      "key": "medial_pain_after_valgus_trauma",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f048",
+      "entity_type": "clinical_finding",
+      "name_ko": "외반 스트레스 비대칭 이완",
+      "key": "valgus_laxity",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f049",
+      "entity_type": "clinical_finding",
+      "name_ko": "외측측부/비골두 국소 압통",
+      "key": "lateral_collateral_fibular_head_tenderness",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f050",
+      "entity_type": "clinical_finding",
+      "name_ko": "내반 스트레스 비대칭 이완",
+      "key": "varus_laxity",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f051",
+      "entity_type": "clinical_finding",
+      "name_ko": "관절선 아래 거위발 국소 압통",
+      "key": "pes_anserine_tenderness",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f052",
+      "entity_type": "clinical_finding",
+      "name_ko": "저항성 굴곡에서 원위 햄스트링 통증",
+      "key": "distal_hamstring_resisted_flexion_pain",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f053",
+      "entity_type": "clinical_finding",
+      "name_ko": "반복 굴곡 시 외측 대퇴과 통증",
+      "key": "lateral_femoral_epicondyle_load_pain",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f054",
+      "entity_type": "clinical_finding",
+      "name_ko": "후내측 슬와부 팽륜",
+      "key": "posteromedial_popliteal_fullness",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f055",
+      "entity_type": "clinical_finding",
+      "name_ko": "슬개골 외측 이동 불안감",
+      "key": "patellar_apprehension",
+      "region_id": "r011",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg023",
+      "symptom_id": "sx13",
+      "title_ko": "전방 무릎 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d053",
+          "look_for": [
+            "스쿼트·계단에서 슬개후방/주위 통증",
+            "기능 부하와 증상 일치"
+          ],
+          "not_diagnostic_alone": [
+            "슬개골 tilt 또는 단일 촉진 소견"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d054",
+          "look_for": [
+            "슬개건 국소 부하통",
+            "슬개건 US"
+          ],
+          "not_diagnostic_alone": [
+            "건 두께/저에코 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d055",
+          "look_for": [
+            "슬개상부 대퇴사두건 국소 통증",
+            "대퇴사두건 US"
+          ],
+          "not_diagnostic_alone": [
+            "초음파 변화 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d058",
+          "look_for": [
+            "슬개골 전면 표재성 부종·압통",
+            "prepatellar bursa US"
+          ],
+          "not_diagnostic_alone": [
+            "소량 점액낭액"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d059",
+          "look_for": [
+            "슬개하 국소 통증",
+            "superficial/deep infrapatellar bursa"
+          ],
+          "not_diagnostic_alone": [
+            "최대 굴곡에서 deep bursa 소량 액체"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d069",
+          "look_for": [
+            "관절삼출·ROM 제한·관절선 증상"
+          ],
+          "not_diagnostic_alone": [
+            "suprapatellar fluid 하나"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg024",
+      "symptom_id": "sx14",
+      "title_ko": "내측 무릎/거위발 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d062",
+          "look_for": [
+            "관절선 아래 전내측 국소 압통",
+            "pes tendons/bursal plane US"
+          ],
+          "not_diagnostic_alone": [
+            "압통 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d060",
+          "look_for": [
+            "외반 외상",
+            "MCL 압통·stress laxity"
+          ],
+          "not_diagnostic_alone": [
+            "MCL US 변화 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d063",
+          "look_for": [
+            "반건양근/반막양근 원위 주행 통증",
+            "저항성 굴곡"
+          ],
+          "not_diagnostic_alone": [
+            "힘줄 저에코 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d069",
+          "look_for": [
+            "관절선 통증·삼출·ROM 제한"
+          ],
+          "not_diagnostic_alone": [
+            "내측 통증 위치만"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg025",
+      "symptom_id": "sx15",
+      "title_ko": "후방 대퇴 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d063",
+          "look_for": [
+            "원위 햄스트링 저항성 통증",
+            "원위 건/MTJ US"
+          ],
+          "not_diagnostic_alone": [
+            "초음파 변화만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d047",
+          "look_for": [
+            "좌골결절 근위 통증",
+            "근위 햄스트링 stretch test"
+          ],
+          "not_diagnostic_alone": [
+            "후방 대퇴 통증 위치만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d048",
+          "look_for": [
+            "급성 견열 기전·기능손실",
+            "영상 연속성"
+          ],
+          "not_diagnostic_alone": [
+            "멍 또는 압통만"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg026",
+      "symptom_id": "sx31",
+      "title_ko": "외측 무릎·비골두 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d064",
+          "look_for": [
+            "반복 달리기/굴곡 부하",
+            "외측 대퇴과 국소 통증"
+          ],
+          "not_diagnostic_alone": [
+            "ITB 두께 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d061",
+          "look_for": [
+            "내반 외상",
+            "LCL 압통·stress laxity"
+          ],
+          "not_diagnostic_alone": [
+            "외측 통증 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d063",
+          "look_for": [
+            "대퇴이두건 비골두 부착부 통증",
+            "저항성 굴곡"
+          ],
+          "not_diagnostic_alone": [
+            "건 영상 변화 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d065",
+          "look_for": [
+            "후외측 통증",
+            "popliteus tendon US"
+          ],
+          "not_diagnostic_alone": [
+            "subpopliteal recess의 소량 액체"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d068",
+          "look_for": [
+            "근위 경비관절 국소 통증/낭성 병변",
+            "총비골신경 인접성"
+          ],
+          "not_diagnostic_alone": [
+            "관절액 하나"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg027",
+      "symptom_id": "sx32",
+      "title_ko": "후방 무릎 팽륜·통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d066",
+          "look_for": [
+            "반막양건-내측비복근 사이 낭성 구조",
+            "굴곡/신전 변화"
+          ],
+          "not_diagnostic_alone": [
+            "촉진되는 종괴만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d063",
+          "look_for": [
+            "후내측 햄스트링 통증",
+            "저항성 굴곡"
+          ],
+          "not_diagnostic_alone": [
+            "후방 압통만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d065",
+          "look_for": [
+            "후외측/슬와근 부위 통증",
+            "popliteus 구조"
+          ],
+          "not_diagnostic_alone": [
+            "영상 소견 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d069",
+          "look_for": [
+            "관절삼출·관절 증상"
+          ],
+          "not_diagnostic_alone": [
+            "Baker cyst 존재만으로 원인 확정"
+          ]
+        }
+      ],
+      "red_flags": [
+        "박동성 종괴, 급격한 종창, DVT 의심 소견, 신경혈관 이상은 별도 긴급 평가"
+      ]
+    },
+    {
+      "differential_group_id": "dg028",
+      "symptom_id": "sx33",
+      "title_ko": "급성 무릎 신전기전 약화",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d056",
+          "look_for": [
+            "슬개하 결손/통증",
+            "직거상·extensor lag",
+            "슬개건 연속성 US"
+          ],
+          "not_diagnostic_alone": [
+            "초음파 한 단면"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d057",
+          "look_for": [
+            "슬개상부 결손/통증",
+            "직거상·extensor lag",
+            "대퇴사두건 연속성 US"
+          ],
+          "not_diagnostic_alone": [
+            "촉진 결손 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d069",
+          "look_for": [
+            "대량 삼출·통증 억제로 인한 가성 약화 가능성"
+          ],
+          "not_diagnostic_alone": [
+            "extensor lag만으로 tendon tear 확정"
+          ]
+        }
+      ],
+      "red_flags": [
+        "급성 외상 후 직거상 불가/신전기전 결손은 골절·탈구 포함한 적절한 영상평가 필요"
+      ]
+    },
+    {
+      "differential_group_id": "dg029",
+      "symptom_id": "sx34",
+      "title_ko": "외상 후 내측 무릎 불안정감",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d060",
+          "look_for": [
+            "valgus mechanism",
+            "30° valgus 통증/이완",
+            "MCL US"
+          ],
+          "not_diagnostic_alone": [
+            "압통 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d067",
+          "look_for": [
+            "슬개골 탈구/아탈구 기왕력",
+            "patellar apprehension"
+          ],
+          "not_diagnostic_alone": [
+            "불안감 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d069",
+          "look_for": [
+            "관절삼출·ROM 제한·기계적 증상"
+          ],
+          "not_diagnostic_alone": [
+            "외상 기전만"
+          ]
+        }
+      ]
+    }
+  ]
+}
