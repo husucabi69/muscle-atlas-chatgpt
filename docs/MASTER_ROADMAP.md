@@ -69,3 +69,12 @@ Stage 1 — 어깨·견갑대·상완
 - [x] 어깨 임상 문제은행 20 → 30문항
 - [ ] biceps LAX, subscapularis LAX/SAX, AC joint의 안정적 직접 자산 URL 고정
 - [ ] Shoulder Stage 1 final COMPLETE 판정
+
+
+## v7.6 모바일 UI / 해부학 탐색
+- [x] 모바일 본문과 헤더를 전체 폭에 가깝게 사용
+- [x] 작은 화면의 hero/title/탭 밀도 최적화
+- [x] 해부학 페이지 1단계: 14개 부위만 표시
+- [x] 해부학 페이지 2단계: 선택한 부위의 근육만 표시
+- [x] 기존 근육 상세 화면으로 연결
+- [x] Knowledge Core hydrate 후 부위 목록 자동 갱신
