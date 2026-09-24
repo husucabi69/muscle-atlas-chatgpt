@@ -763,6 +763,7 @@ function makeQuestion(m,type,sourcePool,direction){
   const spec=quizFields[type];
   if(direction==='reverse'){
     const clue=m[spec.field];
+    if(!String(clue||'').trim())return null;
     const names=sourcePool.filter(x=>x.id!==m.id).map(x=>x.ko+' ('+x.en+')');
     const correct=m.ko+' ('+m.en+')',options=distinctOptions(correct,names);
     if(options.length<4)return null;
@@ -770,6 +771,7 @@ function makeQuestion(m,type,sourcePool,direction){
     return{muscleId:m.id,type,direction,stem,correct,options};
   }
   const correct=m[spec.field];
+  if(!String(correct||'').trim())return null;
   const optionPool=sourcePool.filter(x=>x.id!==m.id).map(x=>x[spec.field]).filter(Boolean);
   const options=distinctOptions(correct,optionPool);
   if(options.length<4)return null;
