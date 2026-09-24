@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "hip_pelvis_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "Every hip/pelvis ultrasound view maps to actual ultrasound in an open-access source. No generated or generic substitute is used.",
+  "coverage": {
+    "views_total": 12,
+    "embedded_verified": 0,
+    "exact_figure_reference": 12,
+    "unverified": 0
+  },
+  "stage4_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv030",
+      "status": "verified_fixed_reference",
+      "title": "Anterior hip joint recess",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 1",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv031",
+      "status": "verified_fixed_reference",
+      "title": "Iliopsoas and femoral neurovascular bundle",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 2",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv032",
+      "status": "verified_fixed_reference",
+      "title": "Proximal rectus femoris tendon",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 3",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv033",
+      "status": "verified_fixed_reference",
+      "title": "Lateral femoral cutaneous nerve",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 4",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv034",
+      "status": "verified_fixed_reference",
+      "title": "Hip adductors / adductor origin",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 5",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv035",
+      "status": "verified_fixed_reference",
+      "title": "Gluteus medius/minimus short-axis",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 6",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv036",
+      "status": "verified_fixed_reference",
+      "title": "Gluteus medius long-axis",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 7",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv037",
+      "status": "verified_fixed_reference",
+      "title": "Piriformis and sciatic nerve",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 8",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv038",
+      "status": "verified_fixed_reference",
+      "title": "Proximal hamstring short-axis",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 9",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv039",
+      "status": "verified_fixed_reference",
+      "title": "Proximal hamstring long-axis",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 10",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv040",
+      "status": "verified_fixed_reference",
+      "title": "Dynamic iliopsoas snapping",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5034024/",
+      "figure_label": "Figure 2",
+      "license": "CC BY-NC-ND",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    },
+    {
+      "ultrasound_view_id": "usv041",
+      "status": "verified_fixed_reference",
+      "title": "Peritrochanteric bursa / gluteal tendon pathology",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "figure_label": "Figure 13",
+      "license": "CC BY-NC-ND 4.0",
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src_hip_guide_2026",
+      "title": "USMSIT/NMUSIT Fundamental Guide on Diagnostic and Interventional Hip Ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "license": "CC BY-NC-ND 4.0"
+    },
+    {
+      "source_id": "src_snapping_hip",
+      "title": "Internal snapping hip syndrome in dynamic ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5034024/",
+      "license": "CC BY-NC-ND"
+    },
+    {
+      "source_id": "src_essr_hip",
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines IV. Hip",
+      "url": "https://essr.org/content-essr/uploads/2016/10/hip.pdf",
+      "use": "standard positioning and scan sequence"
+    }
+  ]
+}
