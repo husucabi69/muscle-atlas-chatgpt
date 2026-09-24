@@ -2,7 +2,7 @@
   "name": "근육학 · MSK Muscle Atlas",
   "short_name": "근육학",
   "description": "정형외과 근육 해부·임상·실제 초음파 학습 앱",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
@@ -21,5 +21,6 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "id": "/muscle-atlas-chatgpt/"
 }
