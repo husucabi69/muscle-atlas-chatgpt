@@ -1,5 +1,5 @@
 const CACHE_PREFIX='muscle-atlas-chatgpt-';
-const CACHE=CACHE_PREFIX+'v6-symptom';
+const CACHE=CACHE_PREFIX+'v7-quiz';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',e=>{
