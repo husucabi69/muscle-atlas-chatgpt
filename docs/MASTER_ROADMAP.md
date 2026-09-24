@@ -45,8 +45,9 @@
 
 ## 현재 단계
 Stage 1 — 어깨·견갑대·상완
-현재 목표: v7.4 Examination + Ultrasound Knowledge Module
-완료 예정: 2026-10-02
+현재 상태: Stage 1 어깨·견갑대·상완 COMPLETE — 2026-09-24 조기 완료
+다음 목표: Stage 2 팔꿈치·전완
+목표 완료일: 2026-10-12
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -55,7 +56,7 @@ Stage 1 — 어깨·견갑대·상완
 - [x] Knowledge Core relationship 연결
 - [x] Shoulder clinical quiz 20문항 생성
 - [x] 앱 임상 모듈 화면 연결
-- [ ] 모든 shoulder ultrasound view의 검수된 실제 공개 영상 고정 매칭
+- [x] 모든 shoulder ultrasound view의 검수된 실제 공개 영상 고정 매칭 (앱내 5 + 정확한 원문 Figure 4)
 - [x] shoulder diagnosis/differential graph 확장
 - [x] Stage 1 media/license audit 1차 완료 (9개 view 전수 상태표)
 
@@ -67,8 +68,8 @@ Stage 1 — 어깨·견갑대·상완
 - [x] 초음파 9개 view 전수 media/license audit
 - [x] 검증 실제 영상 고정: supraspinatus LAX/SAX, biceps transverse, infraspinatus, dynamic subacromial
 - [x] 어깨 임상 문제은행 20 → 30문항
-- [ ] biceps LAX, subscapularis LAX/SAX, AC joint의 안정적 직접 자산 URL 고정
-- [ ] Shoulder Stage 1 final COMPLETE 판정
+- [x] biceps LAX, subscapularis LAX/SAX, AC joint를 정확한 공개 원문 Figure에 고정 매칭
+- [x] Shoulder Stage 1 final COMPLETE — 2026-09-24
 
 
 ## v7.6 모바일 UI / 해부학 탐색
@@ -98,3 +99,26 @@ Stage 1 — 어깨·견갑대·상완
 - [x] 설치 prompt 사용 가능 시 앱 내부 설치 버튼 제공
 - [x] safe-area 대응
 - [ ] 실기기에서 기존 바로가기 제거 후 재설치 확인
+
+
+## v7.9 Shoulder Stage 1 COMPLETE — 2026-09-24
+- [x] Anatomy / Structure
+- [x] Tendon · Nerve · Joint · Bursa
+- [x] Clinical Finding
+- [x] Examination / Special Test 11개
+- [x] Ultrasound View 9개
+- [x] Diagnosis / Differential 16개 진단개념, 6개 감별그룹
+- [x] Curated Media / License audit — 9/9 view 검증
+- [x] Shoulder clinical quiz 30문항
+- [x] Stable ID / relationship integrity
+- [x] Patient/PHI boundary 유지
+- [x] 기존 앱 기능 회귀검사
+
+### 초음파 미디어 기준
+- 앱 내 직접 고정 가능한 공개 실영상: 5 view
+- 직접 파일 복제보다 정확한 open-access 원문 Figure가 안전한 경우: 4 view
+- 미검증/가짜 대체: 0
+- 향후 더 안정적인 재배포 가능 direct asset이 확인되면 원문 reference를 direct embed로 승격할 수 있으나 Stage 1 지식 completeness에는 영향 없음.
+
+### 다음
+Stage 2 — 팔꿈치·전완. Anatomy → structure/nerve → findings → examination → ultrasound → differential → media → quiz 순으로 동일한 completion gate 적용.
