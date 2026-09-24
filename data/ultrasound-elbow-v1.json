@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "elbow_ultrasound_v1",
+  "region_ids": [
+    "r006",
+    "r007",
+    "r008"
+  ],
+  "primary_references": [
+    {
+      "title": "Ultrasound of the elbow: Examination techniques and US appearance of the normal and pathologic joint",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3478702/"
+    },
+    {
+      "title": "ESSR ultrasound technical standards",
+      "url": "https://www.essr.org/workinggroups/"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv010",
+      "name_ko": "공통신근건 장축",
+      "name_en": "Common extensor tendon LAX",
+      "target_structure_ids": [
+        "t006"
+      ],
+      "patient_position": "팔꿈치를 굴곡하고 전완 회내 또는 중립으로 외측상과를 노출한다.",
+      "probe_orientation": "외측상과에서 총신근건 섬유 방향과 평행하게 장축.",
+      "landmarks": [
+        "외측상과",
+        "공통신근건",
+        "요골두",
+        "상완요골관절"
+      ],
+      "normal_finding": "외측상과에서 연속되는 균일한 fibrillar tendon과 골피질 윤곽을 확인한다.",
+      "pitfalls": [
+        "anisotropy를 병변으로 오인하지 않는다",
+        "ECRB 중심이지만 인접 신근건 섬유가 함께 보인다."
+      ],
+      "source_ref": "Elbow ultrasound review, lateral compartment"
+    },
+    {
+      "ultrasound_view_id": "usv011",
+      "name_ko": "공통신근건 단축",
+      "name_en": "Common extensor tendon SAX",
+      "target_structure_ids": [
+        "t006"
+      ],
+      "patient_position": "장축과 동일.",
+      "probe_orientation": "장축에서 90° 회전하고 외측상과 기시부를 전후로 sweep.",
+      "landmarks": [
+        "외측상과",
+        "공통신근건",
+        "요골측부인대 복합체"
+      ],
+      "normal_finding": "건의 횡단면 두께와 균질성을 직교면에서 확인한다.",
+      "pitfalls": [
+        "한 평면의 저에코만으로 건병증을 확정하지 않는다."
+      ],
+      "source_ref": "Elbow ultrasound review, lateral compartment"
+    },
+    {
+      "ultrasound_view_id": "usv012",
+      "name_ko": "공통굴곡-회내건",
+      "name_en": "Common flexor-pronator tendon",
+      "target_structure_ids": [
+        "t007"
+      ],
+      "patient_position": "팔꿈치를 약간 굽히고 전완을 회외하여 내측상과를 노출한다.",
+      "probe_orientation": "내측상과에서 굴곡-회내군 공통기시부를 장축과 단축으로 확인.",
+      "landmarks": [
+        "내측상과",
+        "공통굴곡건",
+        "UCL",
+        "척골신경"
+      ],
+      "normal_finding": "짧고 두꺼운 공통건의 fibrillar pattern과 깊은 UCL 층을 구분한다.",
+      "pitfalls": [
+        "UCL과 건을 혼동하지 않는다",
+        "척골신경을 과도하게 압박하지 않는다."
+      ],
+      "source_ref": "Elbow ultrasound review, medial compartment"
+    },
+    {
+      "ultrasound_view_id": "usv013",
+      "name_ko": "척골신경 주관 동적 평가",
+      "name_en": "Dynamic ulnar nerve at cubital tunnel",
+      "target_structure_ids": [
+        "n006"
+      ],
+      "patient_position": "어깨 약간 외회전, 팔꿈치 신전에서 시작해 굴곡한다.",
+      "probe_orientation": "내측상과와 주두 사이에서 척골신경을 단축으로 놓고 굴곡-신전 중 위치 변화를 관찰.",
+      "landmarks": [
+        "내측상과",
+        "주두",
+        "주관",
+        "척골신경"
+      ],
+      "normal_finding": "신경의 fascicular pattern과 연속성을 확인하고 굴곡 시 불안정/전방 이동 여부를 기록한다.",
+      "pitfalls": [
+        "신경 단면적만으로 진단하지 않는다",
+        "snapping triceps와 동반 여부를 함께 본다."
+      ],
+      "source_ref": "Dynamic elbow ultrasound / ulnar nerve reviews"
+    },
+    {
+      "ultrasound_view_id": "usv014",
+      "name_ko": "원위 상완이두건",
+      "name_en": "Distal biceps tendon",
+      "target_structure_ids": [
+        "t008"
+      ],
+      "patient_position": "팔꿈치 신전 또는 약간 굴곡, 전완 최대 회외를 기본으로 하고 필요 시 동적 회내-회외.",
+      "probe_orientation": "전방 또는 내측/외측 접근으로 건을 요골조면 삽입부까지 장축·단축 추적.",
+      "landmarks": [
+        "상완이두건",
+        "상완동맥",
+        "정중신경",
+        "요골조면",
+        "상완근"
+      ],
+      "normal_finding": "요골조면까지 연속되는 fibrillar tendon을 확인한다.",
+      "pitfalls": [
+        "깊은 삽입부 anisotropy가 흔함",
+        "부분파열과 완전파열은 여러 접근과 동적 검사로 확인한다."
+      ],
+      "source_ref": "Distal biceps ultrasound review"
+    },
+    {
+      "ultrasound_view_id": "usv015",
+      "name_ko": "요골신경 분지와 PIN",
+      "name_en": "Radial nerve bifurcation and PIN",
+      "target_structure_ids": [
+        "n004",
+        "n010"
+      ],
+      "patient_position": "팔꿈치 약간 굴곡, 전완 중립/회외.",
+      "probe_orientation": "상완요골근과 상완근 사이에서 요골신경을 찾고 원위로 추적해 표재지와 심부지/PIN 분지를 확인.",
+      "landmarks": [
+        "상완요골근",
+        "상완근",
+        "요골두",
+        "회외근",
+        "Frohse arcade"
+      ],
+      "normal_finding": "fascicular nerve가 분지 후 PIN이 회외근 표층/심층 사이로 진입하는 경로를 확인한다.",
+      "pitfalls": [
+        "작은 PIN은 probe 압박에 민감",
+        "통증만으로 radial tunnel/PIN 병변을 확정하지 않는다."
+      ],
+      "source_ref": "Elbow ultrasound review, radial nerve"
+    },
+    {
+      "ultrasound_view_id": "usv016",
+      "name_ko": "삼두건·주두점액낭",
+      "name_en": "Triceps tendon and olecranon bursa",
+      "target_structure_ids": [
+        "t009",
+        "b002"
+      ],
+      "patient_position": "팔꿈치를 굴곡하여 후방 주두를 노출한다.",
+      "probe_orientation": "주두 삽입부의 삼두건을 장축·단축으로 보고 피하 주두점액낭을 함께 확인.",
+      "landmarks": [
+        "주두",
+        "삼두건",
+        "주두점액낭"
+      ],
+      "normal_finding": "연속된 삼두건 fibrillar pattern과 최소한의 점액낭 공간을 확인한다.",
+      "pitfalls": [
+        "점액낭 액체 존재만으로 감염성/비감염성 원인을 구분하지 않는다."
+      ],
+      "source_ref": "Elbow ultrasound standards, posterior compartment"
+    },
+    {
+      "ultrasound_view_id": "usv017",
+      "name_ko": "전방 팔꿈치 관절·상완근",
+      "name_en": "Anterior elbow joint and brachialis",
+      "target_structure_ids": [
+        "j003",
+        "j004",
+        "m077"
+      ],
+      "patient_position": "팔꿈치 신전, 전완 회외.",
+      "probe_orientation": "전방 횡단면에서 trochlea/capitellum, 상완근, 원위 이두건, 혈관·신경을 확인하고 관절낭을 본다.",
+      "landmarks": [
+        "상완근",
+        "원위 이두건",
+        "상완동맥",
+        "정중신경",
+        "capitellum/trochlea"
+      ],
+      "normal_finding": "전방 관절 recess와 주변 연부조직 층을 확인한다.",
+      "pitfalls": [
+        "관절액과 지방패드/연부조직을 구분한다."
+      ],
+      "source_ref": "Elbow ultrasound review, anterior compartment"
+    }
+  ]
+}
