@@ -1,0 +1,410 @@
+[
+  {
+    "id": "sx01",
+    "title": "외측 어깨 통증",
+    "summary": "회전근개와 삼각근, 견봉하 공간 병변을 우선 떠올리는 시작점입니다.",
+    "conditions": "극상건병증/부분파열, 견봉하점액낭염, 삼각근 통증, 후상방 충돌 감별.",
+    "nerves": "액와신경, 견갑상신경",
+    "ultrasound": "극상건 LAX/SAX, 견봉하점액낭, 삼각근 표층을 우선 확인.",
+    "muscles": [
+      "극상근",
+      "삼각근",
+      "극하근",
+      "소원근"
+    ],
+    "muscleIds": [
+      "m070",
+      "m069",
+      "m071",
+      "m072"
+    ]
+  },
+  {
+    "id": "sx02",
+    "title": "전방 어깨 통증",
+    "summary": "이두장건구, 견갑하근, 대흉근 상부를 함께 보는 흐름입니다.",
+    "conditions": "상완이두근 장두 건초염/불안정성, 견갑하근 병변, 흉근 긴장, 전방 충돌.",
+    "nerves": "근피신경, 상하견갑하신경",
+    "ultrasound": "이두장건구 transverse/longitudinal, 견갑하건 internal-external rotation dynamic scan.",
+    "muscles": [
+      "상완이두근-장두",
+      "견갑하근",
+      "대흉근",
+      "삼각근"
+    ],
+    "muscleIds": [
+      "m075",
+      "m073",
+      "m067",
+      "m069"
+    ]
+  },
+  {
+    "id": "sx03",
+    "title": "후방 어깨 통증",
+    "summary": "극하근/소원근과 후방 관절낭, 후상방 충돌을 함께 생각합니다.",
+    "conditions": "극하근/소원근 근막통증, 후방 충돌, posterior cuff overload.",
+    "nerves": "견갑상신경, 액와신경",
+    "ultrasound": "후방 cuff sweep, 극하건과 posterior recess를 관찰.",
+    "muscles": [
+      "극하근",
+      "소원근",
+      "삼각근",
+      "대원근"
+    ],
+    "muscleIds": [
+      "m071",
+      "m072",
+      "m069",
+      "m074"
+    ]
+  },
+  {
+    "id": "sx04",
+    "title": "견갑 내측 통증",
+    "summary": "견갑거근-능형근-중부/상부 승모근 연계 긴장을 보는 고빈도 경로입니다.",
+    "conditions": "견갑거근/능형근 근막통증, 견갑흉곽 운동이상, 등쪽견갑신경 관련 증상.",
+    "nerves": "등쪽견갑신경, 부신경",
+    "ultrasound": "견갑 상내측각 주변의 표층 근육층과 trigger point 영역을 확인.",
+    "muscles": [
+      "견갑거근",
+      "소능형근",
+      "대능형근",
+      "승모근",
+      "전거근"
+    ],
+    "muscleIds": [
+      "m061",
+      "m062",
+      "m063",
+      "m060",
+      "m064"
+    ]
+  },
+  {
+    "id": "sx05",
+    "title": "목-어깨 결림",
+    "summary": "상부 승모근, 견갑거근, SCM, 사각근을 함께 보는 증상군입니다.",
+    "conditions": "근막통증, 자세성 과부하, 경추성 통증 감별.",
+    "nerves": "부신경, 경신경총",
+    "ultrasound": "상부 승모근과 사각근군의 층을 파악하고 혈관성 구조를 함께 피함.",
+    "muscles": [
+      "승모근",
+      "견갑거근",
+      "흉쇄유돌근",
+      "전사각근",
+      "중사각근"
+    ],
+    "muscleIds": [
+      "m060",
+      "m061",
+      "m001",
+      "m002",
+      "m003"
+    ]
+  },
+  {
+    "id": "sx06",
+    "title": "외측 팔꿈치 통증",
+    "summary": "공통 신근 기시부와 ECRB 중심으로 보는 전형적 외래 증상입니다.",
+    "conditions": "외측상과병증, 회외근 과부하, 요골신경 포착 감별.",
+    "nerves": "후골간신경, 요골신경",
+    "ultrasound": "ECRB/ECRL 공통기시부와 radiocapitellar joint를 먼저 확인.",
+    "muscles": [
+      "단요측수근신근",
+      "장요측수근신근",
+      "지신근",
+      "상완요골근",
+      "회외근"
+    ],
+    "muscleIds": [
+      "m093",
+      "m092",
+      "m094",
+      "m091",
+      "m097"
+    ]
+  },
+  {
+    "id": "sx07",
+    "title": "내측 팔꿈치 통증",
+    "summary": "굴곡-회내군 공통기시부와 원회내근 중심으로 평가합니다.",
+    "conditions": "내측상과병증, FCU 과부하, pronator syndrome 감별.",
+    "nerves": "정중신경, 척골신경",
+    "ultrasound": "공통 굴곡건과 척골신경, 원회내근 근위부를 확인.",
+    "muscles": [
+      "원회내근",
+      "요측수근굴근",
+      "장장근",
+      "척측수근굴근",
+      "천지굴근"
+    ],
+    "muscleIds": [
+      "m083",
+      "m084",
+      "m085",
+      "m086",
+      "m087"
+    ]
+  },
+  {
+    "id": "sx08",
+    "title": "손목 요측 통증",
+    "summary": "1구획/2구획, FCR, 요측 신전근을 우선 보는 통증군입니다.",
+    "conditions": "드퀘르벵, intersection syndrome, FCR tendinopathy.",
+    "nerves": "요골신경 천부분지",
+    "ultrasound": "APL/EPB 1st compartment, ECRL/ECRB 2nd compartment, FCR tendon을 비교.",
+    "muscles": [
+      "장요측수근신근",
+      "단요측수근신근",
+      "요측수근굴근",
+      "장무지외전근",
+      "단무지신근"
+    ],
+    "muscleIds": [
+      "m092",
+      "m093",
+      "m084",
+      "m098",
+      "m158"
+    ]
+  },
+  {
+    "id": "sx09",
+    "title": "손목 척측 통증",
+    "summary": "FCU-ECU와 TFCC 주변을 함께 감별해야 하는 구역입니다.",
+    "conditions": "ECU tendinopathy/subluxation, FCU tendinopathy, TFCC 관련 통증 감별.",
+    "nerves": "척골신경",
+    "ultrasound": "ECU groove dynamic scan, FCU insertion, ulnar-sided tendon sheath를 확인.",
+    "muscles": [
+      "척측수근굴근",
+      "척측수근신근",
+      "소지신근"
+    ],
+    "muscleIds": [
+      "m086",
+      "m096",
+      "m095"
+    ]
+  },
+  {
+    "id": "sx10",
+    "title": "엄지 기저부/드퀘르벵",
+    "summary": "첫째 신전구획과 thenar mechanics를 같이 보는 증상군입니다.",
+    "conditions": "드퀘르벵 건초염, CMC 관절통, 무지구 과사용.",
+    "nerves": "요골신경 천부분지, 정중신경",
+    "ultrasound": "APL/EPB 1st extensor compartment와 thumb basal region을 확인.",
+    "muscles": [
+      "장무지외전근",
+      "단무지신근",
+      "장무지신근",
+      "단무지외전근",
+      "무지대립근"
+    ],
+    "muscleIds": [
+      "m098",
+      "m158",
+      "m144",
+      "m102",
+      "m105"
+    ]
+  },
+  {
+    "id": "sx11",
+    "title": "둔부 외측 통증",
+    "summary": "중둔근/소둔근-대전자 주변 병변을 보는 대표 경로입니다.",
+    "conditions": "greater trochanteric pain syndrome, gluteal tendinopathy, TFL overload.",
+    "nerves": "상둔신경",
+    "ultrasound": "중둔근/소둔근 insertion at greater trochanter, trochanteric bursa 확인.",
+    "muscles": [
+      "중둔근",
+      "소둔근",
+      "대퇴근막장근",
+      "대둔근"
+    ],
+    "muscleIds": [
+      "m124",
+      "m125",
+      "m126",
+      "m123"
+    ]
+  },
+  {
+    "id": "sx12",
+    "title": "서혜부 통증",
+    "summary": "장요근, 치골근, 내전근군을 우선 확인하는 패턴입니다.",
+    "conditions": "장요근 건병증/점액낭염, adductor strain, sports groin 감별.",
+    "nerves": "대퇴신경, 폐쇄신경",
+    "ultrasound": "장요근 힘줄, 대퇴혈관 내측의 adductor longus origin, 치골부를 확인.",
+    "muscles": [
+      "대요근",
+      "장골근",
+      "치골근",
+      "장내전근",
+      "단내전근"
+    ],
+    "muscleIds": [
+      "m047",
+      "m049",
+      "m133",
+      "m134",
+      "m135"
+    ]
+  },
+  {
+    "id": "sx13",
+    "title": "전방 무릎 통증",
+    "summary": "슬개대퇴부하와 대퇴사두근-특히 VMO/rectus femoris 흐름을 반영합니다.",
+    "conditions": "PF pain, quadriceps tendinopathy, fat pad/overuse 감별.",
+    "nerves": "대퇴신경",
+    "ultrasound": "quadriceps tendon, suprapatellar pouch, VMO 근복을 확인.",
+    "muscles": [
+      "대퇴직근",
+      "내측광근",
+      "외측광근",
+      "중간광근"
+    ],
+    "muscleIds": [
+      "m128",
+      "m130",
+      "m129",
+      "m131"
+    ]
+  },
+  {
+    "id": "sx14",
+    "title": "내측 무릎/거위발 통증",
+    "summary": "pes anserinus와 내측 햄스트링 연계를 보는 경로입니다.",
+    "conditions": "거위발 점액낭염, pes anserinus tendinopathy, 내측 슬관절 감별.",
+    "nerves": "폐쇄신경, 경골신경",
+    "ultrasound": "봉공근-박근-반건양근 distal insertion과 bursa를 확인.",
+    "muscles": [
+      "봉공근",
+      "박근",
+      "반건양근"
+    ],
+    "muscleIds": [
+      "m127",
+      "m138",
+      "m141"
+    ]
+  },
+  {
+    "id": "sx15",
+    "title": "후방 대퇴 통증",
+    "summary": "햄스트링군 손상/과부하를 우선 탐색하는 시작점입니다.",
+    "conditions": "hamstring strain, ischial origin tendinopathy, referred posterior thigh pain 감별.",
+    "nerves": "좌골신경의 경골/비골 분지",
+    "ultrasound": "ischial tuberosity origin, myotendinous junction, distal tendon continuity 확인.",
+    "muscles": [
+      "대퇴이두근-장두",
+      "대퇴이두근-단두",
+      "반건양근",
+      "반막양근"
+    ],
+    "muscleIds": [
+      "m139",
+      "m140",
+      "m141",
+      "m142"
+    ]
+  },
+  {
+    "id": "sx16",
+    "title": "종아리 후면 통증",
+    "summary": "비복근-가자미근 복합체와 슬와 주변을 포함한 경로입니다.",
+    "conditions": "calf strain, tennis leg, deep compartment 감별.",
+    "nerves": "경골신경",
+    "ultrasound": "gastrocnemius medial head, soleus, plantaris between them을 확인.",
+    "muscles": [
+      "비복근-내측두",
+      "비복근-외측두",
+      "가자미근",
+      "족척근"
+    ],
+    "muscleIds": [
+      "m149",
+      "m150",
+      "m151",
+      "m152"
+    ]
+  },
+  {
+    "id": "sx17",
+    "title": "아킬레스/발뒤꿈치 통증",
+    "summary": "triceps surae 연속성과 insertional/non-insertional 영역을 함께 봅니다.",
+    "conditions": "Achilles tendinopathy, retrocalcaneal bursitis, plantar flexor overload.",
+    "nerves": "경골신경",
+    "ultrasound": "아킬레스건 longitudinal/transverse, retrocalcaneal bursa, soleus-gastrocnemius 연속성을 확인.",
+    "muscles": [
+      "비복근-내측두",
+      "비복근-외측두",
+      "가자미근",
+      "족척근"
+    ],
+    "muscleIds": [
+      "m149",
+      "m150",
+      "m151",
+      "m152"
+    ]
+  },
+  {
+    "id": "sx18",
+    "title": "족저 통증",
+    "summary": "족저 내재근과 발바닥 아치 지지근을 보는 기본 경로입니다.",
+    "conditions": "plantar heel pain, intrinsic foot overload, medial arch strain.",
+    "nerves": "내측/외측 족저신경",
+    "ultrasound": "무지외전근, 단지굴근, 족척방형근 층과 족저근막 인접부를 확인.",
+    "muscles": [
+      "무지외전근",
+      "단지굴근",
+      "족척방형근",
+      "단무지굴근"
+    ],
+    "muscleIds": [
+      "m159",
+      "m160",
+      "m162",
+      "m167"
+    ]
+  },
+  {
+    "id": "sx19",
+    "title": "발목 외측 통증",
+    "summary": "비골근군과 외측 인대, peroneal tendon instability 감별이 핵심입니다.",
+    "conditions": "peroneal tendinopathy, subluxation, chronic ankle instability와 감별.",
+    "nerves": "표재비골신경",
+    "ultrasound": "retromalleolar peroneal tendons dynamic scan.",
+    "muscles": [
+      "장비골근",
+      "단비골근",
+      "제3비골근"
+    ],
+    "muscleIds": [
+      "m147",
+      "m148",
+      "m146"
+    ]
+  },
+  {
+    "id": "sx20",
+    "title": "발목 전외측/발등 통증",
+    "summary": "전경골근과 발등 신전건, 전외측 impingement를 같이 봅니다.",
+    "conditions": "tibialis anterior tendinopathy, extensor overuse, anterior ankle impingement 감별.",
+    "nerves": "심비골신경",
+    "ultrasound": "전경골건, 장지신근, 장무지신근과 extensor retinaculum을 확인.",
+    "muscles": [
+      "전경골근",
+      "장지신근",
+      "장무지신근",
+      "제3비골근"
+    ],
+    "muscleIds": [
+      "m143",
+      "m145",
+      "m144",
+      "m146"
+    ]
+  }
+]
