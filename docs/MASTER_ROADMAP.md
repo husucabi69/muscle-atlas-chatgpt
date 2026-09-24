@@ -48,8 +48,9 @@ Stage 1 — 어깨·견갑대·상완
 현재 상태: Stage 1 어깨·견갑대·상완 COMPLETE — 2026-09-24 조기 완료
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
 Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 4 고관절·골반·둔부
-목표 완료일: 2026-11-07
+Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
+현재 개발: Stage 5 무릎·대퇴
+목표 완료일: 2026-11-20
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -211,3 +212,30 @@ Stage 3 — 손목·손. 1~6 신전구획, 굴곡건, CTS/Guyon, TFCC 주변, in
 
 ### 다음
 Stage 4 — 고관절·골반·둔부. Iliopsoas, gluteal tendons, GTPS, adductors, deep gluteal, proximal hamstring을 동일 completion gate로 확장.
+
+
+## v8.3 Hip/Pelvis Stage 4 COMPLETE — 2026-09-25
+- [x] Anatomy / Structure — 기존 canonical muscle 205 유지
+- [x] Tendon 7개 신규 (t019~t025)
+- [x] Nerve 5개 신규 (n014~n018)
+- [x] Hip joint j009 / Bursa b004~b005 / Ligament lig006
+- [x] 고관절·골반 symptom pathway 6개 (기존 sx11·sx12 + sx27~sx30)
+- [x] Clinical Finding 12개 (f031~f042)
+- [x] Examination / Special Test 14개 (ct036~ct049)
+- [x] Ultrasound View 12개 (usv030~usv041)
+- [x] Diagnosis Concept 14개 (d039~d052)
+- [x] Differential group 6개 (dg017~dg022)
+- [x] 실제 공개 초음파 source/figure/license audit 12/12
+- [x] Hip/Pelvis clinical quiz 30문항
+- [x] 단일 검사·영상소견을 확정진단으로 사용하지 않는 안전 문구 반영
+- [x] Patient/PHI boundary 유지
+
+### 근거·미디어 원칙
+- 2026 open-access hip ultrasonography guide와 ESSR hip protocol을 표준 스캔 기준으로 사용.
+- GTPS는 대전자 촉진 + 저항 외전의 순차적 진단확률 변화 근거를 반영하되 확정검사로 취급하지 않음.
+- FADIR/FABER는 연구별 정확도 변이가 커 관절내 병변의 보조/선별검사로만 기술.
+- Dynamic snapping은 통증·소리와 영상 snap의 시간적 일치를 요구.
+- CC BY-NC-ND 원문 Figure는 재가공·복제하지 않고 canonical reference로 연결.
+
+### 다음
+Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collateral/periarticular structures를 동일 completion gate로 확장.
