@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0.0",
+  "regions": [
+    {
+      "region_id": "r001",
+      "entity_type": "region",
+      "key": "cervical_suboccipital",
+      "name_ko": "경추·후두하부",
+      "status": "active"
+    },
+    {
+      "region_id": "r002",
+      "entity_type": "region",
+      "key": "thoracic_chest_respiratory",
+      "name_ko": "흉추·흉벽·호흡근",
+      "status": "active"
+    },
+    {
+      "region_id": "r003",
+      "entity_type": "region",
+      "key": "lumbar_sacral_deep_hip_pelvic_floor",
+      "name_ko": "요추·천추·심부고관절·골반저",
+      "status": "active"
+    },
+    {
+      "region_id": "r004",
+      "entity_type": "region",
+      "key": "scapular_thoracoscapular",
+      "name_ko": "견갑대·흉견갑부",
+      "status": "active"
+    },
+    {
+      "region_id": "r005",
+      "entity_type": "region",
+      "key": "shoulder_rotator_cuff",
+      "name_ko": "어깨·회전근개",
+      "status": "active"
+    },
+    {
+      "region_id": "r006",
+      "entity_type": "region",
+      "key": "upper_arm",
+      "name_ko": "상완부",
+      "status": "active"
+    },
+    {
+      "region_id": "r007",
+      "entity_type": "region",
+      "key": "forearm_flexor_pronator",
+      "name_ko": "전완부 - 굴곡·회내군",
+      "status": "active"
+    },
+    {
+      "region_id": "r008",
+      "entity_type": "region",
+      "key": "forearm_extensor_supinator",
+      "name_ko": "전완부 - 신전·회외군",
+      "status": "active"
+    },
+    {
+      "region_id": "r009",
+      "entity_type": "region",
+      "key": "intrinsic_hand",
+      "name_ko": "손 내재근",
+      "status": "active"
+    },
+    {
+      "region_id": "r010",
+      "entity_type": "region",
+      "key": "gluteal_lateral_hip",
+      "name_ko": "둔부·고관절 외측",
+      "status": "active"
+    },
+    {
+      "region_id": "r011",
+      "entity_type": "region",
+      "key": "thigh",
+      "name_ko": "대퇴부",
+      "status": "active"
+    },
+    {
+      "region_id": "r012",
+      "entity_type": "region",
+      "key": "leg",
+      "name_ko": "하퇴부",
+      "status": "active"
+    },
+    {
+      "region_id": "r013",
+      "entity_type": "region",
+      "key": "intrinsic_foot",
+      "name_ko": "발 내재근",
+      "status": "active"
+    },
+    {
+      "region_id": "r014",
+      "entity_type": "region",
+      "key": "abdominal_wall",
+      "name_ko": "복벽",
+      "status": "active"
+    }
+  ]
+}
