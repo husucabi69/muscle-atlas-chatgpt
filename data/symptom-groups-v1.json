@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "groups": [
+    {
+      "symptom_group_id": "sg001",
+      "name_ko": "어깨",
+      "key": "shoulder",
+      "region_ids": [
+        "r005"
+      ],
+      "symptom_ids": [
+        "sx01",
+        "sx02",
+        "sx03"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg002",
+      "name_ko": "경추·견갑대",
+      "key": "cervical_scapular",
+      "region_ids": [
+        "r001",
+        "r004"
+      ],
+      "symptom_ids": [
+        "sx04",
+        "sx05"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg003",
+      "name_ko": "팔꿈치·전완",
+      "key": "elbow_forearm",
+      "region_ids": [
+        "r007",
+        "r008"
+      ],
+      "symptom_ids": [
+        "sx06",
+        "sx07"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg004",
+      "name_ko": "손목·손",
+      "key": "wrist_hand",
+      "region_ids": [
+        "r007",
+        "r008",
+        "r009"
+      ],
+      "symptom_ids": [
+        "sx08",
+        "sx09",
+        "sx10"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg005",
+      "name_ko": "고관절·골반·둔부",
+      "key": "hip_pelvis_gluteal",
+      "region_ids": [
+        "r003",
+        "r010",
+        "r011"
+      ],
+      "symptom_ids": [
+        "sx11",
+        "sx12"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg006",
+      "name_ko": "무릎·대퇴",
+      "key": "knee_thigh",
+      "region_ids": [
+        "r011"
+      ],
+      "symptom_ids": [
+        "sx13",
+        "sx14",
+        "sx15"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg007",
+      "name_ko": "하퇴·발목·발",
+      "key": "leg_ankle_foot",
+      "region_ids": [
+        "r012",
+        "r013"
+      ],
+      "symptom_ids": [
+        "sx16",
+        "sx17",
+        "sx18",
+        "sx19",
+        "sx20"
+      ],
+      "status": "active"
+    }
+  ]
+}
