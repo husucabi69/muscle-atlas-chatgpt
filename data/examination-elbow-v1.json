@@ -190,7 +190,7 @@
       "name_en": "Moving valgus stress test",
       "category": "ucl",
       "target_structure_ids": [
-        "j004"
+        "lig001"
       ],
       "setup": "어깨 외전·외회전, 팔꿈치를 깊게 굴곡하고 일정한 valgus torque를 유지한다.",
       "maneuver": "valgus stress를 유지하며 팔꿈치를 약 120°에서 70° 방향으로 빠르게 신전한다.",
