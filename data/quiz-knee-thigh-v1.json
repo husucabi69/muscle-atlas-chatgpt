@@ -1,0 +1,847 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "knee_thigh_v1",
+  "question_count": 30,
+  "questions": [
+    {
+      "quiz_id": "kq001",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "대퇴사두건 초음파에서 anisotropy를 줄이고 건을 펼쳐 보기 위한 기본 무릎 자세는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "약 20–30° 굴곡"
+        },
+        {
+          "value": "B",
+          "label": "항상 90° 이상 굴곡"
+        },
+        {
+          "value": "C",
+          "label": "완전 과신전 고정"
+        },
+        {
+          "value": "D",
+          "label": "엎드린 자세만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "usv042",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq002",
+      "module_id": "knee_thigh_v1",
+      "domain": "anatomy",
+      "question": "대퇴사두건의 대표적 3층 배열에서 표층을 주로 이루는 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "대퇴직근"
+        },
+        {
+          "value": "B",
+          "label": "중간광근"
+        },
+        {
+          "value": "C",
+          "label": "슬와근"
+        },
+        {
+          "value": "D",
+          "label": "반막양근"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "t026",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq003",
+      "module_id": "knee_thigh_v1",
+      "domain": "anatomy",
+      "question": "대퇴사두건의 깊은 층과 가장 관련된 근육은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "중간광근"
+        },
+        {
+          "value": "B",
+          "label": "봉공근"
+        },
+        {
+          "value": "C",
+          "label": "박근"
+        },
+        {
+          "value": "D",
+          "label": "대퇴이두근 단두"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m131",
+      "related_entity_id": "t026",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq004",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "슬개건 평가에 가장 적절한 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "장축과 단축을 모두 확인한다"
+        },
+        {
+          "value": "B",
+          "label": "단축 한 장만으로 진단한다"
+        },
+        {
+          "value": "C",
+          "label": "Doppler만 시행한다"
+        },
+        {
+          "value": "D",
+          "label": "슬개골 상부만 본다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "usv045",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq005",
+      "module_id": "knee_thigh_v1",
+      "domain": "safety",
+      "question": "슬개건이 두껍고 저에코로 보인다는 소견의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "증상·부하통과 함께 해석해야 한다"
+        },
+        {
+          "value": "B",
+          "label": "그 자체로 확정진단이다"
+        },
+        {
+          "value": "C",
+          "label": "좌우 비교는 필요 없다"
+        },
+        {
+          "value": "D",
+          "label": "파열을 자동 의미한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "d054",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq006",
+      "module_id": "knee_thigh_v1",
+      "domain": "clinical_test",
+      "question": "전방 슬개주위 통증에서 patellofemoral pain 패턴을 확인하는 실용적인 기능검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "스쿼트 통증유발"
+        },
+        {
+          "value": "B",
+          "label": "Phalen"
+        },
+        {
+          "value": "C",
+          "label": "Finkelstein"
+        },
+        {
+          "value": "D",
+          "label": "Spurling"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m130",
+      "related_entity_id": "ct050",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq007",
+      "module_id": "knee_thigh_v1",
+      "domain": "safety",
+      "question": "스쿼트에서 전방 무릎 통증이 재현되었을 때 가장 적절한 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "PFP 가능성을 지지하지만 다른 원인을 감별한다"
+        },
+        {
+          "value": "B",
+          "label": "PFP를 100% 확정한다"
+        },
+        {
+          "value": "C",
+          "label": "반월상연골 파열을 확정한다"
+        },
+        {
+          "value": "D",
+          "label": "MPFL 파열을 확정한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m130",
+      "related_entity_id": "d053",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq008",
+      "module_id": "knee_thigh_v1",
+      "domain": "clinical_test",
+      "question": "급성 외상 후 직거상 불가와 extensor lag가 있으면 우선 고려해야 할 범주는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "무릎 신전기전 연속성 손상"
+        },
+        {
+          "value": "B",
+          "label": "손목터널증후군"
+        },
+        {
+          "value": "C",
+          "label": "회전근개 질환"
+        },
+        {
+          "value": "D",
+          "label": "족저근막염"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "ct054",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq009",
+      "module_id": "knee_thigh_v1",
+      "domain": "safety",
+      "question": "직거상 불가가 있을 때 옳은 설명은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "통증 억제·삼출도 원인이 될 수 있어 파열을 단독 확정하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "항상 슬개건 완전파열이다"
+        },
+        {
+          "value": "C",
+          "label": "영상은 불필요하다"
+        },
+        {
+          "value": "D",
+          "label": "좌우를 자동 추정한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "ct054",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq010",
+      "module_id": "knee_thigh_v1",
+      "domain": "clinical_test",
+      "question": "MCL을 포함한 내측 안정성 평가에 대표적으로 쓰는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "약 30° 외반 스트레스"
+        },
+        {
+          "value": "B",
+          "label": "Watson"
+        },
+        {
+          "value": "C",
+          "label": "Durkan"
+        },
+        {
+          "value": "D",
+          "label": "Thompson"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m130",
+      "related_entity_id": "ct058",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq011",
+      "module_id": "knee_thigh_v1",
+      "domain": "clinical_test",
+      "question": "무릎 0° 외반 스트레스에서 비대칭 이완이 있을 때 가장 적절한 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "MCL 단독보다 더 넓은 capsuloligament 손상 가능성을 고려한다"
+        },
+        {
+          "value": "B",
+          "label": "MCL 단독 Grade I을 확정한다"
+        },
+        {
+          "value": "C",
+          "label": "LCL 파열을 확정한다"
+        },
+        {
+          "value": "D",
+          "label": "정상 변이로 무시한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m130",
+      "related_entity_id": "ct059",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq012",
+      "module_id": "knee_thigh_v1",
+      "domain": "clinical_test",
+      "question": "LCL을 포함한 외측 안정성을 보는 대표 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "약 30° 내반 스트레스"
+        },
+        {
+          "value": "B",
+          "label": "FADIR"
+        },
+        {
+          "value": "C",
+          "label": "Eichhoff"
+        },
+        {
+          "value": "D",
+          "label": "Tinel at wrist"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m139",
+      "related_entity_id": "ct060",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq013",
+      "module_id": "knee_thigh_v1",
+      "domain": "anatomy",
+      "question": "거위발(pes anserinus)을 이루는 세 힘줄 조합은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "봉공근·박근·반건양근"
+        },
+        {
+          "value": "B",
+          "label": "대퇴직근·외측광근·중간광근"
+        },
+        {
+          "value": "C",
+          "label": "대퇴이두근·슬와근·비복근"
+        },
+        {
+          "value": "D",
+          "label": "장내전근·단내전근·대내전근"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m141",
+      "related_entity_id": "usv049",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq014",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "정상 거위발 부위에서 bursa는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "보이지 않을 수 있다"
+        },
+        {
+          "value": "B",
+          "label": "항상 큰 무에코 주머니로 보여야 한다"
+        },
+        {
+          "value": "C",
+          "label": "항상 Doppler flow가 있어야 한다"
+        },
+        {
+          "value": "D",
+          "label": "골수 안에 위치한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m141",
+      "related_entity_id": "b009",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq015",
+      "module_id": "knee_thigh_v1",
+      "domain": "differential",
+      "question": "관절선보다 약간 아래 전내측 경골부의 국소 압통과 저항성 굴곡 통증에서 우선 연결할 후보는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "거위발 건·점액낭 통증 증후군"
+        },
+        {
+          "value": "B",
+          "label": "슬개골 탈구"
+        },
+        {
+          "value": "C",
+          "label": "아킬레스건 파열"
+        },
+        {
+          "value": "D",
+          "label": "회전근개 파열"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m141",
+      "related_entity_id": "d062",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq016",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "외측 무릎에서 LCL과 해부학적으로 밀접하게 만나는 원위 힘줄은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "대퇴이두건"
+        },
+        {
+          "value": "B",
+          "label": "대퇴직근 건"
+        },
+        {
+          "value": "C",
+          "label": "장내전근 건"
+        },
+        {
+          "value": "D",
+          "label": "장요근 건"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m139",
+      "related_entity_id": "usv051",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq017",
+      "module_id": "knee_thigh_v1",
+      "domain": "safety",
+      "question": "LCL 부위에서 distal biceps tendon이 LCL을 둘러싸 보일 때 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "정상 해부학적 변이가 있을 수 있다"
+        },
+        {
+          "value": "B",
+          "label": "항상 파열이다"
+        },
+        {
+          "value": "C",
+          "label": "항상 종양이다"
+        },
+        {
+          "value": "D",
+          "label": "항상 신경포착이다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m139",
+      "related_entity_id": "usv051",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq018",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "외측 대퇴과에서 Gerdy 결절로 이어지는 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "장경인대"
+        },
+        {
+          "value": "B",
+          "label": "반막양건"
+        },
+        {
+          "value": "C",
+          "label": "슬개건"
+        },
+        {
+          "value": "D",
+          "label": "MCL"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m129",
+      "related_entity_id": "usv050",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq019",
+      "module_id": "knee_thigh_v1",
+      "domain": "differential",
+      "question": "달리기·반복 굴곡에서 외측 대퇴과 통증이 재현될 때 감별에 반드시 함께 둘 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "ITB, LCL, distal biceps femoris, proximal tibiofibular joint"
+        },
+        {
+          "value": "B",
+          "label": "median nerve만"
+        },
+        {
+          "value": "C",
+          "label": "rotator cuff만"
+        },
+        {
+          "value": "D",
+          "label": "Achilles tendon만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m129",
+      "related_entity_id": "dg026",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq020",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "Baker cyst가 전형적으로 위치하는 해부학적 간격은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "반막양건과 내측 비복근 사이"
+        },
+        {
+          "value": "B",
+          "label": "슬개건과 피부 사이만"
+        },
+        {
+          "value": "C",
+          "label": "LCL과 비골두 사이"
+        },
+        {
+          "value": "D",
+          "label": "대퇴사두건과 피부 사이"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m142",
+      "related_entity_id": "usv052",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq021",
+      "module_id": "knee_thigh_v1",
+      "domain": "safety",
+      "question": "후방 무릎의 낭성 종괴를 볼 때 중요한 안전 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "혈관성 구조를 Doppler 등으로 구분한다"
+        },
+        {
+          "value": "B",
+          "label": "모든 종괴를 Baker cyst로 간주한다"
+        },
+        {
+          "value": "C",
+          "label": "박동성을 무시한다"
+        },
+        {
+          "value": "D",
+          "label": "신경혈관 증상은 관련 없다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m142",
+      "related_entity_id": "d066",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq022",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "슬와와 횡단면에서 일반적으로 가장 표재성으로 확인되는 신경혈관 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "경골신경"
+        },
+        {
+          "value": "B",
+          "label": "슬와동맥"
+        },
+        {
+          "value": "C",
+          "label": "대퇴동맥"
+        },
+        {
+          "value": "D",
+          "label": "정중신경"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m142",
+      "related_entity_id": "usv053",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq023",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "총비골신경을 무릎 주변에서 추적할 때 핵심 골성 landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "비골두·비골경"
+        },
+        {
+          "value": "B",
+          "label": "슬개골 상극"
+        },
+        {
+          "value": "C",
+          "label": "경골조면만"
+        },
+        {
+          "value": "D",
+          "label": "대퇴골 소전자"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m139",
+      "related_entity_id": "usv054",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq024",
+      "module_id": "knee_thigh_v1",
+      "domain": "safety",
+      "question": "총비골신경 초음파에서 옳은 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "CSA 한 수치만으로 neuropathy를 확정하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "CSA만으로 항상 확정한다"
+        },
+        {
+          "value": "C",
+          "label": "좌우 비교를 금지한다"
+        },
+        {
+          "value": "D",
+          "label": "압박을 강하게 해야 한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m139",
+      "related_entity_id": "n020",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq025",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "deep infrapatellar bursa에 대해 옳은 설명은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "최대 굴곡에서 소량 액체가 정상적으로 보일 수 있다"
+        },
+        {
+          "value": "B",
+          "label": "소량 액체는 항상 감염이다"
+        },
+        {
+          "value": "C",
+          "label": "정상에서는 항상 큰 액체저류가 있다"
+        },
+        {
+          "value": "D",
+          "label": "슬개골 상부에만 있다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "usv046",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq026",
+      "module_id": "knee_thigh_v1",
+      "domain": "clinical_test",
+      "question": "슬개골 외측 이동 시 뚜렷한 apprehension을 확인하는 검사의 주된 목적은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "슬개골 불안정성 평가"
+        },
+        {
+          "value": "B",
+          "label": "MCL grade 확정"
+        },
+        {
+          "value": "C",
+          "label": "Baker cyst 확정"
+        },
+        {
+          "value": "D",
+          "label": "햄스트링 견열 확정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m130",
+      "related_entity_id": "ct053",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq027",
+      "module_id": "knee_thigh_v1",
+      "domain": "safety",
+      "question": "MPFL/슬개골 불안정성을 평가할 때 옳은 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "apprehension 하나로 MPFL 파열을 확정하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "검사 하나면 MRI/병력은 무의미하다"
+        },
+        {
+          "value": "C",
+          "label": "좌우를 자동 추정한다"
+        },
+        {
+          "value": "D",
+          "label": "통증이 없으면 불안정성은 불가능하다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m130",
+      "related_entity_id": "d067",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq028",
+      "module_id": "knee_thigh_v1",
+      "domain": "ultrasound",
+      "question": "후외측 무릎의 popliteus tendon 평가에서 정상일 수 있는 소견은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "subpopliteal recess의 소량 무에코 액체"
+        },
+        {
+          "value": "B",
+          "label": "항상 tendon discontinuity"
+        },
+        {
+          "value": "C",
+          "label": "항상 큰 혈종"
+        },
+        {
+          "value": "D",
+          "label": "항상 신경 비후"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m153",
+      "related_entity_id": "usv051",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq029",
+      "module_id": "knee_thigh_v1",
+      "domain": "clinical_reasoning",
+      "question": "Stage 5에서 초음파 소견의 올바른 역할은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "임상후보를 조정하는 구조 정보이며 단독 확정진단이 아니다"
+        },
+        {
+          "value": "B",
+          "label": "영상 소견 하나로 확정한다"
+        },
+        {
+          "value": "C",
+          "label": "환자 laterality를 자동 생성한다"
+        },
+        {
+          "value": "D",
+          "label": "시행하지 않은 검사를 기록한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "d053",
+      "status": "active"
+    },
+    {
+      "quiz_id": "kq030",
+      "module_id": "knee_thigh_v1",
+      "domain": "clinical_reasoning",
+      "question": "Knee/Thigh Stage 5의 데이터 안전 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "일반 MSK 지식만 저장하고 환자정보/PHI를 저장하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "환자 이름과 주민번호를 Knowledge Core에 저장한다"
+        },
+        {
+          "value": "C",
+          "label": "검사 미시행도 자동 양성으로 기록한다"
+        },
+        {
+          "value": "D",
+          "label": "좌우를 AI가 추정한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m128",
+      "related_entity_id": "dg023",
+      "status": "active"
+    }
+  ]
+}
