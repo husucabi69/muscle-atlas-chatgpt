@@ -70,7 +70,7 @@ button,input{font:inherit} button{cursor:pointer}
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7 · 증상 + 퀴즈</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.1 · 증상 + 퀴즈 + 고정 영상</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
@@ -159,6 +159,20 @@ const fallbackUS={"어깨·회전근개": [{"title": "Supraspinatus tendon — l
 
 const byId={}; muscles.forEach(m=>byId[m.id]=m);
 const symptomById={}; symptoms.forEach(s=>symptomById[s.id]=s);
+let curatedMediaRegistry=null;
+async function getCuratedMedia(){
+  if(curatedMediaRegistry) return curatedMediaRegistry;
+  try{
+    const r=await fetch('./data/media-v1.json',{cache:'no-cache'});
+    if(r.ok) curatedMediaRegistry=await r.json();
+  }catch(e){}
+  curatedMediaRegistry=curatedMediaRegistry||{muscles:{}};
+  return curatedMediaRegistry;
+}
+function curatedCard(x){
+  const url='https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(x.file);
+  return mediaCard({title:x.title,url,page:x.sourcePage,license:[x.author,x.license,'검수 고정 영상'].filter(Boolean).join(' · ')});
+}
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s||'').toLowerCase().replace(/\s+/g,'').replace(/[·\-_/()]/g,'');
 
@@ -226,7 +240,13 @@ function mediaCard(x){return `<div class="media"><a href="${esc(x.page||x.full||
 
 async function loadAnatomy(m){
   const el=document.getElementById('anatomyMedia'); if(!el) return;
-  el.innerHTML='<div class="status">고해상도 해부학 이미지를 불러오는 중…</div>';
+  el.innerHTML='<div class="status">검수된 고정 해부 이미지를 확인하는 중…</div>';
+  const reg=await getCuratedMedia(), fixed=reg.muscles?.[m.id]?.anatomy||[];
+  if(fixed.length){
+    el.innerHTML=fixed.map(curatedCard).join('');
+    return;
+  }
+  el.innerHTML='<div class="status">고정 영상 미등록 · 공개 고해상도 해부 이미지를 검색하는 중…</div>';
   const base=m.en.replace(/\([^)]*\)/g,'').trim(); const terms=base.split(/\s+/).filter(x=>x.length>2);
   const qs=[`"${base}" Anatomography muscle`,`"${base}" Gray anatomy`,`"${base}" muscle anatomy`];
   let all=[]; for(const q of qs){try{all=all.concat(await commonsSearch(q, terms, 6));}catch(e){}}
@@ -235,14 +255,20 @@ async function loadAnatomy(m){
 }
 async function loadUS(m){
   const el=document.getElementById('usMedia'); if(!el) return;
-  el.innerHTML='<div class="status">실제 B-mode 초음파를 불러오는 중…</div>';
+  el.innerHTML='<div class="status">검수된 실제 초음파를 확인하는 중…</div>';
+  const reg=await getCuratedMedia(), fixed=reg.muscles?.[m.id]?.ultrasound||[];
+  if(fixed.length){
+    el.innerHTML=fixed.map(curatedCard).join('');
+    return;
+  }
+  el.innerHTML='<div class="status">고정 초음파 미등록 · 공개 실제 B-mode 초음파를 검색하는 중…</div>';
   const base=m.en.replace(/\([^)]*\)/g,'').trim(); const terms=base.split(/\s+/).filter(x=>x.length>2);
   const qs=[`"${base}" ultrasound`,`"${base}" ultrasonography`,`"${base.replace(/ muscle$/i,'')}" sonography`];
   let all=[]; for(const q of qs){try{all=all.concat(await commonsSearch(q, terms, 7));}catch(e){}}
-  all=all.filter(x=>/ultra|sono|US/i.test(x.title));
+  all=all.filter(x=>/ultra|sono|US\b/i.test(x.title));
   const seen=new Set(); all=all.filter(x=>!seen.has(x.url)&&seen.add(x.url)).slice(0,4);
   if(!all.length && fallbackUS[m.region]) all=fallbackUS[m.region];
-  el.innerHTML=all.length ? all.map(mediaCard).join('') : '<div class="status">이 근육에 대해 공개 라이선스로 확인 가능한 실제 정상 초음파가 없어 임의 대체하지 않았습니다.</div>';
+  el.innerHTML=all.length ? all.map(mediaCard).join('') : '<div class="status">이 근육에 대해 공개 라이선스로 확인 가능한 실제 초음파가 없어 임의 대체하지 않았습니다.</div>';
 }
 
 function openMuscle(id){
@@ -264,10 +290,10 @@ function openMuscle(id){
     <div class="box" style="margin-bottom:16px"><p><b>Probe / 스캔:</b> ${esc(ui['Probe/스캔']||'')}
 <b>정상 구조 식별:</b> ${esc(ui['정상 해부/식별']||ui['정상/식별']||'')}
 <b>임상 체크포인트:</b> ${esc(ui['임상 체크포인트']||ui['임상/주의']||'')}</p></div>
-    <div class="section-title"><h3 style="font-size:24px">해부학 Atlas</h3><span>공개 라이선스 실제 이미지 검색</span></div>
+    <div class="section-title"><h3 style="font-size:24px">해부학 Atlas</h3><span>검수 고정 영상 우선 · 미등록 시 공개 검색</span></div>
     <div class="note">1차 업그레이드에서는 증상 기반 탐색을 먼저 붙였습니다. 근육별 실제 해부/초음파의 고정 매칭은 다음 패치에서 순차적으로 보강합니다.</div>
     <div id="anatomyMedia" class="media-grid"></div>
-    <div class="section-title"><h3 style="font-size:24px">실제 초음파 영상</h3><span>B-mode normal reference</span></div>
+    <div class="section-title"><h3 style="font-size:24px">실제 초음파 영상</h3><span>검수 실제 초음파 우선 · 미등록 시 공개 검색</span></div>
     <div id="usMedia" class="media-grid"></div>
     <div style="padding-top:28px;text-align:center"><button class="primary" onclick="closeMuscle()">근육 목록으로 돌아가기</button></div>`;
   document.getElementById('muscleOverlay').classList.add('show');
