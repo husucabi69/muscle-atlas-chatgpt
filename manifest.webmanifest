@@ -1,7 +1,8 @@
 {
   "name": "근육학 · MSK Muscle Atlas",
   "short_name": "근육학",
-  "description": "정형외과 근육 해부·임상·실제 초음파 학습 앱",
+  "id": "/muscle-atlas-chatgpt/",
+  "description": "정형외과 근육 해부·임상·실제 초음파 학습 앱 · 증상 기반 업그레이드 v6",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -21,6 +22,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "id": "/muscle-atlas-chatgpt/"
+  ]
 }
