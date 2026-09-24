@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.24-b",
+  "dataset_version": "2026.09.24-c",
   "ownership": {
     "owner": "Muscle Atlas / MSK Knowledge Layer",
     "contains_patient_data": false,
@@ -4643,6 +4643,7 @@
       "finding_id": "f001",
       "entity_type": "clinical_finding",
       "name_ko": "외측 어깨 통증",
+      "key": "lateral_shoulder_pain",
       "region_id": "r005",
       "status": "active"
     },
@@ -4650,6 +4651,7 @@
       "finding_id": "f002",
       "entity_type": "clinical_finding",
       "name_ko": "Painful arc 양성",
+      "key": "positive_painful_arc",
       "region_id": "r005",
       "status": "active"
     },
@@ -4657,6 +4659,79 @@
       "finding_id": "f003",
       "entity_type": "clinical_finding",
       "name_ko": "외전 근력저하",
+      "key": "abduction_weakness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f004",
+      "entity_type": "clinical_finding",
+      "name_ko": "전방 어깨 통증",
+      "key": "anterior_shoulder_pain",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f005",
+      "entity_type": "clinical_finding",
+      "name_ko": "이두구 압통",
+      "key": "bicipital_groove_tenderness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f006",
+      "entity_type": "clinical_finding",
+      "name_ko": "외회전 근력저하",
+      "key": "external_rotation_weakness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f007",
+      "entity_type": "clinical_finding",
+      "name_ko": "내회전 근력저하",
+      "key": "internal_rotation_weakness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f008",
+      "entity_type": "clinical_finding",
+      "name_ko": "야간통",
+      "key": "night_pain",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f009",
+      "entity_type": "clinical_finding",
+      "name_ko": "수동 관절운동 제한",
+      "key": "restricted_passive_rom",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f010",
+      "entity_type": "clinical_finding",
+      "name_ko": "AC 관절 국소 압통",
+      "key": "ac_joint_tenderness",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f011",
+      "entity_type": "clinical_finding",
+      "name_ko": "삼각근 부위 감각저하",
+      "key": "deltoid_patch_sensory_change",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "finding_id": "f012",
+      "entity_type": "clinical_finding",
+      "name_ko": "후방 어깨 통증",
+      "key": "posterior_shoulder_pain",
       "region_id": "r005",
       "status": "active"
     }
@@ -4996,6 +5071,78 @@
       "entity_type": "diagnosis_concept",
       "name_ko": "상완이두근-상부 관절와순 관련 병변",
       "name_en": "Biceps-labrum complex pathology",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d008",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "회전근개 전층파열",
+      "name_en": "Full-thickness rotator cuff tear",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d009",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "석회성 회전근개 건병증",
+      "name_en": "Calcific rotator cuff tendinopathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d010",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견봉쇄골관절 병변",
+      "name_en": "Acromioclavicular joint pathology",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d011",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "유착성 관절낭염",
+      "name_en": "Adhesive capsulitis",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d012",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견관절 퇴행성 관절병증",
+      "name_en": "Glenohumeral degenerative arthropathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d013",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경추성 연관통",
+      "name_en": "Cervical referred pain",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d014",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "액와신경병증",
+      "name_en": "Axillary neuropathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d015",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견갑상신경병증",
+      "name_en": "Suprascapular neuropathy",
+      "region_id": "r005",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d016",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "상완이두근 장두 불안정성",
+      "name_en": "Long-head biceps tendon instability",
       "region_id": "r005",
       "status": "active"
     }
@@ -7357,6 +7504,342 @@
       "relation": "HAS_TENDON",
       "to_type": "tendon",
       "to_id": "t005"
+    },
+    {
+      "relationship_id": "rel_0199",
+      "from_type": "clinical_finding",
+      "from_id": "f001",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0200",
+      "from_type": "clinical_finding",
+      "from_id": "f001",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d002"
+    },
+    {
+      "relationship_id": "rel_0201",
+      "from_type": "clinical_finding",
+      "from_id": "f001",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d003"
+    },
+    {
+      "relationship_id": "rel_0202",
+      "from_type": "clinical_finding",
+      "from_id": "f001",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d009"
+    },
+    {
+      "relationship_id": "rel_0203",
+      "from_type": "clinical_finding",
+      "from_id": "f001",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d013"
+    },
+    {
+      "relationship_id": "rel_0204",
+      "from_type": "clinical_finding",
+      "from_id": "f002",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0205",
+      "from_type": "clinical_finding",
+      "from_id": "f002",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d003"
+    },
+    {
+      "relationship_id": "rel_0206",
+      "from_type": "clinical_finding",
+      "from_id": "f003",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d002"
+    },
+    {
+      "relationship_id": "rel_0207",
+      "from_type": "clinical_finding",
+      "from_id": "f003",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d008"
+    },
+    {
+      "relationship_id": "rel_0208",
+      "from_type": "clinical_finding",
+      "from_id": "f003",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d014"
+    },
+    {
+      "relationship_id": "rel_0209",
+      "from_type": "clinical_finding",
+      "from_id": "f003",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d015"
+    },
+    {
+      "relationship_id": "rel_0210",
+      "from_type": "clinical_finding",
+      "from_id": "f004",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d004"
+    },
+    {
+      "relationship_id": "rel_0211",
+      "from_type": "clinical_finding",
+      "from_id": "f004",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d006"
+    },
+    {
+      "relationship_id": "rel_0212",
+      "from_type": "clinical_finding",
+      "from_id": "f004",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d007"
+    },
+    {
+      "relationship_id": "rel_0213",
+      "from_type": "clinical_finding",
+      "from_id": "f004",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d016"
+    },
+    {
+      "relationship_id": "rel_0214",
+      "from_type": "clinical_finding",
+      "from_id": "f005",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d004"
+    },
+    {
+      "relationship_id": "rel_0215",
+      "from_type": "clinical_finding",
+      "from_id": "f005",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d016"
+    },
+    {
+      "relationship_id": "rel_0216",
+      "from_type": "clinical_finding",
+      "from_id": "f006",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d005"
+    },
+    {
+      "relationship_id": "rel_0217",
+      "from_type": "clinical_finding",
+      "from_id": "f006",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d015"
+    },
+    {
+      "relationship_id": "rel_0218",
+      "from_type": "clinical_finding",
+      "from_id": "f007",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d006"
+    },
+    {
+      "relationship_id": "rel_0219",
+      "from_type": "clinical_finding",
+      "from_id": "f008",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0220",
+      "from_type": "clinical_finding",
+      "from_id": "f008",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d002"
+    },
+    {
+      "relationship_id": "rel_0221",
+      "from_type": "clinical_finding",
+      "from_id": "f008",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d008"
+    },
+    {
+      "relationship_id": "rel_0222",
+      "from_type": "clinical_finding",
+      "from_id": "f008",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d011"
+    },
+    {
+      "relationship_id": "rel_0223",
+      "from_type": "clinical_finding",
+      "from_id": "f009",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d011"
+    },
+    {
+      "relationship_id": "rel_0224",
+      "from_type": "clinical_finding",
+      "from_id": "f009",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d012"
+    },
+    {
+      "relationship_id": "rel_0225",
+      "from_type": "clinical_finding",
+      "from_id": "f010",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d010"
+    },
+    {
+      "relationship_id": "rel_0226",
+      "from_type": "clinical_finding",
+      "from_id": "f011",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d014"
+    },
+    {
+      "relationship_id": "rel_0227",
+      "from_type": "clinical_finding",
+      "from_id": "f012",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d005"
+    },
+    {
+      "relationship_id": "rel_0228",
+      "from_type": "clinical_finding",
+      "from_id": "f012",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d013"
+    },
+    {
+      "relationship_id": "rel_0229",
+      "from_type": "clinical_finding",
+      "from_id": "f012",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d015"
+    },
+    {
+      "relationship_id": "rel_0230",
+      "from_type": "diagnosis_concept",
+      "from_id": "d008",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t001"
+    },
+    {
+      "relationship_id": "rel_0231",
+      "from_type": "diagnosis_concept",
+      "from_id": "d008",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t003"
+    },
+    {
+      "relationship_id": "rel_0232",
+      "from_type": "diagnosis_concept",
+      "from_id": "d008",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t004"
+    },
+    {
+      "relationship_id": "rel_0233",
+      "from_type": "diagnosis_concept",
+      "from_id": "d009",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t001"
+    },
+    {
+      "relationship_id": "rel_0234",
+      "from_type": "diagnosis_concept",
+      "from_id": "d009",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t004"
+    },
+    {
+      "relationship_id": "rel_0235",
+      "from_type": "diagnosis_concept",
+      "from_id": "d010",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j002"
+    },
+    {
+      "relationship_id": "rel_0236",
+      "from_type": "diagnosis_concept",
+      "from_id": "d011",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j001"
+    },
+    {
+      "relationship_id": "rel_0237",
+      "from_type": "diagnosis_concept",
+      "from_id": "d012",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j001"
+    },
+    {
+      "relationship_id": "rel_0238",
+      "from_type": "diagnosis_concept",
+      "from_id": "d014",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n002"
+    },
+    {
+      "relationship_id": "rel_0239",
+      "from_type": "diagnosis_concept",
+      "from_id": "d015",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n001"
+    },
+    {
+      "relationship_id": "rel_0240",
+      "from_type": "diagnosis_concept",
+      "from_id": "d016",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t002"
     }
   ]
 }
