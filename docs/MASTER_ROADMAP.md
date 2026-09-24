@@ -241,3 +241,14 @@ Stage 4 — 고관절·골반·둔부. Iliopsoas, gluteal tendons, GTPS, adducto
 
 ### 다음
 Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collateral/periarticular structures를 동일 completion gate로 확장.
+
+
+## Stage 5 완료 기록
+완료일: 2026-09-25
+상태: COMPLETE — Knee/Thigh Stage 5
+- Quadriceps/patellar extensor mechanism, patellofemoral/peripatellar structures
+- Distal hamstrings/pes anserinus
+- MCL/LCL, ITB, popliteus, proximal tibiofibular and posterior knee structures
+- Actual ultrasound canonical reference audit 14/14
+- Knee/Thigh clinical quiz 30
+- 다음 공식 단계: Stage 6 — 하퇴·발목·발
