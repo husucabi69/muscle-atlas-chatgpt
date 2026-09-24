@@ -1,0 +1,567 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "elbow_v1",
+  "question_count": 20,
+  "questions": [
+    {
+      "quiz_id": "eq001",
+      "module_id": "elbow_v1",
+      "domain": "clinical_test",
+      "question": "외측상과 통증을 유발하며 저항성 손목 신전을 사용하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Cozen 검사"
+        },
+        {
+          "value": "B",
+          "label": "Hook 검사"
+        },
+        {
+          "value": "C",
+          "label": "Tinel 징후"
+        },
+        {
+          "value": "D",
+          "label": "Moving valgus stress"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m093",
+      "related_entity_id": "ct012",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq002",
+      "module_id": "elbow_v1",
+      "domain": "clinical_test",
+      "question": "중지를 저항 against extension 시켜 외측 팔꿈치/요골터널 통증을 보는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Maudsley 검사"
+        },
+        {
+          "value": "B",
+          "label": "Biceps squeeze"
+        },
+        {
+          "value": "C",
+          "label": "Mill 검사"
+        },
+        {
+          "value": "D",
+          "label": "Elbow flexion test"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m094",
+      "related_entity_id": "ct014",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq003",
+      "module_id": "elbow_v1",
+      "domain": "clinical_test",
+      "question": "주관 증후군에서 척골신경 타진으로 제4-5지 저림을 재현하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Tinel 징후"
+        },
+        {
+          "value": "B",
+          "label": "Cozen 검사"
+        },
+        {
+          "value": "C",
+          "label": "Hook 검사"
+        },
+        {
+          "value": "D",
+          "label": "Mill 검사"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m086",
+      "related_entity_id": "ct016",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq004",
+      "module_id": "elbow_v1",
+      "domain": "clinical_test",
+      "question": "팔꿈치 굴곡과 척골신경 압박을 함께 사용하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Pressure-flexion test"
+        },
+        {
+          "value": "B",
+          "label": "Moving valgus test"
+        },
+        {
+          "value": "C",
+          "label": "Cozen test"
+        },
+        {
+          "value": "D",
+          "label": "Biceps squeeze"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m086",
+      "related_entity_id": "ct017",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq005",
+      "module_id": "elbow_v1",
+      "domain": "clinical_test",
+      "question": "원위 이두건 완전파열 평가에서 건 아래로 손가락을 걸 수 있는지 보는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Hook test"
+        },
+        {
+          "value": "B",
+          "label": "Mill test"
+        },
+        {
+          "value": "C",
+          "label": "Tinel sign"
+        },
+        {
+          "value": "D",
+          "label": "Maudsley test"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "ct018",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq006",
+      "module_id": "elbow_v1",
+      "domain": "clinical_test",
+      "question": "상완이두근 근복을 압박했을 때 전완 회외 반응을 보는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Biceps squeeze test"
+        },
+        {
+          "value": "B",
+          "label": "Cozen test"
+        },
+        {
+          "value": "C",
+          "label": "Moving valgus test"
+        },
+        {
+          "value": "D",
+          "label": "Mill test"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "ct019",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq007",
+      "module_id": "elbow_v1",
+      "domain": "clinical_test",
+      "question": "투구선수의 UCL 병변 평가에서 valgus torque를 유지하며 굴곡된 팔꿈치를 신전하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Moving valgus stress test"
+        },
+        {
+          "value": "B",
+          "label": "Hook test"
+        },
+        {
+          "value": "C",
+          "label": "Cozen test"
+        },
+        {
+          "value": "D",
+          "label": "Tinel sign"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m083",
+      "related_entity_id": "ct020",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq008",
+      "module_id": "elbow_v1",
+      "domain": "ultrasound",
+      "question": "외측상과 공통신근건을 장축으로 보는 view는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Common extensor tendon LAX"
+        },
+        {
+          "value": "B",
+          "label": "Ulnar nerve dynamic"
+        },
+        {
+          "value": "C",
+          "label": "Distal biceps tendon"
+        },
+        {
+          "value": "D",
+          "label": "Triceps tendon"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m093",
+      "related_entity_id": "usv010",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq009",
+      "module_id": "elbow_v1",
+      "domain": "ultrasound",
+      "question": "굴곡-신전 중 척골신경이 내측상과를 넘어 전방으로 이동하는지 보는 view는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Dynamic ulnar nerve at cubital tunnel"
+        },
+        {
+          "value": "B",
+          "label": "Common extensor SAX"
+        },
+        {
+          "value": "C",
+          "label": "Anterior elbow joint"
+        },
+        {
+          "value": "D",
+          "label": "Distal biceps LAX"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m086",
+      "related_entity_id": "usv013",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq010",
+      "module_id": "elbow_v1",
+      "domain": "ultrasound",
+      "question": "요골조면까지 추적해야 하는 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "원위 상완이두건"
+        },
+        {
+          "value": "B",
+          "label": "공통신근건"
+        },
+        {
+          "value": "C",
+          "label": "삼두건"
+        },
+        {
+          "value": "D",
+          "label": "척골신경"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "usv014",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq011",
+      "module_id": "elbow_v1",
+      "domain": "ultrasound",
+      "question": "Frohse arcade와 회외근 사이를 통과하는 신경을 확인하는 view는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "PIN/요골신경 분지"
+        },
+        {
+          "value": "B",
+          "label": "척골신경 주관"
+        },
+        {
+          "value": "C",
+          "label": "정중신경 손목"
+        },
+        {
+          "value": "D",
+          "label": "상완이두건 장두"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m097",
+      "related_entity_id": "usv015",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq012",
+      "module_id": "elbow_v1",
+      "domain": "ultrasound",
+      "question": "주두 뒤 피하 점액낭과 함께 평가하는 건은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "삼두건"
+        },
+        {
+          "value": "B",
+          "label": "원위 이두건"
+        },
+        {
+          "value": "C",
+          "label": "공통굴곡건"
+        },
+        {
+          "value": "D",
+          "label": "극상건"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m079",
+      "related_entity_id": "usv016",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq013",
+      "module_id": "elbow_v1",
+      "domain": "clinical_reasoning",
+      "question": "외측상과 통증이 있지만 압통이 더 원위 요골터널에 있고 신경 경로 증상이 의심되면 함께 고려할 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "요골터널/PIN 포착"
+        },
+        {
+          "value": "B",
+          "label": "주관 증후군"
+        },
+        {
+          "value": "C",
+          "label": "주두점액낭염"
+        },
+        {
+          "value": "D",
+          "label": "UCL 병변"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m097",
+      "related_entity_id": "d021",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq014",
+      "module_id": "elbow_v1",
+      "domain": "clinical_reasoning",
+      "question": "내측 팔꿈치 통증과 제4-5지 저림이 함께 있으면 우선 감별해야 할 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "팔꿈치 척골신경병증"
+        },
+        {
+          "value": "B",
+          "label": "외측 팔꿈치 건병증"
+        },
+        {
+          "value": "C",
+          "label": "원위 이두건 파열"
+        },
+        {
+          "value": "D",
+          "label": "삼두건병증"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m086",
+      "related_entity_id": "d019",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq015",
+      "module_id": "elbow_v1",
+      "domain": "clinical_reasoning",
+      "question": "Hook test가 음성이라고 해서 완전 원위 이두건 파열을 무조건 배제하면 안 되는 이유는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "검사 민감도가 완전하지 않고 상황에 따라 위음성이 있기 때문"
+        },
+        {
+          "value": "B",
+          "label": "Hook test는 손목터널 검사이기 때문"
+        },
+        {
+          "value": "C",
+          "label": "이두건은 초음파로 볼 수 없기 때문"
+        },
+        {
+          "value": "D",
+          "label": "모든 완전파열은 통증이 없기 때문"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "d023",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq016",
+      "module_id": "elbow_v1",
+      "domain": "clinical_reasoning",
+      "question": "동적 초음파에서 척골신경 이동이 보였을 때 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "증상·snapping·신경학적 소견과 함께 병적 의미를 판단한다."
+        },
+        {
+          "value": "B",
+          "label": "이동만 보이면 무조건 수술한다."
+        },
+        {
+          "value": "C",
+          "label": "항상 정상 변이이므로 무시한다."
+        },
+        {
+          "value": "D",
+          "label": "외측상과염으로 진단한다."
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m086",
+      "related_entity_id": "d020",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq017",
+      "module_id": "elbow_v1",
+      "domain": "clinical_reasoning",
+      "question": "내측상과 통증에서 저항성 손목 굴곡·회내가 통증을 재현하면 고려할 진단은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "내측 팔꿈치 건병증"
+        },
+        {
+          "value": "B",
+          "label": "원위 이두건 완전파열"
+        },
+        {
+          "value": "C",
+          "label": "주두점액낭염"
+        },
+        {
+          "value": "D",
+          "label": "외측 팔꿈치 건병증"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m084",
+      "related_entity_id": "d018",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq018",
+      "module_id": "elbow_v1",
+      "domain": "clinical_reasoning",
+      "question": "갑작스런 전방 팔꿈치 통증 뒤 회외 약화와 건 연속성 소실이 보이면 우선 고려할 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "원위 이두건 완전파열"
+        },
+        {
+          "value": "B",
+          "label": "UCL 병변"
+        },
+        {
+          "value": "C",
+          "label": "척골신경 불안정"
+        },
+        {
+          "value": "D",
+          "label": "주두점액낭염"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m075",
+      "related_entity_id": "d023",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq019",
+      "module_id": "elbow_v1",
+      "domain": "clinical_reasoning",
+      "question": "후방 주두부의 피하 종창과 점액낭 액체가 있을 때 적절한 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "주두점액낭염을 고려하되 감염 여부는 임상소견과 별도로 판단한다."
+        },
+        {
+          "value": "B",
+          "label": "액체가 보이면 감염성으로 확정한다."
+        },
+        {
+          "value": "C",
+          "label": "삼두건 파열로 확정한다."
+        },
+        {
+          "value": "D",
+          "label": "척골신경병증으로 확정한다."
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m079",
+      "related_entity_id": "d025",
+      "status": "active"
+    },
+    {
+      "quiz_id": "eq020",
+      "module_id": "elbow_v1",
+      "domain": "clinical_reasoning",
+      "question": "팔꿈치 임상 모듈의 공통 안전 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "검사 하나나 초음파 소견 하나로 확정진단하지 않는다."
+        },
+        {
+          "value": "B",
+          "label": "Cozen 양성이면 외측상과염을 확정한다."
+        },
+        {
+          "value": "C",
+          "label": "Tinel 음성이면 척골신경병증을 배제한다."
+        },
+        {
+          "value": "D",
+          "label": "Hook 음성이면 이두건 파열을 배제한다."
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m093",
+      "related_entity_id": "d017",
+      "status": "active"
+    }
+  ]
+}
