@@ -37,3 +37,14 @@ EMR의 환자 기록은 근육학 앱으로 복제하지 않는다. OrthoOS가 �
 - 퀴즈: 정방향 + 역방향, 오답 가중 출제, 간격 반복(spaced repetition) 기반 오늘 복습
 - 초음파 원칙 유지: 확인 가능한 실제 영상만 고정, 불확실 영상은 임의 대체 금지
 - 다음: 손 내재근/하지 고빈도 근육 영상 정본화와 임상 감별진단 v8
+
+
+## 현재 진행 상태 — v7.3 MSK Knowledge Schema v1
+- 2026-09-24 통합 대비 개발 지침을 정본 개발 방향으로 채택
+- Stable ID: region / structure / muscle / tendon / nerve / joint / bursa / symptom / finding / clinical test / diagnosis concept / ultrasound view / content asset 체계 시작
+- 기존 m001~m183, sx01~sx20은 폐기하지 않고 canonical stable ID로 승격
+- knowledge-core-v1.json: 14 region, 183 muscle, 20 symptom pattern 및 현재 구현 중인 임상 관계 포함
+- UI는 외부 Knowledge Core를 우선 로드하고 기존 embedded 데이터는 fallback으로 유지
+- 실제 환자정보는 Knowledge Core에 저장하지 않으며 Patient/Encounter/Problem/Diagnosis/Order/Result의 canonical owner는 LYS OrthoOS
+- OrthoOS 직접 통합은 아직 시행하지 않고 versioned integration contract만 준비
+- 다음: examination / ultrasound / rehabilitation / quiz 데이터셋의 추가 분리와 v8 임상 관계 확장
