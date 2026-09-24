@@ -72,7 +72,11 @@
       ],
       "symptom_ids": [
         "sx11",
-        "sx12"
+        "sx12",
+        "sx27",
+        "sx28",
+        "sx29",
+        "sx30"
       ],
       "status": "active"
     },
