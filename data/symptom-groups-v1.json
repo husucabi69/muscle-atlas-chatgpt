@@ -39,7 +39,9 @@
       ],
       "symptom_ids": [
         "sx06",
-        "sx07"
+        "sx07",
+        "sx21",
+        "sx22"
       ],
       "status": "active"
     },

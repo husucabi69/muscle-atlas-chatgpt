@@ -46,7 +46,7 @@
 ## 현재 단계
 Stage 1 — 어깨·견갑대·상완
 현재 상태: Stage 1 어깨·견갑대·상완 COMPLETE — 2026-09-24 조기 완료
-다음 목표: Stage 2 팔꿈치·전완
+현재 개발: Stage 2 팔꿈치·전완
 목표 완료일: 2026-10-12
 
 
@@ -122,3 +122,26 @@ Stage 1 — 어깨·견갑대·상완
 
 ### 다음
 Stage 2 — 팔꿈치·전완. Anatomy → structure/nerve → findings → examination → ultrasound → differential → media → quiz 순으로 동일한 completion gate 적용.
+
+
+## v8.0 Claude Audit + Elbow Stage 2 Foundation
+### Claude anatomy audit
+- [x] Claude 186 vs Knowledge Core 전수 구조 대조
+- [x] 단순 개수 비교가 아닌 grouping/splitting 차이 확인
+- [x] 검증 누락 근육 21개 Stable ID 편입 (m184~m204)
+- [x] canonical 근육 기록 183 → 204
+- [x] Articularis cubiti 및 흔적성 sacrococcygeus는 variant 후보로 보류
+- [x] Claude의 비어 있거나 근거가 약한 임상/초음파 문구는 자동 이식하지 않음
+
+### Stage 2 팔꿈치·전완
+- [x] Anatomy / source audit
+- [x] Tendon · Nerve · Joint · Bursa · Ligament Stable ID
+- [x] 증상 경로 4개: 외측 / 내측 / 전방 / 후방
+- [x] Clinical Finding 8개
+- [x] Examination / Special Test 10개
+- [x] Ultrasound View 8개
+- [x] Diagnosis Concept 10개 + differential group 4개
+- [x] Elbow clinical quiz 20문항
+- [x] 앱 임상 모듈 / 퀴즈 UI 연결
+- [ ] 실제 공개 elbow ultrasound media 고정 + license audit
+- [ ] Stage 2 final COMPLETE 판정

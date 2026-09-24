@@ -1,0 +1,231 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "elbow_examination_v1",
+  "region_ids": [
+    "r006",
+    "r007",
+    "r008"
+  ],
+  "source_refs": {
+    "let_review": "https://pubmed.ncbi.nlm.nih.gov/33814224/",
+    "elbow_exam_review": "https://pubmed.ncbi.nlm.nih.gov/28249855/",
+    "cubital_provocative": "https://pubmed.ncbi.nlm.nih.gov/7806810/",
+    "hook_test": "https://pubmed.ncbi.nlm.nih.gov/37578400/",
+    "biceps_squeeze": "https://pubmed.ncbi.nlm.nih.gov/16056039/",
+    "moving_valgus": "https://pubmed.ncbi.nlm.nih.gov/42087694/"
+  },
+  "clinical_tests": [
+    {
+      "clinical_test_id": "ct012",
+      "name_ko": "Cozen 검사",
+      "name_en": "Cozen test",
+      "category": "lateral_elbow",
+      "target_structure_ids": [
+        "t006",
+        "m093"
+      ],
+      "setup": "팔꿈치를 약간 굴곡하고 전완 회내, 손목은 요측편위와 신전 방향으로 준비한다.",
+      "maneuver": "검사자가 손목 굴곡 방향 저항을 주고 환자가 손목 신전을 유지한다.",
+      "positive_definition": "외측상과/공통신근 기시부의 익숙한 통증이 재현되면 양성 소견으로 기록한다.",
+      "interpretation_note": "외측 팔꿈치 건병증을 지지하는 도발검사 중 하나다.",
+      "limitation": "단독 검사만으로 원인을 확정하지 않으며 요골신경/PIN, 관절내 병변 등과 감별한다.",
+      "related_diagnosis_concept_ids": [
+        "d017"
+      ],
+      "evidence_refs": [
+        "let_review",
+        "elbow_exam_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct013",
+      "name_ko": "Mill 검사",
+      "name_en": "Mill test",
+      "category": "lateral_elbow",
+      "target_structure_ids": [
+        "t006"
+      ],
+      "setup": "팔꿈치를 펴고 전완을 회내한 상태에서 손목을 굴곡시켜 공통신근군을 신장한다.",
+      "maneuver": "외측상과 부위 통증 재현 여부를 확인한다.",
+      "positive_definition": "외측상과의 익숙한 통증이 재현되면 기록한다.",
+      "interpretation_note": "공통신근건/외측 팔꿈치 통증을 유발하는 신장 검사다.",
+      "limitation": "검사 정확도 근거가 제한적이며 다른 구조의 통증도 유발할 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d017"
+      ],
+      "evidence_refs": [
+        "elbow_exam_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct014",
+      "name_ko": "Maudsley 검사 / 중지 저항 신전",
+      "name_en": "Maudsley / resisted middle-finger extension",
+      "category": "lateral_elbow",
+      "target_structure_ids": [
+        "m094",
+        "m093",
+        "n010"
+      ],
+      "setup": "팔꿈치를 펴거나 약간 굽힌 상태에서 중지를 신전시킨다.",
+      "maneuver": "검사자가 중지 신전에 저항을 가한다.",
+      "positive_definition": "외측 팔꿈치 통증 또는 요골터널 부위 통증이 재현되는 위치를 기록한다.",
+      "interpretation_note": "공통신근계와 요골터널/PIN 관련 통증을 구분하는 보조검사로 사용한다.",
+      "limitation": "특정 단일 구조에 특이적이지 않아 통증 위치와 다른 검사·초음파를 함께 본다.",
+      "related_diagnosis_concept_ids": [
+        "d017",
+        "d021"
+      ],
+      "evidence_refs": [
+        "elbow_exam_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct015",
+      "name_ko": "저항성 손목굴곡·회내 검사",
+      "name_en": "Resisted wrist flexion/pronation",
+      "category": "medial_elbow",
+      "target_structure_ids": [
+        "t007",
+        "m083",
+        "m084"
+      ],
+      "setup": "팔꿈치를 펴거나 약간 굽히고 전완을 회외한 자세에서 시작한다.",
+      "maneuver": "환자가 손목 굴곡과 전완 회내를 시도하고 검사자가 반대 저항을 준다.",
+      "positive_definition": "내측상과/굴곡-회내군 기시부 통증이 재현되면 기록한다.",
+      "interpretation_note": "내측 팔꿈치 건병증을 지지할 수 있다.",
+      "limitation": "척골신경병증과 UCL 병변 등 다른 내측 통증 원인과 구분해야 한다.",
+      "related_diagnosis_concept_ids": [
+        "d018"
+      ],
+      "evidence_refs": [
+        "elbow_exam_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct016",
+      "name_ko": "주관 증후군 Tinel 징후",
+      "name_en": "Tinel sign at cubital tunnel",
+      "category": "ulnar_nerve",
+      "target_structure_ids": [
+        "n006"
+      ],
+      "setup": "팔꿈치 내측의 척골신경 고랑/주관을 확인한다.",
+      "maneuver": "척골신경 위를 가볍게 타진한다.",
+      "positive_definition": "제4-5지 또는 척측 손의 익숙한 저림/전기감이 재현되면 기록한다.",
+      "interpretation_note": "주관 부위 척골신경 자극을 시사하는 보조검사다.",
+      "limitation": "양성/음성 단독으로 척골신경병증을 확정 또는 배제하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d019"
+      ],
+      "evidence_refs": [
+        "cubital_provocative"
+      ]
+    },
+    {
+      "clinical_test_id": "ct017",
+      "name_ko": "주관 압박-팔꿈치 굴곡 검사",
+      "name_en": "Pressure-flexion test for cubital tunnel",
+      "category": "ulnar_nerve",
+      "target_structure_ids": [
+        "n006"
+      ],
+      "setup": "팔꿈치를 굴곡하고 주관 부위 척골신경에 지속적 압박을 가할 준비를 한다.",
+      "maneuver": "척골신경에 압박을 유지하며 팔꿈치 굴곡을 일정 시간 유지한다.",
+      "positive_definition": "척골신경 분포의 익숙한 저림/감각증상이 재현되면 기록한다.",
+      "interpretation_note": "Tinel보다 민감도가 높게 보고된 고전적 도발검사 조합이지만 임상·전기진단·영상과 함께 해석한다.",
+      "limitation": "검사시간/압박 강도에 따라 결과가 달라질 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d019"
+      ],
+      "evidence_refs": [
+        "cubital_provocative"
+      ]
+    },
+    {
+      "clinical_test_id": "ct018",
+      "name_ko": "원위 이두건 Hook 검사",
+      "name_en": "Distal biceps hook test",
+      "category": "distal_biceps",
+      "target_structure_ids": [
+        "t008"
+      ],
+      "setup": "팔꿈치 약 90° 굴곡, 전완 능동 회외 자세.",
+      "maneuver": "외측에서 검지로 원위 이두건 아래를 걸 수 있는지 촉지한다.",
+      "positive_definition": "정상적인 cord-like tendon을 걸 수 없으면 이상 소견으로 기록한다.",
+      "interpretation_note": "완전 파열 평가에 유용하지만 최근 연구에서 완전하지 않은 정확도가 보고되어 단독 확진검사로 사용하지 않는다.",
+      "limitation": "부분파열·lacertus fibrosus 보존·검사자 경험에 따라 결과가 달라질 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d023"
+      ],
+      "evidence_refs": [
+        "hook_test"
+      ]
+    },
+    {
+      "clinical_test_id": "ct019",
+      "name_ko": "Biceps Squeeze 검사",
+      "name_en": "Biceps squeeze test",
+      "category": "distal_biceps",
+      "target_structure_ids": [
+        "t008",
+        "m075",
+        "m076"
+      ],
+      "setup": "환자의 팔꿈치를 약간 굴곡하고 전완을 편안히 둔다.",
+      "maneuver": "상완이두근 근복을 압박하면서 전완의 회외 반응을 관찰한다.",
+      "positive_definition": "압박에도 전완 회외가 유발되지 않으면 완전 원위 이두건 파열을 의심하는 소견으로 기록한다.",
+      "interpretation_note": "원위 이두건 연속성 평가의 보조검사다.",
+      "limitation": "통증·긴장·불완전 파열에서는 해석에 주의한다.",
+      "related_diagnosis_concept_ids": [
+        "d023"
+      ],
+      "evidence_refs": [
+        "biceps_squeeze"
+      ]
+    },
+    {
+      "clinical_test_id": "ct020",
+      "name_ko": "Moving Valgus Stress 검사",
+      "name_en": "Moving valgus stress test",
+      "category": "ucl",
+      "target_structure_ids": [
+        "lig001"
+      ],
+      "setup": "어깨 외전·외회전, 팔꿈치를 깊게 굴곡하고 일정한 valgus torque를 유지한다.",
+      "maneuver": "valgus stress를 유지하며 팔꿈치를 약 120°에서 70° 방향으로 빠르게 신전한다.",
+      "positive_definition": "내측 UCL 부위 통증이 재현되고 특히 중간 굴곡 범위에서 최대가 되면 기록한다.",
+      "interpretation_note": "투구동작 관련 내측측부인대 병변 평가에 유용한 도발검사다.",
+      "limitation": "주로 운동선수 자료에 근거하며 내측 건병증/척골신경 증상과 구분해야 한다.",
+      "related_diagnosis_concept_ids": [
+        "d026"
+      ],
+      "evidence_refs": [
+        "moving_valgus"
+      ]
+    },
+    {
+      "clinical_test_id": "ct021",
+      "name_ko": "저항성 팔꿈치 신전 검사",
+      "name_en": "Resisted elbow extension test",
+      "category": "triceps",
+      "target_structure_ids": [
+        "t009",
+        "m079",
+        "m080",
+        "m081"
+      ],
+      "setup": "팔꿈치를 굴곡한 상태에서 전완을 지지한다.",
+      "maneuver": "환자가 팔꿈치를 펴려 하고 검사자가 굴곡 방향으로 저항한다.",
+      "positive_definition": "주두 부착부 통증, 신전 약화 또는 뚜렷한 신전 결손을 기록한다.",
+      "interpretation_note": "삼두건 기능을 평가하는 기본 기능검사다.",
+      "limitation": "통증 억제와 신경학적 약화가 결과에 영향을 줄 수 있어 파열 여부는 촉진·초음파와 함께 확인한다.",
+      "related_diagnosis_concept_ids": [
+        "d024"
+      ],
+      "evidence_refs": [
+        "elbow_exam_review"
+      ]
+    }
+  ]
+}
