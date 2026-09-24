@@ -47,8 +47,9 @@
 Stage 1 — 어깨·견갑대·상완
 현재 상태: Stage 1 어깨·견갑대·상완 COMPLETE — 2026-09-24 조기 완료
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 3 손목·손
-목표 완료일: 2026-10-24
+Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
+현재 개발: Stage 4 고관절·골반·둔부
+목표 완료일: 2026-11-07
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -180,4 +181,33 @@ Stage 3 — 손목·손. 1~6 신전구획, 굴곡건, CTS/Guyon, TFCC 주변, in
 - [x] 실제 공개 wrist/hand ultrasound media 12/12 고정 reference + license audit
 - [x] Wrist/hand clinical quiz 30문항
 - [x] 앱 임상 모듈 / 퀴즈 UI 연결
-- [ ] Stage 3 final COMPLETE 판정 — 회귀검사 후
+- [x] Stage 3 final COMPLETE — 2026-09-25
+
+
+## v8.2 Wrist/Hand Stage 3 COMPLETE — 2026-09-25
+- [x] Canonical muscle records 205 유지
+- [x] Tendon 9개 신규 (t010~t018)
+- [x] Nerve 3개 신규 (n011~n013)
+- [x] Joint 3개 신규 (j006~j008)
+- [x] Ligament/complex 4개 신규 (lig002~lig005)
+- [x] 손목·손 symptom pathway 7개
+- [x] Clinical Finding 10개
+- [x] Examination / Special Test 14개 (ct022~ct035)
+- [x] Ultrasound View 12개 (usv018~usv029)
+- [x] Diagnosis Concept 12개 (d027~d038)
+- [x] Differential group 6개 (dg011~dg016)
+- [x] 실제 공개 초음파 source/figure/license audit 12/12
+- [x] Wrist/Hand clinical quiz 30문항
+- [x] Stable ID 중복 0 / orphan relationship 0
+- [x] Patient/PHI boundary 유지
+- [x] Shoulder / Elbow / adaptive quiz / symptom hierarchy / anatomy hierarchy / fullscreen PWA 회귀검사
+
+### 임상 안전 원칙
+- Finkelstein과 Eichhoff를 구분한다.
+- Phalen/Tinel/Durkan 중 하나만으로 CTS를 확정하지 않는다.
+- 정중신경 CSA cutoff는 위치·프로토콜 의존적으로 해석한다.
+- Fovea/DRUJ/ECU/CMC/Watson 검사는 후보를 좁히는 자료이며 단독 확진 기준이 아니다.
+- 실제 초음파가 아닌 생성·도식 이미지를 대체 영상으로 사용하지 않는다.
+
+### 다음
+Stage 4 — 고관절·골반·둔부. Iliopsoas, gluteal tendons, GTPS, adductors, deep gluteal, proximal hamstring을 동일 completion gate로 확장.
