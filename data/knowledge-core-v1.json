@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.24-c",
+  "dataset_version": "2026.09.24-d",
   "ownership": {
     "owner": "Muscle Atlas / MSK Knowledge Layer",
     "contains_patient_data": false,
@@ -4167,7 +4167,8 @@
         "m071",
         "m072"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg001"
     },
     {
       "symptom_id": "sx02",
@@ -4184,7 +4185,8 @@
         "m067",
         "m069"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg001"
     },
     {
       "symptom_id": "sx03",
@@ -4201,7 +4203,8 @@
         "m069",
         "m074"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg001"
     },
     {
       "symptom_id": "sx04",
@@ -4219,7 +4222,8 @@
         "m060",
         "m064"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg002"
     },
     {
       "symptom_id": "sx05",
@@ -4237,7 +4241,8 @@
         "m002",
         "m003"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg002"
     },
     {
       "symptom_id": "sx06",
@@ -4255,7 +4260,8 @@
         "m091",
         "m097"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg003"
     },
     {
       "symptom_id": "sx07",
@@ -4273,7 +4279,8 @@
         "m086",
         "m087"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg003"
     },
     {
       "symptom_id": "sx08",
@@ -4291,7 +4298,8 @@
         "m098",
         "m158"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg004"
     },
     {
       "symptom_id": "sx09",
@@ -4307,7 +4315,8 @@
         "m096",
         "m095"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg004"
     },
     {
       "symptom_id": "sx10",
@@ -4325,7 +4334,8 @@
         "m102",
         "m105"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg004"
     },
     {
       "symptom_id": "sx11",
@@ -4342,7 +4352,8 @@
         "m126",
         "m123"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg005"
     },
     {
       "symptom_id": "sx12",
@@ -4360,7 +4371,8 @@
         "m134",
         "m135"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg005"
     },
     {
       "symptom_id": "sx13",
@@ -4377,7 +4389,8 @@
         "m129",
         "m131"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg006"
     },
     {
       "symptom_id": "sx14",
@@ -4393,7 +4406,8 @@
         "m138",
         "m141"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg006"
     },
     {
       "symptom_id": "sx15",
@@ -4410,7 +4424,8 @@
         "m141",
         "m142"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg006"
     },
     {
       "symptom_id": "sx16",
@@ -4427,7 +4442,8 @@
         "m151",
         "m152"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg007"
     },
     {
       "symptom_id": "sx17",
@@ -4444,7 +4460,8 @@
         "m151",
         "m152"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg007"
     },
     {
       "symptom_id": "sx18",
@@ -4461,7 +4478,8 @@
         "m162",
         "m167"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg007"
     },
     {
       "symptom_id": "sx19",
@@ -4477,7 +4495,8 @@
         "m148",
         "m146"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg007"
     },
     {
       "symptom_id": "sx20",
@@ -4494,7 +4513,8 @@
         "m144",
         "m146"
       ],
-      "status": "active"
+      "status": "active",
+      "symptom_group_id": "sg007"
     }
   ],
   "tendons": [
@@ -7840,6 +7860,112 @@
       "relation": "INVOLVES",
       "to_type": "tendon",
       "to_id": "t002"
+    }
+  ],
+  "symptom_groups": [
+    {
+      "symptom_group_id": "sg001",
+      "name_ko": "어깨",
+      "key": "shoulder",
+      "region_ids": [
+        "r005"
+      ],
+      "symptom_ids": [
+        "sx01",
+        "sx02",
+        "sx03"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg002",
+      "name_ko": "경추·견갑대",
+      "key": "cervical_scapular",
+      "region_ids": [
+        "r001",
+        "r004"
+      ],
+      "symptom_ids": [
+        "sx04",
+        "sx05"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg003",
+      "name_ko": "팔꿈치·전완",
+      "key": "elbow_forearm",
+      "region_ids": [
+        "r007",
+        "r008"
+      ],
+      "symptom_ids": [
+        "sx06",
+        "sx07"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg004",
+      "name_ko": "손목·손",
+      "key": "wrist_hand",
+      "region_ids": [
+        "r007",
+        "r008",
+        "r009"
+      ],
+      "symptom_ids": [
+        "sx08",
+        "sx09",
+        "sx10"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg005",
+      "name_ko": "고관절·골반·둔부",
+      "key": "hip_pelvis_gluteal",
+      "region_ids": [
+        "r003",
+        "r010",
+        "r011"
+      ],
+      "symptom_ids": [
+        "sx11",
+        "sx12"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg006",
+      "name_ko": "무릎·대퇴",
+      "key": "knee_thigh",
+      "region_ids": [
+        "r011"
+      ],
+      "symptom_ids": [
+        "sx13",
+        "sx14",
+        "sx15"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg007",
+      "name_ko": "하퇴·발목·발",
+      "key": "leg_ankle_foot",
+      "region_ids": [
+        "r012",
+        "r013"
+      ],
+      "symptom_ids": [
+        "sx16",
+        "sx17",
+        "sx18",
+        "sx19",
+        "sx20"
+      ],
+      "status": "active"
     }
   ]
 }
