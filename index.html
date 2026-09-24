@@ -46,10 +46,10 @@ button,input{font:inherit} button{cursor:pointer}
 .note{font-size:14px;line-height:1.75;color:#5f6368;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;margin-bottom:14px}
 .status{color:var(--muted);font-size:14px;padding:12px 0} .footer-space{height:10px}
 
-.quiz-controls{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin:14px 0 18px}
+.quiz-controls{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;margin:14px 0 18px}
 .quiz-controls label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
 .quiz-controls select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#fff}
-.quiz-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.quiz-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
 .quiz-stat{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
 .quiz-stat b{display:block;font-size:22px;margin-top:4px}
 .quiz-card{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff;box-shadow:0 4px 18px rgba(16,24,40,.04)}
@@ -63,14 +63,14 @@ button,input{font:inherit} button{cursor:pointer}
 .quiz-feedback.show{display:block}
 .quiz-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 
-@media(max-width:900px){.grid3,.grid2,.kpi,.media-grid{grid-template-columns:1fr}.quiz-controls{grid-template-columns:1fr}.quiz-stats{grid-template-columns:1fr 1fr 1fr} .hero h2{font-size:34px} .modal-body{padding:22px 18px 36px} .region-list{grid-template-columns:1fr 1fr} }
+@media(max-width:900px){.grid3,.grid2,.kpi,.media-grid{grid-template-columns:1fr}.quiz-controls{grid-template-columns:1fr}.quiz-stats{grid-template-columns:1fr 1fr} .hero h2{font-size:34px} .modal-body{padding:22px 18px 36px} .region-list{grid-template-columns:1fr 1fr} }
 @media(max-width:520px){.head-inner{align-items:flex-start;flex-direction:column} .brand h1{font-size:20px} .tabs{width:100%} .tab{padding:9px 11px} .region-list{grid-template-columns:1fr} .hero h2{font-size:30px} }
 </style>
 </head>
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.1 · 증상 + 퀴즈 + 고정 영상</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.2 · 상지 40 + 적응형 퀴즈</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
@@ -131,14 +131,19 @@ button,input{font:inherit} button{cursor:pointer}
         <option value="nerve">Nerve · 신경</option>
         <option value="pathology">Clinical · 임상</option>
       </select></div>
-      <button class="primary" onclick="startQuiz(false)">10문제 시작</button>
+      <div><label for="quizDirection">문제 방향</label><select id="quizDirection">
+        <option value="mixed">정방향 + 역방향</option>
+        <option value="forward">근육 → 정보</option>
+        <option value="reverse">정보 → 근육</option>
+      </select></div>
+      <button class="primary" onclick="startQuiz('normal')">10문제 시작</button>
     </div>
-    <div class="quiz-actions"><button class="pill" onclick="startQuiz(true)">오답 10문제 복습</button><button class="pill" onclick="resetQuizStats()">학습기록 초기화</button></div>
+    <div class="quiz-actions"><button class="pill" onclick="startQuiz('wrong')">오답 10문제 복습</button><button class="pill" onclick="startQuiz('due')">오늘 복습</button><button class="pill" onclick="resetQuizStats()">학습기록 초기화</button></div>
   </div>
   <div class="quiz-stats">
     <div class="quiz-stat"><span>누적 풀이</span><b id="quizTotal">0</b></div>
     <div class="quiz-stat"><span>누적 정답률</span><b id="quizRate">0%</b></div>
-    <div class="quiz-stat"><span>오답 근육</span><b id="quizWrong">0</b></div>
+    <div class="quiz-stat"><span>오답 근육</span><b id="quizWrong">0</b></div><div class="quiz-stat"><span>오늘 복습</span><b id="quizDue">0</b></div>
   </div>
   <div id="quizArea" class="quiz-card">
     <div class="quiz-q">부위와 유형을 고른 뒤 10문제를 시작하십시오.</div>
@@ -291,7 +296,7 @@ function openMuscle(id){
 <b>정상 구조 식별:</b> ${esc(ui['정상 해부/식별']||ui['정상/식별']||'')}
 <b>임상 체크포인트:</b> ${esc(ui['임상 체크포인트']||ui['임상/주의']||'')}</p></div>
     <div class="section-title"><h3 style="font-size:24px">해부학 Atlas</h3><span>검수 고정 영상 우선 · 미등록 시 공개 검색</span></div>
-    <div class="note">1차 업그레이드에서는 증상 기반 탐색을 먼저 붙였습니다. 근육별 실제 해부/초음파의 고정 매칭은 다음 패치에서 순차적으로 보강합니다.</div>
+    <div class="note">검수 고정 영상이 등록된 근육은 동일한 해부/초음파 자료를 우선 표시합니다. 미등록 구조만 공개 라이선스 실시간 검색을 보조로 사용합니다.</div>
     <div id="anatomyMedia" class="media-grid"></div>
     <div class="section-title"><h3 style="font-size:24px">실제 초음파 영상</h3><span>검수 실제 초음파 우선 · 미등록 시 공개 검색</span></div>
     <div id="usMedia" class="media-grid"></div>
@@ -303,7 +308,8 @@ function openMuscle(id){
 function closeMuscle(){document.getElementById('muscleOverlay').classList.remove('show'); document.body.style.overflow='';}
 
 
-const QUIZ_KEY='mskQuizProgressV1';
+const QUIZ_KEY='mskQuizProgressV2';
+const OLD_QUIZ_KEY='mskQuizProgressV1';
 let quizSession=[], quizIndex=0, quizScore=0, quizAnswered=false;
 const quizFields={
   origin:{label:'Origin · 기시',field:'origin'},
@@ -312,51 +318,91 @@ const quizFields={
   nerve:{label:'Nerve · 신경',field:'nerve'},
   pathology:{label:'Clinical · 임상',field:'pathology'}
 };
+function blankQuizState(){return{total:0,correct:0,wrong:{},progress:{}};}
 function quizState(){
-  try{return JSON.parse(localStorage.getItem(QUIZ_KEY))||{total:0,correct:0,wrong:{}}}catch(e){return{total:0,correct:0,wrong:{}}}
+  try{
+    const now=JSON.parse(localStorage.getItem(QUIZ_KEY));
+    if(now)return Object.assign(blankQuizState(),now);
+    const old=JSON.parse(localStorage.getItem(OLD_QUIZ_KEY));
+    if(old){
+      const migrated=blankQuizState();
+      migrated.total=old.total||0;migrated.correct=old.correct||0;migrated.wrong=old.wrong||{};
+      for(const id of Object.keys(migrated.wrong)) migrated.progress[id]={seen:migrated.wrong[id],correct:0,streak:0,nextDue:0,last:0};
+      localStorage.setItem(QUIZ_KEY,JSON.stringify(migrated)); return migrated;
+    }
+  }catch(e){}
+  return blankQuizState();
 }
 function saveQuizState(s){localStorage.setItem(QUIZ_KEY,JSON.stringify(s));updateQuizStats();}
+function dueMuscleIds(s){
+  const now=Date.now();
+  return Object.entries(s.progress||{}).filter(([id,p])=>p.seen>0 && (p.nextDue||0)<=now).map(([id])=>id);
+}
 function updateQuizStats(){
-  const s=quizState(), wrongCount=Object.keys(s.wrong||{}).length;
+  const s=quizState(), wrongCount=Object.keys(s.wrong||{}).length, due=dueMuscleIds(s).length;
   document.getElementById('quizTotal').textContent=s.total||0;
   document.getElementById('quizRate').textContent=(s.total?Math.round((s.correct||0)*100/s.total):0)+'%';
   document.getElementById('quizWrong').textContent=wrongCount;
+  document.getElementById('quizDue').textContent=due;
 }
 function resetQuizStats(){
   if(!confirm('퀴즈 학습기록과 오답은행을 초기화할까요?'))return;
-  localStorage.removeItem(QUIZ_KEY); updateQuizStats();
+  localStorage.removeItem(QUIZ_KEY);localStorage.removeItem(OLD_QUIZ_KEY);updateQuizStats();
 }
 function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;}
-function distinctOptions(correct, pool){
+function distinctOptions(correct,pool){
   const out=[correct];
   for(const v of shuffle(pool)){if(v && !out.includes(v)){out.push(v);if(out.length===4)break;}}
   return shuffle(out);
 }
-function makeQuestion(m, type, sourcePool){
-  const spec=quizFields[type], correct=m[spec.field];
+function weightedPick(pool,state,count){
+  const bag=[];
+  for(const m of pool){
+    const w=Math.min(4,1+(state.wrong?.[m.id]||0)+(dueMuscleIds(state).includes(m.id)?1:0));
+    for(let i=0;i<w;i++)bag.push(m);
+  }
+  const out=[],used=new Set();
+  for(const m of shuffle(bag)){if(!used.has(m.id)){out.push(m);used.add(m.id);if(out.length>=count)break;}}
+  return out;
+}
+function makeQuestion(m,type,sourcePool,direction){
+  const spec=quizFields[type];
+  if(direction==='reverse'){
+    const clue=m[spec.field];
+    const names=sourcePool.filter(x=>x.id!==m.id).map(x=>x.ko+' ('+x.en+')');
+    const correct=m.ko+' ('+m.en+')',options=distinctOptions(correct,names);
+    if(options.length<4)return null;
+    const stem=type==='pathology'?('다음 임상 설명에 가장 해당하는 근육은?\n'+clue):(spec.label+'가 다음과 같은 근육은?\n'+clue);
+    return{muscleId:m.id,type,direction,stem,correct,options};
+  }
+  const correct=m[spec.field];
   const optionPool=sourcePool.filter(x=>x.id!==m.id).map(x=>x[spec.field]).filter(Boolean);
   const options=distinctOptions(correct,optionPool);
   if(options.length<4)return null;
   const stem=type==='pathology'
-    ? `${m.ko}(${m.en})와 관련된 임상적으로 중요한 설명은?`
-    : `${m.ko}(${m.en})의 ${spec.label}는?`;
-  return {muscleId:m.id,type,stem,correct,options};
+    ? m.ko+'('+m.en+')와 관련된 임상적으로 중요한 설명은?'
+    : m.ko+'('+m.en+')의 '+spec.label+'는?';
+  return{muscleId:m.id,type,direction,stem,correct,options};
 }
-function startQuiz(wrongOnly){
+function startQuiz(mode='normal'){
   const region=document.getElementById('quizRegion').value;
   const chosenType=document.getElementById('quizType').value;
+  const dirChoice=document.getElementById('quizDirection').value;
   const state=quizState();
   let pool=muscles.filter(m=>region==='all'||m.region===region);
-  if(wrongOnly){
-    const ids=new Set(Object.keys(state.wrong||{}));
-    pool=pool.filter(m=>ids.has(m.id));
+  if(mode==='wrong'){
+    const ids=new Set(Object.keys(state.wrong||{}));pool=pool.filter(m=>ids.has(m.id));
     if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">현재 선택 범위에 저장된 오답이 없습니다.</div>';return;}
+  }else if(mode==='due'){
+    const ids=new Set(dueMuscleIds(state));pool=pool.filter(m=>ids.has(m.id));
+    if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">오늘 복습할 문제가 없습니다. 새 문제를 학습하면 복습 일정이 만들어집니다.</div>';return;}
   }
-  const chosen=shuffle(pool).slice(0,Math.min(10,pool.length));
+  let chosen=mode==='normal'?weightedPick(pool,state,Math.min(10,pool.length)):shuffle(pool).slice(0,Math.min(10,pool.length));
   quizSession=[];
   for(const m of chosen){
     const type=chosenType==='mixed'?shuffle(Object.keys(quizFields))[0]:chosenType;
-    const q=makeQuestion(m,type,muscles.filter(x=>region==='all'||x.region===region));
+    const direction=dirChoice==='mixed'?(Math.random()<0.5?'forward':'reverse'):dirChoice;
+    const q=makeQuestion(m,type,muscles.filter(x=>region==='all'||x.region===region),direction);
     if(q)quizSession.push(q);
   }
   if(!quizSession.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">이 조건으로 문제를 만들 수 없습니다.</div>';return;}
@@ -366,33 +412,42 @@ function renderQuiz(){
   const area=document.getElementById('quizArea');
   if(quizIndex>=quizSession.length){
     const missed=quizSession.filter(q=>q.missed).map(q=>byId[q.muscleId]?.ko).filter(Boolean);
-    area.innerHTML=`<div class="quiz-q">완료 · ${quizScore}/${quizSession.length}</div>
-      <p style="line-height:1.8;color:var(--muted)">${missed.length?'이번 오답: '+esc([...new Set(missed)].join(', ')):'이번 세션은 전부 맞았습니다.'}</p>
-      <div class="quiz-actions"><button class="primary" onclick="startQuiz(false)">새 10문제</button><button class="pill" onclick="startQuiz(true)">오답 복습</button></div>`;
+    area.innerHTML='<div class="quiz-q">완료 · '+quizScore+'/'+quizSession.length+'</div>'+
+      '<p style="line-height:1.8;color:var(--muted)">'+(missed.length?'이번 오답: '+esc([...new Set(missed)].join(', ')):'이번 세션은 전부 맞았습니다.')+'</p>'+
+      '<div class="quiz-actions"><button class="primary" onclick="startQuiz(\'normal\')">새 10문제</button><button class="pill" onclick="startQuiz(\'wrong\')">오답 복습</button><button class="pill" onclick="startQuiz(\'due\')">오늘 복습</button></div>';
     updateQuizStats();return;
   }
-  const q=quizSession[quizIndex]; quizAnswered=false;
-  area.innerHTML=`<div style="color:var(--muted);font-size:14px;margin-bottom:8px">문제 ${quizIndex+1} / ${quizSession.length} · ${esc(quizFields[q.type].label)}</div>
-    <div class="quiz-q">${esc(q.stem)}</div>
-    <div class="quiz-options">${q.options.map((o,i)=>`<button class="quiz-option" onclick="answerQuiz(${i})">${esc(o)}</button>`).join('')}</div>
-    <div id="quizFeedback" class="quiz-feedback"></div>
-    <div class="quiz-actions"><button id="quizNext" class="primary" style="display:none" onclick="nextQuiz()">다음 문제</button><button class="pill" onclick="openMuscle('${q.muscleId}')">해당 근육 보기</button></div>`;
+  const q=quizSession[quizIndex];quizAnswered=false;
+  area.innerHTML='<div style="color:var(--muted);font-size:14px;margin-bottom:8px">문제 '+(quizIndex+1)+' / '+quizSession.length+' · '+esc(quizFields[q.type].label)+' · '+(q.direction==='reverse'?'역방향':'정방향')+'</div>'+
+    '<div class="quiz-q" style="white-space:pre-wrap">'+esc(q.stem)+'</div>'+
+    '<div class="quiz-options">'+q.options.map((o,i)=>'<button class="quiz-option" onclick="answerQuiz('+i+')">'+esc(o)+'</button>').join('')+'</div>'+
+    '<div id="quizFeedback" class="quiz-feedback"></div>'+
+    '<div class="quiz-actions"><button id="quizNext" class="primary" style="display:none" onclick="nextQuiz()">다음 문제</button><button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">해당 근육 보기</button></div>';
 }
 function answerQuiz(i){
   if(quizAnswered)return;quizAnswered=true;
-  const q=quizSession[quizIndex], chosen=q.options[i], ok=chosen===q.correct;
+  const q=quizSession[quizIndex],chosen=q.options[i],ok=chosen===q.correct;
   const buttons=[...document.querySelectorAll('#quizArea .quiz-option')];
   buttons.forEach((b,idx)=>{b.disabled=true;if(q.options[idx]===q.correct)b.classList.add('good');else if(idx===i)b.classList.add('bad');});
-  const s=quizState();s.total=(s.total||0)+1;
-  if(ok){s.correct=(s.correct||0)+1;quizScore++; if(s.wrong?.[q.muscleId]){s.wrong[q.muscleId]--;if(s.wrong[q.muscleId]<=0)delete s.wrong[q.muscleId];}}
-  else{q.missed=true;s.wrong=s.wrong||{};s.wrong[q.muscleId]=(s.wrong[q.muscleId]||0)+1;}
-  saveQuizState(s);
+  const s=quizState();s.total=(s.total||0)+1;s.progress=s.progress||{};
+  const p=s.progress[q.muscleId]||{seen:0,correct:0,streak:0,nextDue:0,last:0};
+  p.seen++;p.last=Date.now();
+  if(ok){
+    s.correct=(s.correct||0)+1;quizScore++;p.correct++;p.streak=(p.streak||0)+1;
+    const days=[0,1,3,7,14,30,60][Math.min(p.streak,6)];
+    p.nextDue=Date.now()+days*86400000;
+    if(s.wrong?.[q.muscleId]){s.wrong[q.muscleId]--;if(s.wrong[q.muscleId]<=0)delete s.wrong[q.muscleId];}
+  }else{
+    q.missed=true;p.streak=0;p.nextDue=Date.now();
+    s.wrong=s.wrong||{};s.wrong[q.muscleId]=(s.wrong[q.muscleId]||0)+1;
+  }
+  s.progress[q.muscleId]=p;saveQuizState(s);
   const fb=document.getElementById('quizFeedback');fb.classList.add('show');
-  fb.innerHTML=(ok?'<b>정답입니다.</b>':'<b>정답:</b> '+esc(q.correct))+'<br><span style="color:var(--muted)">근육 카드에서 전체 O/I/F/N 및 임상 내용을 다시 확인할 수 있습니다.</span>';
+  fb.innerHTML=(ok?'<b>정답입니다.</b>':'<b>정답:</b> '+esc(q.correct))+'<br><span style="color:var(--muted)">정답 여부에 따라 이 근육의 다음 복습 시점이 자동 조정됩니다.</span>';
   document.getElementById('quizNext').style.display='inline-block';
 }
 function nextQuiz(){quizIndex++;renderQuiz();}
-document.getElementById('quizRegion').innerHTML='<option value="all">전체 부위</option>'+regions.map(r=>`<option value="${esc(r)}">${esc(r)}</option>`).join('');
+document.getElementById('quizRegion').innerHTML='<option value="all">전체 부위</option>'+regions.map(r=>'<option value="'+esc(r)+'">'+esc(r)+'</option>').join('');
 updateQuizStats();
 
 
