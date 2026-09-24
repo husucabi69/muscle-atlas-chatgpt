@@ -6,20 +6,20 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="/muscle-atlas-chatgpt/manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>근육학 · Clinical Pathways v6</title>
+<title>근육학 · MSK Muscle Atlas</title>
 <style>
 :root{--bg:#fff;--ink:#18212b;--muted:#667085;--line:#e6ebf2;--soft:#f8fafc;--blue:#214fc6;--green:#0f766e;--red:#b42318;--amber:#9a6700;--shadow:0 12px 34px rgba(16,24,40,.08)}
 *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo","Segoe UI",sans-serif}
 button,input{font:inherit} button{cursor:pointer}
-.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
 .head-inner{width:100%;max-width:none;margin:0;padding:12px 18px;display:flex;align-items:center;gap:12px;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:12px} .brand img{width:42px;height:42px;border-radius:12px} .brand h1{font-size:22px;margin:0;letter-spacing:-.03em} .brand small{display:block;color:var(--muted)}
 .tabs{display:flex;gap:8px;flex-wrap:wrap} .tab{border:1px solid var(--line);background:#fff;padding:10px 13px;border-radius:999px} .tab.active{background:#111827;color:#fff;border-color:#111827}
-.page{display:none;width:100%;max-width:none;margin:0;padding:22px 18px 60px} .page.active{display:block}
+.page{display:none;width:100%;max-width:none;margin:0;padding:22px max(18px,env(safe-area-inset-right)) max(60px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))} .page.active{display:block}
 .hero{padding:28px 0 8px} .hero h2{font-size:42px;line-height:1.1;margin:0 0 12px;letter-spacing:-.05em} .hero p{font-size:18px;line-height:1.72;color:var(--muted);max-width:980px;margin:0 0 18px}
 .search{margin:16px 0 4px} .search input{width:100%;padding:17px 18px;border:1px solid #d4dbe5;border-radius:15px;font-size:18px;outline:none} .search input:focus{border-color:#9dbbf8;box-shadow:0 0 0 4px #edf4ff}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px} .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -110,7 +110,7 @@ button,input{font:inherit} button{cursor:pointer}
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.7 · Hierarchical Navigation</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v7.8 · Fullscreen PWA</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
@@ -122,6 +122,11 @@ button,input{font:inherit} button{cursor:pointer}
 </div>
 
 <section id="home" class="page active">
+  <div id="pwaModeBanner" class="note" style="display:none;margin:0 0 12px;border-color:#f2deb3">
+    <b>현재 Chrome 브라우저 모드입니다.</b><br>
+    독립 앱으로 설치하면 주소창 없이 전체화면으로 실행됩니다.
+    <div class="quiz-actions"><button id="pwaInstallButton" class="primary" type="button" style="display:none">앱으로 설치</button></div>
+  </div>
   <div class="hero">
     <h2>근육 이름이 아니라<br>증상에서 시작하도록 바꿨습니다.</h2>
     <p>v7.4에서는 <b>증상 → 근육 → 진찰법 → 초음파 view → 퀴즈</b>까지 어깨 임상 지식 흐름을 Stable ID로 연결하기 시작했습니다.</p>
@@ -441,6 +446,43 @@ function refreshRegionNavigation(){
   renderRegionChooser();
   if(selectedRegionName&&regions.includes(selectedRegionName))openRegion(selectedRegionName);
 }
+
+let deferredInstallPrompt=null;
+function isPWAStandalone(){
+  return window.matchMedia('(display-mode: fullscreen)').matches ||
+         window.matchMedia('(display-mode: standalone)').matches ||
+         window.matchMedia('(display-mode: minimal-ui)').matches ||
+         window.navigator.standalone===true;
+}
+function updatePWADisplayMode(){
+  const banner=document.getElementById('pwaModeBanner');
+  if(!banner)return;
+  banner.style.display=isPWAStandalone()?'none':'block';
+  document.documentElement.dataset.displayMode=isPWAStandalone()?'app':'browser';
+}
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();
+  deferredInstallPrompt=e;
+  const btn=document.getElementById('pwaInstallButton');
+  if(btn)btn.style.display='inline-block';
+});
+window.addEventListener('appinstalled',()=>{
+  deferredInstallPrompt=null;
+  const btn=document.getElementById('pwaInstallButton');
+  if(btn)btn.style.display='none';
+  updatePWADisplayMode();
+});
+window.matchMedia('(display-mode: fullscreen)').addEventListener?.('change',updatePWADisplayMode);
+window.matchMedia('(display-mode: standalone)').addEventListener?.('change',updatePWADisplayMode);
+const pwaInstallButton=document.getElementById('pwaInstallButton');
+if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
+  if(!deferredInstallPrompt)return;
+  deferredInstallPrompt.prompt();
+  try{await deferredInstallPrompt.userChoice;}catch(e){}
+  deferredInstallPrompt=null;
+  pwaInstallButton.style.display='none';
+});
+updatePWADisplayMode();
 
 document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')closeRegionMuscles();if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);}));
 function showPage(page){

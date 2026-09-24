@@ -1,5 +1,5 @@
 const CACHE_PREFIX='muscle-atlas-chatgpt-';
-const CACHE=CACHE_PREFIX+'v7.7-symptom-hierarchy';
+const CACHE=CACHE_PREFIX+'v7.8-fullscreen-pwa';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./data/media-v1.json','./data/knowledge-core-v1.json','./data/regions-v1.json','./data/schema/msk-knowledge-schema-v1.json','./data/examination-shoulder-v1.json','./data/ultrasound-shoulder-v1.json','./data/quiz-shoulder-v1.json','./data/differential-shoulder-v1.json','./data/media-audit-shoulder-v1.json','./data/symptom-groups-v1.json'];
 
 self.addEventListener('install',e=>{
