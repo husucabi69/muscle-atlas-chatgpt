@@ -1,0 +1,466 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "hip_pelvis_differential_v1",
+  "region_ids": [
+    "r003",
+    "r010",
+    "r011"
+  ],
+  "safety_rule": "Differential candidates support clinical reasoning only. They are not confirmed patient diagnoses.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d039",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "대전자통증증후군 / 둔근건병증",
+      "name_en": "Greater trochanteric pain syndrome / gluteal tendinopathy",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d040",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "중둔근·소둔근 건파열",
+      "name_en": "Gluteus medius/minimus tendon tear",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d041",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "대전자 주위 점액낭염",
+      "name_en": "Peritrochanteric bursitis",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d042",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "장요근 건병증·점액낭염",
+      "name_en": "Iliopsoas tendinopathy / bursitis",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d043",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "내측 snapping hip",
+      "name_en": "Internal snapping hip",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d044",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "대퇴비구충돌·관절와순 관련 관절내 통증",
+      "name_en": "FAI / labral-related intra-articular hip pain",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d045",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "고관절 골관절염·활막염/관절삼출",
+      "name_en": "Hip OA / synovitis / joint effusion",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d046",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "내전근 관련 서혜부 통증",
+      "name_en": "Adductor-related groin pain",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d047",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "근위 햄스트링 건병증",
+      "name_en": "Proximal hamstring tendinopathy",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d048",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "근위 햄스트링 부분/완전 파열·견열",
+      "name_en": "Proximal hamstring tear / avulsion",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d049",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "심부 둔부 좌골신경 포착",
+      "name_en": "Deep gluteal sciatic nerve entrapment",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d050",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "대퇴외측피신경 포착 / meralgia paresthetica",
+      "name_en": "Lateral femoral cutaneous neuropathy / meralgia paresthetica",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d051",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "대퇴직근 근위부 건병증·strain",
+      "name_en": "Proximal rectus femoris tendinopathy / strain",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d052",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "장요근 복합체 관련 전방 고관절 통증",
+      "name_en": "Iliopsoas-related anterior hip pain",
+      "region_id": "r003",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f031",
+      "entity_type": "clinical_finding",
+      "name_ko": "대전자 압통",
+      "key": "greater_trochanter_tenderness",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "finding_id": "f032",
+      "entity_type": "clinical_finding",
+      "name_ko": "저항성 고관절 외전 시 외측 통증",
+      "key": "pain_resisted_abduction",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "finding_id": "f033",
+      "entity_type": "clinical_finding",
+      "name_ko": "30초 한발서기 시 외측 통증",
+      "key": "single_leg_stance_lateral_pain",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "finding_id": "f034",
+      "entity_type": "clinical_finding",
+      "name_ko": "Trendelenburg 골반 하강",
+      "key": "trendelenburg_pelvic_drop",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "finding_id": "f035",
+      "entity_type": "clinical_finding",
+      "name_ko": "저항성 고관절 굴곡 시 서혜부 통증",
+      "key": "pain_resisted_hip_flexion",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f036",
+      "entity_type": "clinical_finding",
+      "name_ko": "전방 고관절 snapping",
+      "key": "anterior_hip_snapping",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f037",
+      "entity_type": "clinical_finding",
+      "name_ko": "FADIR 시 익숙한 서혜부 통증",
+      "key": "fadir_groin_pain",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "finding_id": "f038",
+      "entity_type": "clinical_finding",
+      "name_ko": "좌골결절 국소 압통",
+      "key": "ischial_tuberosity_tenderness",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f039",
+      "entity_type": "clinical_finding",
+      "name_ko": "햄스트링 신장 시 근위 통증",
+      "key": "proximal_hamstring_stretch_pain",
+      "region_id": "r011",
+      "status": "active"
+    },
+    {
+      "finding_id": "f040",
+      "entity_type": "clinical_finding",
+      "name_ko": "심부 둔부 통증·좌골신경성 증상",
+      "key": "deep_gluteal_sciatic_symptoms",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f041",
+      "entity_type": "clinical_finding",
+      "name_ko": "전외측 대퇴 감각이상",
+      "key": "anterolateral_thigh_paresthesia",
+      "region_id": "r010",
+      "status": "active"
+    },
+    {
+      "finding_id": "f042",
+      "entity_type": "clinical_finding",
+      "name_ko": "고관절 수동 ROM 제한·관절성 통증",
+      "key": "restricted_hip_passive_rom",
+      "region_id": "r010",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg017",
+      "symptom_id": "sx11",
+      "title_ko": "외측 고관절 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d039",
+          "look_for": [
+            "대전자 촉진 통증",
+            "저항 외전 통증",
+            "둔근건 초음파"
+          ],
+          "not_diagnostic_alone": [
+            "MRI/US의 tendinosis만으로 증상 원인 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d040",
+          "look_for": [
+            "뚜렷한 외전 약화/Trendelenburg",
+            "건 연속성 결손"
+          ],
+          "not_diagnostic_alone": [
+            "약화 하나만으로 tear 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d041",
+          "look_for": [
+            "bursal distension",
+            "IT band 아래 국소 통증"
+          ],
+          "not_diagnostic_alone": [
+            "소량 bursal fluid 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d044",
+          "look_for": [
+            "서혜부 통증·FADIR",
+            "관절내 증상"
+          ],
+          "not_diagnostic_alone": [
+            "외측 통증만으로 관절내 원인 배제/확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg018",
+      "symptom_id": "sx12",
+      "title_ko": "서혜부 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d042",
+          "look_for": [
+            "저항성 hip flexion 통증",
+            "iliopsoas tendon/bursa"
+          ],
+          "not_diagnostic_alone": [
+            "SLR/Thomas 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d044",
+          "look_for": [
+            "FADIR/FABER에서 서혜부 통증",
+            "기계적 증상"
+          ],
+          "not_diagnostic_alone": [
+            "도발검사 하나로 FAI/labral tear 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d045",
+          "look_for": [
+            "수동 ROM 제한",
+            "관절 recess/방사선 소견"
+          ],
+          "not_diagnostic_alone": [
+            "US effusion만으로 원인 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d046",
+          "look_for": [
+            "adductor origin 압통",
+            "저항 내전 통증",
+            "근위건 US"
+          ],
+          "not_diagnostic_alone": [
+            "내전근 압통만으로 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d051",
+          "look_for": [
+            "AIIS 부위 통증",
+            "대퇴직근 근위건 US"
+          ],
+          "not_diagnostic_alone": [
+            "전방 통증 위치만으로 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg019",
+      "symptom_id": "sx27",
+      "title_ko": "전방 고관절 통증·snapping",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d043",
+          "look_for": [
+            "통증/소리와 동적 iliopsoas snap의 일치"
+          ],
+          "not_diagnostic_alone": [
+            "무증상 동적 snapping"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d042",
+          "look_for": [
+            "hip flexion 통증",
+            "bursal/tendon change"
+          ],
+          "not_diagnostic_alone": [
+            "초음파 변화 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d044",
+          "look_for": [
+            "관절내 기계적 증상",
+            "FADIR/FABER"
+          ],
+          "not_diagnostic_alone": [
+            "snapping만으로 관절내 병변 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg020",
+      "symptom_id": "sx28",
+      "title_ko": "심부 둔부·좌골신경성 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d049",
+          "look_for": [
+            "active piriformis + seated stretch",
+            "sciatic nerve/piriformis 관계"
+          ],
+          "not_diagnostic_alone": [
+            "piriformis 압통만으로 진단"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d047",
+          "look_for": [
+            "좌골결절 통증",
+            "햄스트링 stretch provocation"
+          ],
+          "not_diagnostic_alone": [
+            "둔부통증만으로 PHT 확정"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d048",
+          "look_for": [
+            "급성 pop/멍/근력저하",
+            "tendon discontinuity/retraction"
+          ],
+          "not_diagnostic_alone": [
+            "통증만으로 avulsion 확정"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg021",
+      "symptom_id": "sx29",
+      "title_ko": "좌골결절·근위 햄스트링 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d047",
+          "look_for": [
+            "Puranen-Orava/modified bent-knee stretch",
+            "건병증 US"
+          ],
+          "not_diagnostic_alone": [
+            "한 검사 단독"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d048",
+          "look_for": [
+            "급성 손상기전",
+            "결손/혈종/견열"
+          ],
+          "not_diagnostic_alone": [
+            "초음파만으로 모든 견열 범위 판단"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d049",
+          "look_for": [
+            "좌골신경성 증상",
+            "deep gluteal tests"
+          ],
+          "not_diagnostic_alone": [
+            "좌골결절 압통만으로 nerve entrapment 배제"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg022",
+      "symptom_id": "sx30",
+      "title_ko": "전외측 대퇴 감각이상",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d050",
+          "look_for": [
+            "운동약화 없는 감각증상",
+            "ASIS/inguinal ligament의 LFCN 변화"
+          ],
+          "not_diagnostic_alone": [
+            "CSA 수치 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d045",
+          "look_for": [
+            "관절통·ROM 제한이 동반되는지"
+          ],
+          "not_diagnostic_alone": [
+            "감각증상만으로 관절질환 확정"
+          ]
+        }
+      ]
+    }
+  ]
+}
