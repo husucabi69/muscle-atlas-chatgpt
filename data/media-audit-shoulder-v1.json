@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "shoulder_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-24",
+  "policy": "Only actual ultrasound or ultrasound video with clear source/license is embedded. Open references without a stable reusable asset are link-only. No fabricated substitute.",
+  "views": [
+    {
+      "ultrasound_view_id": "usv001",
+      "status": "verified_fixed_media",
+      "assets": [
+        {
+          "asset_type": "image",
+          "title": "Supraspinatus tendon longitudinal ultrasound",
+          "file": "Longitudinal US supraspinatus.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Longitudinal_US_supraspinatus.jpg",
+          "license": "CC BY-SA 4.0 / GFDL",
+          "author": "RSatUSZ / UniversitätsSpital Zürich"
+        }
+      ]
+    },
+    {
+      "ultrasound_view_id": "usv002",
+      "status": "verified_fixed_media",
+      "assets": [
+        {
+          "asset_type": "image",
+          "title": "Supraspinatus tendon transverse ultrasound",
+          "file": "Transversal US supraspinatus.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Transversal_US_supraspinatus.jpg",
+          "license": "CC BY-SA / GFDL",
+          "author": "RSatUSZ / UniversitätsSpital Zürich"
+        }
+      ]
+    },
+    {
+      "ultrasound_view_id": "usv003",
+      "status": "verified_fixed_media",
+      "assets": [
+        {
+          "asset_type": "image",
+          "title": "Intact long-head biceps tendon in bicipital groove",
+          "file": "US. Biceps tendon..jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:US._Biceps_tendon..jpg",
+          "license": "Creative Commons license on Commons file page",
+          "author": "RSatUSZ"
+        }
+      ]
+    },
+    {
+      "ultrasound_view_id": "usv004",
+      "status": "verified_open_reference_link_only",
+      "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG2/",
+      "license": "Creative Commons Attribution License",
+      "note": "Figure includes transverse and longitudinal long-head biceps tendon views. Kept link-only until a stable asset URL is fixed."
+    },
+    {
+      "ultrasound_view_id": "usv005",
+      "status": "verified_open_reference_link_only",
+      "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
+      "license": "Creative Commons Attribution License",
+      "note": "Figure includes subscapularis long-axis and transverse views."
+    },
+    {
+      "ultrasound_view_id": "usv006",
+      "status": "verified_open_reference_link_only",
+      "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
+      "license": "Creative Commons Attribution License",
+      "note": "Figure includes subscapularis long-axis and transverse views."
+    },
+    {
+      "ultrasound_view_id": "usv007",
+      "status": "verified_fixed_media",
+      "assets": [
+        {
+          "asset_type": "image",
+          "title": "Infraspinatus tendon without pathological echogenicity",
+          "file": "US. Infraspinatus tendon without any pathological echogenicity..jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:US._Infraspinatus_tendon_without_any_pathological_echogenicity..jpg",
+          "license": "CC BY-SA 3.0",
+          "author": "Wikimedia Commons uploader / own work"
+        }
+      ],
+      "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG7/"
+    },
+    {
+      "ultrasound_view_id": "usv008",
+      "status": "verified_fixed_media",
+      "assets": [
+        {
+          "asset_type": "video",
+          "title": "Dynamic supraspinatus impingement ultrasound",
+          "file": "Emergency-department-diagnosis-of-supraspinatus-tendon-calcification-and-shoulder-impingement-2036-7902-5-2-S2.ogv",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Emergency-department-diagnosis-of-supraspinatus-tendon-calcification-and-shoulder-impingement-2036-7902-5-2-S2.ogv",
+          "license": "CC BY 2.0",
+          "author": "Riley et al."
+        },
+        {
+          "asset_type": "video",
+          "title": "Ultrasound-guided subacromial bursa injection",
+          "file": "Ultrasound guided injection of local anaesthetic into the subacromial bursa - 1471-2474-12-119-S3.ogv",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ultrasound_guided_injection_of_local_anaesthetic_into_the_subacromial_bursa_-_1471-2474-12-119-S3.ogv",
+          "license": "CC BY 2.0",
+          "author": "Cadogan et al."
+        }
+      ]
+    },
+    {
+      "ultrasound_view_id": "usv009",
+      "status": "verified_open_reference_link_only",
+      "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG1/",
+      "license": "Creative Commons Attribution License",
+      "note": "Normal AC joint ultrasound reference. Link-only until stable asset URL is fixed."
+    }
+  ]
+}
