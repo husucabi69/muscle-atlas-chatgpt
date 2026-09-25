@@ -136,8 +136,8 @@
 - [x] anatomy detail 카드에 대표 시야 / view / 선정 이유 표시
 
 ## 현재 진행
-- reviewed: 58 / 205
-- pending_review: 147 / 205
+- reviewed: 61 / 205
+- pending_review: 144 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
@@ -146,6 +146,8 @@
 - [ ] 205/205 representative-view decision
 - [x] 견갑대·어깨 8개 대표시야 우선 배치 검수 완료
 - [x] 전완 표층 11개 대표시야 우선 배치 검수 완료
+- [x] 상완근·오훼완근·주근 3개 대표시야 검수 완료
+- [ ] 이두근/삼두근 각 head는 head-specific 대표도해 확인 후 승격
 - [ ] 대표시야 미등록 0 또는 근거 있는 “공개 적합자료 미확립” 표기
 - [ ] reviewed source/license 누락 0
 - [x] 극하근 우선 문제 사례 데이터 수정 + 자동 QA

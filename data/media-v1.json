@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.25-stage17-g",
+  "version": "2026.09.25-stage17-h",
   "updated": "2026-09-25",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -250,11 +250,14 @@
     "m077": {
       "anatomy": [
         {
-          "title": "Brachialis",
+          "title": "Brachialis — anterior representative view",
           "file": "Brachialis muscle01.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Brachialis_muscle01.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Brachialis_muscle01.png",
+          "representative": true,
+          "view": "anterior arm",
+          "educationalReason": "상완골 전면에서 척골 구상돌기·조면으로 향하며 이두근 깊이에 위치하는 상완근 전체를 전면에서 명확히 확인"
         }
       ]
     },
@@ -294,22 +297,28 @@
     "m078": {
       "anatomy": [
         {
-          "title": "Coracobrachialis",
+          "title": "Coracobrachialis — anterior/medial representative view",
           "file": "Coracobrachialis muscle01.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Coracobrachialis_muscle01.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Coracobrachialis_muscle01.png",
+          "representative": true,
+          "view": "anterior medial arm",
+          "educationalReason": "오훼돌기에서 상완골 내측 중간부로 내려오는 오훼완근의 짧고 가느다란 주행과 상완 전내측 위치를 확인"
         }
       ]
     },
     "m082": {
       "anatomy": [
         {
-          "title": "Anconeus — highlighted",
+          "title": "Anconeus — highlighted posterolateral representative view",
           "file": "Gray — musculus anconeus.png",
-          "author": "Henry Vandyke Carter / Gray’s Anatomy; highlight derivative",
+          "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
           "license": "Public domain",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_anconeus.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_anconeus.png",
+          "representative": true,
+          "view": "posterolateral elbow",
+          "educationalReason": "외측상과에서 척골 주두·근위 후면으로 퍼지는 작은 주근을 삼두근과 구분하여 팔꿈치 후외측에서 확인"
         }
       ]
     },

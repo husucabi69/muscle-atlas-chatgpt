@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.25-stage17-g",
+  "audit_version": "2026.09.25-stage17-h",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -705,13 +705,29 @@
       "muscle_id": "m077",
       "name_ko": "상완근",
       "name_en": "Brachialis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Brachialis muscle01.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Brachialis_muscle01.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "anterior arm",
+        "educationalReason": "상완골 전면에서 척골 구상돌기·조면으로 향하며 이두근 깊이에 위치하는 상완근 전체를 전면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m078",
       "name_ko": "오훼완근",
       "name_en": "Coracobrachialis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Coracobrachialis muscle01.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Coracobrachialis_muscle01.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "anterior medial arm",
+        "educationalReason": "오훼돌기에서 상완골 내측 중간부로 내려오는 오훼완근의 짧고 가느다란 주행과 상완 전내측 위치를 확인"
+      }
     },
     {
       "muscle_id": "m079",
@@ -735,7 +751,15 @@
       "muscle_id": "m082",
       "name_ko": "주근",
       "name_en": "Anconeus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus anconeus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_anconeus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterolateral elbow",
+        "educationalReason": "외측상과에서 척골 주두·근위 후면으로 퍼지는 작은 주근을 삼두근과 구분하여 팔꿈치 후외측에서 확인"
+      }
     },
     {
       "muscle_id": "m083",
@@ -1709,8 +1733,8 @@
     }
   ],
   "progress": {
-    "reviewed": 58,
-    "pending_review": 147,
-    "last_batch": "superficial_forearm_priority_batch"
+    "reviewed": 61,
+    "pending_review": 144,
+    "last_batch": "upper_arm_safe_priority_batch"
   }
 }
