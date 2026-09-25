@@ -410,7 +410,7 @@ button,input{font:inherit} button{cursor:pointer}
   </div>
   <div id="oralArea" class="quiz-card">
     <div class="oral-question">부위와 시험관 수준을 고른 뒤 시작하십시오.</div>
-    <p style="color:var(--muted);line-height:1.8">음성은 브라우저의 SpeechRecognition이 지원되는 경우에만 사용됩니다. 정답 판정은 외부 AI로 환자정보를 보내지 않고, Atlas 정본 핵심어와 구조를 기기 안에서 비교합니다.</p>
+    <p style="color:var(--muted);line-height:1.8">음성은 브라우저의 SpeechRecognition이 지원되는 경우에만 선택적으로 사용합니다. 정답 채점은 Atlas 안에서 수행하지만, 음성을 글자로 바꾸는 과정은 기기·브라우저 제공자의 음성인식 서비스를 사용할 수 있습니다. 민감한 환자정보는 말하지 마세요.</p>
   </div>
 </section>
 
@@ -448,6 +448,12 @@ button,input{font:inherit} button{cursor:pointer}
     <p style="color:var(--muted);line-height:1.8;margin:0">틀린 문제는 기기 안에 저장되고, ‘오답 10문제 복습’에서 다시 출제됩니다.</p>
   </div>
 </section>
+
+<footer class="app-footer no-print">
+  <b>이윤석정형외과 근육</b> · 해부학·의학교육 및 일반 환자교육용
+  <span>개별 진단·응급평가·수술 후 프로토콜을 대체하지 않습니다.</span>
+  <a href="./privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>
+</footer>
 
 <div id="symptomOverlay" class="overlay"><div class="modal"><div class="modal-top"><strong>증상 탐색</strong><button class="backbtn" onclick="closeSymptom()">닫기</button></div><div id="symptomBody" class="modal-body"></div></div></div>
 <div id="muscleOverlay" class="overlay"><div class="modal"><div class="modal-top"><strong>근육 학습창</strong><button class="backbtn" onclick="closeMuscle()">닫기</button></div><div id="muscleBody" class="modal-body"></div></div></div>
