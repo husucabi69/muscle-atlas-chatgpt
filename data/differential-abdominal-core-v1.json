@@ -1,0 +1,479 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "abdominal_core_differential_v1",
+  "region_ids": [
+    "r014"
+  ],
+  "safety_rule": "Educational abdominal-wall differential only. Acute severe or diffuse abdominal pain, peritoneal signs, GI bleeding, persistent vomiting, syncope/hemodynamic instability, pregnancy-related emergencies, painful irreducible hernia, bowel-obstruction signs, fever/systemic illness or other visceral red flags require appropriate medical/surgical evaluation rather than routine MSK exercise pathways.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d127",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "복벽 기원 국소 통증",
+      "name_en": "Abdominal wall pain",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d128",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "전피신경 포착증후군 후보",
+      "name_en": "Anterior cutaneous nerve entrapment syndrome candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d129",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "복직근 strain/통증 후보",
+      "name_en": "Rectus abdominis strain or pain candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d130",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "복사근 strain/통증 후보",
+      "name_en": "Abdominal oblique strain or pain candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d131",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "복직근 이개",
+      "name_en": "Rectus diastasis",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d132",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "제대/제대주위 탈장 후보",
+      "name_en": "Umbilical or paraumbilical hernia candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d133",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "절개탈장 후보",
+      "name_en": "Incisional hernia candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d134",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Spigelian hernia 후보",
+      "name_en": "Spigelian hernia candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d135",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "서혜부 탈장 후보",
+      "name_en": "Inguinal hernia candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d136",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Athletic groin pain/inguinal disruption 후보",
+      "name_en": "Athletic groin pain / inguinal disruption candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d137",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "복횡근·몸통 motor-control 기능저하",
+      "name_en": "Transversus abdominis / trunk motor-control impairment",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d138",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "내장성/복막성 통증 감별 필요",
+      "name_en": "Visceral or peritoneal pain requiring medical differential",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d139",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "복벽 근육 파열/혈종 후보",
+      "name_en": "Abdominal wall muscle tear or hematoma candidate",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d140",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "감돈·교액 탈장 응급 후보",
+      "name_en": "Incarcerated or strangulated hernia emergency candidate",
+      "region_id": "r014",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f115",
+      "entity_type": "clinical_finding",
+      "name_ko": "Carnett 양성",
+      "key": "carnett_positive",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f116",
+      "entity_type": "clinical_finding",
+      "name_ko": "작은 국소 압통점과 주변 감각변화",
+      "key": "localized_trigger_sensory_change",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f117",
+      "entity_type": "clinical_finding",
+      "name_ko": "Valsalva/기침에서 복벽 bulge",
+      "key": "dynamic_abdominal_bulge",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f118",
+      "entity_type": "clinical_finding",
+      "name_ko": "focal fascial defect",
+      "key": "fascial_defect",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f119",
+      "entity_type": "clinical_finding",
+      "name_ko": "inter-recti distance 증가/linea alba widening",
+      "key": "inter_recti_widening",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f120",
+      "entity_type": "clinical_finding",
+      "name_ko": "curl-up에서 midline doming",
+      "key": "midline_doming",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f121",
+      "entity_type": "clinical_finding",
+      "name_ko": "복직근 저항성 굴곡에서 국소통",
+      "key": "rectus_resisted_pain",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f122",
+      "entity_type": "clinical_finding",
+      "name_ko": "저항성 회전에서 flank/oblique 통증",
+      "key": "oblique_resisted_pain",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f123",
+      "entity_type": "clinical_finding",
+      "name_ko": "TrA 저강도 활성 조절 저하",
+      "key": "tra_motor_control_deficit",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f124",
+      "entity_type": "clinical_finding",
+      "name_ko": "서혜관 Valsalva pathologic bulging",
+      "key": "inguinal_dynamic_bulging",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f125",
+      "entity_type": "clinical_finding",
+      "name_ko": "운동성 pubic/inguinal abdominal-wall pain",
+      "key": "athletic_groin_abdominal_wall_pain",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f126",
+      "entity_type": "clinical_finding",
+      "name_ko": "복벽 ecchymosis/swelling 또는 혈종 소견",
+      "key": "abdominal_wall_hematoma_finding",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f127",
+      "entity_type": "clinical_finding",
+      "name_ko": "통증성 비환원성 hernia/bowel red flag",
+      "key": "hernia_complication_red_flag",
+      "region_id": "r014",
+      "status": "active"
+    },
+    {
+      "finding_id": "f128",
+      "entity_type": "clinical_finding",
+      "name_ko": "visceral/peritoneal red flag",
+      "key": "visceral_abdominal_red_flag",
+      "region_id": "r014",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg059",
+      "symptom_id": "sx57",
+      "title_ko": "한 손가락으로 짚을 수 있는 국소 복벽통",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d127",
+          "look_for": [
+            "focal tenderness",
+            "Carnett response",
+            "movement/posture relation"
+          ],
+          "not_diagnostic_alone": [
+            "Carnett 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d128",
+          "look_for": [
+            "작은 trigger point",
+            "주변 sensory change",
+            "rectus border/anterior cutaneous corridor"
+          ],
+          "not_diagnostic_alone": [
+            "압통만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d129",
+          "look_for": [
+            "resisted trunk flexion pain",
+            "운동/기침 strain history"
+          ],
+          "not_diagnostic_alone": [
+            "RA tenderness only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d138",
+          "look_for": [
+            "GI/GU/systemic/peritoneal signs"
+          ],
+          "not_diagnostic_alone": [
+            "Carnett negative alone"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg060",
+      "symptom_id": "sx58",
+      "title_ko": "운동·기침 후 복부/옆구리 근육통",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d129",
+          "look_for": [
+            "rectus resisted flexion pain",
+            "focal muscle injury"
+          ],
+          "not_diagnostic_alone": [
+            "soreness only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d130",
+          "look_for": [
+            "resisted rotation/side-load pain",
+            "oblique region tenderness"
+          ],
+          "not_diagnostic_alone": [
+            "rotation pain only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d139",
+          "look_for": [
+            "ecchymosis/swelling",
+            "anticoagulant/trauma history",
+            "US collection"
+          ],
+          "not_diagnostic_alone": [
+            "pain alone"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg061",
+      "symptom_id": "sx59",
+      "title_ko": "배 중앙이 벌어지거나 힘줄 때 doming",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d131",
+          "look_for": [
+            "linea alba widening",
+            "IRD at standardized location",
+            "functional symptoms"
+          ],
+          "not_diagnostic_alone": [
+            "finger-width estimate",
+            "single cutoff alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d132",
+          "look_for": [
+            "focal umbilical/paraumbilical fascial defect",
+            "dynamic content protrusion"
+          ],
+          "not_diagnostic_alone": [
+            "midline bulge only"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg062",
+      "symptom_id": "sx60",
+      "title_ko": "기침·Valsalva에서 생기는 복벽/서혜부 bulge",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d132",
+          "look_for": [
+            "umbilical/linea alba focal defect"
+          ],
+          "not_diagnostic_alone": [
+            "bulge without defect"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d133",
+          "look_for": [
+            "prior incision + fascial defect"
+          ],
+          "not_diagnostic_alone": [
+            "scar pain alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d134",
+          "look_for": [
+            "semilunar-line defect/interparietal sac"
+          ],
+          "not_diagnostic_alone": [
+            "lateral pain alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d135",
+          "look_for": [
+            "inguinal dynamic protrusion",
+            "inferior epigastric vessel relation"
+          ],
+          "not_diagnostic_alone": [
+            "posterior wall bulging without symptoms"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d140",
+          "look_for": [
+            "painful irreducibility",
+            "obstruction/systemic compromise"
+          ],
+          "not_diagnostic_alone": [
+            "hernia diagnosis alone"
+          ]
+        }
+      ],
+      "red_flags": [
+        "통증성 비환원성 종괴, 구토·장폐색 소견, 전신상태 악화는 urgent surgical evaluation"
+      ]
+    },
+    {
+      "differential_group_id": "dg063",
+      "symptom_id": "sx61",
+      "title_ko": "운동선수의 치골·서혜부 하복부 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d136",
+          "look_for": [
+            "resisted sit-up pain",
+            "dynamic posterior inguinal wall findings",
+            "adductor/hip/pubic differential"
+          ],
+          "not_diagnostic_alone": [
+            "US bulging alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d135",
+          "look_for": [
+            "true hernia content passing through canal/defect"
+          ],
+          "not_diagnostic_alone": [
+            "groin pain only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d130",
+          "look_for": [
+            "oblique strain mechanism/resisted rotation pain"
+          ],
+          "not_diagnostic_alone": [
+            "muscle tenderness only"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg064",
+      "symptom_id": "sx62",
+      "title_ko": "복통과 전신·위장관 red flag",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d138",
+          "look_for": [
+            "fever",
+            "persistent vomiting",
+            "GI bleeding",
+            "peritoneal signs",
+            "severe unexplained acute pain"
+          ],
+          "not_diagnostic_alone": [
+            "Carnett result"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d140",
+          "look_for": [
+            "painful irreducible hernia",
+            "obstruction signs"
+          ],
+          "not_diagnostic_alone": [
+            "reducible asymptomatic hernia"
+          ]
+        }
+      ],
+      "red_flags": [
+        "MSK 복벽통으로 단정하지 말고 적절한 응급/내과/외과 평가 우선"
+      ]
+    }
+  ]
+}
