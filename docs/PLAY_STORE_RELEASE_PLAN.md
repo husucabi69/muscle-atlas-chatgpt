@@ -13,7 +13,7 @@
 - JDK 17 / AGP 9.4.0 / Gradle CI 9.6.0
 - HTTPS-only Android shell
 - native RECORD_AUDIO permission 없음
-- PR 및 main에서 release AAB 실제 build PASS
+- PR 및 main에서 Android App Bundle(AAB) release build PASS
 - main exact SHA `233d959ff4d5b91037fe2e62901ce2e632454cb6`
 - Global QA `36119496794` SUCCESS
 - Android TWA QA `36119496821` SUCCESS
@@ -54,7 +54,7 @@ placeholder fingerprint는 public 배포하지 않는다.
 ### 3. Policy forms
 아직 필요:
 - Health Apps declaration
-- Data Safety
+- Data safety (Play Console Data Safety)
 - content rating
 - support contact
 - store listing 제출
