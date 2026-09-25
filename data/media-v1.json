@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.25-stage17-b",
+  "version": "2026.09.25-stage17-c",
   "updated": "2026-09-25",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -649,6 +649,90 @@
           "representative": true,
           "view": "posterior suboccipital",
           "educationalReason": "C2 극돌기에서 C1 횡돌기로 향하는 하두사근과 후두하삼각의 하외측 경계를 후면에서 명확히 확인"
+        }
+      ]
+    },
+    "m050": {
+      "anatomy": [
+        {
+          "title": "Piriformis — posterior deep gluteal representative view",
+          "file": "Piriformis muscle.PNG",
+          "author": "Mikael Häggström / Gray's Anatomy derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Piriformis_muscle.PNG",
+          "representative": true,
+          "view": "posterior deep gluteal",
+          "educationalReason": "천골 전면에서 대좌골공을 지나 대전자 쪽으로 향하는 이상근의 위치와 좌골신경 주변의 깊은 둔부 관계를 후면에서 가장 직관적으로 확인"
+        }
+      ]
+    },
+    "m051": {
+      "anatomy": [
+        {
+          "title": "Obturator internus — posterior deep gluteal representative view",
+          "file": "Obturator internus muscle.png",
+          "author": "Mikael Häggström / Gray's Anatomy derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Obturator_internus_muscle.png",
+          "representative": true,
+          "view": "posterior deep gluteal",
+          "educationalReason": "소좌골공을 돌아 대전자 내측면으로 향하는 폐쇄내근 건의 방향과 상·하쌍자근 사이 관계를 후면에서 명확히 확인"
+        }
+      ]
+    },
+    "m052": {
+      "anatomy": [
+        {
+          "title": "Superior gemellus — posterior deep gluteal representative view",
+          "file": "Gemellus superior muscle.PNG",
+          "author": "Mikael Häggström / Gray's Anatomy derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gemellus_superior_muscle.PNG",
+          "representative": true,
+          "view": "posterior deep gluteal",
+          "educationalReason": "폐쇄내근 건의 위쪽에서 함께 주행하는 상쌍자근을 이상근·폐쇄내근과 구분하기 쉬운 후면 강조 도해"
+        }
+      ]
+    },
+    "m053": {
+      "anatomy": [
+        {
+          "title": "Inferior gemellus — posterior deep gluteal representative view",
+          "file": "Inferior gemellus muscle.PNG",
+          "author": "Mikael Häggström / Gray's Anatomy derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Inferior_gemellus_muscle.PNG",
+          "representative": true,
+          "view": "posterior deep gluteal",
+          "educationalReason": "폐쇄내근 건의 아래쪽에서 함께 주행하는 하쌍자근과 대퇴방형근의 층별 관계를 후면에서 구분"
+        }
+      ]
+    },
+    "m054": {
+      "anatomy": [
+        {
+          "title": "Obturator externus — deep posterior representative view",
+          "file": "Obturator externus.png",
+          "author": "Mikael Häggström / Gray's Anatomy derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Obturator_externus.png",
+          "representative": true,
+          "view": "posterior deep hip",
+          "educationalReason": "폐쇄공 외면에서 대퇴골 전자와로 향하는 폐쇄외근의 짧고 깊은 주행을 주변 심부 외회전근과 비교해 확인"
+        }
+      ]
+    },
+    "m055": {
+      "anatomy": [
+        {
+          "title": "Quadratus femoris — posterior deep gluteal representative view",
+          "file": "Quadratus femoris muscle.PNG",
+          "author": "Mikael Häggström / Gray's Anatomy derivative",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Quadratus_femoris_muscle.PNG",
+          "representative": true,
+          "view": "posterior deep gluteal",
+          "educationalReason": "좌골결절에서 대퇴골 전자간능으로 수평 주행하는 대퇴방형근을 하쌍자근 아래에서 후면으로 가장 명확히 확인"
         }
       ]
     }
