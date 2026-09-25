@@ -1,7 +1,7 @@
 # OrthoOS Integration Contract v1.0.0
 
 시행일: 2026-09-25  
-상태: Stable contract candidate — CI 검증 후 stable  
+상태: Stable v1 — Global QA + Integration Contract QA PASS  
 Provider: Muscle Atlas / MSK Knowledge Layer  
 Consumer: LYS OrthoOS Clinical Integration Layer
 
@@ -245,3 +245,15 @@ v1에서 새로 기계적으로 고정한 것:
 - 두 repository/runtime/database 병합
 
 향후 template suggestion이 필요하면 별도의 write-protected proposal contract에서 다루고, 실제 차트 반영은 OrthoOS의 clinician-confirmed workflow가 소유한다.
+
+
+## 12. Stage 12 검증 기록
+- canonical development line: `dev/stage12-readonly-integration-20260925`
+- base: v9.4 Stage 11 stable main
+- PR #25 first contract gate: PASS
+- Global QA + Integration Contract QA run: `36117428765`
+- 계약 상태: `stable_v1`
+- Atlas write methods: 없음
+- PHI / patient / encounter context: 금지
+- patient laterality / performed-status inference: 금지
+- 실제 환자 확정진단 ownership: LYS OrthoOS + clinician-confirmed workflow
