@@ -103,7 +103,7 @@ button,input{font:inherit} button{cursor:pointer}
 .patient-warning{border:1px solid #efc3bd;background:#fff8f7;border-radius:16px;padding:15px 16px;line-height:1.75;margin:12px 0}
 .patient-help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.patient-help-grid>div{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff}.patient-help-grid b{display:block;font-size:18px;margin-bottom:6px}.patient-help-grid span{color:var(--muted);line-height:1.6}
 .clinician-note{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:14px 0;color:#475467}.clinician-note summary{cursor:pointer;font-weight:750}
-.exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:10px;margin:10px 0 12px}.exercise-figure svg{width:100%;max-width:420px;height:auto;display:block;margin:auto}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:4px}
+.exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:10px;margin:10px 0 12px}.exercise-figure svg{width:100%;max-width:420px;height:auto;display:block;margin:auto}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:4px}.exercise-log{margin-top:12px;border-top:1px dashed #98a2b3;padding-top:8px;font-size:13px;word-spacing:8px}.region-print-muscles{font-size:13px;color:#475467;line-height:1.6;margin:6px 0 10px}
 .patient-step-label{display:inline-block;font-weight:800;margin-bottom:4px}.patient-caution{border-left:4px solid #d92d20;background:#fff8f7;padding:10px 12px;border-radius:8px;line-height:1.65;margin-top:10px}
 .print-only{display:none}
 @media(max-width:900px){.patient-help-grid{grid-template-columns:1fr}.patient-hero{align-items:flex-start;flex-direction:column}.patient-hero h2{font-size:31px}}
@@ -385,6 +385,7 @@ button,input{font:inherit} button{cursor:pointer}
   <div id="educationMusclesPanel" class="region-muscles-panel" hidden>
     <button class="region-back" type="button" onclick="closeEducationRegion()">← 부위 다시 고르기</button>
     <div class="region-panel-head"><h3 id="educationRegionTitle"></h3><span id="educationRegionCount"></span></div>
+    <div class="quiz-actions no-print" style="margin:0 0 14px"><button class="primary" type="button" onclick="printEducationRegion()">이 부위 운동 모음 인쇄</button></div>
     <div id="educationMuscleList" class="region-list"></div>
   </div>
   <div id="educationDetail" class="printable-education" hidden></div>
@@ -1694,7 +1695,7 @@ function exerciseProfileCard(p){
     '<p>'+esc(p.indication_note||'')+'</p>'+
     '<div class="patient-step-label">이렇게 하세요</div><ol>'+((p.steps||[]).map(x=>'<li>'+esc(x)+'</li>').join(''))+'</ol>'+
     (p.dose?'<p><b>얼마나?</b> '+esc(p.dose)+'</p>':'')+
-    '<div class="patient-caution"><b>주의</b><br>'+esc(exerciseCaution(p))+'</div>'+
+    '<div class="patient-caution"><b>주의</b><br>'+esc(exerciseCaution(p))+'</div>'+    '<div class="print-only exercise-log"><b>이번 주 실천</b> 월 □ 화 □ 수 □ 목 □ 금 □ 토 □ 일 □</div>'+
     (refs.length?'<details class="clinician-note"><summary>근거 문헌 보기</summary>'+refs.map(s=>'<a class="education-source" href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.year)+' · '+esc(s.kind)+' · '+esc(s.title)+'</a>').join('')+'</details>':'')+
     '</div>';
 }
@@ -1716,12 +1717,47 @@ function openEducationMuscle(id){
     '<div class="patient-warning"><b>운동을 멈추고 다시 확인해야 할 때</b><br>새로운 진행성 근력저하·감각저하, 심한 야간통과 발열, 갑작스러운 파열 느낌이나 큰 멍, 흉통·호흡곤란, 심한 복통, 운동 후 계속 악화되는 통증이 있으면 일반 운동보다 진료가 우선입니다.</div>'+
     '<div class="quiz-actions no-print"><button class="primary" onclick="printCurrentEducation()">이 운동표 인쇄</button><button class="pill" onclick="startOralForMuscle(\''+id+'\')">의료진용 오랄 테스트</button><button class="pill" onclick="openMuscle(\''+id+'\')">근육 해부학 보기</button></div>';
 }
+let printRestoreRegion=null;
 function printCurrentEducation(){
   const detail=document.getElementById('educationDetail');
   if(!detail||detail.hidden){alert('먼저 부위와 근육을 선택해 주세요.');return;}
+  printRestoreRegion=null;
   document.body.classList.add('printing-education');window.print();
 }
-window.addEventListener('afterprint',()=>document.body.classList.remove('printing-education'));
+function printEducationRegion(){
+  if(!selectedEducationRegion){alert('먼저 부위를 선택해 주세요.');return;}
+  const region=selectedEducationRegion;
+  const ms=muscles.filter(m=>m.region===region);
+  const profileToMuscles={};
+  for(const m of ms){
+    const a=exerciseAssignmentByMuscle[m.id];if(!a)continue;
+    for(const pid of [...(a.stretch_profile_ids||[]),...(a.strength_profile_ids||[])]){
+      if(pid==='px099'||!exerciseProfileById[pid])continue;
+      if(!profileToMuscles[pid])profileToMuscles[pid]=[];
+      profileToMuscles[pid].push(m.ko);
+    }
+  }
+  const ids=Object.keys(profileToMuscles);
+  if(!ids.length){alert('이 부위에 인쇄할 공통 운동 프로그램이 없습니다.');return;}
+  const detail=document.getElementById('educationDetail');
+  document.getElementById('educationMusclesPanel').hidden=true;detail.hidden=false;
+  printRestoreRegion=region;
+  detail.innerHTML='<div class="print-only"><h1>이윤석정형외과 근육 · '+esc(region)+' 환자 운동 매뉴얼</h1><p>진료실에서 설명받은 동작을 집에서 다시 볼 수 있도록 정리한 일반 교육자료입니다.</p></div>'+
+    '<div class="section-title"><h3>'+esc(region)+' 운동·스트레칭</h3><span>'+ids.length+'개 프로그램</span></div>'+
+    '<div class="patient-warning"><b>먼저 읽어주세요</b><br>통증을 억지로 참고 하지 마세요. 새 근력저하·감각저하, 심한 붓기·큰 멍, 파열 느낌, 흉통·호흡곤란, 발열 또는 운동 후 계속 심해지는 통증이 있으면 운동보다 진료가 우선입니다.</div>'+
+    ids.map(pid=>{
+      const p=exerciseProfileById[pid];
+      const who=[...new Set(profileToMuscles[pid])].join(' · ');
+      return '<div class="region-print-muscles"><b>이 운동과 연결된 근육</b><br>'+esc(who)+'</div>'+exerciseProfileCard(p);
+    }).join('')+
+    '<div class="print-only patient-warning"><b>기억하세요</b><br>이 자료는 개인 진단이나 수술 후 프로토콜을 대신하지 않습니다. 진료 중 받은 개별 지시가 있으면 그 지시를 우선하세요.</div>';
+  document.body.classList.add('printing-education');
+  setTimeout(()=>window.print(),50);
+}
+window.addEventListener('afterprint',()=>{
+  document.body.classList.remove('printing-education');
+  if(printRestoreRegion){const r=printRestoreRegion;printRestoreRegion=null;openEducationRegion(r);}
+});
 function openEducationForMuscle(id){closeMuscle();activatePage('education');openEducationMuscle(id);}
 
 const ORAL_KEY='mskOralProgressV2';
