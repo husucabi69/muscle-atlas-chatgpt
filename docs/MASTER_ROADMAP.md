@@ -16,6 +16,11 @@
 7. Curated Media
 8. Quiz / 오답복습
 
+전신 공통 학습 레이어는 별도 completion gate로 유지한다.
+9. Oral Viva — Origin / Insertion / Function / Nerve를 음성/텍스트로 답하고 즉시 정답·부분정답·오답 교정
+10. Patient Education — 부위 → 근육 → 스트레칭/강화운동, 근거등급·출처·안전경계 표시
+
+기존 Stage 1~8의 임상 COMPLETE를 소급 취소하지 않고, 9~10번 공통 학습 레이어는 Stage 11 전신 통합 QA에서 전체 coverage를 다시 감사한다.
 기존 기능 회귀검사와 Stable ID 무결성 검사를 통과해야 main에 배포한다.
 
 ## 공식 전신 개발 순서 및 목표일
@@ -31,6 +36,8 @@
 | 6 | 하퇴·발목·발 | 2026-12-05 | calf/Achilles, peroneal, anterior tendons, plantar structures, intrinsic foot | Leg/ankle/foot quiz ≥30 |
 | 7 | 경추 | 2026-12-18 | deep flexors, SCM/scalenes, suboccipital, posterior muscles, root/nerve relations | Cervical quiz ≥20 |
 | 8 | 흉추·등·흉곽 | 2026-12-30 | erector/multifidus, scapulothoracic, intercostal/respiratory relations | Thoracic/back quiz ≥20 |
+| L1 | Oral Viva 학습 레이어 | 2026-09-25 | 205 근육 O/I/F/N 동적 출제, 친구·선생님·선배·대가, 음성/텍스트 답변, 즉시 교정 | 전 근육 동적 coverage |
+| L2 | 환자교육 운동 레이어 | 2026-09-25 foundation | 부위→근육→stretch/strength, 근거 A/B/C, source·red flag, 근거 없으면 미확립 명시 | 205 근육 assignment 100% |
 | 9 | 요추·천추 | 2027-01-14 | multifidus/erector/QL/iliopsoas, lumbosacral relations, examination | Lumbar/sacral quiz ≥20 |
 | 10 | 복벽·몸통 심부 | 2027-01-25 | rectus/oblique/TA/diaphragm 및 trunk functional anatomy | Trunk quiz ≥15 |
 | 11 | 전신 통합 QA | 2027-02-10 | ID audit, orphan relation=0, media/license audit, quiz coverage audit | 전신 종합/취약부위 quiz |
@@ -292,3 +299,36 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - Actual ultrasound canonical reference audit 14/14
 - Thoracic clinical quiz 30
 - 다음 공식 단계: Stage 9 — 요추·천추
+
+
+## v8.8 전신 학습 레이어 — Oral Viva + Patient Education
+상태: FOUNDATION COMPLETE — 2026-09-25
+
+### L1. Oral Viva
+- [x] canonical 205 muscles에서 Origin / Insertion / Function / Nerve를 동적으로 출제
+- [x] 친구 / 선생님 / 선배 / 대가 4단계
+- [x] 단일 항목 → 2항목 연결 → O/I/F/N 통합 질문
+- [x] Web SpeechRecognition 지원 기기에서는 마이크 답변
+- [x] 음성인식 미지원 시 동일 textarea 입력 fallback
+- [x] 질문/교정 feedback SpeechSynthesis 읽기
+- [x] 정답 / 부분정답 / 틀림 즉시 표시
+- [x] 빠진 핵심과 canonical answer를 바로 제시
+- [x] 외부 API/LLM에 답변을 전송하지 않고 기기 내부 핵심어 비교
+- [x] oral 오답 기록 localStorage 저장
+- [ ] 향후 optional semantic grader는 API key를 앱에 넣지 않는 안전한 server-side contract가 생긴 뒤 검토
+
+### L2. 환자교육 스트레칭·강화운동
+- [x] canonical 205 muscles 전부 assignment 생성
+- [x] 부위 → 근육 → 스트레칭/가동성 → 강화/motor-control 계층
+- [x] 근거등급 A / B / C 분리
+- [x] 직접 근거가 없으면 '개별 단독 protocol 미확립'으로 표시
+- [x] 문헌 source 링크와 적용범위 표시
+- [x] 수술 후/급성파열/진행성 신경학적 이상/심폐 red flag 안전문구
+- [x] 2025 rotator cuff CPG, 2024 Achilles CPG, 2023 plantar heel pain CPG, 2021 LBP/ankle CPG, 2019 PFP CPG, 2018 gluteal tendinopathy RCT, 2017 neck CPG 등을 초기 근거축으로 사용
+- [ ] Stage 9~10 개발 중 새 부위 문헌을 지속 확장
+- [ ] Stage 11에서 205개 전체 source/evidence-grade audit 재검증
+
+### 근거 원칙
+- '해부학적으로 그럴듯함'과 '임상적으로 검증된 환자운동'을 같은 등급으로 표시하지 않는다.
+- 작은 심부근·설골근·골반저 일부처럼 개별 근육 단독 운동 근거가 약한 경우 임의 처방을 만들지 않는다.
+- 질환/근육군 CPG 근거를 개별 근육에 연결할 때는 B 또는 설명문으로 그 한계를 명확히 한다.
