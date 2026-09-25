@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "prepared_date": "2026-09-25",
+  "status": "PREPARED_NOT_SUBMITTED",
+  "app": {
+    "name": "이윤석정형외과 근육",
+    "package_id": "kr.co.lysortho.muscle",
+    "package_id_status": "provisional_until_play_console_creation",
+    "default_language": "ko-KR"
+  },
+  "store_listing": {
+    "short_description": "근육 해부학·임상·초음파 Oral Viva와 환자 운동·스트레칭 교육",
+    "full_description": "이윤석정형외과 근육은 근골격계 해부학과 임상 학습, 환자 운동·스트레칭 교육을 위한 앱입니다.\n\n주요 기능\n• 205개 근육의 기시·정지·기능·신경 지식\n• Origin/Insertion/Function/Nerve뿐 아니라 촉진, MMT, 임상감별, 초음파, 비교·시나리오까지 확장된 Oral Viva Pro\n• 실제 공개 초음파 자료 131 view와 출처·라이선스 정보\n• 근육별 환자 운동·스트레칭 교육, 주의사항, 근거등급, 인쇄용 매뉴얼\n• 근골격계 임상 지식을 위한 읽기 전용 Knowledge Core\n\n의료 안전 고지\n이 앱은 의료기기가 아니며 어떠한 의학적 상태도 진단, 처치, 치료 또는 예방하지 않습니다. 환자별 확정진단이나 개인 맞춤 치료 결정을 자동으로 생성하지 않습니다. 의학적 조언, 진단 또는 치료가 필요한 경우 의사 등 의료전문가와 상담하십시오. 응급 증상, 수술 후 상태, 급성 파열, 진행성 신경학적 증상 등에서는 담당 의료진의 평가와 개별 지침이 우선합니다.\n\n개인정보\n계정 가입이나 광고 SDK가 필요하지 않습니다. 학습·오답 기록은 기기의 브라우저 로컬 저장소에 저장될 수 있습니다. Oral Viva에서 사용자가 음성입력을 선택한 경우 브라우저/운영체제의 음성인식 서비스가 네트워크 처리를 사용할 수 있으므로 환자 이름이나 민감한 건강정보를 말하지 마십시오. 음성 대신 직접 입력할 수 있습니다.\n\n이 앱의 자료는 교육 목적이며 실제 진료기록이나 환자별 의료결정을 대신하지 않습니다.",
+    "privacy_policy_url": "https://husucabi69.github.io/muscle-atlas-chatgpt/privacy.html"
+  },
+  "health_apps_declaration": {
+    "recommended_select": [
+      "Medical Reference and Education",
+      "Physical Therapy and Rehabilitation"
+    ],
+    "not_currently_applicable": [
+      "Clinical Decision Support",
+      "Medical Device Apps",
+      "Healthcare Services and Management",
+      "Medication and Treatment Management",
+      "Diseases and Conditions Management"
+    ]
+  },
+  "data_safety_preassessment": {
+    "final_submission_ready": false,
+    "known": [
+      "No account creation required",
+      "No advertising SDK",
+      "No analytics SDK",
+      "No native RECORD_AUDIO permission in TWA shell",
+      "Quiz/oral learning history may be stored in browser localStorage",
+      "Local learning history is not implemented to upload to an Atlas server"
+    ],
+    "unresolved_before_submission": [
+      "Verify on physical Android/TWA whether browser/OS SpeechRecognition transmits voice audio off-device",
+      "Verify whether speech transcript is transmitted beyond local app code by the selected browser/OS speech provider",
+      "Re-check third-party external media/link network behavior against the final Play Data Safety form"
+    ],
+    "prohibited_premature_claim": "Do not submit an overall 'no user data collected' answer until the SpeechRecognition path is verified on the release device/browser."
+  },
+  "developer_account_gate": {
+    "policy_effective_date": "2026-09-30",
+    "organization_account_expected_for_health": true,
+    "external_requirements": [
+      "Play Console organization account",
+      "D-U-N-S and organization identity verification as required by Play Console",
+      "Verified developer/contact email and phone",
+      "Organization website verification when required"
+    ]
+  },
+  "assets": {
+    "app_icon": {
+      "width": 512,
+      "height": 512,
+      "format": "32-bit PNG",
+      "max_kb": 1024
+    },
+    "feature_graphic": {
+      "width": 1024,
+      "height": 500,
+      "format": "JPEG or 24-bit PNG without alpha"
+    },
+    "phone_screenshots": {
+      "minimum_count": 2,
+      "min_dimension_px": 320,
+      "max_dimension_px": 3840,
+      "recommended_count": 4,
+      "recommended_portrait": "1080x1920 or higher 9:16"
+    }
+  },
+  "external_release_blockers": [
+    "Create/verify Play Console organization developer account",
+    "Finalize package ID before first Play app creation",
+    "Create signing/upload key and obtain Play App Signing SHA-256 certificate fingerprint",
+    "Publish final root /.well-known/assetlinks.json on the launch origin",
+    "Verify TWA on a physical Android device",
+    "Resolve SpeechRecognition Data Safety classification",
+    "Capture final screenshots and create Play feature graphic",
+    "Complete content rating, Health apps declaration, Data Safety and store listing in Play Console",
+    "Upload signed release through Play App Signing and run internal testing"
+  ]
+}
