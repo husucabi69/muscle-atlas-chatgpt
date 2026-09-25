@@ -1,0 +1,847 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "leg_ankle_foot_v1",
+  "question_count": 30,
+  "questions": [
+    {
+      "quiz_id": "lq001",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_test",
+      "question": "급성 Achilles 완전파열 가능성을 가장 직접적으로 높이는 bedside 소견은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "비정상 Thompson 검사"
+        },
+        {
+          "value": "B",
+          "label": "Phalen 양성"
+        },
+        {
+          "value": "C",
+          "label": "Finkelstein 양성"
+        },
+        {
+          "value": "D",
+          "label": "Jobe 약화"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m149",
+      "related_entity_id": "ct065",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq002",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "safety",
+      "question": "Thompson 검사 하나만으로 모든 Achilles 병변을 확정할 수 있는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "아니다. 부분파열·만성파열 등은 임상과 영상 통합이 필요하다"
+        },
+        {
+          "value": "B",
+          "label": "항상 가능하다"
+        },
+        {
+          "value": "C",
+          "label": "통증이 없으면 항상 정상이다"
+        },
+        {
+          "value": "D",
+          "label": "초음파는 절대 필요 없다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m151",
+      "related_entity_id": "d071",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq003",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "정상 Achilles tendon 단축영상의 전방 경계 특징은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "대개 오목한 crescent 형태"
+        },
+        {
+          "value": "B",
+          "label": "항상 원형"
+        },
+        {
+          "value": "C",
+          "label": "항상 무에코"
+        },
+        {
+          "value": "D",
+          "label": "항상 석회화"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m151",
+      "related_entity_id": "usv065",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq004",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "Achilles Doppler 평가에서 과도한 장력을 줄이는 이유는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "작은 혈류가 압박되어 보이지 않을 수 있기 때문"
+        },
+        {
+          "value": "B",
+          "label": "건이 사라지기 때문"
+        },
+        {
+          "value": "C",
+          "label": "뼈가 보이지 않기 때문"
+        },
+        {
+          "value": "D",
+          "label": "신경이 커지기 때문"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m149",
+      "related_entity_id": "usv066",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq005",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_reasoning",
+      "question": "종아리 통증에서 반드시 별도로 고려할 red flag는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "DVT/PE 가능성"
+        },
+        {
+          "value": "B",
+          "label": "CTS"
+        },
+        {
+          "value": "C",
+          "label": "회전근개 파열"
+        },
+        {
+          "value": "D",
+          "label": "TFCC"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m149",
+      "related_entity_id": "dg030",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq006",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "anatomy",
+      "question": "외과 뒤 retromalleolar level에서 일반적인 비골건 위치는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "PB가 전방, PL이 후방"
+        },
+        {
+          "value": "B",
+          "label": "PL이 전방, PB가 후방 고정"
+        },
+        {
+          "value": "C",
+          "label": "둘은 항상 겹치지 않는다"
+        },
+        {
+          "value": "D",
+          "label": "EHL이 두 건 사이"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m148",
+      "related_entity_id": "usv059",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq007",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "비골건 subluxation 평가에서 가장 중요한 초음파 장점은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "능동 움직임 중 dynamic assessment"
+        },
+        {
+          "value": "B",
+          "label": "뼈 골수 평가"
+        },
+        {
+          "value": "C",
+          "label": "방사선 노출"
+        },
+        {
+          "value": "D",
+          "label": "정적 한 장만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m147",
+      "related_entity_id": "usv059",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq008",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_test",
+      "question": "ATFL 중심 기계적 불안정성 평가에 흔히 사용하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "ankle anterior drawer"
+        },
+        {
+          "value": "B",
+          "label": "Thompson"
+        },
+        {
+          "value": "C",
+          "label": "Windlass"
+        },
+        {
+          "value": "D",
+          "label": "Mulder"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m147",
+      "related_entity_id": "ct069",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq009",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_test",
+      "question": "CFL을 포함한 lateral ligament complex 평가에 사용하는 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "talar tilt inversion stress"
+        },
+        {
+          "value": "B",
+          "label": "Phalen"
+        },
+        {
+          "value": "C",
+          "label": "FADIR"
+        },
+        {
+          "value": "D",
+          "label": "Cozen"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m148",
+      "related_entity_id": "ct070",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq010",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "CFL 초음파에서 시인성을 높이기 위한 발목 자세는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "배굴"
+        },
+        {
+          "value": "B",
+          "label": "강한 족저굴곡만"
+        },
+        {
+          "value": "C",
+          "label": "무릎 완전 신전만"
+        },
+        {
+          "value": "D",
+          "label": "고관절 내회전"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m148",
+      "related_entity_id": "usv061",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq011",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_test",
+      "question": "high ankle sprain 후보에서 사용할 수 있는 provocation test는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "squeeze test"
+        },
+        {
+          "value": "B",
+          "label": "Windlass"
+        },
+        {
+          "value": "C",
+          "label": "Thompson"
+        },
+        {
+          "value": "D",
+          "label": "Jobe"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m146",
+      "related_entity_id": "ct071",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq012",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "내과 뒤 구조의 대표 순서를 설명하는 데 포함되는 힘줄은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "TP, FDL, FHL"
+        },
+        {
+          "value": "B",
+          "label": "TA, EHL, EDL만"
+        },
+        {
+          "value": "C",
+          "label": "PL, PB만"
+        },
+        {
+          "value": "D",
+          "label": "Achilles만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m154",
+      "related_entity_id": "usv062",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq013",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_test",
+      "question": "후경골건 기능을 평가하는 데 특히 유용한 기능동작은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "single-leg heel rise"
+        },
+        {
+          "value": "B",
+          "label": "손가락 opposition"
+        },
+        {
+          "value": "C",
+          "label": "empty can"
+        },
+        {
+          "value": "D",
+          "label": "wrist grind"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m154",
+      "related_entity_id": "ct074",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq014",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "safety",
+      "question": "평발 모양만으로 posterior tibial tendon tear를 확정할 수 있는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "아니다"
+        },
+        {
+          "value": "B",
+          "label": "그렇다"
+        },
+        {
+          "value": "C",
+          "label": "초음파도 필요 없다"
+        },
+        {
+          "value": "D",
+          "label": "통증 유무와 무관하다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m154",
+      "related_entity_id": "d077",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq015",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_test",
+      "question": "plantar heel pain에서 plantar fascia를 긴장시키는 대표 검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Windlass"
+        },
+        {
+          "value": "B",
+          "label": "anterior drawer"
+        },
+        {
+          "value": "C",
+          "label": "Thompson"
+        },
+        {
+          "value": "D",
+          "label": "Tinel elbow"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m160",
+      "related_entity_id": "ct076",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq016",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "plantar fascia의 표준 초음파 평면은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "LAX와 SAX 모두"
+        },
+        {
+          "value": "B",
+          "label": "LAX만"
+        },
+        {
+          "value": "C",
+          "label": "SAX만"
+        },
+        {
+          "value": "D",
+          "label": "Doppler만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m160",
+      "related_entity_id": "usv067",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq017",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "safety",
+      "question": "plantar fascia 두께 cut-off 하나의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "임상 증상과 함께 해석하며 단독 확진 기준이 아니다"
+        },
+        {
+          "value": "B",
+          "label": "그 자체로 100% 확진"
+        },
+        {
+          "value": "C",
+          "label": "두께는 무의미하므로 측정 금지"
+        },
+        {
+          "value": "D",
+          "label": "항상 rupture 의미"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m160",
+      "related_entity_id": "d073",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq018",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "anatomy",
+      "question": "족근관에서 경골신경의 주요 terminal branch는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "medial plantar와 lateral plantar nerve"
+        },
+        {
+          "value": "B",
+          "label": "median과 ulnar nerve"
+        },
+        {
+          "value": "C",
+          "label": "radial과 PIN"
+        },
+        {
+          "value": "D",
+          "label": "femoral과 obturator"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m159",
+      "related_entity_id": "usv064",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq019",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_test",
+      "question": "족근관에서 plantar paresthesia를 재현하는 보조검사는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Tinel sign"
+        },
+        {
+          "value": "B",
+          "label": "Jobe"
+        },
+        {
+          "value": "C",
+          "label": "Watson"
+        },
+        {
+          "value": "D",
+          "label": "Eichhoff"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m159",
+      "related_entity_id": "ct078",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq020",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "safety",
+      "question": "tarsal tunnel syndrome 진단에서 올바른 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Tinel·US·electrodiagnosis와 원인병변을 통합한다"
+        },
+        {
+          "value": "B",
+          "label": "Tinel 하나면 확정"
+        },
+        {
+          "value": "C",
+          "label": "신경 크기 하나면 확정"
+        },
+        {
+          "value": "D",
+          "label": "임상증상은 필요 없다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m159",
+      "related_entity_id": "d081",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq021",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "anatomy",
+      "question": "FHL tendon은 발바닥에서 FHB와 어떤 관계인가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "FHB 두 head 사이를 지난다"
+        },
+        {
+          "value": "B",
+          "label": "항상 Achilles 안을 지난다"
+        },
+        {
+          "value": "C",
+          "label": "ATFL 표면을 지난다"
+        },
+        {
+          "value": "D",
+          "label": "비골건 사이를 지난다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m167",
+      "related_entity_id": "usv071",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq022",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "Morton neuroma와 intermetatarsal bursitis 감별에 유용한 동적 특징은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "bursa는 압박 시 형태가 변할 수 있다"
+        },
+        {
+          "value": "B",
+          "label": "neuroma는 항상 완전히 소실된다"
+        },
+        {
+          "value": "C",
+          "label": "둘 다 항상 calcified"
+        },
+        {
+          "value": "D",
+          "label": "Doppler만으로 100% 구분"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m163",
+      "related_entity_id": "usv070",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq023",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "safety",
+      "question": "intermetatarsal bursa가 초음파에서 보이면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "정상에서도 보일 수 있어 증상·형태·동적 소견을 함께 본다"
+        },
+        {
+          "value": "B",
+          "label": "항상 병적 bursitis다"
+        },
+        {
+          "value": "C",
+          "label": "항상 Morton neuroma다"
+        },
+        {
+          "value": "D",
+          "label": "무조건 수술한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m163",
+      "related_entity_id": "d084",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq024",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "전방 발목에서 medial-to-lateral tendon 배열에 포함되는 세 주요 건은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "TA-EHL-EDL"
+        },
+        {
+          "value": "B",
+          "label": "TP-FDL-FHL"
+        },
+        {
+          "value": "C",
+          "label": "PB-PL-Achilles"
+        },
+        {
+          "value": "D",
+          "label": "FHL-TP-ATFL"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m143",
+      "related_entity_id": "usv056",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq025",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_test",
+      "question": "tibialis anterior 기능을 주로 부하하는 조합은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "배굴+내번"
+        },
+        {
+          "value": "B",
+          "label": "족저굴곡+외번"
+        },
+        {
+          "value": "C",
+          "label": "무릎 굴곡만"
+        },
+        {
+          "value": "D",
+          "label": "고관절 외전"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m143",
+      "related_entity_id": "ct075",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq026",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_reasoning",
+      "question": "급성 발목 외상 후 골절 선별에 사용하는 validated decision rule은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Ottawa ankle/foot rule"
+        },
+        {
+          "value": "B",
+          "label": "Boston shoulder rule"
+        },
+        {
+          "value": "C",
+          "label": "Phalen rule"
+        },
+        {
+          "value": "D",
+          "label": "Jobe rule"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m146",
+      "related_entity_id": "ct081",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq027",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "safety",
+      "question": "Ottawa rule의 목적은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "방사선 촬영 필요성을 선별하는 것"
+        },
+        {
+          "value": "B",
+          "label": "골절을 영상 없이 확정하는 것"
+        },
+        {
+          "value": "C",
+          "label": "인대 grade를 정하는 것"
+        },
+        {
+          "value": "D",
+          "label": "Achilles rupture를 확정하는 것"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m146",
+      "related_entity_id": "d086",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq028",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "ultrasound",
+      "question": "전방 tibiotalar recess에서 작은 effusion이 보이면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "임상 맥락과 함께 해석한다"
+        },
+        {
+          "value": "B",
+          "label": "항상 감염이다"
+        },
+        {
+          "value": "C",
+          "label": "항상 impingement 확정"
+        },
+        {
+          "value": "D",
+          "label": "정상일 수 없으니 즉시 수술"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m143",
+      "related_entity_id": "usv072",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq029",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_reasoning",
+      "question": "Stage 6 초음파의 역할은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "구조·동적 정보를 제공하지만 단독 확정진단이 아니다"
+        },
+        {
+          "value": "B",
+          "label": "영상 하나로 모든 진단을 확정"
+        },
+        {
+          "value": "C",
+          "label": "laterality를 자동 추정"
+        },
+        {
+          "value": "D",
+          "label": "시행하지 않은 검사를 기록"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m154",
+      "related_entity_id": "d075",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq030",
+      "module_id": "leg_ankle_foot_v1",
+      "domain": "clinical_reasoning",
+      "question": "Stage 6 데이터 안전 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "일반 MSK 지식만 저장하고 PHI를 저장하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "환자 이름을 core에 저장한다"
+        },
+        {
+          "value": "C",
+          "label": "검사 미시행도 양성 기록"
+        },
+        {
+          "value": "D",
+          "label": "좌우를 자동 생성"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m151",
+      "related_entity_id": "dg030",
+      "status": "active"
+    }
+  ]
+}
