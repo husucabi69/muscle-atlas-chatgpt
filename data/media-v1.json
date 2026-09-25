@@ -1,6 +1,6 @@
 {
-  "version": "2026.09.25-stage17-h",
-  "updated": "2026-09-25",
+  "version": "2026.09.26-stage17-i",
+  "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
     "m060": {
@@ -218,11 +218,16 @@
     "m075": {
       "anatomy": [
         {
-          "title": "Biceps brachii",
-          "file": "Biceps brachii muscle01.png",
+          "title": "Biceps brachii long head — color-separated representative view",
+          "file": "Biceps brachii muscle09.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Biceps_brachii_muscle01.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Biceps_brachii_muscle09.png",
+          "representative": true,
+          "view": "anterior upper arm",
+          "focusLabel": "장두 · 빨강",
+          "focusColor": "red",
+          "educationalReason": "장두와 단두가 서로 다른 색으로 분리되어 있으며 장두가 빨강으로 표시되어 견관절 기시부터 공통 원위건까지의 위치를 명확히 식별"
         }
       ],
       "ultrasound": [
@@ -239,11 +244,16 @@
     "m076": {
       "anatomy": [
         {
-          "title": "Biceps brachii",
-          "file": "Biceps brachii muscle01.png",
+          "title": "Biceps brachii short head — color-separated representative view",
+          "file": "Biceps brachii muscle09.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Biceps_brachii_muscle01.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Biceps_brachii_muscle09.png",
+          "representative": true,
+          "view": "anterior upper arm",
+          "focusLabel": "단두 · 초록",
+          "focusColor": "green",
+          "educationalReason": "같은 전면 해부에서 단두가 초록으로 분리되어 오훼돌기 기시와 장두에 대한 내측 위치를 혼동 없이 비교"
         }
       ]
     },
@@ -264,33 +274,48 @@
     "m079": {
       "anatomy": [
         {
-          "title": "Triceps brachii — three heads",
-          "file": "Triceps brachii muscle01.png",
+          "title": "Triceps brachii long head — color-separated posterior representative view",
+          "file": "Triceps brachii muscle06.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle01.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle06.png",
+          "representative": true,
+          "view": "posterior upper arm",
+          "focusLabel": "장두 · 빨강",
+          "focusColor": "red",
+          "educationalReason": "삼두근 세 머리가 색으로 분리되며 장두가 빨강으로 표시되어 견갑골 기시와 상완 후내측의 긴 주행을 명확히 확인"
         }
       ]
     },
     "m080": {
       "anatomy": [
         {
-          "title": "Triceps brachii — three heads",
-          "file": "Triceps brachii muscle01.png",
+          "title": "Triceps brachii lateral head — color-separated posterior representative view",
+          "file": "Triceps brachii muscle06.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle01.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle06.png",
+          "representative": true,
+          "view": "posterior upper arm",
+          "focusLabel": "외측두 · 노랑",
+          "focusColor": "yellow",
+          "educationalReason": "외측두가 노랑으로 분리되어 상완골 후외측의 표재성 근복과 장두·내측두에 대한 위치를 후면에서 즉시 비교"
         }
       ]
     },
     "m081": {
       "anatomy": [
         {
-          "title": "Triceps brachii — three heads",
-          "file": "Triceps brachii muscle01.png",
+          "title": "Triceps brachii medial head — color-separated posterior representative view",
+          "file": "Triceps brachii muscle06.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle01.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle06.png",
+          "representative": true,
+          "view": "posterior upper arm",
+          "focusLabel": "내측두 · 초록",
+          "focusColor": "green",
+          "educationalReason": "내측두가 초록으로 분리되어 다른 두 머리 아래·내측의 깊은 위치와 원위 주두건으로 합류하는 관계를 확인"
         }
       ]
     },

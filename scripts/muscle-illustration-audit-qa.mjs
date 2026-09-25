@@ -70,6 +70,24 @@ check('Infraspinatus old superior view removed',
 check('Representative label rendered in app',index.includes("x.representative?'대표 시야 · ':'"));
 check('Representative view metadata rendered',index.includes("x.view?('시야 '+x.view):''"));
 check('Educational rationale rendered',index.includes("x.educationalReason?('선정 이유: '+x.educationalReason):''"));
+check('Focused head label rendered',index.includes("x.focusLabel?('집중 구조: '+x.focusLabel):''"));
+
+const headSpecific={
+  m075:{file:'Biceps brachii muscle09.png',focusLabel:'장두 · 빨강',focusColor:'red'},
+  m076:{file:'Biceps brachii muscle09.png',focusLabel:'단두 · 초록',focusColor:'green'},
+  m079:{file:'Triceps brachii muscle06.png',focusLabel:'장두 · 빨강',focusColor:'red'},
+  m080:{file:'Triceps brachii muscle06.png',focusLabel:'외측두 · 노랑',focusColor:'yellow'},
+  m081:{file:'Triceps brachii muscle06.png',focusLabel:'내측두 · 초록',focusColor:'green'}
+};
+for(const [id,expected] of Object.entries(headSpecific)){
+  const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
+  const reg=media.muscles?.[id]?.anatomy?.[0];
+  check(id+' head-specific reviewed',row?.status==='reviewed');
+  check(id+' head-specific file',reg?.file===expected.file,reg?.file||'missing');
+  check(id+' focus label',reg?.focusLabel===expected.focusLabel,reg?.focusLabel||'missing');
+  check(id+' focus color',reg?.focusColor===expected.focusColor,reg?.focusColor||'missing');
+  check(id+' audit focus matches',row?.representative_asset?.focusLabel===expected.focusLabel);
+}
 check('Media registry Stage 17 version',String(media.version||'').includes('stage17'));
 
 let fail=0;
