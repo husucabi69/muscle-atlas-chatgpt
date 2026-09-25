@@ -31,28 +31,38 @@
 
 # Stage 15 — Reliable Auto-Update Engine
 
+상태: **DEV COMPLETE / AUTOMATED QA PASS — 2026-09-25**  
+실제 Android 설치 앱의 end-to-end 확인은 Stage 21 Real Device Gate에서 최종 수행한다.
+
 목표: 홈 화면 아이콘으로 실행한 설치형 PWA/TWA가 최신 stable release를 확실히 확인하고, 데이터 손실 없이 새 버전으로 전환되도록 한다.
 
 ## 구현
-- [ ] 매 release마다 변경되는 단일 APP_BUILD_VERSION 정의
-- [ ] service worker cache version을 APP_BUILD_VERSION과 동기화
-- [ ] 앱 실행 시 service worker update check
-- [ ] 새 worker 활성화 시 controllerchange 감지
-- [ ] 현재 화면 무한 reload를 막는 one-shot reload guard
-- [ ] index/navigation은 stale 고착을 막도록 update-safe 전략으로 변경
-- [ ] 정적 데이터/이미지는 offline 사용성을 유지하는 cache 정책 분리
-- [ ] 이전 cache 자동 정리
-- [ ] localStorage의 quiz/oral 학습기록은 update와 무관하게 보존
-- [ ] 앱 화면에 현재 버전과 “업데이트 확인” 상태 표시
-- [ ] update 실패 시 기존 stable version을 계속 사용할 수 있는 fallback
-- [ ] 자동 QA에 service-worker version / cache / update contract 검사 추가
+- [x] 매 release마다 변경되는 단일 APP_BUILD_VERSION 정의 — `app-version.js`
+- [x] service worker cache version을 APP_BUILD_VERSION과 동기화
+- [x] 앱 실행 시 service worker `registration.update()` 실행
+- [x] 새 worker 활성화 시 `controllerchange` 감지
+- [x] 현재 화면 무한 reload를 막는 one-shot session guard
+- [x] index/navigation을 network-first로 변경하여 stale 고착 차단
+- [x] JSON/version/manifest/privacy는 network-first, 기타 정적자원은 stale-while-revalidate로 분리
+- [x] 이전 release cache 자동 정리
+- [x] localStorage의 quiz/oral 학습기록을 update engine에서 변경·삭제하지 않음
+- [x] 앱 화면에 현재 버전·업데이트 상태·수동 “업데이트 확인” 버튼 표시
+- [x] update/network 실패 시 기존 stable cache로 계속 사용하는 fallback
+- [x] `scripts/auto-update-qa.mjs` 및 Global QA gate 추가
 
-## 완료 Gate
-- 새 release 배포 후 설치 앱 재실행 → 최신 build 확인
-- 기존 학습기록 보존
-- offline 재실행 가능
-- update loop 0
-- stale index/data 재현 0
+## 자동 완료 Gate
+- [x] 기존 Global QA 회귀 PASS
+- [x] OrthoOS read-only contract PASS
+- [x] Android TWA static QA PASS
+- [x] Play submission pack QA PASS
+- [x] Stage 15 auto-update contract QA PASS
+
+## Stage 21에서 최종 물리 확인
+- [ ] 현재 설치된 pre-Stage15 앱이 Stage15 worker를 받은 뒤 최신 화면으로 전환되는지
+- [ ] 이후 새 release에서 아이콘 실행 1회 내 자동 update/reload가 되는지
+- [ ] 기존 quiz/oral localStorage 학습기록 보존
+- [ ] offline cold start / online 복귀 update
+- [ ] update loop 0 / stale index·JSON 재현 0
 
 ---
 
