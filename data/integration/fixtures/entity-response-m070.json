@@ -1,0 +1,37 @@
+{
+  "contract_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.09.25-j",
+  "knowledge_class": "general_msk_knowledge",
+  "patient_context_included": false,
+  "entity_type": "muscle",
+  "stable_id": "m070",
+  "clinical_semantics": "General anatomy/clinical knowledge only; no patient diagnosis, laterality, or performed-test assertion.",
+  "entity": {
+    "muscle_id": "m070",
+    "structure_id": "str_m070",
+    "entity_type": "muscle",
+    "region_id": "r005",
+    "legacy_id": "m070",
+    "name_ko": "극상근",
+    "name_en": "Supraspinatus",
+    "abbreviation": "S",
+    "anatomy": {
+      "origin": "견갑골 극상와",
+      "insertion": "상완골 대결절 상면",
+      "function": "외전 시작(약 0-15°) 및 전 범위 보조; 상완골두 압박·안정화"
+    },
+    "innervation_text": "견갑상신경 C5-C6",
+    "status": "active"
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel_0001",
+      "from_type": "symptom_pattern",
+      "from_id": "sx01",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m070"
+    }
+  ]
+}
