@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.25-stage17-f",
+  "audit_version": "2026.09.25-stage17-g",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -741,31 +741,71 @@
       "muscle_id": "m083",
       "name_ko": "원회내근",
       "name_en": "Pronator teres",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus pronator teres.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_pronator_teres.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "anterior proximal forearm",
+        "educationalReason": "내측상과·구상돌기에서 요골 외측으로 비스듬히 주행하는 원회내근과 근위 전완 회내축을 전면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m084",
       "name_ko": "요측수근굴근",
       "name_en": "Flexor carpi radialis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus flexor carpi radialis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_flexor_carpi_radialis.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "anterior superficial forearm",
+        "educationalReason": "내측상과에서 제2·3 중수골 기저부 방향으로 내려가는 요측수근굴근의 길고 표재적인 건 주행을 전면에서 확인"
+      }
     },
     {
       "muscle_id": "m085",
       "name_ko": "장장근",
       "name_en": "Palmaris longus (variable)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus palmaris longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_palmaris_longus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "anterior superficial forearm",
+        "educationalReason": "작은 근복과 매우 긴 장장근 건이 손바닥널힘줄로 이어지는 전완 중앙 표재 주행을 한눈에 확인"
+      }
     },
     {
       "muscle_id": "m086",
       "name_ko": "척측수근굴근",
       "name_en": "Flexor carpi ulnaris",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus flexor carpi ulnaris.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_flexor_carpi_ulnaris.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "anterior superficial ulnar forearm",
+        "educationalReason": "내측상과와 척골에서 두상골 쪽으로 이어지는 척측수근굴근의 척측 경계와 장건 주행을 명확히 확인"
+      }
     },
     {
       "muscle_id": "m087",
       "name_ko": "천지굴근",
       "name_en": "Flexor digitorum superficialis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus flexor digitorum superficialis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_flexor_digitorum_superficialis.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "anterior intermediate forearm",
+        "educationalReason": "전완 굴곡군 중간층의 넓은 천지굴근 근복과 네 갈래 손가락 굴곡건으로 이어지는 구조를 강조"
+      }
     },
     {
       "muscle_id": "m088",
@@ -813,37 +853,85 @@
       "muscle_id": "m091",
       "name_ko": "상완요골근",
       "name_en": "Brachioradialis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus brachioradialis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_brachioradialis.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "lateral forearm",
+        "educationalReason": "상완골 외측상과능에서 요골 경상돌기까지 이어지는 상완요골근이 전완 외측 경계를 만드는 모습을 가장 쉽게 확인"
+      }
     },
     {
       "muscle_id": "m092",
       "name_ko": "장요측수근신근",
       "name_en": "Extensor carpi radialis longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus extensor carpi radialis longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_carpi_radialis_longus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterolateral superficial forearm",
+        "educationalReason": "외측상과능에서 제2중수골로 향하는 장요측수근신근의 긴 근복·건과 상완요골근과의 평행 관계를 확인"
+      }
     },
     {
       "muscle_id": "m093",
       "name_ko": "단요측수근신근",
       "name_en": "Extensor carpi radialis brevis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus extensor carpi radialis brevis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_carpi_radialis_brevis.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior superficial forearm",
+        "educationalReason": "외측상과에서 제3중수골로 향하는 단요측수근신근을 장요측수근신근·지신근 사이에서 분리해 확인"
+      }
     },
     {
       "muscle_id": "m094",
       "name_ko": "지신근",
       "name_en": "Extensor digitorum",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus extensor digitorum.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_digitorum.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior superficial forearm",
+        "educationalReason": "전완 후면 중앙의 지신근 근복과 제2–5 손가락으로 분지하는 신전건을 후면에서 직관적으로 확인"
+      }
     },
     {
       "muscle_id": "m095",
       "name_ko": "소지신근",
       "name_en": "Extensor digiti minimi",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus extensor digiti minimi.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_digiti_minimi.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior superficial forearm",
+        "educationalReason": "지신근 척측에 위치해 제5손가락 신전건으로 이어지는 소지신근의 가느다란 주행을 강조"
+      }
     },
     {
       "muscle_id": "m096",
       "name_ko": "척측수근신근",
       "name_en": "Extensor carpi ulnaris",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus extensor carpi ulnaris.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_carpi_ulnaris.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior superficial ulnar forearm",
+        "educationalReason": "외측상과·척골에서 제5중수골 기저부로 향하는 척측수근신근과 후면 척측 경계를 명확히 확인"
+      }
     },
     {
       "muscle_id": "m097",
@@ -1621,8 +1709,8 @@
     }
   ],
   "progress": {
-    "reviewed": 47,
-    "pending_review": 158,
-    "last_batch": "scapular_shoulder_priority_batch"
+    "reviewed": 58,
+    "pending_review": 147,
+    "last_batch": "superficial_forearm_priority_batch"
   }
 }
