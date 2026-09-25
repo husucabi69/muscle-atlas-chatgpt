@@ -1,60 +1,75 @@
 {
-  "version": "2026.09.25-stage17-e",
+  "version": "2026.09.25-stage17-f",
   "updated": "2026-09-25",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
     "m060": {
       "anatomy": [
         {
-          "title": "Trapezius muscle",
+          "title": "Trapezius — posterior representative view",
           "file": "Trapezius muscle.svg",
           "author": "InjuryMap",
           "license": "CC BY-SA 4.0",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Trapezius_muscle.svg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Trapezius_muscle.svg",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "후두부·경흉추에서 쇄골·견봉·견갑극으로 넓게 퍼지는 승모근 전체와 상·중·하부 섬유 방향을 후면에서 가장 쉽게 확인"
         }
       ]
     },
     "m061": {
       "anatomy": [
         {
-          "title": "Levator scapulae muscle — posterior view",
+          "title": "Levator scapulae — posterior representative view",
           "file": "Levator scapulae muscle back.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Levator_scapulae_muscle_back.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Levator_scapulae_muscle_back.png",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "상위 경추 횡돌기에서 견갑골 상각·내측연으로 내려오는 견갑거근의 길고 세로선에 가까운 주행을 후면에서 명확히 확인"
         }
       ]
     },
     "m062": {
       "anatomy": [
         {
-          "title": "Rhomboid minor — lateral view",
-          "file": "Rhomboid minor muscle lateral.png",
+          "title": "Rhomboid minor — posterior representative view",
+          "file": "Rhomboid minor muscle back.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhomboid_minor_muscle_lateral.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhomboid_minor_muscle_back.png",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "C7–T1 극돌기 부근에서 견갑극근 쪽으로 짧게 주행하는 소능형근을 대능형근과 함께 후면에서 구분하기 적합"
         }
       ]
     },
     "m063": {
       "anatomy": [
         {
-          "title": "Rhomboid major — posterior view",
+          "title": "Rhomboid major — posterior representative view",
           "file": "Rhomboid major muscle back.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhomboid_major_muscle_back.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhomboid_major_muscle_back.png",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "T2–T5 극돌기에서 견갑골 내측연 하부로 넓게 이어지는 대능형근의 근복과 견갑골 관계를 후면에서 직접 확인"
         }
       ]
     },
     "m064": {
       "anatomy": [
         {
-          "title": "Serratus anterior — lateral view",
+          "title": "Serratus anterior — lateral representative view",
           "file": "Serratus anterior muscles lateral.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Serratus_anterior_muscles_lateral.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Serratus_anterior_muscles_lateral.png",
+          "representative": true,
+          "view": "lateral",
+          "educationalReason": "상부 늑골에서 견갑골 내측연 전면으로 이어지는 전거근의 톱니 모양 기시와 흉곽-견갑 관계를 측면에서 가장 잘 확인"
         }
       ]
     },
@@ -72,22 +87,28 @@
     "m068": {
       "anatomy": [
         {
-          "title": "Latissimus dorsi — posterior view",
+          "title": "Latissimus dorsi — posterior representative view",
           "file": "Latissimus dorsi muscle back.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Latissimus_dorsi_muscle_back.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Latissimus_dorsi_muscle_back.png",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "하부 흉요추·장골능에서 상완골로 수렴하는 광배근의 넓은 근복과 겨드랑이 뒤벽 방향을 후면에서 명확히 확인"
         }
       ]
     },
     "m069": {
       "anatomy": [
         {
-          "title": "Deltoid — lateral view",
+          "title": "Deltoid — lateral representative view",
           "file": "Deltoid muscle lateral.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Deltoid_muscle_lateral.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Deltoid_muscle_lateral.png",
+          "representative": true,
+          "view": "lateral",
+          "educationalReason": "쇄골·견봉·견갑극에서 삼각근조면으로 수렴하는 삼각근의 전·중·후 섬유 덩어리를 측면에서 가장 직관적으로 확인"
         },
         {
           "title": "Deltoid origin and insertion",
@@ -183,11 +204,14 @@
     "m074": {
       "anatomy": [
         {
-          "title": "Teres major — posterior view",
+          "title": "Teres major — posterior representative view",
           "file": "Teres major muscle back.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Teres_major_muscle_back.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Teres_major_muscle_back.png",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "견갑골 하각에서 상완골 전내측으로 향하는 대원근의 후액와주름 기여와 광배근·소원근과의 위치 관계를 후면에서 확인"
         }
       ]
     },
