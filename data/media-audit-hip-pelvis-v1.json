@@ -18,7 +18,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 1",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv031",
@@ -27,7 +30,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 2",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv032",
@@ -36,7 +42,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 3",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv033",
@@ -45,7 +54,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 4",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv034",
@@ -54,7 +66,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 5",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv035",
@@ -63,7 +78,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 6",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv036",
@@ -72,7 +90,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 7",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv037",
@@ -81,7 +102,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 8",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv038",
@@ -90,7 +114,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 9",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv039",
@@ -99,7 +126,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 10",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv040",
@@ -108,7 +138,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5034024/",
       "figure_label": "Figure 2",
       "license": "CC BY-NC-ND",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv041",
@@ -117,7 +150,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
       "figure_label": "Figure 13",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음."
+      "note": "실제 초음파 원문 Figure를 canonical reference로 고정. 라이선스 문맥을 보존하기 위해 원문 링크를 사용하고 이미지를 변형·재배포하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     }
   ],
   "sources": [
@@ -139,5 +175,7 @@
       "url": "https://essr.org/content-essr/uploads/2016/10/hip.pdf",
       "use": "standard positioning and scan sequence"
     }
-  ]
+  ],
+  "audit_revision": "2026-09-25-stage11",
+  "license_policy": "Embedded/local reusable media requires explicit reuse terms and attribution. Canonical external figures with uncertain or publication-specific redistribution terms are link-only; the app does not assert redistribution rights."
 }

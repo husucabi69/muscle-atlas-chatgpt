@@ -4,7 +4,7 @@
   "question_count": 30,
   "questions": [
     {
-      "quiz_id": "lq001",
+      "quiz_id": "lsq001",
       "module_id": "lumbar_sacral_v1",
       "domain": "clinical_test",
       "question": "SLR의 양성 소견으로 가장 적절한 것은?",
@@ -32,7 +32,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq002",
+      "quiz_id": "lsq002",
       "module_id": "lumbar_sacral_v1",
       "domain": "evidence",
       "question": "SLR에서 ROM 각도 하나만으로 임상결정을 하면 안 되는 이유는?",
@@ -60,7 +60,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq003",
+      "quiz_id": "lsq003",
       "module_id": "lumbar_sacral_v1",
       "domain": "clinical_test",
       "question": "Crossed SLR은 어떻게 시행하는가?",
@@ -88,7 +88,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq004",
+      "quiz_id": "lsq004",
       "module_id": "lumbar_sacral_v1",
       "domain": "clinical_test",
       "question": "Femoral nerve stretch가 주로 연결되는 경로는?",
@@ -116,7 +116,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq005",
+      "quiz_id": "lsq005",
       "module_id": "lumbar_sacral_v1",
       "domain": "neurology",
       "question": "L2-S1 screen의 핵심은?",
@@ -144,7 +144,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq006",
+      "quiz_id": "lsq006",
       "module_id": "lumbar_sacral_v1",
       "domain": "safety",
       "question": "새 urinary retention과 saddle sensory change가 동반될 때 우선순위는?",
@@ -172,7 +172,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq007",
+      "quiz_id": "lsq007",
       "module_id": "lumbar_sacral_v1",
       "domain": "mechanical",
       "question": "centralization의 의미로 가장 적절한 것은?",
@@ -200,7 +200,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq008",
+      "quiz_id": "lsq008",
       "module_id": "lumbar_sacral_v1",
       "domain": "safety",
       "question": "centralization이 보인다고 할 수 없는 결론은?",
@@ -228,7 +228,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq009",
+      "quiz_id": "lsq009",
       "module_id": "lumbar_sacral_v1",
       "domain": "facet",
       "question": "extension-rotation에서 편측 axial pain이 재현되면?",
@@ -256,7 +256,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq010",
+      "quiz_id": "lsq010",
       "module_id": "lumbar_sacral_v1",
       "domain": "si_joint",
       "question": "SI provocation cluster에 대한 2021 meta-analysis의 요지는?",
@@ -284,7 +284,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq011",
+      "quiz_id": "lsq011",
       "module_id": "lumbar_sacral_v1",
       "domain": "si_joint",
       "question": "다음 중 SI provocation cluster 구성에 해당하는 것은?",
@@ -312,7 +312,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq012",
+      "quiz_id": "lsq012",
       "module_id": "lumbar_sacral_v1",
       "domain": "si_joint",
       "question": "양성 SI cluster의 올바른 해석은?",
@@ -340,7 +340,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq013",
+      "quiz_id": "lsq013",
       "module_id": "lumbar_sacral_v1",
       "domain": "ultrasound",
       "question": "L4/5 multifidus parasagittal US의 대표 landmark는?",
@@ -368,7 +368,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq014",
+      "quiz_id": "lsq014",
       "module_id": "lumbar_sacral_v1",
       "domain": "ultrasound",
       "question": "L5 multifidus transverse US에서 경계 확인에 쓰이는 것은?",
@@ -396,7 +396,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq015",
+      "quiz_id": "lsq015",
       "module_id": "lumbar_sacral_v1",
       "domain": "motor_control",
       "question": "multifidus contraction 평가에 사용할 수 있는 low-load task는?",
@@ -424,7 +424,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq016",
+      "quiz_id": "lsq016",
       "module_id": "lumbar_sacral_v1",
       "domain": "safety",
       "question": "multifidus thickness asymmetry 하나의 올바른 해석은?",
@@ -452,7 +452,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq017",
+      "quiz_id": "lsq017",
       "module_id": "lumbar_sacral_v1",
       "domain": "ultrasound",
       "question": "lumbar shamrock sign의 세 근육은?",
@@ -480,7 +480,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq018",
+      "quiz_id": "lsq018",
       "module_id": "lumbar_sacral_v1",
       "domain": "ultrasound",
       "question": "QL ultrasound에서 주의할 구조는?",
@@ -508,7 +508,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq019",
+      "quiz_id": "lsq019",
       "module_id": "lumbar_sacral_v1",
       "domain": "ultrasound",
       "question": "posterior SIJ US 탐색 시 시작 landmark로 유용한 것은?",
@@ -536,7 +536,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq020",
+      "quiz_id": "lsq020",
       "module_id": "lumbar_sacral_v1",
       "domain": "safety",
       "question": "SIJ가 US에서 보인다는 것만으로 가능한 결론은?",
@@ -564,7 +564,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq021",
+      "quiz_id": "lsq021",
       "module_id": "lumbar_sacral_v1",
       "domain": "cluneal",
       "question": "superior cluneal nerve entrapment의 대표적 임상 단서는?",
@@ -592,7 +592,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq022",
+      "quiz_id": "lsq022",
       "module_id": "lumbar_sacral_v1",
       "domain": "cluneal",
       "question": "SCN ultrasound visualization 하나의 올바른 해석은?",
@@ -620,7 +620,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq023",
+      "quiz_id": "lsq023",
       "module_id": "lumbar_sacral_v1",
       "domain": "stenosis",
       "question": "신경성 파행에 더 전형적인 패턴은?",
@@ -648,7 +648,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq024",
+      "quiz_id": "lsq024",
       "module_id": "lumbar_sacral_v1",
       "domain": "radiculopathy",
       "question": "MRI disc degeneration만으로 radiculopathy를 확정하면 안 되는 이유는?",
@@ -676,7 +676,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq025",
+      "quiz_id": "lsq025",
       "module_id": "lumbar_sacral_v1",
       "domain": "exercise",
       "question": "2021 LBP CPG가 만성 요통에 권고하는 축은?",
@@ -704,7 +704,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq026",
+      "quiz_id": "lsq026",
       "module_id": "lumbar_sacral_v1",
       "domain": "exercise",
       "question": "specific trunk activation의 대표 target은?",
@@ -732,7 +732,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq027",
+      "quiz_id": "lsq027",
       "module_id": "lumbar_sacral_v1",
       "domain": "safety",
       "question": "진행성 motor deficit이 있으면?",
@@ -760,7 +760,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq028",
+      "quiz_id": "lsq028",
       "module_id": "lumbar_sacral_v1",
       "domain": "clinical_reasoning",
       "question": "PSIS 주변 통증의 감별로 적절한 조합은?",
@@ -788,7 +788,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq029",
+      "quiz_id": "lsq029",
       "module_id": "lumbar_sacral_v1",
       "domain": "ultrasound",
       "question": "Stage 9 lumbar ultrasound의 역할은?",
@@ -816,7 +816,7 @@
       "status": "active"
     },
     {
-      "quiz_id": "lq030",
+      "quiz_id": "lsq030",
       "module_id": "lumbar_sacral_v1",
       "domain": "data_safety",
       "question": "Stage 9 데이터 원칙은?",

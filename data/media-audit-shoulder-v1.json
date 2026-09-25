@@ -16,7 +16,13 @@
           "license": "CC BY-SA 4.0 / GFDL",
           "author": "RSatUSZ / UniversitätsSpital Zürich"
         }
-      ]
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:Longitudinal_US_supraspinatus.jpg",
+      "figure_label": "Supraspinatus tendon longitudinal ultrasound",
+      "license": "CC BY-SA 4.0 / GFDL",
+      "reuse_policy": "embedded_reuse_with_attribution",
+      "license_status": "explicit",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv002",
@@ -30,7 +36,13 @@
           "license": "CC BY-SA / GFDL",
           "author": "RSatUSZ / UniversitätsSpital Zürich"
         }
-      ]
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:Transversal_US_supraspinatus.jpg",
+      "figure_label": "Supraspinatus tendon transverse ultrasound",
+      "license": "CC BY-SA / GFDL",
+      "reuse_policy": "embedded_reuse_with_attribution",
+      "license_status": "explicit",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv003",
@@ -44,28 +56,49 @@
           "license": "Creative Commons license on Commons file page",
           "author": "RSatUSZ"
         }
-      ]
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:US._Biceps_tendon..jpg",
+      "figure_label": "Intact long-head biceps tendon in bicipital groove",
+      "license": "Creative Commons license on Commons file page",
+      "reuse_policy": "embedded_reuse_with_attribution",
+      "license_status": "explicit",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv004",
       "status": "verified_fixed_reference",
       "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG2/",
       "license": "Creative Commons Attribution License",
-      "note": "Figure includes transverse and longitudinal long-head biceps tendon views. Kept link-only until a stable asset URL is fixed. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page."
+      "note": "Figure includes transverse and longitudinal long-head biceps tendon views. Kept link-only until a stable asset URL is fixed. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page.",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG2/",
+      "figure_label": "Exact canonical figure page",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv005",
       "status": "verified_fixed_reference",
       "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
       "license": "Creative Commons Attribution License",
-      "note": "Figure includes subscapularis long-axis and transverse views. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page."
+      "note": "Figure includes subscapularis long-axis and transverse views. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page.",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
+      "figure_label": "Exact canonical figure page",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv006",
       "status": "verified_fixed_reference",
       "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
       "license": "Creative Commons Attribution License",
-      "note": "Figure includes subscapularis long-axis and transverse views. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page."
+      "note": "Figure includes subscapularis long-axis and transverse views. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page.",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
+      "figure_label": "Exact canonical figure page",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv007",
@@ -80,7 +113,13 @@
           "author": "Wikimedia Commons uploader / own work"
         }
       ],
-      "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG7/"
+      "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG7/",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG7/",
+      "figure_label": "Exact canonical figure page",
+      "license": "CC BY-SA 3.0",
+      "reuse_policy": "embedded_reuse_with_attribution",
+      "license_status": "explicit",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv008",
@@ -102,14 +141,25 @@
           "license": "CC BY 2.0",
           "author": "Cadogan et al."
         }
-      ]
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:Emergency-department-diagnosis-of-supraspinatus-tendon-calcification-and-shoulder-impingement-2036-7902-5-2-S2.ogv",
+      "figure_label": "Verified embedded media set",
+      "license": "CC BY 2.0",
+      "reuse_policy": "embedded_reuse_with_attribution",
+      "license_status": "explicit",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv009",
       "status": "verified_fixed_reference",
       "reference_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG1/",
       "license": "Creative Commons Attribution License",
-      "note": "Normal AC joint ultrasound reference. Link-only until stable asset URL is fixed. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page."
+      "note": "Normal AC joint ultrasound reference. Link-only until stable asset URL is fixed. Exact open-access figure page is fixed as the canonical reference; direct image URL is intentionally not copied when it is less stable than the article figure page.",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG1/",
+      "figure_label": "Exact canonical figure page",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     }
   ],
   "coverage": {
@@ -133,5 +183,7 @@
       "url": "https://www.essr.org/content-essr/uploads/2016/10/shoulder.pdf",
       "use": "Scanning sequence, probe orientation, and landmarks."
     }
-  ]
+  ],
+  "audit_revision": "2026-09-25-stage11",
+  "license_policy": "Embedded/local reusable media requires explicit reuse terms and attribution. Canonical external figures with uncertain or publication-specific redistribution terms are link-only; the app does not assert redistribution rights."
 }

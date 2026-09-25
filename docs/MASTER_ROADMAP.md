@@ -56,8 +56,8 @@ Stage 1 — 어깨·견갑대·상완
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
 Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
 Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 11 전신 통합 QA
-목표 완료일: 2027-02-05
+현재 개발: Stage 12 OrthoOS Read-only 준비
+목표 완료일: 2027-02-20
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -363,3 +363,65 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - Abdominal/Core clinical quiz 30
 - Oral Viva + Patient Education preserved and abdominal education refined
 - 다음 공식 단계: Stage 11 — 전신 통합 QA
+
+
+## Stage 11 완료 기록
+완료일: 2026-09-25
+상태: COMPLETE — Global QA automated gate PASS
+
+### Canonical anatomy
+- muscles 205 / regions 14
+- Origin / Insertion / Function / Nerve 820/820 fields present
+- placeholder/TBD 0
+- duplicate English muscle names 0
+- cross-entity Stable ID collision 0
+
+### Oral Viva
+- O/I/F/N base questions 820/820 tested
+- canonical exact-answer false failure 0
+- master integrated O/I/F/N 205/205 tested
+- SpeechRecognition fallback / SpeechSynthesis / localStorage wiring PASS
+- external AI/API answer transfer 없음
+
+### Patient Education
+- assignments 205/205
+- profiles 19 / evidence sources 11
+- invalid profile/source refs 0
+- evidence tiers A 58 / B 57 / C 90
+- isolated-protocol 근거가 없는 근육은 임의 치료법을 생성하지 않음
+
+### Clinical modules
+- Stage 1–10 regression PASS
+- clinical tests 148
+- ultrasound views 131
+- clinical quiz questions 294
+
+### Ultrasound / license
+- ultrasound IDs 131/131, missing 0, duplicate 0
+- metadata incomplete 0
+- embedded reusable media 5: explicit reuse terms + attribution
+- reference-only/link-only 126: redistribution rights를 앱이 추정하지 않음
+- generated B-mode substitute 0
+- 모든 media audit 파일에 Stage 11 license policy 적용
+
+### Knowledge graph / app
+- relationships 1,789
+- orphan 0
+- relationship type mismatch 0
+- Stage 11에서 기존 symptom relationship 20개의 endpoint type을 `symptom_pattern`으로 정규화
+- 요추 quiz ID를 `lsq001–lsq030`으로 namespace 수정하여 전신 clinical quiz ID 294/294 unique
+- duplicate relationship ID 0
+- duplicate relationship edge 0
+- JavaScript syntax PASS
+- PWA id/start_url/scope/fullscreen + standalone fallback PASS
+- PHI boundary PASS
+- machine-readable report: data/global-qa-stage11-v1.json
+- automated QA: scripts/global-qa.mjs + .github/workflows/global-qa.yml
+
+### 수동 확인 항목
+- Android 설치형 PWA가 실제 기기에서 주소창 없이 fullscreen으로 열리는지 최종 물리 확인은 사용자 실기기에서 수행 필요.
+- 앱/Chrome 데이터 임의 삭제는 하지 않는다.
+
+### 다음 공식 단계
+Stage 12 — OrthoOS Read-only Integration Contract.
+Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contract/fixture/API shape만 정의한다. PHI는 Atlas에 들어오지 않는다.

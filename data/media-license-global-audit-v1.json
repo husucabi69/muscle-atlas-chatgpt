@@ -1,0 +1,977 @@
+{
+  "schema_version": "1.0.0",
+  "audit_version": "2026.09.25-stage11-b",
+  "audited_on": "2026-09-25",
+  "scope": "Global actual-ultrasound source, media-integrity and reuse-policy audit for Stage 1-10.",
+  "policy": {
+    "actual_ultrasound_only": true,
+    "generated_b_mode_substitute": false,
+    "embedded_asset_rule": "Local/embedded reuse requires explicit reusable terms and retained attribution/source metadata.",
+    "link_only_rule": "When redistribution rights are uncertain, publication-specific, ND/restrictive, or not needed, use canonical source links only and do not assert redistribution rights.",
+    "no_hosting_inference": "PMC/open-access hosting alone is not treated as permission for local redistribution or modification."
+  },
+  "summary": {
+    "ultrasound_views_total": 131,
+    "unique_ultrasound_view_ids": 131,
+    "unique_source_pages": 54,
+    "embedded_reuse_with_attribution": 5,
+    "link_only_reference_views": 126,
+    "explicit_license_status": 64,
+    "reference_only_license_status": 67,
+    "incomplete_metadata": 0,
+    "unresolved_issues": 0
+  },
+  "modules": {
+    "shoulder": {
+      "views_total": 9,
+      "embedded_verified": 5,
+      "exact_figure_reference": 4,
+      "unverified": 0
+    },
+    "elbow": {
+      "views_total": 8,
+      "embedded_verified": 0,
+      "exact_figure_reference": 8,
+      "unverified": 0
+    },
+    "wrist-hand": {
+      "views_total": 12,
+      "embedded_verified": 0,
+      "exact_figure_reference": 12,
+      "unverified": 0
+    },
+    "hip-pelvis": {
+      "views_total": 12,
+      "embedded_verified": 0,
+      "exact_figure_reference": 12,
+      "unverified": 0
+    },
+    "knee-thigh": {
+      "views_total": 14,
+      "embedded_verified": 0,
+      "exact_figure_reference": 14,
+      "unverified": 0
+    },
+    "leg-ankle-foot": {
+      "views_total": 18,
+      "embedded_verified": 0,
+      "exact_figure_reference": 18,
+      "unverified": 0
+    },
+    "cervical": {
+      "views_total": 14,
+      "embedded_verified": 0,
+      "exact_figure_reference": 14,
+      "unverified": 0
+    },
+    "thoracic-back-chestwall": {
+      "views_total": 14,
+      "embedded_verified": 0,
+      "exact_figure_reference": 14,
+      "unverified": 0
+    },
+    "lumbar-sacral": {
+      "views_total": 15,
+      "embedded_verified": 0,
+      "exact_figure_reference": 15,
+      "unverified": 0
+    },
+    "abdominal-core": {
+      "views_total": 15,
+      "embedded_verified": 0,
+      "exact_figure_reference": 15,
+      "unverified": 0
+    }
+  },
+  "sources": [
+    {
+      "source_page": "https://commons.wikimedia.org/wiki/File:Longitudinal_US_supraspinatus.jpg",
+      "modules": [
+        "shoulder"
+      ],
+      "view_ids": [
+        "usv001"
+      ],
+      "reuse_modes": [
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "CC BY-SA 4.0 / GFDL"
+      ]
+    },
+    {
+      "source_page": "https://commons.wikimedia.org/wiki/File:Transversal_US_supraspinatus.jpg",
+      "modules": [
+        "shoulder"
+      ],
+      "view_ids": [
+        "usv002"
+      ],
+      "reuse_modes": [
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "CC BY-SA / GFDL"
+      ]
+    },
+    {
+      "source_page": "https://commons.wikimedia.org/wiki/File:US._Biceps_tendon..jpg",
+      "modules": [
+        "shoulder"
+      ],
+      "view_ids": [
+        "usv003"
+      ],
+      "reuse_modes": [
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "Creative Commons license on Commons file page"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG2/",
+      "modules": [
+        "shoulder"
+      ],
+      "view_ids": [
+        "usv004"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "Creative Commons Attribution License"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/",
+      "modules": [
+        "shoulder"
+      ],
+      "view_ids": [
+        "usv005",
+        "usv006"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "Creative Commons Attribution License"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG7/",
+      "modules": [
+        "shoulder"
+      ],
+      "view_ids": [
+        "usv007"
+      ],
+      "reuse_modes": [
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "CC BY-SA 3.0"
+      ]
+    },
+    {
+      "source_page": "https://commons.wikimedia.org/wiki/File:Emergency-department-diagnosis-of-supraspinatus-tendon-calcification-and-shoulder-impingement-2036-7902-5-2-S2.ogv",
+      "modules": [
+        "shoulder"
+      ],
+      "view_ids": [
+        "usv008"
+      ],
+      "reuse_modes": [
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "CC BY 2.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG1/",
+      "modules": [
+        "shoulder"
+      ],
+      "view_ids": [
+        "usv009"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "Creative Commons Attribution License"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11697989/",
+      "modules": [
+        "elbow"
+      ],
+      "view_ids": [
+        "usv010",
+        "usv011"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11374584/",
+      "modules": [
+        "elbow"
+      ],
+      "view_ids": [
+        "usv012",
+        "usv013"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11744171/",
+      "modules": [
+        "elbow"
+      ],
+      "view_ids": [
+        "usv014",
+        "usv017"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6423902/",
+      "modules": [
+        "elbow"
+      ],
+      "view_ids": [
+        "usv015"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12129630/",
+      "modules": [
+        "elbow"
+      ],
+      "view_ids": [
+        "usv016"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/",
+      "modules": [
+        "wrist-hand"
+      ],
+      "view_ids": [
+        "usv018",
+        "usv019",
+        "usv020",
+        "usv021",
+        "usv022",
+        "usv023",
+        "usv024",
+        "usv025",
+        "usv026",
+        "usv027",
+        "usv028",
+        "usv029"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/",
+      "modules": [
+        "hip-pelvis"
+      ],
+      "view_ids": [
+        "usv030",
+        "usv031",
+        "usv032",
+        "usv033",
+        "usv034",
+        "usv035",
+        "usv036",
+        "usv037",
+        "usv038",
+        "usv039",
+        "usv041"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5034024/",
+      "modules": [
+        "hip-pelvis"
+      ],
+      "view_ids": [
+        "usv040"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
+      "modules": [
+        "knee-thigh"
+      ],
+      "view_ids": [
+        "usv042",
+        "usv044",
+        "usv045",
+        "usv046",
+        "usv047",
+        "usv048",
+        "usv049",
+        "usv050",
+        "usv051",
+        "usv052",
+        "usv053",
+        "usv054",
+        "usv055"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND 4.0"
+      ]
+    },
+    {
+      "source_page": "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf",
+      "modules": [
+        "knee-thigh"
+      ],
+      "view_ids": [
+        "usv043"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "modules": [
+        "leg-ankle-foot"
+      ],
+      "view_ids": [
+        "usv056",
+        "usv057",
+        "usv058",
+        "usv059",
+        "usv060",
+        "usv061",
+        "usv065",
+        "usv066",
+        "usv072",
+        "usv073"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5024848/",
+      "modules": [
+        "leg-ankle-foot"
+      ],
+      "view_ids": [
+        "usv062"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://www.essr.org/content-essr/uploads/2016/10/ankle.pdf",
+      "modules": [
+        "leg-ankle-foot"
+      ],
+      "view_ids": [
+        "usv063"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10494809/",
+      "modules": [
+        "leg-ankle-foot"
+      ],
+      "view_ids": [
+        "usv064"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/",
+      "modules": [
+        "leg-ankle-foot"
+      ],
+      "view_ids": [
+        "usv067",
+        "usv068"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10508328/",
+      "modules": [
+        "leg-ankle-foot"
+      ],
+      "view_ids": [
+        "usv069",
+        "usv071"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8942737/",
+      "modules": [
+        "leg-ankle-foot"
+      ],
+      "view_ids": [
+        "usv070"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7093927/",
+      "modules": [
+        "cervical"
+      ],
+      "view_ids": [
+        "usv074"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+      "modules": [
+        "cervical",
+        "thoracic-back-chestwall"
+      ],
+      "view_ids": [
+        "usv075",
+        "usv087",
+        "usv090",
+        "usv091",
+        "usv092"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted",
+        "CC BY 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/",
+      "modules": [
+        "cervical"
+      ],
+      "view_ids": [
+        "usv076",
+        "usv078",
+        "usv079"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8628157/",
+      "modules": [
+        "cervical"
+      ],
+      "view_ids": [
+        "usv077"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/",
+      "modules": [
+        "cervical"
+      ],
+      "view_ids": [
+        "usv080",
+        "usv081",
+        "usv082"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7973677/",
+      "modules": [
+        "cervical"
+      ],
+      "view_ids": [
+        "usv083"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4499539/",
+      "modules": [
+        "cervical"
+      ],
+      "view_ids": [
+        "usv084",
+        "usv086"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9845551/",
+      "modules": [
+        "cervical"
+      ],
+      "view_ids": [
+        "usv085"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "modules": [
+        "thoracic-back-chestwall"
+      ],
+      "view_ids": [
+        "usv088",
+        "usv089",
+        "usv093",
+        "usv094",
+        "usv096",
+        "usv097",
+        "usv098"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC 4.0"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9148345/",
+      "modules": [
+        "thoracic-back-chestwall"
+      ],
+      "view_ids": [
+        "usv095"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11276413/",
+      "modules": [
+        "thoracic-back-chestwall"
+      ],
+      "view_ids": [
+        "usv099"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11202496/",
+      "modules": [
+        "thoracic-back-chestwall"
+      ],
+      "view_ids": [
+        "usv100"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12747832/",
+      "modules": [
+        "thoracic-back-chestwall"
+      ],
+      "view_ids": [
+        "usv101"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409444/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv102",
+        "usv103",
+        "usv104"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7464501/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv105"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12588924/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv106"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5244003/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv107",
+        "usv108"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8901759/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv109"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11178692/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv110",
+        "usv111"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10317927/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv112",
+        "usv113"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5222601/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv114"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11671740/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv115"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12897311/",
+      "modules": [
+        "lumbar-sacral"
+      ],
+      "view_ids": [
+        "usv116"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+      "modules": [
+        "abdominal-core"
+      ],
+      "view_ids": [
+        "usv117",
+        "usv118",
+        "usv119",
+        "usv123",
+        "usv124",
+        "usv125",
+        "usv131"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044981/",
+      "modules": [
+        "abdominal-core"
+      ],
+      "view_ids": [
+        "usv120",
+        "usv121",
+        "usv122"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4582530/",
+      "modules": [
+        "abdominal-core"
+      ],
+      "view_ids": [
+        "usv126"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941212/",
+      "modules": [
+        "abdominal-core"
+      ],
+      "view_ids": [
+        "usv127",
+        "usv128"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9262670/",
+      "modules": [
+        "abdominal-core"
+      ],
+      "view_ids": [
+        "usv129"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13463367/",
+      "modules": [
+        "abdominal-core"
+      ],
+      "view_ids": [
+        "usv130"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    }
+  ]
+}

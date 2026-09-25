@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "audit_version": "2026.09.25-stage11",
+  "release_target": "v9.1 Global QA Complete",
+  "status": "PASS_AUTOMATED",
+  "manual_verification_pending": [
+    "Android installed PWA fullscreen/address-bar-free physical-device confirmation"
+  ],
+  "canonical": {
+    "muscles": 205,
+    "regions": 14,
+    "oifn_fields_expected": 820,
+    "oifn_fields_present": 820,
+    "global_stable_id_collisions": 0,
+    "relationship_type_corrections": 20
+  },
+  "oral_viva": {
+    "base_questions_tested": 820,
+    "canonical_exact_failures": 0,
+    "master_integrated_tested": 205,
+    "master_exact_failures": 0,
+    "speech_recognition_fallback": true,
+    "local_storage": true,
+    "external_ai_transfer": false
+  },
+  "patient_education": {
+    "assignments": 205,
+    "unique_assignments": 205,
+    "missing": 0,
+    "profiles": 19,
+    "sources": 11,
+    "evidence_tiers": {
+      "A": 58,
+      "B": 57,
+      "C": 90
+    },
+    "invalid_profile_refs": 0,
+    "invalid_source_refs": 0,
+    "no_isolated_protocol": 26
+  },
+  "clinical_modules": {
+    "modules": 10,
+    "clinical_tests": 148,
+    "ultrasound_views": 131,
+    "clinical_quiz_questions": 294,
+    "module_regression": "PASS",
+    "global_quiz_id_duplicates": 0,
+    "lumbar_quiz_namespace": "lsq001-lsq030"
+  },
+  "media": {
+    "ultrasound_views": 131,
+    "coverage": 131,
+    "duplicate_ids": 0,
+    "missing_ids": 0,
+    "incomplete_metadata": 0,
+    "reference_only_link_only": 126,
+    "embedded_reuse_with_attribution": 5,
+    "false_redistribution_assertions": 0,
+    "generated_bmode_substitutes": 0,
+    "license_policy": "Explicit reusable terms required for embedded/local reuse; uncertain/publication-specific rights remain link-only.",
+    "global_audit_file": "data/media-license-global-audit-v1.json",
+    "unique_source_pages": 54,
+    "explicit_license_status": 64,
+    "reference_only_license_status": 67
+  },
+  "relationships": {
+    "total": 1789,
+    "orphan": 0,
+    "type_mismatch": 0,
+    "duplicate_relationship_ids": 0,
+    "duplicate_edges": 0
+  },
+  "app": {
+    "javascript_syntax": "PASS",
+    "tabs": [
+      "home",
+      "symptoms",
+      "regions",
+      "clinical",
+      "education",
+      "quiz",
+      "oral"
+    ],
+    "pwa_id": "/muscle-atlas-chatgpt/",
+    "start_url": "/muscle-atlas-chatgpt/?source=pwa",
+    "scope": "/muscle-atlas-chatgpt/",
+    "display": "fullscreen",
+    "standalone_fallback": true,
+    "phi_boundary": "PASS"
+  },
+  "knowledge_core_dataset_version": "2026.09.25-j",
+  "automated_ci": {
+    "script": "scripts/global-qa.mjs",
+    "workflow": ".github/workflows/global-qa.yml",
+    "trigger": "pull_request/main push/manual"
+  },
+  "ci_verification": {
+    "pr_number": 18,
+    "workflow": "Global QA",
+    "successful_run_id": 36100690448,
+    "verified_head_sha": "d6337ec5b0f5b27b9a042f85f10eedf8f5b79eec",
+    "conclusion": "success"
+  }
+}
