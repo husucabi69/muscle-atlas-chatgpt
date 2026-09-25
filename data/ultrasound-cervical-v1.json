@@ -1,0 +1,369 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cervical_ultrasound_v1",
+  "region_ids": [
+    "r001"
+  ],
+  "primary_references": [
+    {
+      "title": "Proposal of a Route Map for Cervical Spinal Ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/"
+    },
+    {
+      "title": "Pictorial Essay on Ultrasound and MRI of Paraspinal Muscles",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/"
+    },
+    {
+      "title": "Ultrasound-Based Muscle Size and Mechanical Properties of Cervical Flexor and Extensor Muscles",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7093927/"
+    },
+    {
+      "title": "Ultrasonography-Based Thyroidal and Perithyroidal Anatomy",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4499539/"
+    },
+    {
+      "title": "Ultrasonography has a diagnostic value in cervical radiculopathy",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/"
+    },
+    {
+      "title": "Ultrasonography-Guided Common Musculoskeletal Interventions from Head to Toe",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8628157/"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv074",
+      "name_ko": "SCM·경장근 횡단면",
+      "name_en": "SCM and longus colli transverse view",
+      "target_structure_ids": [
+        "m001",
+        "m006"
+      ],
+      "patient_position": "앙와위, 목 중립 또는 약간 신전.",
+      "probe_orientation": "갑상선/경동맥초가 보이는 중경추 수준에서 횡축.",
+      "landmarks": [
+        "sternocleidomastoid",
+        "longus colli",
+        "carotid artery",
+        "internal jugular vein",
+        "thyroid"
+      ],
+      "normal_finding": "표층 SCM과 전척추근 longus colli의 위치·두께를 구분한다.",
+      "pitfalls": [
+        "경동맥·내경정맥과 직접 압박 주의",
+        "근두께 차이만으로 통증 원인 확정 금지"
+      ],
+      "source_ref": "cervical_muscle_fig"
+    },
+    {
+      "ultrasound_view_id": "usv075",
+      "name_ko": "경부 후방 신전근 층 C4",
+      "name_en": "Posterior cervical extensor layers at C4",
+      "target_structure_ids": [
+        "m009",
+        "m011",
+        "m012",
+        "m013"
+      ],
+      "patient_position": "복와위, 이마를 지지하고 약간 굴곡.",
+      "probe_orientation": "C4 spinous process 인접 횡축.",
+      "landmarks": [
+        "splenius capitis",
+        "semispinalis capitis",
+        "semispinalis cervicis",
+        "multifidus",
+        "lamina/articular pillar"
+      ],
+      "normal_finding": "표층에서 심부로 후방 근육 층을 구분하고 좌우 symmetry를 본다.",
+      "pitfalls": [
+        "레벨 오인 방지를 위해 C7부터 상방 counting",
+        "probe pressure로 thickness 감소 가능"
+      ],
+      "source_ref": "paraspinal_fig17"
+    },
+    {
+      "ultrasound_view_id": "usv076",
+      "name_ko": "상부경추 C1–C2 후방 route map",
+      "name_en": "Upper cervical C1-C2 posterior route",
+      "target_structure_ids": [
+        "m017",
+        "m018",
+        "m020",
+        "m011",
+        "j017",
+        "n034"
+      ],
+      "patient_position": "복와위 또는 좌위, 고개를 약간 숙인다.",
+      "probe_orientation": "후두 중앙에서 C1 posterior arch와 C2 spinous process를 순차 확인 후 사선 이동.",
+      "landmarks": [
+        "C1 posterior arch",
+        "C2 spinous process",
+        "semispinalis capitis",
+        "obliquus capitis inferior",
+        "greater occipital nerve"
+      ],
+      "normal_finding": "상부경추 골성 landmark와 suboccipital muscle/GON 관계를 확인한다.",
+      "pitfalls": [
+        "vertebral artery와 spinal canal 위치를 항상 인지",
+        "중재 유도와 단순 진단 스캔을 혼동하지 않음"
+      ],
+      "source_ref": "route_map_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv077",
+      "name_ko": "대후두신경 C2 수준",
+      "name_en": "Greater occipital nerve at C2/OCI level",
+      "target_structure_ids": [
+        "n034",
+        "m020",
+        "m011"
+      ],
+      "patient_position": "복와위, 목 약간 굴곡.",
+      "probe_orientation": "C2 spinous process에서 C1 transverse process 방향으로 사선.",
+      "landmarks": [
+        "obliquus capitis inferior",
+        "semispinalis capitis",
+        "greater occipital nerve",
+        "C2 lamina"
+      ],
+      "normal_finding": "GON을 OCI 표면과 semispinalis capitis 깊은면 사이의 작은 hyperechoic oval structure로 확인한다.",
+      "pitfalls": [
+        "occipital artery와 구분",
+        "신경 크기만으로 occipital neuralgia 진단 금지"
+      ],
+      "source_ref": "gon_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv078",
+      "name_ko": "C2 DRG·환추축관절 주변",
+      "name_en": "C2 dorsal root ganglion / atlantoaxial region",
+      "target_structure_ids": [
+        "j017",
+        "n034",
+        "m020"
+      ],
+      "patient_position": "복와위 또는 좌위, 목 약간 굴곡.",
+      "probe_orientation": "C1–C2 posterior route에서 OCI 아래 AA joint 쪽으로 이동.",
+      "landmarks": [
+        "atlantoaxial joint",
+        "C2 dorsal root ganglion region",
+        "obliquus capitis inferior",
+        "vertebral artery"
+      ],
+      "normal_finding": "AA joint와 인접 C2 neural structure의 상대 위치를 확인한다.",
+      "pitfalls": [
+        "vertebral artery가 매우 가깝고 spinal canal이 인접",
+        "교육용 sonoanatomy이며 무분별한 중재 유도 금지"
+      ],
+      "source_ref": "route_map_fig4"
+    },
+    {
+      "ultrasound_view_id": "usv079",
+      "name_ko": "환추후두관절·척추동맥 관계",
+      "name_en": "Atlanto-occipital joint and vertebral artery relation",
+      "target_structure_ids": [
+        "j016"
+      ],
+      "patient_position": "복와위 또는 좌위.",
+      "probe_orientation": "C1 transverse process에서 mastoid/occiput 방향 장축.",
+      "landmarks": [
+        "occiput",
+        "C1 transverse process",
+        "atlanto-occipital joint",
+        "vertebral artery"
+      ],
+      "normal_finding": "AO joint contour와 주변 혈관 위치를 해부학적으로 확인한다.",
+      "pitfalls": [
+        "Color Doppler로 vertebral vessels 확인이 중요",
+        "관절통의 확진영상이 아님"
+      ],
+      "source_ref": "route_map_fig4_5"
+    },
+    {
+      "ultrasound_view_id": "usv080",
+      "name_ko": "C5 신경근 횡단면",
+      "name_en": "C5 cervical nerve root transverse view",
+      "target_structure_ids": [
+        "n030"
+      ],
+      "patient_position": "앙와위 또는 반측와위, 목을 반대쪽으로 약간 회전.",
+      "probe_orientation": "C5 transverse process anterior/posterior tubercle 사이를 횡축.",
+      "landmarks": [
+        "C5 anterior tubercle",
+        "C5 posterior tubercle",
+        "C5 nerve root",
+        "vertebral artery deeper"
+      ],
+      "normal_finding": "C5 root를 두 결절 사이 hypoechoic neural structure로 확인한다.",
+      "pitfalls": [
+        "level identification 필수",
+        "CSA/diameter 하나로 radiculopathy 확정 금지"
+      ],
+      "source_ref": "cervical_root_fig1a"
+    },
+    {
+      "ultrasound_view_id": "usv081",
+      "name_ko": "C6 신경근 횡단면",
+      "name_en": "C6 cervical nerve root transverse view",
+      "target_structure_ids": [
+        "n031"
+      ],
+      "patient_position": "앙와위 또는 반측와위.",
+      "probe_orientation": "C6 transverse process의 prominent anterior tubercle와 posterior tubercle 사이.",
+      "landmarks": [
+        "C6 anterior tubercle",
+        "C6 posterior tubercle",
+        "C6 nerve root"
+      ],
+      "normal_finding": "C6 root와 골성 landmark를 좌우 비교한다.",
+      "pitfalls": [
+        "C6 anterior tubercle이 두드러짐",
+        "신경근 크기 비대칭은 임상·MRI/EDX와 통합"
+      ],
+      "source_ref": "cervical_root_fig1b"
+    },
+    {
+      "ultrasound_view_id": "usv082",
+      "name_ko": "C7 신경근·척추동맥 landmark",
+      "name_en": "C7 cervical nerve root and vertebral artery landmark",
+      "target_structure_ids": [
+        "n032"
+      ],
+      "patient_position": "앙와위 또는 반측와위.",
+      "probe_orientation": "C7 transverse process를 횡축으로 확인.",
+      "landmarks": [
+        "rudimentary/absent anterior tubercle",
+        "prominent posterior tubercle",
+        "C7 nerve root",
+        "vertebral artery"
+      ],
+      "normal_finding": "C7 characteristic transverse process와 root를 확인한다.",
+      "pitfalls": [
+        "vertebral artery 위치 변이",
+        "C8와 혼동하지 않도록 level tracing"
+      ],
+      "source_ref": "cervical_root_fig1c"
+    },
+    {
+      "ultrasound_view_id": "usv083",
+      "name_ko": "C8 신경근·deep cervical artery 관계",
+      "name_en": "C8 root / deep cervical artery relation",
+      "target_structure_ids": [
+        "n033"
+      ],
+      "patient_position": "앙와위 또는 반측와위.",
+      "probe_orientation": "C7 root에서 caudal direction으로 root를 추적하고 deep cervical artery를 Doppler landmark로 사용.",
+      "landmarks": [
+        "C7 root",
+        "C8 root",
+        "deep cervical artery",
+        "first rib region"
+      ],
+      "normal_finding": "C7-C8 사이 deep cervical artery 관계를 이용해 C8을 구분한다.",
+      "pitfalls": [
+        "깊은 위치로 시인성이 제한",
+        "Doppler landmark를 nerve로 오인하지 않음"
+      ],
+      "source_ref": "brachial_plexus_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv084",
+      "name_ko": "사각근간 신경근/상완신경총",
+      "name_en": "Interscalene roots/trunks",
+      "target_structure_ids": [
+        "m002",
+        "m003",
+        "n030",
+        "n031",
+        "n032"
+      ],
+      "patient_position": "앙와위, 목을 반대쪽으로 약간 회전.",
+      "probe_orientation": "SCM 외측의 interscalene groove를 횡축.",
+      "landmarks": [
+        "anterior scalene",
+        "middle scalene",
+        "C5-C7 roots/trunks",
+        "SCM"
+      ],
+      "normal_finding": "anterior와 middle scalene 사이 neural elements를 grape-like/hypoechoic structures로 확인한다.",
+      "pitfalls": [
+        "phrenic nerve·vascular structures 주의",
+        "증상만으로 neurogenic thoracic outlet로 확장 해석 금지"
+      ],
+      "source_ref": "perithyroid_fig11"
+    },
+    {
+      "ultrasound_view_id": "usv085",
+      "name_ko": "표재 경신경총·SCM 후연",
+      "name_en": "Superficial cervical plexus at posterior SCM border",
+      "target_structure_ids": [
+        "n035",
+        "m001"
+      ],
+      "patient_position": "앙와위, 목을 반대쪽으로 약간 회전.",
+      "probe_orientation": "C4 수준 SCM posterior border를 횡축.",
+      "landmarks": [
+        "sternocleidomastoid",
+        "prevertebral fascia",
+        "superficial cervical plexus region",
+        "internal jugular vein"
+      ],
+      "normal_finding": "SCM 뒤의 fascial plane과 superficial cervical plexus region을 확인한다.",
+      "pitfalls": [
+        "external jugular vein은 가벼운 압박에 소실 가능",
+        "작은 sensory branches 개별 식별이 제한될 수 있음"
+      ],
+      "source_ref": "cervical_plexus_fig6"
+    },
+    {
+      "ultrasound_view_id": "usv086",
+      "name_ko": "경장근·전사각근·신경근 관계",
+      "name_en": "Longus colli / anterior scalene / cervical root relation",
+      "target_structure_ids": [
+        "m006",
+        "m002",
+        "n030",
+        "n031"
+      ],
+      "patient_position": "앙와위, 중경추 lateral neck.",
+      "probe_orientation": "transverse process level에서 전척추근과 scalene compartment를 횡축.",
+      "landmarks": [
+        "longus colli",
+        "anterior scalene",
+        "cervical root",
+        "carotid sheath"
+      ],
+      "normal_finding": "prevertebral muscle과 root의 상대 위치를 확인한다.",
+      "pitfalls": [
+        "carotid sheath와 vertebral artery를 항상 식별",
+        "시술 목표로 자동 해석 금지"
+      ],
+      "source_ref": "perithyroid_fig11"
+    },
+    {
+      "ultrasound_view_id": "usv087",
+      "name_ko": "후두하근군 층별 view",
+      "name_en": "Suboccipital muscle layer view",
+      "target_structure_ids": [
+        "m017",
+        "m018",
+        "m019",
+        "m020"
+      ],
+      "patient_position": "복와위, 약간 경부 굴곡.",
+      "probe_orientation": "C2 spinous process-C1 transverse process-후두골 landmark를 이용해 사선/종축 sweep.",
+      "landmarks": [
+        "rectus capitis posterior muscles",
+        "obliquus capitis inferior",
+        "obliquus capitis superior",
+        "C1/C2 bony landmarks"
+      ],
+      "normal_finding": "후두하 삼각 주변의 근육 층을 해부학적으로 구분한다.",
+      "pitfalls": [
+        "vertebral artery는 suboccipital triangle과 인접",
+        "근육 두께/trigger point를 진단으로 단정하지 않음"
+      ],
+      "source_ref": "paraspinal_fig23"
+    }
+  ]
+}
