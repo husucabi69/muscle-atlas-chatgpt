@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "thoracic_back_chestwall_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "Every Stage 8 ultrasound view maps to actual public ultrasound from a scientific/open source. No generated B-mode substitute is used. Publication/license context is preserved via canonical references.",
+  "coverage": {
+    "views_total": 14,
+    "embedded_verified": 0,
+    "exact_figure_reference": 14,
+    "unverified": 0
+  },
+  "stage8_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv088",
+      "status": "verified_fixed_reference",
+      "title": "T5 trapezius-rhomboid-erector spinae",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "figure_label": "Figure 5A",
+      "license": "CC BY-NC 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv089",
+      "status": "verified_fixed_reference",
+      "title": "T7 erector spinae layer",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "figure_label": "Figure 5B",
+      "license": "CC BY-NC 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv090",
+      "status": "verified_fixed_reference",
+      "title": "Thoracic intrinsic paraspinal muscles",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+      "figure_label": "Figure 19",
+      "license": "CC BY 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv091",
+      "status": "verified_fixed_reference",
+      "title": "Trapezius-rhomboid scapular border",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+      "figure_label": "Figure 4",
+      "license": "CC BY 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv092",
+      "status": "verified_fixed_reference",
+      "title": "Serratus posterior superior",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+      "figure_label": "Figure 9",
+      "license": "CC BY 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv093",
+      "status": "verified_fixed_reference",
+      "title": "Thoracic facet sagittal",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "figure_label": "Figure 1",
+      "license": "CC BY-NC 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv094",
+      "status": "verified_fixed_reference",
+      "title": "Costotransverse joint transverse",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "figure_label": "Figure 2",
+      "license": "CC BY-NC 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv095",
+      "status": "verified_fixed_reference",
+      "title": "Costotransverse long/short axes",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9148345/",
+      "figure_label": "Figures 5-6",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv096",
+      "status": "verified_fixed_reference",
+      "title": "Intercostal muscle layers / neurovascular bundle",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "figure_label": "Figure 4",
+      "license": "CC BY-NC 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv097",
+      "status": "verified_fixed_reference",
+      "title": "Serratus anterior lateral chest wall",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "figure_label": "Figure 7",
+      "license": "CC BY-NC 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv098",
+      "status": "verified_fixed_reference",
+      "title": "Pectoralis minor-serratus layers",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "figure_label": "Figure 6",
+      "license": "CC BY-NC 4.0",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv099",
+      "status": "verified_fixed_reference",
+      "title": "Diaphragm zone of apposition B-mode",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11276413/",
+      "figure_label": "Figure 1A",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv100",
+      "status": "verified_fixed_reference",
+      "title": "Diaphragm excursion M-mode",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11202496/",
+      "figure_label": "Figure 1B",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv101",
+      "status": "verified_fixed_reference",
+      "title": "Intercostal respiratory thickness",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12747832/",
+      "figure_label": "Figure 2C-D",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    }
+  ]
+}

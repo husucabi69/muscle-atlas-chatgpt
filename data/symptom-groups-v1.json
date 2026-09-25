@@ -123,6 +123,24 @@
         "sx38"
       ],
       "status": "active"
+    },
+    {
+      "symptom_group_id": "sg008",
+      "name_ko": "흉추·등·흉곽",
+      "key": "thoracic_back_chestwall",
+      "region_ids": [
+        "r002",
+        "r004"
+      ],
+      "symptom_ids": [
+        "sx44",
+        "sx45",
+        "sx46",
+        "sx47",
+        "sx48",
+        "sx49"
+      ],
+      "status": "active"
     }
   ]
 }

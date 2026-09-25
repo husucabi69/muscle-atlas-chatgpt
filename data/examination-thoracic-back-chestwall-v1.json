@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "thoracic_back_chestwall_examination_v1",
+  "region_ids": [
+    "r002",
+    "r004"
+  ],
+  "source_refs": {
+    "acr_thoracic_2024": "https://pubmed.ncbi.nlm.nih.gov/39488357/",
+    "thoracic_radiculopathy_2024": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11058367/",
+    "ctj_us": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9148345/",
+    "thoracic_us_review": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/"
+  },
+  "clinical_tests": [
+    {
+      "clinical_test_id": "ct099",
+      "name_ko": "흉추 회전 ROM 평가",
+      "name_en": "Thoracic rotation range-of-motion assessment",
+      "category": "thoracic_mechanical",
+      "target_structure_ids": [
+        "j019"
+      ],
+      "setup": "좌위 또는 네발기기에서 골반/요추 보상을 최소화한다.",
+      "maneuver": "좌우 흉추 회전을 비교하고 익숙한 통증·제한을 기록한다.",
+      "positive_definition": "명확한 비대칭 또는 익숙한 국소 흉추통이 재현되면 impairment로 기록한다.",
+      "interpretation_note": "기계적 흉추통의 기능평가이며 특정 관절 병변의 확진검사가 아니다.",
+      "limitation": "견관절·요추·고관절 보상에 영향을 받는다.",
+      "related_diagnosis_concept_ids": [
+        "d100",
+        "d101"
+      ]
+    },
+    {
+      "clinical_test_id": "ct100",
+      "name_ko": "흉추 신전-회전 통증유발 평가",
+      "name_en": "Thoracic extension-rotation pain provocation",
+      "category": "facet_candidate",
+      "target_structure_ids": [
+        "j019"
+      ],
+      "setup": "좌위에서 안전한 범위로 흉추 신전과 회전을 결합한다.",
+      "maneuver": "편측 후방/주변 통증의 재현을 확인한다.",
+      "positive_definition": "일관된 편측 국소 통증이 재현되면 thoracic facet-related pain 후보로 기록한다.",
+      "interpretation_note": "facet-mediated pain 가능성을 조정하는 보조 소견이다.",
+      "limitation": "단독 확진 금지; 신경학적·흉곽·내과적 원인을 함께 본다.",
+      "related_diagnosis_concept_ids": [
+        "d101"
+      ]
+    },
+    {
+      "clinical_test_id": "ct101",
+      "name_ko": "늑골 spring / PA provocation",
+      "name_en": "Rib spring and posterior-anterior provocation",
+      "category": "rib_costotransverse",
+      "target_structure_ids": [
+        "j020",
+        "j021"
+      ],
+      "setup": "복와위 또는 좌위에서 증상 늑골/흉추 level을 확인한다.",
+      "maneuver": "늑골 angle 또는 posterior rib에 부드러운 PA pressure를 가해 통증과 좌우 차이를 본다.",
+      "positive_definition": "환자의 익숙한 국소 paravertebral/rib pain이 재현되면 기록한다.",
+      "interpretation_note": "rib-costotransverse/costovertebral mechanical pain 후보를 지지할 수 있다.",
+      "limitation": "검사 재현성·진단정확도 근거가 제한적이며 골절 의심 시 강한 provocation을 피한다.",
+      "related_diagnosis_concept_ids": [
+        "d102",
+        "d103"
+      ]
+    },
+    {
+      "clinical_test_id": "ct102",
+      "name_ko": "Costotransverse 국소 촉진·호흡 연동 평가",
+      "name_en": "Costotransverse palpation with respiratory provocation",
+      "category": "costotransverse",
+      "target_structure_ids": [
+        "j020",
+        "lig019",
+        "lig020"
+      ],
+      "setup": "상부/중부 흉추 paravertebral rib-transverse process junction을 촉진한다.",
+      "maneuver": "국소 압통과 깊은 호흡·기침·흉곽 회전 시 증상 변화를 확인한다.",
+      "positive_definition": "CTJ 위치의 국소 통증이 움직임/호흡과 일관되게 재현되면 기록한다.",
+      "interpretation_note": "CTJ involvement 후보를 만든다.",
+      "limitation": "US effusion/ligament thickening과 통증 위치의 상관이 보고됐지만 촉진만으로 진단하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d102"
+      ],
+      "evidence_refs": [
+        "ctj_us"
+      ]
+    },
+    {
+      "clinical_test_id": "ct103",
+      "name_ko": "흉곽 심호흡 통증유발 평가",
+      "name_en": "Deep-inspiration chest-wall pain provocation",
+      "category": "chest_wall",
+      "target_structure_ids": [
+        "m032",
+        "m033",
+        "m034",
+        "m037"
+      ],
+      "setup": "안정시 호흡과 심호흡을 비교한다.",
+      "maneuver": "흡기/호기, 기침, 체간 회전에서 통증 위치와 양상을 확인한다.",
+      "positive_definition": "국소적으로 재현 가능한 chest-wall pain이 호흡/움직임에 따라 변하면 기록한다.",
+      "interpretation_note": "intercostal/chest-wall mechanical source를 지지할 수 있다.",
+      "limitation": "호흡곤란, 흉통, 저산소증, 발열 등 심폐 red flag가 있으면 MSK 판단보다 의학적 평가가 우선이다.",
+      "related_diagnosis_concept_ids": [
+        "d105",
+        "d109"
+      ]
+    },
+    {
+      "clinical_test_id": "ct104",
+      "name_ko": "Intercostal sensory mapping",
+      "name_en": "Intercostal dermatomal sensory mapping",
+      "category": "thoracic_neuro",
+      "target_structure_ids": [
+        "n036"
+      ],
+      "setup": "흉벽/복벽의 통증·저림 분포를 좌우 비교한다.",
+      "maneuver": "가벼운 촉각/핀프릭 등 표준 감각검사를 dermatomal pattern으로 확인한다.",
+      "positive_definition": "band-like dermatomal sensory change가 일관되게 나타나면 기록한다.",
+      "interpretation_note": "thoracic radiculopathy/intercostal neuralgia 후보를 구분하는 보조 소견이다.",
+      "limitation": "dermatome overlap이 크고 herpes zoster, visceral referral 등도 감별해야 한다.",
+      "related_diagnosis_concept_ids": [
+        "d106",
+        "d107"
+      ],
+      "evidence_refs": [
+        "thoracic_radiculopathy_2024"
+      ]
+    },
+    {
+      "clinical_test_id": "ct105",
+      "name_ko": "흉추 신경학적 red-flag 선별",
+      "name_en": "Thoracic neurologic red-flag screen",
+      "category": "safety",
+      "target_structure_ids": [
+        "n037"
+      ],
+      "setup": "보행, 하지 근력·감각·반사, sphincter 변화, sensory level을 확인한다.",
+      "maneuver": "척수병증/진행성 신경결손을 시사하는 소견을 찾는다.",
+      "positive_definition": "새로운 gait disturbance, UMN sign, sensory level, 진행성 하지약화 또는 sphincter 이상이 있으면 red flag로 기록한다.",
+      "interpretation_note": "routine mechanical thoracic pain보다 MRI/전문의 평가 우선순위를 높인다.",
+      "limitation": "정상 선별검사가 모든 척수병변을 배제하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d108",
+        "d112"
+      ],
+      "evidence_refs": [
+        "acr_thoracic_2024"
+      ]
+    },
+    {
+      "clinical_test_id": "ct106",
+      "name_ko": "Wall push-up 견갑익상 평가",
+      "name_en": "Wall push-up scapular winging assessment",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "m064",
+        "n008",
+        "j022"
+      ],
+      "setup": "벽을 향해 서서 양손으로 wall push-up을 시행한다.",
+      "maneuver": "견갑 내측연/하각의 winging과 serratus anterior 활성 좌우 차이를 관찰한다.",
+      "positive_definition": "동작 중 일관된 medial scapular winging 또는 명확한 serratus weakness가 있으면 기록한다.",
+      "interpretation_note": "long thoracic nerve/serratus anterior dysfunction 후보를 지지한다.",
+      "limitation": "견갑 dyskinesis는 피로·통증·운동조절 영향도 있어 원인 확정 금지.",
+      "related_diagnosis_concept_ids": [
+        "d110"
+      ]
+    },
+    {
+      "clinical_test_id": "ct107",
+      "name_ko": "저항성 serratus punch",
+      "name_en": "Resisted serratus anterior punch",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "m064",
+        "n008"
+      ],
+      "setup": "어깨를 약 90° 굴곡하고 견갑 전인(protraction)을 시킨다.",
+      "maneuver": "전인에 저항을 주면서 힘·통증·winging을 비교한다.",
+      "positive_definition": "현저한 약화, winging 증가 또는 익숙한 periscapular pain을 기록한다.",
+      "interpretation_note": "serratus anterior functional assessment다.",
+      "limitation": "shoulder pain inhibition을 고려한다.",
+      "related_diagnosis_concept_ids": [
+        "d110"
+      ]
+    },
+    {
+      "clinical_test_id": "ct108",
+      "name_ko": "Scapular assistance test",
+      "name_en": "Scapular assistance test",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "j022",
+        "m064",
+        "m060"
+      ],
+      "setup": "팔 elevation 중 검사자가 견갑 상방회전/후방경사를 보조한다.",
+      "maneuver": "통증 또는 움직임이 개선되는지 확인한다.",
+      "positive_definition": "보조 시 증상이나 elevation이 의미 있게 개선되면 scapular contribution을 기록한다.",
+      "interpretation_note": "scapular mechanics가 증상에 기여할 가능성을 보는 수정 검사다.",
+      "limitation": "특정 근육·신경 병변의 확진검사가 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d104"
+      ]
+    },
+    {
+      "clinical_test_id": "ct109",
+      "name_ko": "Scapular retraction test",
+      "name_en": "Scapular retraction test",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "j022",
+        "m062",
+        "m063",
+        "m060"
+      ],
+      "setup": "팔 elevation/strength test 중 견갑을 후인·안정화한다.",
+      "maneuver": "증상 또는 힘의 변화를 확인한다.",
+      "positive_definition": "견갑 안정화 시 통증 감소 또는 힘 개선을 기록한다.",
+      "interpretation_note": "견갑 안정화의 기능적 기여를 평가한다.",
+      "limitation": "단독으로 dyskinesis 원인을 규정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d104"
+      ]
+    },
+    {
+      "clinical_test_id": "ct110",
+      "name_ko": "Snapping scapula 동적 관찰·촉진",
+      "name_en": "Dynamic snapping scapula observation and palpation",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "j022",
+        "b014",
+        "b015"
+      ],
+      "setup": "견갑을 반복적으로 elevation/protraction/retraction한다.",
+      "maneuver": "촉지되는 crepitus/snapping과 통증의 시간적 일치를 확인한다.",
+      "positive_definition": "환자의 익숙한 painful snapping이 견갑 움직임과 반복적으로 일치하면 기록한다.",
+      "interpretation_note": "scapulothoracic bursitis/snapping scapula 후보를 지지한다.",
+      "limitation": "무통성 crepitus는 흔할 수 있어 통증과의 일치가 중요하다.",
+      "related_diagnosis_concept_ids": [
+        "d111"
+      ]
+    },
+    {
+      "clinical_test_id": "ct111",
+      "name_ko": "흉추 paraspinal endurance/activation 평가",
+      "name_en": "Thoracic paraspinal endurance and activation assessment",
+      "category": "muscle_function",
+      "target_structure_ids": [
+        "m021",
+        "m022",
+        "m024",
+        "m025"
+      ],
+      "setup": "복와위 또는 seated low-load extension posture에서 평가한다.",
+      "maneuver": "저강도 흉추 신전 유지 시 피로, 좌우 비대칭, 국소 통증을 기록한다.",
+      "positive_definition": "조기 피로, 명확한 비대칭 또는 익숙한 paraspinal pain을 impairment로 기록한다.",
+      "interpretation_note": "erector spinae/transversospinalis 기능평가다.",
+      "limitation": "US thickness/asymmetry와 마찬가지로 병리 확진검사가 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d100",
+        "d109"
+      ]
+    },
+    {
+      "clinical_test_id": "ct112",
+      "name_ko": "Intercostal muscle resisted trunk/respiration provocation",
+      "name_en": "Intercostal muscle load provocation",
+      "category": "chest_wall",
+      "target_structure_ids": [
+        "m032",
+        "m033",
+        "m034"
+      ],
+      "setup": "통증 없는 범위에서 체간 회전/측굴과 깊은 호흡을 시행한다.",
+      "maneuver": "흉벽 국소 통증의 재현과 호흡 단계 의존성을 본다.",
+      "positive_definition": "국소 intercostal space의 익숙한 통증이 부하에 따라 재현되면 기록한다.",
+      "interpretation_note": "intercostal/chest-wall strain 후보를 지지한다.",
+      "limitation": "갈비뼈 골절·폐/흉막·심장 원인을 배제하지 못한다.",
+      "related_diagnosis_concept_ids": [
+        "d105"
+      ]
+    },
+    {
+      "clinical_test_id": "ct113",
+      "name_ko": "횡격막 호흡 패턴 관찰",
+      "name_en": "Diaphragmatic breathing pattern assessment",
+      "category": "respiratory_muscle",
+      "target_structure_ids": [
+        "m037"
+      ],
+      "setup": "앙와위 또는 반좌위에서 조용한 호흡과 깊은 호흡을 관찰한다.",
+      "maneuver": "상흉부 우세/복부 움직임, 호흡곤란, 좌우 흉곽 움직임을 관찰한다.",
+      "positive_definition": "현저한 비대칭 또는 호흡근 과사용이 있으면 기능적 소견으로 기록한다.",
+      "interpretation_note": "respiratory muscle function의 선별이며 diaphragm US와 연계 가능하다.",
+      "limitation": "호흡기 질환의 진단검사가 아니며 dyspnea/red flag는 별도 평가한다.",
+      "related_diagnosis_concept_ids": [
+        "d109"
+      ]
+    },
+    {
+      "clinical_test_id": "ct114",
+      "name_ko": "흉추 통증 red-flag 통합 선별",
+      "name_en": "Integrated thoracic pain red-flag screen",
+      "category": "safety",
+      "target_structure_ids": [],
+      "setup": "외상, 골다공증, 암/감염/면역저하, 발열, 야간통, 체중감소, 흉통/호흡곤란, 신경학적 이상을 확인한다.",
+      "maneuver": "중대한 골성·감염성·종양성·척수성·심폐 원인의 가능성을 우선 평가한다.",
+      "positive_definition": "의미 있는 red flag가 있으면 routine MSK 경로보다 적절한 영상/응급/전문의 평가를 우선한다.",
+      "interpretation_note": "2024 ACR thoracic back pain guideline의 조기 imaging 고려 조건을 반영한다.",
+      "limitation": "red flag 하나가 특정 중증질환을 확정하는 것은 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d108",
+        "d112"
+      ],
+      "evidence_refs": [
+        "acr_thoracic_2024"
+      ]
+    }
+  ]
+}
