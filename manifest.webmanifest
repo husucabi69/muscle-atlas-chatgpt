@@ -1,8 +1,8 @@
 {
-  "name": "근육학 · MSK Muscle Atlas",
-  "short_name": "근육학",
+  "name": "이윤석정형외과 근육",
+  "short_name": "이윤석정형외과 근육",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "정형외과 Muscle Atlas · Global QA Stage 11 Complete · Oral Viva · Patient Education · v9.1",
+  "description": "이윤석정형외과 근육 · Muscle Atlas · Real Oral Viva · 환자 운동·스트레칭 · v9.2",
   "start_url": "/muscle-atlas-chatgpt/?source=pwa",
   "scope": "/muscle-atlas-chatgpt/",
   "display": "fullscreen",
@@ -30,6 +30,7 @@
   "prefer_related_applications": false,
   "categories": [
     "medical",
-    "education"
+    "education",
+    "health"
   ]
 }
