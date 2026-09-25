@@ -10,7 +10,7 @@
 <link rel="manifest" href="/muscle-atlas-chatgpt/manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>근육학 · MSK Muscle Atlas</title>
+<title>이윤석정형외과 근육</title>
 <style>
 :root{--bg:#fff;--ink:#18212b;--muted:#667085;--line:#e6ebf2;--soft:#f8fafc;--blue:#214fc6;--green:#0f766e;--red:#b42318;--amber:#9a6700;--shadow:0 12px 34px rgba(16,24,40,.08)}
 *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo","Segoe UI",sans-serif}
@@ -95,6 +95,29 @@ button,input{font:inherit} button{cursor:pointer}
 .exercise-card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:10px 0}
 .exercise-card h4{margin:0 0 8px;font-size:19px}.exercise-card ol{margin:8px 0 8px 22px;padding:0;line-height:1.75}.exercise-card p{line-height:1.75}
 .education-source{display:block;margin-top:6px;font-size:13px;line-height:1.5}
+.patient-tab{font-weight:800;border-color:#b7d8cf;background:#f2fbf8}
+.patient-entry{margin:18px 0 4px;padding:16px;border:1px solid #cce7df;border-radius:18px;background:#f5fffc;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.patient-entry-btn{font-size:17px}.patient-entry span{color:#47625b;line-height:1.6}
+.patient-hero{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 0 10px}.patient-hero h2{font-size:38px;margin:6px 0 8px;letter-spacing:-.045em}.patient-hero p{font-size:18px;line-height:1.7;color:var(--muted);margin:0;max-width:850px}
+.patient-kicker{display:inline-block;background:#eaf8f3;color:#0b6b5d;padding:5px 10px;border-radius:999px;font-weight:800;font-size:13px}
+.patient-warning{border:1px solid #efc3bd;background:#fff8f7;border-radius:16px;padding:15px 16px;line-height:1.75;margin:12px 0}
+.patient-help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.patient-help-grid>div{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff}.patient-help-grid b{display:block;font-size:18px;margin-bottom:6px}.patient-help-grid span{color:var(--muted);line-height:1.6}
+.clinician-note{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:14px 0;color:#475467}.clinician-note summary{cursor:pointer;font-weight:750}
+.exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:10px;margin:10px 0 12px}.exercise-figure svg{width:100%;max-width:420px;height:auto;display:block;margin:auto}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:4px}
+.patient-step-label{display:inline-block;font-weight:800;margin-bottom:4px}.patient-caution{border-left:4px solid #d92d20;background:#fff8f7;padding:10px 12px;border-radius:8px;line-height:1.65;margin-top:10px}
+.print-only{display:none}
+@media(max-width:900px){.patient-help-grid{grid-template-columns:1fr}.patient-hero{align-items:flex-start;flex-direction:column}.patient-hero h2{font-size:31px}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body.printing-education *{visibility:hidden!important}
+  body.printing-education #educationDetail,body.printing-education #educationDetail *{visibility:visible!important}
+  body.printing-education #educationDetail{position:absolute;left:0;top:0;width:100%;display:block!important}
+  body.printing-education .no-print{display:none!important}
+  body.printing-education .print-only{display:block!important}
+  body.printing-education .exercise-card{break-inside:avoid;box-shadow:none;border:1px solid #bbb;margin:10px 0}
+  body.printing-education .exercise-figure{break-inside:avoid}
+  body.printing-education a{color:#000;text-decoration:none}
+}
 @media(max-width:900px){.oral-controls{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.oral-controls{grid-template-columns:1fr}}
 
@@ -123,13 +146,13 @@ button,input{font:inherit} button{cursor:pointer}
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v9.1 · Global QA Stage 11 Complete</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="이윤석정형외과 근육"><div><h1>이윤석정형외과 근육</h1><small>Muscle Atlas · Clinical Learning</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
+      <button class="tab patient-tab" data-page="education">환자 운동·스트레칭</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
       <button class="tab" data-page="regions">해부학 부위</button>
       <button class="tab" data-page="clinical">임상 모듈</button>
-      <button class="tab" data-page="education">환자교육</button>
       <button class="tab" data-page="quiz">퀴즈</button>
       <button class="tab" data-page="oral">오랄 테스트</button>
     </div>
@@ -145,6 +168,10 @@ button,input{font:inherit} button{cursor:pointer}
   <div class="hero">
     <h2>근육 이름이 아니라<br>증상에서 시작하도록 바꿨습니다.</h2>
     <p>전신 205개 근육과 Stage 1~10 임상 모듈을 <b>해부학 → 증상 → 진찰 → 실제 초음파 → 감별 → 퀴즈 → Oral Viva → 환자교육</b>까지 전수 QA했습니다.</p>
+    <div class="patient-entry">
+      <button class="primary patient-entry-btn" onclick="activatePage('education')">환자용 운동·스트레칭 바로가기</button>
+      <span>부위와 근육을 고르면 쉬운 설명, 주의사항, 인쇄용 운동 그림을 볼 수 있습니다.</span>
+    </div>
     <div class="quick">
       <button class="pill" onclick="openSymptom('sx01')">외측 어깨 통증</button>
       <button class="pill" onclick="openSymptom('sx04')">견갑 내측 통증</button>
@@ -333,32 +360,45 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 
-<section id="education" class="page">
-  <div class="section-title"><h3>환자교육 · 스트레칭/강화운동</h3><span>근거 등급 표시 · 근육별 계층</span></div>
-  <div class="note">
-    <b>정본 원칙</b><br>
-    모든 205개 근육에 교육 상태를 연결하되, 해당 근육 하나만을 선택적으로 치료한다는 직접 근거가 없으면 억지로 운동을 만들지 않습니다.
-    A=직접 CPG/RCT 또는 강한 질환·근육군 근거, B=부위/근육군 근거, C=직접 근거 제한/교육용입니다.
-    수술 후, 급성 파열, 진행성 신경학적 이상, 흉통·호흡곤란 등은 일반 운동자료보다 개별 진료 프로토콜이 우선입니다.
+<section id="education" class="page patient-page">
+  <div class="patient-hero">
+    <div>
+      <span class="patient-kicker">환자용</span>
+      <h2>운동 · 스트레칭</h2>
+      <p>아픈 부위와 근육을 고르면 <b>어떻게 하는지 → 얼마나 하는지 → 언제 멈춰야 하는지</b>를 쉽게 설명합니다.</p>
+    </div>
+    <button class="pill" onclick="printCurrentEducation()">현재 운동표 인쇄</button>
   </div>
-  <div id="educationRegionChooser" class="region-chooser" style="margin-top:16px"></div>
+  <div class="patient-warning">
+    <b>먼저 확인하세요.</b>
+    운동 중 새로 생긴 심한 저림·마비·근력저하, 심한 야간통과 발열, 갑작스러운 파열 느낌이나 큰 멍, 흉통·호흡곤란, 심한 복통이 있으면 운동을 계속하지 말고 진료를 받으세요.
+  </div>
+  <div class="patient-help-grid">
+    <div><b>1. 부위를 고르세요</b><span>목, 어깨, 허리, 무릎, 발처럼 먼저 부위를 선택합니다.</span></div>
+    <div><b>2. 근육을 고르세요</b><span>모르면 진료실에서 알려드린 근육 이름을 찾으세요.</span></div>
+    <div><b>3. 천천히 따라 하세요</b><span>그림과 순서대로 하되 통증을 억지로 참지 않습니다.</span></div>
+  </div>
+  <details class="clinician-note"><summary>의료진·근거 정보 보기</summary>
+    <p>A=직접 CPG/RCT 또는 강한 질환·근육군 근거, B=부위/근육군 근거, C=직접 근거 제한/교육용입니다. 개별 근육만의 치료효과가 검증되지 않은 경우 억지로 운동을 만들지 않습니다.</p>
+  </details>
+  <div id="educationRegionChooser" class="region-chooser patient-region-grid" style="margin-top:18px"></div>
   <div id="educationMusclesPanel" class="region-muscles-panel" hidden>
-    <button class="region-back" type="button" onclick="closeEducationRegion()">← 부위 목록</button>
+    <button class="region-back" type="button" onclick="closeEducationRegion()">← 부위 다시 고르기</button>
     <div class="region-panel-head"><h3 id="educationRegionTitle"></h3><span id="educationRegionCount"></span></div>
     <div id="educationMuscleList" class="region-list"></div>
   </div>
-  <div id="educationDetail" hidden></div>
+  <div id="educationDetail" class="printable-education" hidden></div>
 </section>
 
 <section id="oral" class="page">
-  <div class="section-title"><h3>오랄 테스트 · Viva</h3><span>말로 대답 → 즉시 채점·교정</span></div>
+  <div class="section-title"><h3>오랄 테스트 · Real Viva</h3><span>해부학 → 기능추론 → 촉진 → 임상 → 초음파</span></div>
   <div class="card">
-    <h3>친구 → 선생님 → 선배 → 대가</h3>
-    <p>정본 Origin · Insertion · Function · Nerve를 기준으로 질문합니다. Android Chrome/PWA에서 음성인식이 지원되면 마이크로 대답할 수 있고, 지원되지 않으면 같은 칸에 입력하면 됩니다.</p>
+    <h3>친구 · 동료 · 선배 · 대가가 실제로 묻는 방식</h3>
+    <p>O/I/F/N만 반복하지 않습니다. 기본 해부학, 설명을 듣고 근육 맞히기, 촉진·MMT, 관련 증상과 감별, 초음파 view까지 섞어서 묻고 답변 직후 시험관 스타일로 교정합니다.</p>
     <div class="oral-controls">
       <div><label>부위</label><select id="oralRegion"><option value="all">전체 부위</option></select></div>
-      <div><label>시험관 수준</label><select id="oralLevel"><option value="friend">친구 · 기본 1문항</option><option value="teacher" selected>선생님 · O/I/F/N 1문항</option><option value="senior">선배 · 2개 항목 연결</option><option value="master">대가 · O/I/F/N 통합</option></select></div>
-      <div><label>유형</label><select id="oralField"><option value="mixed">혼합</option><option value="origin">Origin · 기시</option><option value="insertion">Insertion · 정지</option><option value="function">Function · 기능</option><option value="nerve">Nerve · 신경지배</option></select></div>
+      <div><label>시험관</label><select id="oralLevel"><option value="friend">친구 · 편하게 확인</option><option value="colleague" selected>동료 · 실전 체크</option><option value="senior">선배 · 이유까지 추궁</option><option value="master">대가 · 통합 viva</option></select></div>
+      <div><label>질문 분야</label><select id="oralField"><option value="mixed">완전 혼합</option><option value="anatomy">기시·정지·신경</option><option value="function">기능·움직임</option><option value="exam">촉진·MMT</option><option value="clinical">증상·감별</option><option value="ultrasound">초음파 연결</option><option value="reverse">설명 보고 근육 맞히기</option></select></div>
       <button class="primary" onclick="clearOralFixed();startOralSession()">10문제 시작</button>
     </div>
   </div>
