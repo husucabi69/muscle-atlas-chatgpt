@@ -1,0 +1,13 @@
+{
+  "contract_version": "1.0.0",
+  "error": {
+    "code": "PATIENT_CONTEXT_FORBIDDEN",
+    "message": "Muscle Atlas read-only knowledge contract does not accept patient or encounter context.",
+    "rejected_fields": [
+      "patient_id",
+      "encounter_id",
+      "laterality",
+      "performed_status"
+    ]
+  }
+}
