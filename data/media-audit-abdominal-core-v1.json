@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "abdominal_core_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "All Stage 10 ultrasound views are tied to actual open scientific ultrasound figures or figure groups. No generated B-mode substitute is used. Dynamic hernia views preserve original publication context.",
+  "coverage": {
+    "views_total": 15,
+    "embedded_verified": 0,
+    "exact_figure_reference": 15,
+    "unverified": 0
+  },
+  "stage10_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv117",
+      "status": "verified_fixed_reference",
+      "title": "Anterior abdominal-wall panoramic view",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+      "figure_label": "Figure 1",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv118",
+      "status": "verified_fixed_reference",
+      "title": "Rectus abdominis longitudinal/panoramic",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+      "figure_label": "Figure 2",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv119",
+      "status": "verified_fixed_reference",
+      "title": "EO-IO-TrA lateral abdominal wall",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+      "figure_label": "Figure 3",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv120",
+      "status": "verified_fixed_reference",
+      "title": "EO-IO-TrA rest versus contraction",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044981/",
+      "figure_label": "Figure 2",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv121",
+      "status": "verified_fixed_reference",
+      "title": "Rectus abdominis rest versus contraction",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044981/",
+      "figure_label": "Figure 3",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv122",
+      "status": "verified_fixed_reference",
+      "title": "Inter-recti distance",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044981/",
+      "figure_label": "Figure 4",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv123",
+      "status": "verified_fixed_reference",
+      "title": "Umbilical hernia",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+      "figure_label": "Figure 4",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv124",
+      "status": "verified_fixed_reference",
+      "title": "Paraumbilical hernia",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+      "figure_label": "Figure 5",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv125",
+      "status": "verified_fixed_reference",
+      "title": "Incisional hernia",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+      "figure_label": "Figure 7",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv126",
+      "status": "verified_fixed_reference",
+      "title": "Spigelian/semilunar-line ultrasound",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4582530/",
+      "figure_label": "Case figures / sonographic series",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv127",
+      "status": "verified_fixed_reference",
+      "title": "Inguinal posterior wall at rest",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941212/",
+      "figure_label": "Figure 2",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv128",
+      "status": "verified_fixed_reference",
+      "title": "Inguinal posterior wall during Valsalva",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941212/",
+      "figure_label": "Figures 3-4",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv129",
+      "status": "verified_fixed_reference",
+      "title": "Direct/indirect inguinal landmark ultrasound",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9262670/",
+      "figure_label": "Pictorial figures",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv130",
+      "status": "verified_fixed_reference",
+      "title": "Ilioinguinal and iliohypogastric nerves",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13463367/",
+      "figure_label": "Figure 2",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv131",
+      "status": "verified_fixed_reference",
+      "title": "Anterior cutaneous nerve corridor / rectus sheath anatomy",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+      "figure_label": "Figures 1-3 anatomy/US context",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    }
+  ]
+}

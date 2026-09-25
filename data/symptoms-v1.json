@@ -1166,5 +1166,127 @@
       "m046"
     ],
     "symptomGroupId": "sg009"
+  },
+  {
+    "id": "sx57",
+    "title": "한 손가락으로 짚을 수 있는 국소 복벽통",
+    "summary": "abdominal wall pain, ACNES, rectus strain과 visceral cause를 구분하는 경로입니다.",
+    "conditions": "abdominal wall pain, anterior cutaneous nerve entrapment, rectus strain, visceral/peritoneal pain 감별.",
+    "nerves": "thoracoabdominal anterior cutaneous branches",
+    "ultrasound": "rectus sheath/rectus border corridor와 focal abdominal-wall lesion을 확인하되 ACNES는 임상진단 중심.",
+    "muscles": [
+      "복직근",
+      "외복사근",
+      "내복사근",
+      "복횡근"
+    ],
+    "muscleIds": [
+      "m179",
+      "m181",
+      "m182",
+      "m183"
+    ],
+    "symptomGroupId": "sg010"
+  },
+  {
+    "id": "sx58",
+    "title": "운동·기침 후 복부/옆구리 근육통",
+    "summary": "rectus/oblique strain과 hematoma, visceral mimic을 구분하는 경로입니다.",
+    "conditions": "rectus abdominis strain, oblique strain, abdominal-wall hematoma/tear, visceral mimic 감별.",
+    "nerves": "thoracoabdominal nerves",
+    "ultrasound": "RA/EO/IO/TrA muscle continuity, focal edema/collection을 확인.",
+    "muscles": [
+      "복직근",
+      "외복사근",
+      "내복사근",
+      "복횡근"
+    ],
+    "muscleIds": [
+      "m179",
+      "m181",
+      "m182",
+      "m183"
+    ],
+    "symptomGroupId": "sg010"
+  },
+  {
+    "id": "sx59",
+    "title": "배 중앙이 벌어지거나 힘줄 때 doming",
+    "summary": "rectus diastasis와 true midline hernia를 구분하는 경로입니다.",
+    "conditions": "rectus diastasis, umbilical/paraumbilical hernia 감별.",
+    "nerves": "not primarily neural",
+    "ultrasound": "inter-recti distance, linea alba continuity, focal defect/content를 표준 위치와 rest/contraction에서 확인.",
+    "muscles": [
+      "복직근",
+      "복횡근"
+    ],
+    "muscleIds": [
+      "m179",
+      "m183"
+    ],
+    "symptomGroupId": "sg010"
+  },
+  {
+    "id": "sx60",
+    "title": "기침·Valsalva에서 생기는 복벽/서혜부 bulge",
+    "summary": "umbilical, incisional, Spigelian, inguinal hernia를 동적으로 구분합니다.",
+    "conditions": "umbilical/paraumbilical hernia, incisional hernia, Spigelian hernia, inguinal hernia; incarceration/strangulation red flag.",
+    "nerves": "ilioinguinal/iliohypogastric nerves are anatomical neighbors, not proof of hernia pain.",
+    "ultrasound": "dynamic standing/Valsalva scan with defect, content, inferior epigastric vessel relation.",
+    "muscles": [
+      "복직근",
+      "외복사근",
+      "내복사근",
+      "복횡근"
+    ],
+    "muscleIds": [
+      "m179",
+      "m181",
+      "m182",
+      "m183"
+    ],
+    "symptomGroupId": "sg010"
+  },
+  {
+    "id": "sx61",
+    "title": "운동선수의 치골·서혜부 하복부 통증",
+    "summary": "athletic groin pain/inguinal disruption과 true hernia, oblique strain을 구분하는 경로입니다.",
+    "conditions": "athletic groin pain/inguinal disruption, true inguinal hernia, abdominal oblique strain, adductor/hip/pubic mimic 감별.",
+    "nerves": "ilioinguinal/iliohypogastric region may contribute to symptoms but is not automatically causal.",
+    "ultrasound": "posterior inguinal wall rest/Valsalva, inferior epigastric vessel landmark, abdominal-wall muscle/aponeurosis.",
+    "muscles": [
+      "복직근",
+      "외복사근",
+      "내복사근",
+      "복횡근"
+    ],
+    "muscleIds": [
+      "m179",
+      "m181",
+      "m182",
+      "m183"
+    ],
+    "symptomGroupId": "sg010"
+  },
+  {
+    "id": "sx62",
+    "title": "복통과 전신·위장관 red flag",
+    "summary": "근골격 복벽통으로 오인하면 안 되는 visceral/peritoneal 또는 complicated hernia를 우선 분리합니다.",
+    "conditions": "visceral/peritoneal disease, incarcerated/strangulated hernia, bowel obstruction, systemic illness 감별.",
+    "nerves": "not a peripheral nerve diagnosis pathway.",
+    "ultrasound": "MSK ultrasound만으로 중대 visceral disease를 배제하지 않으며 적절한 medical/surgical imaging이 우선.",
+    "muscles": [
+      "복직근",
+      "외복사근",
+      "내복사근",
+      "복횡근"
+    ],
+    "muscleIds": [
+      "m179",
+      "m181",
+      "m182",
+      "m183"
+    ],
+    "symptomGroupId": "sg010"
   }
 ]

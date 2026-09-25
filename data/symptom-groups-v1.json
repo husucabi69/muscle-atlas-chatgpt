@@ -160,6 +160,23 @@
         "sx56"
       ],
       "status": "active"
+    },
+    {
+      "symptom_group_id": "sg010",
+      "name_ko": "복벽·서혜부·코어",
+      "key": "abdominal_wall_groin_core",
+      "region_ids": [
+        "r014"
+      ],
+      "symptom_ids": [
+        "sx57",
+        "sx58",
+        "sx59",
+        "sx60",
+        "sx61",
+        "sx62"
+      ],
+      "status": "active"
     }
   ]
 }
