@@ -45,6 +45,7 @@
 
 ## 개발 운영
 - 개발은 dev branch에서 한다.
+- 정본 Stage 12 dev branch: `dev/stage12-readonly-integration-20260925`. 과거 stage11/stage12 divergent branch는 참고용이며 merge하지 않는다.
 - 회귀검사 PASS 후에만 main으로 병합한다.
 - main은 설치형 학습 앱의 stable release다.
 - 다음 개발 세션은 위 표에서 가장 앞의 미완료 단계부터 재개한다.
@@ -56,8 +57,8 @@ Stage 1 — 어깨·견갑대·상완
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
 Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
 Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 12 OrthoOS Read-only 준비
-목표 완료일: 2027-02-20
+현재 개발: Stage 12 COMPLETE — OrthoOS Read-only Integration Contract v1
+완료일: 2026-09-25
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -517,3 +518,31 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 - [x] Pages SUCCESS — run 36115110890
 
 다음 공식 개발: Stage 12 — OrthoOS Read-only Integration Contract.
+
+
+## Stage 12 완료 기록
+완료일: 2026-09-25
+상태: COMPLETE — OrthoOS Read-only Integration Contract v1
+
+- [x] 정본 dev branch를 `dev/stage12-readonly-integration-20260925`로 단일화
+- [x] 과거 divergent Stage 11/12 branch는 참고용으로 격리, wholesale merge 금지
+- [x] contract_version 1.0.0 / status stable_v1
+- [x] schema_version 1.0.0 / Knowledge Core dataset 2026.09.25-j pin
+- [x] Patient Education dataset 2026.09.25-c pin
+- [x] Stage 11 QA 2026.09.25-stage11-v2 pin
+- [x] Media audit 2026.09.25-v9.3 pin
+- [x] GET-only static read-only bundle
+- [x] POST / PUT / PATCH / DELETE 금지
+- [x] Stable-ID entity lookup / relationship lookup fixture
+- [x] diagnosis concept = general-knowledge candidate only
+- [x] clinical finding/test = 지식 정의만 제공, patient observed/performed status 추론 금지
+- [x] patient laterality 추론 금지
+- [x] PHI / patient / encounter context 금지 및 rejection fixture
+- [x] OrthoOS가 patient-specific confirmation과 canonical patient data를 소유
+- [x] integration-contract-qa.mjs 자동검사
+- [x] 기존 Global QA workflow에 Stage 12 QA 연결
+- [x] first PR contract gate run 36117428765 PASS
+
+### 통합 경계
+Muscle Atlas repo/runtime/data는 OrthoOS와 합치지 않는다.
+Stage 12는 versioned read-only knowledge contract만 제공하며 실제 환자 workflow는 OrthoOS Clinical Integration Layer가 소유한다.

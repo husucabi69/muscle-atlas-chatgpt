@@ -1,0 +1,100 @@
+{
+  "contract_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.09.25-j",
+  "knowledge_class": "general_msk_knowledge",
+  "patient_context_included": false,
+  "entity_type": "diagnosis_concept",
+  "stable_id": "d001",
+  "clinical_semantics": "Knowledge candidate only. This object does not assert that any patient has supraspinatus tendinopathy.",
+  "entity": {
+    "diagnosis_concept_id": "d001",
+    "entity_type": "diagnosis_concept",
+    "name_ko": "극상건병증",
+    "name_en": "Supraspinatus tendinopathy",
+    "region_id": "r005",
+    "status": "active"
+  },
+  "relationships": [
+    {
+      "relationship_id": "rel_0091",
+      "from_type": "clinical_finding",
+      "from_id": "f002",
+      "relation": "SUPPORTS_CONSIDERATION_OF",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0093",
+      "from_type": "diagnosis_concept",
+      "from_id": "d001",
+      "relation": "INVOLVES",
+      "to_type": "tendon",
+      "to_id": "t001"
+    },
+    {
+      "relationship_id": "rel_0108",
+      "from_type": "clinical_test",
+      "from_id": "ct001",
+      "relation": "SUPPORTS_CONSIDERATION_OF",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0114",
+      "from_type": "clinical_test",
+      "from_id": "ct002",
+      "relation": "SUPPORTS_CONSIDERATION_OF",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0120",
+      "from_type": "clinical_test",
+      "from_id": "ct003",
+      "relation": "SUPPORTS_CONSIDERATION_OF",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0162",
+      "from_type": "clinical_test",
+      "from_id": "ct010",
+      "relation": "SUPPORTS_CONSIDERATION_OF",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0168",
+      "from_type": "clinical_test",
+      "from_id": "ct011",
+      "relation": "SUPPORTS_CONSIDERATION_OF",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0199",
+      "from_type": "clinical_finding",
+      "from_id": "f001",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0204",
+      "from_type": "clinical_finding",
+      "from_id": "f002",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    },
+    {
+      "relationship_id": "rel_0219",
+      "from_type": "clinical_finding",
+      "from_id": "f008",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d001"
+    }
+  ]
+}
