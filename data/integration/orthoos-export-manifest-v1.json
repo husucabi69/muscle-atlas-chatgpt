@@ -56,5 +56,14 @@
     "ultrasound_view",
     "content_asset",
     "relationship"
+  ],
+  "patient_education_dataset_version": "2026.09.25-c",
+  "global_qa_audit_version": "2026.09.25-stage11",
+  "media_license_audit_version": "2026.09.25-stage11-b",
+  "fixtures": [
+    "data/integration/fixtures/entity-request-m070.json",
+    "data/integration/fixtures/entity-response-m070.json",
+    "data/integration/fixtures/entity-response-d001-candidate.json",
+    "data/integration/fixtures/error-patient-context-forbidden.json"
   ]
 }
