@@ -1,0 +1,275 @@
+{
+  "contract_id": "muscle-atlas-orthoos-readonly",
+  "contract_version": "1.0.0",
+  "status": "stable_contract_candidate",
+  "provider": {
+    "name": "Muscle Atlas / MSK Knowledge Layer",
+    "repository": "husucabi69/muscle-atlas-chatgpt",
+    "mode": "patient-independent knowledge provider"
+  },
+  "consumer": {
+    "name": "LYS OrthoOS Clinical Integration Layer"
+  },
+  "transport_profile": {
+    "current": "static_read_only_bundle",
+    "allowed_http_methods": [
+      "GET"
+    ],
+    "prohibited_http_methods": [
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "atlas_base_path": "/muscle-atlas-chatgpt/",
+    "manifest_path": "data/integration/orthoos-export-manifest-v1.json",
+    "knowledge_core_path": "data/knowledge-core-v1.json",
+    "patient_education_path": "data/patient-exercise-library-v1.json",
+    "adapter_api_shape": {
+      "owner": "LYS OrthoOS integration layer, not Muscle Atlas runtime",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/integration/msk/v1/manifest",
+          "purpose": "Return pinned contract/schema/dataset versions and source paths."
+        },
+        {
+          "method": "GET",
+          "path": "/integration/msk/v1/entities/{entity_type}/{stable_id}",
+          "purpose": "Resolve one general-knowledge entity by canonical Stable ID."
+        },
+        {
+          "method": "GET",
+          "path": "/integration/msk/v1/entities/{entity_type}/{stable_id}/relationships",
+          "purpose": "Return general-knowledge graph relationships for the entity."
+        }
+      ]
+    }
+  },
+  "version_pin": {
+    "schema_version": "1.0.0",
+    "dataset_version": "2026.09.25-j",
+    "contract_version": "1.0.0",
+    "rule": "Consumer records the versions used for each knowledge lookup. A dataset update never mutates the meaning of an existing Stable ID."
+  },
+  "ownership_boundary": {
+    "atlas_owns": [
+      "region",
+      "muscle",
+      "symptom_group",
+      "symptom_pattern",
+      "tendon",
+      "nerve",
+      "joint",
+      "bursa",
+      "ligament",
+      "fascia",
+      "clinical_finding",
+      "clinical_test",
+      "diagnosis_concept",
+      "ultrasound_view",
+      "content_asset",
+      "relationship",
+      "patient-independent patient-education exercise profiles and evidence metadata"
+    ],
+    "orthoos_owns": [
+      "Patient",
+      "Encounter",
+      "Problem",
+      "Clinical Note",
+      "patient-specific Diagnosis",
+      "Order",
+      "Result",
+      "Treatment/PT",
+      "Billing/Claim",
+      "performed-test status",
+      "patient laterality",
+      "patient-specific assessment and plan",
+      "clinician confirmation"
+    ],
+    "forbidden_in_atlas": [
+      "patient_name",
+      "patient_id",
+      "encounter_id",
+      "medical_record_number",
+      "resident_registration_number",
+      "patient-specific laterality",
+      "performed/unperformed status",
+      "patient-specific diagnosis status",
+      "patient note",
+      "patient image/audio/transcript"
+    ]
+  },
+  "entity_catalog": {
+    "region": {
+      "collection": "regions",
+      "stable_id_field": "region_id"
+    },
+    "muscle": {
+      "collection": "muscles",
+      "stable_id_field": "muscle_id"
+    },
+    "symptom_group": {
+      "collection": "symptom_groups",
+      "stable_id_field": "symptom_group_id"
+    },
+    "symptom_pattern": {
+      "collection": "symptom_patterns",
+      "stable_id_field": "symptom_id"
+    },
+    "tendon": {
+      "collection": "tendons",
+      "stable_id_field": "tendon_id"
+    },
+    "nerve": {
+      "collection": "nerves",
+      "stable_id_field": "nerve_id"
+    },
+    "joint": {
+      "collection": "joints",
+      "stable_id_field": "joint_id"
+    },
+    "bursa": {
+      "collection": "bursae",
+      "stable_id_field": "bursa_id"
+    },
+    "ligament": {
+      "collection": "ligaments",
+      "stable_id_field": "ligament_id"
+    },
+    "fascia": {
+      "collection": "fasciae",
+      "stable_id_field": "fascia_id"
+    },
+    "clinical_finding": {
+      "collection": "clinical_findings",
+      "stable_id_field": "finding_id"
+    },
+    "clinical_test": {
+      "collection": "clinical_tests",
+      "stable_id_field": "clinical_test_id"
+    },
+    "diagnosis_concept": {
+      "collection": "diagnosis_concepts",
+      "stable_id_field": "diagnosis_concept_id"
+    },
+    "ultrasound_view": {
+      "collection": "ultrasound_views",
+      "stable_id_field": "ultrasound_view_id"
+    },
+    "content_asset": {
+      "collection": "content_assets",
+      "stable_id_field": "content_asset_id"
+    },
+    "relationship": {
+      "collection": "relationships",
+      "stable_id_field": "relationship_id"
+    }
+  },
+  "clinical_semantics": {
+    "diagnosis_concept": "General knowledge candidate only. Never represents a patient-confirmed diagnosis.",
+    "clinical_finding": "Definition/knowledge object only. Never means the finding was observed in a patient.",
+    "clinical_test": "Test definition and interpretation knowledge only. Atlas never marks a test performed, positive, negative, or not performed for a patient.",
+    "symptom_pattern": "Educational knowledge pattern only. It does not assert that a patient has the symptom.",
+    "ultrasound_view": "Educational acquisition/interpretation knowledge only. It is not a patient image/result.",
+    "laterality": "Atlas must not infer patient laterality. Any patient-specific laterality is created and owned by OrthoOS.",
+    "clinician_confirmation": "Any patient-specific use in OrthoOS requires clinician/user confirmation according to OrthoOS workflow."
+  },
+  "entity_request": {
+    "required": [
+      "entity_type",
+      "stable_id"
+    ],
+    "optional": [
+      "schema_version",
+      "dataset_version"
+    ],
+    "prohibited": [
+      "patient_id",
+      "encounter_id",
+      "patient_name",
+      "laterality",
+      "performed_status",
+      "test_result",
+      "diagnosis_status",
+      "clinical_note"
+    ],
+    "example": {
+      "entity_type": "muscle",
+      "stable_id": "m070",
+      "schema_version": "1.0.0",
+      "dataset_version": "2026.09.25-j"
+    }
+  },
+  "response_envelope": {
+    "required": [
+      "contract_version",
+      "schema_version",
+      "dataset_version",
+      "knowledge_class",
+      "entity_type",
+      "stable_id",
+      "entity"
+    ],
+    "constants": {
+      "knowledge_class": "general_msk_knowledge",
+      "patient_context_included": false
+    },
+    "relationship_behavior": "Relationships may be returned separately; all endpoints remain knowledge-only and read-only."
+  },
+  "errors": [
+    {
+      "code": "INVALID_ENTITY_TYPE",
+      "http_status": 400
+    },
+    {
+      "code": "INVALID_STABLE_ID",
+      "http_status": 400
+    },
+    {
+      "code": "PATIENT_CONTEXT_FORBIDDEN",
+      "http_status": 400
+    },
+    {
+      "code": "VERSION_MISMATCH",
+      "http_status": 409
+    },
+    {
+      "code": "ENTITY_NOT_FOUND",
+      "http_status": 404
+    }
+  ],
+  "versioning": {
+    "stable_id_rule": "Display-name/content corrections do not change Stable ID.",
+    "id_reuse": "forbidden",
+    "non_breaking": "Content additions/corrections and new entities may advance dataset_version without schema major change.",
+    "breaking": "Removing/renaming required contract fields, changing Stable-ID meaning, or incompatible type changes require a new contract/schema major version.",
+    "deprecation": "Deprecated IDs remain resolvable where feasible and are never reassigned to another meaning."
+  },
+  "security_privacy": {
+    "phi_allowed": false,
+    "patient_context_allowed": false,
+    "auth_material_in_bundle": false,
+    "api_keys_in_client": false,
+    "writable_credentials_in_atlas": false
+  },
+  "supplemental_datasets": {
+    "patient_education": {
+      "path": "data/patient-exercise-library-v1.json",
+      "dataset_version": "2026.09.25-c",
+      "semantics": "patient-independent education/rehabilitation knowledge",
+      "patient_specific_prescription_owner": "LYS OrthoOS / clinician-confirmed workflow"
+    },
+    "media_license_audit": {
+      "path": "data/media-license-global-audit-v1.json",
+      "audit_version": "2026.09.25-v9.3",
+      "semantics": "source/reuse metadata only; no patient imaging"
+    }
+  },
+  "fixtures": [
+    "data/integration/fixtures/entity-request-m070.json",
+    "data/integration/fixtures/entity-response-m070.json",
+    "data/integration/fixtures/entity-response-d001-candidate.json",
+    "data/integration/fixtures/error-patient-context-forbidden.json"
+  ]
+}
