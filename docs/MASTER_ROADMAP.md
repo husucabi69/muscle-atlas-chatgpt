@@ -49,8 +49,8 @@ Stage 1 — 어깨·견갑대·상완
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
 Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
 Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 5 무릎·대퇴
-목표 완료일: 2026-11-20
+현재 개발: Stage 6 하퇴·발목·발
+목표 완료일: 2026-12-05
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -252,3 +252,17 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - Actual ultrasound canonical reference audit 14/14
 - Knee/Thigh clinical quiz 30
 - 다음 공식 단계: Stage 6 — 하퇴·발목·발
+
+
+## Stage 6 완료 기록
+완료일: 2026-09-25
+상태: COMPLETE — Leg/Ankle/Foot Stage 6
+- Calf / Achilles
+- Anterior, medial and lateral ankle tendons
+- ATFL / CFL / syndesmosis
+- Tarsal tunnel and plantar nerve branches
+- Plantar fascia and intrinsic foot
+- Forefoot web-space / first MTP
+- Actual ultrasound canonical reference audit 18/18
+- Leg/Ankle/Foot clinical quiz 30
+- 다음 공식 단계: Stage 7 — 경추
