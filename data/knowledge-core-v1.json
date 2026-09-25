@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.25-f",
+  "dataset_version": "2026.09.25-g",
   "ownership": {
     "owner": "Muscle Atlas / MSK Knowledge Layer",
     "contains_patient_data": false,
@@ -5403,6 +5403,109 @@
       ],
       "symptom_group_id": "sg002",
       "status": "active"
+    },
+    {
+      "symptom_id": "sx44",
+      "entity_type": "symptom_pattern",
+      "title_ko": "중앙/편측 흉추·등 통증",
+      "summary_ko": "흉추 고유근, 후관절, 중대병리 red flag를 함께 구분하는 기본 경로입니다.",
+      "conditions_text": "nonspecific/mechanical thoracic pain, thoracic facet candidate, paraspinal myofascial dysfunction, serious pathology red flag 감별.",
+      "nerves_text": "thoracic dorsal rami context",
+      "ultrasound_text": "thoracic intrinsic paraspinal layers와 facet contour를 교육적으로 확인.",
+      "related_muscle_ids": [
+        "m021",
+        "m022",
+        "m024",
+        "m025",
+        "m026"
+      ],
+      "symptom_group_id": "sg008",
+      "status": "active"
+    },
+    {
+      "symptom_id": "sx45",
+      "entity_type": "symptom_pattern",
+      "title_ko": "견갑 내측-흉추 사이 찌르는 통증",
+      "summary_ko": "Costotransverse/costovertebral joint와 rhomboid·serratus posterior·erector spinae를 함께 보는 경로입니다.",
+      "conditions_text": "costotransverse joint pain/inflammation, costovertebral/rib mechanical pain, thoracic myofascial pain 감별.",
+      "nerves_text": "thoracic dorsal rami/intercostal nerve context",
+      "ultrasound_text": "CTJ long/short axes, posterior ligament, adjacent paraspinal muscle layers를 확인.",
+      "related_muscle_ids": [
+        "m022",
+        "m025",
+        "m030",
+        "m062",
+        "m063"
+      ],
+      "symptom_group_id": "sg008",
+      "status": "active"
+    },
+    {
+      "symptom_id": "sx46",
+      "entity_type": "symptom_pattern",
+      "title_ko": "띠 모양 흉벽·옆구리 통증/저림",
+      "summary_ko": "thoracic radiculopathy와 intercostal neuralgia, chest-wall strain을 구분하는 경로입니다.",
+      "conditions_text": "thoracic radiculopathy, intercostal neuralgia, intercostal strain, herpes zoster/visceral mimic 감별.",
+      "nerves_text": "intercostal nerves, thoracic roots/dorsal rami",
+      "ultrasound_text": "intercostal muscle layers와 neurovascular bundle landmark를 확인하되 root compression 진단은 MRI/EDX 임상맥락 필요.",
+      "related_muscle_ids": [
+        "m032",
+        "m033",
+        "m034"
+      ],
+      "symptom_group_id": "sg008",
+      "status": "active"
+    },
+    {
+      "symptom_id": "sx47",
+      "entity_type": "symptom_pattern",
+      "title_ko": "견갑 움직임 시 마찰·snapping/통증",
+      "summary_ko": "scapular dyskinesis, serratus/long thoracic dysfunction, snapping scapula/bursal pain을 구분하는 경로입니다.",
+      "conditions_text": "scapular dyskinesis, long thoracic/serratus dysfunction, snapping scapula/scapulothoracic bursitis candidate 감별.",
+      "nerves_text": "long thoracic nerve, dorsal scapular nerve, spinal accessory nerve",
+      "ultrasound_text": "trapezius-rhomboid-scapular border와 serratus anterior chest-wall layers를 확인.",
+      "related_muscle_ids": [
+        "m060",
+        "m062",
+        "m063",
+        "m064",
+        "m068"
+      ],
+      "symptom_group_id": "sg008",
+      "status": "active"
+    },
+    {
+      "symptom_id": "sx48",
+      "entity_type": "symptom_pattern",
+      "title_ko": "심호흡·기침·체간회전 시 흉벽통",
+      "summary_ko": "intercostal/chest-wall strain과 rib/CTJ 원인, 심폐·흉막 red flag를 구분하는 경로입니다.",
+      "conditions_text": "intercostal muscle strain, rib mechanical pain, CTJ pain; cardiopulmonary/pleural serious causes must be excluded when indicated.",
+      "nerves_text": "intercostal nerves",
+      "ultrasound_text": "intercostal layers, rib/pleura, diaphragm respiratory motion을 확인.",
+      "related_muscle_ids": [
+        "m032",
+        "m033",
+        "m034",
+        "m037"
+      ],
+      "symptom_group_id": "sg008",
+      "status": "active"
+    },
+    {
+      "symptom_id": "sx49",
+      "entity_type": "symptom_pattern",
+      "title_ko": "흉추통과 동반된 보행·하지 신경학적 이상",
+      "summary_ko": "thoracic myelopathy와 radiculopathy, 중대병리를 놓치지 않기 위한 red-flag 경로입니다.",
+      "conditions_text": "thoracic myelopathy/cord lesion, thoracic radiculopathy, fracture/infection/neoplasm 등 감별.",
+      "nerves_text": "thoracic cord/root/dorsal ramus context",
+      "ultrasound_text": "초음파는 cord compression 진단 도구가 아니며 MRI가 핵심 영상.",
+      "related_muscle_ids": [
+        "m024",
+        "m025",
+        "m026"
+      ],
+      "symptom_group_id": "sg008",
+      "status": "active"
     }
   ],
   "tendons": [
@@ -6124,6 +6227,22 @@
       "name_en": "Superficial cervical plexus sensory branches",
       "region_id": "r001",
       "status": "active"
+    },
+    {
+      "nerve_id": "n036",
+      "entity_type": "nerve",
+      "name_ko": "늑간신경",
+      "name_en": "Intercostal nerve",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "nerve_id": "n037",
+      "entity_type": "nerve",
+      "name_ko": "흉신경 후지",
+      "name_en": "Thoracic dorsal ramus",
+      "region_id": "r002",
+      "status": "active"
     }
   ],
   "joints": [
@@ -6270,6 +6389,39 @@
       "name_en": "Cervical zygapophyseal joint complex",
       "region_id": "r001",
       "status": "active"
+    },
+    {
+      "joint_id": "j019",
+      "entity_type": "joint",
+      "name_ko": "흉추 후관절 복합체",
+      "name_en": "Thoracic zygapophyseal joint complex",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "joint_id": "j020",
+      "entity_type": "joint",
+      "name_ko": "늑횡돌기관절",
+      "name_en": "Costotransverse joint",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "joint_id": "j021",
+      "entity_type": "joint",
+      "name_ko": "늑척추관절",
+      "name_en": "Costovertebral joint",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "joint_id": "j022",
+      "entity_type": "joint",
+      "name_ko": "견갑흉곽 관절면",
+      "name_en": "Scapulothoracic articulation",
+      "region_id": "r004",
+      "status": "active",
+      "note": "functional articulation, not a true synovial joint"
     }
   ],
   "bursae": [
@@ -6376,6 +6528,24 @@
       "name_en": "Intermetatarsal bursa",
       "region_id": "r013",
       "status": "active"
+    },
+    {
+      "bursa_id": "b014",
+      "entity_type": "bursa",
+      "name_ko": "견갑흉곽 상전거근 점액낭",
+      "name_en": "Supraserratus scapulothoracic bursal plane",
+      "region_id": "r004",
+      "status": "active",
+      "note": "potential/variable bursal plane"
+    },
+    {
+      "bursa_id": "b015",
+      "entity_type": "bursa",
+      "name_ko": "견갑흉곽 하전거근 점액낭",
+      "name_en": "Infraserratus scapulothoracic bursal plane",
+      "region_id": "r004",
+      "status": "active",
+      "note": "potential/variable bursal plane"
     }
   ],
   "ligaments": [
@@ -6521,6 +6691,30 @@
       "name_ko": "익상인대",
       "name_en": "Alar ligament",
       "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "ligament_id": "lig019",
+      "entity_type": "ligament",
+      "name_ko": "후/외측 늑횡돌인대",
+      "name_en": "Posterior/lateral costotransverse ligament",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ligament_id": "lig020",
+      "entity_type": "ligament",
+      "name_ko": "상늑횡돌인대",
+      "name_en": "Superior costotransverse ligament",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ligament_id": "lig021",
+      "entity_type": "ligament",
+      "name_ko": "늑골두 방사인대",
+      "name_en": "Radiate ligament of head of rib",
+      "region_id": "r002",
       "status": "active"
     }
   ],
@@ -7195,6 +7389,118 @@
       "name_ko": "진행성 신경학적 결손/척수병증 red flag",
       "key": "progressive_neurologic_red_flag",
       "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f085",
+      "entity_type": "clinical_finding",
+      "name_ko": "흉추 회전 제한/비대칭",
+      "key": "thoracic_rotation_restriction",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f086",
+      "entity_type": "clinical_finding",
+      "name_ko": "신전-회전에서 편측 국소 흉추통",
+      "key": "thoracic_extension_rotation_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f087",
+      "entity_type": "clinical_finding",
+      "name_ko": "늑골 spring에서 익숙한 통증 재현",
+      "key": "rib_spring_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f088",
+      "entity_type": "clinical_finding",
+      "name_ko": "Costotransverse 국소 압통/호흡 통증",
+      "key": "costotransverse_local_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f089",
+      "entity_type": "clinical_finding",
+      "name_ko": "심호흡·기침 시 국소 흉벽통",
+      "key": "respiratory_chest_wall_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f090",
+      "entity_type": "clinical_finding",
+      "name_ko": "band-like dermatomal 감각이상",
+      "key": "thoracic_dermatomal_sensory_change",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f091",
+      "entity_type": "clinical_finding",
+      "name_ko": "하지 UMN sign/감각수준/보행이상",
+      "key": "thoracic_myelopathy_signs",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f092",
+      "entity_type": "clinical_finding",
+      "name_ko": "동적 견갑익상",
+      "key": "dynamic_scapular_winging",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "finding_id": "f093",
+      "entity_type": "clinical_finding",
+      "name_ko": "견갑 보조 시 증상 개선",
+      "key": "scapular_assistance_improves_symptoms",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "finding_id": "f094",
+      "entity_type": "clinical_finding",
+      "name_ko": "통증성 scapulothoracic snapping",
+      "key": "painful_scapulothoracic_snapping",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "finding_id": "f095",
+      "entity_type": "clinical_finding",
+      "name_ko": "흉추 paraspinal 조기 피로/비대칭",
+      "key": "thoracic_paraspinal_dysfunction",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f096",
+      "entity_type": "clinical_finding",
+      "name_ko": "intercostal load pain",
+      "key": "intercostal_load_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f097",
+      "entity_type": "clinical_finding",
+      "name_ko": "호흡 패턴 비대칭/호흡근 과사용",
+      "key": "respiratory_muscle_pattern_abnormality",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f098",
+      "entity_type": "clinical_finding",
+      "name_ko": "흉추 중대병리 red flag",
+      "key": "thoracic_serious_red_flag",
+      "region_id": "r002",
       "status": "active"
     }
   ],
@@ -9448,6 +9754,364 @@
       "entity_type": "clinical_test",
       "region_id": "r001",
       "status": "active"
+    },
+    {
+      "clinical_test_id": "ct099",
+      "name_ko": "흉추 회전 ROM 평가",
+      "name_en": "Thoracic rotation range-of-motion assessment",
+      "category": "thoracic_mechanical",
+      "target_structure_ids": [
+        "j019"
+      ],
+      "setup": "좌위 또는 네발기기에서 골반/요추 보상을 최소화한다.",
+      "maneuver": "좌우 흉추 회전을 비교하고 익숙한 통증·제한을 기록한다.",
+      "positive_definition": "명확한 비대칭 또는 익숙한 국소 흉추통이 재현되면 impairment로 기록한다.",
+      "interpretation_note": "기계적 흉추통의 기능평가이며 특정 관절 병변의 확진검사가 아니다.",
+      "limitation": "견관절·요추·고관절 보상에 영향을 받는다.",
+      "related_diagnosis_concept_ids": [
+        "d100",
+        "d101"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct100",
+      "name_ko": "흉추 신전-회전 통증유발 평가",
+      "name_en": "Thoracic extension-rotation pain provocation",
+      "category": "facet_candidate",
+      "target_structure_ids": [
+        "j019"
+      ],
+      "setup": "좌위에서 안전한 범위로 흉추 신전과 회전을 결합한다.",
+      "maneuver": "편측 후방/주변 통증의 재현을 확인한다.",
+      "positive_definition": "일관된 편측 국소 통증이 재현되면 thoracic facet-related pain 후보로 기록한다.",
+      "interpretation_note": "facet-mediated pain 가능성을 조정하는 보조 소견이다.",
+      "limitation": "단독 확진 금지; 신경학적·흉곽·내과적 원인을 함께 본다.",
+      "related_diagnosis_concept_ids": [
+        "d101"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct101",
+      "name_ko": "늑골 spring / PA provocation",
+      "name_en": "Rib spring and posterior-anterior provocation",
+      "category": "rib_costotransverse",
+      "target_structure_ids": [
+        "j020",
+        "j021"
+      ],
+      "setup": "복와위 또는 좌위에서 증상 늑골/흉추 level을 확인한다.",
+      "maneuver": "늑골 angle 또는 posterior rib에 부드러운 PA pressure를 가해 통증과 좌우 차이를 본다.",
+      "positive_definition": "환자의 익숙한 국소 paravertebral/rib pain이 재현되면 기록한다.",
+      "interpretation_note": "rib-costotransverse/costovertebral mechanical pain 후보를 지지할 수 있다.",
+      "limitation": "검사 재현성·진단정확도 근거가 제한적이며 골절 의심 시 강한 provocation을 피한다.",
+      "related_diagnosis_concept_ids": [
+        "d102",
+        "d103"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct102",
+      "name_ko": "Costotransverse 국소 촉진·호흡 연동 평가",
+      "name_en": "Costotransverse palpation with respiratory provocation",
+      "category": "costotransverse",
+      "target_structure_ids": [
+        "j020",
+        "lig019",
+        "lig020"
+      ],
+      "setup": "상부/중부 흉추 paravertebral rib-transverse process junction을 촉진한다.",
+      "maneuver": "국소 압통과 깊은 호흡·기침·흉곽 회전 시 증상 변화를 확인한다.",
+      "positive_definition": "CTJ 위치의 국소 통증이 움직임/호흡과 일관되게 재현되면 기록한다.",
+      "interpretation_note": "CTJ involvement 후보를 만든다.",
+      "limitation": "US effusion/ligament thickening과 통증 위치의 상관이 보고됐지만 촉진만으로 진단하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d102"
+      ],
+      "evidence_refs": [
+        "ctj_us"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct103",
+      "name_ko": "흉곽 심호흡 통증유발 평가",
+      "name_en": "Deep-inspiration chest-wall pain provocation",
+      "category": "chest_wall",
+      "target_structure_ids": [
+        "m032",
+        "m033",
+        "m034",
+        "m037"
+      ],
+      "setup": "안정시 호흡과 심호흡을 비교한다.",
+      "maneuver": "흡기/호기, 기침, 체간 회전에서 통증 위치와 양상을 확인한다.",
+      "positive_definition": "국소적으로 재현 가능한 chest-wall pain이 호흡/움직임에 따라 변하면 기록한다.",
+      "interpretation_note": "intercostal/chest-wall mechanical source를 지지할 수 있다.",
+      "limitation": "호흡곤란, 흉통, 저산소증, 발열 등 심폐 red flag가 있으면 MSK 판단보다 의학적 평가가 우선이다.",
+      "related_diagnosis_concept_ids": [
+        "d105",
+        "d109"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct104",
+      "name_ko": "Intercostal sensory mapping",
+      "name_en": "Intercostal dermatomal sensory mapping",
+      "category": "thoracic_neuro",
+      "target_structure_ids": [
+        "n036"
+      ],
+      "setup": "흉벽/복벽의 통증·저림 분포를 좌우 비교한다.",
+      "maneuver": "가벼운 촉각/핀프릭 등 표준 감각검사를 dermatomal pattern으로 확인한다.",
+      "positive_definition": "band-like dermatomal sensory change가 일관되게 나타나면 기록한다.",
+      "interpretation_note": "thoracic radiculopathy/intercostal neuralgia 후보를 구분하는 보조 소견이다.",
+      "limitation": "dermatome overlap이 크고 herpes zoster, visceral referral 등도 감별해야 한다.",
+      "related_diagnosis_concept_ids": [
+        "d106",
+        "d107"
+      ],
+      "evidence_refs": [
+        "thoracic_radiculopathy_2024"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct105",
+      "name_ko": "흉추 신경학적 red-flag 선별",
+      "name_en": "Thoracic neurologic red-flag screen",
+      "category": "safety",
+      "target_structure_ids": [
+        "n037"
+      ],
+      "setup": "보행, 하지 근력·감각·반사, sphincter 변화, sensory level을 확인한다.",
+      "maneuver": "척수병증/진행성 신경결손을 시사하는 소견을 찾는다.",
+      "positive_definition": "새로운 gait disturbance, UMN sign, sensory level, 진행성 하지약화 또는 sphincter 이상이 있으면 red flag로 기록한다.",
+      "interpretation_note": "routine mechanical thoracic pain보다 MRI/전문의 평가 우선순위를 높인다.",
+      "limitation": "정상 선별검사가 모든 척수병변을 배제하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d108",
+        "d112"
+      ],
+      "evidence_refs": [
+        "acr_thoracic_2024"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct106",
+      "name_ko": "Wall push-up 견갑익상 평가",
+      "name_en": "Wall push-up scapular winging assessment",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "m064",
+        "n008",
+        "j022"
+      ],
+      "setup": "벽을 향해 서서 양손으로 wall push-up을 시행한다.",
+      "maneuver": "견갑 내측연/하각의 winging과 serratus anterior 활성 좌우 차이를 관찰한다.",
+      "positive_definition": "동작 중 일관된 medial scapular winging 또는 명확한 serratus weakness가 있으면 기록한다.",
+      "interpretation_note": "long thoracic nerve/serratus anterior dysfunction 후보를 지지한다.",
+      "limitation": "견갑 dyskinesis는 피로·통증·운동조절 영향도 있어 원인 확정 금지.",
+      "related_diagnosis_concept_ids": [
+        "d110"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct107",
+      "name_ko": "저항성 serratus punch",
+      "name_en": "Resisted serratus anterior punch",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "m064",
+        "n008"
+      ],
+      "setup": "어깨를 약 90° 굴곡하고 견갑 전인(protraction)을 시킨다.",
+      "maneuver": "전인에 저항을 주면서 힘·통증·winging을 비교한다.",
+      "positive_definition": "현저한 약화, winging 증가 또는 익숙한 periscapular pain을 기록한다.",
+      "interpretation_note": "serratus anterior functional assessment다.",
+      "limitation": "shoulder pain inhibition을 고려한다.",
+      "related_diagnosis_concept_ids": [
+        "d110"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct108",
+      "name_ko": "Scapular assistance test",
+      "name_en": "Scapular assistance test",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "j022",
+        "m064",
+        "m060"
+      ],
+      "setup": "팔 elevation 중 검사자가 견갑 상방회전/후방경사를 보조한다.",
+      "maneuver": "통증 또는 움직임이 개선되는지 확인한다.",
+      "positive_definition": "보조 시 증상이나 elevation이 의미 있게 개선되면 scapular contribution을 기록한다.",
+      "interpretation_note": "scapular mechanics가 증상에 기여할 가능성을 보는 수정 검사다.",
+      "limitation": "특정 근육·신경 병변의 확진검사가 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d104"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct109",
+      "name_ko": "Scapular retraction test",
+      "name_en": "Scapular retraction test",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "j022",
+        "m062",
+        "m063",
+        "m060"
+      ],
+      "setup": "팔 elevation/strength test 중 견갑을 후인·안정화한다.",
+      "maneuver": "증상 또는 힘의 변화를 확인한다.",
+      "positive_definition": "견갑 안정화 시 통증 감소 또는 힘 개선을 기록한다.",
+      "interpretation_note": "견갑 안정화의 기능적 기여를 평가한다.",
+      "limitation": "단독으로 dyskinesis 원인을 규정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d104"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct110",
+      "name_ko": "Snapping scapula 동적 관찰·촉진",
+      "name_en": "Dynamic snapping scapula observation and palpation",
+      "category": "scapulothoracic",
+      "target_structure_ids": [
+        "j022",
+        "b014",
+        "b015"
+      ],
+      "setup": "견갑을 반복적으로 elevation/protraction/retraction한다.",
+      "maneuver": "촉지되는 crepitus/snapping과 통증의 시간적 일치를 확인한다.",
+      "positive_definition": "환자의 익숙한 painful snapping이 견갑 움직임과 반복적으로 일치하면 기록한다.",
+      "interpretation_note": "scapulothoracic bursitis/snapping scapula 후보를 지지한다.",
+      "limitation": "무통성 crepitus는 흔할 수 있어 통증과의 일치가 중요하다.",
+      "related_diagnosis_concept_ids": [
+        "d111"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct111",
+      "name_ko": "흉추 paraspinal endurance/activation 평가",
+      "name_en": "Thoracic paraspinal endurance and activation assessment",
+      "category": "muscle_function",
+      "target_structure_ids": [
+        "m021",
+        "m022",
+        "m024",
+        "m025"
+      ],
+      "setup": "복와위 또는 seated low-load extension posture에서 평가한다.",
+      "maneuver": "저강도 흉추 신전 유지 시 피로, 좌우 비대칭, 국소 통증을 기록한다.",
+      "positive_definition": "조기 피로, 명확한 비대칭 또는 익숙한 paraspinal pain을 impairment로 기록한다.",
+      "interpretation_note": "erector spinae/transversospinalis 기능평가다.",
+      "limitation": "US thickness/asymmetry와 마찬가지로 병리 확진검사가 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d100",
+        "d109"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct112",
+      "name_ko": "Intercostal muscle resisted trunk/respiration provocation",
+      "name_en": "Intercostal muscle load provocation",
+      "category": "chest_wall",
+      "target_structure_ids": [
+        "m032",
+        "m033",
+        "m034"
+      ],
+      "setup": "통증 없는 범위에서 체간 회전/측굴과 깊은 호흡을 시행한다.",
+      "maneuver": "흉벽 국소 통증의 재현과 호흡 단계 의존성을 본다.",
+      "positive_definition": "국소 intercostal space의 익숙한 통증이 부하에 따라 재현되면 기록한다.",
+      "interpretation_note": "intercostal/chest-wall strain 후보를 지지한다.",
+      "limitation": "갈비뼈 골절·폐/흉막·심장 원인을 배제하지 못한다.",
+      "related_diagnosis_concept_ids": [
+        "d105"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct113",
+      "name_ko": "횡격막 호흡 패턴 관찰",
+      "name_en": "Diaphragmatic breathing pattern assessment",
+      "category": "respiratory_muscle",
+      "target_structure_ids": [
+        "m037"
+      ],
+      "setup": "앙와위 또는 반좌위에서 조용한 호흡과 깊은 호흡을 관찰한다.",
+      "maneuver": "상흉부 우세/복부 움직임, 호흡곤란, 좌우 흉곽 움직임을 관찰한다.",
+      "positive_definition": "현저한 비대칭 또는 호흡근 과사용이 있으면 기능적 소견으로 기록한다.",
+      "interpretation_note": "respiratory muscle function의 선별이며 diaphragm US와 연계 가능하다.",
+      "limitation": "호흡기 질환의 진단검사가 아니며 dyspnea/red flag는 별도 평가한다.",
+      "related_diagnosis_concept_ids": [
+        "d109"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "clinical_test_id": "ct114",
+      "name_ko": "흉추 통증 red-flag 통합 선별",
+      "name_en": "Integrated thoracic pain red-flag screen",
+      "category": "safety",
+      "target_structure_ids": [],
+      "setup": "외상, 골다공증, 암/감염/면역저하, 발열, 야간통, 체중감소, 흉통/호흡곤란, 신경학적 이상을 확인한다.",
+      "maneuver": "중대한 골성·감염성·종양성·척수성·심폐 원인의 가능성을 우선 평가한다.",
+      "positive_definition": "의미 있는 red flag가 있으면 routine MSK 경로보다 적절한 영상/응급/전문의 평가를 우선한다.",
+      "interpretation_note": "2024 ACR thoracic back pain guideline의 조기 imaging 고려 조건을 반영한다.",
+      "limitation": "red flag 하나가 특정 중증질환을 확정하는 것은 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d108",
+        "d112"
+      ],
+      "evidence_refs": [
+        "acr_thoracic_2024"
+      ],
+      "entity_type": "clinical_test",
+      "region_id": "r002",
+      "status": "active"
     }
   ],
   "diagnosis_concepts": [
@@ -10241,6 +10905,110 @@
       "name_ko": "급성 경추 외상·Whiplash-associated disorder 후보",
       "name_en": "Acute cervical trauma / whiplash-associated disorder candidate",
       "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d100",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "비특이적/기계적 흉추통",
+      "name_en": "Nonspecific or mechanical thoracic back pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d101",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추 후관절성 통증 후보",
+      "name_en": "Thoracic facet-mediated pain candidate",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d102",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Costotransverse joint 통증/염증 후보",
+      "name_en": "Costotransverse joint pain or inflammation candidate",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d103",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Costovertebral/rib mechanical pain 후보",
+      "name_en": "Costovertebral or rib mechanical pain candidate",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d104",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견갑흉곽 운동이상",
+      "name_en": "Scapular dyskinesis / scapulothoracic motor-control impairment",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d105",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "늑간근/흉벽 strain",
+      "name_en": "Intercostal or chest-wall muscle strain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d106",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "늑간신경통",
+      "name_en": "Intercostal neuralgia",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d107",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추 신경근병증",
+      "name_en": "Thoracic radiculopathy",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d108",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추 척수병증/중대한 신경학적 병변 후보",
+      "name_en": "Thoracic myelopathy or serious neurologic lesion candidate",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d109",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추·흉벽 근막/호흡근 기능장애",
+      "name_en": "Thoracic myofascial or respiratory-muscle dysfunction",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d110",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "전거근/장흉신경 기능장애",
+      "name_en": "Serratus anterior / long thoracic nerve dysfunction",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d111",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Snapping scapula / 견갑흉곽 점액낭 통증",
+      "name_en": "Snapping scapula / scapulothoracic bursitis candidate",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d112",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추 중대병리 red-flag 후보",
+      "name_en": "Thoracic serious-pathology red-flag candidate",
+      "region_id": "r002",
       "status": "active"
     }
   ],
@@ -12445,6 +13213,391 @@
       "source_ref": "paraspinal_fig23",
       "entity_type": "ultrasound_view",
       "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv088",
+      "name_ko": "T5 posterior thoracic muscle layers",
+      "name_en": "T5 trapezius-rhomboid-erector spinae transverse view",
+      "target_structure_ids": [
+        "m060",
+        "m063",
+        "m021",
+        "m022",
+        "m024",
+        "m025"
+      ],
+      "patient_position": "복와위, 팔을 편안히 둔다.",
+      "probe_orientation": "T5 transverse process 수준 횡축.",
+      "landmarks": [
+        "trapezius",
+        "rhomboid major",
+        "erector spinae",
+        "transverse process",
+        "pleura lateral/deep"
+      ],
+      "normal_finding": "T5에서 trapezius-rhomboid major-erector spinae 층을 구분한다.",
+      "pitfalls": [
+        "흉막 위치를 항상 인지",
+        "probe pressure로 근두께 왜곡 가능"
+      ],
+      "source_ref": "thoracic_review_fig5a",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv089",
+      "name_ko": "T7 posterior thoracic muscle layers",
+      "name_en": "T7 erector spinae transverse view",
+      "target_structure_ids": [
+        "m060",
+        "m021",
+        "m022",
+        "m024",
+        "m025"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "T7 transverse process 수준 횡축.",
+      "landmarks": [
+        "trapezius",
+        "erector spinae",
+        "transverse process",
+        "rib",
+        "pleura"
+      ],
+      "normal_finding": "T7에서는 rhomboid major가 사라지는 층 변화를 확인한다.",
+      "pitfalls": [
+        "level counting 필요",
+        "늑골과 transverse process 음영 구분"
+      ],
+      "source_ref": "thoracic_review_fig5b",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv090",
+      "name_ko": "흉추 고유근 횡단면",
+      "name_en": "Thoracic intrinsic paraspinal muscle transverse view",
+      "target_structure_ids": [
+        "m021",
+        "m022",
+        "m024",
+        "m025",
+        "j020"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "interscapular thoracic level에서 spinous process 옆 횡축.",
+      "landmarks": [
+        "iliocostalis thoracis",
+        "longissimus thoracis",
+        "semispinalis thoracis",
+        "multifidus",
+        "costotransverse joint"
+      ],
+      "normal_finding": "lateral-to-medial/deep muscle layers를 구분한다.",
+      "pitfalls": [
+        "근육 경계는 level에 따라 달라짐",
+        "thickness/echogenicity 단독 진단 금지"
+      ],
+      "source_ref": "paraspinal_fig19",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv091",
+      "name_ko": "Trapezius-rhomboid / scapular medial border",
+      "name_en": "Trapezius-rhomboid scapulothoracic view",
+      "target_structure_ids": [
+        "m060",
+        "m062",
+        "m063",
+        "j022"
+      ],
+      "patient_position": "복와위 또는 측와위, 견갑을 약간 protraction.",
+      "probe_orientation": "견갑 내측연과 흉추 사이 oblique transverse sweep.",
+      "landmarks": [
+        "trapezius",
+        "rhomboid minor/major",
+        "medial scapular border",
+        "rib cage"
+      ],
+      "normal_finding": "trapezius 아래 rhomboid layer와 scapular border를 확인한다.",
+      "pitfalls": [
+        "levator scapulae와 rhomboid minor 혼동",
+        "scapular motion으로 layer 확인"
+      ],
+      "source_ref": "paraspinal_fig4",
+      "entity_type": "ultrasound_view",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv092",
+      "name_ko": "Serratus posterior superior",
+      "name_en": "Serratus posterior superior ultrasound",
+      "target_structure_ids": [
+        "m030",
+        "m061",
+        "m062",
+        "m063"
+      ],
+      "patient_position": "복와위 또는 측와위.",
+      "probe_orientation": "C7-T3 paraspinal에서 2–5th rib 방향 oblique.",
+      "landmarks": [
+        "levator scapulae",
+        "rhomboids",
+        "serratus posterior superior",
+        "rib"
+      ],
+      "normal_finding": "rhomboid/levator deep layer의 thin serratus posterior superior digitations를 확인한다.",
+      "pitfalls": [
+        "얇은 근육이라 anisotropy·fascial line과 혼동"
+      ],
+      "source_ref": "paraspinal_fig9",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv093",
+      "name_ko": "Thoracic facet paramedian sagittal",
+      "name_en": "Thoracic zygapophyseal joint sagittal view",
+      "target_structure_ids": [
+        "j019"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "lamina에서 약간 lateral로 이동한 paramedian sagittal plane.",
+      "landmarks": [
+        "inferior articular process",
+        "superior articular process",
+        "facet joint line",
+        "lamina"
+      ],
+      "normal_finding": "IAP와 SAP 사이 thoracic facet joint line을 확인한다.",
+      "pitfalls": [
+        "level identification 위해 T12/rib counting 활용",
+        "US는 intra-articular pathology를 완전히 평가하지 못함"
+      ],
+      "source_ref": "thoracic_review_fig1",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv094",
+      "name_ko": "Costotransverse joint transverse",
+      "name_en": "Costotransverse joint transverse view",
+      "target_structure_ids": [
+        "j020",
+        "lig019",
+        "lig020"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "target thoracic level의 transverse process와 rib를 같은 평면에 둔다.",
+      "landmarks": [
+        "transverse process",
+        "costotransverse joint",
+        "rib",
+        "lung/pleura"
+      ],
+      "normal_finding": "rib tubercle-transverse process articulation과 capsule/ligament contour를 확인한다.",
+      "pitfalls": [
+        "pleura가 바로 깊게 위치",
+        "T11-12에는 true CTJ가 없음"
+      ],
+      "source_ref": "thoracic_review_fig2",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv095",
+      "name_ko": "Costotransverse joint long/short axes",
+      "name_en": "Costotransverse joint long- and short-axis comparison",
+      "target_structure_ids": [
+        "j020",
+        "lig019"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "rib major axis와 short axis 두 평면을 비교.",
+      "landmarks": [
+        "rib",
+        "costotransverse capsule",
+        "posterior/lateral costotransverse ligament",
+        "adjacent CTJs"
+      ],
+      "normal_finding": "정상 capsule은 과도한 effusion 없이 보이며 ligament contour를 확인한다.",
+      "pitfalls": [
+        "short axis가 effusion 비교에 유리",
+        "관절액 하나도 임상 맥락과 연결"
+      ],
+      "source_ref": "ctj_fig5_6",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv096",
+      "name_ko": "Intercostal muscle layers / neurovascular bundle",
+      "name_en": "Intercostal muscle layers and neurovascular bundle",
+      "target_structure_ids": [
+        "m032",
+        "m033",
+        "m034",
+        "n036"
+      ],
+      "patient_position": "좌위 또는 측와위.",
+      "probe_orientation": "posterior-to-midaxillary intercostal space 횡/수직.",
+      "landmarks": [
+        "rib",
+        "external intercostal",
+        "internal intercostal",
+        "innermost intercostal",
+        "intercostal artery",
+        "pleura"
+      ],
+      "normal_finding": "세 intercostal muscle layer와 rib inferior margin의 neurovascular bundle 위치를 확인한다.",
+      "pitfalls": [
+        "intercostal nerve 자체는 US에서 항상 직접 보이지 않음",
+        "Color Doppler로 artery를 landmark로 사용",
+        "pleura 주의"
+      ],
+      "source_ref": "thoracic_review_fig4",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv097",
+      "name_ko": "Serratus anterior lateral chest wall",
+      "name_en": "Serratus anterior lateral chest-wall view",
+      "target_structure_ids": [
+        "m064",
+        "m068",
+        "j022"
+      ],
+      "patient_position": "앙와위 또는 측와위, 팔 외전.",
+      "probe_orientation": "mid-to-posterior axillary line의 rib 수준.",
+      "landmarks": [
+        "latissimus dorsi",
+        "teres major region",
+        "serratus anterior",
+        "rib",
+        "pleura"
+      ],
+      "normal_finding": "serratus anterior와 superficial latissimus/teres region 관계를 확인한다.",
+      "pitfalls": [
+        "long thoracic nerve는 직접 식별이 어려울 수 있음",
+        "pleura를 깊은 경계로 인지"
+      ],
+      "source_ref": "thoracic_review_fig7",
+      "entity_type": "ultrasound_view",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv098",
+      "name_ko": "Pectoralis minor-serratus chest wall layers",
+      "name_en": "Pectoralis minor-serratus anterior chest-wall layers",
+      "target_structure_ids": [
+        "m065",
+        "m064",
+        "m067"
+      ],
+      "patient_position": "앙와위, 팔 외전.",
+      "probe_orientation": "2–4th rib anterior/lateral chest wall sagittal-oblique.",
+      "landmarks": [
+        "pectoralis major",
+        "pectoralis minor",
+        "serratus anterior",
+        "rib",
+        "pleura"
+      ],
+      "normal_finding": "PM-Pm-SA 층과 fascial planes를 구분한다.",
+      "pitfalls": [
+        "thoracoacromial/axillary vascular structures를 Doppler로 구분",
+        "중재가 아닌 교육용 sonoanatomy"
+      ],
+      "source_ref": "thoracic_review_fig6",
+      "entity_type": "ultrasound_view",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv099",
+      "name_ko": "횡격막 zone of apposition B-mode",
+      "name_en": "Diaphragm zone-of-apposition B-mode",
+      "target_structure_ids": [
+        "m037"
+      ],
+      "patient_position": "앙와위 또는 반좌위.",
+      "probe_orientation": "우측 8–10th intercostal space, anterior/mid-axillary line.",
+      "landmarks": [
+        "pleural line",
+        "diaphragm muscle",
+        "peritoneal line",
+        "liver"
+      ],
+      "normal_finding": "pleura와 peritoneum 사이 3-layer diaphragm를 확인하고 end-expiration/inspiration thickness를 일관된 위치에서 측정한다.",
+      "pitfalls": [
+        "pleura/peritoneum 두께를 muscle thickness에 포함하지 않음",
+        "측정 cut-off 하나로 dysfunction 확정 금지"
+      ],
+      "source_ref": "diaphragm_fig1",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv100",
+      "name_ko": "횡격막 excursion M-mode",
+      "name_en": "Diaphragm excursion M-mode",
+      "target_structure_ids": [
+        "m037"
+      ],
+      "patient_position": "반좌위 또는 앙와위.",
+      "probe_orientation": "우측 subcostal view에서 liver acoustic window를 사용.",
+      "landmarks": [
+        "liver",
+        "diaphragmatic dome",
+        "M-mode excursion trace"
+      ],
+      "normal_finding": "quiet/deep breathing에서 inspiratory caudal excursion을 M-mode로 측정한다.",
+      "pitfalls": [
+        "angle 의존성",
+        "position/effort에 따라 정상값 변동"
+      ],
+      "source_ref": "diaphragm_review_fig1b",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "ultrasound_view_id": "usv101",
+      "name_ko": "Intercostal muscle respiratory thickness",
+      "name_en": "Intercostal muscle respiratory thickness view",
+      "target_structure_ids": [
+        "m032",
+        "m033"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "2–3rd intercostal space parasternal/anterior chest wall 횡축.",
+      "landmarks": [
+        "intercostal space",
+        "intercostal muscle layer",
+        "pleural line"
+      ],
+      "normal_finding": "흡기/호기 시 intercostal muscle thickness 변화를 동일 지점에서 확인한다.",
+      "pitfalls": [
+        "근육층 경계가 얇아 측정오차 가능",
+        "COPD 연구의 기능지표를 일반 MSK 진단 cutoff로 직접 전용하지 않음"
+      ],
+      "source_ref": "respiratory_us_fig2",
+      "entity_type": "ultrasound_view",
+      "region_id": "r002",
       "status": "active"
     }
   ],
@@ -22404,6 +23557,1630 @@
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
       "to_id": "d090"
+    },
+    {
+      "relationship_id": "rel_1177",
+      "from_type": "ultrasound_view",
+      "from_id": "usv088",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m060"
+    },
+    {
+      "relationship_id": "rel_1178",
+      "from_type": "ultrasound_view",
+      "from_id": "usv088",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m063"
+    },
+    {
+      "relationship_id": "rel_1179",
+      "from_type": "ultrasound_view",
+      "from_id": "usv088",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m021"
+    },
+    {
+      "relationship_id": "rel_1180",
+      "from_type": "ultrasound_view",
+      "from_id": "usv088",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m022"
+    },
+    {
+      "relationship_id": "rel_1181",
+      "from_type": "ultrasound_view",
+      "from_id": "usv088",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m024"
+    },
+    {
+      "relationship_id": "rel_1182",
+      "from_type": "ultrasound_view",
+      "from_id": "usv088",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1183",
+      "from_type": "ultrasound_view",
+      "from_id": "usv089",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m060"
+    },
+    {
+      "relationship_id": "rel_1184",
+      "from_type": "ultrasound_view",
+      "from_id": "usv089",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m021"
+    },
+    {
+      "relationship_id": "rel_1185",
+      "from_type": "ultrasound_view",
+      "from_id": "usv089",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m022"
+    },
+    {
+      "relationship_id": "rel_1186",
+      "from_type": "ultrasound_view",
+      "from_id": "usv089",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m024"
+    },
+    {
+      "relationship_id": "rel_1187",
+      "from_type": "ultrasound_view",
+      "from_id": "usv089",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1188",
+      "from_type": "ultrasound_view",
+      "from_id": "usv090",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m021"
+    },
+    {
+      "relationship_id": "rel_1189",
+      "from_type": "ultrasound_view",
+      "from_id": "usv090",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m022"
+    },
+    {
+      "relationship_id": "rel_1190",
+      "from_type": "ultrasound_view",
+      "from_id": "usv090",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m024"
+    },
+    {
+      "relationship_id": "rel_1191",
+      "from_type": "ultrasound_view",
+      "from_id": "usv090",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1192",
+      "from_type": "ultrasound_view",
+      "from_id": "usv090",
+      "relation": "VISUALIZES",
+      "to_type": "joint",
+      "to_id": "j020"
+    },
+    {
+      "relationship_id": "rel_1193",
+      "from_type": "ultrasound_view",
+      "from_id": "usv091",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m060"
+    },
+    {
+      "relationship_id": "rel_1194",
+      "from_type": "ultrasound_view",
+      "from_id": "usv091",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m062"
+    },
+    {
+      "relationship_id": "rel_1195",
+      "from_type": "ultrasound_view",
+      "from_id": "usv091",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m063"
+    },
+    {
+      "relationship_id": "rel_1196",
+      "from_type": "ultrasound_view",
+      "from_id": "usv091",
+      "relation": "VISUALIZES",
+      "to_type": "joint",
+      "to_id": "j022"
+    },
+    {
+      "relationship_id": "rel_1197",
+      "from_type": "ultrasound_view",
+      "from_id": "usv092",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m030"
+    },
+    {
+      "relationship_id": "rel_1198",
+      "from_type": "ultrasound_view",
+      "from_id": "usv092",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m061"
+    },
+    {
+      "relationship_id": "rel_1199",
+      "from_type": "ultrasound_view",
+      "from_id": "usv092",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m062"
+    },
+    {
+      "relationship_id": "rel_1200",
+      "from_type": "ultrasound_view",
+      "from_id": "usv092",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m063"
+    },
+    {
+      "relationship_id": "rel_1201",
+      "from_type": "ultrasound_view",
+      "from_id": "usv093",
+      "relation": "VISUALIZES",
+      "to_type": "joint",
+      "to_id": "j019"
+    },
+    {
+      "relationship_id": "rel_1202",
+      "from_type": "ultrasound_view",
+      "from_id": "usv094",
+      "relation": "VISUALIZES",
+      "to_type": "joint",
+      "to_id": "j020"
+    },
+    {
+      "relationship_id": "rel_1203",
+      "from_type": "ultrasound_view",
+      "from_id": "usv094",
+      "relation": "VISUALIZES",
+      "to_type": "ligament",
+      "to_id": "lig019"
+    },
+    {
+      "relationship_id": "rel_1204",
+      "from_type": "ultrasound_view",
+      "from_id": "usv094",
+      "relation": "VISUALIZES",
+      "to_type": "ligament",
+      "to_id": "lig020"
+    },
+    {
+      "relationship_id": "rel_1205",
+      "from_type": "ultrasound_view",
+      "from_id": "usv095",
+      "relation": "VISUALIZES",
+      "to_type": "joint",
+      "to_id": "j020"
+    },
+    {
+      "relationship_id": "rel_1206",
+      "from_type": "ultrasound_view",
+      "from_id": "usv095",
+      "relation": "VISUALIZES",
+      "to_type": "ligament",
+      "to_id": "lig019"
+    },
+    {
+      "relationship_id": "rel_1207",
+      "from_type": "ultrasound_view",
+      "from_id": "usv096",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m032"
+    },
+    {
+      "relationship_id": "rel_1208",
+      "from_type": "ultrasound_view",
+      "from_id": "usv096",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m033"
+    },
+    {
+      "relationship_id": "rel_1209",
+      "from_type": "ultrasound_view",
+      "from_id": "usv096",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m034"
+    },
+    {
+      "relationship_id": "rel_1210",
+      "from_type": "ultrasound_view",
+      "from_id": "usv096",
+      "relation": "VISUALIZES",
+      "to_type": "nerve",
+      "to_id": "n036"
+    },
+    {
+      "relationship_id": "rel_1211",
+      "from_type": "ultrasound_view",
+      "from_id": "usv097",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m064"
+    },
+    {
+      "relationship_id": "rel_1212",
+      "from_type": "ultrasound_view",
+      "from_id": "usv097",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m068"
+    },
+    {
+      "relationship_id": "rel_1213",
+      "from_type": "ultrasound_view",
+      "from_id": "usv097",
+      "relation": "VISUALIZES",
+      "to_type": "joint",
+      "to_id": "j022"
+    },
+    {
+      "relationship_id": "rel_1214",
+      "from_type": "ultrasound_view",
+      "from_id": "usv098",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m065"
+    },
+    {
+      "relationship_id": "rel_1215",
+      "from_type": "ultrasound_view",
+      "from_id": "usv098",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m064"
+    },
+    {
+      "relationship_id": "rel_1216",
+      "from_type": "ultrasound_view",
+      "from_id": "usv098",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m067"
+    },
+    {
+      "relationship_id": "rel_1217",
+      "from_type": "ultrasound_view",
+      "from_id": "usv099",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m037"
+    },
+    {
+      "relationship_id": "rel_1218",
+      "from_type": "ultrasound_view",
+      "from_id": "usv100",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m037"
+    },
+    {
+      "relationship_id": "rel_1219",
+      "from_type": "ultrasound_view",
+      "from_id": "usv101",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m032"
+    },
+    {
+      "relationship_id": "rel_1220",
+      "from_type": "ultrasound_view",
+      "from_id": "usv101",
+      "relation": "VISUALIZES",
+      "to_type": "muscle",
+      "to_id": "m033"
+    },
+    {
+      "relationship_id": "rel_1221",
+      "from_type": "diagnosis_concept",
+      "from_id": "d100",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j019"
+    },
+    {
+      "relationship_id": "rel_1222",
+      "from_type": "diagnosis_concept",
+      "from_id": "d100",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m022"
+    },
+    {
+      "relationship_id": "rel_1223",
+      "from_type": "diagnosis_concept",
+      "from_id": "d100",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1224",
+      "from_type": "diagnosis_concept",
+      "from_id": "d101",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j019"
+    },
+    {
+      "relationship_id": "rel_1225",
+      "from_type": "diagnosis_concept",
+      "from_id": "d102",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j020"
+    },
+    {
+      "relationship_id": "rel_1226",
+      "from_type": "diagnosis_concept",
+      "from_id": "d102",
+      "relation": "INVOLVES",
+      "to_type": "ligament",
+      "to_id": "lig019"
+    },
+    {
+      "relationship_id": "rel_1227",
+      "from_type": "diagnosis_concept",
+      "from_id": "d102",
+      "relation": "INVOLVES",
+      "to_type": "ligament",
+      "to_id": "lig020"
+    },
+    {
+      "relationship_id": "rel_1228",
+      "from_type": "diagnosis_concept",
+      "from_id": "d103",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j021"
+    },
+    {
+      "relationship_id": "rel_1229",
+      "from_type": "diagnosis_concept",
+      "from_id": "d103",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j020"
+    },
+    {
+      "relationship_id": "rel_1230",
+      "from_type": "diagnosis_concept",
+      "from_id": "d104",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j022"
+    },
+    {
+      "relationship_id": "rel_1231",
+      "from_type": "diagnosis_concept",
+      "from_id": "d104",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m060"
+    },
+    {
+      "relationship_id": "rel_1232",
+      "from_type": "diagnosis_concept",
+      "from_id": "d104",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m064"
+    },
+    {
+      "relationship_id": "rel_1233",
+      "from_type": "diagnosis_concept",
+      "from_id": "d105",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m032"
+    },
+    {
+      "relationship_id": "rel_1234",
+      "from_type": "diagnosis_concept",
+      "from_id": "d105",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m033"
+    },
+    {
+      "relationship_id": "rel_1235",
+      "from_type": "diagnosis_concept",
+      "from_id": "d105",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m034"
+    },
+    {
+      "relationship_id": "rel_1236",
+      "from_type": "diagnosis_concept",
+      "from_id": "d106",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n036"
+    },
+    {
+      "relationship_id": "rel_1237",
+      "from_type": "diagnosis_concept",
+      "from_id": "d107",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n036"
+    },
+    {
+      "relationship_id": "rel_1238",
+      "from_type": "diagnosis_concept",
+      "from_id": "d107",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n037"
+    },
+    {
+      "relationship_id": "rel_1239",
+      "from_type": "diagnosis_concept",
+      "from_id": "d108",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n037"
+    },
+    {
+      "relationship_id": "rel_1240",
+      "from_type": "diagnosis_concept",
+      "from_id": "d109",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m021"
+    },
+    {
+      "relationship_id": "rel_1241",
+      "from_type": "diagnosis_concept",
+      "from_id": "d109",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m022"
+    },
+    {
+      "relationship_id": "rel_1242",
+      "from_type": "diagnosis_concept",
+      "from_id": "d109",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m024"
+    },
+    {
+      "relationship_id": "rel_1243",
+      "from_type": "diagnosis_concept",
+      "from_id": "d109",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1244",
+      "from_type": "diagnosis_concept",
+      "from_id": "d109",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m037"
+    },
+    {
+      "relationship_id": "rel_1245",
+      "from_type": "diagnosis_concept",
+      "from_id": "d110",
+      "relation": "INVOLVES",
+      "to_type": "muscle",
+      "to_id": "m064"
+    },
+    {
+      "relationship_id": "rel_1246",
+      "from_type": "diagnosis_concept",
+      "from_id": "d110",
+      "relation": "INVOLVES",
+      "to_type": "nerve",
+      "to_id": "n008"
+    },
+    {
+      "relationship_id": "rel_1247",
+      "from_type": "diagnosis_concept",
+      "from_id": "d111",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j022"
+    },
+    {
+      "relationship_id": "rel_1248",
+      "from_type": "diagnosis_concept",
+      "from_id": "d111",
+      "relation": "INVOLVES",
+      "to_type": "bursa",
+      "to_id": "b014"
+    },
+    {
+      "relationship_id": "rel_1249",
+      "from_type": "diagnosis_concept",
+      "from_id": "d111",
+      "relation": "INVOLVES",
+      "to_type": "bursa",
+      "to_id": "b015"
+    },
+    {
+      "relationship_id": "rel_1250",
+      "from_type": "diagnosis_concept",
+      "from_id": "d112",
+      "relation": "INVOLVES",
+      "to_type": "joint",
+      "to_id": "j019"
+    },
+    {
+      "relationship_id": "rel_1251",
+      "from_type": "clinical_finding",
+      "from_id": "f085",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d100"
+    },
+    {
+      "relationship_id": "rel_1252",
+      "from_type": "clinical_finding",
+      "from_id": "f086",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d101"
+    },
+    {
+      "relationship_id": "rel_1253",
+      "from_type": "clinical_finding",
+      "from_id": "f087",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d102"
+    },
+    {
+      "relationship_id": "rel_1254",
+      "from_type": "clinical_finding",
+      "from_id": "f087",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d103"
+    },
+    {
+      "relationship_id": "rel_1255",
+      "from_type": "clinical_finding",
+      "from_id": "f088",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d102"
+    },
+    {
+      "relationship_id": "rel_1256",
+      "from_type": "clinical_finding",
+      "from_id": "f089",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d105"
+    },
+    {
+      "relationship_id": "rel_1257",
+      "from_type": "clinical_finding",
+      "from_id": "f090",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d106"
+    },
+    {
+      "relationship_id": "rel_1258",
+      "from_type": "clinical_finding",
+      "from_id": "f090",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d107"
+    },
+    {
+      "relationship_id": "rel_1259",
+      "from_type": "clinical_finding",
+      "from_id": "f091",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d108"
+    },
+    {
+      "relationship_id": "rel_1260",
+      "from_type": "clinical_finding",
+      "from_id": "f091",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d112"
+    },
+    {
+      "relationship_id": "rel_1261",
+      "from_type": "clinical_finding",
+      "from_id": "f092",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d110"
+    },
+    {
+      "relationship_id": "rel_1262",
+      "from_type": "clinical_finding",
+      "from_id": "f092",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d104"
+    },
+    {
+      "relationship_id": "rel_1263",
+      "from_type": "clinical_finding",
+      "from_id": "f093",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d104"
+    },
+    {
+      "relationship_id": "rel_1264",
+      "from_type": "clinical_finding",
+      "from_id": "f094",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d111"
+    },
+    {
+      "relationship_id": "rel_1265",
+      "from_type": "clinical_finding",
+      "from_id": "f095",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d100"
+    },
+    {
+      "relationship_id": "rel_1266",
+      "from_type": "clinical_finding",
+      "from_id": "f095",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d109"
+    },
+    {
+      "relationship_id": "rel_1267",
+      "from_type": "clinical_finding",
+      "from_id": "f096",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d105"
+    },
+    {
+      "relationship_id": "rel_1268",
+      "from_type": "clinical_finding",
+      "from_id": "f097",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d109"
+    },
+    {
+      "relationship_id": "rel_1269",
+      "from_type": "clinical_finding",
+      "from_id": "f098",
+      "relation": "ASSOCIATED_WITH",
+      "to_type": "diagnosis_concept",
+      "to_id": "d112"
+    },
+    {
+      "relationship_id": "rel_1270",
+      "from_type": "clinical_test",
+      "from_id": "ct099",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d100"
+    },
+    {
+      "relationship_id": "rel_1271",
+      "from_type": "clinical_test",
+      "from_id": "ct099",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d101"
+    },
+    {
+      "relationship_id": "rel_1272",
+      "from_type": "clinical_test",
+      "from_id": "ct099",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j019"
+    },
+    {
+      "relationship_id": "rel_1273",
+      "from_type": "clinical_test",
+      "from_id": "ct100",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d101"
+    },
+    {
+      "relationship_id": "rel_1274",
+      "from_type": "clinical_test",
+      "from_id": "ct100",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j019"
+    },
+    {
+      "relationship_id": "rel_1275",
+      "from_type": "clinical_test",
+      "from_id": "ct101",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d102"
+    },
+    {
+      "relationship_id": "rel_1276",
+      "from_type": "clinical_test",
+      "from_id": "ct101",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d103"
+    },
+    {
+      "relationship_id": "rel_1277",
+      "from_type": "clinical_test",
+      "from_id": "ct101",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j020"
+    },
+    {
+      "relationship_id": "rel_1278",
+      "from_type": "clinical_test",
+      "from_id": "ct101",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j021"
+    },
+    {
+      "relationship_id": "rel_1279",
+      "from_type": "clinical_test",
+      "from_id": "ct102",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d102"
+    },
+    {
+      "relationship_id": "rel_1280",
+      "from_type": "clinical_test",
+      "from_id": "ct102",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j020"
+    },
+    {
+      "relationship_id": "rel_1281",
+      "from_type": "clinical_test",
+      "from_id": "ct102",
+      "relation": "TARGETS",
+      "to_type": "ligament",
+      "to_id": "lig019"
+    },
+    {
+      "relationship_id": "rel_1282",
+      "from_type": "clinical_test",
+      "from_id": "ct102",
+      "relation": "TARGETS",
+      "to_type": "ligament",
+      "to_id": "lig020"
+    },
+    {
+      "relationship_id": "rel_1283",
+      "from_type": "clinical_test",
+      "from_id": "ct103",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d105"
+    },
+    {
+      "relationship_id": "rel_1284",
+      "from_type": "clinical_test",
+      "from_id": "ct103",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d109"
+    },
+    {
+      "relationship_id": "rel_1285",
+      "from_type": "clinical_test",
+      "from_id": "ct103",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m032"
+    },
+    {
+      "relationship_id": "rel_1286",
+      "from_type": "clinical_test",
+      "from_id": "ct103",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m033"
+    },
+    {
+      "relationship_id": "rel_1287",
+      "from_type": "clinical_test",
+      "from_id": "ct103",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m034"
+    },
+    {
+      "relationship_id": "rel_1288",
+      "from_type": "clinical_test",
+      "from_id": "ct103",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m037"
+    },
+    {
+      "relationship_id": "rel_1289",
+      "from_type": "clinical_test",
+      "from_id": "ct104",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d106"
+    },
+    {
+      "relationship_id": "rel_1290",
+      "from_type": "clinical_test",
+      "from_id": "ct104",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d107"
+    },
+    {
+      "relationship_id": "rel_1291",
+      "from_type": "clinical_test",
+      "from_id": "ct104",
+      "relation": "TARGETS",
+      "to_type": "nerve",
+      "to_id": "n036"
+    },
+    {
+      "relationship_id": "rel_1292",
+      "from_type": "clinical_test",
+      "from_id": "ct105",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d108"
+    },
+    {
+      "relationship_id": "rel_1293",
+      "from_type": "clinical_test",
+      "from_id": "ct105",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d112"
+    },
+    {
+      "relationship_id": "rel_1294",
+      "from_type": "clinical_test",
+      "from_id": "ct105",
+      "relation": "TARGETS",
+      "to_type": "nerve",
+      "to_id": "n037"
+    },
+    {
+      "relationship_id": "rel_1295",
+      "from_type": "clinical_test",
+      "from_id": "ct106",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d110"
+    },
+    {
+      "relationship_id": "rel_1296",
+      "from_type": "clinical_test",
+      "from_id": "ct106",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m064"
+    },
+    {
+      "relationship_id": "rel_1297",
+      "from_type": "clinical_test",
+      "from_id": "ct106",
+      "relation": "TARGETS",
+      "to_type": "nerve",
+      "to_id": "n008"
+    },
+    {
+      "relationship_id": "rel_1298",
+      "from_type": "clinical_test",
+      "from_id": "ct106",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j022"
+    },
+    {
+      "relationship_id": "rel_1299",
+      "from_type": "clinical_test",
+      "from_id": "ct107",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d110"
+    },
+    {
+      "relationship_id": "rel_1300",
+      "from_type": "clinical_test",
+      "from_id": "ct107",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m064"
+    },
+    {
+      "relationship_id": "rel_1301",
+      "from_type": "clinical_test",
+      "from_id": "ct107",
+      "relation": "TARGETS",
+      "to_type": "nerve",
+      "to_id": "n008"
+    },
+    {
+      "relationship_id": "rel_1302",
+      "from_type": "clinical_test",
+      "from_id": "ct108",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d104"
+    },
+    {
+      "relationship_id": "rel_1303",
+      "from_type": "clinical_test",
+      "from_id": "ct108",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j022"
+    },
+    {
+      "relationship_id": "rel_1304",
+      "from_type": "clinical_test",
+      "from_id": "ct108",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m064"
+    },
+    {
+      "relationship_id": "rel_1305",
+      "from_type": "clinical_test",
+      "from_id": "ct108",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m060"
+    },
+    {
+      "relationship_id": "rel_1306",
+      "from_type": "clinical_test",
+      "from_id": "ct109",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d104"
+    },
+    {
+      "relationship_id": "rel_1307",
+      "from_type": "clinical_test",
+      "from_id": "ct109",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j022"
+    },
+    {
+      "relationship_id": "rel_1308",
+      "from_type": "clinical_test",
+      "from_id": "ct109",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m062"
+    },
+    {
+      "relationship_id": "rel_1309",
+      "from_type": "clinical_test",
+      "from_id": "ct109",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m063"
+    },
+    {
+      "relationship_id": "rel_1310",
+      "from_type": "clinical_test",
+      "from_id": "ct109",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m060"
+    },
+    {
+      "relationship_id": "rel_1311",
+      "from_type": "clinical_test",
+      "from_id": "ct110",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d111"
+    },
+    {
+      "relationship_id": "rel_1312",
+      "from_type": "clinical_test",
+      "from_id": "ct110",
+      "relation": "TARGETS",
+      "to_type": "joint",
+      "to_id": "j022"
+    },
+    {
+      "relationship_id": "rel_1313",
+      "from_type": "clinical_test",
+      "from_id": "ct110",
+      "relation": "TARGETS",
+      "to_type": "bursa",
+      "to_id": "b014"
+    },
+    {
+      "relationship_id": "rel_1314",
+      "from_type": "clinical_test",
+      "from_id": "ct110",
+      "relation": "TARGETS",
+      "to_type": "bursa",
+      "to_id": "b015"
+    },
+    {
+      "relationship_id": "rel_1315",
+      "from_type": "clinical_test",
+      "from_id": "ct111",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d100"
+    },
+    {
+      "relationship_id": "rel_1316",
+      "from_type": "clinical_test",
+      "from_id": "ct111",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d109"
+    },
+    {
+      "relationship_id": "rel_1317",
+      "from_type": "clinical_test",
+      "from_id": "ct111",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m021"
+    },
+    {
+      "relationship_id": "rel_1318",
+      "from_type": "clinical_test",
+      "from_id": "ct111",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m022"
+    },
+    {
+      "relationship_id": "rel_1319",
+      "from_type": "clinical_test",
+      "from_id": "ct111",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m024"
+    },
+    {
+      "relationship_id": "rel_1320",
+      "from_type": "clinical_test",
+      "from_id": "ct111",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1321",
+      "from_type": "clinical_test",
+      "from_id": "ct112",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d105"
+    },
+    {
+      "relationship_id": "rel_1322",
+      "from_type": "clinical_test",
+      "from_id": "ct112",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m032"
+    },
+    {
+      "relationship_id": "rel_1323",
+      "from_type": "clinical_test",
+      "from_id": "ct112",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m033"
+    },
+    {
+      "relationship_id": "rel_1324",
+      "from_type": "clinical_test",
+      "from_id": "ct112",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m034"
+    },
+    {
+      "relationship_id": "rel_1325",
+      "from_type": "clinical_test",
+      "from_id": "ct113",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d109"
+    },
+    {
+      "relationship_id": "rel_1326",
+      "from_type": "clinical_test",
+      "from_id": "ct113",
+      "relation": "TARGETS",
+      "to_type": "muscle",
+      "to_id": "m037"
+    },
+    {
+      "relationship_id": "rel_1327",
+      "from_type": "clinical_test",
+      "from_id": "ct114",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d108"
+    },
+    {
+      "relationship_id": "rel_1328",
+      "from_type": "clinical_test",
+      "from_id": "ct114",
+      "relation": "SUPPORTS",
+      "to_type": "diagnosis_concept",
+      "to_id": "d112"
+    },
+    {
+      "relationship_id": "rel_1329",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m021"
+    },
+    {
+      "relationship_id": "rel_1330",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m022"
+    },
+    {
+      "relationship_id": "rel_1331",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m024"
+    },
+    {
+      "relationship_id": "rel_1332",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1333",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m026"
+    },
+    {
+      "relationship_id": "rel_1334",
+      "from_type": "symptom_pattern",
+      "from_id": "sx45",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m022"
+    },
+    {
+      "relationship_id": "rel_1335",
+      "from_type": "symptom_pattern",
+      "from_id": "sx45",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1336",
+      "from_type": "symptom_pattern",
+      "from_id": "sx45",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m030"
+    },
+    {
+      "relationship_id": "rel_1337",
+      "from_type": "symptom_pattern",
+      "from_id": "sx45",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m062"
+    },
+    {
+      "relationship_id": "rel_1338",
+      "from_type": "symptom_pattern",
+      "from_id": "sx45",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m063"
+    },
+    {
+      "relationship_id": "rel_1339",
+      "from_type": "symptom_pattern",
+      "from_id": "sx46",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m032"
+    },
+    {
+      "relationship_id": "rel_1340",
+      "from_type": "symptom_pattern",
+      "from_id": "sx46",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m033"
+    },
+    {
+      "relationship_id": "rel_1341",
+      "from_type": "symptom_pattern",
+      "from_id": "sx46",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m034"
+    },
+    {
+      "relationship_id": "rel_1342",
+      "from_type": "symptom_pattern",
+      "from_id": "sx47",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m060"
+    },
+    {
+      "relationship_id": "rel_1343",
+      "from_type": "symptom_pattern",
+      "from_id": "sx47",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m062"
+    },
+    {
+      "relationship_id": "rel_1344",
+      "from_type": "symptom_pattern",
+      "from_id": "sx47",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m063"
+    },
+    {
+      "relationship_id": "rel_1345",
+      "from_type": "symptom_pattern",
+      "from_id": "sx47",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m064"
+    },
+    {
+      "relationship_id": "rel_1346",
+      "from_type": "symptom_pattern",
+      "from_id": "sx47",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m068"
+    },
+    {
+      "relationship_id": "rel_1347",
+      "from_type": "symptom_pattern",
+      "from_id": "sx48",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m032"
+    },
+    {
+      "relationship_id": "rel_1348",
+      "from_type": "symptom_pattern",
+      "from_id": "sx48",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m033"
+    },
+    {
+      "relationship_id": "rel_1349",
+      "from_type": "symptom_pattern",
+      "from_id": "sx48",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m034"
+    },
+    {
+      "relationship_id": "rel_1350",
+      "from_type": "symptom_pattern",
+      "from_id": "sx48",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m037"
+    },
+    {
+      "relationship_id": "rel_1351",
+      "from_type": "symptom_pattern",
+      "from_id": "sx49",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m024"
+    },
+    {
+      "relationship_id": "rel_1352",
+      "from_type": "symptom_pattern",
+      "from_id": "sx49",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m025"
+    },
+    {
+      "relationship_id": "rel_1353",
+      "from_type": "symptom_pattern",
+      "from_id": "sx49",
+      "relation": "RELATED_TO",
+      "to_type": "muscle",
+      "to_id": "m026"
+    },
+    {
+      "relationship_id": "rel_1354",
+      "from_type": "symptom_group",
+      "from_id": "sg008",
+      "relation": "CONTAINS",
+      "to_type": "symptom_pattern",
+      "to_id": "sx44"
+    },
+    {
+      "relationship_id": "rel_1355",
+      "from_type": "symptom_group",
+      "from_id": "sg008",
+      "relation": "CONTAINS",
+      "to_type": "symptom_pattern",
+      "to_id": "sx45"
+    },
+    {
+      "relationship_id": "rel_1356",
+      "from_type": "symptom_group",
+      "from_id": "sg008",
+      "relation": "CONTAINS",
+      "to_type": "symptom_pattern",
+      "to_id": "sx46"
+    },
+    {
+      "relationship_id": "rel_1357",
+      "from_type": "symptom_group",
+      "from_id": "sg008",
+      "relation": "CONTAINS",
+      "to_type": "symptom_pattern",
+      "to_id": "sx47"
+    },
+    {
+      "relationship_id": "rel_1358",
+      "from_type": "symptom_group",
+      "from_id": "sg008",
+      "relation": "CONTAINS",
+      "to_type": "symptom_pattern",
+      "to_id": "sx48"
+    },
+    {
+      "relationship_id": "rel_1359",
+      "from_type": "symptom_group",
+      "from_id": "sg008",
+      "relation": "CONTAINS",
+      "to_type": "symptom_pattern",
+      "to_id": "sx49"
+    },
+    {
+      "relationship_id": "rel_1360",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d100"
+    },
+    {
+      "relationship_id": "rel_1361",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d101"
+    },
+    {
+      "relationship_id": "rel_1362",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d109"
+    },
+    {
+      "relationship_id": "rel_1363",
+      "from_type": "symptom_pattern",
+      "from_id": "sx44",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d112"
+    },
+    {
+      "relationship_id": "rel_1364",
+      "from_type": "symptom_pattern",
+      "from_id": "sx45",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d102"
+    },
+    {
+      "relationship_id": "rel_1365",
+      "from_type": "symptom_pattern",
+      "from_id": "sx45",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d103"
+    },
+    {
+      "relationship_id": "rel_1366",
+      "from_type": "symptom_pattern",
+      "from_id": "sx45",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d109"
+    },
+    {
+      "relationship_id": "rel_1367",
+      "from_type": "symptom_pattern",
+      "from_id": "sx46",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d107"
+    },
+    {
+      "relationship_id": "rel_1368",
+      "from_type": "symptom_pattern",
+      "from_id": "sx46",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d106"
+    },
+    {
+      "relationship_id": "rel_1369",
+      "from_type": "symptom_pattern",
+      "from_id": "sx46",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d105"
+    },
+    {
+      "relationship_id": "rel_1370",
+      "from_type": "symptom_pattern",
+      "from_id": "sx47",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d111"
+    },
+    {
+      "relationship_id": "rel_1371",
+      "from_type": "symptom_pattern",
+      "from_id": "sx47",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d104"
+    },
+    {
+      "relationship_id": "rel_1372",
+      "from_type": "symptom_pattern",
+      "from_id": "sx47",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d110"
+    },
+    {
+      "relationship_id": "rel_1373",
+      "from_type": "symptom_pattern",
+      "from_id": "sx48",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d105"
+    },
+    {
+      "relationship_id": "rel_1374",
+      "from_type": "symptom_pattern",
+      "from_id": "sx48",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d102"
+    },
+    {
+      "relationship_id": "rel_1375",
+      "from_type": "symptom_pattern",
+      "from_id": "sx48",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d103"
+    },
+    {
+      "relationship_id": "rel_1376",
+      "from_type": "symptom_pattern",
+      "from_id": "sx48",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d112"
+    },
+    {
+      "relationship_id": "rel_1377",
+      "from_type": "symptom_pattern",
+      "from_id": "sx49",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d107"
+    },
+    {
+      "relationship_id": "rel_1378",
+      "from_type": "symptom_pattern",
+      "from_id": "sx49",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d108"
+    },
+    {
+      "relationship_id": "rel_1379",
+      "from_type": "symptom_pattern",
+      "from_id": "sx49",
+      "relation": "HAS_DIFFERENTIAL",
+      "to_type": "diagnosis_concept",
+      "to_id": "d112"
     }
   ],
   "symptom_groups": [
@@ -22531,6 +25308,24 @@
         "sx36",
         "sx37",
         "sx38"
+      ],
+      "status": "active"
+    },
+    {
+      "symptom_group_id": "sg008",
+      "name_ko": "흉추·등·흉곽",
+      "key": "thoracic_back_chestwall",
+      "region_ids": [
+        "r002",
+        "r004"
+      ],
+      "symptom_ids": [
+        "sx44",
+        "sx45",
+        "sx46",
+        "sx47",
+        "sx48",
+        "sx49"
       ],
       "status": "active"
     }
