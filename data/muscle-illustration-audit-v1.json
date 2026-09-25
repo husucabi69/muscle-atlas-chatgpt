@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-k",
+  "audit_version": "2026.09.26-stage17-l",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1231,31 +1231,71 @@
       "muscle_id": "m127",
       "name_ko": "봉공근",
       "name_en": "Sartorius",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Sartorius muscle.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sartorius_muscle.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; modified by Uwe Gille",
+        "view": "anterior thigh",
+        "educationalReason": "전상장골극에서 대퇴 전면을 사선으로 가로질러 거위발로 향하는 봉공근 전체 주행을 표층 전면에서 가장 직관적으로 확인"
+      }
     },
     {
       "muscle_id": "m128",
       "name_ko": "대퇴직근",
       "name_en": "Rectus femoris",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Rectus femoris.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rectus_femoris.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; modified by Uwe Gille",
+        "view": "anterior thigh",
+        "educationalReason": "대퇴사두근 중앙 표층의 대퇴직근이 고관절을 가로질러 슬개건으로 이어지는 양관절 근육의 긴 주행을 전면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m129",
       "name_ko": "외측광근",
       "name_en": "Vastus lateralis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Vastus lateralis muscle.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vastus_lateralis_muscle.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; modified by Uwe Gille",
+        "view": "anterolateral thigh",
+        "educationalReason": "대퇴골 외측에서 슬개골 외측으로 이어지는 외측광근의 큰 근복과 외측 대퇴 윤곽을 전외측에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m130",
       "name_ko": "내측광근",
       "name_en": "Vastus medialis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Vastus medialis muscle.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vastus_medialis_muscle.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; modified by Uwe Gille",
+        "view": "anteromedial thigh",
+        "educationalReason": "대퇴골 내측에서 슬개골 내측으로 이어지는 내측광근과 원위 사선 섬유를 전내측에서 가장 쉽게 확인"
+      }
     },
     {
       "muscle_id": "m131",
       "name_ko": "중간광근",
       "name_en": "Vastus intermedius",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Vastus intermedialis.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vastus_intermedialis.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D deep anterior thigh",
+        "educationalReason": "대퇴직근 깊이에 놓인 중간광근은 단일 정면도에서 가려지므로 회전 3D로 대퇴골 전면을 감싸는 깊은 위치와 다른 광근과의 층 관계를 확인"
+      }
     },
     {
       "muscle_id": "m132",
@@ -1267,25 +1307,57 @@
       "muscle_id": "m133",
       "name_ko": "치골근",
       "name_en": "Pectineus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Pectineus 3D.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Pectineus_3D.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D proximal medial thigh",
+        "educationalReason": "치골에서 대퇴골 치골근선으로 향하는 짧은 치골근은 회전 3D에서 장내전근·장요근과의 근위 내측 층 관계를 가장 명확히 확인"
+      }
     },
     {
       "muscle_id": "m134",
       "name_ko": "장내전근",
       "name_en": "Adductor longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Adductor longus.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Adductor_longus.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D medial thigh",
+        "educationalReason": "치골에서 대퇴골 조선 중간부로 부채꼴로 퍼지는 장내전근의 표층 내측 위치와 인접 내전근군 관계를 회전 3D로 확인"
+      }
     },
     {
       "muscle_id": "m135",
       "name_ko": "단내전근",
       "name_en": "Adductor brevis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Adductor brevis.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Adductor_brevis.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D deep medial thigh",
+        "educationalReason": "장내전근 뒤·대내전근 앞에 위치하는 단내전근의 짧고 깊은 주행은 회전 3D에서 층 관계를 포함해 가장 잘 이해됨"
+      }
     },
     {
       "muscle_id": "m136",
       "name_ko": "대내전근-내전부",
       "name_en": "Adductor magnus, adductor part",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Adductor magnus.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Adductor_magnus.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D medial-posterior thigh",
+        "educationalReason": "좌골·치골에서 대퇴골 조선 전반으로 넓게 퍼지는 대내전근 내전부의 광범위한 면적과 후내측 깊이를 회전 3D로 확인"
+      }
     },
     {
       "muscle_id": "m137",
@@ -1297,7 +1369,15 @@
       "muscle_id": "m138",
       "name_ko": "박근",
       "name_en": "Gracilis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gracilis.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gracilis.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D medial thigh",
+        "educationalReason": "치골에서 경골 내측 거위발까지 세로로 길게 내려가는 박근의 표재성 내측 주행과 내전근군과의 위치 관계를 회전 3D로 확인"
+      }
     },
     {
       "muscle_id": "m139",
@@ -1879,8 +1959,8 @@
     }
   ],
   "progress": {
-    "reviewed": 78,
-    "pending_review": 127,
-    "last_batch": "anterolateral_leg_priority_batch"
+    "reviewed": 88,
+    "pending_review": 117,
+    "last_batch": "anteromedial_thigh_priority_batch"
   }
 }
