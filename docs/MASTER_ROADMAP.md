@@ -45,6 +45,7 @@
 
 ## 개발 운영
 - 개발은 dev branch에서 한다.
+- 정본 Stage 12 dev branch: `dev/stage12-readonly-integration-20260925`. 과거 stage11/stage12 divergent branch는 참고용이며 merge하지 않는다.
 - 회귀검사 PASS 후에만 main으로 병합한다.
 - main은 설치형 학습 앱의 stable release다.
 - 다음 개발 세션은 위 표에서 가장 앞의 미완료 단계부터 재개한다.
