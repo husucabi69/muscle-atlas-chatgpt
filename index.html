@@ -331,7 +331,7 @@ button,input{font:inherit} button{cursor:pointer}
       <div><label>부위</label><select id="oralRegion"><option value="all">전체 부위</option></select></div>
       <div><label>시험관 수준</label><select id="oralLevel"><option value="friend">친구 · 기본 1문항</option><option value="teacher" selected>선생님 · O/I/F/N 1문항</option><option value="senior">선배 · 2개 항목 연결</option><option value="master">대가 · O/I/F/N 통합</option></select></div>
       <div><label>유형</label><select id="oralField"><option value="mixed">혼합</option><option value="origin">Origin · 기시</option><option value="insertion">Insertion · 정지</option><option value="function">Function · 기능</option><option value="nerve">Nerve · 신경지배</option></select></div>
-      <button class="primary" onclick="startOralSession()">10문제 시작</button>
+      <button class="primary" onclick="clearOralFixed();startOralSession()">10문제 시작</button>
     </div>
   </div>
   <div class="quiz-stats">
@@ -1443,6 +1443,9 @@ function oralNorm(s){
   return String(s||'').toLowerCase()
     .replace(/transverse process/g,'횡돌기').replace(/posterior tubercle/g,'후결절').replace(/anterior tubercle/g,'전결절')
     .replace(/cervical nerve/g,'경신경').replace(/ventral ramus|ventral rami/g,'전지')
+    .replace(/목을?|목/g,'경추').replace(/옆으로\s*굽히\S*/g,'측굴').replace(/측방\s*굴곡/g,'측굴')
+    .replace(/들어\s*올리\S*/g,'거상').replace(/돌리\S*/g,'회전').replace(/굽히\S*/g,'굴곡').replace(/펴\S*/g,'신전')
+    .replace(/바깥\s*돌림/g,'외회전').replace(/안쪽\s*돌림/g,'내회전').replace(/벌리\S*|벌림/g,'외전').replace(/모으\S*|모음/g,'내전')
     .replace(/\s+/g,'').replace(/[.,;:·/()\[\]{}'"“”‘’→+\-]/g,'');
 }
 const oralStop=new Set(['근육','기능','신경','지배','기시','정지','에서','으로','하고','하며','보조','동반','운동','해당','부분','외측면','상면']);
