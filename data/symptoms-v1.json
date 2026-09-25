@@ -1013,5 +1013,158 @@
       "m026"
     ],
     "symptomGroupId": "sg008"
+  },
+  {
+    "id": "sx50",
+    "title": "중앙/편측 허리통증",
+    "summary": "기계적 요통, 디스크 관련 통증, 후관절·척추기립근/다열근 기능과 중대병리를 함께 구분합니다.",
+    "conditions": "nonspecific/mechanical low back pain, disc-related pain, facet candidate, erector/multifidus dysfunction, serious pathology red flag 감별.",
+    "nerves": "lumbar dorsal rami / segmental roots context",
+    "ultrasound": "lumbar multifidus, iliocostalis, facet contour와 thoracolumbar fascia를 확인하되 morphology만으로 통증원인을 확정하지 않음.",
+    "muscles": [
+      "요장늑근",
+      "요최장근",
+      "요극근",
+      "요다열근",
+      "요회선근",
+      "요극간근",
+      "요내측 횡돌기간근",
+      "요외측 횡돌기간근",
+      "요방형근"
+    ],
+    "muscleIds": [
+      "m038",
+      "m039",
+      "m040",
+      "m041",
+      "m042",
+      "m043",
+      "m044",
+      "m045",
+      "m046"
+    ],
+    "symptomGroupId": "sg009"
+  },
+  {
+    "id": "sx51",
+    "title": "허리에서 둔부·다리로 뻗치는 통증·저림",
+    "summary": "lumbosacral radiculopathy, stenosis, cluneal mimic과 cauda equina red flag를 구분하는 경로입니다.",
+    "conditions": "lumbosacral radiculopathy, lumbar stenosis/neurogenic claudication, superior cluneal entrapment, cauda equina/serious neurologic lesion 감별.",
+    "nerves": "L4, L5, S1 roots; sciatic nerve; superior cluneal nerve",
+    "ultrasound": "초음파는 근육/표재신경 구조를 보조하며 nerve-root compression의 핵심 영상은 임상맥락상 MRI.",
+    "muscles": [
+      "요다열근",
+      "요방형근",
+      "대요근",
+      "이상근"
+    ],
+    "muscleIds": [
+      "m041",
+      "m046",
+      "m047",
+      "m050"
+    ],
+    "symptomGroupId": "sg009"
+  },
+  {
+    "id": "sx52",
+    "title": "전방 대퇴부 통증·저림/무릎 신전 약화",
+    "summary": "상부요추 L2–L4와 femoral nerve/iliopsoas pathway를 함께 보는 경로입니다.",
+    "conditions": "upper lumbar radiculopathy, femoral neuropathy/pathway disorder, iliopsoas/hip mimic 감별.",
+    "nerves": "L2-L4 roots, femoral nerve",
+    "ultrasound": "psoas major-iliacus-femoral nerve relation을 확인하되 proximal root 병변을 배제하는 검사는 아님.",
+    "muscles": [
+      "대요근",
+      "장골근",
+      "대퇴직근",
+      "내측광근"
+    ],
+    "muscleIds": [
+      "m047",
+      "m049",
+      "m128",
+      "m130"
+    ],
+    "symptomGroupId": "sg009"
+  },
+  {
+    "id": "sx53",
+    "title": "PSIS 주변·후방 골반통",
+    "summary": "SI joint, superior cluneal nerve, QL/erector source를 함께 구분하는 경로입니다.",
+    "conditions": "sacroiliac joint pain candidate, superior cluneal nerve entrapment, quadratus lumborum/erector myofascial pain 감별.",
+    "nerves": "superior cluneal nerve; sacral dorsal rami context",
+    "ultrasound": "posterior SIJ, posterior SI ligament, iliac crest-SCN/TLF corridor를 확인.",
+    "muscles": [
+      "요장늑근",
+      "요최장근",
+      "요다열근",
+      "요방형근",
+      "대둔근"
+    ],
+    "muscleIds": [
+      "m038",
+      "m039",
+      "m041",
+      "m046",
+      "m123"
+    ],
+    "symptomGroupId": "sg009"
+  },
+  {
+    "id": "sx54",
+    "title": "장시간 서기·걷기에서 다리통증·무거움",
+    "summary": "신경성 파행과 radiculopathy, 진행성 신경학적 결손을 구분하는 경로입니다.",
+    "conditions": "lumbar spinal stenosis/neurogenic claudication, lumbosacral radiculopathy, vascular/peripheral mimic, progressive neurologic deficit 감별.",
+    "nerves": "multilevel lumbar roots, L4-S1",
+    "ultrasound": "초음파로 척추관 협착을 확정하지 않으며 임상·MRI와 통합.",
+    "muscles": [
+      "요다열근",
+      "요방형근",
+      "대요근"
+    ],
+    "muscleIds": [
+      "m041",
+      "m046",
+      "m047"
+    ],
+    "symptomGroupId": "sg009"
+  },
+  {
+    "id": "sx55",
+    "title": "후장골능 위 국소통증·상둔부 감각이상",
+    "summary": "superior cluneal nerve entrapment와 SI/QL/erector mimic을 구분하는 경로입니다.",
+    "conditions": "superior cluneal nerve entrapment candidate, SI pain, thoracolumbar fascia/QL/erector pain 감별.",
+    "nerves": "superior cluneal nerve",
+    "ultrasound": "posterior iliac crest에서 SCN과 thoracolumbar fascia corridor를 short/long axis로 확인.",
+    "muscles": [
+      "요장늑근",
+      "요최장근",
+      "요방형근",
+      "대둔근"
+    ],
+    "muscleIds": [
+      "m038",
+      "m039",
+      "m046",
+      "m123"
+    ],
+    "symptomGroupId": "sg009"
+  },
+  {
+    "id": "sx56",
+    "title": "허리통증과 배뇨·회음부감각·진행성 다리약화",
+    "summary": "cauda equina와 진행성 neurologic deficit을 놓치지 않기 위한 즉시 red-flag 경로입니다.",
+    "conditions": "cauda equina syndrome candidate, progressive neurologic deficit, fracture/infection/neoplasm 등 serious pathology 감별.",
+    "nerves": "multiple lumbosacral roots / cauda equina",
+    "ultrasound": "초음파 대상이 아니며 urgent MRI 및 적절한 전문/응급평가가 우선.",
+    "muscles": [
+      "요다열근",
+      "요방형근"
+    ],
+    "muscleIds": [
+      "m041",
+      "m046"
+    ],
+    "symptomGroupId": "sg009"
   }
 ]
