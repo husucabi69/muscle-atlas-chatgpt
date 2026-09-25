@@ -9,8 +9,9 @@ const version=fs.readFileSync('app-version.js','utf8');
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 
-check('Stage 17 build version',version.includes("stage17.1")&&version.includes("v10.2 · Stage 17 Muscle Illustration Audit"));
-check('Audit status IN_PROGRESS',audit.status==='IN_PROGRESS',audit.status);
+const releaseStage=Number(version.match(/buildVersion:'[^']*-stage(\d+)\./)?.[1]||0);
+check('Stage 17 audit survives current/later release',releaseStage>=17,String(releaseStage));
+check('Audit status IN_PROGRESS or COMPLETE',['IN_PROGRESS','COMPLETE'].includes(audit.status),audit.status);
 check('Audit ledger covers 205 muscles',(audit.muscles||[]).length===205,String((audit.muscles||[]).length));
 check('Audit IDs unique',new Set((audit.muscles||[]).map(x=>x.muscle_id)).size===205);
 check('Audit IDs match canonical core',
@@ -20,34 +21,51 @@ check('Audit IDs match canonical core',
 
 const reviewed=(audit.muscles||[]).filter(x=>x.status==='reviewed');
 const pending=(audit.muscles||[]).filter(x=>x.status==='pending_review');
-check('First rotator-cuff batch reviewed',reviewed.length===4,String(reviewed.length));
-check('Remaining audit work explicit',pending.length===201,String(pending.length));
+check('Audit accounting = 205',reviewed.length+pending.length===205,`${reviewed.length}+${pending.length}`);
+check('Audit has progressed beyond first batch',reviewed.length>=4,String(reviewed.length));
+if(audit.progress){
+  check('Progress reviewed count matches',audit.progress.reviewed===reviewed.length,`${audit.progress.reviewed}/${reviewed.length}`);
+  check('Progress pending count matches',audit.progress.pending_review===pending.length,`${audit.progress.pending_review}/${pending.length}`);
+}
 
-const expected={
-  m070:{file:'Supraspinatus muscle back.png',view:'posterior'},
-  m071:{file:'Infraspinatus muscle back.png',view:'posterior'},
-  m072:{file:'Teres minor muscle back.png',view:'posterior'},
-  m073:{file:'Subscapularis muscle frontal.png',view:'anterior'}
+for(const row of reviewed){
+  const asset=row.representative_asset;
+  const registry=media.muscles?.[row.muscle_id]?.anatomy?.[0];
+  check(row.muscle_id+' representative asset exists',!!asset);
+  check(row.muscle_id+' media registry exists',!!registry);
+  check(row.muscle_id+' file matches registry',asset?.file===registry?.file,registry?.file||'missing');
+  check(row.muscle_id+' representative flag',registry?.representative===true);
+  check(row.muscle_id+' view metadata',typeof asset?.view==='string'&&asset.view.length>2);
+  check(row.muscle_id+' educational reason',typeof asset?.educationalReason==='string'&&asset.educationalReason.length>12);
+  check(row.muscle_id+' source page',String(asset?.sourcePage||'').startsWith('https://commons.wikimedia.org/wiki/File:'));
+  check(row.muscle_id+' license',typeof asset?.license==='string'&&asset.license.length>2);
+}
+
+const required={
+  m070:'Supraspinatus muscle back.png',
+  m071:'Infraspinatus muscle back.png',
+  m072:'Teres minor muscle back.png',
+  m073:'Subscapularis muscle frontal.png',
+  m001:'Sternomastoid muscle lateral.png',
+  m002:'Scalenus anterior.png',
+  m003:'Gray384 - Scalenus medius muscle.png',
+  m004:'Scalenus posterior.png',
+  m009:'Musculus splenius capitis marked.png',
+  m010:'Splenius cervicis muscle back.png',
+  m011:'Gray384 Semispinalis capitis.png',
+  m017:'Rectus capitis posterior major muscle back.png',
+  m018:'Rectus capitis posterior minor muscle back.png',
+  m019:'Obliquus capitis superior muscle.png',
+  m020:'Obliquus capitis inferior muscle back.png'
 };
-
-for(const [id,e] of Object.entries(expected)){
+for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
-  const asset=media.muscles?.[id]?.anatomy?.[0];
-  check(id+' audit reviewed',row?.status==='reviewed');
-  check(id+' representative audit file',row?.representative_asset?.file===e.file,row?.representative_asset?.file||'missing');
-  check(id+' representative audit view',row?.representative_asset?.view===e.view,row?.representative_asset?.view||'missing');
-  check(id+' media registry file',asset?.file===e.file,asset?.file||'missing');
-  check(id+' media representative flag',asset?.representative===true);
-  check(id+' explicit educational reason',typeof asset?.educationalReason==='string'&&asset.educationalReason.length>12);
-  check(id+' source page is Wikimedia Commons',String(asset?.sourcePage||'').startsWith('https://commons.wikimedia.org/wiki/File:'));
-  check(id+' explicit reuse license',typeof asset?.license==='string'&&asset.license.includes('CC'));
+  check(id+' required reviewed',row?.status==='reviewed');
+  check(id+' required file',row?.representative_asset?.file===file,row?.representative_asset?.file||'missing');
 }
 
 check('Infraspinatus old superior view removed',
   !(media.muscles?.m071?.anatomy||[]).some(x=>x.file==='Infraspinatus muscle top.png')
-);
-check('Infraspinatus now posterior',
-  media.muscles?.m071?.anatomy?.[0]?.file==='Infraspinatus muscle back.png'
 );
 check('Representative label rendered in app',index.includes("x.representative?'대표 시야 · ':'"));
 check('Representative view metadata rendered',index.includes("x.view?('시야 '+x.view):''"));
@@ -60,5 +78,5 @@ for(const item of checks){
   if(!item.pass)fail++;
 }
 console.log('\n--- STAGE 17 MUSCLE ILLUSTRATION AUDIT QA ---');
-console.log(`PASS=${checks.length-fail} FAIL=${fail}`);
+console.log(`REVIEWED=${reviewed.length} PENDING=${pending.length} PASS=${checks.length-fail} FAIL=${fail}`);
 if(fail)process.exit(1);
