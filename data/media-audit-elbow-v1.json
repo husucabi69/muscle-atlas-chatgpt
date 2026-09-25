@@ -18,7 +18,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11697989/",
       "figure_label": "Figures 2a/b — Normal extensor mass in long axis",
       "license": "CC BY-NC 4.0",
-      "note": "공통신근건과 심부 radial collateral ligament의 층을 확인."
+      "note": "공통신근건과 심부 radial collateral ligament의 층을 확인.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv011",
@@ -27,7 +30,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11697989/",
       "figure_label": "Figures 3a/b — Normal extensor mass in short axis",
       "license": "CC BY-NC 4.0",
-      "note": "단축에서 건 섬유와 신근군 근복을 확인."
+      "note": "단축에서 건 섬유와 신근군 근복을 확인.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv012",
@@ -36,7 +42,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11374584/",
       "figure_label": "Figure 2 — Normal long-axis medial elbow",
       "license": "CC BY-NC 4.0",
-      "note": "공통굴곡건과 그 심부의 UCL 전방다발을 함께 확인."
+      "note": "공통굴곡건과 그 심부의 UCL 전방다발을 함께 확인.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv013",
@@ -45,7 +54,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11374584/",
       "figure_label": "Figure 8 — Dynamic ulnar nerve instability assessment",
       "license": "CC BY-NC 4.0",
-      "note": "최소한의 probe 압력으로 굴곡 시 척골신경 위치 변화를 관찰. 무증상 불안정성도 가능하므로 임상증상과 함께 판단."
+      "note": "최소한의 probe 압력으로 굴곡 시 척골신경 위치 변화를 관찰. 무증상 불안정성도 가능하므로 임상증상과 함께 판단.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv014",
@@ -54,7 +66,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11744171/",
       "figure_label": "Figure 1, column IV — Long-axis distal biceps tendon",
       "license": "CC BY-NC-ND 4.0",
-      "note": "표준 원위 이두건 장축 view. 깊은 부착부에서는 anisotropy에 주의."
+      "note": "표준 원위 이두건 장축 view. 깊은 부착부에서는 anisotropy에 주의.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv015",
@@ -63,7 +78,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6423902/",
       "figure_label": "Figures 3-4 — Deep motor branch entering supinator and PIN",
       "license": "CC BY 4.0",
-      "note": "Arcade of Frohse와 회외근 두 층 사이를 통과하는 PIN을 추적."
+      "note": "Arcade of Frohse와 회외근 두 층 사이를 통과하는 PIN을 추적.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv016",
@@ -72,7 +90,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12129630/",
       "figure_label": "Figure 6 — Triceps tendon with olecranon bursa example",
       "license": "CC BY-NC 4.0",
-      "note": "주두점액낭은 정상에서는 뚜렷하지 않을 수 있음. Figure는 실제 bursitis 예시이므로 정상 영상으로 오인하지 않도록 표시."
+      "note": "주두점액낭은 정상에서는 뚜렷하지 않을 수 있음. Figure는 실제 bursitis 예시이므로 정상 영상으로 오인하지 않도록 표시.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv017",
@@ -81,7 +102,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11744171/",
       "figure_label": "Figure 1, columns I-III — Standard anterior elbow views",
       "license": "CC BY-NC-ND 4.0",
-      "note": "capitellum, trochlea, humeroradial/humeroulnar anterior landmarks를 확인."
+      "note": "capitellum, trochlea, humeroradial/humeroulnar anterior landmarks를 확인.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     }
   ],
   "sources": [
@@ -121,5 +145,7 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12129630/",
       "license": "CC BY-NC 4.0"
     }
-  ]
+  ],
+  "audit_revision": "2026-09-25-stage11",
+  "license_policy": "Embedded/local reusable media requires explicit reuse terms and attribution. Canonical external figures with uncertain or publication-specific redistribution terms are link-only; the app does not assert redistribution rights."
 }
