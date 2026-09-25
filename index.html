@@ -84,12 +84,25 @@ button,input{font:inherit} button{cursor:pointer}
 .quiz-feedback{margin-top:14px;border:1px solid var(--line);border-radius:13px;padding:14px;line-height:1.7;display:none}
 .quiz-feedback.show{display:block}
 .quiz-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.oral-controls{display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:10px;align-items:end;margin:14px 0 18px}
+.oral-controls label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+.oral-controls select,.oral-answer{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.oral-answer{min-height:112px;font:inherit;line-height:1.6;resize:vertical}
+.oral-question{font-size:24px;line-height:1.55;font-weight:800;margin:10px 0 16px}
+.oral-coach{margin-top:14px;border:1px solid var(--line);border-radius:14px;padding:15px;line-height:1.75;background:#fff}
+.oral-coach.good{border-color:#7bc7b7;background:#f3fffc}.oral-coach.partial{border-color:#e6c66a;background:#fffdf2}.oral-coach.bad{border-color:#efaaa5;background:#fff7f6}
+.evidence-badge{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:12px;font-weight:750;margin-left:6px}
+.exercise-card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:10px 0}
+.exercise-card h4{margin:0 0 8px;font-size:19px}.exercise-card ol{margin:8px 0 8px 22px;padding:0;line-height:1.75}.exercise-card p{line-height:1.75}
+.education-source{display:block;margin-top:6px;font-size:13px;line-height:1.5}
+@media(max-width:900px){.oral-controls{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.oral-controls{grid-template-columns:1fr}}
 
 @media(max-width:900px){.grid3,.grid2,.kpi,.media-grid{grid-template-columns:1fr}.quiz-controls{grid-template-columns:1fr}.quiz-stats{grid-template-columns:1fr 1fr}.hero h2{font-size:32px}.modal-body{padding:20px 14px 34px}.region-list{grid-template-columns:1fr 1fr}.region-chooser,.symptom-group-chooser{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){
   .head-inner{padding:10px 10px 12px;align-items:flex-start;flex-direction:column;gap:9px}
   .brand{gap:9px}.brand img{width:38px;height:38px}.brand h1{font-size:22px}.brand small{font-size:13px;line-height:1.35}
-  .tabs{width:100%;display:grid;grid-template-columns:repeat(5,max-content);gap:7px;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;scrollbar-width:none}
+  .tabs{width:100%;display:grid;grid-template-columns:repeat(7,max-content);gap:7px;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;scrollbar-width:none}
   .tabs::-webkit-scrollbar{display:none}.tab{padding:10px 13px;white-space:nowrap}
   .page{padding:16px 10px 42px}
   .hero{padding:18px 0 4px}.hero h2{font-size:27px;line-height:1.16;margin-bottom:10px}.hero p{font-size:16px;line-height:1.65}
@@ -110,13 +123,15 @@ button,input{font:inherit} button{cursor:pointer}
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v8.7 · Thoracic/Back/Chest Wall Stage 8 Complete</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="근육학"><div><h1>근육학</h1><small>Clinical Learning v8.8 · Oral Viva + Patient Education</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
       <button class="tab" data-page="regions">해부학 부위</button>
       <button class="tab" data-page="clinical">임상 모듈</button>
+      <button class="tab" data-page="education">환자교육</button>
       <button class="tab" data-page="quiz">퀴즈</button>
+      <button class="tab" data-page="oral">오랄 테스트</button>
     </div>
   </div>
 </div>
@@ -148,7 +163,7 @@ button,input{font:inherit} button{cursor:pointer}
   <div class="grid3">
     <div class="card"><h3>1. 증상 기반 진입</h3><p>환자가 말하는 통증 부위/증상군에서 시작해 관련 근육과 감별 포인트로 연결합니다.</p></div>
     <div class="card"><h3>2. 근육별 임상 연결</h3><p>각 근육 카드에 해당 근육이 자주 등장하는 증상군을 역으로 표시합니다.</p></div>
-    <div class="card"><h3>3. 퀴즈·오답복습</h3><p>Origin, Insertion, Function, Nerve, Clinical 문제를 자동 생성하고 오답 근육을 기기에 저장해 반복 학습합니다.</p></div>
+    <div class="card"><h3>3. 퀴즈·오답복습</h3><p>Origin, Insertion, Function, Nerve, Clinical 문제를 자동 생성하고 오답 근육을 기기에 저장해 반복 학습합니다.</p></div><div class="card"><h3>4. 오랄 테스트</h3><p>친구·선생님·선배·대가 모드로 O/I/F/N을 말로 답하고 즉시 교정받습니다.</p></div><div class="card"><h3>5. 환자교육 운동</h3><p>부위 → 근육 → 스트레칭·강화운동을 근거 등급과 문헌 출처까지 함께 봅니다.</p></div>
   </div>
 </section>
 
@@ -287,6 +302,48 @@ button,input{font:inherit} button{cursor:pointer}
   <div class="section-title"><h3>흉추·흉벽 초음파 View</h3><span id="thoracicUSCount">불러오는 중…</span></div>
   <div id="thoracicMediaCoverage" class="note">흉추 초음파 영상 검증 상태를 불러오는 중…</div>
   <div id="thoracicUSGrid" class="grid2"><div class="status">흉추 초음파 모듈을 불러오는 중…</div></div>
+</section>
+
+
+<section id="education" class="page">
+  <div class="section-title"><h3>환자교육 · 스트레칭/강화운동</h3><span>근거 등급 표시 · 근육별 계층</span></div>
+  <div class="note">
+    <b>정본 원칙</b><br>
+    모든 205개 근육에 교육 상태를 연결하되, 해당 근육 하나만을 선택적으로 치료한다는 직접 근거가 없으면 억지로 운동을 만들지 않습니다.
+    A=직접 CPG/RCT 또는 강한 질환·근육군 근거, B=부위/근육군 근거, C=직접 근거 제한/교육용입니다.
+    수술 후, 급성 파열, 진행성 신경학적 이상, 흉통·호흡곤란 등은 일반 운동자료보다 개별 진료 프로토콜이 우선입니다.
+  </div>
+  <div id="educationRegionChooser" class="region-chooser" style="margin-top:16px"></div>
+  <div id="educationMusclesPanel" class="region-muscles-panel" hidden>
+    <button class="region-back" type="button" onclick="closeEducationRegion()">← 부위 목록</button>
+    <div class="region-panel-head"><h3 id="educationRegionTitle"></h3><span id="educationRegionCount"></span></div>
+    <div id="educationMuscleList" class="region-list"></div>
+  </div>
+  <div id="educationDetail" hidden></div>
+</section>
+
+<section id="oral" class="page">
+  <div class="section-title"><h3>오랄 테스트 · Viva</h3><span>말로 대답 → 즉시 채점·교정</span></div>
+  <div class="card">
+    <h3>친구 → 선생님 → 선배 → 대가</h3>
+    <p>정본 Origin · Insertion · Function · Nerve를 기준으로 질문합니다. Android Chrome/PWA에서 음성인식이 지원되면 마이크로 대답할 수 있고, 지원되지 않으면 같은 칸에 입력하면 됩니다.</p>
+    <div class="oral-controls">
+      <div><label>부위</label><select id="oralRegion"><option value="all">전체 부위</option></select></div>
+      <div><label>시험관 수준</label><select id="oralLevel"><option value="friend">친구 · 기본 1문항</option><option value="teacher" selected>선생님 · O/I/F/N 1문항</option><option value="senior">선배 · 2개 항목 연결</option><option value="master">대가 · O/I/F/N 통합</option></select></div>
+      <div><label>유형</label><select id="oralField"><option value="mixed">혼합</option><option value="origin">Origin · 기시</option><option value="insertion">Insertion · 정지</option><option value="function">Function · 기능</option><option value="nerve">Nerve · 신경지배</option></select></div>
+      <button class="primary" onclick="startOralSession()">10문제 시작</button>
+    </div>
+  </div>
+  <div class="quiz-stats">
+    <div class="quiz-stat"><span>이번 문제</span><b id="oralProgress">0/0</b></div>
+    <div class="quiz-stat"><span>정답</span><b id="oralCorrect">0</b></div>
+    <div class="quiz-stat"><span>부분정답</span><b id="oralPartial">0</b></div>
+    <div class="quiz-stat"><span>보완 필요</span><b id="oralWrong">0</b></div>
+  </div>
+  <div id="oralArea" class="quiz-card">
+    <div class="oral-question">부위와 시험관 수준을 고른 뒤 시작하십시오.</div>
+    <p style="color:var(--muted);line-height:1.8">음성은 브라우저의 SpeechRecognition이 지원되는 경우에만 사용됩니다. 정답 판정은 외부 AI로 환자정보를 보내지 않고, Atlas 정본 핵심어와 구조를 기기 안에서 비교합니다.</p>
+  </div>
 </section>
 
 <section id="quiz" class="page">
@@ -1038,6 +1095,7 @@ async function hydrateKnowledgeCore(){
     if(qr) qr.innerHTML='<option value="all">전체 부위</option>'+regions.map(r=>'<option value="'+esc(r)+'">'+esc(r)+'</option>').join('');
     refreshRegionNavigation();
     refreshSymptomNavigation();
+    refreshLearningLayerNavigation();
     knowledgeCoreMeta={loaded:true,schema_version:core.schema_version,dataset_version:core.dataset_version,source:'data/knowledge-core-v1.json'};
     const badge=document.getElementById('knowledgeSchemaBadge');
     if(badge) badge.textContent='Schema '+core.schema_version+' · '+core.dataset_version;
@@ -1279,13 +1337,242 @@ function openMuscle(id){
     <div id="anatomyMedia" class="media-grid"></div>
     <div class="section-title"><h3 style="font-size:24px">실제 초음파 영상</h3><span>검수 실제 초음파 우선 · 미등록 시 공개 검색</span></div>
     <div id="usMedia" class="media-grid"></div>
-    <div style="padding-top:28px;text-align:center"><button class="primary" onclick="closeMuscle()">근육 목록으로 돌아가기</button></div>`;
+    <div style="padding-top:28px;text-align:center" class="quiz-actions">
+      <button class="primary" onclick="openEducationForMuscle('${m.id}')">환자교육 운동</button>
+      <button class="pill" onclick="startOralForMuscle('${m.id}')">이 근육 오랄 테스트</button>
+      <button class="pill" onclick="closeMuscle()">근육 목록으로 돌아가기</button>
+    </div>`;
   document.getElementById('muscleOverlay').classList.add('show');
   document.body.style.overflow='hidden';
   loadAnatomy(m); loadUS(m);
 }
 function closeMuscle(){document.getElementById('muscleOverlay').classList.remove('show'); document.body.style.overflow='';}
 
+
+
+let patientExerciseLibrary=null,exerciseProfileById={},exerciseAssignmentByMuscle={};
+async function loadPatientExerciseLibrary(){
+  try{
+    const r=await fetch('./data/patient-exercise-library-v1.json',{cache:'no-cache'});
+    if(!r.ok)throw new Error('patient exercise library unavailable');
+    patientExerciseLibrary=await r.json();
+    exerciseProfileById=Object.fromEntries((patientExerciseLibrary.profiles||[]).map(x=>[x.profile_id,x]));
+    exerciseAssignmentByMuscle=Object.fromEntries((patientExerciseLibrary.assignments||[]).map(x=>[x.muscle_id,x]));
+    refreshLearningLayerNavigation();
+    return true;
+  }catch(e){console.warn('Patient exercise library unavailable',e);return false;}
+}
+function activatePage(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const p=document.getElementById(pageId);if(p)p.classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===pageId));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function refreshLearningLayerNavigation(){
+  const oralRegion=document.getElementById('oralRegion');
+  if(oralRegion)oralRegion.innerHTML='<option value="all">전체 부위</option>'+regions.map(r=>'<option value="'+esc(r)+'">'+esc(r)+'</option>').join('');
+  renderEducationRegions();
+}
+function renderEducationRegions(){
+  const el=document.getElementById('educationRegionChooser');if(!el)return;
+  el.innerHTML=regions.map(r=>{
+    const count=muscles.filter(m=>m.region===r).length;
+    return '<button type="button" class="region-choice" onclick="openEducationRegion('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span><b>'+esc(r)+'</b><br><small>'+count+'개 근육</small></span><span class="arrow">›</span></button>';
+  }).join('');
+}
+let selectedEducationRegion=null;
+function openEducationRegion(region){
+  selectedEducationRegion=region;
+  const list=muscles.filter(m=>m.region===region);
+  document.getElementById('educationRegionChooser').hidden=true;
+  document.getElementById('educationMusclesPanel').hidden=false;
+  document.getElementById('educationDetail').hidden=true;
+  document.getElementById('educationRegionTitle').textContent=region;
+  document.getElementById('educationRegionCount').textContent=list.length+'개 근육';
+  document.getElementById('educationMuscleList').innerHTML=list.map(m=>{
+    const a=exerciseAssignmentByMuscle[m.id],tier=a?.evidence_tier||'—';
+    return '<button type="button" class="region-muscle" onclick="openEducationMuscle(\''+m.id+'\')"><b>'+esc(m.ko)+'</b><small>'+esc(m.en)+' · 근거 '+esc(tier)+'</small></button>';
+  }).join('');
+}
+function closeEducationRegion(){
+  selectedEducationRegion=null;
+  document.getElementById('educationRegionChooser').hidden=false;
+  document.getElementById('educationMusclesPanel').hidden=true;
+  document.getElementById('educationDetail').hidden=true;
+}
+function exerciseProfileCard(p){
+  if(!p)return '';
+  const refs=(p.source_refs||[]).map(id=>patientExerciseLibrary?.sources?.[id]).filter(Boolean);
+  return '<div class="exercise-card"><h4>'+esc(p.title_ko)+' <span class="evidence-badge">근거 '+esc(p.evidence_tier)+'</span></h4>'+
+    '<p>'+esc(p.indication_note||'')+'</p>'+
+    '<ol>'+((p.steps||[]).map(x=>'<li>'+esc(x)+'</li>').join(''))+'</ol>'+
+    (p.dose?'<p><b>용량/진행:</b> '+esc(p.dose)+'</p>':'')+
+    (refs.length?'<div><b>근거</b>'+refs.map(s=>'<a class="education-source" href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.year)+' · '+esc(s.kind)+' · '+esc(s.title)+'</a>').join('')+'</div>':'')+
+    '</div>';
+}
+function openEducationMuscle(id){
+  const m=byId[id];if(!m)return;
+  const a=exerciseAssignmentByMuscle[id]||{evidence_tier:'C',stretch_profile_ids:[],strength_profile_ids:['px099'],note:'직접 근거 미확립'};
+  const stretch=(a.stretch_profile_ids||[]).map(x=>exerciseProfileById[x]).filter(Boolean);
+  const strength=(a.strength_profile_ids||[]).map(x=>exerciseProfileById[x]).filter(Boolean);
+  const detail=document.getElementById('educationDetail');
+  document.getElementById('educationMusclesPanel').hidden=true;detail.hidden=false;
+  detail.innerHTML='<button class="region-back" type="button" onclick="openEducationRegion('+JSON.stringify(m.region).replace(/"/g,'&quot;')+')">← '+esc(m.region)+'</button>'+
+    '<div class="section-title"><h3>'+esc(m.ko)+'</h3><span>'+esc(m.en)+' · 근거 '+esc(a.evidence_tier)+'</span></div>'+
+    '<div class="note"><b>환자교육 해석</b><br>'+esc(a.note||'')+'<br><span style="color:var(--muted)">근거 등급은 “이 근육을 단독으로 치료하는 근거”와 “부위/근육군 프로그램 근거”를 구분합니다.</span></div>'+
+    '<div class="section-title"><h3 style="font-size:23px">스트레칭 / 가동성</h3></div>'+
+    (stretch.length?stretch.map(exerciseProfileCard).join(''):'<div class="exercise-card"><b>개별 스트레칭 처방을 별도로 권고할 직접 근거가 충분하지 않습니다.</b><p>해부학적 stretch 방향을 환자치료 효과가 검증된 방법처럼 과장하지 않습니다.</p></div>')+
+    '<div class="section-title"><h3 style="font-size:23px">근력 강화 / motor control</h3></div>'+
+    (strength.length?strength.map(exerciseProfileCard).join(''):'<div class="exercise-card">등록된 근육군 강화 프로필이 없습니다.</div>')+
+    '<div class="note"><b>중단/재평가</b><br>새로운 진행성 근력저하·감각저하, 심한 야간통/발열, 급성 파열 의심, 흉통·호흡곤란, 운동 후 지속적으로 악화되는 통증은 일반 환자교육 운동보다 진단 재평가가 우선입니다.</div>'+
+    '<div class="quiz-actions"><button class="primary" onclick="startOralForMuscle(\''+id+'\')">이 근육 오랄 테스트</button><button class="pill" onclick="openMuscle(\''+id+'\')">해부학 상세</button></div>';
+}
+function openEducationForMuscle(id){closeMuscle();activatePage('education');openEducationMuscle(id);}
+
+const ORAL_KEY='mskOralProgressV1';
+const oralFieldSpec={
+ origin:{label:'Origin · 기시',field:'origin'},
+ insertion:{label:'Insertion · 정지',field:'insertion'},
+ function:{label:'Function · 기능',field:'function'},
+ nerve:{label:'Nerve · 신경지배',field:'nerve'}
+};
+let oralSession=[],oralIndex=0,oralCorrect=0,oralPartial=0,oralWrong=0,oralRecognition=null,oralListening=false,oralFixedMuscleId=null;
+function oralState(){try{return JSON.parse(localStorage.getItem(ORAL_KEY))||{history:{},wrong:{}}}catch(e){return{history:{},wrong:{}}}}
+function saveOralState(s){localStorage.setItem(ORAL_KEY,JSON.stringify(s));}
+function oralNorm(s){
+  return String(s||'').toLowerCase()
+    .replace(/transverse process/g,'횡돌기').replace(/posterior tubercle/g,'후결절').replace(/anterior tubercle/g,'전결절')
+    .replace(/cervical nerve/g,'경신경').replace(/ventral ramus|ventral rami/g,'전지')
+    .replace(/\s+/g,'').replace(/[.,;:·/()\[\]{}'"“”‘’→+\-]/g,'');
+}
+const oralStop=new Set(['근육','기능','신경','지배','기시','정지','에서','으로','하고','하며','보조','동반','운동','해당','부분','외측면','상면']);
+function oralTokens(s){
+  return String(s||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/).map(x=>x.replace(/[은는이가을를의에에서으로와과도만]$/,'')).filter(x=>x.length>=2&&!oralStop.has(x));
+}
+function tokenMatch(user,token){
+  const u=oralNorm(user),t=oralNorm(token);
+  if(!t)return false;
+  return u.includes(t)||t.includes(u)&&u.length>=4;
+}
+function clauseScore(user,expected){
+  const toks=[...new Set(oralTokens(expected))];
+  if(!toks.length)return oralNorm(user).includes(oralNorm(expected))?1:0;
+  const matched=toks.filter(t=>tokenMatch(user,t));
+  return matched.length/toks.length;
+}
+function makeOralQuestion(m,level,fieldChoice){
+  const fields=['origin','insertion','function','nerve'].filter(k=>String(m[oralFieldSpec[k].field]||'').trim());
+  if(!fields.length)return null;
+  let chosen=[];
+  if(level==='master')chosen=fields.slice(0,4);
+  else if(level==='senior'){
+    const first=fieldChoice!=='mixed'&&fields.includes(fieldChoice)?fieldChoice:shuffle(fields)[0];
+    const rest=fields.filter(x=>x!==first);chosen=[first,shuffle(rest)[0]].filter(Boolean);
+  }else{
+    const allowed=level==='friend'?fields.filter(x=>['function','nerve'].includes(x)):fields;
+    const pool=allowed.length?allowed:fields;
+    chosen=[fieldChoice!=='mixed'&&pool.includes(fieldChoice)?fieldChoice:shuffle(pool)[0]];
+  }
+  const labels=chosen.map(k=>oralFieldSpec[k].label.split('·')[1].trim());
+  let stem='';
+  if(level==='friend')stem='가볍게 가볼게요. '+m.ko+'의 '+labels[0]+'은?';
+  else if(level==='teacher')stem=m.ko+' ('+m.en+')의 '+labels[0]+'를 말해보세요.';
+  else if(level==='senior')stem=m.ko+'의 '+labels.join('와 ')+'를 연결해서 설명해보세요.';
+  else stem=m.ko+'의 기시, 정지, 기능, 신경지배를 순서대로 설명해보세요.';
+  return{muscleId:m.id,level,fields:chosen,stem,targets:chosen.map(k=>({field:k,label:oralFieldSpec[k].label,expected:m[oralFieldSpec[k].field]}))};
+}
+function startOralSession(){
+  const region=document.getElementById('oralRegion').value,level=document.getElementById('oralLevel').value,field=document.getElementById('oralField').value;
+  let pool=muscles.filter(m=>region==='all'||m.region===region);
+  if(oralFixedMuscleId&&byId[oralFixedMuscleId])pool=[byId[oralFixedMuscleId]];
+  const chosen=oralFixedMuscleId?Array.from({length:10},()=>pool[0]):shuffle(pool).slice(0,Math.min(10,pool.length));
+  oralSession=chosen.map(m=>makeOralQuestion(m,level,field)).filter(Boolean);
+  oralIndex=0;oralCorrect=0;oralPartial=0;oralWrong=0;renderOralQuestion();
+}
+function startOralForMuscle(id){
+  oralFixedMuscleId=id;closeMuscle();activatePage('oral');
+  const m=byId[id];if(m){const sel=document.getElementById('oralRegion');if(sel)sel.value=m.region;}
+  startOralSession();
+}
+function clearOralFixed(){oralFixedMuscleId=null;}
+function updateOralStats(){
+  document.getElementById('oralProgress').textContent=oralSession.length?Math.min(oralIndex+1,oralSession.length)+'/'+oralSession.length:'0/0';
+  document.getElementById('oralCorrect').textContent=oralCorrect;
+  document.getElementById('oralPartial').textContent=oralPartial;
+  document.getElementById('oralWrong').textContent=oralWrong;
+}
+function speakOral(text){
+  if(!('speechSynthesis' in window))return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang='ko-KR';u.rate=.92;window.speechSynthesis.speak(u);
+}
+function renderOralQuestion(){
+  updateOralStats();
+  const area=document.getElementById('oralArea');
+  if(oralIndex>=oralSession.length){
+    area.innerHTML='<div class="oral-question">완료 · 정답 '+oralCorrect+' / 부분 '+oralPartial+' / 보완 '+oralWrong+'</div>'+
+      '<p style="color:var(--muted)">오답은 기기 안의 오랄 기록에 남습니다. 같은 근육을 다시 시험하거나 전체 랜덤 세션을 시작할 수 있습니다.</p>'+
+      '<div class="quiz-actions"><button class="primary" onclick="clearOralFixed();startOralSession()">새 10문제</button></div>';
+    document.getElementById('oralProgress').textContent=oralSession.length+'/'+oralSession.length;return;
+  }
+  const q=oralSession[oralIndex],m=byId[q.muscleId];
+  area.innerHTML='<div style="color:var(--muted);font-size:14px">문제 '+(oralIndex+1)+' / '+oralSession.length+' · '+esc(m.region)+' · '+esc(document.getElementById('oralLevel').selectedOptions[0].text)+'</div>'+
+    '<div class="oral-question">'+esc(q.stem)+'</div>'+
+    '<textarea id="oralAnswer" class="oral-answer" placeholder="말하거나 입력하십시오. 예: C2-C7 횡돌기 후결절"></textarea>'+
+    '<div class="quiz-actions"><button id="oralMicBtn" class="primary" onclick="toggleOralMic()">🎙 말하기</button><button class="pill" onclick="speakOral(oralSession[oralIndex].stem)">질문 다시 듣기</button><button class="pill" onclick="gradeOralAnswer()">채점</button></div>'+
+    '<div id="oralCoach"></div>';
+  updateOralMicAvailability();speakOral(q.stem);
+}
+function updateOralMicAvailability(){
+  const b=document.getElementById('oralMicBtn');if(!b)return;
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){b.disabled=true;b.textContent='음성인식 미지원 · 입력 사용';}
+}
+function toggleOralMic(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR)return;
+  if(oralListening&&oralRecognition){oralRecognition.stop();return;}
+  oralRecognition=new SR();oralRecognition.lang='ko-KR';oralRecognition.interimResults=true;oralRecognition.continuous=false;
+  oralRecognition.onstart=()=>{oralListening=true;const b=document.getElementById('oralMicBtn');if(b)b.textContent='■ 듣는 중…';};
+  oralRecognition.onresult=e=>{
+    let text='';for(let i=e.resultIndex;i<e.results.length;i++)text+=e.results[i][0].transcript+' ';
+    const ta=document.getElementById('oralAnswer');if(ta)ta.value=text.trim();
+  };
+  oralRecognition.onerror=e=>{const c=document.getElementById('oralCoach');if(c)c.innerHTML='<div class="oral-coach bad"><b>음성인식 실패</b><br>'+esc(e.error)+' · 직접 입력으로 계속할 수 있습니다.</div>';};
+  oralRecognition.onend=()=>{oralListening=false;const b=document.getElementById('oralMicBtn');if(b)b.textContent='🎙 말하기';};
+  oralRecognition.start();
+}
+function gradeOralAnswer(){
+  if(oralIndex>=oralSession.length)return;
+  const q=oralSession[oralIndex],answer=document.getElementById('oralAnswer')?.value?.trim()||'';
+  const levelThreshold={friend:.32,teacher:.45,senior:.52,master:.58}[q.level]||.45;
+  const details=q.targets.map(t=>{
+    const clauses=String(t.expected||'').split(/[;]+/).map(x=>x.trim()).filter(Boolean);
+    const scores=clauses.map(c=>clauseScore(answer,c));
+    const score=scores.length?scores.reduce((a,b)=>a+b,0)/scores.length:0;
+    const missing=clauses.filter((c,i)=>scores[i]<.35);
+    return{...t,score,missing};
+  });
+  const score=details.reduce((s,x)=>s+x.score,0)/details.length;
+  let grade=score>=levelThreshold?'correct':score>=levelThreshold*.55?'partial':'wrong';
+  if(!answer)grade='wrong';
+  if(grade==='correct')oralCorrect++;else if(grade==='partial')oralPartial++;else oralWrong++;
+  const state=oralState(),key=q.muscleId+':'+q.fields.join('+');
+  state.history[key]={last:Date.now(),grade,score:Number(score.toFixed(2))};
+  if(grade==='correct')delete state.wrong[key];else state.wrong[key]=(state.wrong[key]||0)+1;
+  saveOralState(state);
+  const klass=grade==='correct'?'good':grade==='partial'?'partial':'bad';
+  const headline=grade==='correct'?'맞았습니다.':grade==='partial'?'부분 정답입니다.':'틀렸습니다.';
+  const missing=details.flatMap(d=>d.missing.map(x=>d.label+' → '+x));
+  const canon=details.map(d=>'<b>'+esc(d.label)+'</b>: '+esc(d.expected)).join('<br>');
+  const why=grade==='correct'?'핵심 구조를 충분히 포함했습니다.':missing.length?'빠진 핵심: '+esc(missing.slice(0,4).join(' / ')):'정본 핵심어와 충분히 일치하지 않았습니다.';
+  const coach=document.getElementById('oralCoach');
+  coach.innerHTML='<div class="oral-coach '+klass+'"><b>'+headline+'</b><br>'+why+'<hr style="border:0;border-top:1px solid var(--line);margin:10px 0">'+canon+
+    '<div class="quiz-actions"><button class="primary" onclick="nextOralQuestion()">다음 질문</button><button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">근육 상세</button></div></div>';
+  speakOral(headline+' '+(grade==='correct'?'좋습니다.':grade==='partial'?'빠진 부분을 모범답안과 비교해보세요.':'모범답안을 확인하고 다시 말해보세요.'));
+  updateOralStats();
+}
+function nextOralQuestion(){oralIndex++;renderOralQuestion();}
 
 const QUIZ_KEY='mskQuizProgressV2';
 const OLD_QUIZ_KEY='mskQuizProgressV1';
@@ -1433,6 +1720,7 @@ updateQuizStats();
 renderRegionChooser();
 renderSymptomGroupChooser();
 hydrateKnowledgeCore();
+loadPatientExerciseLibrary();
 loadShoulderClinicalModule();
 loadElbowClinicalModule();
 loadWristHandClinicalModule();
