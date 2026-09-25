@@ -61,7 +61,15 @@
       "license_original": "PMC article canonical reference",
       "license_status": "reference_only",
       "reuse_policy": "link_only",
-      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute",
+      "supplemental_references": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11764704/",
+          "figure_label": "Figures 1 and 3",
+          "license": "CC BY 4.0",
+          "note": "Normal peroneus longus/brevis retromalleolar anatomy and superior peroneal retinaculum; complements the existing dynamic reference."
+        }
+      ]
     },
     {
       "ultrasound_view_id": "usv060",
