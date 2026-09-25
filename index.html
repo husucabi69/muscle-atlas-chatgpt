@@ -1628,12 +1628,22 @@ function oralNorm(s){
 }
 const oralStop=new Set(['근육','기능','신경','지배','기시','정지','에서','으로','하고','하며','보조','동반','운동','해당','부분','외측면','상면']);
 function oralTokens(s){
-  return String(s||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/).map(x=>x.replace(/[은는이가을를의에에서으로와과도만]$/,'')).filter(x=>x.length>=2&&!oralStop.has(x));
+  return String(s||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/)
+    .map(x=>x.trim()).filter(x=>x.length>=2&&!oralStop.has(x));
 }
 function tokenMatch(user,token){
   const u=oralNorm(user),t=oralNorm(token);
   if(!t)return false;
-  return u.includes(t)||t.includes(u)&&u.length>=4;
+  // Short anatomy tokens (e.g. 미골, 신전, C8) must appear as their own spoken/text token.
+  // Substring matching for these creates false positives such as '미골' inside '항문미골인대'.
+  if(t.length<=3){
+    const userTokens=String(user||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/).map(x=>oralNorm(x)).filter(Boolean);
+    if(userTokens.includes(t))return true;
+    // Preserve anatomy nouns ending in 와/과 (전자와, 극상와, 내측상과); strip only unambiguous particles.
+    const grammatical=userTokens.map(x=>x.length>=4?x.replace(/(?:에서|으로|에게|부터|까지|은|는|이|가|을|를|의|에|도|만)$/,''):x);
+    return grammatical.includes(t);
+  }
+  return u.includes(t)||(t.includes(u)&&u.length>=4);
 }
 function clauseScore(user,expected){
   const toks=[...new Set(oralTokens(expected))];
@@ -1726,16 +1736,18 @@ function toggleOralMic(){
 function gradeOralAnswer(){
   if(oralIndex>=oralSession.length)return;
   const q=oralSession[oralIndex],answer=document.getElementById('oralAnswer')?.value?.trim()||'';
-  const levelThreshold={friend:.32,teacher:.45,senior:.52,master:.58}[q.level]||.45;
+  const levelThreshold={friend:.45,teacher:.62,senior:.67,master:.72}[q.level]||.62;
   const details=q.targets.map(t=>{
-    const clauses=String(t.expected||'').split(/[;]+/).map(x=>x.trim()).filter(Boolean);
+    // Comma/semicolon-separated components are separately scored so omitted attachment/function elements remain partial.
+    const clauses=String(t.expected||'').split(/[;,]+/).map(x=>x.trim()).filter(Boolean);
     const scores=clauses.map(c=>clauseScore(answer,c));
     const score=scores.length?scores.reduce((a,b)=>a+b,0)/scores.length:0;
-    const missing=clauses.filter((c,i)=>scores[i]<.35);
-    return{...t,score,missing};
+    const missing=clauses.filter((c,i)=>scores[i]<.65);
+    return{...t,score,missing,complete:missing.length===0};
   });
   const score=details.reduce((s,x)=>s+x.score,0)/details.length;
-  let grade=score>=levelThreshold?'correct':score>=levelThreshold*.55?'partial':'wrong';
+  const allComplete=details.every(x=>x.complete&&x.score>=levelThreshold);
+  let grade=allComplete?'correct':score>=Math.max(.28,levelThreshold*.55)?'partial':'wrong';
   if(!answer)grade='wrong';
   if(grade==='correct')oralCorrect++;else if(grade==='partial')oralPartial++;else oralWrong++;
   const state=oralState(),key=q.muscleId+':'+q.fields.join('+');

@@ -158,6 +158,65 @@ check('No generated B-mode substitute', mediaGlobal.policy?.actual_ultrasound_on
 for (const token of ['<section id="oral"','startOralSession','gradeOralAnswer','toggleOralMic','speechSynthesis','mskOralProgressV1']) {
   check(`Oral Viva wiring: ${token}`, html.includes(token));
 }
+check('Oral Viva completeness thresholds hardened',
+  html.includes("friend:.45,teacher:.62,senior:.67,master:.72") &&
+  html.includes("split(/[;,]+/)") &&
+  html.includes("missing=clauses.filter((c,i)=>scores[i]<.65)")
+);
+check('Oral Viva short anatomy-token guard present',
+  html.includes("if(t.length<=3)") &&
+  html.includes("전자와, 극상와, 내측상과")
+);
+
+// Independent regression model for the canonical-answer and partial-answer invariants.
+// This mirrors the intended v9.1 grading contract rather than trusting UI wiring alone.
+const oralStopQA=new Set(['근육','기능','신경','지배','기시','정지','에서','으로','하고','하며','보조','동반','운동','해당','부분','외측면','상면']);
+const oralNormQA=s=>String(s||'').toLowerCase()
+  .replace(/transverse process/g,'횡돌기').replace(/posterior tubercle/g,'후결절').replace(/anterior tubercle/g,'전결절')
+  .replace(/cervical nerve/g,'경신경').replace(/ventral ramus|ventral rami/g,'전지')
+  .replace(/목을?|목/g,'경추').replace(/옆으로\s*굽히\S*/g,'측굴').replace(/측방\s*굴곡/g,'측굴')
+  .replace(/들어\s*올리\S*/g,'거상').replace(/돌리\S*/g,'회전').replace(/굽히\S*/g,'굴곡').replace(/펴\S*/g,'신전')
+  .replace(/바깥\s*돌림/g,'외회전').replace(/안쪽\s*돌림/g,'내회전').replace(/벌리\S*|벌림/g,'외전').replace(/모으\S*|모음/g,'내전')
+  .replace(/\s+/g,'').replace(/[.,;:·/()\[\]{}'"“”‘’→+\-]/g,'');
+const oralTokensQA=s=>String(s||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/)
+  .map(x=>x.trim()).filter(x=>x.length>=2&&!oralStopQA.has(x));
+const oralTokenMatchQA=(user,token)=>{
+  const u=oralNormQA(user),t=oralNormQA(token);
+  if(!t)return false;
+  if(t.length<=3){
+    const userTokens=String(user||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/).map(x=>oralNormQA(x)).filter(Boolean);
+    if(userTokens.includes(t))return true;
+    const grammatical=userTokens.map(x=>x.length>=4?x.replace(/(?:에서|으로|에게|부터|까지|은|는|이|가|을|를|의|에|도|만)$/,''):x);
+    return grammatical.includes(t);
+  }
+  return u.includes(t)||(t.includes(u)&&u.length>=4);
+};
+const oralClauseScoreQA=(user,expected)=>{
+  const toks=[...new Set(oralTokensQA(expected))];
+  if(!toks.length)return oralNormQA(user).includes(oralNormQA(expected))?1:0;
+  return toks.filter(t=>oralTokenMatchQA(user,t)).length/toks.length;
+};
+const oralGradeQA=(answer,expected)=>{
+  const threshold=.62;
+  const clauses=String(expected||'').split(/[;,]+/).map(x=>x.trim()).filter(Boolean);
+  const scores=clauses.map(c=>oralClauseScoreQA(answer,c));
+  const score=scores.length?scores.reduce((a,b)=>a+b,0)/scores.length:0;
+  const missing=clauses.filter((c,i)=>scores[i]<.65);
+  const complete=missing.length===0;
+  return !answer?'wrong':complete&&score>=threshold?'correct':score>=Math.max(.28,threshold*.55)?'partial':'wrong';
+};
+const oralCanonicalFailures=[], oralPartialOvergrades=[];
+for(const m of core.muscles){
+  for(const [field,expected] of Object.entries({
+    origin:m.anatomy?.origin,insertion:m.anatomy?.insertion,function:m.anatomy?.function,nerve:m.innervation_text
+  })){
+    if(oralGradeQA(expected,expected)!=='correct') oralCanonicalFailures.push(`${m.muscle_id}:${field}`);
+    const parts=String(expected||'').split(/[;,]+/).map(x=>x.trim()).filter(Boolean);
+    if(parts.length>1 && oralGradeQA(parts[0],expected)==='correct') oralPartialOvergrades.push(`${m.muscle_id}:${field}`);
+  }
+}
+check('Oral Viva canonical self-answer = 820/820 correct', oralCanonicalFailures.length===0, oralCanonicalFailures.slice(0,20).join(','));
+check('Oral Viva partial-component overgrade = 0', oralPartialOvergrades.length===0, oralPartialOvergrades.slice(0,20).join(','));
 for (const token of ['<section id="education"','openEducationMuscle','loadPatientExerciseLibrary']) {
   check(`Patient Education wiring: ${token}`, html.includes(token));
 }
@@ -176,7 +235,7 @@ check('PWA start_url', manifest.start_url==='/muscle-atlas-chatgpt/?source=pwa',
 check('PWA scope', manifest.scope==='/muscle-atlas-chatgpt/', manifest.scope);
 check('PWA fullscreen', manifest.display==='fullscreen' && manifest.display_override?.includes('standalone'), manifest.display);
 
-const cacheNeedles=['patient-exercise-library-v1.json','knowledge-core-v1.json',...Object.keys(modules).flatMap(m=>[
+const cacheNeedles=['patient-exercise-library-v1.json','knowledge-core-v1.json','symptom-groups-v1.json','symptoms-v1.json',...Object.keys(modules).flatMap(m=>[
   `examination-${m}-v1.json`,`ultrasound-${m}-v1.json`,`quiz-${m}-v1.json`,`differential-${m}-v1.json`,`media-audit-${m}-v1.json`
 ])];
 const missingCache=cacheNeedles.filter(x=>!sw.includes(x));

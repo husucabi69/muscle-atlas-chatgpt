@@ -70,3 +70,42 @@ Next: OrthoOS read-only integration preparation.
 - 검증 head SHA: d6337ec5b0f5b27b9a042f85f10eedf8f5b79eec
 - 초기 FAIL 원인: PHI scan의 파일경로에 `data/` prefix가 빠진 QA-script path bug
 - 데이터/Knowledge Core/임상모듈 실패는 아니었으며 경로 수정 후 동일 QA 전체 SUCCESS
+
+
+## 2026-09-25 Follow-up QA — Oral Viva + Offline Symptom Cache
+상태: FIXED / CI gate added
+
+### 발견된 문제
+1. Oral Viva의 기존 canonical-keyword grader가 복수 부착부/복수 기능 중 일부만 말한 답을 완전정답으로 승격할 수 있었다.
+   - 예: 흉쇄유돌근 정지에서 유양돌기만 답하고 상항선을 누락한 경우.
+2. 짧은 해부학 용어가 긴 합성어 안에 포함되면 오탐 가능성이 있었다.
+   - 예: '미골'을 말하지 않았는데 '항문미골인대' 내부 substring으로 인식.
+3. PWA service worker cache에 symptom-groups는 있으나 symptoms-v1.json이 빠져 있어 offline symptom-detail completeness가 보장되지 않았다.
+
+### 수정
+- Oral Viva friend/teacher/senior/master completeness threshold 상향.
+- comma/semicolon-separated canonical elements를 개별 scoring component로 처리.
+- 짧은 해부학 토큰은 token-level match를 사용.
+- 전자와/극상와/내측상과의 '와/과'를 조사로 잘못 제거하지 않도록 tokenizer 수정.
+- symptoms-v1.json을 service-worker CORE cache에 추가.
+- scripts/global-qa.mjs에 영구 regression gate 추가:
+  - canonical self-answer 820/820 correct
+  - partial-component overgrade 0
+  - hardened threshold/token guard 존재
+  - symptoms-v1.json cache 포함
+
+### 수동 전수 재검사
+- canonical O/I/F/N self-answer: 820/820 PASS
+- multi-component answer cases reviewed: 247
+- partial answer promoted to correct: 0
+- empty-answer false positive: 0
+- patient education assignment: 205/205 PASS
+- ultrasound/media audit: 131/131 PASS
+- clinical examinations: 148/148 PASS
+- clinical quizzes: 294/294 PASS
+- diagnosis concepts: 140/140 PASS
+- clinical findings: 128/128 PASS
+- differential groups: 64 PASS
+- global entity-ID collision: 0
+- orphan relationship: 0
+- relationship endpoint type mismatch: 0
