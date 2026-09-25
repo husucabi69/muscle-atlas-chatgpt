@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.25-a",
+  "dataset_version": "2026.09.25-b",
   "module_id": "patient_exercise_library_v1",
   "scope": "Patient-facing stretching and strengthening education linked to canonical muscle IDs. No PHI.",
   "evidence_policy": {
@@ -358,6 +358,20 @@
         "임의의 '이 근육 전용 운동'을 만들어 환자에게 처방하지 않습니다."
       ],
       "dose": "해당 없음."
+    },
+    {
+      "profile_id": "px017",
+      "title_ko": "상완 굴곡·신전 점진 저항운동",
+      "type": "strength_general",
+      "evidence_tier": "C",
+      "source_refs": [],
+      "indication_note": "상완이두근·상완근·삼두근 개별 질환을 대상으로 한 공통 CPG는 없으므로 일반 기능 회복 교육용으로만 사용.",
+      "steps": [
+        "통증 없는 범위에서 가벼운 elbow flexion 또는 extension resistance를 선택한다.",
+        "어깨·손목 보상을 줄이고 천천히 굽힘/폄을 시행한다.",
+        "증상과 다음날 반응을 확인하면서 저항·반복을 점진적으로 높인다."
+      ],
+      "dose": "급성 tendon injury, 수술 후, 신경손상은 해당 protocol을 우선."
     }
   ],
   "assignments": [
@@ -1203,9 +1217,9 @@
       "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px006"
+        "px017"
       ],
-      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+      "note": "상완 근육군의 일반 progressive resistance 교육용. 개별 근육/건 병변에서는 진단별 protocol 우선."
     },
     {
       "muscle_id": "m076",
@@ -1213,9 +1227,9 @@
       "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px006"
+        "px017"
       ],
-      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+      "note": "상완 근육군의 일반 progressive resistance 교육용. 개별 근육/건 병변에서는 진단별 protocol 우선."
     },
     {
       "muscle_id": "m077",
@@ -1223,9 +1237,9 @@
       "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px006"
+        "px017"
       ],
-      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+      "note": "상완 근육군의 일반 progressive resistance 교육용. 개별 근육/건 병변에서는 진단별 protocol 우선."
     },
     {
       "muscle_id": "m078",
@@ -1233,9 +1247,9 @@
       "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px006"
+        "px017"
       ],
-      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+      "note": "상완 근육군의 일반 progressive resistance 교육용. 개별 근육/건 병변에서는 진단별 protocol 우선."
     },
     {
       "muscle_id": "m079",
@@ -1243,9 +1257,9 @@
       "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px006"
+        "px017"
       ],
-      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+      "note": "상완 근육군의 일반 progressive resistance 교육용. 개별 근육/건 병변에서는 진단별 protocol 우선."
     },
     {
       "muscle_id": "m080",
@@ -1253,9 +1267,9 @@
       "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px006"
+        "px017"
       ],
-      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+      "note": "상완 근육군의 일반 progressive resistance 교육용. 개별 근육/건 병변에서는 진단별 protocol 우선."
     },
     {
       "muscle_id": "m081",
@@ -1263,9 +1277,9 @@
       "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px006"
+        "px017"
       ],
-      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+      "note": "상완 근육군의 일반 progressive resistance 교육용. 개별 근육/건 병변에서는 진단별 protocol 우선."
     },
     {
       "muscle_id": "m082",
@@ -1273,9 +1287,9 @@
       "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px006"
+        "px017"
       ],
-      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+      "note": "상완 근육군의 일반 progressive resistance 교육용. 개별 근육/건 병변에서는 진단별 protocol 우선."
     },
     {
       "muscle_id": "m083",
@@ -1712,12 +1726,12 @@
     {
       "muscle_id": "m126",
       "status": "group_evidence",
-      "evidence_tier": "B",
+      "evidence_tier": "C",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px009"
+        "px010"
       ],
-      "note": "posterolateral hip와 lower-limb functional strengthening 근거를 그룹 수준으로 적용."
+      "note": "TFL을 posterolateral hip target 근육으로 과도하게 해석하지 않고 기능적 lower-limb program에만 연결."
     },
     {
       "muscle_id": "m127",
