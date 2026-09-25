@@ -408,12 +408,15 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - relationships 1,789
 - orphan 0
 - relationship type mismatch 0
+- Stage 11에서 기존 symptom relationship 20개의 endpoint type을 `symptom_pattern`으로 정규화
+- 요추 quiz ID를 `lsq001–lsq030`으로 namespace 수정하여 전신 clinical quiz ID 294/294 unique
 - duplicate relationship ID 0
 - duplicate relationship edge 0
 - JavaScript syntax PASS
 - PWA id/start_url/scope/fullscreen + standalone fallback PASS
 - PHI boundary PASS
 - machine-readable report: data/global-qa-stage11-v1.json
+- automated QA: scripts/global-qa.mjs + .github/workflows/global-qa.yml
 
 ### 수동 확인 항목
 - Android 설치형 PWA가 실제 기기에서 주소창 없이 fullscreen으로 열리는지 최종 물리 확인은 사용자 실기기에서 수행 필요.
