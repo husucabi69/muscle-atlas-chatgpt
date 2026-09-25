@@ -54,6 +54,24 @@ button,input{font:inherit} button{cursor:pointer}
 .region-panel-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:14px}
 .region-panel-head h3{font-size:28px;letter-spacing:-.035em;margin:0}
 .region-panel-head span{color:var(--muted);font-size:14px}
+.anatomy-view[hidden]{display:none!important}
+.anatomy-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.anatomy-nav .crumb{color:var(--muted);font-size:14px;margin-left:auto}
+.anatomy-detail-head{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;margin-bottom:14px}
+.anatomy-detail-head h2{font-size:34px;line-height:1.15;letter-spacing:-.04em;margin:0 0 7px}
+.anatomy-detail-head .sub{font-size:17px;color:var(--muted)}
+.anatomy-detail-tabs{display:flex;gap:8px;overflow-x:auto;white-space:nowrap;margin:0 0 16px;padding-bottom:2px;scrollbar-width:none}
+.anatomy-detail-tabs::-webkit-scrollbar{display:none}
+.anatomy-detail-tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 13px;font-weight:700}
+.anatomy-detail-tab.active{background:#111827;color:#fff;border-color:#111827}
+.anatomy-detail-content{min-height:320px}
+.anatomy-detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0}
+.anatomy-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:700px){
+  .anatomy-nav .crumb{width:100%;margin-left:0}
+  .anatomy-detail-head h2{font-size:29px}
+  .anatomy-quick-grid{grid-template-columns:1fr}
+}
 .result-wrap{display:none;margin-top:14px} .result-wrap.show{display:block}
 .overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.22);z-index:60;overflow:auto;padding:20px} .overlay.show{display:block}
 .modal{max-width:1100px;margin:0 auto;background:#fff;border-radius:24px;box-shadow:0 30px 80px rgba(15,23,42,.18);min-height:calc(100vh - 40px)}
@@ -213,15 +231,40 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 <section id="regions" class="page">
-  <div class="section-title"><h3>해부학 부위</h3><span>부위를 먼저 선택하세요</span></div>
-  <div id="regionChooser" class="region-chooser"></div>
-  <div id="regionMusclesPanel" class="region-muscles-panel" hidden>
-    <button class="region-back" type="button" onclick="closeRegionMuscles()">← 부위 목록</button>
+  <div id="regionChooserView" class="anatomy-view">
+    <div class="section-title"><h3>해부학 부위</h3><span>부위를 선택하세요</span></div>
+    <div class="note"><b>단계 1 · 부위 선택</b><br>부위를 누르면 해당 근육 목록 화면으로 전환됩니다.</div>
+    <div id="regionChooser" class="region-chooser"></div>
+  </div>
+
+  <div id="regionMusclesView" class="anatomy-view" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="showAnatomyRegions()">← 해부부위</button>
+      <span class="crumb" id="regionMuscleBreadcrumb"></span>
+    </div>
     <div class="region-panel-head">
       <h3 id="selectedRegionTitle"></h3>
       <span id="selectedRegionCount"></span>
     </div>
+    <div class="note"><b>단계 2 · 근육 선택</b><br>근육을 누르면 상세 학습 화면으로 전환됩니다.</div>
     <div id="selectedRegionList" class="region-list"></div>
+  </div>
+
+  <div id="regionDetailView" class="anatomy-view" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="showCurrentRegionMuscles()">← 근육 목록</button>
+      <button class="pill" type="button" onclick="showAnatomyRegions()">해부부위로</button>
+      <span class="crumb" id="regionDetailBreadcrumb"></span>
+    </div>
+    <div id="regionMuscleDetailHead" class="anatomy-detail-head"></div>
+    <div class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습">
+      <button class="anatomy-detail-tab active" type="button" data-anatomy-detail-tab="basic" onclick="showRegionMuscleTab('basic')">기본정보</button>
+      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="anatomy" onclick="showRegionMuscleTab('anatomy')">해부도해</button>
+      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="ultrasound" onclick="showRegionMuscleTab('ultrasound')">초음파</button>
+      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="clinical" onclick="showRegionMuscleTab('clinical')">임상</button>
+      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="learning" onclick="showRegionMuscleTab('learning')">심화·학습</button>
+    </div>
+    <div id="regionMuscleDetailContent" class="anatomy-detail-content"></div>
   </div>
 </section>
 
@@ -1400,6 +1443,31 @@ function refreshSymptomNavigation(){
 }
 
 let selectedRegionName=null;
+let selectedRegionMuscleId=null;
+let selectedRegionMuscleTab='basic';
+let restoringAnatomyHistory=false;
+
+function recordAnatomyHistory(level){
+  if(restoringAnatomyHistory)return;
+  history.pushState({
+    ...(history.state||{}),
+    lysPage:'regions',
+    anatomyLevel:level,
+    anatomyRegion:selectedRegionName,
+    anatomyMuscleId:selectedRegionMuscleId
+  },'');
+}
+
+function setAnatomyView(view){
+  const chooser=document.getElementById('regionChooserView');
+  const musclesView=document.getElementById('regionMusclesView');
+  const detailView=document.getElementById('regionDetailView');
+  if(chooser)chooser.hidden=view!=='regions';
+  if(musclesView)musclesView.hidden=view!=='muscles';
+  if(detailView)detailView.hidden=view!=='detail';
+  window.scrollTo({top:0,behavior:'auto'});
+}
+
 function renderRegionChooser(){
   const chooser=document.getElementById('regionChooser');
   if(!chooser)return;
@@ -1408,32 +1476,131 @@ function renderRegionChooser(){
     return '<button type="button" class="region-choice" onclick="openRegion('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span><b>'+esc(r)+'</b><br><small>'+count+'개 근육</small></span><span class="arrow">›</span></button>';
   }).join('');
 }
-function openRegion(region){
+
+function openRegion(region,record=true){
   selectedRegionName=region;
+  selectedRegionMuscleId=null;
   const list=muscles.filter(m=>m.region===region);
-  const chooser=document.getElementById('regionChooser');
-  const panel=document.getElementById('regionMusclesPanel');
-  if(chooser)chooser.hidden=true;
-  if(panel)panel.hidden=false;
   document.getElementById('selectedRegionTitle').textContent=region;
   document.getElementById('selectedRegionCount').textContent=list.length+'개 근육';
+  const crumb=document.getElementById('regionMuscleBreadcrumb');
+  if(crumb)crumb.textContent='해부학 부위 › '+region;
   document.getElementById('selectedRegionList').innerHTML=list.map(m=>
-    '<button type="button" class="region-muscle" onclick="openMuscle(\''+m.id+'\')"><b>'+esc(m.ko)+'</b><small>'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</small></button>'
+    '<button type="button" class="region-muscle" onclick="openRegionMuscle(\''+m.id+'\')"><b>'+esc(m.ko)+'</b><small>'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</small></button>'
   ).join('');
-  window.scrollTo({top:0,behavior:'smooth'});
+  setAnatomyView('muscles');
+  if(record)recordAnatomyHistory('muscles');
 }
-function closeRegionMuscles(){
+
+function showAnatomyRegions(record=true){
   selectedRegionName=null;
-  const chooser=document.getElementById('regionChooser');
-  const panel=document.getElementById('regionMusclesPanel');
-  if(chooser)chooser.hidden=false;
-  if(panel)panel.hidden=true;
-  window.scrollTo({top:0,behavior:'smooth'});
+  selectedRegionMuscleId=null;
+  selectedRegionMuscleTab='basic';
+  setAnatomyView('regions');
+  if(record)recordAnatomyHistory('regions');
 }
+
+function closeRegionMuscles(){showAnatomyRegions();}
+
+function showCurrentRegionMuscles(record=true){
+  if(selectedRegionName)openRegion(selectedRegionName,record);
+  else showAnatomyRegions(record);
+}
+
+function regionMuscleBasicHtml(m){
+  const ui=usInfo[m.region]||{};
+  return '<div class="anatomy-quick-grid">'+
+    '<div class="box"><h4>Origin · 기시</h4><p>'+esc(m.origin)+'</p></div>'+
+    '<div class="box"><h4>Insertion · 정지</h4><p>'+esc(m.insertion)+'</p></div>'+
+    '<div class="box"><h4>Function · 기능</h4><p>'+esc(m.function)+'</p></div>'+
+    '<div class="box"><h4>Nerve · 신경지배</h4><p>'+esc(m.nerve)+'</p></div>'+
+    '<div class="box"><h4>Blood supply · 혈액공급</h4><p>'+esc(m.blood)+'</p></div>'+
+    '<div class="greenbox"><h4>촉지법</h4><p>'+esc(m.palpation)+'</p></div>'+
+    '</div>'+
+    '<div class="pathbox" style="margin-top:14px"><h4>임상 중요점</h4><p>'+esc(m.pathology)+'</p></div>'+
+    '<div class="box" style="margin-top:14px"><h4>초음파 핵심</h4><p><b>Probe / 스캔</b><br>'+esc(ui['Probe/스캔']||'')+
+    '<br><br><b>정상 구조 식별</b><br>'+esc(ui['정상 해부/식별']||ui['정상 해부 포인트']||ui['정상/식별']||'')+
+    '<br><br><b>임상 체크포인트</b><br>'+esc(ui['임상 체크포인트']||ui['임상 주의']||ui['임상/주의']||'')+'</p></div>';
+}
+
+function openRegionMuscle(id,record=true){
+  const m=byId[id];if(!m)return;
+  selectedRegionMuscleId=id;
+  selectedRegionName=m.region;
+  selectedRegionMuscleTab='basic';
+  const head=document.getElementById('regionMuscleDetailHead');
+  if(head)head.innerHTML='<h2>'+esc(m.ko)+'</h2><div class="sub">'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</div><div class="tagrow"><span class="tag">'+esc(m.region)+'</span><span class="tag">'+esc(m.id)+'</span></div>';
+  const crumb=document.getElementById('regionDetailBreadcrumb');
+  if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko;
+  setAnatomyView('detail');
+  showRegionMuscleTab('basic');
+  if(record)recordAnatomyHistory('detail');
+}
+
+function showRegionMuscleTab(tab){
+  const m=byId[selectedRegionMuscleId];if(!m)return;
+  selectedRegionMuscleTab=tab;
+  document.querySelectorAll('[data-anatomy-detail-tab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.anatomyDetailTab===tab));
+  const el=document.getElementById('regionMuscleDetailContent');if(!el)return;
+  if(tab==='basic'){
+    el.innerHTML=regionMuscleBasicHtml(m);
+    return;
+  }
+  if(tab==='anatomy'){
+    el.innerHTML='<div class="section-title"><h3>대표 해부학 도해</h3><span>Stage 17에서 205개 대표시야 전수감사</span></div>'+
+      '<div class="note">현재 검수 고정 도해를 우선 표시합니다. 다음 단계에서 각 근육이 가장 잘 보이는 시야를 대표 도해로 다시 선정합니다.</div>'+
+      '<div id="regionAnatomyMedia" class="media-grid"></div>';
+    loadAnatomyInto(m,document.getElementById('regionAnatomyMedia'));
+    return;
+  }
+  if(tab==='ultrasound'){
+    const ui=usInfo[m.region]||{};
+    el.innerHTML='<div class="box"><h4>Probe / 스캔</h4><p>'+esc(ui['Probe/스캔']||'')+'</p></div>'+
+      '<div class="section-title"><h3>실제 초음파</h3><span>검수 자료 우선</span></div>'+
+      '<div id="regionUSMedia" class="media-grid"></div>';
+    loadUSInto(m,document.getElementById('regionUSMedia'));
+    return;
+  }
+  if(tab==='clinical'){
+    const sx=symptomsByMuscle[m.id]||[];
+    const dx=diagnosesByMuscle[m.id]||[];
+    el.innerHTML='<div class="pathbox"><h4>임상 중요점</h4><p>'+esc(m.pathology)+'</p></div>'+
+      '<div class="section-title"><h3>관련 증상</h3><span>'+sx.length+'개</span></div>'+
+      (sx.length?'<div class="grid2">'+sx.map(s=>'<button class="symptom-card" type="button" onclick="openSymptom(\''+s.id+'\')"><h4>'+esc(s.title)+'</h4><p>증상 흐름 자세히 보기</p></button>').join('')+'</div>':'<div class="note">현재 직접 연결된 증상 항목이 없습니다.</div>')+
+      '<div class="section-title"><h3>관련 진단 개념</h3><span>일반 지식 후보</span></div>'+
+      (dx.length?'<div class="tagrow">'+dx.map(d=>'<span class="tag">'+esc(d.title)+'</span>').join('')+'</div>':'<div class="note">현재 직접 연결된 진단 개념이 없습니다.</div>');
+    return;
+  }
+  if(tab==='learning'){
+    el.innerHTML='<div class="grid2">'+
+      '<div class="card"><h3>Oral Viva</h3><p>이 근육을 바로 구술시험으로 이어갑니다.</p><div class="anatomy-detail-actions"><button class="primary" onclick="startOralForMuscle(\''+m.id+'\')">이 근육 Oral 시작</button></div></div>'+
+      '<div class="card"><h3>환자교육</h3><p>이 근육과 연결된 운동·스트레칭 교육으로 이동합니다.</p><div class="anatomy-detail-actions"><button class="primary" onclick="openEducationForMuscle(\''+m.id+'\')">환자교육 열기</button></div></div>'+
+      '</div>'+
+      '<div class="anatomy-detail-actions"><button class="pill" onclick="showRegionMuscleTab(\'anatomy\')">해부도해 심화</button><button class="pill" onclick="showRegionMuscleTab(\'ultrasound\')">초음파 심화</button><button class="pill" onclick="showRegionMuscleTab(\'clinical\')">임상 심화</button></div>';
+  }
+}
+
 function refreshRegionNavigation(){
   renderRegionChooser();
-  if(selectedRegionName&&regions.includes(selectedRegionName))openRegion(selectedRegionName);
+  if(selectedRegionMuscleId&&byId[selectedRegionMuscleId])openRegionMuscle(selectedRegionMuscleId,false);
+  else if(selectedRegionName&&regions.includes(selectedRegionName))openRegion(selectedRegionName,false);
+  else setAnatomyView('regions');
 }
+
+window.addEventListener('popstate',event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='regions')return;
+  restoringAnatomyHistory=true;
+  showPage('regions');
+  if(state.anatomyLevel==='detail'&&state.anatomyMuscleId&&byId[state.anatomyMuscleId]){
+    openRegionMuscle(state.anatomyMuscleId,false);
+  }else if(state.anatomyLevel==='muscles'&&state.anatomyRegion&&regions.includes(state.anatomyRegion)){
+    openRegion(state.anatomyRegion,false);
+  }else{
+    showAnatomyRegions(false);
+  }
+  restoringAnatomyHistory=false;
+});
 
 let deferredInstallPrompt=null;
 function isPWAStandalone(){
@@ -1472,7 +1639,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')closeRegionMuscles();if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active', p.id===page));
@@ -1534,38 +1701,35 @@ async function commonsSearch(query, terms, limit=8){
 }
 function mediaCard(x){return `<div class="media"><a href="${esc(x.page||x.full||x.url)}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><img loading="lazy" src="${esc(x.url)}" alt="${esc(x.title)}"><div class="meta"><b>${esc(x.title)}</b><br>${esc(x.license||'Wikimedia Commons · open license')}</div></a></div>`;}
 
-async function loadAnatomy(m){
-  const el=document.getElementById('anatomyMedia'); if(!el) return;
+async function loadAnatomyInto(m,el){
+  if(!el)return;
   el.innerHTML='<div class="status">검수된 고정 해부 이미지를 확인하는 중…</div>';
   const reg=await getCuratedMedia(), fixed=reg.muscles?.[m.id]?.anatomy||[];
-  if(fixed.length){
-    el.innerHTML=fixed.map(curatedCard).join('');
-    return;
-  }
+  if(fixed.length){el.innerHTML=fixed.map(curatedCard).join('');return;}
   el.innerHTML='<div class="status">고정 영상 미등록 · 공개 고해상도 해부 이미지를 검색하는 중…</div>';
   const base=m.en.replace(/\([^)]*\)/g,'').trim(); const terms=base.split(/\s+/).filter(x=>x.length>2);
   const qs=[`"${base}" Anatomography muscle`,`"${base}" Gray anatomy`,`"${base}" muscle anatomy`];
-  let all=[]; for(const q of qs){try{all=all.concat(await commonsSearch(q, terms, 6));}catch(e){}}
-  const seen=new Set(); all=all.filter(x=>!seen.has(x.url)&&seen.add(x.url)).sort((a,b)=>b.score-a.score).slice(0,4);
-  el.innerHTML=all.length ? all.map(mediaCard).join('') : '<div class="status">자동으로 확인된 공개 고해상도 해부 이미지가 없습니다.</div>';
+  let all=[];for(const q of qs){try{all=all.concat(await commonsSearch(q,terms,6));}catch(e){}}
+  const seen=new Set();all=all.filter(x=>!seen.has(x.url)&&seen.add(x.url)).sort((a,b)=>b.score-a.score).slice(0,4);
+  el.innerHTML=all.length?all.map(mediaCard).join(''):'<div class="status">자동으로 확인된 공개 고해상도 해부 이미지가 없습니다.</div>';
 }
-async function loadUS(m){
-  const el=document.getElementById('usMedia'); if(!el) return;
+async function loadAnatomy(m){return loadAnatomyInto(m,document.getElementById('anatomyMedia'));}
+
+async function loadUSInto(m,el){
+  if(!el)return;
   el.innerHTML='<div class="status">검수된 실제 초음파를 확인하는 중…</div>';
-  const reg=await getCuratedMedia(), fixed=reg.muscles?.[m.id]?.ultrasound||[];
-  if(fixed.length){
-    el.innerHTML=fixed.map(curatedCard).join('');
-    return;
-  }
+  const reg=await getCuratedMedia(),fixed=reg.muscles?.[m.id]?.ultrasound||[];
+  if(fixed.length){el.innerHTML=fixed.map(curatedCard).join('');return;}
   el.innerHTML='<div class="status">고정 초음파 미등록 · 공개 실제 B-mode 초음파를 검색하는 중…</div>';
-  const base=m.en.replace(/\([^)]*\)/g,'').trim(); const terms=base.split(/\s+/).filter(x=>x.length>2);
+  const base=m.en.replace(/\([^)]*\)/g,'').trim();const terms=base.split(/\s+/).filter(x=>x.length>2);
   const qs=[`"${base}" ultrasound`,`"${base}" ultrasonography`,`"${base.replace(/ muscle$/i,'')}" sonography`];
-  let all=[]; for(const q of qs){try{all=all.concat(await commonsSearch(q, terms, 7));}catch(e){}}
+  let all=[];for(const q of qs){try{all=all.concat(await commonsSearch(q,terms,7));}catch(e){}}
   all=all.filter(x=>/ultra|sono|US\b/i.test(x.title));
-  const seen=new Set(); all=all.filter(x=>!seen.has(x.url)&&seen.add(x.url)).slice(0,4);
-  if(!all.length && fallbackUS[m.region]) all=fallbackUS[m.region];
-  el.innerHTML=all.length ? all.map(mediaCard).join('') : '<div class="status">이 근육에 대해 공개 라이선스로 확인 가능한 실제 초음파가 없어 임의 대체하지 않았습니다.</div>';
+  const seen=new Set();all=all.filter(x=>!seen.has(x.url)&&seen.add(x.url)).slice(0,4);
+  if(!all.length&&fallbackUS[m.region])all=fallbackUS[m.region];
+  el.innerHTML=all.length?all.map(mediaCard).join(''):'<div class="status">이 근육에 대해 공개 라이선스로 확인 가능한 실제 초음파가 없어 임의 대체하지 않았습니다.</div>';
 }
+async function loadUS(m){return loadUSInto(m,document.getElementById('usMedia'));}
 
 function openMuscle(id){
   const m=byId[id]; if(!m) return;
