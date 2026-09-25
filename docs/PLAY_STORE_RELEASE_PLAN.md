@@ -7,6 +7,7 @@
 - PWA 유지
 - Trusted Web Activity Android shell
 - provisional package ID: `kr.co.lysortho.muscle`
+- Google Play target API 36
 - targetSdk / compileSdk 36
 - Android Browser Helper 2.7.3
 - AndroidX Browser 1.10.0
