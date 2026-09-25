@@ -1,0 +1,847 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "lumbar_sacral_v1",
+  "question_count": 30,
+  "questions": [
+    {
+      "quiz_id": "lq001",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "clinical_test",
+      "question": "SLR의 양성 소견으로 가장 적절한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "익숙한 다리 신경증상 재현과 structural differentiation"
+        },
+        {
+          "value": "B",
+          "label": "요추 압통만"
+        },
+        {
+          "value": "C",
+          "label": "hamstring stretch 느낌만"
+        },
+        {
+          "value": "D",
+          "label": "발목 부종"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "ct117",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq002",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "evidence",
+      "question": "SLR에서 ROM 각도 하나만으로 임상결정을 하면 안 되는 이유는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "측정오차와 신뢰도 한계가 크기 때문"
+        },
+        {
+          "value": "B",
+          "label": "각도는 항상 100% 진단적이기 때문"
+        },
+        {
+          "value": "C",
+          "label": "신경증상은 중요하지 않기 때문"
+        },
+        {
+          "value": "D",
+          "label": "SLR은 어깨검사이기 때문"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "ct117",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq003",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "clinical_test",
+      "question": "Crossed SLR은 어떻게 시행하는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "덜 증상인 다리를 올려 반대쪽 익숙한 방사통을 본다"
+        },
+        {
+          "value": "B",
+          "label": "증상 다리만 반복 squat"
+        },
+        {
+          "value": "C",
+          "label": "복와위 무릎굴곡"
+        },
+        {
+          "value": "D",
+          "label": "SI compression만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "ct118",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq004",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "clinical_test",
+      "question": "Femoral nerve stretch가 주로 연결되는 경로는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "L2-L4/femoral pathway"
+        },
+        {
+          "value": "B",
+          "label": "S1만"
+        },
+        {
+          "value": "C",
+          "label": "median nerve"
+        },
+        {
+          "value": "D",
+          "label": "ulnar nerve"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m047",
+      "related_entity_id": "ct120",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq005",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "neurology",
+      "question": "L2-S1 screen의 핵심은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "myotome·dermatome·reflex 통합"
+        },
+        {
+          "value": "B",
+          "label": "MRI만"
+        },
+        {
+          "value": "C",
+          "label": "근육 압통만"
+        },
+        {
+          "value": "D",
+          "label": "SLR 각도만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "ct121",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq006",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "safety",
+      "question": "새 urinary retention과 saddle sensory change가 동반될 때 우선순위는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "cauda equina urgent evaluation"
+        },
+        {
+          "value": "B",
+          "label": "QL stretching만"
+        },
+        {
+          "value": "C",
+          "label": "SI manipulation만"
+        },
+        {
+          "value": "D",
+          "label": "경과관찰만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "ct132",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq007",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "mechanical",
+      "question": "centralization의 의미로 가장 적절한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "원위부 다리증상이 근위부로 이동하는 증상반응"
+        },
+        {
+          "value": "B",
+          "label": "모든 통증이 0점이 됨"
+        },
+        {
+          "value": "C",
+          "label": "MRI disc가 사라짐"
+        },
+        {
+          "value": "D",
+          "label": "SIJ가 확정됨"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "ct116",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq008",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "safety",
+      "question": "centralization이 보인다고 할 수 없는 결론은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "특정 disc lesion을 100% 확정"
+        },
+        {
+          "value": "B",
+          "label": "directional preference 정보로 활용"
+        },
+        {
+          "value": "C",
+          "label": "증상 반응 분류에 사용"
+        },
+        {
+          "value": "D",
+          "label": "exercise 방향 결정에 참고"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "d125",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq009",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "facet",
+      "question": "extension-rotation에서 편측 axial pain이 재현되면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "facet-related candidate지만 확정 아님"
+        },
+        {
+          "value": "B",
+          "label": "facet pain 확정"
+        },
+        {
+          "value": "C",
+          "label": "radiculopathy 배제"
+        },
+        {
+          "value": "D",
+          "label": "SIJ 확정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m039",
+      "related_entity_id": "ct123",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq010",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "si_joint",
+      "question": "SI provocation cluster에 대한 2021 meta-analysis의 요지는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "양성은 rule-in이 제한적이고 음성 cluster가 배제에 더 유용"
+        },
+        {
+          "value": "B",
+          "label": "양성 1개면 확정"
+        },
+        {
+          "value": "C",
+          "label": "음성이면 MRI 금지"
+        },
+        {
+          "value": "D",
+          "label": "모든 검사 정확도 100%"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m046",
+      "related_entity_id": "ct129",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq011",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "si_joint",
+      "question": "다음 중 SI provocation cluster 구성에 해당하는 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "thigh thrust"
+        },
+        {
+          "value": "B",
+          "label": "Phalen"
+        },
+        {
+          "value": "C",
+          "label": "Finkelstein"
+        },
+        {
+          "value": "D",
+          "label": "Thompson"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m046",
+      "related_entity_id": "ct125",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq012",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "si_joint",
+      "question": "양성 SI cluster의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "SI pain 가능성을 높이지만 확정하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "SIJ source 확정"
+        },
+        {
+          "value": "C",
+          "label": "hip pathology 배제"
+        },
+        {
+          "value": "D",
+          "label": "lumbar MRI 불필요"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m046",
+      "related_entity_id": "d117",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq013",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "ultrasound",
+      "question": "L4/5 multifidus parasagittal US의 대표 landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "L4/5 facet joint"
+        },
+        {
+          "value": "B",
+          "label": "patella"
+        },
+        {
+          "value": "C",
+          "label": "radial styloid"
+        },
+        {
+          "value": "D",
+          "label": "calcaneus"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "usv102",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq014",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "ultrasound",
+      "question": "L5 multifidus transverse US에서 경계 확인에 쓰이는 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "spinous process·lamina·fascia·longissimus"
+        },
+        {
+          "value": "B",
+          "label": "ulna·radius"
+        },
+        {
+          "value": "C",
+          "label": "fibula·talus"
+        },
+        {
+          "value": "D",
+          "label": "clavicle·acromion"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "usv103",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq015",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "motor_control",
+      "question": "multifidus contraction 평가에 사용할 수 있는 low-load task는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "contralateral arm lift"
+        },
+        {
+          "value": "B",
+          "label": "maximal leg press"
+        },
+        {
+          "value": "C",
+          "label": "single-leg hop"
+        },
+        {
+          "value": "D",
+          "label": "wrist curl"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "ct130",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq016",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "safety",
+      "question": "multifidus thickness asymmetry 하나의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "impairment 정보이지 통증원인 확정이 아니다"
+        },
+        {
+          "value": "B",
+          "label": "disc herniation 확정"
+        },
+        {
+          "value": "C",
+          "label": "수술 적응증"
+        },
+        {
+          "value": "D",
+          "label": "신경근병증 배제"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "d118",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq017",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "ultrasound",
+      "question": "lumbar shamrock sign의 세 근육은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "QL·psoas major·erector spinae"
+        },
+        {
+          "value": "B",
+          "label": "SCM·trapezius·deltoid"
+        },
+        {
+          "value": "C",
+          "label": "TA·EHL·EDL"
+        },
+        {
+          "value": "D",
+          "label": "FCR·FCU·PL"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m046",
+      "related_entity_id": "usv106",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq018",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "ultrasound",
+      "question": "QL ultrasound에서 주의할 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "복막·신장·주변 신경혈관"
+        },
+        {
+          "value": "B",
+          "label": "patellar tendon"
+        },
+        {
+          "value": "C",
+          "label": "carpal tunnel"
+        },
+        {
+          "value": "D",
+          "label": "Achilles insertion"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m046",
+      "related_entity_id": "usv107",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq019",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "ultrasound",
+      "question": "posterior SIJ US 탐색 시 시작 landmark로 유용한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "posterior sacral apophysis/median sacral crest"
+        },
+        {
+          "value": "B",
+          "label": "radial head"
+        },
+        {
+          "value": "C",
+          "label": "greater tuberosity"
+        },
+        {
+          "value": "D",
+          "label": "navicular"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m046",
+      "related_entity_id": "usv110",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq020",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "safety",
+      "question": "SIJ가 US에서 보인다는 것만으로 가능한 결론은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "해부학적 위치 확인 가능, pain source 확정은 아님"
+        },
+        {
+          "value": "B",
+          "label": "SI pain 확정"
+        },
+        {
+          "value": "C",
+          "label": "sacroiliitis 확정"
+        },
+        {
+          "value": "D",
+          "label": "radiculopathy 배제"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m046",
+      "related_entity_id": "usv111",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq021",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "cluneal",
+      "question": "superior cluneal nerve entrapment의 대표적 임상 단서는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "posterior iliac crest 국소 trigger point와 upper-buttock dysesthesia"
+        },
+        {
+          "value": "B",
+          "label": "plantar heel pain"
+        },
+        {
+          "value": "C",
+          "label": "thumb numbness"
+        },
+        {
+          "value": "D",
+          "label": "lateral elbow pain"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m038",
+      "related_entity_id": "ct131",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq022",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "cluneal",
+      "question": "SCN ultrasound visualization 하나의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "보이는 것만으로 entrapment 진단은 아니다"
+        },
+        {
+          "value": "B",
+          "label": "보이면 모두 병적"
+        },
+        {
+          "value": "C",
+          "label": "nerve CSA가 정상이어도 무조건 entrapment"
+        },
+        {
+          "value": "D",
+          "label": "요추평가 불필요"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m038",
+      "related_entity_id": "usv112",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq023",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "stenosis",
+      "question": "신경성 파행에 더 전형적인 패턴은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "서기/걷기 악화, 앉기/굴곡 완화"
+        },
+        {
+          "value": "B",
+          "label": "누우면 즉시 악화만"
+        },
+        {
+          "value": "C",
+          "label": "손목 굴곡에서 재현"
+        },
+        {
+          "value": "D",
+          "label": "기침과 무관한 발뒤꿈치 통증"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "d115",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq024",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "radiculopathy",
+      "question": "MRI disc degeneration만으로 radiculopathy를 확정하면 안 되는 이유는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "영상과 임상 level/증상 일치가 필요하기 때문"
+        },
+        {
+          "value": "B",
+          "label": "MRI는 신경을 못 보기 때문"
+        },
+        {
+          "value": "C",
+          "label": "모든 degeneration은 정상이라서"
+        },
+        {
+          "value": "D",
+          "label": "SLR이 항상 더 정확해서"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "d114",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq025",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "exercise",
+      "question": "2021 LBP CPG가 만성 요통에 권고하는 축은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "trunk strengthening/endurance·specific activation·multimodal/general exercise"
+        },
+        {
+          "value": "B",
+          "label": "침상안정만"
+        },
+        {
+          "value": "C",
+          "label": "corset만"
+        },
+        {
+          "value": "D",
+          "label": "영상 반복만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "d113",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq026",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "exercise",
+      "question": "specific trunk activation의 대표 target은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "transversus abdominis와 multifidus"
+        },
+        {
+          "value": "B",
+          "label": "biceps brachii만"
+        },
+        {
+          "value": "C",
+          "label": "gastrocnemius만"
+        },
+        {
+          "value": "D",
+          "label": "FCR만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "d118",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq027",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "safety",
+      "question": "진행성 motor deficit이 있으면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "routine exercise만 지속하지 말고 원인 평가 우선"
+        },
+        {
+          "value": "B",
+          "label": "반드시 정상"
+        },
+        {
+          "value": "C",
+          "label": "SIJ만 검사"
+        },
+        {
+          "value": "D",
+          "label": "US thickness만 측정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "d122",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq028",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "clinical_reasoning",
+      "question": "PSIS 주변 통증의 감별로 적절한 조합은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "SIJ·SCN·QL/erector source를 함께 본다"
+        },
+        {
+          "value": "B",
+          "label": "SIJ 하나로 자동 확정"
+        },
+        {
+          "value": "C",
+          "label": "disc만 본다"
+        },
+        {
+          "value": "D",
+          "label": "hip은 절대 고려하지 않는다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m046",
+      "related_entity_id": "dg055",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq029",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "ultrasound",
+      "question": "Stage 9 lumbar ultrasound의 역할은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "multifidus/erector/QL/psoas/SIJ/SCN 구조를 보여주지만 단독 확진진단이 아니다"
+        },
+        {
+          "value": "B",
+          "label": "MRI를 항상 대체"
+        },
+        {
+          "value": "C",
+          "label": "laterality 자동 생성"
+        },
+        {
+          "value": "D",
+          "label": "미시행 검사 기록"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "usv102",
+      "status": "active"
+    },
+    {
+      "quiz_id": "lq030",
+      "module_id": "lumbar_sacral_v1",
+      "domain": "data_safety",
+      "question": "Stage 9 데이터 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "일반 MSK 지식만 저장하고 PHI·자동 laterality·미시행검사 추정을 금지"
+        },
+        {
+          "value": "B",
+          "label": "환자 이름 저장"
+        },
+        {
+          "value": "C",
+          "label": "SLR 자동 양성"
+        },
+        {
+          "value": "D",
+          "label": "CES 자동 확정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m041",
+      "related_entity_id": "dg058",
+      "status": "active"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "lumbar_sacral_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "Every Stage 9 ultrasound view is tied to an actual open scientific ultrasound figure or figure group. No generated B-mode substitute is used. Canonical publication context is preserved.",
+  "coverage": {
+    "views_total": 15,
+    "embedded_verified": 0,
+    "exact_figure_reference": 15,
+    "unverified": 0
+  },
+  "stage9_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv102",
+      "status": "verified_fixed_reference",
+      "title": "L4/5 lumbar multifidus parasagittal",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409444/",
+      "figure_label": "Figure 1a",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv103",
+      "status": "verified_fixed_reference",
+      "title": "L5 lumbar multifidus transverse",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409444/",
+      "figure_label": "Figure 1b",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv104",
+      "status": "verified_fixed_reference",
+      "title": "L3 iliocostalis lumborum transverse",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409444/",
+      "figure_label": "Figure 1c",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv105",
+      "status": "verified_fixed_reference",
+      "title": "Lumbar multifidus rest/contraction",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7464501/",
+      "figure_label": "Figure 1 D-F",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv106",
+      "status": "verified_fixed_reference",
+      "title": "L4 shamrock sign QL/PM/ES",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12588924/",
+      "figure_label": "Figure 2",
+      "license": "CC BY 4.0 canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv107",
+      "status": "verified_fixed_reference",
+      "title": "Quadratus lumborum posterior/lateral view",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5244003/",
+      "figure_label": "Figures 8-9",
+      "license": "CC BY canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv108",
+      "status": "verified_fixed_reference",
+      "title": "Psoas major / QL interfascial view",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5244003/",
+      "figure_label": "Figure 6",
+      "license": "CC BY canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv109",
+      "status": "verified_fixed_reference",
+      "title": "L4/5 lumbar facet ultrasound",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8901759/",
+      "figure_label": "Figure 3B-C",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv110",
+      "status": "verified_fixed_reference",
+      "title": "Posterior sacral midline landmark",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11178692/",
+      "figure_label": "Figure 2",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv111",
+      "status": "verified_fixed_reference",
+      "title": "Posterior sacroiliac joint",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11178692/",
+      "figure_label": "Figure 3",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv112",
+      "status": "verified_fixed_reference",
+      "title": "Superior cluneal nerve at iliac crest",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10317927/",
+      "figure_label": "Figure 2C-E",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv113",
+      "status": "verified_fixed_reference",
+      "title": "Superior cluneal nerve longitudinal tracking",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10317927/",
+      "figure_label": "Figure 2D-E",
+      "license": "Open access canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv114",
+      "status": "verified_fixed_reference",
+      "title": "Lumbar facet/root landmark transverse planes",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5222601/",
+      "figure_label": "Figure 6",
+      "license": "CC BY-NC-SA canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv115",
+      "status": "verified_fixed_reference",
+      "title": "Femoral nerve / iliopsoas relation",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11671740/",
+      "figure_label": "Figure 1b",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv116",
+      "status": "verified_fixed_reference",
+      "title": "Thoracolumbar fascia at posterior iliac crest",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12897311/",
+      "figure_label": "Figure 1",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+    }
+  ]
+}

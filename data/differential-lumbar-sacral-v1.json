@@ -1,0 +1,535 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "lumbar_sacral_differential_v1",
+  "region_ids": [
+    "r003"
+  ],
+  "safety_rule": "Educational differential only. New urinary retention/incontinence, saddle sensory change, progressive bilateral or severe motor deficit, major trauma/osteoporosis, fever/infection risk, malignancy/systemic illness, or rapidly progressive neurologic dysfunction requires urgent appropriate evaluation rather than routine exercise/manual-care pathways.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d113",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "비특이적/기계적 요통",
+      "name_en": "Nonspecific or mechanical low back pain",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d114",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "요천추 신경근병증",
+      "name_en": "Lumbosacral radiculopathy",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d115",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "요추관 협착증/신경성 파행 후보",
+      "name_en": "Lumbar spinal stenosis / neurogenic claudication candidate",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d116",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "요추 후관절성 통증 후보",
+      "name_en": "Lumbar facet-mediated pain candidate",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d117",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "천장관절 통증 후보",
+      "name_en": "Sacroiliac joint pain candidate",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d118",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "요다열근 운동조절/위축 소견",
+      "name_en": "Lumbar multifidus motor-control or morphology impairment",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d119",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "요방형근 근막통증 후보",
+      "name_en": "Quadratus lumborum myofascial pain candidate",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d120",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "상둔피신경 포착 후보",
+      "name_en": "Superior cluneal nerve entrapment candidate",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d121",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "요추 척추기립근 strain/기능저하",
+      "name_en": "Lumbar erector spinae strain or dysfunction",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d122",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "진행성 요천추 신경학적 결손",
+      "name_en": "Progressive lumbosacral neurologic deficit",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d123",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Cauda equina syndrome 후보",
+      "name_en": "Cauda equina syndrome candidate",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d124",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "골절·감염·종양 등 요추 중대병리 후보",
+      "name_en": "Lumbar serious-pathology candidate: fracture, infection or malignancy",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d125",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "디스크성 요통/디스크 관련 통증 후보",
+      "name_en": "Discogenic or disc-related low back pain candidate",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d126",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "상부요추/대퇴신경 경로 통증 후보",
+      "name_en": "Upper-lumbar root or femoral-nerve pathway candidate",
+      "region_id": "r003",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f099",
+      "entity_type": "clinical_finding",
+      "name_ko": "반복운동에 따른 centralization/peripheralization",
+      "key": "centralization_peripheralization",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f100",
+      "entity_type": "clinical_finding",
+      "name_ko": "SLR에서 익숙한 다리 신경증상 재현",
+      "key": "slr_neural_symptom",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f101",
+      "entity_type": "clinical_finding",
+      "name_ko": "Crossed SLR 양성",
+      "key": "crossed_slr_positive",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f102",
+      "entity_type": "clinical_finding",
+      "name_ko": "Slump structural differentiation 양성",
+      "key": "slump_structural_differentiation",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f103",
+      "entity_type": "clinical_finding",
+      "name_ko": "Femoral stretch에서 전방 대퇴 신경증상",
+      "key": "femoral_stretch_neural_symptom",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f104",
+      "entity_type": "clinical_finding",
+      "name_ko": "L2–S1 분절성 근력·감각·반사 이상",
+      "key": "lumbar_segmental_neuro_deficit",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f105",
+      "entity_type": "clinical_finding",
+      "name_ko": "heel/toe walk 기능저하",
+      "key": "heel_toe_walk_deficit",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f106",
+      "entity_type": "clinical_finding",
+      "name_ko": "신전·보행 시 다리증상, 굴곡/앉기 시 완화",
+      "key": "neurogenic_claudication_pattern",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f107",
+      "entity_type": "clinical_finding",
+      "name_ko": "SI provocation 여러 검사에서 동일 통증 재현",
+      "key": "si_provocation_cluster",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f108",
+      "entity_type": "clinical_finding",
+      "name_ko": "Fortin/PSIS 인접 posterior pelvic pain",
+      "key": "posterior_si_region_pain",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f109",
+      "entity_type": "clinical_finding",
+      "name_ko": "요다열근 activation asymmetry",
+      "key": "multifidus_activation_asymmetry",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f110",
+      "entity_type": "clinical_finding",
+      "name_ko": "QL 국소 압통/체간부하 통증",
+      "key": "ql_local_pain",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f111",
+      "entity_type": "clinical_finding",
+      "name_ko": "posterior iliac crest SCN trigger point와 dysesthesia",
+      "key": "superior_cluneal_provocation",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f112",
+      "entity_type": "clinical_finding",
+      "name_ko": "cauda equina red-flag pattern",
+      "key": "cauda_equina_red_flag",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f113",
+      "entity_type": "clinical_finding",
+      "name_ko": "골절·감염·종양 red flag",
+      "key": "lumbar_serious_pathology_red_flag",
+      "region_id": "r003",
+      "status": "active"
+    },
+    {
+      "finding_id": "f114",
+      "entity_type": "clinical_finding",
+      "name_ko": "편측 axial extension-rotation pain",
+      "key": "lumbar_facet_candidate_pain",
+      "region_id": "r003",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg052",
+      "symptom_id": "sx50",
+      "title_ko": "중앙/편측 허리통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d113",
+          "look_for": [
+            "기계적 부하 연관",
+            "red flag 없음",
+            "기능 제한"
+          ],
+          "not_diagnostic_alone": [
+            "paraspinal tenderness 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d125",
+          "look_for": [
+            "반복운동에 따른 centralization/peripheralization",
+            "disc-related symptom behavior"
+          ],
+          "not_diagnostic_alone": [
+            "MRI disc degeneration alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d116",
+          "look_for": [
+            "extension-rotation axial pain"
+          ],
+          "not_diagnostic_alone": [
+            "provocation 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d121",
+          "look_for": [
+            "erector strain/fatigue pattern"
+          ],
+          "not_diagnostic_alone": [
+            "US thickness alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d124",
+          "look_for": [
+            "외상/골다공증/암/감염/전신 red flag"
+          ],
+          "not_diagnostic_alone": [
+            "야간통 하나"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg053",
+      "symptom_id": "sx51",
+      "title_ko": "허리에서 둔부·다리로 뻗치는 통증/저림",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d114",
+          "look_for": [
+            "SLR/slump",
+            "myotome/dermatome/reflex pattern",
+            "root-corresponding symptoms"
+          ],
+          "not_diagnostic_alone": [
+            "MRI disc finding alone",
+            "SLR 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d115",
+          "look_for": [
+            "보행/기립 악화",
+            "앉기/굴곡 완화",
+            "양측 또는 다분절"
+          ],
+          "not_diagnostic_alone": [
+            "나이만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d120",
+          "look_for": [
+            "posterior iliac crest trigger point",
+            "upper-buttock dysesthesia"
+          ],
+          "not_diagnostic_alone": [
+            "US nerve visualization"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d123",
+          "look_for": [
+            "saddle sensory/bladder-bowel/progressive severe deficit"
+          ],
+          "not_diagnostic_alone": [
+            "요통만"
+          ]
+        }
+      ],
+      "red_flags": [
+        "새 urinary retention/incontinence, saddle anesthesia, 급격한 양측성 약화는 urgent CES evaluation"
+      ]
+    },
+    {
+      "differential_group_id": "dg054",
+      "symptom_id": "sx52",
+      "title_ko": "전방 대퇴부 통증·저림/무릎 신전 약화",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d126",
+          "look_for": [
+            "femoral nerve stretch",
+            "L2-L4 motor-sensory-reflex pattern"
+          ],
+          "not_diagnostic_alone": [
+            "anterior thigh pain alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d114",
+          "look_for": [
+            "upper lumbar root signs"
+          ],
+          "not_diagnostic_alone": [
+            "MRI alone"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg055",
+      "symptom_id": "sx53",
+      "title_ko": "PSIS 주변·후방 골반통",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d117",
+          "look_for": [
+            "동일한 familiar pain을 여러 SI provocation test에서 재현"
+          ],
+          "not_diagnostic_alone": [
+            "양성 cluster도 rule-in 확정 아님"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d120",
+          "look_for": [
+            "iliac crest trigger point/dysesthesia"
+          ],
+          "not_diagnostic_alone": [
+            "압통만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d119",
+          "look_for": [
+            "QL/erector load-related pain"
+          ],
+          "not_diagnostic_alone": [
+            "trigger point만"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg056",
+      "symptom_id": "sx54",
+      "title_ko": "장시간 서기·걷기에서 다리통증/무거움",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d115",
+          "look_for": [
+            "standing/walking provocation",
+            "sitting/flexion relief",
+            "neuro exam"
+          ],
+          "not_diagnostic_alone": [
+            "MRI stenosis alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d114",
+          "look_for": [
+            "root-specific findings",
+            "neurodynamic tests"
+          ],
+          "not_diagnostic_alone": [
+            "leg pain alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d122",
+          "look_for": [
+            "progressive weakness/reflex/sensory deficit"
+          ],
+          "not_diagnostic_alone": [
+            "fatigue only"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg057",
+      "symptom_id": "sx55",
+      "title_ko": "후장골능 위쪽 국소 통증·둔부 감각이상",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d120",
+          "look_for": [
+            "posterior iliac crest ~7 cm lateral tenderness",
+            "upper-buttock dysesthesia",
+            "US course or diagnostic block when needed"
+          ],
+          "not_diagnostic_alone": [
+            "nerve diameter alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d117",
+          "look_for": [
+            "SI provocation pattern"
+          ],
+          "not_diagnostic_alone": [
+            "PSIS pain location alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d119",
+          "look_for": [
+            "QL/erector local pain"
+          ],
+          "not_diagnostic_alone": [
+            "myofascial tenderness only"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg058",
+      "symptom_id": "sx56",
+      "title_ko": "허리통증과 배뇨·회음부감각·진행성 다리약화",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d123",
+          "look_for": [
+            "new bladder/bowel dysfunction",
+            "saddle sensory change",
+            "severe/progressive bilateral neurologic deficit"
+          ],
+          "not_diagnostic_alone": [
+            "low back pain only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d122",
+          "look_for": [
+            "progressive motor/sensory/reflex loss"
+          ],
+          "not_diagnostic_alone": [
+            "subjective weakness only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d124",
+          "look_for": [
+            "major trauma/osteoporosis",
+            "fever/infection risk",
+            "cancer/systemic illness"
+          ],
+          "not_diagnostic_alone": [
+            "age alone"
+          ]
+        }
+      ],
+      "red_flags": [
+        "routine exercise/manual therapy보다 urgent MRI/응급·전문의 평가 우선"
+      ]
+    }
+  ]
+}

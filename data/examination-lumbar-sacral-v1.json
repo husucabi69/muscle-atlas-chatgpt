@@ -1,0 +1,365 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "lumbar_sacral_examination_v1",
+  "region_ids": [
+    "r003"
+  ],
+  "source_refs": {
+    "lbp_cpg_2021": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10508241/",
+    "si_cluster_2021": "https://pubmed.ncbi.nlm.nih.gov/34210160/",
+    "slr_reliability_2022": "https://pubmed.ncbi.nlm.nih.gov/35245880/",
+    "ces_review": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10757877/"
+  },
+  "clinical_tests": [
+    {
+      "clinical_test_id": "ct115",
+      "name_ko": "요추 능동 ROM 평가",
+      "name_en": "Lumbar active range-of-motion assessment",
+      "category": "mechanical",
+      "target_structure_ids": [
+        "j023"
+      ],
+      "setup": "기립 또는 좌위에서 굴곡·신전·측굴·회전을 안전 범위에서 시행한다.",
+      "maneuver": "가동범위, 좌우 비대칭, 통증 위치와 다리 증상 변화를 기록한다.",
+      "positive_definition": "뚜렷한 제한 또는 익숙한 허리/다리 증상 재현을 impairment로 기록한다.",
+      "interpretation_note": "기능평가이며 특정 디스크·후관절 병변의 확진검사가 아니다.",
+      "limitation": "고관절/흉추 보상과 통증 회피에 영향을 받는다.",
+      "related_diagnosis_concept_ids": [
+        "d113",
+        "d116"
+      ]
+    },
+    {
+      "clinical_test_id": "ct116",
+      "name_ko": "반복운동·centralization 평가",
+      "name_en": "Repeated-movement / centralization assessment",
+      "category": "mechanical",
+      "target_structure_ids": [
+        "j023"
+      ],
+      "setup": "증상 반응을 모니터링하며 반복 굴곡 또는 신전을 안전 범위에서 시행한다.",
+      "maneuver": "원위부 다리 증상이 근위부로 이동하는 centralization 또는 반대로 퍼지는 peripheralization을 관찰한다.",
+      "positive_definition": "반복운동에 따라 다리 증상 위치/강도가 일관되게 변하면 기록한다.",
+      "interpretation_note": "directional preference와 movement-response 분류에 사용하며 구조 병변을 확정하지 않는다.",
+      "limitation": "중증 신경결손·cauda equina 의심 시 반복운동보다 긴급 평가가 우선이다.",
+      "related_diagnosis_concept_ids": [
+        "d113",
+        "d125"
+      ],
+      "evidence_refs": [
+        "lbp_cpg_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct117",
+      "name_ko": "Straight Leg Raise",
+      "name_en": "Straight leg raise (SLR)",
+      "category": "radiculopathy",
+      "target_structure_ids": [
+        "n041",
+        "n042",
+        "n016"
+      ],
+      "setup": "앙와위에서 무릎을 편 채 고관절을 천천히 굴곡한다.",
+      "maneuver": "익숙한 다리 방사통/저림의 재현과 ankle dorsiflexion 등 structural differentiation에 따른 변화를 확인한다.",
+      "positive_definition": "요통만이 아니라 환자의 익숙한 lower-extremity neural symptom이 재현되고 structural differentiation에 반응하면 기록한다.",
+      "interpretation_note": "lumbosacral radicular pain의 임상추론 보조검사다.",
+      "limitation": "ROM 각도 하나만으로 진단하지 않으며 hamstring stretch sensation과 구분한다.",
+      "related_diagnosis_concept_ids": [
+        "d114"
+      ],
+      "evidence_refs": [
+        "slr_reliability_2022"
+      ]
+    },
+    {
+      "clinical_test_id": "ct118",
+      "name_ko": "Crossed Straight Leg Raise",
+      "name_en": "Crossed straight leg raise",
+      "category": "radiculopathy",
+      "target_structure_ids": [
+        "n041",
+        "n042"
+      ],
+      "setup": "무증상/덜 증상인 다리를 SLR 한다.",
+      "maneuver": "반대쪽 증상 다리에 익숙한 방사통이 재현되는지 확인한다.",
+      "positive_definition": "검사 반대편의 익숙한 radicular leg pain이 재현되면 기록한다.",
+      "interpretation_note": "특이도가 상대적으로 높다고 알려져 있으나 임상·영상과 통합한다.",
+      "limitation": "신뢰도 근거가 제한적이며 음성으로 radiculopathy를 배제하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d114"
+      ],
+      "evidence_refs": [
+        "slr_reliability_2022"
+      ]
+    },
+    {
+      "clinical_test_id": "ct119",
+      "name_ko": "Slump neurodynamic test",
+      "name_en": "Slump test",
+      "category": "radiculopathy",
+      "target_structure_ids": [
+        "n041",
+        "n042",
+        "n016"
+      ],
+      "setup": "좌위에서 흉요추 굴곡, 경추 굴곡, 무릎 신전, 발목 배굴을 단계적으로 적용한다.",
+      "maneuver": "익숙한 증상 재현과 경추 위치 변화 등 structural differentiation을 확인한다.",
+      "positive_definition": "환자의 익숙한 신경성 다리 증상이 재현되고 neural load 변화에 따라 증상이 변하면 기록한다.",
+      "interpretation_note": "신경기계적 민감성을 보는 보조검사다.",
+      "limitation": "hamstring tightness나 비특이 통증과 구분하며 단독 확진 금지.",
+      "related_diagnosis_concept_ids": [
+        "d114"
+      ]
+    },
+    {
+      "clinical_test_id": "ct120",
+      "name_ko": "Femoral nerve stretch / prone knee bend",
+      "name_en": "Femoral nerve stretch / prone knee bend",
+      "category": "upper_lumbar_radiculopathy",
+      "target_structure_ids": [
+        "n038",
+        "n039",
+        "n040",
+        "n014"
+      ],
+      "setup": "복와위에서 무릎을 천천히 굴곡하고 필요 시 고관절을 약간 신전한다.",
+      "maneuver": "전방 대퇴부 통증/저림 재현과 자세 변화에 따른 증상 변화를 확인한다.",
+      "positive_definition": "익숙한 anterior-thigh neural symptom이 재현되면 상부요추 root/femoral pathway 후보로 기록한다.",
+      "interpretation_note": "L2-L4 radiculopathy 또는 femoral nerve pathway 감별의 일부다.",
+      "limitation": "quadriceps/hip flexor stretch sensation과 구분하며 단독 level 확정 금지.",
+      "related_diagnosis_concept_ids": [
+        "d114",
+        "d126"
+      ]
+    },
+    {
+      "clinical_test_id": "ct121",
+      "name_ko": "L2–S1 신경학적 선별",
+      "name_en": "L2-S1 motor-sensory-reflex screen",
+      "category": "neurology",
+      "target_structure_ids": [
+        "n038",
+        "n039",
+        "n040",
+        "n041",
+        "n042"
+      ],
+      "setup": "하지 myotome, dermatome, patellar/Achilles reflex를 좌우 비교한다.",
+      "maneuver": "hip flexion, knee extension, ankle dorsiflexion, great-toe extension, plantarflexion과 감각·반사를 확인한다.",
+      "positive_definition": "분절성 근력저하, 감각저하, 반사 비대칭이 일관된 패턴으로 있으면 기록한다.",
+      "interpretation_note": "radiculopathy level 추정과 peripheral nerve mimic 감별의 기본이다.",
+      "limitation": "myotome·dermatome은 중첩되며 한 소견으로 level을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d114",
+        "d122"
+      ]
+    },
+    {
+      "clinical_test_id": "ct122",
+      "name_ko": "Heel/toe walk 기능검사",
+      "name_en": "Heel and toe walking screen",
+      "category": "neurology",
+      "target_structure_ids": [
+        "n041",
+        "n042"
+      ],
+      "setup": "안전 확보 후 짧은 거리 heel walk와 toe walk를 시행한다.",
+      "maneuver": "발목 배굴/족저굴곡 기능과 좌우 차이를 관찰한다.",
+      "positive_definition": "새로운 일측 기능저하 또는 반복 불가능을 기록한다.",
+      "interpretation_note": "L4/5-S1 motor pathway 이상을 기능적으로 선별한다.",
+      "limitation": "통증·균형·발목 병변 영향을 받으므로 단독 root level 확정 금지.",
+      "related_diagnosis_concept_ids": [
+        "d114",
+        "d122"
+      ]
+    },
+    {
+      "clinical_test_id": "ct123",
+      "name_ko": "Lumbar extension-rotation provocation",
+      "name_en": "Lumbar extension-rotation provocation",
+      "category": "facet_candidate",
+      "target_structure_ids": [
+        "j023"
+      ],
+      "setup": "기립에서 안전한 범위로 신전과 동측 회전/측굴을 결합한다.",
+      "maneuver": "국소 축성 요통의 재현과 다리 방사통 여부를 확인한다.",
+      "positive_definition": "일관된 편측 axial low-back pain이 재현되면 facet-related pain 후보로 기록한다.",
+      "interpretation_note": "후관절성 통증 가능성을 조정하는 보조 소견이다.",
+      "limitation": "진단정확도가 제한적이며 진단적 block을 대체하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d116"
+      ]
+    },
+    {
+      "clinical_test_id": "ct124",
+      "name_ko": "SI joint distraction test",
+      "name_en": "Sacroiliac joint distraction test",
+      "category": "si_joint",
+      "target_structure_ids": [
+        "j024"
+      ],
+      "setup": "앙와위에서 양 ASIS에 후외측 방향 압박을 가한다.",
+      "maneuver": "평소 posterior pelvic pain의 재현을 확인한다.",
+      "positive_definition": "익숙한 SI-region pain이 재현되면 provocation positive로 기록한다.",
+      "interpretation_note": "개별검사 하나가 아니라 provocation cluster의 일부로 사용한다.",
+      "limitation": "양성 하나로 SI joint source를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d117"
+      ],
+      "evidence_refs": [
+        "si_cluster_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct125",
+      "name_ko": "Thigh thrust test",
+      "name_en": "Thigh thrust test",
+      "category": "si_joint",
+      "target_structure_ids": [
+        "j024"
+      ],
+      "setup": "앙와위에서 고관절을 굴곡·내전해 SI joint에 posterior shear를 가한다.",
+      "maneuver": "대퇴골 장축 방향으로 점진 압박해 익숙한 posterior pelvic pain을 확인한다.",
+      "positive_definition": "익숙한 SI-region pain이 재현되면 기록한다.",
+      "interpretation_note": "SI provocation cluster의 일부다.",
+      "limitation": "단독 rule-in 금지.",
+      "related_diagnosis_concept_ids": [
+        "d117"
+      ],
+      "evidence_refs": [
+        "si_cluster_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct126",
+      "name_ko": "SI joint compression test",
+      "name_en": "Sacroiliac joint compression test",
+      "category": "si_joint",
+      "target_structure_ids": [
+        "j024"
+      ],
+      "setup": "측와위에서 상측 iliac crest를 아래쪽으로 압박한다.",
+      "maneuver": "SI region의 익숙한 통증 재현을 확인한다.",
+      "positive_definition": "평소 posterior pelvic pain이 재현되면 기록한다.",
+      "interpretation_note": "provocation cluster 구성요소다.",
+      "limitation": "고관절/연부조직 통증과 구분.",
+      "related_diagnosis_concept_ids": [
+        "d117"
+      ],
+      "evidence_refs": [
+        "si_cluster_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct127",
+      "name_ko": "Sacral thrust test",
+      "name_en": "Sacral thrust test",
+      "category": "si_joint",
+      "target_structure_ids": [
+        "j024"
+      ],
+      "setup": "복와위에서 sacrum 중앙에 전방 방향의 점진 압박을 가한다.",
+      "maneuver": "익숙한 posterior pelvic pain 재현을 확인한다.",
+      "positive_definition": "평소 SI-region pain이 재현되면 기록한다.",
+      "interpretation_note": "provocation cluster 구성요소다.",
+      "limitation": "외상/골절 위험에서는 강한 thrust 금지.",
+      "related_diagnosis_concept_ids": [
+        "d117"
+      ],
+      "evidence_refs": [
+        "si_cluster_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct128",
+      "name_ko": "Gaenslen test",
+      "name_en": "Gaenslen test",
+      "category": "si_joint",
+      "target_structure_ids": [
+        "j024"
+      ],
+      "setup": "한쪽 hip flexion과 반대쪽 hip extension으로 골반에 torsional load를 가한다.",
+      "maneuver": "posterior pelvic/SI-region pain 재현을 확인한다.",
+      "positive_definition": "익숙한 SI-region pain 재현 시 기록한다.",
+      "interpretation_note": "SI provocation cluster의 보조 구성요소다.",
+      "limitation": "고관절·요추 통증도 유발 가능.",
+      "related_diagnosis_concept_ids": [
+        "d117"
+      ],
+      "evidence_refs": [
+        "si_cluster_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct129",
+      "name_ko": "SI provocation cluster 해석",
+      "name_en": "Sacroiliac provocation-test cluster interpretation",
+      "category": "si_joint",
+      "target_structure_ids": [
+        "j024"
+      ],
+      "setup": "distraction, thigh thrust, compression, sacral thrust, Gaenslen 등 여러 통증유발검사를 묶어 본다.",
+      "maneuver": "서로 다른 stress test에서 동일한 익숙한 SI-region pain이 반복되는지 확인한다.",
+      "positive_definition": "여러 검사가 양성이어도 SI joint source를 확정하지 않고 가능성 상승으로 기록한다.",
+      "interpretation_note": "2021 meta-analysis에서 positive cluster의 rule-in 정확도는 제한적이고, negative cluster가 SI joint pain 가능성을 낮추는 데 더 유용했다.",
+      "limitation": "양성 cluster만으로 확진하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d117"
+      ],
+      "evidence_refs": [
+        "si_cluster_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct130",
+      "name_ko": "Lumbar multifidus contralateral arm-lift activation",
+      "name_en": "Lumbar multifidus contralateral arm-lift activation assessment",
+      "category": "motor_control",
+      "target_structure_ids": [
+        "m041"
+      ],
+      "setup": "복와위에서 L4/5 또는 L5 level multifidus를 촉진/초음파로 확인한다.",
+      "maneuver": "반대쪽 팔을 들어 low-load trunk stabilization을 유도하고 thickness/활성 변화를 관찰한다.",
+      "positive_definition": "좌우 현저한 activation asymmetry 또는 motor-control 저하를 impairment로 기록한다.",
+      "interpretation_note": "multifidus 기능평가이며 통증원인의 확진검사가 아니다.",
+      "limitation": "US thickness change는 자세·probe pressure·effort에 의존.",
+      "related_diagnosis_concept_ids": [
+        "d118"
+      ]
+    },
+    {
+      "clinical_test_id": "ct131",
+      "name_ko": "Superior cluneal nerve 압통·증상 재현",
+      "name_en": "Superior cluneal nerve tenderness/provocation",
+      "category": "cluneal",
+      "target_structure_ids": [
+        "n043"
+      ],
+      "setup": "posterior iliac crest 약 7 cm 안팎 lateral region을 부드럽게 촉진한다.",
+      "maneuver": "국소 압통과 upper-buttock dysesthesia/방사통 재현을 확인한다.",
+      "positive_definition": "SCN 경로의 익숙한 통증·감각이상이 재현되면 entrapment 후보로 기록한다.",
+      "interpretation_note": "SCN entrapment 가능성을 지지하나 초음파·진단적 block 등과 임상적으로 통합한다.",
+      "limitation": "요추/SI/둔부 원인이 흔한 mimic이며 촉진 하나로 확진하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d120"
+      ]
+    },
+    {
+      "clinical_test_id": "ct132",
+      "name_ko": "Cauda equina·중대 신경학적 red-flag 선별",
+      "name_en": "Cauda equina / serious neurologic red-flag screen",
+      "category": "safety",
+      "target_structure_ids": [],
+      "setup": "새로운 배뇨·배변 변화, saddle sensory change, 양측성/진행성 다리 약화·감각이상, severe neurologic deficit를 문진·진찰한다.",
+      "maneuver": "중대 신경압박 가능성을 시사하는 병력·객관적 결손을 확인한다.",
+      "positive_definition": "의미 있는 cauda equina/진행성 neurologic red flag가 있으면 urgent MRI/전문의 또는 응급평가 우선으로 기록한다.",
+      "interpretation_note": "routine mechanical LBP exercise/test pathway보다 긴급 평가가 우선이다.",
+      "limitation": "단일 비특이 증상 하나만으로 CES를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d122",
+        "d123"
+      ]
+    }
+  ]
+}
