@@ -14,6 +14,12 @@
       "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines: Knee",
       "url": "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf",
       "use": "standard positioning and scan sequence"
+    },
+    {
+      "title": "Ultrasound imaging of the posterior lateral corner of the knee: a pictorial review of anatomy and pathologies",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10857999/",
+      "license": "CC BY 4.0",
+      "use": "dedicated posterolateral corner LCL/popliteus/popli­teofibular/arcuate sonoanatomy"
     }
   ],
   "ultrasound_views": [
@@ -252,7 +258,10 @@
         "biceps tendon이 LCL을 둘러싸는 정상 변이",
         "소량 subpopliteal recess fluid는 정상일 수 있음"
       ],
-      "source_ref": "knee_atlas_2025_fig9"
+      "source_ref": "plc_review_2024_fig5",
+      "supplemental_source_refs": [
+        "knee_atlas_2025_fig9"
+      ]
     },
     {
       "ultrasound_view_id": "usv052",
