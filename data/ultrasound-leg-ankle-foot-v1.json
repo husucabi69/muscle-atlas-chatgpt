@@ -1,0 +1,457 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "leg_ankle_foot_ultrasound_v1",
+  "region_ids": [
+    "r012",
+    "r013"
+  ],
+  "primary_references": [
+    {
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines VI. Ankle",
+      "url": "https://www.essr.org/content-essr/uploads/2016/10/ankle.pdf"
+    },
+    {
+      "title": "Sonographic anatomy of the ankle",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
+    },
+    {
+      "title": "Diagnostic Musculoskeletal Ultrasound in the Evaluation of the Plantar Fascia",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/"
+    },
+    {
+      "title": "Sonographic assessment of the tarsal tunnel compared to cadaveric findings",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10494809/"
+    },
+    {
+      "title": "A problem-based approach in musculoskeletal ultrasonography: central metatarsalgia",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8942737/"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv056",
+      "name_ko": "전방 발목 신전건 단축",
+      "name_en": "Anterior ankle extensor tendons SAX",
+      "target_structure_ids": [
+        "t041",
+        "t042",
+        "t043",
+        "n022",
+        "j012"
+      ],
+      "patient_position": "앙와위, 무릎 굴곡, 발바닥을 검사대에 둔다.",
+      "probe_orientation": "원위 경골 전면을 횡축으로 스캔해 TA-EHL-EDL 순서를 확인한다.",
+      "landmarks": [
+        "tibialis anterior",
+        "EHL",
+        "EDL",
+        "anterior tibial artery",
+        "deep fibular nerve"
+      ],
+      "normal_finding": "세 신전건의 fibrillar echotexture와 retinacular 관계를 확인한다.",
+      "pitfalls": [
+        "anisotropy",
+        "deep fibular nerve를 혈관과 구분"
+      ],
+      "source_ref": "ankle_sono_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv057",
+      "name_ko": "전경골건 장축·부착부",
+      "name_en": "Tibialis anterior tendon LAX to insertion",
+      "target_structure_ids": [
+        "t041"
+      ],
+      "patient_position": "앙와위 또는 좌위, 발목 중립.",
+      "probe_orientation": "전경골건을 근건이행부에서 내측 설상골·제1중족골 기저부까지 종축 추적.",
+      "landmarks": [
+        "tibialis anterior tendon",
+        "extensor retinaculum",
+        "medial cuneiform",
+        "first metatarsal base"
+      ],
+      "normal_finding": "건의 연속된 fibrillar pattern과 부착부를 확인한다.",
+      "pitfalls": [
+        "retinaculum 아래 anisotropy",
+        "삽입부를 EHL과 혼동"
+      ],
+      "source_ref": "ankle_sono_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv058",
+      "name_ko": "원위 경비인대 AITFL",
+      "name_en": "Anterior inferior tibiofibular ligament",
+      "target_structure_ids": [
+        "lig013"
+      ],
+      "patient_position": "앙와위, 발목 중립.",
+      "probe_orientation": "원위 tibiofibular syndesmosis 전면에서 비스듬한 횡축.",
+      "landmarks": [
+        "distal tibia",
+        "distal fibula",
+        "AITFL"
+      ],
+      "normal_finding": "원위 tibia-fibula 사이의 짧고 echogenic한 fibrillar band를 확인한다.",
+      "pitfalls": [
+        "부분 용적·anisotropy",
+        "단일 US 소견으로 syndesmotic instability 확정 금지"
+      ],
+      "source_ref": "ankle_sono_fig5"
+    },
+    {
+      "ultrasound_view_id": "usv059",
+      "name_ko": "외측 비골건 retromalleolar 동적 스캔",
+      "name_en": "Peroneal tendons retromalleolar dynamic SAX",
+      "target_structure_ids": [
+        "t039",
+        "t040"
+      ],
+      "patient_position": "반측와위 또는 lateral ankle 노출 자세.",
+      "probe_orientation": "외과 뒤에서 PL/PB를 횡축으로 두고 능동 외번·circumduction을 관찰.",
+      "landmarks": [
+        "lateral malleolus",
+        "peroneus brevis tendon",
+        "peroneus longus tendon",
+        "superior peroneal retinaculum"
+      ],
+      "normal_finding": "PB가 전방/표재, PL이 후방에 위치하며 동적 검사에서 groove 내에 유지된다.",
+      "pitfalls": [
+        "정상 해부 변이",
+        "probe 압력으로 subluxation을 억제할 수 있음"
+      ],
+      "source_ref": "ankle_sono_fig11"
+    },
+    {
+      "ultrasound_view_id": "usv060",
+      "name_ko": "ATFL",
+      "name_en": "Anterior talofibular ligament",
+      "target_structure_ids": [
+        "lig010"
+      ],
+      "patient_position": "외측 발목 노출, 약한 내번.",
+      "probe_orientation": "외과 전연에서 talar neck 방향으로 사선.",
+      "landmarks": [
+        "lateral malleolus",
+        "talar neck",
+        "ATFL"
+      ],
+      "normal_finding": "얇고 연속된 fibrillar band를 확인한다.",
+      "pitfalls": [
+        "anisotropy",
+        "급성 혈종이 인대 경계를 흐릴 수 있음"
+      ],
+      "source_ref": "ankle_sono_fig14"
+    },
+    {
+      "ultrasound_view_id": "usv061",
+      "name_ko": "CFL",
+      "name_en": "Calcaneofibular ligament",
+      "target_structure_ids": [
+        "lig011",
+        "t039",
+        "t040"
+      ],
+      "patient_position": "외측 발목 노출, 발목 배굴.",
+      "probe_orientation": "외과 첨부에서 종골 외측으로 이어지는 oblique-coronal plane.",
+      "landmarks": [
+        "lateral malleolus",
+        "CFL",
+        "peroneal tendons",
+        "calcaneus"
+      ],
+      "normal_finding": "비골건 깊은 곳의 연속된 ligament band를 확인한다.",
+      "pitfalls": [
+        "비골건과 겹쳐 보임",
+        "배굴로 tension을 주면 시인성 향상"
+      ],
+      "source_ref": "ankle_sono_fig15"
+    },
+    {
+      "ultrasound_view_id": "usv062",
+      "name_ko": "내측 발목 굴곡건 단축",
+      "name_en": "Medial ankle flexor tendons SAX",
+      "target_structure_ids": [
+        "t036",
+        "t037",
+        "t038",
+        "n019"
+      ],
+      "patient_position": "frog-leg 또는 발목 내측 노출.",
+      "probe_orientation": "내과 뒤를 횡축으로 스캔.",
+      "landmarks": [
+        "tibialis posterior",
+        "FDL",
+        "posterior tibial vessels",
+        "tibial nerve",
+        "FHL"
+      ],
+      "normal_finding": "전방에서 후방으로 TP-FDL-neurovascular bundle-FHL 관계를 확인한다.",
+      "pitfalls": [
+        "TP와 FDL 혼동",
+        "신경과 정맥을 Doppler/압박으로 구분"
+      ],
+      "source_ref": "ankle_review_fig11"
+    },
+    {
+      "ultrasound_view_id": "usv063",
+      "name_ko": "후경골건 주상골 부착부",
+      "name_en": "Posterior tibial tendon to navicular insertion",
+      "target_structure_ids": [
+        "t036",
+        "lig015"
+      ],
+      "patient_position": "내측 발목 노출, 발을 약간 외번.",
+      "probe_orientation": "내과 뒤 TP를 따라 주상골 결절까지 장·단축 sweep.",
+      "landmarks": [
+        "medial malleolus",
+        "tibialis posterior tendon",
+        "navicular tuberosity",
+        "spring ligament"
+      ],
+      "normal_finding": "TP 건의 연속성과 distal insertion을 확인한다.",
+      "pitfalls": [
+        "accessory navicular 존재 가능",
+        "건초액/비후를 임상 맥락과 통합"
+      ],
+      "source_ref": "essr_ankle_medial"
+    },
+    {
+      "ultrasound_view_id": "usv064",
+      "name_ko": "족근관 경골신경·분지",
+      "name_en": "Tarsal tunnel tibial nerve and plantar branches",
+      "target_structure_ids": [
+        "n019",
+        "n025",
+        "n026",
+        "n027",
+        "t037",
+        "t038"
+      ],
+      "patient_position": "frog-leg, 발목 약간 배굴.",
+      "probe_orientation": "내과 뒤 경골신경을 횡축으로 찾고 distal tunnel로 추적.",
+      "landmarks": [
+        "tibial nerve",
+        "posterior tibial artery",
+        "medial plantar nerve",
+        "lateral plantar nerve",
+        "abductor hallucis"
+      ],
+      "normal_finding": "경골신경의 fascicular pattern과 MPN/LPN 분지 관계를 확인한다.",
+      "pitfalls": [
+        "분지 위치 변이",
+        "Baxter nerve는 매우 작아 추적 어려울 수 있음"
+      ],
+      "source_ref": "tarsal_tunnel_fig4_fig6"
+    },
+    {
+      "ultrasound_view_id": "usv065",
+      "name_ko": "Achilles 단축",
+      "name_en": "Achilles tendon SAX",
+      "target_structure_ids": [
+        "t034",
+        "b011",
+        "b012"
+      ],
+      "patient_position": "복와위, 발끝을 검사대 밖으로 둔다.",
+      "probe_orientation": "근건이행부부터 종골 부착부까지 횡축 sweep.",
+      "landmarks": [
+        "Achilles tendon",
+        "Kager fat pad",
+        "retrocalcaneal bursa",
+        "subcutaneous calcaneal bursa"
+      ],
+      "normal_finding": "정상 건은 단축에서 전방 경계가 오목한 crescent 형태를 보인다.",
+      "pitfalls": [
+        "probe 압력으로 bursal fluid 소실",
+        "partial tear와 anisotropy 구분"
+      ],
+      "source_ref": "ankle_sono_fig18"
+    },
+    {
+      "ultrasound_view_id": "usv066",
+      "name_ko": "Achilles 장축·부착부",
+      "name_en": "Achilles tendon LAX and insertion",
+      "target_structure_ids": [
+        "t034",
+        "b011"
+      ],
+      "patient_position": "복와위, 발끝을 검사대 밖으로 둔다.",
+      "probe_orientation": "gastrocnemius-soleus confluence부터 posterior calcaneus까지 종축.",
+      "landmarks": [
+        "Achilles fibrils",
+        "Kager fat pad",
+        "calcaneal insertion",
+        "retrocalcaneal bursa"
+      ],
+      "normal_finding": "연속적인 fibrillar echotexture와 calcaneal insertion을 확인한다.",
+      "pitfalls": [
+        "Doppler는 과도한 tension을 줄이면 혈류 확인에 유리",
+        "삽입부 enthesophyte만으로 통증 원인 확정 금지"
+      ],
+      "source_ref": "ankle_sono_fig19"
+    },
+    {
+      "ultrasound_view_id": "usv067",
+      "name_ko": "족저근막 장축",
+      "name_en": "Plantar fascia LAX",
+      "target_structure_ids": [
+        "fsc001",
+        "m160"
+      ],
+      "patient_position": "복와위 또는 좌위, 발을 중립/약간 배굴.",
+      "probe_orientation": "내측 종골결절에서 central band를 전방으로 종축 스캔.",
+      "landmarks": [
+        "medial calcaneal tubercle",
+        "central plantar fascia",
+        "heel fat pad",
+        "flexor digitorum brevis"
+      ],
+      "normal_finding": "균질하고 fibrillar한 echogenic band와 명확한 경계를 확인한다.",
+      "pitfalls": [
+        "두께 cut-off 하나로 진단 금지",
+        "비체중부하와 측정 위치를 일관되게 유지"
+      ],
+      "source_ref": "plantar_fascia_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv068",
+      "name_ko": "족저근막 단축",
+      "name_en": "Plantar fascia SAX",
+      "target_structure_ids": [
+        "fsc001"
+      ],
+      "patient_position": "복와위 또는 좌위, 발을 중립/약간 배굴.",
+      "probe_orientation": "종골 부착부 직전에서 plantar fascia에 수직.",
+      "landmarks": [
+        "central band",
+        "heel fat pad",
+        "calcaneal cortex",
+        "intrinsic muscles"
+      ],
+      "normal_finding": "타원~편평한 균질 구조로 폭·대칭성을 확인한다.",
+      "pitfalls": [
+        "oblique scan에서 가성 저에코",
+        "국소 두께 변화만으로 통증 원인 확정 금지"
+      ],
+      "source_ref": "plantar_fascia_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv069",
+      "name_ko": "족저 내재근 medial column",
+      "name_en": "Plantar intrinsic medial column SAX",
+      "target_structure_ids": [
+        "m159",
+        "m167",
+        "t038",
+        "n025"
+      ],
+      "patient_position": "발바닥이 노출되도록 앙와위/복와위.",
+      "probe_orientation": "주상골 아래 medial plantar foot을 횡축으로 스캔.",
+      "landmarks": [
+        "abductor hallucis",
+        "FHL tendon",
+        "flexor hallucis brevis heads",
+        "medial plantar neurovascular bundle"
+      ],
+      "normal_finding": "AbH와 FHB 층, 그 사이/인접 FHL과 신경혈관 구조를 구분한다.",
+      "pitfalls": [
+        "작은 intrinsic muscle은 비등방성 영향",
+        "근육 위축은 좌우·임상 신경소견과 통합"
+      ],
+      "source_ref": "plantar_intrinsic_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv070",
+      "name_ko": "Morton neuroma / intermetatarsal bursa 동적",
+      "name_en": "Intermetatarsal space dynamic ultrasound",
+      "target_structure_ids": [
+        "n029",
+        "b013"
+      ],
+      "patient_position": "앙와위 또는 복와위, 증상 web space 노출.",
+      "probe_orientation": "dorsal 또는 plantar approach로 metatarsal heads 사이 장·단축 확인.",
+      "landmarks": [
+        "metatarsal heads",
+        "deep transverse metatarsal ligament",
+        "common plantar digital nerve",
+        "intermetatarsal bursa"
+      ],
+      "normal_finding": "신경은 ligament plantar side에서 작게 추적되고 bursa는 압박 시 형태가 변할 수 있다.",
+      "pitfalls": [
+        "neuroma와 bursitis 동반 가능",
+        "정상 bursa도 보일 수 있어 크기 하나로 진단 금지"
+      ],
+      "source_ref": "metatarsalgia_fig2_fig5"
+    },
+    {
+      "ultrasound_view_id": "usv071",
+      "name_ko": "첫째 MTP·FHL·sesamoid complex",
+      "name_en": "First MTP plantar complex",
+      "target_structure_ids": [
+        "j015",
+        "t038",
+        "m167"
+      ],
+      "patient_position": "앙와위, 첫째 발가락 중립 또는 약간 배굴.",
+      "probe_orientation": "첫째 중족골두 plantar surface를 종·횡축으로 스캔.",
+      "landmarks": [
+        "first metatarsal head",
+        "sesamoids",
+        "FHL tendon",
+        "flexor hallucis brevis"
+      ],
+      "normal_finding": "FHL가 FHB 두 head 사이와 sesamoids 사이를 통과하는 관계를 확인한다.",
+      "pitfalls": [
+        "sesamoid 음영",
+        "골성 stress injury는 US만으로 배제 불가"
+      ],
+      "source_ref": "plantar_intrinsic_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv072",
+      "name_ko": "발목 전방 관절 recess",
+      "name_en": "Anterior tibiotalar joint recess",
+      "target_structure_ids": [
+        "j012"
+      ],
+      "patient_position": "앙와위, 발목 중립.",
+      "probe_orientation": "전경골건 인접에서 tibiotalar joint를 종축으로 스캔.",
+      "landmarks": [
+        "distal tibia",
+        "talar dome",
+        "anterior recess",
+        "tibialis anterior tendon"
+      ],
+      "normal_finding": "정상 recess는 과도하게 팽창하지 않으며 활막 비후가 없다.",
+      "pitfalls": [
+        "소량 fluid의 임상 의미는 증상과 통합",
+        "osteophyte는 radiograph가 더 적합할 수 있음"
+      ],
+      "source_ref": "ankle_sono_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv073",
+      "name_ko": "발목 전방·심비골신경",
+      "name_en": "Deep fibular nerve at anterior ankle",
+      "target_structure_ids": [
+        "n022",
+        "t042",
+        "t043"
+      ],
+      "patient_position": "앙와위, 발목 중립.",
+      "probe_orientation": "anterior tibial artery/dorsalis pedis artery를 landmark로 횡축 추적.",
+      "landmarks": [
+        "deep fibular nerve",
+        "anterior tibial/dorsalis pedis artery",
+        "EHL",
+        "EDL"
+      ],
+      "normal_finding": "작은 fascicular nerve를 혈관과 구분해 연속적으로 추적한다.",
+      "pitfalls": [
+        "신경 크기 하나로 entrapment 확정 금지",
+        "Doppler로 혈관 구분"
+      ],
+      "source_ref": "ankle_sono_anterior_nerve"
+    }
+  ]
+}
