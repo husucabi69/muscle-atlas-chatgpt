@@ -1,0 +1,330 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "leg_ankle_foot_examination_v1",
+  "region_ids": [
+    "r012",
+    "r013"
+  ],
+  "source_refs": {
+    "essr_ankle": "https://www.essr.org/content-essr/uploads/2016/10/ankle.pdf",
+    "ankle_sono": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+    "ankle_us_review": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5621804/",
+    "plantar_fascia": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/",
+    "tarsal_tunnel": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10494809/"
+  },
+  "clinical_tests": [
+    {
+      "clinical_test_id": "ct065",
+      "name_ko": "Thompson 검사",
+      "name_en": "Thompson calf squeeze test",
+      "category": "achilles",
+      "target_structure_ids": [
+        "t034"
+      ],
+      "setup": "복와위 또는 무릎을 굽혀 발이 검사대 밖으로 나오게 한다.",
+      "maneuver": "종아리 근복을 압박하며 발목의 수동 족저굴곡 반응을 관찰한다.",
+      "positive_definition": "반대측과 비교해 족저굴곡 반응이 소실되거나 현저히 감소하면 양성 소견으로 기록한다.",
+      "interpretation_note": "급성 Achilles tendon rupture 가능성을 높이는 핵심 bedside test다.",
+      "limitation": "부분파열·만성파열·통증 억제에서는 해석이 달라질 수 있어 결손 촉진과 영상에 통합한다.",
+      "related_diagnosis_concept_ids": [
+        "d071"
+      ]
+    },
+    {
+      "clinical_test_id": "ct066",
+      "name_ko": "아킬레스건 촉진·결손 평가",
+      "name_en": "Achilles tendon palpation and gap assessment",
+      "category": "achilles",
+      "target_structure_ids": [
+        "t034"
+      ],
+      "setup": "복와위에서 Achilles tendon 전체 주행을 노출한다.",
+      "maneuver": "근건이행부부터 종골 부착부까지 압통·비후·결손을 촉진한다.",
+      "positive_definition": "국소 압통, 뚜렷한 결손 또는 비후가 있으면 기록한다.",
+      "interpretation_note": "midportion/insertional tendinopathy와 rupture 후보를 구분하는 초기 평가다.",
+      "limitation": "부종·체형 때문에 결손 촉진이 제한될 수 있어 초음파 등과 함께 해석한다.",
+      "related_diagnosis_concept_ids": [
+        "d070",
+        "d071"
+      ]
+    },
+    {
+      "clinical_test_id": "ct067",
+      "name_ko": "단하지 heel-rise 평가",
+      "name_en": "Single-leg heel-rise test",
+      "category": "posterior_chain",
+      "target_structure_ids": [
+        "m149",
+        "m150",
+        "m151",
+        "t034",
+        "t036"
+      ],
+      "setup": "안전 지지물을 잡고 한 발로 선다.",
+      "maneuver": "반복적인 최대 heel rise를 시행하여 높이·횟수·통증·좌우 차이를 본다.",
+      "positive_definition": "현저한 수행 저하, 통증 또는 heel-rise 불가를 기록한다.",
+      "interpretation_note": "Achilles-삼두근 및 후경골근 기능의 전체적인 부하 능력을 본다.",
+      "limitation": "특정 하나의 구조를 선택적으로 진단하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d070",
+        "d074",
+        "d077"
+      ]
+    },
+    {
+      "clinical_test_id": "ct068",
+      "name_ko": "대퇴·종아리 squeeze / calf strain 부하평가",
+      "name_en": "Calf palpation and resisted plantarflexion",
+      "category": "calf",
+      "target_structure_ids": [
+        "m149",
+        "m150",
+        "m151"
+      ],
+      "setup": "종아리를 이완한 상태에서 근복과 근건이행부를 촉진한다.",
+      "maneuver": "발목 족저굴곡에 저항을 주거나 heel-rise로 부하한다.",
+      "positive_definition": "국소 근복/MTJ의 익숙한 통증 또는 약화가 재현되면 기록한다.",
+      "interpretation_note": "gastrocnemius-soleus strain 후보를 지지한다.",
+      "limitation": "급성 종창·열감·호흡기 증상 등 DVT/PE red flag를 근육통으로 단정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d072"
+      ]
+    },
+    {
+      "clinical_test_id": "ct069",
+      "name_ko": "전방 서랍검사",
+      "name_en": "Anterior drawer test of the ankle",
+      "category": "lateral_ligament",
+      "target_structure_ids": [
+        "lig010",
+        "j012"
+      ],
+      "setup": "발목을 약간 족저굴곡하고 경골을 안정화한다.",
+      "maneuver": "종골/거골을 전방으로 부드럽게 당겨 end point와 좌우 차이를 본다.",
+      "positive_definition": "통증과 함께 비대칭 전방 전위 또는 soft endpoint를 기록한다.",
+      "interpretation_note": "ATFL 중심의 기계적 불안정성을 평가하는 보조검사다.",
+      "limitation": "급성 통증·guarding과 정상 이완도 차이를 고려하며 단독으로 rupture를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d078"
+      ]
+    },
+    {
+      "clinical_test_id": "ct070",
+      "name_ko": "Talar tilt 내번 스트레스",
+      "name_en": "Talar tilt inversion stress test",
+      "category": "lateral_ligament",
+      "target_structure_ids": [
+        "lig011",
+        "lig010",
+        "j012"
+      ],
+      "setup": "발목을 중립 또는 약간 배굴 위치로 두고 경골을 고정한다.",
+      "maneuver": "종골을 내번하여 talar tilt와 end point를 비교한다.",
+      "positive_definition": "외측 통증 또는 비대칭적인 과도한 내번 이완을 기록한다.",
+      "interpretation_note": "CFL을 포함한 lateral ligament complex 안정성 평가에 사용한다.",
+      "limitation": "검사 하나로 손상 grade를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d078"
+      ]
+    },
+    {
+      "clinical_test_id": "ct071",
+      "name_ko": "Squeeze test",
+      "name_en": "Syndesmosis squeeze test",
+      "category": "syndesmosis",
+      "target_structure_ids": [
+        "lig013"
+      ],
+      "setup": "무릎 아래의 경골과 비골을 중간 하퇴부에서 잡는다.",
+      "maneuver": "경골과 비골을 서로 압박하여 원위 경비인대 부위 통증 재현 여부를 본다.",
+      "positive_definition": "원위 syndesmosis 부위의 익숙한 통증이 재현되면 기록한다.",
+      "interpretation_note": "고위 발목염좌 후보를 지지하는 보조검사다.",
+      "limitation": "민감도·특이도는 문맥에 따라 달라 단독 배제/확정검사가 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d079"
+      ]
+    },
+    {
+      "clinical_test_id": "ct072",
+      "name_ko": "외회전 스트레스 검사",
+      "name_en": "External rotation stress test",
+      "category": "syndesmosis",
+      "target_structure_ids": [
+        "lig013",
+        "j012"
+      ],
+      "setup": "무릎을 굽히고 발목을 중립에 가깝게 둔다.",
+      "maneuver": "경골을 안정화한 채 발을 외회전시켜 syndesmosis 통증을 확인한다.",
+      "positive_definition": "전외측 원위 경비인대 부위의 익숙한 통증이 재현되면 기록한다.",
+      "interpretation_note": "syndesmotic injury 가능성을 평가한다.",
+      "limitation": "심한 급성 손상은 과도한 도발을 피하고 골절 가능성 평가를 우선한다.",
+      "related_diagnosis_concept_ids": [
+        "d079"
+      ]
+    },
+    {
+      "clinical_test_id": "ct073",
+      "name_ko": "비골건 저항성 외번·동적 불안정성 평가",
+      "name_en": "Resisted eversion and dynamic peroneal assessment",
+      "category": "peroneal",
+      "target_structure_ids": [
+        "t039",
+        "t040"
+      ],
+      "setup": "발목을 중립에서 약간 배굴시키고 외측 retromalleolar 부위를 관찰한다.",
+      "maneuver": "저항성 외번과 능동 circumduction 동안 통증·snap·건 이동을 확인한다.",
+      "positive_definition": "익숙한 외측 통증 또는 retromalleolar tendon subluxation/snapping이 재현되면 기록한다.",
+      "interpretation_note": "peroneal tendinopathy/tear 또는 superior peroneal retinaculum-related instability 후보를 지지한다.",
+      "limitation": "통증만으로 tear를 확정하지 않으며 dynamic US가 특히 유용하다.",
+      "related_diagnosis_concept_ids": [
+        "d075",
+        "d076"
+      ]
+    },
+    {
+      "clinical_test_id": "ct074",
+      "name_ko": "후경골근 저항성 내번·heel-rise 평가",
+      "name_en": "Resisted inversion and heel-rise for tibialis posterior",
+      "category": "posterior_tibial",
+      "target_structure_ids": [
+        "t036",
+        "m154"
+      ],
+      "setup": "발목을 가볍게 족저굴곡한 상태에서 내번에 저항을 주고, 이어 단하지 heel-rise를 시행한다.",
+      "maneuver": "내측 발목/주상골 부위 통증과 후족부 inversion 여부를 본다.",
+      "positive_definition": "후경골건 주행 통증, 약화 또는 heel-rise 시 후족부 inversion 실패를 기록한다.",
+      "interpretation_note": "posterior tibial tendon dysfunction/tendinopathy 후보를 지지한다.",
+      "limitation": "평발 정렬이나 통증 자체만으로 tendon tear를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d077"
+      ]
+    },
+    {
+      "clinical_test_id": "ct075",
+      "name_ko": "전경골근 저항성 배굴·내번 평가",
+      "name_en": "Resisted dorsiflexion-inversion for tibialis anterior",
+      "category": "anterior_tendon",
+      "target_structure_ids": [
+        "t041",
+        "m143"
+      ],
+      "setup": "발목을 약간 족저굴곡한 자세에서 시작한다.",
+      "maneuver": "환자에게 배굴+내번을 시키며 저항을 가한다.",
+      "positive_definition": "전내측 발목/발등의 국소 통증 또는 약화가 재현되면 기록한다.",
+      "interpretation_note": "tibialis anterior tendon pathology 후보를 지지한다.",
+      "limitation": "deep fibular neuropathy나 joint impingement 등과 감별한다.",
+      "related_diagnosis_concept_ids": [
+        "d080"
+      ]
+    },
+    {
+      "clinical_test_id": "ct076",
+      "name_ko": "Windlass 검사",
+      "name_en": "Windlass test",
+      "category": "plantar_fascia",
+      "target_structure_ids": [
+        "fsc001"
+      ],
+      "setup": "체중부하 또는 비체중부하에서 첫째 MTP를 수동 배굴한다.",
+      "maneuver": "plantar fascia에 장력을 가하면서 medial calcaneal/plantar pain 재현 여부를 확인한다.",
+      "positive_definition": "익숙한 plantar heel pain이 재현되면 기록한다.",
+      "interpretation_note": "plantar heel pain/plantar fasciopathy 가능성을 지지한다.",
+      "limitation": "단독 확진검사가 아니며 fat pad, nerve, stress injury 등을 감별한다.",
+      "related_diagnosis_concept_ids": [
+        "d073"
+      ]
+    },
+    {
+      "clinical_test_id": "ct077",
+      "name_ko": "족저근막 삽입부 촉진",
+      "name_en": "Plantar fascia insertion palpation",
+      "category": "plantar_fascia",
+      "target_structure_ids": [
+        "fsc001"
+      ],
+      "setup": "내측 종골결절과 central band를 찾는다.",
+      "maneuver": "삽입부와 근위 plantar fascia를 단계적으로 촉진한다.",
+      "positive_definition": "환자의 익숙한 medial plantar heel pain이 재현되면 기록한다.",
+      "interpretation_note": "plantar fasciopathy 패턴의 한 요소다.",
+      "limitation": "압통 하나로 plantar fasciopathy를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d073"
+      ]
+    },
+    {
+      "clinical_test_id": "ct078",
+      "name_ko": "Tinel 검사 — 족근관",
+      "name_en": "Tinel sign at the tarsal tunnel",
+      "category": "tarsal_tunnel",
+      "target_structure_ids": [
+        "n019",
+        "n025",
+        "n026"
+      ],
+      "setup": "내과 뒤쪽 족근관을 노출한다.",
+      "maneuver": "경골신경 및 분지 주행을 가볍게 타진한다.",
+      "positive_definition": "발바닥으로 방사되는 익숙한 paresthesia가 유발되면 기록한다.",
+      "interpretation_note": "tarsal tunnel neuropathy의 보조 소견이다.",
+      "limitation": "민감도·특이도가 제한적이며 신경전도·초음파·원인병변 평가와 함께 해석한다.",
+      "related_diagnosis_concept_ids": [
+        "d081"
+      ]
+    },
+    {
+      "clinical_test_id": "ct079",
+      "name_ko": "Mulder squeeze / web-space compression",
+      "name_en": "Mulder maneuver / web-space compression",
+      "category": "forefoot",
+      "target_structure_ids": [
+        "n029",
+        "b013"
+      ],
+      "setup": "전족부를 양측에서 압박하면서 증상 web space를 촉진한다.",
+      "maneuver": "중족골두를 압박하고 web space mass/click와 방사통을 확인한다.",
+      "positive_definition": "익숙한 web-space pain/paresthesia 또는 click이 재현되면 기록한다.",
+      "interpretation_note": "Morton neuroma/intermetatarsal bursa의 감별을 위한 임상 단서다.",
+      "limitation": "click 또는 압통 하나로 neuroma를 확정하지 않으며 동적 US에서 bursa compressibility와 신경 연속성을 확인한다.",
+      "related_diagnosis_concept_ids": [
+        "d083",
+        "d084"
+      ]
+    },
+    {
+      "clinical_test_id": "ct080",
+      "name_ko": "첫째 MTP 수동 배굴·sesamoid 부하평가",
+      "name_en": "First MTP dorsiflexion and plantar first-ray load assessment",
+      "category": "great_toe",
+      "target_structure_ids": [
+        "j015",
+        "t038",
+        "m167"
+      ],
+      "setup": "첫째 MTP와 sesamoid complex를 촉진한다.",
+      "maneuver": "수동 배굴 및 plantar first-ray loading에서 통증과 ROM을 평가한다.",
+      "positive_definition": "첫째 MTP 또는 sesamoid plantar region의 익숙한 통증/ROM 제한을 기록한다.",
+      "interpretation_note": "hallux/sesamoid/FHL-FHB complex의 감별을 돕는다.",
+      "limitation": "골성 stress injury나 관절염을 임상검사만으로 배제하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d085"
+      ]
+    },
+    {
+      "clinical_test_id": "ct081",
+      "name_ko": "급성 발목 골절 선별 문진·압통 평가",
+      "name_en": "Ottawa ankle/foot rule screening elements",
+      "category": "fracture_screen",
+      "target_structure_ids": [
+        "j012",
+        "j014"
+      ],
+      "setup": "급성 외상에서 체중부하 가능 여부와 malleolar/midfoot bone tenderness를 확인한다.",
+      "maneuver": "Ottawa ankle/foot rule의 표준 압통 부위와 4-step weight-bearing 항목을 확인한다.",
+      "positive_definition": "rule 기준을 충족하면 방사선 촬영 적응증으로 기록한다.",
+      "interpretation_note": "불필요한 radiograph를 줄이기 위한 임상 결정 규칙이다.",
+      "limitation": "골절의 확정/배제 영상검사가 아니며 적용 제외 상황과 임상판단을 고려한다.",
+      "related_diagnosis_concept_ids": [
+        "d086"
+      ]
+    }
+  ]
+}

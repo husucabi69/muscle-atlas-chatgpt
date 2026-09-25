@@ -682,5 +682,85 @@
       "m141"
     ],
     "symptomGroupId": "sg006"
+  },
+  {
+    "id": "sx35",
+    "title": "내측 발목·내측 아치 통증",
+    "summary": "후경골건과 족근관, 내측 아치 지지구조를 함께 보는 경로입니다.",
+    "conditions": "posterior tibial tendon dysfunction/tendinopathy, tarsal tunnel syndrome, spring ligament/medial foot pathology 감별.",
+    "nerves": "경골신경, 내측·외측족저신경",
+    "ultrasound": "posterior tibial tendon, spring ligament region, tarsal tunnel tibial nerve/branches를 확인.",
+    "muscles": [
+      "후경골근",
+      "장지굴근",
+      "장무지굴근",
+      "무지외전근"
+    ],
+    "muscleIds": [
+      "m154",
+      "m155",
+      "m156",
+      "m159"
+    ],
+    "symptomGroupId": "sg007"
+  },
+  {
+    "id": "sx36",
+    "title": "급성 inversion 발목 손상·불안정감",
+    "summary": "ATFL/CFL, 비골건과 골절·syndesmosis 손상을 함께 구분하는 급성 외측 발목 경로입니다.",
+    "conditions": "lateral ankle ligament sprain/instability, peroneal tendon injury, occult fracture, syndesmotic injury 감별.",
+    "nerves": "표재비골신경, 비복신경",
+    "ultrasound": "ATFL/CFL, peroneal tendons dynamic scan, AITFL을 확인하고 Ottawa rule에 따라 radiograph 필요성을 선별.",
+    "muscles": [
+      "장비골근",
+      "단비골근",
+      "제3비골근"
+    ],
+    "muscleIds": [
+      "m147",
+      "m148",
+      "m146"
+    ],
+    "symptomGroupId": "sg007"
+  },
+  {
+    "id": "sx37",
+    "title": "전족부 web-space 통증·저림",
+    "summary": "plantar digital nerve와 intermetatarsal bursa를 동적으로 비교하는 경로입니다.",
+    "conditions": "Morton neuroma, intermetatarsal bursitis, metatarsalgia 감별.",
+    "nerves": "총족저지신경",
+    "ultrasound": "deep transverse metatarsal ligament와 plantar digital nerve, intermetatarsal bursa를 dynamic compression으로 확인.",
+    "muscles": [
+      "제1충양근",
+      "제2충양근",
+      "제3충양근",
+      "제4충양근"
+    ],
+    "muscleIds": [
+      "m163",
+      "m164",
+      "m165",
+      "m166"
+    ],
+    "symptomGroupId": "sg007"
+  },
+  {
+    "id": "sx38",
+    "title": "첫째 MTP·엄지 발바닥 통증",
+    "summary": "첫째 MTP, sesamoid, FHL-FHB complex를 함께 보는 경로입니다.",
+    "conditions": "first MTP/sesamoid complex pain, FHL/FHB overload, 관절성 원인 감별.",
+    "nerves": "내측족저신경",
+    "ultrasound": "first MTP plantar surface, sesamoids, FHL tendon과 flexor hallucis brevis를 확인.",
+    "muscles": [
+      "장무지굴근",
+      "단무지굴근",
+      "무지외전근"
+    ],
+    "muscleIds": [
+      "m156",
+      "m167",
+      "m159"
+    ],
+    "symptomGroupId": "sg007"
   }
 ]

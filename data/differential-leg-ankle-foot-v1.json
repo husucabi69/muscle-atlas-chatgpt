@@ -1,0 +1,628 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "leg_ankle_foot_differential_v1",
+  "region_ids": [
+    "r012",
+    "r013"
+  ],
+  "safety_rule": "Educational differential only. Acute inability to bear weight after trauma, suspected fracture/dislocation, neurovascular deficit, infection, DVT/PE features, or acute Achilles rupture requires appropriate urgent evaluation.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d070",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Achilles 건병증",
+      "name_en": "Achilles tendinopathy",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d071",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Achilles 부분/완전 파열",
+      "name_en": "Achilles tendon partial or complete rupture",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d072",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "비복근-가자미근 strain / tennis leg",
+      "name_en": "Gastrocnemius-soleus strain / tennis leg",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d073",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "족저근막병증 / plantar heel pain",
+      "name_en": "Plantar fasciopathy / plantar heel pain",
+      "region_id": "r013",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d074",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "후경골건병증·기능부전",
+      "name_en": "Posterior tibial tendon dysfunction/tendinopathy",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d075",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "비골건병증·파열",
+      "name_en": "Peroneal tendinopathy or tear",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d076",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "비골건 불안정성 / retinacular injury",
+      "name_en": "Peroneal tendon instability / superior peroneal retinaculum injury",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d077",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "후경골건 관련 내측 발목·아치 통증",
+      "name_en": "Posterior tibial tendon related medial ankle/arch pain",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d078",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "외측 발목 인대 염좌/불안정성",
+      "name_en": "Lateral ankle ligament sprain or instability",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d079",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "원위 경비인대 손상 / high ankle sprain",
+      "name_en": "Distal tibiofibular syndesmotic injury",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d080",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "전경골건·전방 신전건 건병증",
+      "name_en": "Anterior ankle extensor tendinopathy",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d081",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "족근관증후군",
+      "name_en": "Tarsal tunnel syndrome",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d082",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Baxter 신경 포착",
+      "name_en": "Inferior calcaneal (Baxter) nerve entrapment",
+      "region_id": "r013",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d083",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Morton 신경종",
+      "name_en": "Morton neuroma",
+      "region_id": "r013",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d084",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "중족간 점액낭염",
+      "name_en": "Intermetatarsal bursitis",
+      "region_id": "r013",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d085",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "첫째 MTP·sesamoid/FHL-FHB complex 통증",
+      "name_en": "First MTP / sesamoid / FHL-FHB complex pain",
+      "region_id": "r013",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d086",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "급성 발목·발 골절 의심",
+      "name_en": "Suspected acute ankle or foot fracture",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d087",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "전방 발목 impingement / 관절삼출",
+      "name_en": "Anterior ankle impingement or joint effusion",
+      "region_id": "r012",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f056",
+      "entity_type": "clinical_finding",
+      "name_ko": "종아리 squeeze 시 족저굴곡 소실",
+      "key": "abnormal_thompson",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f057",
+      "entity_type": "clinical_finding",
+      "name_ko": "Achilles 국소 압통·비후",
+      "key": "achilles_tender_thick",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f058",
+      "entity_type": "clinical_finding",
+      "name_ko": "단하지 heel-rise 저하",
+      "key": "heel_rise_deficit",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f059",
+      "entity_type": "clinical_finding",
+      "name_ko": "종아리 근건이행부 국소 통증",
+      "key": "calf_mtj_pain",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f060",
+      "entity_type": "clinical_finding",
+      "name_ko": "전방 서랍 비대칭 이완",
+      "key": "ankle_anterior_drawer_laxity",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f061",
+      "entity_type": "clinical_finding",
+      "name_ko": "Talar tilt 비대칭",
+      "key": "talar_tilt_laxity",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f062",
+      "entity_type": "clinical_finding",
+      "name_ko": "비골건 retromalleolar snapping",
+      "key": "peroneal_snapping",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f063",
+      "entity_type": "clinical_finding",
+      "name_ko": "후경골건 주행 압통·heel-rise 이상",
+      "key": "posterior_tibial_dysfunction",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f064",
+      "entity_type": "clinical_finding",
+      "name_ko": "족저근막 종골부 압통",
+      "key": "plantar_fascia_insertion_tenderness",
+      "region_id": "r013",
+      "status": "active"
+    },
+    {
+      "finding_id": "f065",
+      "entity_type": "clinical_finding",
+      "name_ko": "족근관 Tinel / plantar paresthesia",
+      "key": "tarsal_tunnel_paresthesia",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f066",
+      "entity_type": "clinical_finding",
+      "name_ko": "web-space 통증·paresthesia·click",
+      "key": "webspace_pain_paresthesia",
+      "region_id": "r013",
+      "status": "active"
+    },
+    {
+      "finding_id": "f067",
+      "entity_type": "clinical_finding",
+      "name_ko": "첫째 MTP plantar 통증/ROM 제한",
+      "key": "first_mtp_plantar_pain",
+      "region_id": "r013",
+      "status": "active"
+    },
+    {
+      "finding_id": "f068",
+      "entity_type": "clinical_finding",
+      "name_ko": "syndesmosis squeeze/external rotation 통증",
+      "key": "syndesmosis_provocation",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f069",
+      "entity_type": "clinical_finding",
+      "name_ko": "급성 외상 후 4-step 체중부하 불가 또는 골성 압통",
+      "key": "ottawa_positive_elements",
+      "region_id": "r012",
+      "status": "active"
+    },
+    {
+      "finding_id": "f070",
+      "entity_type": "clinical_finding",
+      "name_ko": "전방 발목 배굴 통증·관절 recess 소견",
+      "key": "anterior_ankle_impingement_pattern",
+      "region_id": "r012",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg030",
+      "symptom_id": "sx16",
+      "title_ko": "종아리 후면 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d072",
+          "look_for": [
+            "gastrocnemius/soleus MTJ 국소 통증",
+            "저항성 plantarflexion 통증",
+            "US hematoma/tear"
+          ],
+          "not_diagnostic_alone": [
+            "멍 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d071",
+          "look_for": [
+            "Achilles gap",
+            "abnormal Thompson",
+            "plantarflexion weakness"
+          ],
+          "not_diagnostic_alone": [
+            "통증만"
+          ]
+        }
+      ],
+      "red_flags": [
+        "일측성 급성 종창·열감, 호흡곤란/흉통 등은 DVT/PE 별도 평가"
+      ]
+    },
+    {
+      "differential_group_id": "dg031",
+      "symptom_id": "sx17",
+      "title_ko": "Achilles/발뒤꿈치 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d070",
+          "look_for": [
+            "midportion/insertional load pain",
+            "Achilles US"
+          ],
+          "not_diagnostic_alone": [
+            "tendon thickness alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d071",
+          "look_for": [
+            "급성 snap/기능상실",
+            "Thompson",
+            "tendon continuity"
+          ],
+          "not_diagnostic_alone": [
+            "US 한 단면"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d073",
+          "look_for": [
+            "medial plantar heel pain",
+            "plantar fascia insertion"
+          ],
+          "not_diagnostic_alone": [
+            "heel pain 위치만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d082",
+          "look_for": [
+            "burning heel pain",
+            "Baxter nerve course/intrinsic muscle denervation context"
+          ],
+          "not_diagnostic_alone": [
+            "신경이 작게 보인다는 이유만"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg032",
+      "symptom_id": "sx18",
+      "title_ko": "족저 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d073",
+          "look_for": [
+            "첫발 디딜 때/부하 후 medial plantar heel pain",
+            "windlass/압통",
+            "PF US"
+          ],
+          "not_diagnostic_alone": [
+            "4 mm cutoff 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d082",
+          "look_for": [
+            "neuropathic heel pain",
+            "distal tarsal tunnel/Baxter course"
+          ],
+          "not_diagnostic_alone": [
+            "Tinel 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d081",
+          "look_for": [
+            "plantar paresthesia",
+            "tarsal tunnel"
+          ],
+          "not_diagnostic_alone": [
+            "nerve CSA 하나"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg033",
+      "symptom_id": "sx19",
+      "title_ko": "발목 외측 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d075",
+          "look_for": [
+            "peroneal tendon tenderness",
+            "resisted eversion",
+            "dynamic US"
+          ],
+          "not_diagnostic_alone": [
+            "tenosynovial fluid alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d076",
+          "look_for": [
+            "snapping/subluxation with motion",
+            "dynamic retromalleolar US"
+          ],
+          "not_diagnostic_alone": [
+            "정적 US만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d078",
+          "look_for": [
+            "inversion injury",
+            "ATFL/CFL tenderness",
+            "drawer/tilt"
+          ],
+          "not_diagnostic_alone": [
+            "one positive test"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d086",
+          "look_for": [
+            "bony tenderness/weight-bearing inability"
+          ],
+          "not_diagnostic_alone": [
+            "soft tissue swelling alone"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg034",
+      "symptom_id": "sx20",
+      "title_ko": "발목 전외측/발등 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d080",
+          "look_for": [
+            "resisted dorsiflexion pain",
+            "TA/EHL/EDL US"
+          ],
+          "not_diagnostic_alone": [
+            "tendon sheath fluid alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d087",
+          "look_for": [
+            "dorsiflexion-provoked anterior pain",
+            "anterior recess synovium/osteophyte context"
+          ],
+          "not_diagnostic_alone": [
+            "small effusion"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d079",
+          "look_for": [
+            "high ankle mechanism",
+            "squeeze/external rotation pain"
+          ],
+          "not_diagnostic_alone": [
+            "location only"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg035",
+      "symptom_id": "sx35",
+      "title_ko": "내측 발목·내측 아치 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d077",
+          "look_for": [
+            "TP tendon tenderness",
+            "heel-rise dysfunction",
+            "TP US"
+          ],
+          "not_diagnostic_alone": [
+            "flatfoot appearance alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d081",
+          "look_for": [
+            "plantar paresthesia/Tinel",
+            "tibial nerve/branches"
+          ],
+          "not_diagnostic_alone": [
+            "Tinel alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d085",
+          "look_for": [
+            "great toe/sesamoid symptoms"
+          ],
+          "not_diagnostic_alone": [
+            "medial foot pain location only"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg036",
+      "symptom_id": "sx36",
+      "title_ko": "급성 inversion 발목 손상·불안정감",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d078",
+          "look_for": [
+            "ATFL/CFL tenderness",
+            "drawer/tilt",
+            "US continuity"
+          ],
+          "not_diagnostic_alone": [
+            "US thickening alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d075",
+          "look_for": [
+            "peroneal tenderness",
+            "resisted eversion"
+          ],
+          "not_diagnostic_alone": [
+            "lateral pain only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d086",
+          "look_for": [
+            "Ottawa rule positive elements"
+          ],
+          "not_diagnostic_alone": [
+            "swelling only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d079",
+          "look_for": [
+            "syndesmotic mechanism/provocation"
+          ],
+          "not_diagnostic_alone": [
+            "one test"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg037",
+      "symptom_id": "sx37",
+      "title_ko": "전족부 web-space 통증·저림",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d083",
+          "look_for": [
+            "plantar digital nerve continuity",
+            "noncompressible hypoechoic mass",
+            "Mulder-related symptoms"
+          ],
+          "not_diagnostic_alone": [
+            "mass size alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d084",
+          "look_for": [
+            "bursa dorsal to DTML",
+            "compressibility/dynamic shape change"
+          ],
+          "not_diagnostic_alone": [
+            "visible bursa alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d085",
+          "look_for": [
+            "first MTP/sesamoid symptoms when medial forefoot"
+          ],
+          "not_diagnostic_alone": [
+            "forefoot pain location only"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg038",
+      "symptom_id": "sx38",
+      "title_ko": "첫째 MTP·엄지 발바닥 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d085",
+          "look_for": [
+            "first MTP ROM/loading",
+            "sesamoid/FHL-FHB complex US"
+          ],
+          "not_diagnostic_alone": [
+            "US soft tissue change alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d073",
+          "look_for": [
+            "more proximal plantar heel/fascia symptoms"
+          ],
+          "not_diagnostic_alone": [
+            "plantar pain label only"
+          ]
+        }
+      ]
+    }
+  ]
+}

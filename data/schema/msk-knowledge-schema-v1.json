@@ -137,6 +137,12 @@
       "items": {
         "$ref": "#/$defs/symptomGroup"
       }
+    },
+    "fasciae": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
     }
   },
   "$defs": {

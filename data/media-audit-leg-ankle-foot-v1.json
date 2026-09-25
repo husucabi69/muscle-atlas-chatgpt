@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "leg_ankle_foot_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "All Stage 6 views map to actual ultrasound in public scientific or society sources. No generated B-mode substitute is used. Source license/publication context is preserved; external canonical references are preferred when redistribution terms are unclear.",
+  "coverage": {
+    "views_total": 18,
+    "embedded_verified": 0,
+    "exact_figure_reference": 18,
+    "unverified": 0
+  },
+  "stage6_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv056",
+      "status": "verified_fixed_reference",
+      "title": "Anterior ankle extensor tendons SAX",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 2",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv057",
+      "status": "verified_fixed_reference",
+      "title": "Tibialis anterior tendon LAX",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 3",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv058",
+      "status": "verified_fixed_reference",
+      "title": "AITFL",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 5",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv059",
+      "status": "verified_fixed_reference",
+      "title": "Peroneal tendons dynamic retromalleolar",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 11",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv060",
+      "status": "verified_fixed_reference",
+      "title": "ATFL",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 14",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv061",
+      "status": "verified_fixed_reference",
+      "title": "CFL",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 15b",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv062",
+      "status": "verified_fixed_reference",
+      "title": "Medial ankle flexor tendons / tibial nerve",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5024848/",
+      "figure_label": "Fig. 11",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv063",
+      "status": "verified_fixed_reference",
+      "title": "Posterior tibial tendon distal course",
+      "source_page": "https://www.essr.org/content-essr/uploads/2016/10/ankle.pdf",
+      "figure_label": "ESSR Ankle medial protocol",
+      "license": "ESSR canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv064",
+      "status": "verified_fixed_reference",
+      "title": "Tarsal tunnel tibial nerve branches",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10494809/",
+      "figure_label": "Figs. 4 and 6",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv065",
+      "status": "verified_fixed_reference",
+      "title": "Achilles SAX",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 18",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv066",
+      "status": "verified_fixed_reference",
+      "title": "Achilles LAX",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 19",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv067",
+      "status": "verified_fixed_reference",
+      "title": "Plantar fascia LAX",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/",
+      "figure_label": "Figs. 2A-2B",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv068",
+      "status": "verified_fixed_reference",
+      "title": "Plantar fascia SAX",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/",
+      "figure_label": "Figs. 3A-3B",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv069",
+      "status": "verified_fixed_reference",
+      "title": "Plantar intrinsic medial column",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10508328/",
+      "figure_label": "Fig. 1C-D",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv070",
+      "status": "verified_fixed_reference",
+      "title": "Morton neuroma / intermetatarsal bursa dynamic",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8942737/",
+      "figure_label": "Figs. 2 and 5",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv071",
+      "status": "verified_fixed_reference",
+      "title": "First MTP / FHL / FHB complex",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10508328/",
+      "figure_label": "Fig. 1D",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv072",
+      "status": "verified_fixed_reference",
+      "title": "Anterior tibiotalar recess",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Fig. 3",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    },
+    {
+      "ultrasound_view_id": "usv073",
+      "status": "verified_fixed_reference",
+      "title": "Deep fibular nerve at anterior ankle",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/",
+      "figure_label": "Anterior compartment section",
+      "license": "PMC article canonical reference",
+      "note": "Actual ultrasound source fixed as canonical reference; no generated substitute."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src_ankle_sono",
+      "title": "Sonographic anatomy of the ankle",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
+    },
+    {
+      "source_id": "src_essr_ankle",
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines VI. Ankle",
+      "url": "https://www.essr.org/content-essr/uploads/2016/10/ankle.pdf"
+    },
+    {
+      "source_id": "src_plantar_fascia",
+      "title": "Diagnostic Musculoskeletal Ultrasound in the Evaluation of the Plantar Fascia",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/"
+    },
+    {
+      "source_id": "src_tarsal_tunnel",
+      "title": "Sonographic assessment of the tarsal tunnel compared to cadaveric findings",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10494809/"
+    },
+    {
+      "source_id": "src_metatarsalgia",
+      "title": "A problem-based approach in musculoskeletal ultrasonography: central metatarsalgia",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8942737/"
+    }
+  ]
+}
