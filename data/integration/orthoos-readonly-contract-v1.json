@@ -1,7 +1,7 @@
 {
   "contract_id": "muscle-atlas-orthoos-readonly",
   "contract_version": "1.0.0",
-  "status": "stable_contract_candidate",
+  "status": "stable_v1",
   "provider": {
     "name": "Muscle Atlas / MSK Knowledge Layer",
     "repository": "husucabi69/muscle-atlas-chatgpt",
