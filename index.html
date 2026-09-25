@@ -1628,7 +1628,8 @@ function oralNorm(s){
 }
 const oralStop=new Set(['근육','기능','신경','지배','기시','정지','에서','으로','하고','하며','보조','동반','운동','해당','부분','외측면','상면']);
 function oralTokens(s){
-  return String(s||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/).map(x=>x.replace(/[은는이가을를의에에서으로와과도만]$/,'')).filter(x=>x.length>=2&&!oralStop.has(x));
+  return String(s||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/)
+    .map(x=>x.trim()).filter(x=>x.length>=2&&!oralStop.has(x));
 }
 function tokenMatch(user,token){
   const u=oralNorm(user),t=oralNorm(token);
@@ -1637,7 +1638,11 @@ function tokenMatch(user,token){
   // Substring matching for these creates false positives such as '미골' inside '항문미골인대'.
   if(t.length<=3){
     const userTokens=String(user||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/).map(x=>oralNorm(x)).filter(Boolean);
-    return userTokens.includes(t);
+    if(userTokens.includes(t))return true;
+    // Only strip unambiguous grammatical endings from longer spoken tokens.
+    // Do not strip 와/과 because they are part of anatomy terms such as 전자와/극상와/내측상과.
+    const grammatical=userTokens.map(x=>x.length>=4?x.replace(/(?:에서|으로|에게|부터|까지|은|는|이|가|을|를|의|에|도|만)$/,''):x);
+    return grammatical.includes(t);
   }
   return u.includes(t)||(t.includes(u)&&u.length>=4);
 }
