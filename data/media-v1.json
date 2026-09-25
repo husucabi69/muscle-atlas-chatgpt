@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-l",
+  "version": "2026.09.26-stage17-m",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -1296,6 +1296,62 @@
           "representative": true,
           "view": "rotating 3D medial thigh",
           "educationalReason": "치골에서 경골 내측 거위발까지 세로로 길게 내려가는 박근의 표재성 내측 주행과 내전근군과의 위치 관계를 회전 3D로 확인"
+        }
+      ]
+    },
+    "m139": {
+      "anatomy": [
+        {
+          "title": "Biceps femoris long head — rotating head-specific representative view",
+          "file": "Long head of biceps femoris.gif",
+          "author": "BodyParts3D / Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Long_head_of_biceps_femoris.gif",
+          "representative": true,
+          "view": "rotating 3D posterior thigh",
+          "educationalReason": "대퇴이두근 장두만 분리된 회전 3D로 좌골결절에서 비골두로 내려가는 긴 후외측 주행과 단두에 대한 표층·근위 관계를 명확히 확인"
+        }
+      ]
+    },
+    "m140": {
+      "anatomy": [
+        {
+          "title": "Biceps femoris short head — rotating head-specific representative view",
+          "file": "Short head of biceps femoris.gif",
+          "author": "BodyParts3D / Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Short_head_of_biceps_femoris.gif",
+          "representative": true,
+          "view": "rotating 3D posterior thigh",
+          "educationalReason": "대퇴이두근 단두만 분리된 회전 3D로 대퇴골 조선 외측에서 시작해 비골두로 합류하는 짧은 원위 후외측 주행을 장두와 구분"
+        }
+      ]
+    },
+    "m141": {
+      "anatomy": [
+        {
+          "title": "Semitendinosus — rotating posterior representative view",
+          "file": "Semitendinosus.png",
+          "author": "BodyParts3D / Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Semitendinosus.png",
+          "representative": true,
+          "view": "rotating 3D posterior-medial thigh",
+          "educationalReason": "좌골결절에서 경골 내측 거위발로 이어지는 반건양근의 긴 원위 건과 후내측 표층 위치를 회전 3D로 명확히 확인"
+        }
+      ]
+    },
+    "m142": {
+      "anatomy": [
+        {
+          "title": "Semimembranosus — rotating deep posterior representative view",
+          "file": "Semimembranosus.gif",
+          "author": "BodyParts3D / Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Semimembranosus.gif",
+          "representative": true,
+          "view": "rotating 3D deep posterior-medial thigh",
+          "educationalReason": "반건양근보다 깊고 내측에 위치하며 넓은 막성 근위건을 가진 반막양근의 층 관계와 경골 후내측 부착 방향을 회전 3D로 확인"
         }
       ]
     }
