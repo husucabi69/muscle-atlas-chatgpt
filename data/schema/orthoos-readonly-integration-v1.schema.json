@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://husucabi69.github.io/muscle-atlas-chatgpt/data/schema/orthoos-readonly-integration-v1.schema.json",
+  "title": "Muscle Atlas → LYS OrthoOS Read-only Integration v1",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/entityRequest"
+    },
+    {
+      "$ref": "#/$defs/entityResponse"
+    },
+    {
+      "$ref": "#/$defs/errorResponse"
+    }
+  ],
+  "$defs": {
+    "entityType": {
+      "type": "string",
+      "enum": [
+        "region",
+        "muscle",
+        "symptom_group",
+        "symptom_pattern",
+        "tendon",
+        "nerve",
+        "joint",
+        "bursa",
+        "ligament",
+        "fascia",
+        "clinical_finding",
+        "clinical_test",
+        "diagnosis_concept",
+        "ultrasound_view",
+        "content_asset",
+        "relationship"
+      ]
+    },
+    "entityRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_type",
+        "stable_id"
+      ],
+      "properties": {
+        "entity_type": {
+          "$ref": "#/$defs/entityType"
+        },
+        "stable_id": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        "schema_version": {
+          "type": "string",
+          "const": "1.0.0"
+        },
+        "dataset_version": {
+          "type": "string",
+          "const": "2026.09.25-j"
+        }
+      }
+    },
+    "entityResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "schema_version",
+        "dataset_version",
+        "knowledge_class",
+        "patient_context_included",
+        "entity_type",
+        "stable_id",
+        "entity"
+      ],
+      "properties": {
+        "contract_version": {
+          "type": "string",
+          "const": "1.0.0"
+        },
+        "schema_version": {
+          "type": "string",
+          "const": "1.0.0"
+        },
+        "dataset_version": {
+          "type": "string",
+          "const": "2026.09.25-j"
+        },
+        "knowledge_class": {
+          "type": "string",
+          "const": "general_msk_knowledge"
+        },
+        "patient_context_included": {
+          "type": "boolean",
+          "const": false
+        },
+        "entity_type": {
+          "$ref": "#/$defs/entityType"
+        },
+        "stable_id": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        "clinical_semantics": {
+          "type": "string"
+        },
+        "entity": {
+          "type": "object"
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "errorResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_version",
+        "error"
+      ],
+      "properties": {
+        "contract_version": {
+          "type": "string",
+          "const": "1.0.0"
+        },
+        "error": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "code",
+            "message"
+          ],
+          "properties": {
+            "code": {
+              "type": "string",
+              "enum": [
+                "INVALID_ENTITY_TYPE",
+                "INVALID_STABLE_ID",
+                "PATIENT_CONTEXT_FORBIDDEN",
+                "VERSION_MISMATCH",
+                "ENTITY_NOT_FOUND"
+              ]
+            },
+            "message": {
+              "type": "string"
+            },
+            "rejected_fields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
