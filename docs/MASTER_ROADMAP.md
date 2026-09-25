@@ -56,8 +56,8 @@ Stage 1 — 어깨·견갑대·상완
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
 Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
 Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 9 요추·천추
-목표 완료일: 2027-01-14
+현재 개발: Stage 10 복벽·몸통 심부
+목표 완료일: 2027-01-25
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -332,3 +332,18 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - '해부학적으로 그럴듯함'과 '임상적으로 검증된 환자운동'을 같은 등급으로 표시하지 않는다.
 - 작은 심부근·설골근·골반저 일부처럼 개별 근육 단독 운동 근거가 약한 경우 임의 처방을 만들지 않는다.
 - 질환/근육군 CPG 근거를 개별 근육에 연결할 때는 B 또는 설명문으로 그 한계를 명확히 한다.
+
+
+## Stage 9 완료 기록
+완료일: 2026-09-25
+상태: COMPLETE — Lumbar/Sacral Stage 9
+- Lumbar multifidus / erector spinae / quadratus lumborum / psoas major
+- L2–S1 nerve-root clinical relations
+- Lumbar facet / sacroiliac joint / thoracolumbar fascia
+- Superior cluneal nerve pathway
+- Radiculopathy / neurogenic claudication / SI pain / cauda equina red-flag pathways
+- SI provocation cluster는 positive rule-in이 제한적이며 negative cluster의 배제 가치가 더 높다는 2021 meta-analysis 반영
+- Actual ultrasound canonical reference audit 15/15
+- Lumbar/Sacral clinical quiz 30
+- Oral Viva / Patient Education v8.8 기능 유지
+- 다음 공식 단계: Stage 10 — 복벽·몸통 심부
