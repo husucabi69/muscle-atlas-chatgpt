@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.25-stage17-e",
+  "audit_version": "2026.09.25-stage17-f",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -507,31 +507,71 @@
       "muscle_id": "m060",
       "name_ko": "승모근",
       "name_en": "Trapezius",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Trapezius muscle.svg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Trapezius_muscle.svg",
+        "license": "CC BY-SA 4.0",
+        "author": "InjuryMap",
+        "view": "posterior",
+        "educationalReason": "후두부·경흉추에서 쇄골·견봉·견갑극으로 넓게 퍼지는 승모근 전체와 상·중·하부 섬유 방향을 후면에서 가장 쉽게 확인"
+      }
     },
     {
       "muscle_id": "m061",
       "name_ko": "견갑거근",
       "name_en": "Levator scapulae",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Levator scapulae muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Levator_scapulae_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "상위 경추 횡돌기에서 견갑골 상각·내측연으로 내려오는 견갑거근의 길고 세로선에 가까운 주행을 후면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m062",
       "name_ko": "소능형근",
       "name_en": "Rhomboid minor",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Rhomboid minor muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhomboid_minor_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "C7–T1 극돌기 부근에서 견갑극근 쪽으로 짧게 주행하는 소능형근을 대능형근과 함께 후면에서 구분하기 적합"
+      }
     },
     {
       "muscle_id": "m063",
       "name_ko": "대능형근",
       "name_en": "Rhomboid major",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Rhomboid major muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhomboid_major_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "T2–T5 극돌기에서 견갑골 내측연 하부로 넓게 이어지는 대능형근의 근복과 견갑골 관계를 후면에서 직접 확인"
+      }
     },
     {
       "muscle_id": "m064",
       "name_ko": "전거근",
       "name_en": "Serratus anterior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Serratus anterior muscles lateral.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Serratus_anterior_muscles_lateral.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "lateral",
+        "educationalReason": "상부 늑골에서 견갑골 내측연 전면으로 이어지는 전거근의 톱니 모양 기시와 흉곽-견갑 관계를 측면에서 가장 잘 확인"
+      }
     },
     {
       "muscle_id": "m065",
@@ -555,13 +595,29 @@
       "muscle_id": "m068",
       "name_ko": "광배근",
       "name_en": "Latissimus dorsi",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Latissimus dorsi muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Latissimus_dorsi_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "하부 흉요추·장골능에서 상완골로 수렴하는 광배근의 넓은 근복과 겨드랑이 뒤벽 방향을 후면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m069",
       "name_ko": "삼각근",
       "name_en": "Deltoid",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Deltoid muscle lateral.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Deltoid_muscle_lateral.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "lateral",
+        "educationalReason": "쇄골·견봉·견갑극에서 삼각근조면으로 수렴하는 삼각근의 전·중·후 섬유 덩어리를 측면에서 가장 직관적으로 확인"
+      }
     },
     {
       "muscle_id": "m070",
@@ -623,7 +679,15 @@
       "muscle_id": "m074",
       "name_ko": "대원근",
       "name_en": "Teres major",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Teres major muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Teres_major_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "견갑골 하각에서 상완골 전내측으로 향하는 대원근의 후액와주름 기여와 광배근·소원근과의 위치 관계를 후면에서 확인"
+      }
     },
     {
       "muscle_id": "m075",
@@ -1557,8 +1621,8 @@
     }
   ],
   "progress": {
-    "reviewed": 39,
-    "pending_review": 166,
-    "last_batch": "intrinsic_foot_priority_batch"
+    "reviewed": 47,
+    "pending_review": 158,
+    "last_batch": "scapular_shoulder_priority_batch"
   }
 }
