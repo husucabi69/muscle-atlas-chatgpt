@@ -1,0 +1,847 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "abdominal_core_v1",
+  "question_count": 30,
+  "questions": [
+    {
+      "quiz_id": "aq001",
+      "module_id": "abdominal_core_v1",
+      "domain": "anatomy",
+      "question": "복벽 lateral 3층의 표층→심층 순서는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "외복사근-내복사근-복횡근"
+        },
+        {
+          "value": "B",
+          "label": "복횡근-외복사근-내복사근"
+        },
+        {
+          "value": "C",
+          "label": "복직근-대요근-QL"
+        },
+        {
+          "value": "D",
+          "label": "EO-RA-diaphragm"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "usv119",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq002",
+      "module_id": "abdominal_core_v1",
+      "domain": "clinical_test",
+      "question": "Carnett 양성은 무엇을 의미하는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "복벽 기원 통증 가능성을 지지하지만 visceral disease를 단독 배제하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "내장질환을 100% 배제"
+        },
+        {
+          "value": "C",
+          "label": "hernia 확정"
+        },
+        {
+          "value": "D",
+          "label": "ACNES 확정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "ct133",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq003",
+      "module_id": "abdominal_core_v1",
+      "domain": "safety",
+      "question": "급성 심한 복통에서 Carnett 양성이어도 해야 할 일은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "visceral/peritoneal red flag를 우선 평가"
+        },
+        {
+          "value": "B",
+          "label": "복벽통으로 즉시 확정"
+        },
+        {
+          "value": "C",
+          "label": "운동만 처방"
+        },
+        {
+          "value": "D",
+          "label": "영상은 금지"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "ct148",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq004",
+      "module_id": "abdominal_core_v1",
+      "domain": "nerve",
+      "question": "ACNES 후보에서 중요한 nerve는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "thoracoabdominal anterior cutaneous branch"
+        },
+        {
+          "value": "B",
+          "label": "sciatic nerve"
+        },
+        {
+          "value": "C",
+          "label": "median nerve"
+        },
+        {
+          "value": "D",
+          "label": "tibial nerve"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "n047",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq005",
+      "module_id": "abdominal_core_v1",
+      "domain": "clinical_reasoning",
+      "question": "ACNES를 지지할 수 있는 조합은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "작은 국소 압통점 + sensory change + Carnett"
+        },
+        {
+          "value": "B",
+          "label": "diffuse tenderness만"
+        },
+        {
+          "value": "C",
+          "label": "fever+vomiting"
+        },
+        {
+          "value": "D",
+          "label": "SLR positive"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "d128",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq006",
+      "module_id": "abdominal_core_v1",
+      "domain": "diastasis",
+      "question": "Rectus diastasis와 true hernia의 차이로 적절한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "diastasis는 linea alba widening이며 반드시 focal fascial defect/hernia sac을 의미하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "완전히 같은 진단"
+        },
+        {
+          "value": "C",
+          "label": "diastasis는 bowel strangulation을 의미"
+        },
+        {
+          "value": "D",
+          "label": "hernia는 linea alba와 무관"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "d131",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq007",
+      "module_id": "abdominal_core_v1",
+      "domain": "diastasis",
+      "question": "IRD 측정에서 중요한 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "위치와 rest/contraction 상태를 표준화해 기록"
+        },
+        {
+          "value": "B",
+          "label": "손가락 폭만 사용"
+        },
+        {
+          "value": "C",
+          "label": "단일 cutoff로 자동진단"
+        },
+        {
+          "value": "D",
+          "label": "모든 사람을 같은 운동으로 치료"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "ct138",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq008",
+      "module_id": "abdominal_core_v1",
+      "domain": "evidence",
+      "question": "EHS rectus diastasis guideline의 운동 관련 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "physiotherapy를 고려할 수 있으나 특정 최적 regimen 근거는 제한적"
+        },
+        {
+          "value": "B",
+          "label": "한 가지 TrA 운동이 표준치료로 확정"
+        },
+        {
+          "value": "C",
+          "label": "운동은 항상 금기"
+        },
+        {
+          "value": "D",
+          "label": "수술만 가능"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "d131",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq009",
+      "module_id": "abdominal_core_v1",
+      "domain": "motor_control",
+      "question": "ADIM의 주요 목표는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "저강도 TrA/IO motor control과 호흡 유지"
+        },
+        {
+          "value": "B",
+          "label": "최대 rectus 힘 측정"
+        },
+        {
+          "value": "C",
+          "label": "hernia reduction"
+        },
+        {
+          "value": "D",
+          "label": "visceral pain 진단"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "ct139",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq010",
+      "module_id": "abdominal_core_v1",
+      "domain": "safety",
+      "question": "TrA US thickness change는 무엇을 직접 의미하지 않는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "최대 근력이나 임상결과 그 자체"
+        },
+        {
+          "value": "B",
+          "label": "activation-related morphology change"
+        },
+        {
+          "value": "C",
+          "label": "task response"
+        },
+        {
+          "value": "D",
+          "label": "motor-control 정보"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "ct143",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq011",
+      "module_id": "abdominal_core_v1",
+      "domain": "muscle",
+      "question": "외복사근 단측 수축의 대표 기능은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "반대측 trunk rotation"
+        },
+        {
+          "value": "B",
+          "label": "동측 rotation만"
+        },
+        {
+          "value": "C",
+          "label": "고관절 신전"
+        },
+        {
+          "value": "D",
+          "label": "무릎 신전"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m181",
+      "related_entity_id": "ct141",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq012",
+      "module_id": "abdominal_core_v1",
+      "domain": "muscle",
+      "question": "내복사근 단측 수축의 대표 기능은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "동측 trunk rotation"
+        },
+        {
+          "value": "B",
+          "label": "반대측 rotation만"
+        },
+        {
+          "value": "C",
+          "label": "발목 배굴"
+        },
+        {
+          "value": "D",
+          "label": "어깨 외전"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m182",
+      "related_entity_id": "ct142",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq013",
+      "module_id": "abdominal_core_v1",
+      "domain": "ultrasound",
+      "question": "복직근 US에서 정상 tendinous intersections는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "muscle belly를 나누는 정상 해부학적 구조"
+        },
+        {
+          "value": "B",
+          "label": "항상 muscle tear"
+        },
+        {
+          "value": "C",
+          "label": "hernia sac"
+        },
+        {
+          "value": "D",
+          "label": "nerve entrapment"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "usv118",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq014",
+      "module_id": "abdominal_core_v1",
+      "domain": "ultrasound",
+      "question": "Umbilical hernia US에서 핵심은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "focal defect와 content를 dynamic하게 확인"
+        },
+        {
+          "value": "B",
+          "label": "RA thickness만 측정"
+        },
+        {
+          "value": "C",
+          "label": "nerve CSA만 측정"
+        },
+        {
+          "value": "D",
+          "label": "SIJ를 본다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "usv123",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq015",
+      "module_id": "abdominal_core_v1",
+      "domain": "ultrasound",
+      "question": "Paraumbilical hernia와 diastasis 감별 핵심은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "focal linea-alba defect/content protrusion 여부"
+        },
+        {
+          "value": "B",
+          "label": "통증 유무만"
+        },
+        {
+          "value": "C",
+          "label": "나이만"
+        },
+        {
+          "value": "D",
+          "label": "TrA 두께만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "usv124",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq016",
+      "module_id": "abdominal_core_v1",
+      "domain": "ultrasound",
+      "question": "Incisional hernia에서 확인할 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "scar-associated fascial defect와 fat/bowel content movement"
+        },
+        {
+          "value": "B",
+          "label": "C5 root"
+        },
+        {
+          "value": "C",
+          "label": "Achilles tendon"
+        },
+        {
+          "value": "D",
+          "label": "median nerve"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "usv125",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq017",
+      "module_id": "abdominal_core_v1",
+      "domain": "ultrasound",
+      "question": "Spigelian hernia의 대표 위치는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "linea semilunaris/Spigelian fascia"
+        },
+        {
+          "value": "B",
+          "label": "carpal tunnel"
+        },
+        {
+          "value": "C",
+          "label": "popliteal fossa"
+        },
+        {
+          "value": "D",
+          "label": "suboccipital triangle"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m182",
+      "related_entity_id": "usv126",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq018",
+      "module_id": "abdominal_core_v1",
+      "domain": "hernia",
+      "question": "Dynamic hernia US에서 Valsalva가 중요한 이유는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "간헐적 protrusion을 실시간 드러낼 수 있기 때문"
+        },
+        {
+          "value": "B",
+          "label": "muscle strength를 측정하기 때문"
+        },
+        {
+          "value": "C",
+          "label": "radiculopathy를 진단하기 때문"
+        },
+        {
+          "value": "D",
+          "label": "혈당을 측정하기 때문"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "ct145",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq019",
+      "module_id": "abdominal_core_v1",
+      "domain": "hernia",
+      "question": "Direct와 indirect inguinal hernia 감별의 주요 vascular landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "inferior epigastric vessels"
+        },
+        {
+          "value": "B",
+          "label": "radial artery"
+        },
+        {
+          "value": "C",
+          "label": "popliteal artery"
+        },
+        {
+          "value": "D",
+          "label": "posterior tibial artery"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m181",
+      "related_entity_id": "usv129",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq020",
+      "module_id": "abdominal_core_v1",
+      "domain": "safety",
+      "question": "불완전한 Valsalva의 문제는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "false negative 가능"
+        },
+        {
+          "value": "B",
+          "label": "항상 false positive"
+        },
+        {
+          "value": "C",
+          "label": "diastasis를 확정"
+        },
+        {
+          "value": "D",
+          "label": "ACNES를 확정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "ct145",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq021",
+      "module_id": "abdominal_core_v1",
+      "domain": "groin",
+      "question": "athletic groin pain에서 posterior wall bulging 하나의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "증상/검사/다른 groin 원인과 통합해야 한다"
+        },
+        {
+          "value": "B",
+          "label": "sports hernia 확정"
+        },
+        {
+          "value": "C",
+          "label": "adductor pathology 배제"
+        },
+        {
+          "value": "D",
+          "label": "수술 적응증 확정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m181",
+      "related_entity_id": "d136",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq022",
+      "module_id": "abdominal_core_v1",
+      "domain": "nerve",
+      "question": "ilioinguinal/iliohypogastric nerve는 흔히 어느 fascial plane에서 보이는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "internal oblique와 transversus abdominis 사이"
+        },
+        {
+          "value": "B",
+          "label": "rectus 내부만"
+        },
+        {
+          "value": "C",
+          "label": "subcutaneous fat만"
+        },
+        {
+          "value": "D",
+          "label": "psoas와 vertebral body 사이만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m182",
+      "related_entity_id": "usv130",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq023",
+      "module_id": "abdominal_core_v1",
+      "domain": "strain",
+      "question": "복직근 strain 후보를 지지할 수 있는 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "resisted trunk flexion에서 익숙한 국소통"
+        },
+        {
+          "value": "B",
+          "label": "Carnett 음성만"
+        },
+        {
+          "value": "C",
+          "label": "cough impulse alone"
+        },
+        {
+          "value": "D",
+          "label": "GI bleeding"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "ct140",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq024",
+      "module_id": "abdominal_core_v1",
+      "domain": "hematoma",
+      "question": "급성 복벽통+멍/종창+항응고제 병력에서 고려할 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "abdominal wall/rectus sheath hematoma"
+        },
+        {
+          "value": "B",
+          "label": "CTS"
+        },
+        {
+          "value": "C",
+          "label": "Achilles rupture"
+        },
+        {
+          "value": "D",
+          "label": "cervicogenic headache"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "d139",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq025",
+      "module_id": "abdominal_core_v1",
+      "domain": "safety",
+      "question": "통증성 비환원성 hernia와 구토/장폐색 소견이 있으면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "urgent surgical/emergency evaluation"
+        },
+        {
+          "value": "B",
+          "label": "core exercise"
+        },
+        {
+          "value": "C",
+          "label": "ADIM 반복"
+        },
+        {
+          "value": "D",
+          "label": "관찰만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "ct147",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq026",
+      "module_id": "abdominal_core_v1",
+      "domain": "ultrasound",
+      "question": "복벽 panoramic US에서 확인 가능한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "RA, EO, IO, TrA, linea alba, semilunaris"
+        },
+        {
+          "value": "B",
+          "label": "ACL만"
+        },
+        {
+          "value": "C",
+          "label": "C8 root만"
+        },
+        {
+          "value": "D",
+          "label": "meniscus만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "usv117",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq027",
+      "module_id": "abdominal_core_v1",
+      "domain": "exercise",
+      "question": "만성 요통의 trunk exercise에 대한 2021 CPG 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "strength/endurance, specific activation, movement-control 등 여러 접근을 개인화"
+        },
+        {
+          "value": "B",
+          "label": "TrA 하나만 유일한 치료"
+        },
+        {
+          "value": "C",
+          "label": "침상안정만"
+        },
+        {
+          "value": "D",
+          "label": "복근운동 금지"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "d137",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq028",
+      "module_id": "abdominal_core_v1",
+      "domain": "clinical_reasoning",
+      "question": "한 손가락으로 짚는 국소 복통의 감별로 적절한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "abdominal wall pain/ACNES/rectus strain와 visceral cause를 함께 본다"
+        },
+        {
+          "value": "B",
+          "label": "visceral cause는 절대 고려하지 않는다"
+        },
+        {
+          "value": "C",
+          "label": "hernia만 본다"
+        },
+        {
+          "value": "D",
+          "label": "요추만 본다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "dg059",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq029",
+      "module_id": "abdominal_core_v1",
+      "domain": "ultrasound",
+      "question": "Stage 10 abdominal ultrasound의 역할은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "근육층·linea alba·hernia defect·nerve corridor를 보여주지만 모든 통증의 단독 확진검사는 아니다"
+        },
+        {
+          "value": "B",
+          "label": "내과 복통평가를 완전히 대체"
+        },
+        {
+          "value": "C",
+          "label": "PHI 저장"
+        },
+        {
+          "value": "D",
+          "label": "미시행검사 자동기록"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m183",
+      "related_entity_id": "usv117",
+      "status": "active"
+    },
+    {
+      "quiz_id": "aq030",
+      "module_id": "abdominal_core_v1",
+      "domain": "data_safety",
+      "question": "Stage 10 데이터 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "일반 MSK 지식만 저장하고 PHI·자동 laterality·미시행검사 추정을 금지"
+        },
+        {
+          "value": "B",
+          "label": "환자 이름 저장"
+        },
+        {
+          "value": "C",
+          "label": "hernia 자동 확정"
+        },
+        {
+          "value": "D",
+          "label": "Carnett 자동 양성"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m179",
+      "related_entity_id": "dg064",
+      "status": "active"
+    }
+  ]
+}
