@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-j",
+  "audit_version": "2026.09.26-stage17-k",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1327,37 +1327,85 @@
       "muscle_id": "m143",
       "name_ko": "전경골근",
       "name_en": "Tibialis anterior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Anterior compartment of leg - Tibialis anterior.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Anterior_compartment_of_leg_-_Tibialis_anterior.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Database Center for Life Science (DBCLS) / BodyParts3D",
+        "view": "anterior leg",
+        "educationalReason": "경골 외측면에서 발목 전면을 지나 내측 설상골·제1중족골로 이어지는 전경골근의 큰 근복과 장건을 전면에서 직관적으로 확인"
+      }
     },
     {
       "muscle_id": "m144",
       "name_ko": "장무지신근",
       "name_en": "Extensor hallucis longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Anterior compartment of leg - Extensor hallucis longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Anterior_compartment_of_leg_-_Extensor_hallucis_longus.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Database Center for Life Science (DBCLS) / BodyParts3D",
+        "view": "anterior leg",
+        "educationalReason": "전경골근과 장지신근 사이 심부에서 시작해 엄지로 향하는 장무지신근의 가는 근복과 긴 건 주행을 전면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m145",
       "name_ko": "장지신근",
       "name_en": "Extensor digitorum longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Anterior compartment of leg - Extensor digitorum longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Anterior_compartment_of_leg_-_Extensor_digitorum_longus.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Database Center for Life Science (DBCLS) / BodyParts3D",
+        "view": "anterior leg",
+        "educationalReason": "경골 외측과 비골 전면에서 발등을 거쳐 제2–5 발가락으로 분지하는 장지신근의 근복과 건 분지를 전면에서 확인"
+      }
     },
     {
       "muscle_id": "m146",
       "name_ko": "제3비골근",
       "name_en": "Fibularis tertius",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Anterior compartment of leg - Fibularis tertius.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Anterior_compartment_of_leg_-_Fibularis_tertius.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Database Center for Life Science (DBCLS) / BodyParts3D",
+        "view": "anterolateral distal leg",
+        "educationalReason": "장지신근의 원위 외측에서 분리되어 제5중족골 기저부로 향하는 제3비골근을 하퇴 전외측에서 가장 쉽게 확인"
+      }
     },
     {
       "muscle_id": "m147",
       "name_ko": "장비골근",
       "name_en": "Fibularis longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Lateral compartment of leg - Fibularis longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Lateral_compartment_of_leg_-_Fibularis_longus.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Database Center for Life Science (DBCLS) / BodyParts3D",
+        "view": "lateral leg",
+        "educationalReason": "비골두·근위 외측면에서 외과 뒤를 지나 발바닥으로 이어지는 장비골근의 긴 표재성 주행을 외측에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m148",
       "name_ko": "단비골근",
       "name_en": "Fibularis brevis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Lateral compartment of leg - Fibularis brevis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Lateral_compartment_of_leg_-_Fibularis_brevis.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Database Center for Life Science (DBCLS) / BodyParts3D",
+        "view": "lateral leg",
+        "educationalReason": "비골 원위 외측면에서 외과 뒤를 지나 제5중족골 조면으로 향하는 단비골근을 장비골근보다 깊고 짧은 구조로 외측에서 확인"
+      }
     },
     {
       "muscle_id": "m149",
@@ -1831,8 +1879,8 @@
     }
   ],
   "progress": {
-    "reviewed": 72,
-    "pending_review": 133,
-    "last_batch": "posterior_leg_priority_batch"
+    "reviewed": 78,
+    "pending_review": 127,
+    "last_batch": "anterolateral_leg_priority_batch"
   }
 }

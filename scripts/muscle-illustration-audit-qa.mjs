@@ -62,7 +62,13 @@ const required={
   m153:'Gray439-Musculus popliteus.png',
   m154:'Tibialis posterior.png',
   m155:'Gray439-Musculus flexor digitorum longus.png',
-  m156:'Gray439-Musculus flexor hallucis longus.png'
+  m156:'Gray439-Musculus flexor hallucis longus.png',
+  m143:'Anterior compartment of leg - Tibialis anterior.png',
+  m144:'Anterior compartment of leg - Extensor hallucis longus.png',
+  m145:'Anterior compartment of leg - Extensor digitorum longus.png',
+  m146:'Anterior compartment of leg - Fibularis tertius.png',
+  m147:'Lateral compartment of leg - Fibularis longus.png',
+  m148:'Lateral compartment of leg - Fibularis brevis.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
