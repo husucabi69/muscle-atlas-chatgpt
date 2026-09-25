@@ -1,0 +1,377 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "thoracic_back_chestwall_ultrasound_v1",
+  "region_ids": [
+    "r002",
+    "r004"
+  ],
+  "primary_references": [
+    {
+      "title": "Pictorial Essay on Ultrasound and MRI of Paraspinal Muscles",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+      "license": "CC BY 4.0"
+    },
+    {
+      "title": "Ultrasound-guided interventions for controlling thoracic spine and chest wall pain",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
+      "license": "CC BY-NC 4.0"
+    },
+    {
+      "title": "Inflammatory disease of the costotransverse joints: US evaluation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9148345/"
+    },
+    {
+      "title": "Ultrasound Evaluation of Diaphragmatic and Intercostal Muscle Function",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12747832/"
+    },
+    {
+      "title": "Ultrasonographic Assessment of the Diaphragm",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11276413/"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv088",
+      "name_ko": "T5 posterior thoracic muscle layers",
+      "name_en": "T5 trapezius-rhomboid-erector spinae transverse view",
+      "target_structure_ids": [
+        "m060",
+        "m063",
+        "m021",
+        "m022",
+        "m024",
+        "m025"
+      ],
+      "patient_position": "복와위, 팔을 편안히 둔다.",
+      "probe_orientation": "T5 transverse process 수준 횡축.",
+      "landmarks": [
+        "trapezius",
+        "rhomboid major",
+        "erector spinae",
+        "transverse process",
+        "pleura lateral/deep"
+      ],
+      "normal_finding": "T5에서 trapezius-rhomboid major-erector spinae 층을 구분한다.",
+      "pitfalls": [
+        "흉막 위치를 항상 인지",
+        "probe pressure로 근두께 왜곡 가능"
+      ],
+      "source_ref": "thoracic_review_fig5a"
+    },
+    {
+      "ultrasound_view_id": "usv089",
+      "name_ko": "T7 posterior thoracic muscle layers",
+      "name_en": "T7 erector spinae transverse view",
+      "target_structure_ids": [
+        "m060",
+        "m021",
+        "m022",
+        "m024",
+        "m025"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "T7 transverse process 수준 횡축.",
+      "landmarks": [
+        "trapezius",
+        "erector spinae",
+        "transverse process",
+        "rib",
+        "pleura"
+      ],
+      "normal_finding": "T7에서는 rhomboid major가 사라지는 층 변화를 확인한다.",
+      "pitfalls": [
+        "level counting 필요",
+        "늑골과 transverse process 음영 구분"
+      ],
+      "source_ref": "thoracic_review_fig5b"
+    },
+    {
+      "ultrasound_view_id": "usv090",
+      "name_ko": "흉추 고유근 횡단면",
+      "name_en": "Thoracic intrinsic paraspinal muscle transverse view",
+      "target_structure_ids": [
+        "m021",
+        "m022",
+        "m024",
+        "m025",
+        "j020"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "interscapular thoracic level에서 spinous process 옆 횡축.",
+      "landmarks": [
+        "iliocostalis thoracis",
+        "longissimus thoracis",
+        "semispinalis thoracis",
+        "multifidus",
+        "costotransverse joint"
+      ],
+      "normal_finding": "lateral-to-medial/deep muscle layers를 구분한다.",
+      "pitfalls": [
+        "근육 경계는 level에 따라 달라짐",
+        "thickness/echogenicity 단독 진단 금지"
+      ],
+      "source_ref": "paraspinal_fig19"
+    },
+    {
+      "ultrasound_view_id": "usv091",
+      "name_ko": "Trapezius-rhomboid / scapular medial border",
+      "name_en": "Trapezius-rhomboid scapulothoracic view",
+      "target_structure_ids": [
+        "m060",
+        "m062",
+        "m063",
+        "j022"
+      ],
+      "patient_position": "복와위 또는 측와위, 견갑을 약간 protraction.",
+      "probe_orientation": "견갑 내측연과 흉추 사이 oblique transverse sweep.",
+      "landmarks": [
+        "trapezius",
+        "rhomboid minor/major",
+        "medial scapular border",
+        "rib cage"
+      ],
+      "normal_finding": "trapezius 아래 rhomboid layer와 scapular border를 확인한다.",
+      "pitfalls": [
+        "levator scapulae와 rhomboid minor 혼동",
+        "scapular motion으로 layer 확인"
+      ],
+      "source_ref": "paraspinal_fig4"
+    },
+    {
+      "ultrasound_view_id": "usv092",
+      "name_ko": "Serratus posterior superior",
+      "name_en": "Serratus posterior superior ultrasound",
+      "target_structure_ids": [
+        "m030",
+        "m061",
+        "m062",
+        "m063"
+      ],
+      "patient_position": "복와위 또는 측와위.",
+      "probe_orientation": "C7-T3 paraspinal에서 2–5th rib 방향 oblique.",
+      "landmarks": [
+        "levator scapulae",
+        "rhomboids",
+        "serratus posterior superior",
+        "rib"
+      ],
+      "normal_finding": "rhomboid/levator deep layer의 thin serratus posterior superior digitations를 확인한다.",
+      "pitfalls": [
+        "얇은 근육이라 anisotropy·fascial line과 혼동"
+      ],
+      "source_ref": "paraspinal_fig9"
+    },
+    {
+      "ultrasound_view_id": "usv093",
+      "name_ko": "Thoracic facet paramedian sagittal",
+      "name_en": "Thoracic zygapophyseal joint sagittal view",
+      "target_structure_ids": [
+        "j019"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "lamina에서 약간 lateral로 이동한 paramedian sagittal plane.",
+      "landmarks": [
+        "inferior articular process",
+        "superior articular process",
+        "facet joint line",
+        "lamina"
+      ],
+      "normal_finding": "IAP와 SAP 사이 thoracic facet joint line을 확인한다.",
+      "pitfalls": [
+        "level identification 위해 T12/rib counting 활용",
+        "US는 intra-articular pathology를 완전히 평가하지 못함"
+      ],
+      "source_ref": "thoracic_review_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv094",
+      "name_ko": "Costotransverse joint transverse",
+      "name_en": "Costotransverse joint transverse view",
+      "target_structure_ids": [
+        "j020",
+        "lig019",
+        "lig020"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "target thoracic level의 transverse process와 rib를 같은 평면에 둔다.",
+      "landmarks": [
+        "transverse process",
+        "costotransverse joint",
+        "rib",
+        "lung/pleura"
+      ],
+      "normal_finding": "rib tubercle-transverse process articulation과 capsule/ligament contour를 확인한다.",
+      "pitfalls": [
+        "pleura가 바로 깊게 위치",
+        "T11-12에는 true CTJ가 없음"
+      ],
+      "source_ref": "thoracic_review_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv095",
+      "name_ko": "Costotransverse joint long/short axes",
+      "name_en": "Costotransverse joint long- and short-axis comparison",
+      "target_structure_ids": [
+        "j020",
+        "lig019"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "rib major axis와 short axis 두 평면을 비교.",
+      "landmarks": [
+        "rib",
+        "costotransverse capsule",
+        "posterior/lateral costotransverse ligament",
+        "adjacent CTJs"
+      ],
+      "normal_finding": "정상 capsule은 과도한 effusion 없이 보이며 ligament contour를 확인한다.",
+      "pitfalls": [
+        "short axis가 effusion 비교에 유리",
+        "관절액 하나도 임상 맥락과 연결"
+      ],
+      "source_ref": "ctj_fig5_6"
+    },
+    {
+      "ultrasound_view_id": "usv096",
+      "name_ko": "Intercostal muscle layers / neurovascular bundle",
+      "name_en": "Intercostal muscle layers and neurovascular bundle",
+      "target_structure_ids": [
+        "m032",
+        "m033",
+        "m034",
+        "n036"
+      ],
+      "patient_position": "좌위 또는 측와위.",
+      "probe_orientation": "posterior-to-midaxillary intercostal space 횡/수직.",
+      "landmarks": [
+        "rib",
+        "external intercostal",
+        "internal intercostal",
+        "innermost intercostal",
+        "intercostal artery",
+        "pleura"
+      ],
+      "normal_finding": "세 intercostal muscle layer와 rib inferior margin의 neurovascular bundle 위치를 확인한다.",
+      "pitfalls": [
+        "intercostal nerve 자체는 US에서 항상 직접 보이지 않음",
+        "Color Doppler로 artery를 landmark로 사용",
+        "pleura 주의"
+      ],
+      "source_ref": "thoracic_review_fig4"
+    },
+    {
+      "ultrasound_view_id": "usv097",
+      "name_ko": "Serratus anterior lateral chest wall",
+      "name_en": "Serratus anterior lateral chest-wall view",
+      "target_structure_ids": [
+        "m064",
+        "m068",
+        "j022"
+      ],
+      "patient_position": "앙와위 또는 측와위, 팔 외전.",
+      "probe_orientation": "mid-to-posterior axillary line의 rib 수준.",
+      "landmarks": [
+        "latissimus dorsi",
+        "teres major region",
+        "serratus anterior",
+        "rib",
+        "pleura"
+      ],
+      "normal_finding": "serratus anterior와 superficial latissimus/teres region 관계를 확인한다.",
+      "pitfalls": [
+        "long thoracic nerve는 직접 식별이 어려울 수 있음",
+        "pleura를 깊은 경계로 인지"
+      ],
+      "source_ref": "thoracic_review_fig7"
+    },
+    {
+      "ultrasound_view_id": "usv098",
+      "name_ko": "Pectoralis minor-serratus chest wall layers",
+      "name_en": "Pectoralis minor-serratus anterior chest-wall layers",
+      "target_structure_ids": [
+        "m065",
+        "m064",
+        "m067"
+      ],
+      "patient_position": "앙와위, 팔 외전.",
+      "probe_orientation": "2–4th rib anterior/lateral chest wall sagittal-oblique.",
+      "landmarks": [
+        "pectoralis major",
+        "pectoralis minor",
+        "serratus anterior",
+        "rib",
+        "pleura"
+      ],
+      "normal_finding": "PM-Pm-SA 층과 fascial planes를 구분한다.",
+      "pitfalls": [
+        "thoracoacromial/axillary vascular structures를 Doppler로 구분",
+        "중재가 아닌 교육용 sonoanatomy"
+      ],
+      "source_ref": "thoracic_review_fig6"
+    },
+    {
+      "ultrasound_view_id": "usv099",
+      "name_ko": "횡격막 zone of apposition B-mode",
+      "name_en": "Diaphragm zone-of-apposition B-mode",
+      "target_structure_ids": [
+        "m037"
+      ],
+      "patient_position": "앙와위 또는 반좌위.",
+      "probe_orientation": "우측 8–10th intercostal space, anterior/mid-axillary line.",
+      "landmarks": [
+        "pleural line",
+        "diaphragm muscle",
+        "peritoneal line",
+        "liver"
+      ],
+      "normal_finding": "pleura와 peritoneum 사이 3-layer diaphragm를 확인하고 end-expiration/inspiration thickness를 일관된 위치에서 측정한다.",
+      "pitfalls": [
+        "pleura/peritoneum 두께를 muscle thickness에 포함하지 않음",
+        "측정 cut-off 하나로 dysfunction 확정 금지"
+      ],
+      "source_ref": "diaphragm_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv100",
+      "name_ko": "횡격막 excursion M-mode",
+      "name_en": "Diaphragm excursion M-mode",
+      "target_structure_ids": [
+        "m037"
+      ],
+      "patient_position": "반좌위 또는 앙와위.",
+      "probe_orientation": "우측 subcostal view에서 liver acoustic window를 사용.",
+      "landmarks": [
+        "liver",
+        "diaphragmatic dome",
+        "M-mode excursion trace"
+      ],
+      "normal_finding": "quiet/deep breathing에서 inspiratory caudal excursion을 M-mode로 측정한다.",
+      "pitfalls": [
+        "angle 의존성",
+        "position/effort에 따라 정상값 변동"
+      ],
+      "source_ref": "diaphragm_review_fig1b"
+    },
+    {
+      "ultrasound_view_id": "usv101",
+      "name_ko": "Intercostal muscle respiratory thickness",
+      "name_en": "Intercostal muscle respiratory thickness view",
+      "target_structure_ids": [
+        "m032",
+        "m033"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "2–3rd intercostal space parasternal/anterior chest wall 횡축.",
+      "landmarks": [
+        "intercostal space",
+        "intercostal muscle layer",
+        "pleural line"
+      ],
+      "normal_finding": "흡기/호기 시 intercostal muscle thickness 변화를 동일 지점에서 확인한다.",
+      "pitfalls": [
+        "근육층 경계가 얇아 측정오차 가능",
+        "COPD 연구의 기능지표를 일반 MSK 진단 cutoff로 직접 전용하지 않음"
+      ],
+      "source_ref": "respiratory_us_fig2"
+    }
+  ]
+}
