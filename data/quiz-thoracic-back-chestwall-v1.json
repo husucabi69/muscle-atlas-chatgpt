@@ -1,0 +1,847 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "thoracic_back_chestwall_v1",
+  "question_count": 30,
+  "questions": [
+    {
+      "quiz_id": "tq001",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "anatomy",
+      "question": "흉추 paraspinal US에서 lateral→medial/deep 순으로 대표적으로 구분되는 근육은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "iliocostalis-longissimus-semispinalis/multifidus"
+        },
+        {
+          "value": "B",
+          "label": "SCM-scalene-longus colli"
+        },
+        {
+          "value": "C",
+          "label": "TA-EHL-EDL"
+        },
+        {
+          "value": "D",
+          "label": "FCR-FCU-PL"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m021",
+      "related_entity_id": "usv090",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq002",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "ultrasound",
+      "question": "T5 posterior thoracic US에서 erector spinae보다 표층에 보일 수 있는 두 층은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "trapezius와 rhomboid major"
+        },
+        {
+          "value": "B",
+          "label": "SCM과 platysma"
+        },
+        {
+          "value": "C",
+          "label": "gluteus medius와 minimus"
+        },
+        {
+          "value": "D",
+          "label": "deltoid와 supraspinatus"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m022",
+      "related_entity_id": "usv088",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq003",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "ultrasound",
+      "question": "T7 수준에서 T5와 비교해 사라지는 대표 scapular muscle layer는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "rhomboid major"
+        },
+        {
+          "value": "B",
+          "label": "trapezius"
+        },
+        {
+          "value": "C",
+          "label": "erector spinae"
+        },
+        {
+          "value": "D",
+          "label": "multifidus"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m063",
+      "related_entity_id": "usv089",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq004",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "ultrasound",
+      "question": "흉추 facet US의 대표 plane은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "paramedian sagittal"
+        },
+        {
+          "value": "B",
+          "label": "palmar transverse wrist"
+        },
+        {
+          "value": "C",
+          "label": "anterior ankle SAX"
+        },
+        {
+          "value": "D",
+          "label": "plantar LAX"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m024",
+      "related_entity_id": "usv093",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq005",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "safety",
+      "question": "thoracic facet provocation 한 번 양성의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "facet-related pain 후보를 지지하지만 확진하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "facet pain 100% 확정"
+        },
+        {
+          "value": "C",
+          "label": "radiculopathy 배제"
+        },
+        {
+          "value": "D",
+          "label": "MRI 불필요"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m025",
+      "related_entity_id": "ct100",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq006",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "anatomy",
+      "question": "Costotransverse joint는 무엇과 무엇의 관절인가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "rib tubercle과 thoracic transverse process"
+        },
+        {
+          "value": "B",
+          "label": "sternum과 clavicle"
+        },
+        {
+          "value": "C",
+          "label": "scapula와 humerus"
+        },
+        {
+          "value": "D",
+          "label": "vertebral body와 disc"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m029",
+      "related_entity_id": "j020",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq007",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "ultrasound",
+      "question": "Costotransverse joint US에서 반드시 깊게 인지해야 하는 안전구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "pleura/lung"
+        },
+        {
+          "value": "B",
+          "label": "median nerve"
+        },
+        {
+          "value": "C",
+          "label": "femoral artery"
+        },
+        {
+          "value": "D",
+          "label": "Achilles tendon"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m029",
+      "related_entity_id": "usv094",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq008",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "ultrasound",
+      "question": "CTJ effusion 비교에 특히 유용한 scan은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "rib short-axis에서 인접 관절 비교"
+        },
+        {
+          "value": "B",
+          "label": "손목 long-axis"
+        },
+        {
+          "value": "C",
+          "label": "C5 root scan"
+        },
+        {
+          "value": "D",
+          "label": "Achilles SAX"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m029",
+      "related_entity_id": "usv095",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq009",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "clinical_reasoning",
+      "question": "CTJ US effusion과 통증 위치가 일치해도 올바른 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "전체 임상맥락과 함께 해석한다"
+        },
+        {
+          "value": "B",
+          "label": "US 하나로 모든 thoracic pain을 설명한다"
+        },
+        {
+          "value": "C",
+          "label": "심폐원인 검사는 금지한다"
+        },
+        {
+          "value": "D",
+          "label": "무조건 중재한다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m029",
+      "related_entity_id": "d102",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq010",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "anatomy",
+      "question": "Intercostal neurovascular bundle은 일반적으로 rib의 어느 쪽과 관련되는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "하연 costal groove"
+        },
+        {
+          "value": "B",
+          "label": "상연 표면만"
+        },
+        {
+          "value": "C",
+          "label": "sternum 내부"
+        },
+        {
+          "value": "D",
+          "label": "spinous process 중앙"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m033",
+      "related_entity_id": "usv096",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq011",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "ultrasound",
+      "question": "intercostal nerve가 직접 잘 안 보일 때 도움이 되는 landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "Color Doppler로 intercostal artery 확인"
+        },
+        {
+          "value": "B",
+          "label": "radial artery 확인"
+        },
+        {
+          "value": "C",
+          "label": "popliteal vein 확인"
+        },
+        {
+          "value": "D",
+          "label": "median nerve CSA"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m033",
+      "related_entity_id": "usv096",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq012",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "clinical_reasoning",
+      "question": "band-like chest/abdominal paresthesia의 중요한 spine 후보는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "thoracic radiculopathy"
+        },
+        {
+          "value": "B",
+          "label": "plantar fasciopathy"
+        },
+        {
+          "value": "C",
+          "label": "rotator cuff tear"
+        },
+        {
+          "value": "D",
+          "label": "CTS"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m025",
+      "related_entity_id": "d107",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq013",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "safety",
+      "question": "thoracic radiculopathy 치료 근거에 대한 2024 review의 적절한 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "PT 개선 보고는 있으나 근거 확실성은 낮다"
+        },
+        {
+          "value": "B",
+          "label": "PT가 100% 효과적"
+        },
+        {
+          "value": "C",
+          "label": "수술만 가능"
+        },
+        {
+          "value": "D",
+          "label": "검사 없이 진단 가능"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m025",
+      "related_entity_id": "d107",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq014",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "scapular",
+      "question": "wall push-up 중 medial winging이 두드러질 때 연결할 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "serratus anterior/long thoracic nerve"
+        },
+        {
+          "value": "B",
+          "label": "FHL/tibial nerve"
+        },
+        {
+          "value": "C",
+          "label": "SCM/accessory nerve만"
+        },
+        {
+          "value": "D",
+          "label": "quadriceps/femoral nerve"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m064",
+      "related_entity_id": "ct106",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq015",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "safety",
+      "question": "wall push-up winging 하나의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "원인 확정이 아니라 serratus/long thoracic dysfunction 후보"
+        },
+        {
+          "value": "B",
+          "label": "long thoracic neuropathy 확정"
+        },
+        {
+          "value": "C",
+          "label": "scapular fracture 확정"
+        },
+        {
+          "value": "D",
+          "label": "정상은 절대 winging 없음"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m064",
+      "related_entity_id": "d110",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq016",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "scapular",
+      "question": "Scapular assistance test의 목적은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "견갑 mechanics가 증상에 기여하는지 수정해 보는 것"
+        },
+        {
+          "value": "B",
+          "label": "신경근 level 확정"
+        },
+        {
+          "value": "C",
+          "label": "rib fracture 배제"
+        },
+        {
+          "value": "D",
+          "label": "폐렴 진단"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m064",
+      "related_entity_id": "ct108",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq017",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "scapular",
+      "question": "snapping scapula에서 중요한 기준은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "snapping과 익숙한 통증의 시간적 일치"
+        },
+        {
+          "value": "B",
+          "label": "소리만 나면 병적"
+        },
+        {
+          "value": "C",
+          "label": "US 없으면 진단 불가"
+        },
+        {
+          "value": "D",
+          "label": "모든 crepitus는 수술대상"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m063",
+      "related_entity_id": "ct110",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq018",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "ultrasound",
+      "question": "serratus anterior lateral chest wall US의 깊은 안전경계는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "rib/pleura"
+        },
+        {
+          "value": "B",
+          "label": "radius cortex"
+        },
+        {
+          "value": "C",
+          "label": "tibia"
+        },
+        {
+          "value": "D",
+          "label": "calcaneus"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m064",
+      "related_entity_id": "usv097",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq019",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "respiratory",
+      "question": "diaphragm thickness B-mode의 대표 위치는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "우측 8–10th intercostal space zone of apposition"
+        },
+        {
+          "value": "B",
+          "label": "wrist crease"
+        },
+        {
+          "value": "C",
+          "label": "popliteal fossa"
+        },
+        {
+          "value": "D",
+          "label": "C1 posterior arch"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m037",
+      "related_entity_id": "usv099",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq020",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "respiratory",
+      "question": "diaphragm thickness 측정에서 제외해야 할 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "pleural/peritoneal hyperechoic lines의 두께"
+        },
+        {
+          "value": "B",
+          "label": "muscle belly"
+        },
+        {
+          "value": "C",
+          "label": "end-expiration timing"
+        },
+        {
+          "value": "D",
+          "label": "같은 측정 위치"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m037",
+      "related_entity_id": "usv099",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq021",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "respiratory",
+      "question": "diaphragm excursion을 볼 때 흔히 사용하는 방식은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "subcostal liver window + M-mode"
+        },
+        {
+          "value": "B",
+          "label": "carpal tunnel SAX"
+        },
+        {
+          "value": "C",
+          "label": "ATFL LAX"
+        },
+        {
+          "value": "D",
+          "label": "GON scan"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m037",
+      "related_entity_id": "usv100",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq022",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "safety",
+      "question": "diaphragm US 수치 하나의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "자세·호흡노력·질환 맥락과 함께 본다"
+        },
+        {
+          "value": "B",
+          "label": "수치 하나로 모든 호흡곤란 원인 확정"
+        },
+        {
+          "value": "C",
+          "label": "심폐 red flag를 무시"
+        },
+        {
+          "value": "D",
+          "label": "MSK pain을 자동 진단"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m037",
+      "related_entity_id": "d109",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq023",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "clinical_reasoning",
+      "question": "깊은 호흡에 악화되는 국소 흉벽통에서 우선 할 일은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "MSK pattern을 보되 심폐·흉막 red flag를 함께 확인"
+        },
+        {
+          "value": "B",
+          "label": "intercostal strain으로 즉시 확정"
+        },
+        {
+          "value": "C",
+          "label": "무조건 manipulation"
+        },
+        {
+          "value": "D",
+          "label": "호흡 증상은 무시"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m032",
+      "related_entity_id": "ct103",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq024",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "safety",
+      "question": "흉추통에서 조기 imaging 고려를 높이는 상황은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "암/감염/면역저하/외상 또는 myelopathy red flag"
+        },
+        {
+          "value": "B",
+          "label": "단순 1일 통증만"
+        },
+        {
+          "value": "C",
+          "label": "모든 환자"
+        },
+        {
+          "value": "D",
+          "label": "운동 후 근육피로만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m025",
+      "related_entity_id": "ct114",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq025",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "safety",
+      "question": "uncomplicated acute thoracic pain에 대한 2024 ACR 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "대개 즉시 imaging이 필요하지 않다"
+        },
+        {
+          "value": "B",
+          "label": "모두 즉시 MRI"
+        },
+        {
+          "value": "C",
+          "label": "모두 CT angiography"
+        },
+        {
+          "value": "D",
+          "label": "영상은 영원히 금지"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m025",
+      "related_entity_id": "d100",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq026",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "anatomy",
+      "question": "serratus posterior superior의 대표 위치는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "rhomboid/levator 깊은 층에서 upper ribs로 주행"
+        },
+        {
+          "value": "B",
+          "label": "plantar foot"
+        },
+        {
+          "value": "C",
+          "label": "anterior forearm"
+        },
+        {
+          "value": "D",
+          "label": "gluteal region"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m030",
+      "related_entity_id": "usv092",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq027",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "clinical_reasoning",
+      "question": "thoracic paraspinal US asymmetry가 보이면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "기능·통증 맥락과 통합하고 단독 원인으로 확정하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "myofascial pain 확정"
+        },
+        {
+          "value": "C",
+          "label": "종양 확정"
+        },
+        {
+          "value": "D",
+          "label": "수술 적응증"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m025",
+      "related_entity_id": "d109",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq028",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "neurology",
+      "question": "thoracic myelopathy red flag에 포함될 수 있는 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "gait change, UMN signs, sensory level"
+        },
+        {
+          "value": "B",
+          "label": "isolated shoulder click"
+        },
+        {
+          "value": "C",
+          "label": "Achilles tenderness"
+        },
+        {
+          "value": "D",
+          "label": "thumb CMC pain"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m025",
+      "related_entity_id": "ct105",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq029",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "clinical_reasoning",
+      "question": "Stage 8 ultrasound의 역할은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "근육층·CTJ·흉벽·호흡근 구조관계를 제공하지만 단독 확진진단이 아니다"
+        },
+        {
+          "value": "B",
+          "label": "심폐 evaluation을 완전히 대체"
+        },
+        {
+          "value": "C",
+          "label": "laterality 자동 생성"
+        },
+        {
+          "value": "D",
+          "label": "미시행검사 기록"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m022",
+      "related_entity_id": "usv090",
+      "status": "active"
+    },
+    {
+      "quiz_id": "tq030",
+      "module_id": "thoracic_back_chestwall_v1",
+      "domain": "data_safety",
+      "question": "Stage 8 데이터 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "일반 MSK 지식만 저장하고 PHI·자동 laterality·미시행검사 추정을 금지"
+        },
+        {
+          "value": "B",
+          "label": "환자 이름 저장"
+        },
+        {
+          "value": "C",
+          "label": "검사 자동 양성"
+        },
+        {
+          "value": "D",
+          "label": "증상에서 암을 자동 확정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m025",
+      "related_entity_id": "dg046",
+      "status": "active"
+    }
+  ]
+}
