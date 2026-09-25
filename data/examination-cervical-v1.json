@@ -1,0 +1,358 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cervical_examination_v1",
+  "region_ids": [
+    "r001"
+  ],
+  "source_refs": {
+    "spurling_2025": "https://pubmed.ncbi.nlm.nih.gov/39938056/",
+    "radic_review_2026": "https://pubmed.ncbi.nlm.nih.gov/41680685/",
+    "ulnt_standard": "https://pubmed.ncbi.nlm.nih.gov/37967500/",
+    "radic_cluster_2026": "https://pubmed.ncbi.nlm.nih.gov/42070317/",
+    "dcm_signs_2024": "https://pubmed.ncbi.nlm.nih.gov/37903098/",
+    "cgh_review": "https://pubmed.ncbi.nlm.nih.gov/36088782/"
+  },
+  "clinical_tests": [
+    {
+      "clinical_test_id": "ct082",
+      "name_ko": "Spurling 검사",
+      "name_en": "Spurling test",
+      "category": "radiculopathy",
+      "target_structure_ids": [
+        "n030",
+        "n031",
+        "n032",
+        "n033"
+      ],
+      "setup": "좌위에서 증상측으로 경추를 회전·측굴/신전한 뒤 안전한 범위에서 축성 압박을 가한다.",
+      "maneuver": "목 통증이 아니라 평소 팔의 방사통·저림이 재현되는지 확인한다.",
+      "positive_definition": "익숙한 상지 radicular pain/paresthesia가 재현되면 양성 소견으로 기록한다.",
+      "interpretation_note": "2025 meta-analysis에서 높은 특이도와 제한적 민감도가 보고되어, 병력·신경학적 진찰과 함께 radiculopathy 가능성을 높이는 용도로 사용한다.",
+      "limitation": "목의 국소 통증만으로 양성 처리하지 않으며 단독 확진검사가 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d089"
+      ],
+      "evidence_refs": [
+        "spurling_2025",
+        "radic_review_2026"
+      ]
+    },
+    {
+      "clinical_test_id": "ct083",
+      "name_ko": "경추 견인/Distraction 검사",
+      "name_en": "Cervical distraction test",
+      "category": "radiculopathy",
+      "target_structure_ids": [
+        "n030",
+        "n031",
+        "n032",
+        "n033"
+      ],
+      "setup": "앙와위 또는 좌위에서 머리를 지지하고 부드럽게 축성 견인을 가한다.",
+      "maneuver": "평소 상지 방사통이 감소하는지 확인한다.",
+      "positive_definition": "견인 시 익숙한 radicular arm symptom이 명확히 감소하면 양성 소견으로 기록한다.",
+      "interpretation_note": "cervical radiculopathy 임상 추론의 보조 소견이다.",
+      "limitation": "증상 완화가 특정 신경근 병변을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d089"
+      ],
+      "evidence_refs": [
+        "radic_review_2026"
+      ]
+    },
+    {
+      "clinical_test_id": "ct084",
+      "name_ko": "상지 신경가동성 검사 1",
+      "name_en": "Upper Limb Neurodynamic Test 1 (ULNT1)",
+      "category": "radiculopathy",
+      "target_structure_ids": [
+        "n005",
+        "n030",
+        "n031",
+        "n032"
+      ],
+      "setup": "견갑을 안정화하고 어깨 외전, 손목/손가락 신전, 전완 회외, 어깨 외회전, 팔꿈치 신전을 단계적으로 적용한다.",
+      "maneuver": "증상 재현 후 경추 측굴을 이용한 structural differentiation을 확인한다.",
+      "positive_definition": "환자의 익숙한 상지 증상이 재현되고 신경계 부하를 변화시키는 structural differentiation에 따라 증상이 변하면 기록한다.",
+      "interpretation_note": "2023 표준화 제안과 2026 review에 따라 단독 확정검사가 아니라 radiculopathy 임상추론의 일부로 사용한다.",
+      "limitation": "검사 순서·양성기준 이질성이 있고 median nerve entrapment 등 다른 원인도 고려한다.",
+      "related_diagnosis_concept_ids": [
+        "d089"
+      ],
+      "evidence_refs": [
+        "ulnt_standard",
+        "radic_review_2026"
+      ]
+    },
+    {
+      "clinical_test_id": "ct085",
+      "name_ko": "어깨 외전 완화 검사",
+      "name_en": "Shoulder abduction relief test",
+      "category": "radiculopathy",
+      "target_structure_ids": [
+        "n030",
+        "n031",
+        "n032",
+        "n033"
+      ],
+      "setup": "환자가 증상측 손을 머리 위에 올리도록 한다.",
+      "maneuver": "상지 방사통이 감소하는지 확인한다.",
+      "positive_definition": "평소 radicular arm pain이 명확히 감소하면 기록한다.",
+      "interpretation_note": "radiculopathy 가능성을 지지할 수 있으며 최근 진단 연구에서는 여러 검사 조합의 일부로 평가된다.",
+      "limitation": "단독으로 nerve root level을 결정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d089"
+      ],
+      "evidence_refs": [
+        "radic_cluster_2026",
+        "radic_review_2026"
+      ]
+    },
+    {
+      "clinical_test_id": "ct086",
+      "name_ko": "경추 회전 ROM 평가",
+      "name_en": "Cervical rotation range-of-motion assessment",
+      "category": "radiculopathy",
+      "target_structure_ids": [
+        "j018"
+      ],
+      "setup": "중립 좌위에서 좌우 회전 ROM을 측정한다.",
+      "maneuver": "증상측 회전 제한과 증상 재현을 기록한다.",
+      "positive_definition": "현저한 비대칭 또는 약 60° 미만 회전 제한이 radiculopathy cluster 맥락에서 관찰되면 기록한다.",
+      "interpretation_note": "단독진단이 아니라 Spurling, distraction, ULNT 등과 묶어 해석한다.",
+      "limitation": "연령·통증·퇴행성 변화에 따라 ROM이 달라질 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d089",
+        "d093"
+      ],
+      "evidence_refs": [
+        "radic_cluster_2026"
+      ]
+    },
+    {
+      "clinical_test_id": "ct087",
+      "name_ko": "C5–T1 신경학적 선별",
+      "name_en": "C5–T1 motor-sensory-reflex screen",
+      "category": "neurology",
+      "target_structure_ids": [
+        "n030",
+        "n031",
+        "n032",
+        "n033"
+      ],
+      "setup": "상지 myotome, dermatome, deep tendon reflex를 좌우 비교한다.",
+      "maneuver": "C5 shoulder abduction/elbow flexion, C6 wrist extension, C7 elbow extension, C8 finger flexion/extension 등 임상 분절기능과 감각·반사를 확인한다.",
+      "positive_definition": "분절성 근력저하, 감각저하 또는 반사 비대칭이 일관된 패턴으로 나타나면 기록한다.",
+      "interpretation_note": "radiculopathy의 level 추정과 cord/peripheral nerve 감별에 필수적인 기본검사다.",
+      "limitation": "개별 myotome·dermatome은 중복되며 하나의 소견으로 level을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d089",
+        "d090"
+      ],
+      "evidence_refs": [
+        "radic_review_2026"
+      ]
+    },
+    {
+      "clinical_test_id": "ct088",
+      "name_ko": "Hoffmann 징후",
+      "name_en": "Hoffmann sign",
+      "category": "myelopathy_screen",
+      "target_structure_ids": [],
+      "setup": "손을 이완시키고 중지 말단을 빠르게 굴곡-방출한다.",
+      "maneuver": "엄지/검지의 비자발적 굴곡·내전 반응을 관찰한다.",
+      "positive_definition": "일관된 Hoffmann response가 있으면 upper motor neuron sign으로 기록한다.",
+      "interpretation_note": "DCM 가능성을 높이는 신호 중 하나지만 단독진단·중증도 판정검사가 아니다.",
+      "limitation": "정상인에서도 나타날 수 있고 민감도·특이도가 충분하지 않아 전체 신경학적 소견과 통합한다.",
+      "related_diagnosis_concept_ids": [
+        "d090"
+      ],
+      "evidence_refs": [
+        "dcm_signs_2024"
+      ]
+    },
+    {
+      "clinical_test_id": "ct089",
+      "name_ko": "Babinski·clonus 선별",
+      "name_en": "Babinski and clonus screen",
+      "category": "myelopathy_screen",
+      "target_structure_ids": [],
+      "setup": "하지 upper motor neuron signs를 검사한다.",
+      "maneuver": "plantar response와 ankle clonus를 표준 방법으로 확인한다.",
+      "positive_definition": "extensor plantar response 또는 병적 clonus가 있으면 기록한다.",
+      "interpretation_note": "2024 systematic review에서 비교적 높은 특이도를 보인 DCM 경고 소견으로, 존재 시 추가 평가가 필요하다.",
+      "limitation": "음성이라고 DCM을 배제할 수 없다.",
+      "related_diagnosis_concept_ids": [
+        "d090"
+      ],
+      "evidence_refs": [
+        "dcm_signs_2024"
+      ]
+    },
+    {
+      "clinical_test_id": "ct090",
+      "name_ko": "Tandem gait·보행 선별",
+      "name_en": "Tandem gait and balance screen",
+      "category": "myelopathy_screen",
+      "target_structure_ids": [],
+      "setup": "안전 확보 후 일자보행과 일반 보행을 관찰한다.",
+      "maneuver": "보폭, 균형, 경직, tandem gait 실패를 확인한다.",
+      "positive_definition": "새로운 보행 불안정, tandem gait 실패, spastic pattern이 있으면 기록한다.",
+      "interpretation_note": "손 서툼·과반사 등과 함께 DCM 의심을 높이는 기능 소견이다.",
+      "limitation": "전정·말초신경·하지 관절 문제 등 다른 원인이 많아 단독진단은 금지한다.",
+      "related_diagnosis_concept_ids": [
+        "d090"
+      ],
+      "evidence_refs": [
+        "dcm_signs_2024"
+      ]
+    },
+    {
+      "clinical_test_id": "ct091",
+      "name_ko": "10초 grip-release / 손 dexterity 선별",
+      "name_en": "10-second grip-release / hand dexterity screen",
+      "category": "myelopathy_screen",
+      "target_structure_ids": [],
+      "setup": "양손을 번갈아 빠르게 쥐었다 펴도록 한다.",
+      "maneuver": "10초 동안 반복횟수, 리듬, 손가락 펴짐의 불완전성을 관찰한다.",
+      "positive_definition": "연령·기저기능을 고려해 뚜렷한 느림, 불규칙, 손가락 release 장애가 있으면 기록한다.",
+      "interpretation_note": "DCM에서 손 dexterity 저하를 확인하는 보조 기능검사다.",
+      "limitation": "관절염·말초신경병증·통증 등 다양한 원인이 있으므로 단독 진단 금지.",
+      "related_diagnosis_concept_ids": [
+        "d090"
+      ],
+      "evidence_refs": [
+        "dcm_signs_2024"
+      ]
+    },
+    {
+      "clinical_test_id": "ct092",
+      "name_ko": "경추 굴곡-회전 검사",
+      "name_en": "Cervical flexion-rotation test",
+      "category": "cervicogenic_headache",
+      "target_structure_ids": [
+        "j017"
+      ],
+      "setup": "앙와위에서 상부 경추를 최대한 굴곡시켜 하부 경추 움직임을 제한한다.",
+      "maneuver": "좌우 회전을 비교하며 ROM 제한과 익숙한 두통 재현을 확인한다.",
+      "positive_definition": "뚜렷한 비대칭/제한과 평소 후두-두부 증상이 함께 재현되면 기록한다.",
+      "interpretation_note": "cervicogenic headache에서 유용한 임상검사지만 단독으로 다른 headache를 배제하지 않는다.",
+      "limitation": "편두통·긴장형두통·상부 경추 통증이 겹칠 수 있어 두통 병력과 신경학적 red flag가 우선이다.",
+      "related_diagnosis_concept_ids": [
+        "d091",
+        "d094"
+      ],
+      "evidence_refs": [
+        "cgh_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct093",
+      "name_ko": "대후두신경 압통·증상 재현 평가",
+      "name_en": "Greater occipital nerve tenderness/provocation",
+      "category": "occipital",
+      "target_structure_ids": [
+        "n034"
+      ],
+      "setup": "상항선 및 C2 수준의 GON 주행을 부드럽게 촉진한다.",
+      "maneuver": "후두부로 뻗치는 익숙한 통증/이질통의 재현 여부를 확인한다.",
+      "positive_definition": "GON 분포의 익숙한 통증 또는 국소 신경 압통이 재현되면 기록한다.",
+      "interpretation_note": "occipital neuralgia 후보를 지지할 수 있지만 진단기준 전체와 감별이 필요하다.",
+      "limitation": "근막통증·cervicogenic headache와 겹치며 촉진 하나로 진단하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d092"
+      ]
+    },
+    {
+      "clinical_test_id": "ct094",
+      "name_ko": "Extension-rotation 국소 통증유발 검사",
+      "name_en": "Cervical extension-rotation pain provocation",
+      "category": "facet_candidate",
+      "target_structure_ids": [
+        "j018"
+      ],
+      "setup": "좌위에서 안전한 범위의 신전과 회전을 결합한다.",
+      "maneuver": "국소 경부통의 재현 위치와 방사통 여부를 확인한다.",
+      "positive_definition": "일관된 편측 국소 posterior neck pain이 재현되면 facet-related pain 후보 소견으로 기록한다.",
+      "interpretation_note": "facet-mediated pain을 임상적으로 추정하는 보조 소견일 뿐 확진검사가 아니다.",
+      "limitation": "radicular symptom이 재현되면 Spurling 맥락과 구분하고 고위험 환자에서 과도한 신전은 피한다.",
+      "related_diagnosis_concept_ids": [
+        "d093"
+      ]
+    },
+    {
+      "clinical_test_id": "ct095",
+      "name_ko": "Craniocervical flexion test",
+      "name_en": "Craniocervical flexion test (CCFT)",
+      "category": "motor_control",
+      "target_structure_ids": [
+        "m005",
+        "m006"
+      ],
+      "setup": "앙와위에서 pressure biofeedback 또는 시각적 cue를 사용해 고개를 끄덕이는 저강도 굴곡을 시행한다.",
+      "maneuver": "SCM 과활성 없이 단계적으로 craniocervical flexion을 유지하는지 평가한다.",
+      "positive_definition": "깊은 굴곡근 선택적 활성/지구력 저하 또는 SCM 보상 증가를 impairment로 기록한다.",
+      "interpretation_note": "longus colli/capitis motor-control impairment 평가이며 병리 진단검사가 아니다.",
+      "limitation": "통증 원인을 특정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d096"
+      ]
+    },
+    {
+      "clinical_test_id": "ct096",
+      "name_ko": "경부 굴곡근 지구력 검사",
+      "name_en": "Neck flexor endurance test",
+      "category": "motor_control",
+      "target_structure_ids": [
+        "m005",
+        "m006",
+        "m001"
+      ],
+      "setup": "앙와위에서 chin tuck 후 머리를 가볍게 들어 유지한다.",
+      "maneuver": "자세 유지시간과 SCM 보상, 통증을 기록한다.",
+      "positive_definition": "기대치 대비 현저한 유지시간 감소 또는 조기 보상을 impairment로 기록한다.",
+      "interpretation_note": "경부 굴곡근 지구력 평가로 재활 목표 설정에 사용한다.",
+      "limitation": "진단 특이 검사가 아니며 통증·피로·동기 영향을 받는다.",
+      "related_diagnosis_concept_ids": [
+        "d096"
+      ]
+    },
+    {
+      "clinical_test_id": "ct097",
+      "name_ko": "경부 신전근 층별 활성·촉진 평가",
+      "name_en": "Cervical extensor layer activation assessment",
+      "category": "motor_control",
+      "target_structure_ids": [
+        "m009",
+        "m011",
+        "m012",
+        "m013"
+      ],
+      "setup": "복와위 또는 좌위에서 저강도 경부 신전/회전을 시행한다.",
+      "maneuver": "splenius-semispinalis-multifidus의 좌우 활성과 국소 통증을 비교한다.",
+      "positive_definition": "현저한 비대칭, 조기 피로 또는 익숙한 국소 통증 재현을 impairment로 기록한다.",
+      "interpretation_note": "posterior cervical muscle dysfunction의 기능 평가이며 초음파 thickness/CSA와 함께 연구·교육적으로 연결할 수 있다.",
+      "limitation": "촉진이나 thickness 차이만으로 통증 원인을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d097"
+      ]
+    },
+    {
+      "clinical_test_id": "ct098",
+      "name_ko": "경추 red-flag 통합 선별",
+      "name_en": "Integrated cervical red-flag screen",
+      "category": "safety",
+      "target_structure_ids": [],
+      "setup": "외상, 발열, 암/감염 위험, 진행성 신경학적 결손, DCM 증상, 갑작스러운 심한 두통·신경혈관 증상을 문진·진찰한다.",
+      "maneuver": "중대한 병리 가능성을 시사하는 병력과 객관적 신경학적 이상을 확인한다.",
+      "positive_definition": "진행성 근력저하, 보행/손기능 악화, sphincter 변화, 발열/전신증상, 급성 중증 외상 또는 혈관성 의심 소견이 있으면 red flag로 기록한다.",
+      "interpretation_note": "일반 기계적 목통증 경로보다 적절한 추가 영상·응급/전문의 평가를 우선하게 하는 안전 게이트다.",
+      "limitation": "하나의 비특이 증상만으로 특정 중증질환을 단정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d090",
+        "d098",
+        "d099"
+      ]
+    }
+  ]
+}
