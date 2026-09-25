@@ -1,7 +1,7 @@
 # Stage 11 — Global Integration QA
 
 완료일: 2026-09-25
-상태: AUTOMATED QA PASS
+상태: AUTOMATED LOCAL/STRUCTURAL QA PASS — CI replay pending PR
 릴리스: v9.1
 
 ## 결과
@@ -28,9 +28,13 @@
 - Duplicate relation IDs: 0
 - Duplicate relation edges: 0
 - Cross-entity Stable ID collisions: 0
+- Relationship endpoint type corrections performed: 20 (`symptom` → `symptom_pattern`)
+- Lumbar clinical quiz namespace corrected: `lq001–030` → `lsq001–030`; global quiz ID duplicates 0
 - JavaScript syntax: PASS
 - PWA configuration: PASS
 - PHI boundary: PASS
+- Automated regression script: `scripts/global-qa.mjs`
+- GitHub Actions gate: `.github/workflows/global-qa.yml`
 
 ## License correction performed in Stage 11
 Earlier modules mixed true license names with phrases such as "PMC canonical reference" or "Open access canonical reference".
