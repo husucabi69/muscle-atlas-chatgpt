@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.25-i",
+  "dataset_version": "2026.09.25-j",
   "ownership": {
     "owner": "Muscle Atlas / MSK Knowledge Layer",
     "contains_patient_data": false,
@@ -21030,7 +21030,7 @@
     },
     {
       "relationship_id": "rel_0561",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx11",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21038,7 +21038,7 @@
     },
     {
       "relationship_id": "rel_0562",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx11",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21046,7 +21046,7 @@
     },
     {
       "relationship_id": "rel_0563",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx11",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21054,7 +21054,7 @@
     },
     {
       "relationship_id": "rel_0564",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx11",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21062,7 +21062,7 @@
     },
     {
       "relationship_id": "rel_0565",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx12",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21070,7 +21070,7 @@
     },
     {
       "relationship_id": "rel_0566",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx12",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21078,7 +21078,7 @@
     },
     {
       "relationship_id": "rel_0567",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx12",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21086,7 +21086,7 @@
     },
     {
       "relationship_id": "rel_0568",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx12",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21094,7 +21094,7 @@
     },
     {
       "relationship_id": "rel_0569",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx12",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21102,7 +21102,7 @@
     },
     {
       "relationship_id": "rel_0570",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx27",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21110,7 +21110,7 @@
     },
     {
       "relationship_id": "rel_0571",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx27",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21118,7 +21118,7 @@
     },
     {
       "relationship_id": "rel_0572",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx27",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21126,7 +21126,7 @@
     },
     {
       "relationship_id": "rel_0573",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx28",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21134,7 +21134,7 @@
     },
     {
       "relationship_id": "rel_0574",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx28",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21142,7 +21142,7 @@
     },
     {
       "relationship_id": "rel_0575",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx28",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21150,7 +21150,7 @@
     },
     {
       "relationship_id": "rel_0576",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx29",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21158,7 +21158,7 @@
     },
     {
       "relationship_id": "rel_0577",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx29",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21166,7 +21166,7 @@
     },
     {
       "relationship_id": "rel_0578",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx29",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21174,7 +21174,7 @@
     },
     {
       "relationship_id": "rel_0579",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx30",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
@@ -21182,7 +21182,7 @@
     },
     {
       "relationship_id": "rel_0580",
-      "from_type": "symptom",
+      "from_type": "symptom_pattern",
       "from_id": "sx30",
       "relation": "HAS_DIFFERENTIAL",
       "to_type": "diagnosis_concept",
