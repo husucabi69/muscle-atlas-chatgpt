@@ -21,6 +21,7 @@ const dxResp=json('data/integration/fixtures/entity-response-d001-candidate.json
 const reject=json('data/integration/fixtures/error-patient-context-forbidden.json');
 
 check('Contract version 1.0.0',contract.contract_version==='1.0.0',contract.contract_version);
+check('Stable contract status',contract.status==='stable_v1',contract.status);
 check('Schema version pin',contract.version_pin?.schema_version===core.schema_version && manifest.schema_version===core.schema_version,core.schema_version);
 check('Dataset version pin',contract.version_pin?.dataset_version===core.dataset_version && manifest.dataset_version===core.dataset_version,core.dataset_version);
 check('Patient education version pin',manifest.patient_education_dataset_version===lib.dataset_version,lib.dataset_version);
