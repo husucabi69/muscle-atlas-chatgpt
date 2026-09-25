@@ -1445,6 +1445,18 @@ function refreshSymptomNavigation(){
 let selectedRegionName=null;
 let selectedRegionMuscleId=null;
 let selectedRegionMuscleTab='basic';
+let restoringAnatomyHistory=false;
+
+function recordAnatomyHistory(level){
+  if(restoringAnatomyHistory)return;
+  history.pushState({
+    ...(history.state||{}),
+    lysPage:'regions',
+    anatomyLevel:level,
+    anatomyRegion:selectedRegionName,
+    anatomyMuscleId:selectedRegionMuscleId
+  },'');
+}
 
 function setAnatomyView(view){
   const chooser=document.getElementById('regionChooserView');
@@ -1465,7 +1477,7 @@ function renderRegionChooser(){
   }).join('');
 }
 
-function openRegion(region){
+function openRegion(region,record=true){
   selectedRegionName=region;
   selectedRegionMuscleId=null;
   const list=muscles.filter(m=>m.region===region);
@@ -1477,20 +1489,22 @@ function openRegion(region){
     '<button type="button" class="region-muscle" onclick="openRegionMuscle(\''+m.id+'\')"><b>'+esc(m.ko)+'</b><small>'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</small></button>'
   ).join('');
   setAnatomyView('muscles');
+  if(record)recordAnatomyHistory('muscles');
 }
 
-function showAnatomyRegions(){
+function showAnatomyRegions(record=true){
   selectedRegionName=null;
   selectedRegionMuscleId=null;
   selectedRegionMuscleTab='basic';
   setAnatomyView('regions');
+  if(record)recordAnatomyHistory('regions');
 }
 
 function closeRegionMuscles(){showAnatomyRegions();}
 
-function showCurrentRegionMuscles(){
-  if(selectedRegionName)openRegion(selectedRegionName);
-  else showAnatomyRegions();
+function showCurrentRegionMuscles(record=true){
+  if(selectedRegionName)openRegion(selectedRegionName,record);
+  else showAnatomyRegions(record);
 }
 
 function regionMuscleBasicHtml(m){
@@ -1509,7 +1523,7 @@ function regionMuscleBasicHtml(m){
     '<br><br><b>임상 체크포인트</b><br>'+esc(ui['임상 체크포인트']||ui['임상 주의']||ui['임상/주의']||'')+'</p></div>';
 }
 
-function openRegionMuscle(id){
+function openRegionMuscle(id,record=true){
   const m=byId[id];if(!m)return;
   selectedRegionMuscleId=id;
   selectedRegionName=m.region;
@@ -1520,6 +1534,7 @@ function openRegionMuscle(id){
   if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko;
   setAnatomyView('detail');
   showRegionMuscleTab('basic');
+  if(record)recordAnatomyHistory('detail');
 }
 
 function showRegionMuscleTab(tab){
@@ -1567,10 +1582,25 @@ function showRegionMuscleTab(tab){
 
 function refreshRegionNavigation(){
   renderRegionChooser();
-  if(selectedRegionMuscleId&&byId[selectedRegionMuscleId])openRegionMuscle(selectedRegionMuscleId);
-  else if(selectedRegionName&&regions.includes(selectedRegionName))openRegion(selectedRegionName);
+  if(selectedRegionMuscleId&&byId[selectedRegionMuscleId])openRegionMuscle(selectedRegionMuscleId,false);
+  else if(selectedRegionName&&regions.includes(selectedRegionName))openRegion(selectedRegionName,false);
   else setAnatomyView('regions');
 }
+
+window.addEventListener('popstate',event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='regions')return;
+  restoringAnatomyHistory=true;
+  showPage('regions');
+  if(state.anatomyLevel==='detail'&&state.anatomyMuscleId&&byId[state.anatomyMuscleId]){
+    openRegionMuscle(state.anatomyMuscleId,false);
+  }else if(state.anatomyLevel==='muscles'&&state.anatomyRegion&&regions.includes(state.anatomyRegion)){
+    openRegion(state.anatomyRegion,false);
+  }else{
+    showAnatomyRegions(false);
+  }
+  restoringAnatomyHistory=false;
+});
 
 let deferredInstallPrompt=null;
 function isPWAStandalone(){
@@ -1609,7 +1639,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions();if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active', p.id===page));
