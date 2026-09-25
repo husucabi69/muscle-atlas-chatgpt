@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.25-stage17-h",
+  "audit_version": "2026.09.26-stage17-i",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -693,13 +693,33 @@
       "muscle_id": "m075",
       "name_ko": "상완이두근-장두",
       "name_en": "Biceps brachii, long head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Biceps brachii muscle09.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Biceps_brachii_muscle09.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "anterior upper arm",
+        "focusLabel": "장두 · 빨강",
+        "focusColor": "red",
+        "educationalReason": "장두와 단두가 서로 다른 색으로 분리되어 있으며 장두가 빨강으로 표시되어 견관절 기시부터 공통 원위건까지의 위치를 명확히 식별"
+      }
     },
     {
       "muscle_id": "m076",
       "name_ko": "상완이두근-단두",
       "name_en": "Biceps brachii, short head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Biceps brachii muscle09.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Biceps_brachii_muscle09.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "anterior upper arm",
+        "focusLabel": "단두 · 초록",
+        "focusColor": "green",
+        "educationalReason": "같은 전면 해부에서 단두가 초록으로 분리되어 오훼돌기 기시와 장두에 대한 내측 위치를 혼동 없이 비교"
+      }
     },
     {
       "muscle_id": "m077",
@@ -733,19 +753,49 @@
       "muscle_id": "m079",
       "name_ko": "상완삼두근-장두",
       "name_en": "Triceps brachii, long head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Triceps brachii muscle06.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle06.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior upper arm",
+        "focusLabel": "장두 · 빨강",
+        "focusColor": "red",
+        "educationalReason": "삼두근 세 머리가 색으로 분리되며 장두가 빨강으로 표시되어 견갑골 기시와 상완 후내측의 긴 주행을 명확히 확인"
+      }
     },
     {
       "muscle_id": "m080",
       "name_ko": "상완삼두근-외측두",
       "name_en": "Triceps brachii, lateral head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Triceps brachii muscle06.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle06.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior upper arm",
+        "focusLabel": "외측두 · 노랑",
+        "focusColor": "yellow",
+        "educationalReason": "외측두가 노랑으로 분리되어 상완골 후외측의 표재성 근복과 장두·내측두에 대한 위치를 후면에서 즉시 비교"
+      }
     },
     {
       "muscle_id": "m081",
       "name_ko": "상완삼두근-내측두",
       "name_en": "Triceps brachii, medial head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Triceps brachii muscle06.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Triceps_brachii_muscle06.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior upper arm",
+        "focusLabel": "내측두 · 초록",
+        "focusColor": "green",
+        "educationalReason": "내측두가 초록으로 분리되어 다른 두 머리 아래·내측의 깊은 위치와 원위 주두건으로 합류하는 관계를 확인"
+      }
     },
     {
       "muscle_id": "m082",
@@ -1733,8 +1783,8 @@
     }
   ],
   "progress": {
-    "reviewed": 61,
-    "pending_review": 144,
-    "last_batch": "upper_arm_safe_priority_batch"
+    "reviewed": 66,
+    "pending_review": 139,
+    "last_batch": "upper_arm_head_specific_color_batch"
   }
 }
