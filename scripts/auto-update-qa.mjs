@@ -34,7 +34,7 @@ const updateCode=updateStart>=0?index.slice(updateStart):'';
 check('page update controller exists',updateStart>=0);
 check('registration bypasses worker HTTP cache',updateCode.includes("updateViaCache:'none'"));
 check('app launch explicitly checks registration.update',updateCode.includes('await registration.update()'));
-check('controllerchange is observed',updateCode.includes("addEventListener('controllerchange'")));
+check('controllerchange is observed',updateCode.includes("addEventListener('controllerchange'"));
 check('new worker receives SKIP_WAITING',updateCode.includes("postMessage({type:'SKIP_WAITING'})"));
 check('reload uses one-shot session guard',updateCode.includes("sessionStorage.getItem(reloadKey)!==APP_RELEASE.buildVersion")&&updateCode.includes('window.location.reload()'));
 check('update engine never clears local learning storage',!updateCode.includes('localStorage.clear')&&!sw.includes('localStorage'));
