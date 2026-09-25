@@ -1,7 +1,7 @@
 # Stage 11 — Global Integration QA
 
 완료일: 2026-09-25
-상태: AUTOMATED LOCAL/STRUCTURAL QA PASS — CI replay pending PR
+상태: AUTOMATED QA PASS — GitHub Actions verified
 릴리스: v9.1
 
 ## 결과
@@ -62,3 +62,11 @@ Next: OrthoOS read-only integration preparation.
 - no PHI/patient/encounter storage in Atlas
 - no inference of laterality or unperformed tests
 - downstream OrthoOS consumes knowledge read-only
+
+
+## CI 검증
+- PR #18 Global QA 재실행: PASS
+- 검증 run: 36100690448
+- 검증 head SHA: d6337ec5b0f5b27b9a042f85f10eedf8f5b79eec
+- 초기 FAIL 원인: PHI scan의 파일경로에 `data/` prefix가 빠진 QA-script path bug
+- 데이터/Knowledge Core/임상모듈 실패는 아니었으며 경로 수정 후 동일 QA 전체 SUCCESS
