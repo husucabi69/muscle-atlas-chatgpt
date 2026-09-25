@@ -125,15 +125,16 @@
 - [x] 205 muscle 전수 audit ledger 생성 / 각 근육 pending/reviewed 상태 관리 (전수 검수 자체는 진행 중)
 - [x] 대표시야 metadata: view / educationalReason / source / license 구조 도입
 - [x] 회전근개 1차: 극상근 posterior / 극하근 posterior / 소원근 posterior / 견갑하근 anterior 대표시야로 교체
-- [ ] 경추/후두하·심부둔부·전완심부·족부심부 우선 재검수
+- [x] 경추/후두하 우선 배치 11개 검수 완료
+- [ ] 심부둔부·전완심부·족부심부 우선 재검수
 - [x] reviewed 근육은 대표 1장 우선 원칙 적용
 - [x] 극하근 기존 superior view 대표도해 제거
 - [x] 1차 교체 4개 source/license/attribution 검증 및 유지
 - [x] anatomy detail 카드에 대표 시야 / view / 선정 이유 표시
 
 ## 현재 진행
-- reviewed: 4 / 205
-- pending_review: 201 / 205
+- reviewed: 15 / 205
+- pending_review: 190 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`

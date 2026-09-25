@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.25-stage17-a",
+  "audit_version": "2026.09.25-stage17-b",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -17,25 +17,57 @@
       "muscle_id": "m001",
       "name_ko": "흉쇄유돌근",
       "name_en": "Sternocleidomastoid",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Sternomastoid muscle lateral.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sternomastoid_muscle_lateral.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "lateral",
+        "educationalReason": "흉골·쇄골에서 유양돌기로 이어지는 표재성 근복 전체와 목의 전외측 주행을 측면에서 가장 쉽게 확인"
+      }
     },
     {
       "muscle_id": "m002",
       "name_ko": "전사각근",
       "name_en": "Scalenus anterior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Scalenus anterior.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Scalenus_anterior.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy / modified by Uwe Gille",
+        "view": "lateral deep neck",
+        "educationalReason": "전사각근과 제1늑골 방향의 깊은 경부 주행을 주변 구조와 함께 구분하기 쉬운 강조 도해"
+      }
     },
     {
       "muscle_id": "m003",
       "name_ko": "중사각근",
       "name_en": "Scalenus medius",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray384 - Scalenus medius muscle.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray384_-_Scalenus_medius_muscle.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter",
+        "view": "lateral deep neck",
+        "educationalReason": "중사각근의 넓은 경추 기시와 제1늑골 주행을 전사각근과 구분해 이해하기 좋은 강조 도해"
+      }
     },
     {
       "muscle_id": "m004",
       "name_ko": "후사각근",
       "name_en": "Scalenus posterior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Scalenus posterior.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Scalenus_posterior.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy / modified by Uwe Gille",
+        "view": "lateral deep neck",
+        "educationalReason": "후사각근의 후외측 경부 위치와 제2늑골 방향의 주행을 주변 사각근과 비교하기 쉬운 강조 도해"
+      }
     },
     {
       "muscle_id": "m005",
@@ -65,19 +97,43 @@
       "muscle_id": "m009",
       "name_ko": "두판상근",
       "name_en": "Splenius capitis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Musculus splenius capitis marked.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_splenius_capitis_marked.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy / modified by Uwe Gille",
+        "view": "posterior",
+        "educationalReason": "상부 흉추·항인대에서 유양돌기·상항선으로 향하는 두판상근의 후경부 사선 주행을 강조하여 확인"
+      }
     },
     {
       "muscle_id": "m010",
       "name_ko": "경판상근",
       "name_en": "Splenius cervicis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Splenius cervicis muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Splenius_cervicis_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "상부 흉추 극돌기에서 상위 경추 횡돌기로 향하는 경판상근의 후경부 주행을 후면에서 직관적으로 확인"
+      }
     },
     {
       "muscle_id": "m011",
       "name_ko": "두반극근",
       "name_en": "Semispinalis capitis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray384 Semispinalis capitis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray384_Semispinalis_capitis.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter",
+        "view": "posterior deep",
+        "educationalReason": "두반극근이 후경부 심부에서 후두골로 올라가는 넓은 종주성 근복을 주변 심부근과 함께 확인"
+      }
     },
     {
       "muscle_id": "m012",
@@ -113,25 +169,57 @@
       "muscle_id": "m017",
       "name_ko": "후두직근 대",
       "name_en": "Rectus capitis posterior major",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Rectus capitis posterior major muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rectus_capitis_posterior_major_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior suboccipital",
+        "educationalReason": "C2 극돌기에서 하항선으로 이어지는 대후두직근과 후두하삼각 내 위치를 후면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m018",
       "name_ko": "후두직근 소",
       "name_en": "Rectus capitis posterior minor",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Rectus capitis posterior minor muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rectus_capitis_posterior_minor_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior suboccipital",
+        "educationalReason": "C1 후결절에서 하항선 내측으로 향하는 소후두직근의 짧은 심부 주행을 후면에서 확인"
+      }
     },
     {
       "muscle_id": "m019",
       "name_ko": "상두사근",
       "name_en": "Obliquus capitis superior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Obliquus capitis superior muscle.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Obliquus_capitis_superior_muscle.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy / Mikael Häggström",
+        "view": "posterior suboccipital",
+        "educationalReason": "C1 횡돌기에서 후두골로 향하는 상두사근을 후두하삼각의 상외측 경계로 이해하기 좋은 강조 도해"
+      }
     },
     {
       "muscle_id": "m020",
       "name_ko": "하두사근",
       "name_en": "Obliquus capitis inferior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Obliquus capitis inferior muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Obliquus_capitis_inferior_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior suboccipital",
+        "educationalReason": "C2 극돌기에서 C1 횡돌기로 향하는 하두사근과 후두하삼각의 하외측 경계를 후면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m021",
@@ -1275,5 +1363,10 @@
       "name_en": "Articularis cubiti (subanconeus)",
       "status": "pending_review"
     }
-  ]
+  ],
+  "progress": {
+    "reviewed": 15,
+    "pending_review": 190,
+    "last_batch": "cervical_suboccipital_priority_batch"
+  }
 }
