@@ -7,6 +7,12 @@ on:
       - 'android-twa/**'
       - 'scripts/android-twa-qa.mjs'
       - '.github/workflows/android-twa-qa.yml'
+  push:
+    branches: [ main ]
+    paths:
+      - 'android-twa/**'
+      - 'scripts/android-twa-qa.mjs'
+      - '.github/workflows/android-twa-qa.yml'
   workflow_dispatch:
 
 permissions:
