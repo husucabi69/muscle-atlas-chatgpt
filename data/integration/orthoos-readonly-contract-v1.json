@@ -252,5 +252,24 @@
     "auth_material_in_bundle": false,
     "api_keys_in_client": false,
     "writable_credentials_in_atlas": false
-  }
+  },
+  "supplemental_datasets": {
+    "patient_education": {
+      "path": "data/patient-exercise-library-v1.json",
+      "dataset_version": "2026.09.25-c",
+      "semantics": "patient-independent education/rehabilitation knowledge",
+      "patient_specific_prescription_owner": "LYS OrthoOS / clinician-confirmed workflow"
+    },
+    "media_license_audit": {
+      "path": "data/media-license-global-audit-v1.json",
+      "audit_version": "2026.09.25-stage11-b",
+      "semantics": "source/reuse metadata only; no patient imaging"
+    }
+  },
+  "fixtures": [
+    "data/integration/fixtures/entity-request-m070.json",
+    "data/integration/fixtures/entity-response-m070.json",
+    "data/integration/fixtures/entity-response-d001-candidate.json",
+    "data/integration/fixtures/error-patient-context-forbidden.json"
+  ]
 }
