@@ -1,0 +1,847 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cervical_v1",
+  "question_count": 30,
+  "questions": [
+    {
+      "quiz_id": "cq001",
+      "module_id": "cervical_v1",
+      "domain": "clinical_test",
+      "question": "Spurling 검사의 양성 소견으로 가장 적절한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "평소 상지 방사통/저림의 재현"
+        },
+        {
+          "value": "B",
+          "label": "목의 국소 압통만"
+        },
+        {
+          "value": "C",
+          "label": "두통이 사라짐"
+        },
+        {
+          "value": "D",
+          "label": "손목 통증만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m002",
+      "related_entity_id": "ct082",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq002",
+      "module_id": "cervical_v1",
+      "domain": "evidence",
+      "question": "2025 Spurling meta-analysis의 임상적 요지는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "상대적으로 높은 특이도, 제한적 민감도로 단독 screening보다는 confirmation 보조에 적합"
+        },
+        {
+          "value": "B",
+          "label": "민감도·특이도 모두 100%"
+        },
+        {
+          "value": "C",
+          "label": "음성이면 radiculopathy 완전 배제"
+        },
+        {
+          "value": "D",
+          "label": "양성이면 MRI 불필요"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m003",
+      "related_entity_id": "d089",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq003",
+      "module_id": "cervical_v1",
+      "domain": "clinical_test",
+      "question": "경추 견인검사에서 radiculopathy 후보를 지지하는 소견은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "팔 방사통 감소"
+        },
+        {
+          "value": "B",
+          "label": "발목 통증 증가"
+        },
+        {
+          "value": "C",
+          "label": "어깨 click"
+        },
+        {
+          "value": "D",
+          "label": "손가락 부종"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m006",
+      "related_entity_id": "ct083",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq004",
+      "module_id": "cervical_v1",
+      "domain": "clinical_test",
+      "question": "ULNT1에서 중요한 positive criterion 요소는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "익숙한 증상 재현과 structural differentiation"
+        },
+        {
+          "value": "B",
+          "label": "목 통증만"
+        },
+        {
+          "value": "C",
+          "label": "손목 ROM 제한만"
+        },
+        {
+          "value": "D",
+          "label": "상완 혈압 변화"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m002",
+      "related_entity_id": "ct084",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq005",
+      "module_id": "cervical_v1",
+      "domain": "safety",
+      "question": "ULNT1 단독 양성의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "cervical root와 peripheral nerve 원인을 함께 감별한다"
+        },
+        {
+          "value": "B",
+          "label": "경추 신경근병증 확정"
+        },
+        {
+          "value": "C",
+          "label": "CTS 확정"
+        },
+        {
+          "value": "D",
+          "label": "MRI 불필요"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m003",
+      "related_entity_id": "d089",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq006",
+      "module_id": "cervical_v1",
+      "domain": "clinical_reasoning",
+      "question": "C5–T1 neurological screen의 핵심 조합은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "myotome·dermatome·deep tendon reflex"
+        },
+        {
+          "value": "B",
+          "label": "혈압·체온만"
+        },
+        {
+          "value": "C",
+          "label": "족저압만"
+        },
+        {
+          "value": "D",
+          "label": "어깨 ROM만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m006",
+      "related_entity_id": "ct087",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq007",
+      "module_id": "cervical_v1",
+      "domain": "clinical_reasoning",
+      "question": "한 개의 myotome 약화만으로 root level을 확정하지 않는 이유는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "근육·신경근 지배가 중첩되기 때문"
+        },
+        {
+          "value": "B",
+          "label": "근육은 신경지배가 없기 때문"
+        },
+        {
+          "value": "C",
+          "label": "모든 근육이 C5만 받기 때문"
+        },
+        {
+          "value": "D",
+          "label": "반사는 의미가 없기 때문"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m005",
+      "related_entity_id": "ct087",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq008",
+      "module_id": "cervical_v1",
+      "domain": "myelopathy",
+      "question": "손 서툼과 보행불안정, 과반사가 함께 있을 때 우선 고려할 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "퇴행성 경추척수병증"
+        },
+        {
+          "value": "B",
+          "label": "단순 SCM trigger point만"
+        },
+        {
+          "value": "C",
+          "label": "족저근막염"
+        },
+        {
+          "value": "D",
+          "label": "외측상과염"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m013",
+      "related_entity_id": "d090",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq009",
+      "module_id": "cervical_v1",
+      "domain": "myelopathy",
+      "question": "Hoffmann sign의 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "DCM 가능성을 높일 수 있지만 단독진단/중증도 검사는 아니다"
+        },
+        {
+          "value": "B",
+          "label": "양성이면 DCM 100% 확정"
+        },
+        {
+          "value": "C",
+          "label": "음성이면 DCM 완전 배제"
+        },
+        {
+          "value": "D",
+          "label": "radiculopathy level을 정확히 결정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m013",
+      "related_entity_id": "ct088",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq010",
+      "module_id": "cervical_v1",
+      "domain": "myelopathy",
+      "question": "Babinski 또는 병적 clonus가 있을 때 가장 적절한 조치는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "upper motor neuron sign으로 보고 전체 신경학적 평가와 적절한 영상/전문의 평가를 고려"
+        },
+        {
+          "value": "B",
+          "label": "단순 근육통으로 처리"
+        },
+        {
+          "value": "C",
+          "label": "무조건 경추 마사지"
+        },
+        {
+          "value": "D",
+          "label": "의미 없는 정상소견으로 기록"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m012",
+      "related_entity_id": "ct089",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq011",
+      "module_id": "cervical_v1",
+      "domain": "myelopathy",
+      "question": "DCM에서 gait screen이 중요한 이유는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "손기능 이상과 함께 cord dysfunction 단서를 제공하기 때문"
+        },
+        {
+          "value": "B",
+          "label": "항상 radiculopathy만 진단하기 때문"
+        },
+        {
+          "value": "C",
+          "label": "SCM 두께를 측정하기 때문"
+        },
+        {
+          "value": "D",
+          "label": "두통을 확정하기 때문"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m013",
+      "related_entity_id": "ct090",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq012",
+      "module_id": "cervical_v1",
+      "domain": "headache",
+      "question": "Cervical flexion-rotation test가 주로 연결되는 후보는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "cervicogenic headache / upper cervical dysfunction"
+        },
+        {
+          "value": "B",
+          "label": "Achilles rupture"
+        },
+        {
+          "value": "C",
+          "label": "CTS"
+        },
+        {
+          "value": "D",
+          "label": "TFCC injury"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m020",
+      "related_entity_id": "ct092",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq013",
+      "module_id": "cervical_v1",
+      "domain": "headache",
+      "question": "후두신경통 후보에서 GON의 대표적 초음파 위치는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "semispinalis capitis와 obliquus capitis inferior 사이"
+        },
+        {
+          "value": "B",
+          "label": "SCM과 피부 사이만"
+        },
+        {
+          "value": "C",
+          "label": "carotid artery 내부"
+        },
+        {
+          "value": "D",
+          "label": "longus colli 깊은 척추체 내부"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m020",
+      "related_entity_id": "usv077",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq014",
+      "module_id": "cervical_v1",
+      "domain": "safety",
+      "question": "GON 초음파에서 옳은 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "신경 크기 하나로 occipital neuralgia를 확정하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "신경이 보이면 무조건 진단"
+        },
+        {
+          "value": "C",
+          "label": "혈관은 확인할 필요 없다"
+        },
+        {
+          "value": "D",
+          "label": "C2 landmark는 불필요하다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m011",
+      "related_entity_id": "d092",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq015",
+      "module_id": "cervical_v1",
+      "domain": "ultrasound",
+      "question": "C5 root 초음파의 대표 landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "anterior/posterior tubercle 사이"
+        },
+        {
+          "value": "B",
+          "label": "C7 spinous process 안쪽"
+        },
+        {
+          "value": "C",
+          "label": "clavicle 뒤"
+        },
+        {
+          "value": "D",
+          "label": "mastoid 내부"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m003",
+      "related_entity_id": "usv080",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq016",
+      "module_id": "cervical_v1",
+      "domain": "ultrasound",
+      "question": "C6 transverse process에서 특징적인 골성 landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "prominent anterior tubercle"
+        },
+        {
+          "value": "B",
+          "label": "anterior tubercle이 항상 없음"
+        },
+        {
+          "value": "C",
+          "label": "first rib만 보임"
+        },
+        {
+          "value": "D",
+          "label": "spinous process가 단일 원형"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m002",
+      "related_entity_id": "usv081",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq017",
+      "module_id": "cervical_v1",
+      "domain": "ultrasound",
+      "question": "C7 level 확인에 도움이 되는 특징은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "rudimentary/absent anterior tubercle와 prominent posterior tubercle"
+        },
+        {
+          "value": "B",
+          "label": "매우 큰 anterior tubercle만"
+        },
+        {
+          "value": "C",
+          "label": "C1 posterior arch"
+        },
+        {
+          "value": "D",
+          "label": "mastoid process"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m003",
+      "related_entity_id": "usv082",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq018",
+      "module_id": "cervical_v1",
+      "domain": "ultrasound",
+      "question": "C8 root를 C7과 구분할 때 도움 되는 혈관 landmark는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "deep cervical artery"
+        },
+        {
+          "value": "B",
+          "label": "radial artery"
+        },
+        {
+          "value": "C",
+          "label": "popliteal artery"
+        },
+        {
+          "value": "D",
+          "label": "posterior tibial artery"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m003",
+      "related_entity_id": "usv083",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq019",
+      "module_id": "cervical_v1",
+      "domain": "ultrasound",
+      "question": "사각근간 부위에서 neural elements는 어디에 위치하는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "anterior와 middle scalene 사이"
+        },
+        {
+          "value": "B",
+          "label": "SCM 표층 피부 안"
+        },
+        {
+          "value": "C",
+          "label": "longus colli 안쪽 척추체 내부"
+        },
+        {
+          "value": "D",
+          "label": "trapezius 후방만"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m002",
+      "related_entity_id": "usv084",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq020",
+      "module_id": "cervical_v1",
+      "domain": "anatomy",
+      "question": "대후두신경은 주로 어느 신경에서 유래하는가?",
+      "options": [
+        {
+          "value": "A",
+          "label": "C2 dorsal ramus medial branch"
+        },
+        {
+          "value": "B",
+          "label": "C8 ventral ramus"
+        },
+        {
+          "value": "C",
+          "label": "CN XI"
+        },
+        {
+          "value": "D",
+          "label": "median nerve"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m020",
+      "related_entity_id": "n034",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq021",
+      "module_id": "cervical_v1",
+      "domain": "ultrasound",
+      "question": "후방 C4 근육층에서 multifidus는 일반적으로?",
+      "options": [
+        {
+          "value": "A",
+          "label": "semispinalis cervicis보다 깊고 lamina/articular pillar 인접"
+        },
+        {
+          "value": "B",
+          "label": "SCM보다 표층"
+        },
+        {
+          "value": "C",
+          "label": "thyroid 앞"
+        },
+        {
+          "value": "D",
+          "label": "carotid artery 내부"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m013",
+      "related_entity_id": "usv075",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq022",
+      "module_id": "cervical_v1",
+      "domain": "motor_control",
+      "question": "CCFT의 주 목적은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "longus colli/capitis의 저강도 motor control을 평가"
+        },
+        {
+          "value": "B",
+          "label": "radiculopathy 확정"
+        },
+        {
+          "value": "C",
+          "label": "DCM 확정"
+        },
+        {
+          "value": "D",
+          "label": "vertebral artery stenosis 측정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m006",
+      "related_entity_id": "ct095",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq023",
+      "module_id": "cervical_v1",
+      "domain": "motor_control",
+      "question": "CCFT에서 SCM 과활성이 보이면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "심부굴곡근 선택적 control 저하의 보상 패턴으로 기록 가능"
+        },
+        {
+          "value": "B",
+          "label": "SCM 파열 확정"
+        },
+        {
+          "value": "C",
+          "label": "radiculopathy 확정"
+        },
+        {
+          "value": "D",
+          "label": "정상이라 반드시 무시"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m001",
+      "related_entity_id": "d096",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq024",
+      "module_id": "cervical_v1",
+      "domain": "clinical_reasoning",
+      "question": "extension-rotation에서 편측 국소 posterior neck pain이 재현되면?",
+      "options": [
+        {
+          "value": "A",
+          "label": "facet-related pain 후보로 볼 수 있으나 확정하지 않는다"
+        },
+        {
+          "value": "B",
+          "label": "facet pain 확정"
+        },
+        {
+          "value": "C",
+          "label": "radiculopathy 확정"
+        },
+        {
+          "value": "D",
+          "label": "DCM 배제"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m012",
+      "related_entity_id": "ct094",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq025",
+      "module_id": "cervical_v1",
+      "domain": "safety",
+      "question": "경추 영상에서 spondylosis가 보일 때 올바른 해석은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "임상 증상·신경학적 level과 일치 여부를 확인한다"
+        },
+        {
+          "value": "B",
+          "label": "영상만으로 통증 원인 확정"
+        },
+        {
+          "value": "C",
+          "label": "모든 퇴행성 변화는 수술 적응증"
+        },
+        {
+          "value": "D",
+          "label": "무조건 무시"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m013",
+      "related_entity_id": "d098",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq026",
+      "module_id": "cervical_v1",
+      "domain": "safety",
+      "question": "진행성 손기능 저하와 보행 악화가 있을 때 우선순위는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "routine muscle pain pathway보다 DCM 평가와 MRI/전문의 평가"
+        },
+        {
+          "value": "B",
+          "label": "SCM stretching만"
+        },
+        {
+          "value": "C",
+          "label": "GON 촉진만"
+        },
+        {
+          "value": "D",
+          "label": "퀴즈 재시험"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m013",
+      "related_entity_id": "ct098",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq027",
+      "module_id": "cervical_v1",
+      "domain": "ultrasound",
+      "question": "상부경추 route map에서 반드시 인지해야 하는 고위험 구조는?",
+      "options": [
+        {
+          "value": "A",
+          "label": "vertebral artery와 spinal canal"
+        },
+        {
+          "value": "B",
+          "label": "patellar tendon"
+        },
+        {
+          "value": "C",
+          "label": "median nerve at wrist"
+        },
+        {
+          "value": "D",
+          "label": "Achilles tendon"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m020",
+      "related_entity_id": "usv078",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq028",
+      "module_id": "cervical_v1",
+      "domain": "clinical_reasoning",
+      "question": "cervicogenic headache와 occipital neuralgia의 관계를 가장 적절히 설명한 것은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "겹치는 후두부 증상이 있어 병력·검사·신경분포를 통합해 감별한다"
+        },
+        {
+          "value": "B",
+          "label": "완전히 같은 진단이다"
+        },
+        {
+          "value": "C",
+          "label": "GON tenderness 하나로 모두 구분된다"
+        },
+        {
+          "value": "D",
+          "label": "C1-2 ROM은 전혀 의미 없다"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m020",
+      "related_entity_id": "dg042",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq029",
+      "module_id": "cervical_v1",
+      "domain": "clinical_reasoning",
+      "question": "Stage 7 cervical ultrasound의 역할은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "근육층·신경근·상부경추 구조 관계를 보여주지만 단독 확진진단이 아니다"
+        },
+        {
+          "value": "B",
+          "label": "MRI를 항상 대체"
+        },
+        {
+          "value": "C",
+          "label": "laterality 자동 추정"
+        },
+        {
+          "value": "D",
+          "label": "시행하지 않은 검사를 기록"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m006",
+      "related_entity_id": "usv080",
+      "status": "active"
+    },
+    {
+      "quiz_id": "cq030",
+      "module_id": "cervical_v1",
+      "domain": "data_safety",
+      "question": "Stage 7 데이터 원칙은?",
+      "options": [
+        {
+          "value": "A",
+          "label": "일반 MSK 지식만 저장하고 PHI·자동 laterality·미시행검사 추정을 금지"
+        },
+        {
+          "value": "B",
+          "label": "환자 이름을 core에 저장"
+        },
+        {
+          "value": "C",
+          "label": "미시행 Hoffmann을 자동 음성"
+        },
+        {
+          "value": "D",
+          "label": "좌우를 모델이 임의 결정"
+        }
+      ],
+      "correct_value": "A",
+      "related_muscle_id": "m013",
+      "related_entity_id": "dg044",
+      "status": "active"
+    }
+  ]
+}

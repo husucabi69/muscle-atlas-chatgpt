@@ -25,7 +25,12 @@
       ],
       "symptom_ids": [
         "sx04",
-        "sx05"
+        "sx05",
+        "sx39",
+        "sx40",
+        "sx41",
+        "sx42",
+        "sx43"
       ],
       "status": "active"
     },

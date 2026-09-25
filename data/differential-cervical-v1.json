@@ -1,0 +1,498 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cervical_differential_v1",
+  "region_ids": [
+    "r001"
+  ],
+  "safety_rule": "Educational knowledge candidates only. Progressive motor deficit, hand clumsiness with gait imbalance, upper motor neuron signs, sphincter disturbance, fever/systemic illness, major trauma, or sudden severe headache/neurologic vascular symptoms require prompt appropriate evaluation rather than routine mechanical-neck-pain management.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d088",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "비특이적/기계적 경부통",
+      "name_en": "Nonspecific or mechanical neck pain",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d089",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경추 신경근병증",
+      "name_en": "Cervical radiculopathy",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d090",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "퇴행성 경추척수병증",
+      "name_en": "Degenerative cervical myelopathy",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d091",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경추성 두통",
+      "name_en": "Cervicogenic headache",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d092",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "후두신경통",
+      "name_en": "Occipital neuralgia",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d093",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경추 후관절성 통증 후보",
+      "name_en": "Cervical facet-mediated pain candidate",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d094",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "상부경추 C1–2 관련 통증 후보",
+      "name_en": "Upper cervical C1-2 pain candidate",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d095",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경부 근막통증",
+      "name_en": "Cervical myofascial pain",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d096",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "심부 경부굴곡근 운동조절 저하",
+      "name_en": "Deep cervical flexor motor-control impairment",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d097",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경부 신전근 기능저하",
+      "name_en": "Cervical extensor muscle dysfunction",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d098",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "경추 퇴행성 변화/척추증",
+      "name_en": "Cervical spondylosis / degenerative change",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d099",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "급성 경추 외상·Whiplash-associated disorder 후보",
+      "name_en": "Acute cervical trauma / whiplash-associated disorder candidate",
+      "region_id": "r001",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f071",
+      "entity_type": "clinical_finding",
+      "name_ko": "Spurling에서 익숙한 팔 방사통 재현",
+      "key": "spurling_radicular_reproduction",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f072",
+      "entity_type": "clinical_finding",
+      "name_ko": "경추 견인에서 상지 방사통 감소",
+      "key": "distraction_relief",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f073",
+      "entity_type": "clinical_finding",
+      "name_ko": "ULNT structural differentiation 양성",
+      "key": "ulnt_structural_differentiation",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f074",
+      "entity_type": "clinical_finding",
+      "name_ko": "C5–T1 분절성 근력·감각·반사 이상",
+      "key": "segmental_neuro_deficit",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f075",
+      "entity_type": "clinical_finding",
+      "name_ko": "Hoffmann 양성",
+      "key": "hoffmann_positive",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f076",
+      "entity_type": "clinical_finding",
+      "name_ko": "Babinski 또는 병적 clonus",
+      "key": "pathologic_um_sign",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f077",
+      "entity_type": "clinical_finding",
+      "name_ko": "보행 불안정/tandem gait 실패",
+      "key": "gait_imbalance",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f078",
+      "entity_type": "clinical_finding",
+      "name_ko": "손 dexterity 저하",
+      "key": "hand_clumsiness",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f079",
+      "entity_type": "clinical_finding",
+      "name_ko": "C1–2 flexion-rotation 제한",
+      "key": "upper_cervical_rotation_restriction",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f080",
+      "entity_type": "clinical_finding",
+      "name_ko": "대후두신경 분포 압통/방사통",
+      "key": "gon_tenderness_radiation",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f081",
+      "entity_type": "clinical_finding",
+      "name_ko": "extension-rotation에서 편측 국소 경부통",
+      "key": "facet_candidate_pain",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f082",
+      "entity_type": "clinical_finding",
+      "name_ko": "CCFT 심부굴곡근 선택적 조절 저하",
+      "key": "deep_flexor_motor_control_deficit",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f083",
+      "entity_type": "clinical_finding",
+      "name_ko": "경부 신전근 좌우 활성/지구력 저하",
+      "key": "extensor_dysfunction",
+      "region_id": "r001",
+      "status": "active"
+    },
+    {
+      "finding_id": "f084",
+      "entity_type": "clinical_finding",
+      "name_ko": "진행성 신경학적 결손/척수병증 red flag",
+      "key": "progressive_neurologic_red_flag",
+      "region_id": "r001",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg039",
+      "symptom_id": "sx04",
+      "title_ko": "견갑 내측 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d095",
+          "look_for": [
+            "견갑거근·능형근·승모근 국소 압통",
+            "견갑 움직임과 증상 연관"
+          ],
+          "not_diagnostic_alone": [
+            "trigger point 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d089",
+          "look_for": [
+            "목에서 견갑/팔로 이어지는 방사증상",
+            "분절 신경학적 소견",
+            "Spurling/ULNT cluster"
+          ],
+          "not_diagnostic_alone": [
+            "견갑 내측 통증 위치만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d093",
+          "look_for": [
+            "경추 extension-rotation 국소 통증",
+            "목 ROM 제한"
+          ],
+          "not_diagnostic_alone": [
+            "후관절 주변 압통만"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg040",
+      "symptom_id": "sx05",
+      "title_ko": "목-어깨 결림",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d088",
+          "look_for": [
+            "기계적 부하와 연관된 국소 경부통",
+            "중증 신경학적 red flag 없음"
+          ],
+          "not_diagnostic_alone": [
+            "영상 퇴행성 변화"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d095",
+          "look_for": [
+            "SCM/scalene/upper trapezius/levator 관련 국소 증상"
+          ],
+          "not_diagnostic_alone": [
+            "근육 압통만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d096",
+          "look_for": [
+            "CCFT에서 SCM 보상과 심부굴곡근 control 저하"
+          ],
+          "not_diagnostic_alone": [
+            "US thickness 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d097",
+          "look_for": [
+            "posterior extensor fatigue/asymmetry"
+          ],
+          "not_diagnostic_alone": [
+            "근육 CSA 차이"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg041",
+      "symptom_id": "sx39",
+      "title_ko": "목에서 팔로 뻗치는 통증·저림",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d089",
+          "look_for": [
+            "dermatomal/myotomal pattern",
+            "Spurling",
+            "ULNT",
+            "distraction",
+            "reflex change"
+          ],
+          "not_diagnostic_alone": [
+            "Spurling 하나",
+            "MRI degeneration alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d090",
+          "look_for": [
+            "양측성/다발성 증상",
+            "손 서툼",
+            "보행불안",
+            "UMN signs"
+          ],
+          "not_diagnostic_alone": [
+            "neck pain only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d098",
+          "look_for": [
+            "퇴행성 영상소견과 임상 level 일치"
+          ],
+          "not_diagnostic_alone": [
+            "spondylosis on imaging without clinical correlation"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg042",
+      "symptom_id": "sx40",
+      "title_ko": "후두부·상경추 두통",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d091",
+          "look_for": [
+            "목 움직임과 두통 연관",
+            "C1-2 flexion-rotation 제한"
+          ],
+          "not_diagnostic_alone": [
+            "목 압통 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d092",
+          "look_for": [
+            "GON 분포의 찌르는/전기성 통증",
+            "신경 압통/trigger point"
+          ],
+          "not_diagnostic_alone": [
+            "GON ultrasound size"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d094",
+          "look_for": [
+            "상부경추 회전 제한/국소 통증"
+          ],
+          "not_diagnostic_alone": [
+            "AA joint image finding alone"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg043",
+      "symptom_id": "sx41",
+      "title_ko": "회전·신전 시 편측 국소 경부통",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d093",
+          "look_for": [
+            "extension-rotation에서 편측 후방통",
+            "신경학적 결손 없음"
+          ],
+          "not_diagnostic_alone": [
+            "provocation test 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d095",
+          "look_for": [
+            "posterior muscle layer 국소 압통/피로"
+          ],
+          "not_diagnostic_alone": [
+            "US asymmetry alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d098",
+          "look_for": [
+            "연령/기계적 ROM 제한과 영상소견의 임상 일치"
+          ],
+          "not_diagnostic_alone": [
+            "degenerative imaging alone"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg044",
+      "symptom_id": "sx42",
+      "title_ko": "손 서툼·보행불안정이 동반된 경부증상",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d090",
+          "look_for": [
+            "hand clumsiness",
+            "gait imbalance",
+            "hyperreflexia/Hoffmann/Babinski/clonus",
+            "MRI cord assessment"
+          ],
+          "not_diagnostic_alone": [
+            "Hoffmann 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d089",
+          "look_for": [
+            "한쪽 root pattern",
+            "segmental weakness/reflex/sensation"
+          ],
+          "not_diagnostic_alone": [
+            "arm paresthesia alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d098",
+          "look_for": [
+            "퇴행성 병변이 cord/root 증상과 일치"
+          ],
+          "not_diagnostic_alone": [
+            "spondylosis image alone"
+          ]
+        }
+      ],
+      "red_flags": [
+        "진행성 손기능 저하, 보행 악화, sphincter 변화, 다발성 UMN sign은 신속한 MRI/전문의 평가 우선"
+      ]
+    },
+    {
+      "differential_group_id": "dg045",
+      "symptom_id": "sx43",
+      "title_ko": "급성 외상 후 경부통·ROM 제한",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d099",
+          "look_for": [
+            "외상기전",
+            "midline tenderness",
+            "신경학적 이상",
+            "통증·ROM"
+          ],
+          "not_diagnostic_alone": [
+            "근육 spasm alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d089",
+          "look_for": [
+            "외상 후 새 radicular pattern"
+          ],
+          "not_diagnostic_alone": [
+            "팔 통증만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d090",
+          "look_for": [
+            "cord signs or progressive neurologic deficit"
+          ],
+          "not_diagnostic_alone": [
+            "neck pain alone"
+          ]
+        }
+      ],
+      "red_flags": [
+        "고에너지 외상, 중간선 골성 압통, 진행성 신경학적 결손은 routine muscle exam보다 적절한 trauma imaging pathway 우선"
+      ]
+    }
+  ]
+}
