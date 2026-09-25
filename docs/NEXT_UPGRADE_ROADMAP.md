@@ -108,7 +108,7 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
-상태: **IN PROGRESS — 2026-09-26 / 88 of 205 representative views reviewed**
+상태: **IN PROGRESS — 2026-09-26 / 92 of 205 representative views reviewed**
 
 목표: 205개 근육 각각에서 “근육을 가장 잘 이해할 수 있는 대표 시야”를 우선 표시한다.
 
@@ -136,8 +136,8 @@
 - [x] anatomy detail 카드에 대표 시야 / view / 선정 이유 표시
 
 ## 현재 진행
-- reviewed: 88 / 205
-- pending_review: 117 / 205
+- reviewed: 92 / 205
+- pending_review: 113 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
@@ -151,6 +151,8 @@
 - [x] 하퇴 후면 6개(가자미근·족척근·슬와근·후경골근·장지굴근·장무지굴근) 대표시야 검수 완료
 - [x] 하퇴 전·외측 6개(전경골근·장무지신근·장지신근·제3비골근·장비골근·단비골근) 대표시야 검수 완료
 - [x] 대퇴 전·내측 10개(봉공근·대퇴직근·외측광근·내측광근·중간광근·치골근·장내전근·단내전근·대내전근 내전부·박근) 대표시야 검수 완료
+- [x] 대퇴 후면 4개(대퇴이두근 장두·단두·반건양근·반막양근) 대표시야 검수 완료
+- [ ] 대내전근 햄스트링부는 전체 대내전근 도해가 아닌 part-specific 대표도해 추가 검토
 - [ ] 비복근 내·외측두는 head-specific 대표도해 추가 검토
 - [ ] 대표시야 미등록 0 또는 근거 있는 “공개 적합자료 미확립” 표기
 - [ ] reviewed source/license 누락 0
