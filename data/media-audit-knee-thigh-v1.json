@@ -18,7 +18,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figure 1",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv043",
@@ -26,8 +29,12 @@
       "title": "Quadriceps tendon SAX / layers",
       "source_page": "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf",
       "figure_label": "ESSR Knee p.1",
-      "license": "Canonical guideline reference; no local copy",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "license": "REFERENCE_ONLY — redistribution not asserted",
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_original": "Canonical guideline reference; no local copy",
+      "license_status": "reference_only",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv044",
@@ -36,7 +43,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figures 2 and 6",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv045",
@@ -45,7 +55,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figure 5",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv046",
@@ -54,7 +67,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figures 5 and 6",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv047",
@@ -63,7 +79,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figures 3 and 4",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv048",
@@ -72,7 +91,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figure 7",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv049",
@@ -81,7 +103,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figure 7",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv050",
@@ -90,7 +115,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figure 8",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv051",
@@ -99,7 +127,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figure 9",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv052",
@@ -108,7 +139,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figures 10 and 12",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv053",
@@ -117,7 +151,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figure 10",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv054",
@@ -126,7 +163,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Figure 11",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv055",
@@ -135,7 +175,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/",
       "figure_label": "Table 3 + lateral ultrasound atlas sequence",
       "license": "CC BY-NC-ND 4.0",
-      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음."
+      "note": "실제 초음파 원문을 canonical reference로 연결. 라이선스/출판 맥락을 보존하며 앱에 이미지를 변형·복제하지 않음.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     }
   ],
   "sources": [
@@ -151,5 +194,7 @@
       "url": "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf",
       "use": "standard positioning and supplemental actual ultrasound reference"
     }
-  ]
+  ],
+  "audit_revision": "2026-09-25-stage11",
+  "license_policy": "Embedded/local reusable media requires explicit reuse terms and attribution. Canonical external figures with uncertain or publication-specific redistribution terms are link-only; the app does not assert redistribution rights."
 }
