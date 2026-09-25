@@ -141,6 +141,25 @@
         "sx49"
       ],
       "status": "active"
+    },
+    {
+      "symptom_group_id": "sg009",
+      "name_ko": "요추·천추·후방골반",
+      "key": "lumbar_sacral_posterior_pelvis",
+      "region_ids": [
+        "r003",
+        "r010"
+      ],
+      "symptom_ids": [
+        "sx50",
+        "sx51",
+        "sx52",
+        "sx53",
+        "sx54",
+        "sx55",
+        "sx56"
+      ],
+      "status": "active"
     }
   ]
 }
