@@ -488,9 +488,10 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 
 ### 배포 게이트
 - [x] Global QA static revalidation PASS
-- [x] PR CI Global QA PASS — run 36114980055
-- [ ] PR → main
-- [ ] Pages SUCCESS
+- [x] PR CI Global QA PASS — final head run 36115053787
+- [x] PR #23 → main
+- [x] main Global QA PASS — run 36115111877
+- [x] Pages SUCCESS — run 36115110890
 
 
 ## v9.4 Stage 11 재검증 — Real Viva Pro / Patient Manual / Play Readiness
@@ -511,8 +512,8 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 - [x] 환자 화면 비의료기기·진단치료 비대체·의료전문가 상담 고지
 - [x] Privacy Policy 의료전문가 상담 고지
 - [x] Google Play 2026: API36 / AAB / Health declaration / Data Safety 계획 재검증
-- [x] GitHub Actions Global QA PASS — run 36114980055
-- [ ] main merge
-- [ ] Pages SUCCESS
+- [x] GitHub Actions Global QA PASS — PR final head run 36115053787
+- [x] main merge — v9.4 payload SHA d40c7a51fdf51ffd0b5522a71984a44efce2ac15
+- [x] Pages SUCCESS — run 36115110890
 
 다음 공식 개발: Stage 12 — OrthoOS Read-only Integration Contract.
