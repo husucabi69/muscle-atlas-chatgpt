@@ -68,7 +68,17 @@ const required={
   m145:'Anterior compartment of leg - Extensor digitorum longus.png',
   m146:'Anterior compartment of leg - Fibularis tertius.png',
   m147:'Lateral compartment of leg - Fibularis longus.png',
-  m148:'Lateral compartment of leg - Fibularis brevis.png'
+  m148:'Lateral compartment of leg - Fibularis brevis.png',
+  m127:'Sartorius muscle.png',
+  m128:'Rectus femoris.png',
+  m129:'Vastus lateralis muscle.png',
+  m130:'Vastus medialis muscle.png',
+  m131:'Vastus intermedialis.gif',
+  m133:'Pectineus 3D.gif',
+  m134:'Adductor longus.gif',
+  m135:'Adductor brevis.gif',
+  m136:'Adductor magnus.gif',
+  m138:'Gracilis.gif'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
