@@ -184,7 +184,7 @@ check('PWA clinical cache coverage', missingCache.length===0, missingCache.join(
 
 const phiNeedles=['patient_name','patient_id','encounter_id','resident_registration','주민등록번호'];
 const scanFiles=['data/knowledge-core-v1.json','data/patient-exercise-library-v1.json',...Object.keys(modules).flatMap(m=>[
-  `examination-${m}-v1.json`,`ultrasound-${m}-v1.json`,`quiz-${m}-v1.json`,`differential-${m}-v1.json`
+  `data/examination-${m}-v1.json`,`data/ultrasound-${m}-v1.json`,`data/quiz-${m}-v1.json`,`data/differential-${m}-v1.json`
 ])];
 const phiHits=[];
 for (const p of scanFiles) {
