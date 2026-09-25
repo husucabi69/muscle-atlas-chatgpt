@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.25-stage17-c",
+  "audit_version": "2026.09.25-stage17-d",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -707,19 +707,43 @@
       "muscle_id": "m088",
       "name_ko": "심지굴근",
       "name_en": "Flexor digitorum profundus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus flexor digitorum profundus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_flexor_digitorum_profundus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "anterior deep forearm",
+        "educationalReason": "척골 전내측에서 네 손가락 원위지골로 이어지는 심지굴근의 넓은 심부 근복과 건 주행을 전면 강조 도해로 확인"
+      }
     },
     {
       "muscle_id": "m089",
       "name_ko": "장무지굴근",
       "name_en": "Flexor pollicis longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus flexor pollicis longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_flexor_pollicis_longus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "anterior deep forearm",
+        "educationalReason": "요골 전면에서 엄지 원위지골로 향하는 장무지굴근의 독립된 심부 주행과 건을 전면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m090",
       "name_ko": "방형회내근",
       "name_en": "Pronator quadratus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus pronator quadratus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_pronator_quadratus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "anterior distal deep forearm",
+        "educationalReason": "원위 요골과 척골 사이를 가로지르는 방형회내근의 짧은 횡주행을 전면 심부층에서 가장 직접적으로 확인"
+      }
     },
     {
       "muscle_id": "m091",
@@ -761,31 +785,71 @@
       "muscle_id": "m097",
       "name_ko": "회외근",
       "name_en": "Supinator",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus supinator.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_supinator.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior deep proximal forearm",
+        "educationalReason": "근위 요골을 감싸는 회외근과 깊은 요골신경/PIN 통과 관계를 후외측 심부층에서 이해하기 좋은 강조 도해"
+      }
     },
     {
       "muscle_id": "m098",
       "name_ko": "장무지외전근",
       "name_en": "Abductor pollicis longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus abductor pollicis longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_abductor_pollicis_longus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior deep forearm",
+        "educationalReason": "요척골 후면 심부에서 제1중수골로 향하는 장무지외전근의 사선 주행과 제1 신전구획 방향을 명확히 확인"
+      }
     },
     {
       "muscle_id": "m099",
       "name_ko": "단무지신근",
       "name_en": "Extensor pollicis brevis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus extensor pollicis brevis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_pollicis_brevis.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior deep forearm",
+        "educationalReason": "장무지외전근과 함께 제1 신전구획으로 향하는 단무지신근을 후면 심부층에서 구분하기 좋은 강조 도해"
+      }
     },
     {
       "muscle_id": "m100",
       "name_ko": "장무지신근",
       "name_en": "Extensor pollicis longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus extensor pollicis longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_pollicis_longus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior deep forearm",
+        "educationalReason": "척골 후면에서 Lister 결절 주위로 방향을 바꾸어 엄지 원위지골로 향하는 장무지신근의 긴 주행을 강조"
+      }
     },
     {
       "muscle_id": "m101",
       "name_ko": "시지신근",
       "name_en": "Extensor indicis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus extensor indicis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_extensor_indicis.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "posterior deep forearm",
+        "educationalReason": "원위 척골 후면에서 검지 신전건으로 합류하는 시지신근의 심부 주행을 지신근과 구분해 확인"
+      }
     },
     {
       "muscle_id": "m102",
@@ -1413,8 +1477,8 @@
     }
   ],
   "progress": {
-    "reviewed": 21,
-    "pending_review": 184,
-    "last_batch": "deep_gluteal_priority_batch"
+    "reviewed": 29,
+    "pending_review": 176,
+    "last_batch": "deep_forearm_priority_batch"
   }
 }
