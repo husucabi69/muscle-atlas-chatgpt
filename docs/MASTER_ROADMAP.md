@@ -27,7 +27,7 @@
 
 ### 다음 정본 로드맵
 새 기능 개발은 `docs/NEXT_UPGRADE_ROADMAP.md`를 따른다.
-첫 단계는 **Stage 15 — Reliable Auto-Update Engine**이다.
+Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과했다. 다음 기능 개발은 **Stage 16 — Patient Exercise Illustration 2.0**이다. Stage 15의 실제 설치폰 검증은 Stage 21에서 최종 닫는다.
 
 ## 완료의 정의
 한 부위는 아래 8개 층이 모두 연결되어야 COMPLETE로 처리한다.
@@ -83,7 +83,8 @@
 - Stage 12 OrthoOS Read-only Integration Contract v1: COMPLETE
 - Stage 13 Android TWA / API 36 / AAB build: COMPLETE
 - Stage 14 Google Play submission policy pack: PREPARED, 실제 Play Console 제출 전
-- 현재 다음 개발: **Stage 15 — Reliable Auto-Update Engine**
+- Stage 15 Reliable Auto-Update Engine: DEV COMPLETE / automated QA PASS
+- 현재 다음 기능 개발: **Stage 16 — Patient Exercise Illustration 2.0**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
 
@@ -610,8 +611,8 @@ Stage 12는 versioned read-only knowledge contract만 제공하며 실제 환자
 `docs/NEXT_UPGRADE_ROADMAP.md`
 
 우선순위:
-1. Stage 15 Reliable Auto-Update Engine
-2. Stage 16 Patient Exercise Illustration 2.0
+1. Stage 15 Reliable Auto-Update Engine — DEV COMPLETE, physical verification deferred to Stage 21
+2. Stage 16 Patient Exercise Illustration 2.0 — NEXT
 3. Stage 17 Ultrasound Atlas 2.0
 4. Stage 18 Oral Viva 3.0
 5. Stage 19 Clinical Learning Flow 2.0
