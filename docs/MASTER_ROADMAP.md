@@ -306,14 +306,14 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 
 ### L1. Oral Viva
 - [x] canonical 205 muscles에서 Origin / Insertion / Function / Nerve를 동적으로 출제
-- [x] 친구 / 선생님 / 선배 / 대가 4단계
-- [x] 단일 항목 → 2항목 연결 → O/I/F/N 통합 질문
+- [x] 친구 / 동료 / 선배 / 대가 4단계
+- [x] O/I/F/N + 기능추론 + 촉진/MMT + 임상/증상 + 초음파 + reverse identification
 - [x] Web SpeechRecognition 지원 기기에서는 마이크 답변
 - [x] 음성인식 미지원 시 동일 textarea 입력 fallback
 - [x] 질문/교정 feedback SpeechSynthesis 읽기
 - [x] 정답 / 부분정답 / 틀림 즉시 표시
 - [x] 빠진 핵심과 canonical answer를 바로 제시
-- [x] 외부 API/LLM에 답변을 전송하지 않고 기기 내부 핵심어 비교
+- [x] 정답 채점은 Atlas 내부 핵심어 비교로 수행. 음성→텍스트 변환은 브라우저/OS SpeechRecognition provider를 사용할 수 있어 사용자 고지
 - [x] oral 오답 기록 localStorage 저장
 - [ ] 향후 optional semantic grader는 API key를 앱에 넣지 않는 안전한 server-side contract가 생긴 뒤 검토
 
