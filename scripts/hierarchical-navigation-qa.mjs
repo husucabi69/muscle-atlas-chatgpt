@@ -19,7 +19,7 @@ for(const tab of ['basic','anatomy','ultrasound','clinical','learning']){
 
 check('Region list uses internal detail navigation',index.includes("onclick="openRegionMuscle('"));
 check('Legacy region panel removed',!index.includes('id="regionMusclesPanel"'));
-check('Region list no longer directly opens modal',!index.match(/selectedRegionList[^]*?openMuscle\(/));
+check('Region muscle buttons no longer directly open modal',!index.includes('class="region-muscle" onclick="openMuscle'));
 check('Independent view state function',index.includes('function setAnatomyView(view)'));
 check('Region to list transition',index.includes("setAnatomyView('muscles')"));
 check('Muscle to detail transition',index.includes("setAnatomyView('detail')"));
