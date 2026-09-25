@@ -26,3 +26,5 @@ jobs:
         run: node scripts/integration-contract-qa.mjs
       - name: Run Android TWA static configuration QA
         run: node scripts/android-twa-qa.mjs
+      - name: Run Play Store submission pack QA
+        run: node scripts/play-store-submission-qa.mjs
