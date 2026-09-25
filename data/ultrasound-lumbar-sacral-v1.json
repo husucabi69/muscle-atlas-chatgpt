@@ -1,0 +1,390 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "lumbar_sacral_ultrasound_v1",
+  "region_ids": [
+    "r003"
+  ],
+  "primary_references": [
+    {
+      "title": "Reliability of lumbar multifidus and iliocostalis lumborum thickness and echogenicity measurements using ultrasound imaging",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409444/"
+    },
+    {
+      "title": "A guide for standardized interpretation of lumbar multifidus ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9288015/"
+    },
+    {
+      "title": "Ultrasound Imaging Analysis of the Lumbar Multifidus Muscle Echo Intensity",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8160687/"
+    },
+    {
+      "title": "Ultrasound-Guided Quadratus Lumborum Block: An Updated Review of Anatomy and Techniques",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5244003/"
+    },
+    {
+      "title": "How to inject sacroiliac joints with ultrasound guidance: a pictorial essay",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11178692/"
+    },
+    {
+      "title": "Enhancing diagnosis and treatment of superior cluneal nerve entrapment",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10317927/"
+    },
+    {
+      "title": "Sonographic tracking of trunk nerves",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5222601/"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv102",
+      "name_ko": "L4/5 요다열근 parasagittal",
+      "name_en": "L4/5 lumbar multifidus parasagittal view",
+      "target_structure_ids": [
+        "m041",
+        "j023"
+      ],
+      "patient_position": "복와위, 복부 아래 얇은 지지로 요추 전만을 줄인다.",
+      "probe_orientation": "L4/5 facet joint를 landmark로 parasagittal.",
+      "landmarks": [
+        "L4/5 zygapophyseal joint",
+        "lumbar multifidus",
+        "thoracolumbar fascia"
+      ],
+      "normal_finding": "facet joint에서 superficial fascial border까지 multifidus thickness와 구조를 확인한다.",
+      "pitfalls": [
+        "레벨 확인 필요",
+        "probe pressure와 lordosis가 thickness에 영향"
+      ],
+      "source_ref": "lm_iliocostalis_fig1a"
+    },
+    {
+      "ultrasound_view_id": "usv103",
+      "name_ko": "L5 요다열근 횡단면",
+      "name_en": "L5 lumbar multifidus transverse view",
+      "target_structure_ids": [
+        "m041"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "L5 spinous process/lamina/facet를 포함한 횡축.",
+      "landmarks": [
+        "spinous process",
+        "lamina",
+        "L4/5 or L5/S1 facet landmark",
+        "multifidus",
+        "longissimus"
+      ],
+      "normal_finding": "multifidus의 CSA 경계를 spinous process, lamina, fascia, longissimus와 구분한다.",
+      "pitfalls": [
+        "근육 경계의 observer dependence",
+        "CSA 차이만으로 통증 원인 확정 금지"
+      ],
+      "source_ref": "lm_iliocostalis_fig1b"
+    },
+    {
+      "ultrasound_view_id": "usv104",
+      "name_ko": "L3 요장늑근 횡단면",
+      "name_en": "L3 iliocostalis lumborum transverse view",
+      "target_structure_ids": [
+        "m038",
+        "m039",
+        "m046"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "L3 level lateral paraspinal transverse scan.",
+      "landmarks": [
+        "iliocostalis lumborum",
+        "longissimus",
+        "quadratus lumborum",
+        "thoracolumbar fascia"
+      ],
+      "normal_finding": "iliocostalis와 인접 longissimus/QL을 구분한다.",
+      "pitfalls": [
+        "level과 lateral position 표준화",
+        "echogenicity 단독 진단 금지"
+      ],
+      "source_ref": "lm_iliocostalis_fig1c"
+    },
+    {
+      "ultrasound_view_id": "usv105",
+      "name_ko": "요다열근 수축 전후 비교",
+      "name_en": "Lumbar multifidus rest-to-contraction comparison",
+      "target_structure_ids": [
+        "m041"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "L4 level transverse.",
+      "landmarks": [
+        "multifidus",
+        "longissimus",
+        "spinous process",
+        "lamina"
+      ],
+      "normal_finding": "rest와 contralateral arm-lift contraction의 thickness/CSA 변화를 같은 level에서 비교한다.",
+      "pitfalls": [
+        "effort·breathing·probe pressure 통제 필요",
+        "activation asymmetry는 impairment 정보"
+      ],
+      "source_ref": "multifidus_activation_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv106",
+      "name_ko": "L4 shamrock sign",
+      "name_en": "L4 shamrock sign: QL-psoas-erector spinae",
+      "target_structure_ids": [
+        "m046",
+        "m047",
+        "m038",
+        "m039"
+      ],
+      "patient_position": "측와위 또는 복외측 접근.",
+      "probe_orientation": "iliac crest 위 low-frequency transverse scan.",
+      "landmarks": [
+        "L4 transverse process",
+        "quadratus lumborum",
+        "psoas major",
+        "erector spinae"
+      ],
+      "normal_finding": "transverse process를 줄기로 하고 QL/PM/ES가 잎처럼 보이는 shamrock anatomy를 확인한다.",
+      "pitfalls": [
+        "신장/복막·혈관 위치 인지",
+        "block anatomy를 통증 진단으로 자동 전용하지 않음"
+      ],
+      "source_ref": "ql_shamrock_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv107",
+      "name_ko": "Quadratus lumborum posterior/lateral view",
+      "name_en": "Quadratus lumborum posterior-lateral view",
+      "target_structure_ids": [
+        "m046",
+        "fsc002"
+      ],
+      "patient_position": "측와위 또는 약간 회전한 앙와위.",
+      "probe_orientation": "triangle of Petit에서 posterior abdominal wall로 sweep.",
+      "landmarks": [
+        "external oblique",
+        "internal oblique",
+        "transversus abdominis aponeurosis",
+        "quadratus lumborum",
+        "thoracolumbar fascia"
+      ],
+      "normal_finding": "QL의 lateral/posterior border와 fascial planes를 확인한다.",
+      "pitfalls": [
+        "복막과 신장 위치 확인",
+        "MPS 진단을 US appearance 하나로 확정 금지"
+      ],
+      "source_ref": "ql_review_fig8_9"
+    },
+    {
+      "ultrasound_view_id": "usv108",
+      "name_ko": "Psoas major-QL interfascial view",
+      "name_en": "Psoas major / quadratus lumborum interfascial view",
+      "target_structure_ids": [
+        "m047",
+        "m046"
+      ],
+      "patient_position": "측와위.",
+      "probe_orientation": "L2-L4 paramedian oblique/subcostal.",
+      "landmarks": [
+        "psoas major",
+        "quadratus lumborum",
+        "transverse process",
+        "retroperitoneal fat"
+      ],
+      "normal_finding": "PM과 QL 사이의 fascial relationship을 확인한다.",
+      "pitfalls": [
+        "lumbar plexus가 psoas 내에 위치할 수 있음",
+        "교육용 anatomy이며 통증 generator 단독판정 금지"
+      ],
+      "source_ref": "ql_review_fig6"
+    },
+    {
+      "ultrasound_view_id": "usv109",
+      "name_ko": "L4/5 lumbar facet view",
+      "name_en": "L4/5 lumbar zygapophyseal joint view",
+      "target_structure_ids": [
+        "j023"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "spinous midline에서 3-4 cm lateral paramedian long/short axes.",
+      "landmarks": [
+        "superior articular process",
+        "inferior articular process",
+        "facet joint contour",
+        "multifidus"
+      ],
+      "normal_finding": "L4/5 facet의 bony 'bumps'와 joint contour를 확인한다.",
+      "pitfalls": [
+        "관절내 병변 전체를 US로 평가할 수 없음",
+        "facet pain 확진은 임상/진단적 block 맥락"
+      ],
+      "source_ref": "facet_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv110",
+      "name_ko": "천골 정중 landmark",
+      "name_en": "Posterior sacral midline landmark view",
+      "target_structure_ids": [
+        "j024"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "lower sacrum transverse.",
+      "landmarks": [
+        "posterior sacral apophysis",
+        "median sacral crest",
+        "sacral foramina"
+      ],
+      "normal_finding": "SIJ 탐색 전 posterior sacral landmark를 확인한다.",
+      "pitfalls": [
+        "sacral foramen을 SIJ로 오인하지 않음",
+        "Doppler로 vascular flow 확인 가능"
+      ],
+      "source_ref": "sij_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv111",
+      "name_ko": "Posterior sacroiliac joint",
+      "name_en": "Posterior sacroiliac joint transverse view",
+      "target_structure_ids": [
+        "j024",
+        "lig023",
+        "lig025"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "sacral midline landmark에서 lateral/cranial sweep.",
+      "landmarks": [
+        "sacrum",
+        "ilium",
+        "posterior SI ligament",
+        "first dorsal sacral foramen"
+      ],
+      "normal_finding": "sacrum과 ilium 사이 posterior SIJ cleft와 posterior ligament를 확인한다.",
+      "pitfalls": [
+        "posterior portion만 시각화",
+        "US만으로 SI pain source 확정 금지"
+      ],
+      "source_ref": "sij_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv112",
+      "name_ko": "Superior cluneal nerve at iliac crest",
+      "name_en": "Superior cluneal nerve at posterior iliac crest",
+      "target_structure_ids": [
+        "n043",
+        "fsc002"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "PSIS에서 cranial/lateral로 이동해 posterior iliac crest를 횡축.",
+      "landmarks": [
+        "posterior iliac crest",
+        "thoracolumbar fascia",
+        "erector spinae",
+        "gluteus medius",
+        "SCN medial branch"
+      ],
+      "normal_finding": "SCN branch를 TLF 아래/iliac crest fibro-osseous tunnel에서 작은 neural structure로 확인한다.",
+      "pitfalls": [
+        "nerve size alone does not establish entrapment",
+        "branch variability"
+      ],
+      "source_ref": "scn_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv113",
+      "name_ko": "Superior cluneal nerve long-axis",
+      "name_en": "Superior cluneal nerve long-axis tracking",
+      "target_structure_ids": [
+        "n043",
+        "m038",
+        "m039"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "identified SCN을 따라 longitudinal tracking.",
+      "landmarks": [
+        "thoracolumbar fascia",
+        "erector spinae",
+        "posterior iliac crest",
+        "SCN"
+      ],
+      "normal_finding": "SCN이 erector spinae/TLF 관계 속에서 iliac crest를 지나는 경로를 추적한다.",
+      "pitfalls": [
+        "visualization alone is not diagnosis",
+        "small sensory branch anisotropy"
+      ],
+      "source_ref": "scn_longaxis"
+    },
+    {
+      "ultrasound_view_id": "usv114",
+      "name_ko": "L4/5 facet·lumbar medial branch/root landmark",
+      "name_en": "Lumbar facet / medial branch / root landmark transverse plane",
+      "target_structure_ids": [
+        "j023",
+        "n041"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "L4/L5 facet and lamina transverse plane.",
+      "landmarks": [
+        "facet joints",
+        "lamina",
+        "transverse process",
+        "psoas major",
+        "nerve-root region"
+      ],
+      "normal_finding": "facet, lamina, transverse process와 인접 neural structures의 상대 위치를 확인한다.",
+      "pitfalls": [
+        "deep root direct visualization은 체형·장비 의존",
+        "중재 anatomy를 진단으로 자동 해석 금지"
+      ],
+      "source_ref": "trunk_nerve_fig6"
+    },
+    {
+      "ultrasound_view_id": "usv115",
+      "name_ko": "Iliacus-psoas complex",
+      "name_en": "Iliacus-psoas complex proximal view",
+      "target_structure_ids": [
+        "m047",
+        "m049",
+        "n014"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "inguinal ligament 상방에서 iliopsoas compartment transverse/oblique.",
+      "landmarks": [
+        "psoas major",
+        "iliacus",
+        "fascia iliaca",
+        "femoral nerve"
+      ],
+      "normal_finding": "iliopsoas와 femoral nerve의 관계를 확인한다.",
+      "pitfalls": [
+        "대퇴혈관과 구분",
+        "lumbar root pathology를 이 view로 배제하지 못함"
+      ],
+      "source_ref": "femoral_nerve_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv116",
+      "name_ko": "Thoracolumbar fascia-iliac crest insertion",
+      "name_en": "Thoracolumbar fascia at posterior iliac crest",
+      "target_structure_ids": [
+        "fsc002",
+        "n043",
+        "m038",
+        "m039"
+      ],
+      "patient_position": "복와위.",
+      "probe_orientation": "posterior iliac crest short-axis.",
+      "landmarks": [
+        "thoracolumbar fascia",
+        "posterior iliac crest",
+        "erector spinae",
+        "superior cluneal nerve corridor"
+      ],
+      "normal_finding": "TLF insertion과 SCN corridor의 관계를 확인한다.",
+      "pitfalls": [
+        "TLF thickening/enthesophyte alone does not establish pain source",
+        "clinical provocation required"
+      ],
+      "source_ref": "tlf_fig1"
+    }
+  ]
+}
