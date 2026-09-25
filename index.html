@@ -1761,7 +1761,7 @@ const oralCoachProfiles={
   probe:['그럼 이제 제가 한 단계 더 묻겠습니다. ','좋습니다. 반대 관점에서 다시 보죠. ','이 구조를 영상과 진찰에서 어떻게 확인합니까? ','그 답이 틀릴 수 있는 상황은 무엇입니까? ']
  }
 };
-let oralSession=let oralSession=[],oralIndex=0,oralCorrect=0,oralPartial=0,oralWrong=0,oralRecognition=null,oralListening=false,oralFixedMuscleId=null;
+let oralSession=[],oralIndex=0,oralCorrect=0,oralPartial=0,oralWrong=0,oralRecognition=null,oralListening=false,oralFixedMuscleId=null;
 function oralState(){try{return JSON.parse(localStorage.getItem(ORAL_KEY))||{history:{},wrong:{}}}catch(e){return{history:{},wrong:{}}}}
 function saveOralState(s){localStorage.setItem(ORAL_KEY,JSON.stringify(s));}
 function oralNorm(s){
