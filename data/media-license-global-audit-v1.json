@@ -1,22 +1,24 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.25-a",
+  "audit_version": "2026.09.25-stage11-b",
   "audited_on": "2026-09-25",
-  "scope": "Global actual-ultrasound media and license-context audit for Stage 1-10.",
+  "scope": "Global actual-ultrasound source, media-integrity and reuse-policy audit for Stage 1-10.",
   "policy": {
     "actual_ultrasound_only": true,
     "generated_b_mode_substitute": false,
-    "embedded_asset_rule": "A locally reused ultrasound image/video must retain explicit source_page, author, and license metadata.",
-    "link_only_rule": "A canonical publication/figure may be linked without local copying. When exact reuse rights are not relied upon, the audit records source_context_only_no_local_copy rather than inferring a license.",
-    "derivative_rule": "Do not modify figures marked ND; preserve article/figure context when license or clinical labeling matters."
+    "embedded_asset_rule": "Local/embedded reuse requires explicit reusable terms and retained attribution/source metadata.",
+    "link_only_rule": "When redistribution rights are uncertain, publication-specific, ND/restrictive, or not needed, use canonical source links only and do not assert redistribution rights.",
+    "no_hosting_inference": "PMC/open-access hosting alone is not treated as permission for local redistribution or modification."
   },
   "summary": {
     "ultrasound_views_total": 131,
-    "unique_source_pages": 55,
-    "embedded_asset_views": 5,
+    "unique_ultrasound_view_ids": 131,
+    "unique_source_pages": 54,
+    "embedded_reuse_with_attribution": 5,
     "link_only_reference_views": 126,
-    "views_with_explicit_reuse_or_license_label": 67,
-    "source_context_only_views": 64,
+    "explicit_license_status": 64,
+    "reference_only_license_status": 67,
+    "incomplete_metadata": 0,
     "unresolved_issues": 0
   },
   "modules": {
@@ -91,7 +93,10 @@
         "usv001"
       ],
       "reuse_modes": [
-        "embedded_asset"
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "CC BY-SA 4.0 / GFDL"
       ]
     },
     {
@@ -103,7 +108,10 @@
         "usv002"
       ],
       "reuse_modes": [
-        "embedded_asset"
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "CC BY-SA / GFDL"
       ]
     },
     {
@@ -115,7 +123,10 @@
         "usv003"
       ],
       "reuse_modes": [
-        "embedded_asset"
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "Creative Commons license on Commons file page"
       ]
     },
     {
@@ -127,7 +138,10 @@
         "usv004"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "Creative Commons Attribution License"
       ]
     },
     {
@@ -140,11 +154,14 @@
         "usv006"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "Creative Commons Attribution License"
       ]
     },
     {
-      "source_page": "https://commons.wikimedia.org/wiki/File:US._Infraspinatus_tendon_without_any_pathological_echogenicity..jpg",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG7/",
       "modules": [
         "shoulder"
       ],
@@ -152,7 +169,10 @@
         "usv007"
       ],
       "reuse_modes": [
-        "embedded_asset"
+        "embedded_reuse_with_attribution"
+      ],
+      "license_labels": [
+        "CC BY-SA 3.0"
       ]
     },
     {
@@ -164,19 +184,10 @@
         "usv008"
       ],
       "reuse_modes": [
-        "embedded_asset"
-      ]
-    },
-    {
-      "source_page": "https://commons.wikimedia.org/wiki/File:Ultrasound_guided_injection_of_local_anaesthetic_into_the_subacromial_bursa_-_1471-2474-12-119-S3.ogv",
-      "modules": [
-        "shoulder"
+        "embedded_reuse_with_attribution"
       ],
-      "view_ids": [
-        "usv008"
-      ],
-      "reuse_modes": [
-        "embedded_asset"
+      "license_labels": [
+        "CC BY 2.0"
       ]
     },
     {
@@ -188,7 +199,10 @@
         "usv009"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "Creative Commons Attribution License"
       ]
     },
     {
@@ -201,7 +215,10 @@
         "usv011"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC 4.0"
       ]
     },
     {
@@ -214,7 +231,10 @@
         "usv013"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC 4.0"
       ]
     },
     {
@@ -227,7 +247,10 @@
         "usv017"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND 4.0"
       ]
     },
     {
@@ -239,7 +262,10 @@
         "usv015"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY 4.0"
       ]
     },
     {
@@ -251,7 +277,10 @@
         "usv016"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC 4.0"
       ]
     },
     {
@@ -274,7 +303,10 @@
         "usv029"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND 4.0"
       ]
     },
     {
@@ -296,7 +328,10 @@
         "usv041"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND 4.0"
       ]
     },
     {
@@ -308,7 +343,10 @@
         "usv040"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND"
       ]
     },
     {
@@ -332,7 +370,10 @@
         "usv055"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC-ND 4.0"
       ]
     },
     {
@@ -344,7 +385,10 @@
         "usv043"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -365,7 +409,10 @@
         "usv073"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -377,7 +424,10 @@
         "usv062"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -389,7 +439,10 @@
         "usv063"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -401,7 +454,10 @@
         "usv064"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -414,7 +470,10 @@
         "usv068"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -427,7 +486,10 @@
         "usv071"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -439,7 +501,10 @@
         "usv070"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -451,7 +516,10 @@
         "usv074"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -468,7 +536,11 @@
         "usv092"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted",
+        "CC BY 4.0"
       ]
     },
     {
@@ -482,7 +554,10 @@
         "usv079"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -494,7 +569,10 @@
         "usv077"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -508,7 +586,10 @@
         "usv082"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -520,7 +601,10 @@
         "usv083"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -533,7 +617,10 @@
         "usv086"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -545,7 +632,10 @@
         "usv085"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -563,7 +653,10 @@
         "usv098"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY-NC 4.0"
       ]
     },
     {
@@ -575,7 +668,10 @@
         "usv095"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -587,7 +683,10 @@
         "usv099"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -599,7 +698,10 @@
         "usv100"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -611,7 +713,10 @@
         "usv101"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -625,7 +730,10 @@
         "usv104"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -637,7 +745,10 @@
         "usv105"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -649,7 +760,10 @@
         "usv106"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -662,7 +776,10 @@
         "usv108"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -674,7 +791,10 @@
         "usv109"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -687,7 +807,10 @@
         "usv111"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -700,7 +823,10 @@
         "usv113"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -712,7 +838,10 @@
         "usv114"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -724,7 +853,10 @@
         "usv115"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -736,7 +868,10 @@
         "usv116"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -754,7 +889,10 @@
         "usv131"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -768,7 +906,10 @@
         "usv122"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -780,7 +921,10 @@
         "usv126"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -793,7 +937,10 @@
         "usv128"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -805,7 +952,10 @@
         "usv129"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     },
     {
@@ -817,1847 +967,11 @@
         "usv130"
       ],
       "reuse_modes": [
-        "link_only_reference"
+        "link_only"
+      ],
+      "license_labels": [
+        "REFERENCE_ONLY — redistribution not asserted"
       ]
     }
-  ],
-  "views": [
-    {
-      "ultrasound_view_id": "usv001",
-      "module": "shoulder",
-      "reuse_mode": "embedded_asset",
-      "source_pages": [
-        "https://commons.wikimedia.org/wiki/File:Longitudinal_US_supraspinatus.jpg"
-      ],
-      "license_labels": [
-        "CC BY-SA 4.0 / GFDL"
-      ],
-      "license_audit_status": "explicit_reuse_metadata_present",
-      "figure_or_asset_label": "Supraspinatus tendon longitudinal ultrasound",
-      "policy_note": "Locally reused media requires explicit source, author, and license metadata."
-    },
-    {
-      "ultrasound_view_id": "usv002",
-      "module": "shoulder",
-      "reuse_mode": "embedded_asset",
-      "source_pages": [
-        "https://commons.wikimedia.org/wiki/File:Transversal_US_supraspinatus.jpg"
-      ],
-      "license_labels": [
-        "CC BY-SA / GFDL"
-      ],
-      "license_audit_status": "explicit_reuse_metadata_present",
-      "figure_or_asset_label": "Supraspinatus tendon transverse ultrasound",
-      "policy_note": "Locally reused media requires explicit source, author, and license metadata."
-    },
-    {
-      "ultrasound_view_id": "usv003",
-      "module": "shoulder",
-      "reuse_mode": "embedded_asset",
-      "source_pages": [
-        "https://commons.wikimedia.org/wiki/File:US._Biceps_tendon..jpg"
-      ],
-      "license_labels": [
-        "Creative Commons license on Commons file page"
-      ],
-      "license_audit_status": "explicit_reuse_metadata_present",
-      "figure_or_asset_label": "Intact long-head biceps tendon in bicipital groove",
-      "policy_note": "Locally reused media requires explicit source, author, and license metadata."
-    },
-    {
-      "ultrasound_view_id": "usv004",
-      "module": "shoulder",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG2/"
-      ],
-      "license_labels": [
-        "Creative Commons Attribution License"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": null,
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv005",
-      "module": "shoulder",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/"
-      ],
-      "license_labels": [
-        "Creative Commons Attribution License"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": null,
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv006",
-      "module": "shoulder",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG3/"
-      ],
-      "license_labels": [
-        "Creative Commons Attribution License"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": null,
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv007",
-      "module": "shoulder",
-      "reuse_mode": "embedded_asset",
-      "source_pages": [
-        "https://commons.wikimedia.org/wiki/File:US._Infraspinatus_tendon_without_any_pathological_echogenicity..jpg"
-      ],
-      "license_labels": [
-        "CC BY-SA 3.0"
-      ],
-      "license_audit_status": "explicit_reuse_metadata_present",
-      "figure_or_asset_label": "Infraspinatus tendon without pathological echogenicity",
-      "policy_note": "Locally reused media requires explicit source, author, and license metadata."
-    },
-    {
-      "ultrasound_view_id": "usv008",
-      "module": "shoulder",
-      "reuse_mode": "embedded_asset",
-      "source_pages": [
-        "https://commons.wikimedia.org/wiki/File:Emergency-department-diagnosis-of-supraspinatus-tendon-calcification-and-shoulder-impingement-2036-7902-5-2-S2.ogv",
-        "https://commons.wikimedia.org/wiki/File:Ultrasound_guided_injection_of_local_anaesthetic_into_the_subacromial_bursa_-_1471-2474-12-119-S3.ogv"
-      ],
-      "license_labels": [
-        "CC BY 2.0",
-        "CC BY 2.0"
-      ],
-      "license_audit_status": "explicit_reuse_metadata_present",
-      "figure_or_asset_label": "Dynamic supraspinatus impingement ultrasound | Ultrasound-guided subacromial bursa injection",
-      "policy_note": "Locally reused media requires explicit source, author, and license metadata."
-    },
-    {
-      "ultrasound_view_id": "usv009",
-      "module": "shoulder",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553233/figure/FIG1/"
-      ],
-      "license_labels": [
-        "Creative Commons Attribution License"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": null,
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv010",
-      "module": "elbow",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11697989/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figures 2a/b — Normal extensor mass in long axis",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv011",
-      "module": "elbow",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11697989/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figures 3a/b — Normal extensor mass in short axis",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv012",
-      "module": "elbow",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11374584/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 2 — Normal long-axis medial elbow",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv013",
-      "module": "elbow",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11374584/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 8 — Dynamic ulnar nerve instability assessment",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv014",
-      "module": "elbow",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11744171/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 1, column IV — Long-axis distal biceps tendon",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv015",
-      "module": "elbow",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6423902/"
-      ],
-      "license_labels": [
-        "CC BY 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figures 3-4 — Deep motor branch entering supinator and PIN",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv016",
-      "module": "elbow",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12129630/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 6 — Triceps tendon with olecranon bursa example",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv017",
-      "module": "elbow",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11744171/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 1, columns I-III — Standard anterior elbow views",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv018",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 1",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv019",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv020",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv021",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv022",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 5",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv023",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv024",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 5",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv025",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 7",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv026",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 8",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv027",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 9",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv028",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 10",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv029",
-      "module": "wrist-hand",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379185/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 11",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv030",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 1",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv031",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv032",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv033",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv034",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 5",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv035",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv036",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 7",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv037",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 8",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv038",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 9",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv039",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 10",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv040",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5034024/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv041",
-      "module": "hip-pelvis",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13379162/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 13",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv042",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 1",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv043",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://www.essr.org/content-essr/uploads/2016/10/knee.pdf"
-      ],
-      "license_labels": [
-        "Canonical guideline reference; no local copy"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "ESSR Knee p.1",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv044",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figures 2 and 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv045",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 5",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv046",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figures 5 and 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv047",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figures 3 and 4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv048",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 7",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv049",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 7",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv050",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 8",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv051",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 9",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv052",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figures 10 and 12",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv053",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 10",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv054",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 11",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv055",
-      "module": "knee-thigh",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11993308/"
-      ],
-      "license_labels": [
-        "CC BY-NC-ND 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Table 3 + lateral ultrasound atlas sequence",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv056",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv057",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv058",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 5",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv059",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 11",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv060",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 14",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv061",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 15b",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv062",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5024848/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 11",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv063",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://www.essr.org/content-essr/uploads/2016/10/ankle.pdf"
-      ],
-      "license_labels": [
-        "ESSR canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "ESSR Ankle medial protocol",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv064",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10494809/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figs. 4 and 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv065",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 18",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv066",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 19",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv067",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figs. 2A-2B",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv068",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figs. 3A-3B",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv069",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10508328/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 1C-D",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv070",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8942737/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figs. 2 and 5",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv071",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10508328/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 1D",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv072",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Fig. 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv073",
-      "module": "leg-ankle-foot",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4033724/"
-      ],
-      "license_labels": [
-        "PMC article canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Anterior compartment section",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv074",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7093927/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Ultrasound figure A / Fig. 1",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv075",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 17B / cervical extensor layer images",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv076",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv077",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8628157/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1B",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv078",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv079",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figures 4-5",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv080",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1a",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv081",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1b",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv082",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1c",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv083",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7973677/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv084",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4499539/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 11",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv085",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9845551/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv086",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4499539/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 11 B-C",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv087",
-      "module": "cervical",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 23",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv088",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 5A",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv089",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 5B",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv090",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/"
-      ],
-      "license_labels": [
-        "CC BY 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 19",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv091",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/"
-      ],
-      "license_labels": [
-        "CC BY 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv092",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/"
-      ],
-      "license_labels": [
-        "CC BY 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 9",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv093",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 1",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv094",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv095",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9148345/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figures 5-6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv096",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv097",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 7",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv098",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/"
-      ],
-      "license_labels": [
-        "CC BY-NC 4.0"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv099",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11276413/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1A",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv100",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11202496/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1B",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv101",
-      "module": "thoracic-back-chestwall",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12747832/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 2C-D",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv102",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409444/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1a",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv103",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409444/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1b",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv104",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409444/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1c",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv105",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7464501/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1 D-F",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv106",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12588924/"
-      ],
-      "license_labels": [
-        "CC BY 4.0 canonical reference"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv107",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5244003/"
-      ],
-      "license_labels": [
-        "CC BY canonical reference"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figures 8-9",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv108",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5244003/"
-      ],
-      "license_labels": [
-        "CC BY canonical reference"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv109",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8901759/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 3B-C",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv110",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11178692/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv111",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11178692/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv112",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10317927/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 2C-E",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv113",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10317927/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 2D-E",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv114",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5222601/"
-      ],
-      "license_labels": [
-        "CC BY-NC-SA canonical reference"
-      ],
-      "license_audit_status": "explicit_license_label_present",
-      "figure_or_asset_label": "Figure 6",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv115",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11671740/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1b",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv116",
-      "module": "lumbar-sacral",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12897311/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv117",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 1",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv118",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv119",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv120",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044981/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv121",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044981/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 3",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv122",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044981/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv123",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv124",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 5",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv125",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 7",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv126",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4582530/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Case figures / sonographic series",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv127",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941212/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv128",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941212/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figures 3-4",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv129",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9262670/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Pictorial figures",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv130",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13463367/"
-      ],
-      "license_labels": [
-        "Open access canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figure 2",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    },
-    {
-      "ultrasound_view_id": "usv131",
-      "module": "abdominal-core",
-      "reuse_mode": "link_only_reference",
-      "source_pages": [
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/"
-      ],
-      "license_labels": [
-        "PMC canonical reference"
-      ],
-      "license_audit_status": "source_context_only_no_local_copy",
-      "figure_or_asset_label": "Figures 1-3 anatomy/US context",
-      "policy_note": "Canonical source/figure is linked without cloning the image locally; publication context is preserved and a generic license label is not treated as permission for local reuse."
-    }
-  ],
-  "issues": []
+  ]
 }
