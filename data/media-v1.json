@@ -1,7 +1,7 @@
 {
-  "version": "1.1",
-  "updated": "2026-09-24",
-  "note": "Curated open-license media registry. Fixed media is shown before live Wikimedia fallback. v1.1 expands fixed anatomy through upper arm and forearm. Ultrasound remains fixed only when structure/plane is sufficiently clear.",
+  "version": "2026.09.25-stage17-a",
+  "updated": "2026-09-25",
+  "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
     "m060": {
       "anatomy": [
@@ -101,11 +101,14 @@
     "m070": {
       "anatomy": [
         {
-          "title": "Supraspinatus — superior view",
-          "file": "Supraspinatus muscle top.png",
+          "title": "Supraspinatus — posterior representative view",
+          "file": "Supraspinatus muscle back.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Supraspinatus_muscle_top.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Supraspinatus_muscle_back.png",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "견갑극 위 극상와의 근복과 상완골 방향의 주행을 후면에서 가장 직관적으로 확인"
         }
       ],
       "ultrasound": [
@@ -138,33 +141,42 @@
     "m071": {
       "anatomy": [
         {
-          "title": "Infraspinatus — superior view",
-          "file": "Infraspinatus muscle top.png",
+          "title": "Infraspinatus — posterior representative view",
+          "file": "Infraspinatus muscle back.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Infraspinatus_muscle_top.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Infraspinatus_muscle_back.png",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "견갑극 아래 극하와를 채우는 근복 전체와 상완골로 향하는 주행을 후면에서 명확히 확인"
         }
       ]
     },
     "m072": {
       "anatomy": [
         {
-          "title": "Teres minor — lateral view",
-          "file": "Teres minor muscle lateral.png",
+          "title": "Teres minor — posterior representative view",
+          "file": "Teres minor muscle back.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Teres_minor_muscle_lateral.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Teres_minor_muscle_back.png",
+          "representative": true,
+          "view": "posterior",
+          "educationalReason": "극하근 아래에서 외측연을 따라 주행하는 소원근과 상완골 부착 방향을 후면에서 구분"
         }
       ]
     },
     "m073": {
       "anatomy": [
         {
-          "title": "Subscapularis — superior view",
-          "file": "Subscapularis muscle top.png",
+          "title": "Subscapularis — anterior representative view",
+          "file": "Subscapularis muscle frontal.png",
           "author": "Anatomography / DBCLS",
           "license": "CC BY-SA 2.1 JP",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Subscapularis_muscle_top.png"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Subscapularis_muscle_frontal.png",
+          "representative": true,
+          "view": "anterior",
+          "educationalReason": "견갑골 전면의 견갑하와를 덮는 근복과 상완골 소결절 방향의 주행을 전면에서 확인"
         }
       ]
     },
