@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "audit_version": "2026.09.25-stage11",
   "release_target": "v9.1 Global QA Complete",
-  "status": "PASS_AUTOMATED_PENDING_CI_REPLAY",
+  "status": "PASS_AUTOMATED",
   "manual_verification_pending": [
     "Android installed PWA fullscreen/address-bar-free physical-device confirmation"
   ],
@@ -93,5 +93,12 @@
     "script": "scripts/global-qa.mjs",
     "workflow": ".github/workflows/global-qa.yml",
     "trigger": "pull_request/main push/manual"
+  },
+  "ci_verification": {
+    "pr_number": 18,
+    "workflow": "Global QA",
+    "successful_run_id": 36100690448,
+    "verified_head_sha": "d6337ec5b0f5b27b9a042f85f10eedf8f5b79eec",
+    "conclusion": "success"
   }
 }
