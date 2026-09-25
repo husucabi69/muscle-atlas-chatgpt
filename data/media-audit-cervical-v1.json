@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cervical_ultrasound_media_audit_v1",
+  "audited_on": "2026-09-25",
+  "policy": "All Stage 7 ultrasound views are tied to actual public scientific ultrasound figures or figure groups. No generated B-mode or anatomy diagram is used as a substitute. Canonical source pages are linked to preserve publication and license context.",
+  "coverage": {
+    "views_total": 14,
+    "embedded_verified": 0,
+    "exact_figure_reference": 14,
+    "unverified": 0
+  },
+  "stage7_gate": "PASS",
+  "views": [
+    {
+      "ultrasound_view_id": "usv074",
+      "status": "verified_fixed_reference",
+      "title": "SCM and longus colli transverse view",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7093927/",
+      "figure_label": "Ultrasound figure A / Fig. 1",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv075",
+      "status": "verified_fixed_reference",
+      "title": "Posterior cervical extensor layers at C4",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+      "figure_label": "Figure 17B / cervical extensor layer images",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv076",
+      "status": "verified_fixed_reference",
+      "title": "Upper cervical C1-C2 posterior route",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/",
+      "figure_label": "Figure 3",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv077",
+      "status": "verified_fixed_reference",
+      "title": "Greater occipital nerve at C2",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8628157/",
+      "figure_label": "Figure 1B",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv078",
+      "status": "verified_fixed_reference",
+      "title": "C2 DRG / atlantoaxial region",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/",
+      "figure_label": "Figure 4",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv079",
+      "status": "verified_fixed_reference",
+      "title": "Atlanto-occipital joint / vertebral artery",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/",
+      "figure_label": "Figures 4-5",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv080",
+      "status": "verified_fixed_reference",
+      "title": "C5 cervical nerve root",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/",
+      "figure_label": "Figure 1a",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv081",
+      "status": "verified_fixed_reference",
+      "title": "C6 cervical nerve root",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/",
+      "figure_label": "Figure 1b",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv082",
+      "status": "verified_fixed_reference",
+      "title": "C7 cervical nerve root",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/",
+      "figure_label": "Figure 1c",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv083",
+      "status": "verified_fixed_reference",
+      "title": "C8 root / deep cervical artery relation",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7973677/",
+      "figure_label": "Figure 3",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv084",
+      "status": "verified_fixed_reference",
+      "title": "Interscalene roots/trunks",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4499539/",
+      "figure_label": "Figure 11",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv085",
+      "status": "verified_fixed_reference",
+      "title": "Superficial cervical plexus / SCM posterior border",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9845551/",
+      "figure_label": "Figure 6",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv086",
+      "status": "verified_fixed_reference",
+      "title": "Longus colli / anterior scalene / root relation",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4499539/",
+      "figure_label": "Figure 11 B-C",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    },
+    {
+      "ultrasound_view_id": "usv087",
+      "status": "verified_fixed_reference",
+      "title": "Suboccipital muscle layer",
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+      "figure_label": "Figure 23",
+      "license": "PMC canonical reference",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute or transformed figure."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src_cervical_route",
+      "title": "Proposal of a Route Map for Cervical Spinal Ultrasonography",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444723/"
+    },
+    {
+      "source_id": "src_cervical_paraspinal",
+      "title": "Pictorial Essay on Ultrasound and MRI of Paraspinal Muscles",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/"
+    },
+    {
+      "source_id": "src_cervical_root",
+      "title": "Ultrasonography has a diagnostic value in cervical radiculopathy",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5491566/"
+    },
+    {
+      "source_id": "src_gon",
+      "title": "Ultrasonography-Guided Common Musculoskeletal Interventions from Head to Toe",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8628157/"
+    },
+    {
+      "source_id": "src_plexus",
+      "title": "Ultrasonography-Based Thyroidal and Perithyroidal Anatomy",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4499539/"
+    }
+  ]
+}
