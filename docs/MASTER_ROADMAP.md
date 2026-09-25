@@ -1,8 +1,33 @@
 # Muscle Atlas → LYS OrthoOS 전신 개발 Master Roadmap
 
-시행일: 2026-09-24
-정본 상태: Active
-통합 원칙: Muscle Atlas는 독립 학습 앱으로 유지하면서 동일 MSK Knowledge Core를 향후 LYS OrthoOS가 read-only 방식으로 재사용할 수 있게 한다.
+최초 시행일: 2026-09-24
+최종 재정렬: 2026-09-25
+정본 상태: Stage 0–12 COMPLETE / Stage 13 Android TWA COMPLETE / Stage 14 Play submission pack PREPARED
+통합 원칙: Muscle Atlas는 독립 학습 앱으로 유지하면서 동일 MSK Knowledge Core를 LYS OrthoOS가 read-only 방식으로 재사용한다.
+
+## 현재 정본 요약
+
+| 영역 | 현재 상태 |
+|---|---|
+| Canonical anatomy | 205 muscles / O·I·F·N 820/820 |
+| Clinical modules | Stage 1–10 COMPLETE |
+| Oral Viva | Real Viva Pro COMPLETE |
+| Patient Education | 205/205 assignment / 독립 탭 / A4·부위별 매뉴얼 |
+| Ultrasound | 131 canonical views / source·figure·license audit 131/131 / generated B-mode 0 |
+| Global QA | Stage 11 COMPLETE |
+| OrthoOS | Stage 12 read-only contract v1 COMPLETE / no PHI |
+| Android | Stage 13 TWA / API 36 / release AAB build PASS |
+| Google Play | Stage 14 submission pack PREPARED / 실제 Console 제출은 미완료 |
+
+### 현재 실제 미완료
+- 설치형 PWA/TWA의 실기기 fullscreen·자동업데이트 end-to-end 검증
+- 환자 운동 그림을 개념 SVG에서 임상교육용 고품질 도해로 고도화
+- 131 ultrasound view의 probe-position 도해 및 공개 재사용 가능 실영상 지속 강화
+- Google Play account/signing/root Digital Asset Links/Data Safety/internal test/production submission
+
+### 다음 정본 로드맵
+새 기능 개발은 `docs/NEXT_UPGRADE_ROADMAP.md`를 따른다.
+첫 단계는 **Stage 15 — Reliable Auto-Update Engine**이다.
 
 ## 완료의 정의
 한 부위는 아래 8개 층이 모두 연결되어야 COMPLETE로 처리한다.
@@ -52,13 +77,15 @@
 - 일정 변경 시 이유와 새 목표일을 ROADMAP에 기록하며, 완료 기준 자체는 낮추지 않는다.
 
 ## 현재 단계
-Stage 1 — 어깨·견갑대·상완
-현재 상태: Stage 1 어깨·견갑대·상완 COMPLETE — 2026-09-24 조기 완료
-Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
-Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
-Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 12 COMPLETE — OrthoOS Read-only Integration Contract v1
-완료일: 2026-09-25
+- Stage 0–10: COMPLETE
+- L1 Oral Viva / L2 Patient Education: COMPLETE (지속 evidence refresh 제외)
+- Stage 11 Global QA: COMPLETE
+- Stage 12 OrthoOS Read-only Integration Contract v1: COMPLETE
+- Stage 13 Android TWA / API 36 / AAB build: COMPLETE
+- Stage 14 Google Play submission policy pack: PREPARED, 실제 Play Console 제출 전
+- 현재 다음 개발: **Stage 15 — Reliable Auto-Update Engine**
+
+> 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -316,7 +343,7 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - [x] 빠진 핵심과 canonical answer를 바로 제시
 - [x] 정답 채점은 Atlas 내부 핵심어 비교로 수행. 음성→텍스트 변환은 브라우저/OS SpeechRecognition provider를 사용할 수 있어 사용자 고지
 - [x] oral 오답 기록 localStorage 저장
-- [ ] 향후 optional semantic grader는 API key를 앱에 넣지 않는 안전한 server-side contract가 생긴 뒤 검토
+- [ ] OPTIONAL: semantic grader는 API key를 앱에 넣지 않는 안전한 server-side contract가 생긴 뒤에만 검토한다. 현재 COMPLETE gate 또는 Play 출시 blocker가 아니다.
 
 ### L2. 환자교육 스트레칭·강화운동
 - [x] canonical 205 muscles 전부 assignment 생성
@@ -326,8 +353,9 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - [x] 문헌 source 링크와 적용범위 표시
 - [x] 수술 후/급성파열/진행성 신경학적 이상/심폐 red flag 안전문구
 - [x] 2025 rotator cuff CPG, 2024 Achilles CPG, 2023 plantar heel pain CPG, 2021 LBP/ankle CPG, 2019 PFP CPG, 2018 gluteal tendinopathy RCT, 2017 neck CPG 등을 초기 근거축으로 사용
-- [ ] Stage 9~10 개발 중 새 부위 문헌을 지속 확장
-- [ ] Stage 11에서 205개 전체 source/evidence-grade audit 재검증
+- [x] Stage 9~10 개발에서 요추·천추 / 복벽·몸통 심부 교육 근거 확장
+- [x] Stage 11에서 205개 전체 assignment/source/evidence reference 무결성 재검증
+- 지속 과제: 새 CPG/RCT/체계적 고찰은 Evidence & Media Refresh 운영 트랙에서 갱신
 
 ### 근거 원칙
 - '해부학적으로 그럴듯함'과 '임상적으로 검증된 환자운동'을 같은 등급으로 표시하지 않는다.
@@ -546,3 +574,47 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 ### 통합 경계
 Muscle Atlas repo/runtime/data는 OrthoOS와 합치지 않는다.
 Stage 12는 versioned read-only knowledge contract만 제공하며 실제 환자 workflow는 OrthoOS Clinical Integration Layer가 소유한다.
+
+
+---
+
+## Stage 13 완료 기록 — Android TWA Release Shell
+완료일: 2026-09-25
+상태: COMPLETE
+
+- [x] Trusted Web Activity Android shell
+- [x] provisional applicationId `kr.co.lysortho.muscle`
+- [x] targetSdk / compileSdk 36
+- [x] HTTPS-only
+- [x] native RECORD_AUDIO permission 없음
+- [x] release AAB 실제 CI build PASS
+- [x] Android TWA QA workflow
+- [ ] Play App Signing fingerprint 기반 root Digital Asset Links — 외부 signing/origin 의존
+- [ ] 실제 Android 기기 toolbar-less TWA 확인 — Stage 21에서 수행
+
+## Stage 14 완료 기록 — Google Play Submission Pack
+완료일: 2026-09-25
+상태: PREPARED / NOT SUBMITTED
+
+- [x] Store listing 초안
+- [x] Health Apps 사전 분류
+- [x] Data Safety 사전평가
+- [x] Privacy / medical disclaimer 정렬
+- [x] 조직계정·signing·DAL·asset 요구사항 정리
+- [x] submission pack 자동 QA
+- [ ] Play Console 실제 앱 생성/제출
+- [ ] signing / root assetlinks / physical device / Data Safety voice 분류
+- [ ] screenshots / feature graphic / internal test / production review
+
+## 다음 업그레이드 정본
+`docs/NEXT_UPGRADE_ROADMAP.md`
+
+우선순위:
+1. Stage 15 Reliable Auto-Update Engine
+2. Stage 16 Patient Exercise Illustration 2.0
+3. Stage 17 Ultrasound Atlas 2.0
+4. Stage 18 Oral Viva 3.0
+5. Stage 19 Clinical Learning Flow 2.0
+6. Stage 20 Search & Personal Learning 2.0
+7. Stage 21 Real Device & Offline Quality Gate
+8. Stage 22 Google Play Production Release
