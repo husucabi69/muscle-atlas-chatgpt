@@ -762,5 +762,128 @@
       "m159"
     ],
     "symptomGroupId": "sg007"
+  },
+  {
+    "id": "sx39",
+    "title": "목에서 팔로 뻗치는 통증·저림",
+    "summary": "경추 신경근병증을 말초신경·어깨 원인과 구분하는 경로입니다.",
+    "conditions": "cervical radiculopathy, degenerative foraminal/disc disease, myelopathy red flag, peripheral nerve/shoulder mimic 감별.",
+    "nerves": "C5, C6, C7, C8 nerve roots; median/radial/ulnar peripheral pathways",
+    "ultrasound": "C5–C8 extraforaminal nerve root landmark를 확인하되 US 크기만으로 진단하지 않음.",
+    "muscles": [
+      "전사각근",
+      "중사각근",
+      "경장근",
+      "경반극근",
+      "경다열근"
+    ],
+    "muscleIds": [
+      "m002",
+      "m003",
+      "m006",
+      "m012",
+      "m013"
+    ],
+    "symptomGroupId": "sg002"
+  },
+  {
+    "id": "sx40",
+    "title": "후두부·상경추 두통",
+    "summary": "C1–2 움직임, suboccipital muscles, greater occipital nerve를 함께 보는 경로입니다.",
+    "conditions": "cervicogenic headache, occipital neuralgia, upper cervical pain candidate와 primary headache/red flag 감별.",
+    "nerves": "Greater occipital nerve (C2 dorsal ramus medial branch)",
+    "ultrasound": "C1–2 route map, OCI-semispinalis capitis 사이 GON, atlantoaxial region을 확인.",
+    "muscles": [
+      "후두직근 대",
+      "후두직근 소",
+      "상두사근",
+      "하두사근",
+      "두반극근"
+    ],
+    "muscleIds": [
+      "m017",
+      "m018",
+      "m019",
+      "m020",
+      "m011"
+    ],
+    "symptomGroupId": "sg002"
+  },
+  {
+    "id": "sx41",
+    "title": "회전·신전 시 편측 국소 경부통",
+    "summary": "후관절 후보와 후방 근육층 기능을 구분하는 기계적 경부통 경로입니다.",
+    "conditions": "cervical facet-mediated pain candidate, cervical myofascial pain, spondylosis-related mechanical pain 감별.",
+    "nerves": "cervical dorsal rami context",
+    "ultrasound": "posterior extensor layers와 facet contour를 교육적으로 확인하며 진단은 임상 통합.",
+    "muscles": [
+      "두판상근",
+      "경판상근",
+      "두반극근",
+      "경반극근",
+      "경다열근",
+      "경장늑근",
+      "두최장근",
+      "경최장근",
+      "경극근"
+    ],
+    "muscleIds": [
+      "m009",
+      "m010",
+      "m011",
+      "m012",
+      "m013",
+      "m194",
+      "m195",
+      "m196",
+      "m197"
+    ],
+    "symptomGroupId": "sg002"
+  },
+  {
+    "id": "sx42",
+    "title": "손 서툼·보행불안정이 동반된 경부증상",
+    "summary": "퇴행성 경추척수병증을 놓치지 않기 위한 red-flag 경로입니다.",
+    "conditions": "degenerative cervical myelopathy, multilevel radiculopathy, peripheral neuropathy/other neurologic causes 감별.",
+    "nerves": "cord/long tract signs plus cervical roots",
+    "ultrasound": "초음파는 cord compression 진단 도구가 아니며 MRI가 핵심 영상.",
+    "muscles": [
+      "경장근",
+      "경반극근",
+      "경다열근"
+    ],
+    "muscleIds": [
+      "m006",
+      "m012",
+      "m013"
+    ],
+    "symptomGroupId": "sg002"
+  },
+  {
+    "id": "sx43",
+    "title": "급성 외상 후 경부통·ROM 제한",
+    "summary": "단순 strain과 골절·불안정성·신경학적 손상을 먼저 구분하는 안전 경로입니다.",
+    "conditions": "whiplash-associated disorder, cervical strain, fracture/dislocation, neurologic injury 감별.",
+    "nerves": "cervical roots/cord if neurologic findings",
+    "ultrasound": "routine muscle ultrasound보다 trauma imaging decision rule과 신경학적 평가가 우선.",
+    "muscles": [
+      "흉쇄유돌근",
+      "전사각근",
+      "중사각근",
+      "두판상근",
+      "경판상근",
+      "두반극근",
+      "경반극근"
+    ],
+    "muscleIds": [
+      "m001",
+      "m002",
+      "m003",
+      "m009",
+      "m010",
+      "m011",
+      "m012"
+    ],
+    "symptomGroupId": "sg002"
   }
 ]
