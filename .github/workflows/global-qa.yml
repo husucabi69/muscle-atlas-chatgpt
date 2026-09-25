@@ -28,3 +28,5 @@ jobs:
         run: node scripts/android-twa-qa.mjs
       - name: Run Play Store submission pack QA
         run: node scripts/play-store-submission-qa.mjs
+      - name: Run Stage 15 auto-update QA
+        run: node scripts/auto-update-qa.mjs
