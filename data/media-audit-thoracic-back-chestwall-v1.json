@@ -18,7 +18,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
       "figure_label": "Figure 5A",
       "license": "CC BY-NC 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv089",
@@ -27,7 +30,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
       "figure_label": "Figure 5B",
       "license": "CC BY-NC 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv090",
@@ -36,7 +42,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
       "figure_label": "Figure 19",
       "license": "CC BY 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv091",
@@ -45,7 +54,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
       "figure_label": "Figure 4",
       "license": "CC BY 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv092",
@@ -54,7 +66,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
       "figure_label": "Figure 9",
       "license": "CC BY 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv093",
@@ -63,7 +78,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
       "figure_label": "Figure 1",
       "license": "CC BY-NC 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv094",
@@ -72,7 +90,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
       "figure_label": "Figure 2",
       "license": "CC BY-NC 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv095",
@@ -80,8 +101,12 @@
       "title": "Costotransverse long/short axes",
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9148345/",
       "figure_label": "Figures 5-6",
-      "license": "Open access canonical reference",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "license": "REFERENCE_ONLY — redistribution not asserted",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_original": "Open access canonical reference",
+      "license_status": "reference_only",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv096",
@@ -90,7 +115,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
       "figure_label": "Figure 4",
       "license": "CC BY-NC 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv097",
@@ -99,7 +127,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
       "figure_label": "Figure 7",
       "license": "CC BY-NC 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv098",
@@ -108,7 +139,10 @@
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273134/",
       "figure_label": "Figure 6",
       "license": "CC BY-NC 4.0",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_status": "explicit",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv099",
@@ -116,8 +150,12 @@
       "title": "Diaphragm zone of apposition B-mode",
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11276413/",
       "figure_label": "Figure 1A",
-      "license": "PMC canonical reference",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "license": "REFERENCE_ONLY — redistribution not asserted",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_original": "PMC canonical reference",
+      "license_status": "reference_only",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv100",
@@ -125,8 +163,12 @@
       "title": "Diaphragm excursion M-mode",
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11202496/",
       "figure_label": "Figure 1B",
-      "license": "PMC canonical reference",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "license": "REFERENCE_ONLY — redistribution not asserted",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_original": "PMC canonical reference",
+      "license_status": "reference_only",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     },
     {
       "ultrasound_view_id": "usv101",
@@ -134,8 +176,14 @@
       "title": "Intercostal respiratory thickness",
       "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12747832/",
       "figure_label": "Figure 2C-D",
-      "license": "PMC canonical reference",
-      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute."
+      "license": "REFERENCE_ONLY — redistribution not asserted",
+      "note": "Actual ultrasound fixed as canonical source reference; no generated substitute.",
+      "license_original": "PMC canonical reference",
+      "license_status": "reference_only",
+      "reuse_policy": "link_only",
+      "media_integrity": "actual_ultrasound_source; no generated B-mode substitute"
     }
-  ]
+  ],
+  "audit_revision": "2026-09-25-stage11",
+  "license_policy": "Embedded/local reusable media requires explicit reuse terms and attribution. Canonical external figures with uncertain or publication-specific redistribution terms are link-only; the app does not assert redistribution rights."
 }
