@@ -1,0 +1,471 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "thoracic_back_chestwall_differential_v1",
+  "region_ids": [
+    "r002",
+    "r004"
+  ],
+  "safety_rule": "Educational differential only. Thoracic pain has a broader serious differential than many peripheral MSK complaints. Trauma/osteoporosis, cancer/infection/immunosuppression, fever/systemic illness, myelopathy, progressive neurologic deficit, dyspnea, hypoxia, sudden severe chest pain, or visceral/cardiopulmonary features require appropriate urgent evaluation.",
+  "diagnosis_concepts": [
+    {
+      "diagnosis_concept_id": "d100",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "비특이적/기계적 흉추통",
+      "name_en": "Nonspecific or mechanical thoracic back pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d101",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추 후관절성 통증 후보",
+      "name_en": "Thoracic facet-mediated pain candidate",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d102",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Costotransverse joint 통증/염증 후보",
+      "name_en": "Costotransverse joint pain or inflammation candidate",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d103",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Costovertebral/rib mechanical pain 후보",
+      "name_en": "Costovertebral or rib mechanical pain candidate",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d104",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "견갑흉곽 운동이상",
+      "name_en": "Scapular dyskinesis / scapulothoracic motor-control impairment",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d105",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "늑간근/흉벽 strain",
+      "name_en": "Intercostal or chest-wall muscle strain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d106",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "늑간신경통",
+      "name_en": "Intercostal neuralgia",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d107",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추 신경근병증",
+      "name_en": "Thoracic radiculopathy",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d108",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추 척수병증/중대한 신경학적 병변 후보",
+      "name_en": "Thoracic myelopathy or serious neurologic lesion candidate",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d109",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추·흉벽 근막/호흡근 기능장애",
+      "name_en": "Thoracic myofascial or respiratory-muscle dysfunction",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d110",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "전거근/장흉신경 기능장애",
+      "name_en": "Serratus anterior / long thoracic nerve dysfunction",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d111",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "Snapping scapula / 견갑흉곽 점액낭 통증",
+      "name_en": "Snapping scapula / scapulothoracic bursitis candidate",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "diagnosis_concept_id": "d112",
+      "entity_type": "diagnosis_concept",
+      "name_ko": "흉추 중대병리 red-flag 후보",
+      "name_en": "Thoracic serious-pathology red-flag candidate",
+      "region_id": "r002",
+      "status": "active"
+    }
+  ],
+  "clinical_findings": [
+    {
+      "finding_id": "f085",
+      "entity_type": "clinical_finding",
+      "name_ko": "흉추 회전 제한/비대칭",
+      "key": "thoracic_rotation_restriction",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f086",
+      "entity_type": "clinical_finding",
+      "name_ko": "신전-회전에서 편측 국소 흉추통",
+      "key": "thoracic_extension_rotation_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f087",
+      "entity_type": "clinical_finding",
+      "name_ko": "늑골 spring에서 익숙한 통증 재현",
+      "key": "rib_spring_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f088",
+      "entity_type": "clinical_finding",
+      "name_ko": "Costotransverse 국소 압통/호흡 통증",
+      "key": "costotransverse_local_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f089",
+      "entity_type": "clinical_finding",
+      "name_ko": "심호흡·기침 시 국소 흉벽통",
+      "key": "respiratory_chest_wall_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f090",
+      "entity_type": "clinical_finding",
+      "name_ko": "band-like dermatomal 감각이상",
+      "key": "thoracic_dermatomal_sensory_change",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f091",
+      "entity_type": "clinical_finding",
+      "name_ko": "하지 UMN sign/감각수준/보행이상",
+      "key": "thoracic_myelopathy_signs",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f092",
+      "entity_type": "clinical_finding",
+      "name_ko": "동적 견갑익상",
+      "key": "dynamic_scapular_winging",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "finding_id": "f093",
+      "entity_type": "clinical_finding",
+      "name_ko": "견갑 보조 시 증상 개선",
+      "key": "scapular_assistance_improves_symptoms",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "finding_id": "f094",
+      "entity_type": "clinical_finding",
+      "name_ko": "통증성 scapulothoracic snapping",
+      "key": "painful_scapulothoracic_snapping",
+      "region_id": "r004",
+      "status": "active"
+    },
+    {
+      "finding_id": "f095",
+      "entity_type": "clinical_finding",
+      "name_ko": "흉추 paraspinal 조기 피로/비대칭",
+      "key": "thoracic_paraspinal_dysfunction",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f096",
+      "entity_type": "clinical_finding",
+      "name_ko": "intercostal load pain",
+      "key": "intercostal_load_pain",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f097",
+      "entity_type": "clinical_finding",
+      "name_ko": "호흡 패턴 비대칭/호흡근 과사용",
+      "key": "respiratory_muscle_pattern_abnormality",
+      "region_id": "r002",
+      "status": "active"
+    },
+    {
+      "finding_id": "f098",
+      "entity_type": "clinical_finding",
+      "name_ko": "흉추 중대병리 red flag",
+      "key": "thoracic_serious_red_flag",
+      "region_id": "r002",
+      "status": "active"
+    }
+  ],
+  "differential_groups": [
+    {
+      "differential_group_id": "dg046",
+      "symptom_id": "sx44",
+      "title_ko": "중앙/편측 흉추·등 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d100",
+          "look_for": [
+            "기계적 움직임 연관",
+            "국소 paraspinal pain",
+            "red flag 없음"
+          ],
+          "not_diagnostic_alone": [
+            "근육 압통 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d101",
+          "look_for": [
+            "extension-rotation 국소 통증"
+          ],
+          "not_diagnostic_alone": [
+            "provocation 하나"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d109",
+          "look_for": [
+            "paraspinal fatigue/trigger pattern"
+          ],
+          "not_diagnostic_alone": [
+            "US thickness 차이"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d112",
+          "look_for": [
+            "암/감염/골다공증/외상/전신증상"
+          ],
+          "not_diagnostic_alone": [
+            "야간통 하나"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg047",
+      "symptom_id": "sx45",
+      "title_ko": "견갑 내측-흉추 사이 찌르는 통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d102",
+          "look_for": [
+            "CTJ 국소 압통",
+            "호흡/회전 연관",
+            "US effusion/ligament change"
+          ],
+          "not_diagnostic_alone": [
+            "압통만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d103",
+          "look_for": [
+            "rib spring pain",
+            "costovertebral/rib movement relation"
+          ],
+          "not_diagnostic_alone": [
+            "rib tenderness only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d109",
+          "look_for": [
+            "rhomboid/erector/serratus posterior muscle pattern"
+          ],
+          "not_diagnostic_alone": [
+            "trigger point only"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg048",
+      "symptom_id": "sx46",
+      "title_ko": "띠 모양 흉벽·옆구리 통증/저림",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d107",
+          "look_for": [
+            "dermatomal band-like pain/paresthesia",
+            "spine-related provocation"
+          ],
+          "not_diagnostic_alone": [
+            "thoracic pain only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d106",
+          "look_for": [
+            "intercostal course tenderness/sensory change"
+          ],
+          "not_diagnostic_alone": [
+            "한 지점 압통"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d105",
+          "look_for": [
+            "호흡/회전/기침에서 국소 muscle pain"
+          ],
+          "not_diagnostic_alone": [
+            "pain with breathing alone"
+          ]
+        }
+      ],
+      "red_flags": [
+        "vesicular rash, dyspnea, hypoxia, sudden chest pain, visceral symptoms는 별도 평가"
+      ]
+    },
+    {
+      "differential_group_id": "dg049",
+      "symptom_id": "sx47",
+      "title_ko": "견갑 움직임 시 마찰·snapping/통증",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d111",
+          "look_for": [
+            "painful snapping과 견갑 움직임의 시간적 일치"
+          ],
+          "not_diagnostic_alone": [
+            "무통성 crepitus"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d104",
+          "look_for": [
+            "scapular assistance/retraction에서 증상 변화"
+          ],
+          "not_diagnostic_alone": [
+            "외관상 dyskinesis만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d110",
+          "look_for": [
+            "medial winging",
+            "serratus weakness",
+            "long thoracic nerve context"
+          ],
+          "not_diagnostic_alone": [
+            "wall push-up 변화 하나"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg050",
+      "symptom_id": "sx48",
+      "title_ko": "심호흡·기침·체간회전 시 흉벽통",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d105",
+          "look_for": [
+            "intercostal space 국소 통증",
+            "movement/respiration reproduction"
+          ],
+          "not_diagnostic_alone": [
+            "deep-breath pain only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d102",
+          "look_for": [
+            "posterior CTJ focal pain"
+          ],
+          "not_diagnostic_alone": [
+            "호흡통만"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d103",
+          "look_for": [
+            "rib trauma/mechanical provocation"
+          ],
+          "not_diagnostic_alone": [
+            "rib pain only"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d112",
+          "look_for": [
+            "호흡곤란/흉통/발열/외상 red flag"
+          ],
+          "not_diagnostic_alone": [
+            "한 개 비특이 red flag"
+          ]
+        }
+      ]
+    },
+    {
+      "differential_group_id": "dg051",
+      "symptom_id": "sx49",
+      "title_ko": "손 서툼/보행이상 없이 흉추 방사성 band pain vs 신경학적 이상",
+      "candidates": [
+        {
+          "diagnosis_concept_id": "d107",
+          "look_for": [
+            "dermatomal thoracic pain/paresthesia"
+          ],
+          "not_diagnostic_alone": [
+            "band pain alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d108",
+          "look_for": [
+            "sensory level",
+            "UMN signs",
+            "gait change",
+            "progressive weakness"
+          ],
+          "not_diagnostic_alone": [
+            "thoracic pain alone"
+          ]
+        },
+        {
+          "diagnosis_concept_id": "d112",
+          "look_for": [
+            "cancer/infection/trauma/immunosuppression red flags"
+          ],
+          "not_diagnostic_alone": [
+            "age alone"
+          ]
+        }
+      ],
+      "red_flags": [
+        "myelopathy/progressive neurologic deficit는 조기 MRI/전문의 평가 우선"
+      ]
+    }
+  ]
+}
