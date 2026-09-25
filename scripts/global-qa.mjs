@@ -155,21 +155,47 @@ check('Global media audit view total = 131', mediaGlobal.summary?.ultrasound_vie
 check('Global media audit unresolved issues = 0', mediaGlobal.summary?.unresolved_issues===0, String(mediaGlobal.summary?.unresolved_issues));
 check('No generated B-mode substitute', mediaGlobal.policy?.actual_ultrasound_only===true && mediaGlobal.policy?.generated_b_mode_substitute===false);
 
-for (const token of ['<section id="oral"','startOralSession','gradeOralAnswer','toggleOralMic','speechSynthesis','mskOralProgressV1']) {
+for (const token of ['<section id="oral"','startOralSession','gradeOralAnswer','toggleOralMic','speechSynthesis','mskOralProgressV2']) {
   check(`Oral Viva wiring: ${token}`, html.includes(token));
 }
-check('Oral Viva completeness thresholds hardened',
-  html.includes("friend:.45,teacher:.62,senior:.67,master:.72") &&
-  html.includes("split(/[;,]+/)") &&
-  html.includes("missing=clauses.filter((c,i)=>scores[i]<.65)")
+check('Oral Viva v9.2 examiner roles',
+  ['friend:{','colleague:{','senior:{','master:{'].every(token=>html.includes(token))
+);
+check('Oral Viva v9.2 multi-domain question engine',
+  ["category:'anatomy'","category:'function'","category:'exam'","category:'clinical'","category:'ultrasound'","category:'reverse'"].every(token=>html.includes(token))
+);
+check('Oral Viva completeness grading hardened',
+  html.includes("function oralTargetScore") &&
+  html.includes("missing.length===0") &&
+  html.includes("allComplete") &&
+  html.includes("friend:.42,colleague:.56,senior:.62,master:.68")
 );
 check('Oral Viva short anatomy-token guard present',
   html.includes("if(t.length<=3)") &&
-  html.includes("전자와, 극상와, 내측상과")
+  html.includes("grammatical.includes(t)")
+);
+check('Oral Viva teaching feedback present',
+  html.includes("function fieldTeaching") &&
+  html.includes("한 단계 더") &&
+  html.includes("정본 답")
+);
+check('Patient-first exercise UX present',
+  html.includes('data-page="education">환자 운동·스트레칭</button>') &&
+  html.includes("function printCurrentEducation") &&
+  html.includes("function exerciseIllustration") &&
+  html.includes("function exerciseCaution")
+);
+check('App identity v9.2',
+  html.includes("<h1>이윤석정형외과 근육</h1>") &&
+  manifest.name==="이윤석정형외과 근육"
+);
+check('Privacy policy linked',
+  html.includes("./privacy.html") &&
+  sw.includes("./privacy.html")
 );
 
 // Independent regression model for the canonical-answer and partial-answer invariants.
-// This mirrors the intended v9.1 grading contract rather than trusting UI wiring alone.
+// This mirrors the intended strict grading contract rather than trusting UI wiring alone.
 const oralStopQA=new Set(['근육','기능','신경','지배','기시','정지','에서','으로','하고','하며','보조','동반','운동','해당','부분','외측면','상면']);
 const oralNormQA=s=>String(s||'').toLowerCase()
   .replace(/transverse process/g,'횡돌기').replace(/posterior tubercle/g,'후결절').replace(/anterior tubercle/g,'전결절')
