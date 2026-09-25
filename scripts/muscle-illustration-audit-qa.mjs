@@ -78,7 +78,11 @@ const required={
   m134:'Adductor longus.gif',
   m135:'Adductor brevis.gif',
   m136:'Adductor magnus.gif',
-  m138:'Gracilis.gif'
+  m138:'Gracilis.gif',
+  m139:'Long head of biceps femoris.gif',
+  m140:'Short head of biceps femoris.gif',
+  m141:'Semitendinosus.png',
+  m142:'Semimembranosus.gif'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
