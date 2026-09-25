@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.25-stage11",
-  "release_target": "v9.1 Global QA Complete",
-  "status": "PASS_AUTOMATED",
+  "audit_version": "2026.09.25-stage11-v2",
+  "release_target": "v9.4 Stage 11 Global QA Verified",
+  "status": "PASS_AUTOMATED_V9_4",
   "manual_verification_pending": [
     "Android installed PWA fullscreen/address-bar-free physical-device confirmation"
   ],
@@ -21,7 +21,25 @@
     "master_exact_failures": 0,
     "speech_recognition_fallback": true,
     "local_storage": true,
-    "external_ai_transfer": false
+    "external_ai_transfer": false,
+    "pro_domains": [
+      "anatomy",
+      "function",
+      "exam",
+      "clinical",
+      "ultrasound",
+      "comparison",
+      "scenario",
+      "reverse",
+      "master"
+    ],
+    "examiner_roles": [
+      "friend",
+      "colleague",
+      "senior",
+      "master"
+    ],
+    "followup_examiner_flow": true
   },
   "patient_education": {
     "assignments": 205,
@@ -36,7 +54,13 @@
     },
     "invalid_profile_refs": 0,
     "invalid_source_refs": 0,
-    "no_isolated_protocol": 26
+    "no_isolated_protocol": 26,
+    "independent_patient_tab": true,
+    "home_patient_entry": true,
+    "muscle_print_manual": true,
+    "region_print_manual": true,
+    "weekly_checkboxes": true,
+    "patient_stop_warnings": true
   },
   "clinical_modules": {
     "modules": 10,
@@ -61,7 +85,10 @@
     "global_audit_file": "data/media-license-global-audit-v1.json",
     "unique_source_pages": 54,
     "explicit_license_status": 64,
-    "reference_only_license_status": 67
+    "reference_only_license_status": 67,
+    "verified_fixed_media": 5,
+    "verified_fixed_reference": 126,
+    "unverified": 0
   },
   "relationships": {
     "total": 1789,
@@ -86,7 +113,11 @@
     "scope": "/muscle-atlas-chatgpt/",
     "display": "fullscreen",
     "standalone_fallback": true,
-    "phi_boundary": "PASS"
+    "phi_boundary": "PASS",
+    "app_name": "이윤석정형외과 근육",
+    "release_ui": "v9.4 Stage 11 Global QA Verified",
+    "patient_medical_disclaimer": true,
+    "privacy_medical_professional_guidance": true
   },
   "knowledge_core_dataset_version": "2026.09.25-j",
   "automated_ci": {
@@ -95,10 +126,22 @@
     "trigger": "pull_request/main push/manual"
   },
   "ci_verification": {
-    "pr_number": 18,
+    "pr_number": 23,
     "workflow": "Global QA",
-    "successful_run_id": 36100690448,
-    "verified_head_sha": "d6337ec5b0f5b27b9a042f85f10eedf8f5b79eec",
+    "successful_run_id": 36114980055,
+    "verified_head_sha": "1f95ecc4650f67ff5e4a60f5166b0746960889e2",
     "conclusion": "success"
+  },
+  "google_play": {
+    "target_api": "Android 16 / API 36+",
+    "bundle": "AAB",
+    "health_declaration_candidates": [
+      "Medical Reference and Education",
+      "Physical Therapy and Rehabilitation"
+    ],
+    "privacy_policy": true,
+    "data_safety_review_required": true,
+    "twa_assetlinks_required": true,
+    "status": "PREPARATION_READY_NOT_YET_PACKAGED"
   }
 }

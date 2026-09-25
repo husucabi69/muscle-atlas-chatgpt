@@ -463,7 +463,7 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 
 
 ## v9.3 Real Viva Pro + Patient Manual + Ultrasound Refresh
-상태: 개발/QA 진행 — 2026-09-25
+상태: COMPLETE / Stage 11 재회귀 PASS — 2026-09-25
 
 ### Oral Viva Pro
 - [x] O/I/F/N 외 기능추론·촉진/MMT·증상·감별·초음파·reverse 질문 유지
@@ -487,6 +487,32 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 - [ ] generated ultrasound / fake B-mode는 계속 금지
 
 ### 배포 게이트
-- [ ] Global QA PASS
+- [x] Global QA static revalidation PASS
+- [x] PR CI Global QA PASS — run 36114980055
 - [ ] PR → main
 - [ ] Pages SUCCESS
+
+
+## v9.4 Stage 11 재검증 — Real Viva Pro / Patient Manual / Play Readiness
+상태: DEV QA PASS — 2026-09-25
+
+- [x] canonical muscle 205 / O-I-F-N 820/820
+- [x] Oral Viva Pro: anatomy/function/exam/clinical/ultrasound/comparison/scenario/reverse/master
+- [x] 친구·동료·선배·대가 examiner 반응 + same-muscle follow-up
+- [x] Patient Education 205/205
+- [x] 환자 독립 탭 + 홈 바로가기 + 쉬운 설명 + 운동 중단 주의사항
+- [x] 근육별 A4 인쇄 + 부위별 공통 운동 인쇄 + 주간 체크칸
+- [x] Stage 1–10 clinical module regression PASS
+- [x] actual ultrasound 131/131, unverified 0
+- [x] media source/figure/license metadata 131/131
+- [x] Stable ID duplicate 0 / orphan 0
+- [x] JavaScript / PWA / PHI boundary PASS
+- [x] 앱 이름: 이윤석정형외과 근육
+- [x] 환자 화면 비의료기기·진단치료 비대체·의료전문가 상담 고지
+- [x] Privacy Policy 의료전문가 상담 고지
+- [x] Google Play 2026: API36 / AAB / Health declaration / Data Safety 계획 재검증
+- [x] GitHub Actions Global QA PASS — run 36114980055
+- [ ] main merge
+- [ ] Pages SUCCESS
+
+다음 공식 개발: Stage 12 — OrthoOS Read-only Integration Contract.
