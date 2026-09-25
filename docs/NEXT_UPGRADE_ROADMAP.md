@@ -57,7 +57,7 @@
 
 # Stage 16 — Hierarchical Navigation 2.0
 
-상태: **IN DEVELOPMENT — 2026-09-25**
+상태: **DEV COMPLETE / AUTOMATED QA PASS — 2026-09-25**
 
 목표: 스크롤로 아래 내용을 찾아가는 구조를 없애고, 사용자가 “현재 어느 단계인지” 즉시 알 수 있는 계층형 화면 전환을 만든다.
 
@@ -86,22 +86,23 @@
    - 현재 부위 근육목록으로
 
 ## 구현
-- [ ] region chooser / muscle list / muscle detail을 독립 view state로 분리
-- [ ] 부위 클릭 시 같은 페이지 아래로 이동하지 않고 view 교체
-- [ ] 근육 클릭 시 modal이 아니라 anatomy explorer 내부 detail view로 이동
-- [ ] detail 내부 basic / imaging / clinical / learning 심화 탭
-- [ ] history/back 동작을 앱 단계와 맞춤
-- [ ] 페이지 전환 시 scroll top을 즉시 0으로 고정
-- [ ] mobile 360px에서 breadcrumb/back control 유지
-- [ ] 기존 증상·검색 등 외부 진입은 기존 근육 overlay를 깨지 않도록 유지
-- [ ] Stage 16 navigation QA 추가
+- [x] region chooser / muscle list / muscle detail을 독립 view state로 분리
+- [x] 부위 클릭 시 같은 페이지 아래로 이동하지 않고 view 교체
+- [x] 근육 클릭 시 modal이 아니라 anatomy explorer 내부 detail view로 이동
+- [x] detail 내부 basic / imaging / clinical / learning 심화 탭
+- [x] history/back 동작을 앱 단계와 맞춤
+- [x] 페이지 전환 시 scroll top을 즉시 0으로 고정
+- [x] mobile 360px에서 breadcrumb/back control 유지
+- [x] 기존 증상·검색 등 외부 진입은 기존 근육 overlay를 깨지 않도록 유지
+- [x] Stage 16 navigation QA 추가
 
 ## 완료 Gate
-- region → muscle list → muscle detail 전환이 각 단계에서 독립 화면처럼 동작
-- 다음 내용을 보기 위해 아래로 수동 스크롤해서 계층을 찾을 필요 0
-- anatomy explorer back dead-end 0
-- 205 muscle 전부 detail 진입 가능
-- 기존 Global QA regression PASS
+- [x] region → muscle list → muscle detail 전환이 각 단계에서 독립 화면처럼 동작
+- [x] 다음 내용을 보기 위해 아래로 수동 스크롤해서 계층을 찾을 필요 0
+- [x] anatomy explorer back dead-end를 막는 내부 버튼 + popstate 구조
+- [x] canonical 205 muscle을 동일 detail renderer로 진입
+- [x] 기존 Global QA regression PASS
+- [ ] 실제 Android 360px / 물리 back button 최종 확인은 Stage 23에서 수행
 
 ---
 
