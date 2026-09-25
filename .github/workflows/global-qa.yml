@@ -24,3 +24,5 @@ jobs:
         run: node scripts/global-qa.mjs
       - name: Run OrthoOS read-only integration contract QA
         run: node scripts/integration-contract-qa.mjs
+      - name: Run Android TWA static configuration QA
+        run: node scripts/android-twa-qa.mjs

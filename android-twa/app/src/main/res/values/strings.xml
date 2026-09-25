@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">이윤석정형외과 근육</string>
+    <string name="launch_url" translatable="false">https://husucabi69.github.io/muscle-atlas-chatgpt/?source=twa</string>
+    <string name="asset_statements" translatable="false">[{"relation":["delegate_permission/common.handle_all_urls"],"target":{"namespace":"web","site":"https://husucabi69.github.io"}}]</string>
+</resources>

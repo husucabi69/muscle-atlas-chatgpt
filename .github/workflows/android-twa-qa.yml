@@ -1,0 +1,55 @@
+name: Android TWA QA
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'android-twa/**'
+      - 'scripts/android-twa-qa.mjs'
+      - '.github/workflows/android-twa-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android-twa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Static TWA configuration QA
+        run: node scripts/android-twa-qa.mjs
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle 9.6.0
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.6.0'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android 16 SDK
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Build release AAB
+        run: gradle -p android-twa --no-daemon :app:lintDebug :app:bundleRelease
+
+      - name: Upload unsigned AAB QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lys-ortho-muscle-twa-unsigned-aab
+          path: android-twa/app/build/outputs/bundle/release/app-release.aab
+          if-no-files-found: error
