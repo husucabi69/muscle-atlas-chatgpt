@@ -1,0 +1,391 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "abdominal_core_ultrasound_v1",
+  "region_ids": [
+    "r014"
+  ],
+  "primary_references": [
+    {
+      "title": "Abdominal wall sonography: a pictorial review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/"
+    },
+    {
+      "title": "Immediate Effects of Whole-Body versus Local Dynamic Electrostimulation of the Abdominal Muscles",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044981/"
+    },
+    {
+      "title": "Ultrasound imaging for inguinal hernia: a pictorial review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9262670/"
+    },
+    {
+      "title": "What the Radiologist Needs to Know About Sport Hernias",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941212/"
+    },
+    {
+      "title": "High-resolution ultrasound of spigelian and groin hernias",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8008201/"
+    },
+    {
+      "title": "A Didactic Ultrasound Manual for lumbar plexus peripheral nerves",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13463367/"
+    }
+  ],
+  "ultrasound_views": [
+    {
+      "ultrasound_view_id": "usv117",
+      "name_ko": "전복벽 panoramic view",
+      "name_en": "Anterior abdominal-wall panoramic view",
+      "target_structure_ids": [
+        "m179",
+        "m181",
+        "m182",
+        "m183",
+        "fsc003",
+        "fsc004"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "high-frequency linear probe로 midline부터 lateral wall까지 panoramic transverse sweep.",
+      "landmarks": [
+        "rectus abdominis",
+        "external oblique",
+        "internal oblique",
+        "transversus abdominis",
+        "linea alba",
+        "linea semilunaris"
+      ],
+      "normal_finding": "RA와 3층 lateral wall, linea alba/semilunaris의 연속성을 확인한다.",
+      "pitfalls": [
+        "probe pressure로 muscle thickness 변형",
+        "복벽 병리와 visceral structure 혼동 주의"
+      ],
+      "source_ref": "abwall_fig1"
+    },
+    {
+      "ultrasound_view_id": "usv118",
+      "name_ko": "복직근 장축/건획",
+      "name_en": "Rectus abdominis longitudinal view",
+      "target_structure_ids": [
+        "m179",
+        "fsc004"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "rectus belly를 따라 longitudinal.",
+      "landmarks": [
+        "rectus abdominis",
+        "tendinous intersections",
+        "anterior/posterior rectus sheath"
+      ],
+      "normal_finding": "muscle belly와 tendinous intersections를 구분한다.",
+      "pitfalls": [
+        "건획을 tear/scar로 오인하지 않음",
+        "두께만으로 dysfunction 확정 금지"
+      ],
+      "source_ref": "abwall_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv119",
+      "name_ko": "외복사-내복사-복횡근 3층",
+      "name_en": "EO-IO-TrA lateral abdominal-wall layers",
+      "target_structure_ids": [
+        "m181",
+        "m182",
+        "m183"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "costal margin과 iliac crest 사이 mid-axillary/transverse.",
+      "landmarks": [
+        "external oblique",
+        "internal oblique",
+        "transversus abdominis",
+        "intermuscular fascia",
+        "peritoneal line"
+      ],
+      "normal_finding": "표층 EO, 중간 IO, 심부 TrA를 hypoechoic muscle layer와 hyperechoic fascia로 구분한다.",
+      "pitfalls": [
+        "호흡단계와 위치를 표준화",
+        "fascial line을 muscle로 측정하지 않음"
+      ],
+      "source_ref": "abwall_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv120",
+      "name_ko": "Lateral abdominal wall rest-vs-contraction",
+      "name_en": "EO-IO-TrA rest versus contraction",
+      "target_structure_ids": [
+        "m181",
+        "m182",
+        "m183"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "lateral wall 표준 위치.",
+      "landmarks": [
+        "EO",
+        "IO",
+        "TrA",
+        "rectus insertion reference"
+      ],
+      "normal_finding": "rest와 표준 contraction에서 각 muscle thickness 변화를 같은 지점에서 비교한다.",
+      "pitfalls": [
+        "thickness change는 activation proxy이지 strength 자체가 아님",
+        "task/probe pressure 동일화"
+      ],
+      "source_ref": "ems_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv121",
+      "name_ko": "복직근 rest-vs-contraction",
+      "name_en": "Rectus abdominis rest versus contraction",
+      "target_structure_ids": [
+        "m179"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "umbilical level 또는 명시된 표준점 transverse.",
+      "landmarks": [
+        "rectus belly",
+        "rectus sheath",
+        "linea alba"
+      ],
+      "normal_finding": "rest와 curl-up/표준 contraction에서 RA thickness 변화를 비교한다.",
+      "pitfalls": [
+        "측정 위치와 contraction 강도를 기록",
+        "두께 증가를 근력검사와 동일시하지 않음"
+      ],
+      "source_ref": "ems_fig3"
+    },
+    {
+      "ultrasound_view_id": "usv122",
+      "name_ko": "Inter-recti distance / linea alba",
+      "name_en": "Inter-recti distance at linea alba",
+      "target_structure_ids": [
+        "m179",
+        "fsc003"
+      ],
+      "patient_position": "앙와위, 무릎 굴곡.",
+      "probe_orientation": "linea alba를 가로지르는 transverse plane.",
+      "landmarks": [
+        "right rectus",
+        "left rectus",
+        "linea alba",
+        "inter-recti distance"
+      ],
+      "normal_finding": "양측 rectus medial border와 linea alba를 확인하고 위치·상태별 IRD를 기록한다.",
+      "pitfalls": [
+        "umbilicus 기준 거리와 rest/contraction 상태 명시",
+        "단일 cutoff 자동진단 금지"
+      ],
+      "source_ref": "ems_fig4"
+    },
+    {
+      "ultrasound_view_id": "usv123",
+      "name_ko": "Umbilical hernia view",
+      "name_en": "Umbilical hernia ultrasound",
+      "target_structure_ids": [
+        "fsc003",
+        "fsc005"
+      ],
+      "patient_position": "앙와위 및 필요 시 기립.",
+      "probe_orientation": "umbilical ring transverse/longitudinal.",
+      "landmarks": [
+        "umbilical fascial defect",
+        "hernia sac/content",
+        "rectus margins"
+      ],
+      "normal_finding": "defect의 위치·폭과 content를 rest/Valsalva에서 확인한다.",
+      "pitfalls": [
+        "환원성·bowel viability concern 평가",
+        "통증성 비환원성 hernia는 긴급평가"
+      ],
+      "source_ref": "abwall_fig4"
+    },
+    {
+      "ultrasound_view_id": "usv124",
+      "name_ko": "Paraumbilical linea-alba hernia",
+      "name_en": "Paraumbilical linea-alba hernia view",
+      "target_structure_ids": [
+        "fsc003",
+        "m179"
+      ],
+      "patient_position": "앙와위/기립.",
+      "probe_orientation": "umbilicus cranial linea alba transverse.",
+      "landmarks": [
+        "linea alba defect",
+        "preperitoneal fat",
+        "rectus abdominis"
+      ],
+      "normal_finding": "linea alba defect를 통한 fat/content protrusion을 확인한다.",
+      "pitfalls": [
+        "rectus diastasis와 true focal defect 구분",
+        "Valsalva response 확인"
+      ],
+      "source_ref": "abwall_fig5"
+    },
+    {
+      "ultrasound_view_id": "usv125",
+      "name_ko": "Incisional hernia view",
+      "name_en": "Incisional abdominal-wall hernia view",
+      "target_structure_ids": [
+        "fsc004",
+        "fsc005"
+      ],
+      "patient_position": "scar를 노출하고 앙와위/기립 비교.",
+      "probe_orientation": "scar와 fascial defect를 가로지르는 transverse/longitudinal.",
+      "landmarks": [
+        "scar",
+        "fascial defect",
+        "bowel/fat content",
+        "muscle edges"
+      ],
+      "normal_finding": "incisional defect와 herniated content의 이동을 확인한다.",
+      "pitfalls": [
+        "bowel obstruction/strangulation sign 주의",
+        "큰 hernia는 전체 anatomy가 US에서 제한될 수 있음"
+      ],
+      "source_ref": "abwall_fig7"
+    },
+    {
+      "ultrasound_view_id": "usv126",
+      "name_ko": "Spigelian/semilunar-line view",
+      "name_en": "Spigelian fascia and semilunar-line view",
+      "target_structure_ids": [
+        "m179",
+        "m182",
+        "m183",
+        "fsc005"
+      ],
+      "patient_position": "앙와위 및 필요 시 기립.",
+      "probe_orientation": "linea semilunaris를 따라 lower abdomen transverse/oblique.",
+      "landmarks": [
+        "rectus lateral border",
+        "internal oblique",
+        "transversus abdominis aponeurosis",
+        "Spigelian fascia"
+      ],
+      "normal_finding": "semilunar line 주변 fascial continuity와 dynamic protrusion 여부를 확인한다.",
+      "pitfalls": [
+        "external oblique가 sac을 덮어 palpable bulge가 없을 수 있음",
+        "incarceration concern은 외과 평가"
+      ],
+      "source_ref": "spigelian_us"
+    },
+    {
+      "ultrasound_view_id": "usv127",
+      "name_ko": "서혜관 posterior wall rest",
+      "name_en": "Inguinal canal posterior wall at rest",
+      "target_structure_ids": [
+        "lig026",
+        "m181",
+        "m182",
+        "m183"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "inferior epigastric vessels/deep ring에서 inguinal canal을 long/transverse axis로 확인.",
+      "landmarks": [
+        "inferior epigastric vessels",
+        "deep inguinal ring",
+        "posterior wall",
+        "spermatic cord/round ligament"
+      ],
+      "normal_finding": "rest에서 posterior wall contour와 canal content를 확인한다.",
+      "pitfalls": [
+        "direct/indirect 분류는 inferior epigastric vessel relation 필요",
+        "asymptomatic bulging 가능"
+      ],
+      "source_ref": "sport_hernia_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv128",
+      "name_ko": "서혜관 Valsalva dynamic view",
+      "name_en": "Inguinal canal dynamic Valsalva view",
+      "target_structure_ids": [
+        "lig026",
+        "fsc005"
+      ],
+      "patient_position": "앙와위 및 필요 시 기립.",
+      "probe_orientation": "rest와 동일 plane 유지.",
+      "landmarks": [
+        "posterior wall",
+        "inferior epigastric vessels",
+        "preperitoneal fat/bowel excursion"
+      ],
+      "normal_finding": "adequate Valsalva에서 posterior wall bulging 또는 hernia content 이동을 실시간 비교한다.",
+      "pitfalls": [
+        "불충분한 Valsalva는 false negative",
+        "physiologic movement와 pathologic protrusion 구분"
+      ],
+      "source_ref": "sport_hernia_fig3_4"
+    },
+    {
+      "ultrasound_view_id": "usv129",
+      "name_ko": "Direct vs indirect inguinal hernia landmark",
+      "name_en": "Inferior epigastric-vessel landmark for direct vs indirect hernia",
+      "target_structure_ids": [
+        "lig026",
+        "fsc005"
+      ],
+      "patient_position": "앙와위/기립.",
+      "probe_orientation": "inferior epigastric artery를 Color Doppler로 확인한 transverse inguinal plane.",
+      "landmarks": [
+        "inferior epigastric artery",
+        "deep ring",
+        "Hesselbach region",
+        "hernia sac"
+      ],
+      "normal_finding": "hernia content가 inferior epigastric vessels의 medial/direct 또는 lateral/indirect relation인지 확인한다.",
+      "pitfalls": [
+        "anatomic variation",
+        "동적 scan과 clinical symptoms를 함께 해석"
+      ],
+      "source_ref": "inguinal_pictorial"
+    },
+    {
+      "ultrasound_view_id": "usv130",
+      "name_ko": "Ilioinguinal·iliohypogastric nerve",
+      "name_en": "Ilioinguinal and iliohypogastric nerves near ASIS",
+      "target_structure_ids": [
+        "n045",
+        "n046",
+        "m182",
+        "m183"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "ASIS-umbilicus line을 따라 transverse.",
+      "landmarks": [
+        "internal oblique",
+        "transversus abdominis",
+        "fascial plane",
+        "ilioinguinal nerve",
+        "iliohypogastric nerve"
+      ],
+      "normal_finding": "IIN/IHN을 IO와 TrA 사이 fascial plane에서 확인한다.",
+      "pitfalls": [
+        "작은 nerve branch variability",
+        "visualization alone does not establish neuralgia"
+      ],
+      "source_ref": "lumbar_plexus_manual_fig2"
+    },
+    {
+      "ultrasound_view_id": "usv131",
+      "name_ko": "Anterior cutaneous nerve / rectus border corridor",
+      "name_en": "Anterior cutaneous thoracoabdominal nerve corridor at rectus border",
+      "target_structure_ids": [
+        "n047",
+        "m179",
+        "fsc004"
+      ],
+      "patient_position": "앙와위.",
+      "probe_orientation": "국소 trigger point의 rectus lateral edge에서 high-frequency transverse scan.",
+      "landmarks": [
+        "rectus abdominis",
+        "rectus sheath",
+        "neurovascular channel",
+        "subcutaneous exit region"
+      ],
+      "normal_finding": "anterior cutaneous branch가 rectus sheath를 통과하는 해부학적 corridor와 국소 병변 여부를 확인한다.",
+      "pitfalls": [
+        "작은 신경은 직접 식별이 어려울 수 있음",
+        "ACNES는 임상진단을 중심으로 하며 US는 구조/유도 보조"
+      ],
+      "source_ref": "abwall_anatomy_corridor"
+    }
+  ]
+}
