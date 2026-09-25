@@ -381,7 +381,7 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - canonical exact-answer false failure 0
 - master integrated O/I/F/N 205/205 tested
 - SpeechRecognition fallback / SpeechSynthesis / localStorage wiring PASS
-- external AI/API answer transfer 없음
+- grading backend/API 없음; microphone transcription은 browser/OS speech provider를 사용할 수 있어 개인정보 고지에 명시
 
 ### Patient Education
 - assignments 205/205
@@ -442,7 +442,7 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 - [x] 오답 시 누락 핵심 + 정본답 + 왜 중요한지 teaching point 제공
 - [x] '한 단계 더' follow-up teaching prompt
 - [x] 증상/진단/초음파 연결은 Knowledge Core Stable ID relationship에서 동적으로 생성
-- [x] 외부 LLM/API로 구술 답변을 전송하지 않음
+- [x] 채점은 Atlas 내부에서 수행. 단, SpeechRecognition transcription은 브라우저/OS 제공자의 서비스가 처리할 수 있음을 사용자에게 고지
 
 ### 환자 운동·스트레칭
 - [x] 상단 독립 탭으로 승격
@@ -452,7 +452,8 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 - [x] 근육별 운동표 A4 인쇄 기능
 - [x] 운동별 주의사항과 전체 stop/reassessment red flag
 - [x] 의료진용 evidence level/source는 접어서 별도 표시
-- [ ] 실제 환자용 도해는 Stage 11 visual QA에서 자세 정확도와 가독성을 추가 검수
+- [x] 실제 환자용 도해는 print-safe SVG 개념도로 18개 actionable profile 전부 연결
+- [ ] 임상사진 수준의 세부 동작 도해는 출처/저작권 또는 자체 제작 검수 후 단계적으로 교체
 
 ### Ultrasound 지속 업데이트 정책
 - 실제 공개 초음파/B-mode 또는 정당한 open-access figure만 사용
