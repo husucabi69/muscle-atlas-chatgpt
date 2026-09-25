@@ -28,6 +28,8 @@ const mediaGlobal = json('data/media-license-global-audit-v1.json');
 const html = read('index.html');
 const manifest = json('manifest.webmanifest');
 const sw = read('sw.js');
+const privacy=read('privacy.html');
+const playPlan=read('docs/PLAY_STORE_RELEASE_PLAN.md');
 
 check('Schema version 1.0.0', core.schema_version === '1.0.0', core.schema_version);
 check('Canonical muscles = 205', core.muscles.length === 205, String(core.muscles.length));
@@ -197,6 +199,21 @@ check('App identity v9.3',
 check('Privacy policy linked',
   html.includes("./privacy.html") &&
   sw.includes("./privacy.html")
+);
+check('Patient-facing medical disclaimer',
+  html.includes('의료기기가 아닙니다') &&
+  html.includes('의료전문가와 상담')
+);
+check('Privacy medical-professional guidance',
+  privacy.includes('의료기기가 아니며') &&
+  privacy.includes('의료전문가와 상담')
+);
+check('Google Play 2026 release-plan essentials',
+  playPlan.includes('API 36') &&
+  playPlan.includes('Android App Bundle(AAB)') &&
+  playPlan.includes('Medical Reference and Education') &&
+  playPlan.includes('Physical Therapy and Rehabilitation') &&
+  playPlan.includes('Data safety')
 );
 
 // Independent regression model for the canonical-answer and partial-answer invariants.
