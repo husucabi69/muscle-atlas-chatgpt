@@ -885,5 +885,133 @@
       "m012"
     ],
     "symptomGroupId": "sg002"
+  },
+  {
+    "id": "sx44",
+    "title": "중앙/편측 흉추·등 통증",
+    "summary": "흉추 고유근, 후관절, 중대병리 red flag를 함께 구분하는 기본 경로입니다.",
+    "conditions": "nonspecific/mechanical thoracic pain, thoracic facet candidate, paraspinal myofascial dysfunction, serious pathology red flag 감별.",
+    "nerves": "thoracic dorsal rami context",
+    "ultrasound": "thoracic intrinsic paraspinal layers와 facet contour를 교육적으로 확인.",
+    "muscles": [
+      "흉장늑근",
+      "흉최장근",
+      "흉반극근",
+      "흉다열근",
+      "흉회선근"
+    ],
+    "muscleIds": [
+      "m021",
+      "m022",
+      "m024",
+      "m025",
+      "m026"
+    ],
+    "symptomGroupId": "sg008"
+  },
+  {
+    "id": "sx45",
+    "title": "견갑 내측-흉추 사이 찌르는 통증",
+    "summary": "Costotransverse/costovertebral joint와 rhomboid·serratus posterior·erector spinae를 함께 보는 경로입니다.",
+    "conditions": "costotransverse joint pain/inflammation, costovertebral/rib mechanical pain, thoracic myofascial pain 감별.",
+    "nerves": "thoracic dorsal rami/intercostal nerve context",
+    "ultrasound": "CTJ long/short axes, posterior ligament, adjacent paraspinal muscle layers를 확인.",
+    "muscles": [
+      "흉최장근",
+      "흉다열근",
+      "상후거근",
+      "소능형근",
+      "대능형근"
+    ],
+    "muscleIds": [
+      "m022",
+      "m025",
+      "m030",
+      "m062",
+      "m063"
+    ],
+    "symptomGroupId": "sg008"
+  },
+  {
+    "id": "sx46",
+    "title": "띠 모양 흉벽·옆구리 통증/저림",
+    "summary": "thoracic radiculopathy와 intercostal neuralgia, chest-wall strain을 구분하는 경로입니다.",
+    "conditions": "thoracic radiculopathy, intercostal neuralgia, intercostal strain, herpes zoster/visceral mimic 감별.",
+    "nerves": "intercostal nerves, thoracic roots/dorsal rami",
+    "ultrasound": "intercostal muscle layers와 neurovascular bundle landmark를 확인하되 root compression 진단은 MRI/EDX 임상맥락 필요.",
+    "muscles": [
+      "외늑간근",
+      "내늑간근",
+      "최내늑간근"
+    ],
+    "muscleIds": [
+      "m032",
+      "m033",
+      "m034"
+    ],
+    "symptomGroupId": "sg008"
+  },
+  {
+    "id": "sx47",
+    "title": "견갑 움직임 시 마찰·snapping/통증",
+    "summary": "scapular dyskinesis, serratus/long thoracic dysfunction, snapping scapula/bursal pain을 구분하는 경로입니다.",
+    "conditions": "scapular dyskinesis, long thoracic/serratus dysfunction, snapping scapula/scapulothoracic bursitis candidate 감별.",
+    "nerves": "long thoracic nerve, dorsal scapular nerve, spinal accessory nerve",
+    "ultrasound": "trapezius-rhomboid-scapular border와 serratus anterior chest-wall layers를 확인.",
+    "muscles": [
+      "승모근",
+      "소능형근",
+      "대능형근",
+      "전거근",
+      "광배근"
+    ],
+    "muscleIds": [
+      "m060",
+      "m062",
+      "m063",
+      "m064",
+      "m068"
+    ],
+    "symptomGroupId": "sg008"
+  },
+  {
+    "id": "sx48",
+    "title": "심호흡·기침·체간회전 시 흉벽통",
+    "summary": "intercostal/chest-wall strain과 rib/CTJ 원인, 심폐·흉막 red flag를 구분하는 경로입니다.",
+    "conditions": "intercostal muscle strain, rib mechanical pain, CTJ pain; cardiopulmonary/pleural serious causes must be excluded when indicated.",
+    "nerves": "intercostal nerves",
+    "ultrasound": "intercostal layers, rib/pleura, diaphragm respiratory motion을 확인.",
+    "muscles": [
+      "외늑간근",
+      "내늑간근",
+      "최내늑간근",
+      "횡격막"
+    ],
+    "muscleIds": [
+      "m032",
+      "m033",
+      "m034",
+      "m037"
+    ],
+    "symptomGroupId": "sg008"
+  },
+  {
+    "id": "sx49",
+    "title": "흉추통과 동반된 보행·하지 신경학적 이상",
+    "summary": "thoracic myelopathy와 radiculopathy, 중대병리를 놓치지 않기 위한 red-flag 경로입니다.",
+    "conditions": "thoracic myelopathy/cord lesion, thoracic radiculopathy, fracture/infection/neoplasm 등 감별.",
+    "nerves": "thoracic cord/root/dorsal ramus context",
+    "ultrasound": "초음파는 cord compression 진단 도구가 아니며 MRI가 핵심 영상.",
+    "muscles": [
+      "흉반극근",
+      "흉다열근",
+      "흉회선근"
+    ],
+    "muscleIds": [
+      "m024",
+      "m025",
+      "m026"
+    ],
+    "symptomGroupId": "sg008"
   }
 ]
