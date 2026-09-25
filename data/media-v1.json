@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-i",
+  "version": "2026.09.26-stage17-j",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -988,6 +988,90 @@
           "representative": true,
           "view": "plantar third layer lateral",
           "educationalReason": "제5중족골에서 제5발가락 근위지골로 이어지는 단소지굴근의 짧은 외측 주행을 셋째 층에서 분리해 확인"
+        }
+      ]
+    },
+    "m151": {
+      "anatomy": [
+        {
+          "title": "Soleus — posterior representative view",
+          "file": "Posterior compartment of leg - soleus.png",
+          "author": "Database Center for Life Science (DBCLS) / BodyParts3D",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Posterior_compartment_of_leg_-_soleus.png",
+          "representative": true,
+          "view": "posterior calf",
+          "educationalReason": "비복근 아래에서 경골·비골 근위부부터 종골건으로 이어지는 넓고 납작한 가자미근 전체를 후면에서 가장 명확히 확인"
+        }
+      ]
+    },
+    "m152": {
+      "anatomy": [
+        {
+          "title": "Plantaris — highlighted posterior representative view",
+          "file": "Gray438-Musculus plantaris.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray438-Musculus_plantaris.png",
+          "representative": true,
+          "view": "posterior calf",
+          "educationalReason": "외측상과선 부근의 작은 근복과 종아리 후면을 길게 내려가는 가느다란 족척근 건을 비복근·가자미근과 구분해 확인"
+        }
+      ]
+    },
+    "m153": {
+      "anatomy": [
+        {
+          "title": "Popliteus — highlighted posterior knee representative view",
+          "file": "Gray439-Musculus popliteus.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray439-Musculus_popliteus.png",
+          "representative": true,
+          "view": "posterior knee deep",
+          "educationalReason": "대퇴골 외측과에서 경골 후면으로 비스듬히 주행하는 작은 슬와근을 후방 관절낭 깊은 층에서 강조하여 확인"
+        }
+      ]
+    },
+    "m154": {
+      "anatomy": [
+        {
+          "title": "Tibialis posterior — highlighted posterior deep representative view",
+          "file": "Tibialis posterior.png",
+          "author": "Gray's Anatomy; modified by Uwe Gille",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tibialis_posterior.png",
+          "representative": true,
+          "view": "posterior deep leg",
+          "educationalReason": "경골·비골과 골간막 사이 중앙 심부에서 내과 뒤를 지나 발 안쪽으로 향하는 후경골근의 위치와 긴 건 주행을 확인"
+        }
+      ]
+    },
+    "m155": {
+      "anatomy": [
+        {
+          "title": "Flexor digitorum longus — highlighted posterior deep representative view",
+          "file": "Gray439-Musculus flexor digitorum longus.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray439-Musculus_flexor_digitorum_longus.png",
+          "representative": true,
+          "view": "posterior deep leg",
+          "educationalReason": "경골 후면에서 내과 뒤를 지나 제2–5 발가락으로 향하는 장지굴근의 심부 근복과 건 방향을 강조하여 확인"
+        }
+      ]
+    },
+    "m156": {
+      "anatomy": [
+        {
+          "title": "Flexor hallucis longus — highlighted posterior deep representative view",
+          "file": "Gray439-Musculus flexor hallucis longus.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray439-Musculus_flexor_hallucis_longus.png",
+          "representative": true,
+          "view": "posterior deep leg",
+          "educationalReason": "비골 후면의 큰 근복에서 내과 뒤·거골 아래를 지나 엄지로 이어지는 장무지굴근의 외측 심부 주행을 명확히 확인"
         }
       ]
     }

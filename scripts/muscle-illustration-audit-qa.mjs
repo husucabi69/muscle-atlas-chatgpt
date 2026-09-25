@@ -56,7 +56,13 @@ const required={
   m017:'Rectus capitis posterior major muscle back.png',
   m018:'Rectus capitis posterior minor muscle back.png',
   m019:'Obliquus capitis superior muscle.png',
-  m020:'Obliquus capitis inferior muscle back.png'
+  m020:'Obliquus capitis inferior muscle back.png',
+  m151:'Posterior compartment of leg - soleus.png',
+  m152:'Gray438-Musculus plantaris.png',
+  m153:'Gray439-Musculus popliteus.png',
+  m154:'Tibialis posterior.png',
+  m155:'Gray439-Musculus flexor digitorum longus.png',
+  m156:'Gray439-Musculus flexor hallucis longus.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);

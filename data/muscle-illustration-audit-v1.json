@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-i",
+  "audit_version": "2026.09.26-stage17-j",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1375,37 +1375,85 @@
       "muscle_id": "m151",
       "name_ko": "가자미근",
       "name_en": "Soleus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Posterior compartment of leg - soleus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Posterior_compartment_of_leg_-_soleus.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Database Center for Life Science (DBCLS) / BodyParts3D",
+        "view": "posterior calf",
+        "educationalReason": "비복근 아래에서 경골·비골 근위부부터 종골건으로 이어지는 넓고 납작한 가자미근 전체를 후면에서 가장 명확히 확인"
+      }
     },
     {
       "muscle_id": "m152",
       "name_ko": "족척근",
       "name_en": "Plantaris",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray438-Musculus plantaris.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray438-Musculus_plantaris.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "posterior calf",
+        "educationalReason": "외측상과선 부근의 작은 근복과 종아리 후면을 길게 내려가는 가느다란 족척근 건을 비복근·가자미근과 구분해 확인"
+      }
     },
     {
       "muscle_id": "m153",
       "name_ko": "슬와근",
       "name_en": "Popliteus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray439-Musculus popliteus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray439-Musculus_popliteus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "posterior knee deep",
+        "educationalReason": "대퇴골 외측과에서 경골 후면으로 비스듬히 주행하는 작은 슬와근을 후방 관절낭 깊은 층에서 강조하여 확인"
+      }
     },
     {
       "muscle_id": "m154",
       "name_ko": "후경골근",
       "name_en": "Tibialis posterior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Tibialis posterior.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Tibialis_posterior.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "posterior deep leg",
+        "educationalReason": "경골·비골과 골간막 사이 중앙 심부에서 내과 뒤를 지나 발 안쪽으로 향하는 후경골근의 위치와 긴 건 주행을 확인"
+      }
     },
     {
       "muscle_id": "m155",
       "name_ko": "장지굴근",
       "name_en": "Flexor digitorum longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray439-Musculus flexor digitorum longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray439-Musculus_flexor_digitorum_longus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "posterior deep leg",
+        "educationalReason": "경골 후면에서 내과 뒤를 지나 제2–5 발가락으로 향하는 장지굴근의 심부 근복과 건 방향을 강조하여 확인"
+      }
     },
     {
       "muscle_id": "m156",
       "name_ko": "장무지굴근",
       "name_en": "Flexor hallucis longus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray439-Musculus flexor hallucis longus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray439-Musculus_flexor_hallucis_longus.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "posterior deep leg",
+        "educationalReason": "비골 후면의 큰 근복에서 내과 뒤·거골 아래를 지나 엄지로 이어지는 장무지굴근의 외측 심부 주행을 명확히 확인"
+      }
     },
     {
       "muscle_id": "m157",
@@ -1783,8 +1831,8 @@
     }
   ],
   "progress": {
-    "reviewed": 66,
-    "pending_review": 139,
-    "last_batch": "upper_arm_head_specific_color_batch"
+    "reviewed": 72,
+    "pending_review": 133,
+    "last_batch": "posterior_leg_priority_batch"
   }
 }
