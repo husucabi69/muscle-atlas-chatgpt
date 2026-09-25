@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "audit_version": "2026.09.25-stage11-v2",
   "release_target": "v9.4 Stage 11 Global QA Verified",
-  "status": "PASS_AUTOMATED_V9_4",
+  "status": "PASS_RELEASED_V9_4",
   "manual_verification_pending": [
     "Android installed PWA fullscreen/address-bar-free physical-device confirmation"
   ],
@@ -128,8 +128,11 @@
   "ci_verification": {
     "pr_number": 23,
     "workflow": "Global QA",
-    "successful_run_id": 36114980055,
-    "verified_head_sha": "1f95ecc4650f67ff5e4a60f5166b0746960889e2",
+    "pr_final_run_id": 36115053787,
+    "pr_final_head_sha": "e62a0ff54f788f22cfc405bde66994b8791db2c2",
+    "main_merge_sha": "d40c7a51fdf51ffd0b5522a71984a44efce2ac15",
+    "main_global_qa_run_id": 36115111877,
+    "pages_run_id": 36115110890,
     "conclusion": "success"
   },
   "google_play": {
@@ -143,5 +146,10 @@
     "data_safety_review_required": true,
     "twa_assetlinks_required": true,
     "status": "PREPARATION_READY_NOT_YET_PACKAGED"
+  },
+  "release": {
+    "main_merge_sha": "d40c7a51fdf51ffd0b5522a71984a44efce2ac15",
+    "pages": "success",
+    "released_on": "2026-09-25"
   }
 }
