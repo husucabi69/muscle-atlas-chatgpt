@@ -1,0 +1,343 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "abdominal_core_examination_v1",
+  "region_ids": [
+    "r014"
+  ],
+  "source_refs": {
+    "carnett_2024": "https://pubmed.ncbi.nlm.nih.gov/38340209/",
+    "diastasis_ehs_2021": "https://pubmed.ncbi.nlm.nih.gov/34595502/",
+    "abdominal_sonography": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7441131/",
+    "inguinal_us": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9262670/",
+    "sports_hernia_review": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941212/",
+    "lbp_cpg_2021": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10508241/"
+  },
+  "clinical_tests": [
+    {
+      "clinical_test_id": "ct133",
+      "name_ko": "Carnett 검사",
+      "name_en": "Carnett test",
+      "category": "abdominal_wall_pain",
+      "target_structure_ids": [
+        "m179",
+        "m181",
+        "m182",
+        "m183",
+        "n047"
+      ],
+      "setup": "환자가 가장 아픈 국소점을 한 손가락으로 가리키게 하고 그 부위를 촉진한다.",
+      "maneuver": "촉진 압력을 유지한 채 머리/어깨를 들거나 양 다리를 들어 복벽을 긴장시킨다.",
+      "positive_definition": "복벽 긴장 시 통증이 같거나 더 심해지면 abdominal-wall source를 지지하는 양성 소견으로 기록한다.",
+      "interpretation_note": "2024 narrative review에 따라 만성 국소 복벽통에서 유용한 bedside test지만 visceral disease를 단독 배제하지 않는다.",
+      "limitation": "급성 복통에서의 진단 유용성은 제한적이며 peritoneal/visceral red flag를 우선 평가한다.",
+      "related_diagnosis_concept_ids": [
+        "d127",
+        "d128",
+        "d138"
+      ],
+      "evidence_refs": [
+        "carnett_2024"
+      ]
+    },
+    {
+      "clinical_test_id": "ct134",
+      "name_ko": "국소 압통점·감각지도 평가",
+      "name_en": "Localized trigger point and sensory mapping",
+      "category": "abdominal_wall_nerve",
+      "target_structure_ids": [
+        "n047"
+      ],
+      "setup": "복직근 외측연 주변의 작은 국소 압통점을 찾고 주변 피부 감각을 좌우 비교한다.",
+      "maneuver": "가벼운 촉각/핀프릭으로 hyperesthesia, hypoesthesia, allodynia 여부와 국소 압통의 일치를 기록한다.",
+      "positive_definition": "작은 국소 trigger point와 주변 감각변화가 일관되면 anterior cutaneous nerve entrapment 후보로 기록한다.",
+      "interpretation_note": "ACNES 임상추론의 일부이며 Carnett·병력과 통합한다.",
+      "limitation": "국소 압통 하나만으로 nerve entrapment를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d128"
+      ]
+    },
+    {
+      "clinical_test_id": "ct135",
+      "name_ko": "복벽 동적 Valsalva 관찰",
+      "name_en": "Dynamic abdominal-wall Valsalva inspection",
+      "category": "hernia_screen",
+      "target_structure_ids": [
+        "fsc003",
+        "fsc004",
+        "fsc005",
+        "lig026"
+      ],
+      "setup": "앙와위와 필요 시 기립에서 복벽을 노출하고 의심 부위를 관찰한다.",
+      "maneuver": "기침 또는 적절한 Valsalva를 시행해 일시적 bulge와 reducibility를 본다.",
+      "positive_definition": "defect 부위와 일치하는 반복 가능한 bulge/impulse가 관찰되면 hernia 후보로 기록한다.",
+      "interpretation_note": "dynamic ultrasound와 연결되는 선별소견이다.",
+      "limitation": "bulge가 없다고 small/intermittent hernia를 배제하지 않으며 통증만으로 hernia를 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d132",
+        "d133",
+        "d134",
+        "d135"
+      ],
+      "evidence_refs": [
+        "abdominal_sonography",
+        "inguinal_us"
+      ]
+    },
+    {
+      "clinical_test_id": "ct136",
+      "name_ko": "기침 impulse 촉진",
+      "name_en": "Cough impulse palpation",
+      "category": "hernia_screen",
+      "target_structure_ids": [
+        "fsc003",
+        "lig026"
+      ],
+      "setup": "의심되는 umbilical/linea alba/groin defect에 손가락을 가볍게 댄다.",
+      "maneuver": "기침 시 전달되는 impulse와 bulge를 확인한다.",
+      "positive_definition": "해부학적 defect 위치와 일치하는 반복 가능한 impulse가 있으면 기록한다.",
+      "interpretation_note": "hernia suspicion을 높이는 임상소견이며 영상/외과 평가와 통합한다.",
+      "limitation": "비만·작은 hernia·깊은 hernia에서 민감도가 낮을 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d132",
+        "d133",
+        "d134",
+        "d135"
+      ]
+    },
+    {
+      "clinical_test_id": "ct137",
+      "name_ko": "복직근 이개 임상 선별",
+      "name_en": "Rectus diastasis clinical screen",
+      "category": "diastasis",
+      "target_structure_ids": [
+        "m179",
+        "fsc003"
+      ],
+      "setup": "앙와위에서 무릎을 굽히고 linea alba/umbilical region을 확인한다.",
+      "maneuver": "작은 head lift/curl-up으로 linea alba를 긴장시키며 midline widening/bulging을 관찰·촉진한다.",
+      "positive_definition": "midline inter-recti separation/bulging이 확인되면 정량 ultrasound measurement 대상으로 기록한다.",
+      "interpretation_note": "손가락 폭만으로 정량진단하지 않고 표준화된 inter-recti distance 측정과 증상/기능을 함께 본다.",
+      "limitation": "rectus diastasis는 true fascial hernia defect와 다르며 폭만으로 증상 원인을 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d131"
+      ],
+      "evidence_refs": [
+        "diastasis_ehs_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct138",
+      "name_ko": "Inter-recti distance 초음파 측정",
+      "name_en": "Ultrasound inter-recti distance measurement",
+      "category": "diastasis",
+      "target_structure_ids": [
+        "m179",
+        "fsc003"
+      ],
+      "setup": "앙와위에서 표준 위치(예: umbilicus 또는 일정 거리 상/하)를 기록하고 transverse probe를 댄다.",
+      "maneuver": "양측 rectus medialis border 사이 거리를 rest와 정의된 contraction에서 같은 protocol로 측정한다.",
+      "positive_definition": "측정값을 위치·호흡·수축조건과 함께 기록하며 단일 cutoff를 자동진단으로 사용하지 않는다.",
+      "interpretation_note": "EHS guideline은 rectus diastasis를 rectus separation으로 정의하지만 임상적 의미는 증상·기능·동반 hernia와 함께 평가한다.",
+      "limitation": "측정 위치와 contraction protocol에 따라 값이 달라진다.",
+      "related_diagnosis_concept_ids": [
+        "d131"
+      ],
+      "evidence_refs": [
+        "diastasis_ehs_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct139",
+      "name_ko": "Abdominal drawing-in maneuver",
+      "name_en": "Abdominal drawing-in maneuver (ADIM)",
+      "category": "motor_control",
+      "target_structure_ids": [
+        "m183",
+        "m182"
+      ],
+      "setup": "crook lying 또는 편안한 앙와위에서 정상 호흡을 유지한다.",
+      "maneuver": "숨을 참거나 골반을 움직이지 않고 하복부를 부드럽게 안쪽으로 당겨 TrA/IO의 저강도 활성화를 유도한다.",
+      "positive_definition": "과도한 rectus/EO bracing 없이 TrA/IO thickness change와 호흡 유지가 가능하면 적절한 motor-control 수행으로 기록한다.",
+      "interpretation_note": "trunk motor-control training의 한 방법이며 특정 복벽 병리를 확진하는 검사가 아니다.",
+      "limitation": "ultrasound thickness change를 근력 자체와 동일시하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d137"
+      ],
+      "evidence_refs": [
+        "lbp_cpg_2021"
+      ]
+    },
+    {
+      "clinical_test_id": "ct140",
+      "name_ko": "복직근 저항성 trunk flexion",
+      "name_en": "Resisted trunk flexion / curl-up provocation",
+      "category": "muscle_function",
+      "target_structure_ids": [
+        "m179"
+      ],
+      "setup": "앙와위에서 무릎을 굽히고 작은 curl-up을 시행한다.",
+      "maneuver": "통증 없는 범위에서 손의 가벼운 저항 또는 lever-arm progression을 적용한다.",
+      "positive_definition": "복직근 belly/attachment 부위에 익숙한 국소 통증 또는 현저한 기능저하가 재현되면 기록한다.",
+      "interpretation_note": "rectus strain/abdominal-wall pain 후보를 지지하는 기능소견이다.",
+      "limitation": "hernia/diastasis/visceral pain을 배제하지 않으며 급성 파열 의심 시 강한 저항 금지.",
+      "related_diagnosis_concept_ids": [
+        "d129"
+      ]
+    },
+    {
+      "clinical_test_id": "ct141",
+      "name_ko": "외복사근 기능성 회전 검사",
+      "name_en": "External-oblique resisted trunk rotation",
+      "category": "muscle_function",
+      "target_structure_ids": [
+        "m181"
+      ],
+      "setup": "좌위 또는 crook lying에서 몸통을 회전한다.",
+      "maneuver": "목표 외복사근이 주로 관여하는 반대측 회전에 가벼운 저항을 준다.",
+      "positive_definition": "해당 flank/abdominal muscle의 익숙한 통증 또는 현저한 약화가 재현되면 기록한다.",
+      "interpretation_note": "oblique strain/motor-control 후보의 기능평가다.",
+      "limitation": "회전은 여러 근육이 협력하므로 한 근육을 선택적으로 확정하지 않는다.",
+      "related_diagnosis_concept_ids": [
+        "d130"
+      ]
+    },
+    {
+      "clinical_test_id": "ct142",
+      "name_ko": "내복사근 기능성 회전 검사",
+      "name_en": "Internal-oblique resisted trunk rotation",
+      "category": "muscle_function",
+      "target_structure_ids": [
+        "m182"
+      ],
+      "setup": "좌위 또는 crook lying에서 몸통을 회전한다.",
+      "maneuver": "목표 내복사근이 주로 관여하는 동측 회전에 가벼운 저항을 준다.",
+      "positive_definition": "해당 flank/abdominal muscle의 익숙한 통증 또는 현저한 약화가 재현되면 기록한다.",
+      "interpretation_note": "internal oblique function 평가이며 단독 muscle lesion 확진검사가 아니다.",
+      "limitation": "복횡근·외복사근·paraspinal contribution이 함께 존재한다.",
+      "related_diagnosis_concept_ids": [
+        "d130"
+      ]
+    },
+    {
+      "clinical_test_id": "ct143",
+      "name_ko": "복횡근 초음파 수축비 평가",
+      "name_en": "Transversus abdominis ultrasound contraction ratio",
+      "category": "motor_control",
+      "target_structure_ids": [
+        "m183"
+      ],
+      "setup": "lateral abdominal wall 표준 probe position에서 rest thickness를 측정한다.",
+      "maneuver": "ADIM 또는 표준 저강도 task 중 같은 지점의 TrA thickness를 측정한다.",
+      "positive_definition": "rest-to-contraction thickness change를 protocol과 함께 기록한다.",
+      "interpretation_note": "motor-control/activation 정보이며 최대근력이나 임상결과를 직접 대변하지 않는다.",
+      "limitation": "호흡·probe pressure·측정부위·task에 크게 의존한다.",
+      "related_diagnosis_concept_ids": [
+        "d137"
+      ]
+    },
+    {
+      "clinical_test_id": "ct144",
+      "name_ko": "Athletic groin resisted sit-up",
+      "name_en": "Resisted sit-up for athletic groin pain",
+      "category": "groin_boundary",
+      "target_structure_ids": [
+        "m179",
+        "m181",
+        "lig026"
+      ],
+      "setup": "앙와위에서 trunk flexion을 유도한다.",
+      "maneuver": "하복부/치골부 통증을 재현하는지 확인하고 adductor-related pain과 구분한다.",
+      "positive_definition": "운동 시 pubic/inguinal abdominal-wall pain이 재현되면 athletic-groin/inguinal-disruption 후보로 기록한다.",
+      "interpretation_note": "임상 constellation의 일부이며 'sports hernia'를 단독 확진하지 않는다.",
+      "limitation": "adductor, hip, pubic symphysis pathology와 겹친다.",
+      "related_diagnosis_concept_ids": [
+        "d136"
+      ],
+      "evidence_refs": [
+        "sports_hernia_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct145",
+      "name_ko": "서혜부 동적 Valsalva 초음파",
+      "name_en": "Dynamic inguinal ultrasound with Valsalva",
+      "category": "hernia_imaging",
+      "target_structure_ids": [
+        "lig026",
+        "n045",
+        "n046"
+      ],
+      "setup": "inguinal canal을 inferior epigastric vessels와 deep ring landmark로 식별한다.",
+      "maneuver": "rest와 적절한 Valsalva/standing에서 posterior wall bulging, fat/bowel excursion을 실시간 비교한다.",
+      "positive_definition": "해부학적 defect 또는 pathologic bulging과 content movement를 위치와 함께 기록한다.",
+      "interpretation_note": "direct/indirect hernia 및 posterior-wall weakness의 동적 평가에 사용한다.",
+      "limitation": "불완전한 Valsalva는 false negative를 만들 수 있고 asymptomatic bulging도 있어 증상과 통합한다.",
+      "related_diagnosis_concept_ids": [
+        "d135",
+        "d136"
+      ],
+      "evidence_refs": [
+        "inguinal_us",
+        "sports_hernia_review"
+      ]
+    },
+    {
+      "clinical_test_id": "ct146",
+      "name_ko": "복벽 혈종/파열 선별",
+      "name_en": "Abdominal-wall hematoma or tear screen",
+      "category": "safety",
+      "target_structure_ids": [
+        "m179",
+        "m181",
+        "m182",
+        "m183"
+      ],
+      "setup": "항응고제, 외상, 격한 기침/운동, 국소 종괴·멍·급성통증 병력을 확인한다.",
+      "maneuver": "복벽 국소 종창·반상출혈·압통과 초음파 mass/collection 여부를 확인한다.",
+      "positive_definition": "급성 focal swelling/ecchymosis 또는 sonographic collection이 있으면 muscle tear/rectus sheath hematoma 후보로 기록한다.",
+      "interpretation_note": "출혈 위험이나 hemodynamic concern이 있으면 일반 재활보다 추가 평가를 우선한다.",
+      "limitation": "초음파만으로 active bleeding 범위를 완전히 평가하지 못할 수 있다.",
+      "related_diagnosis_concept_ids": [
+        "d139"
+      ]
+    },
+    {
+      "clinical_test_id": "ct147",
+      "name_ko": "Hernia complication red-flag 선별",
+      "name_en": "Hernia incarceration/strangulation red-flag screen",
+      "category": "safety",
+      "target_structure_ids": [
+        "fsc003",
+        "fsc005",
+        "lig026"
+      ],
+      "setup": "통증성 비환원성 bulge, 구토, 복부팽만, bowel symptoms, 피부변화를 확인한다.",
+      "maneuver": "무리한 reduction을 시도하지 않고 tenderness, reducibility, systemic signs를 평가한다.",
+      "positive_definition": "심한 통증성 비환원성 종괴, bowel obstruction signs, systemic compromise가 있으면 urgent surgical/emergency evaluation 대상으로 기록한다.",
+      "interpretation_note": "routine exercise/rehab보다 응급 평가가 우선이다.",
+      "limitation": "complication 여부가 불확실하면 적절한 영상·외과 평가가 필요하다.",
+      "related_diagnosis_concept_ids": [
+        "d140"
+      ]
+    },
+    {
+      "clinical_test_id": "ct148",
+      "name_ko": "복통 visceral/peritoneal red-flag 통합 선별",
+      "name_en": "Integrated visceral/peritoneal red-flag screen",
+      "category": "safety",
+      "target_structure_ids": [],
+      "setup": "발열, 지속 구토, GI bleeding, syncope, peritoneal irritation, pregnancy-related concern, severe unexplained acute pain, systemic illness를 확인한다.",
+      "maneuver": "vital/systemic findings와 abdominal tenderness pattern을 종합한다.",
+      "positive_definition": "visceral/peritoneal or systemic serious disease가 의심되면 MSK abdominal-wall pathway를 중단하고 적절한 의학적 평가를 우선한다.",
+      "interpretation_note": "Carnett 양성 여부와 무관하게 중대 visceral red flag가 우선한다.",
+      "limitation": "이 선별은 특정 내과/외과 질환의 확진검사가 아니다.",
+      "related_diagnosis_concept_ids": [
+        "d138",
+        "d140"
+      ],
+      "evidence_refs": [
+        "carnett_2024"
+      ]
+    }
+  ]
+}
