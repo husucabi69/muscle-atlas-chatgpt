@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.25-b",
+  "dataset_version": "2026.09.25-c",
   "module_id": "patient_exercise_library_v1",
   "scope": "Patient-facing stretching and strengthening education linked to canonical muscle IDs. No PHI.",
   "evidence_policy": {
@@ -79,6 +79,13 @@
       "kind": "anatomy_review",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
       "supports": "anatomic localization only; not an exercise efficacy guideline"
+    },
+    "diastasis2021": {
+      "title": "European Hernia Society guidelines on management of rectus diastasis",
+      "year": 2021,
+      "kind": "Guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34595502/",
+      "supports": "physiotherapy may be considered before surgical management, but no specific optimal exercise regimen is established"
     }
   },
   "profiles": [
@@ -372,6 +379,24 @@
         "증상과 다음날 반응을 확인하면서 저항·반복을 점진적으로 높인다."
       ],
       "dose": "급성 tendon injury, 수술 후, 신경손상은 해당 protocol을 우선."
+    },
+    {
+      "profile_id": "px018",
+      "title_ko": "복벽 motor-control + 점진적 몸통 부하",
+      "type": "strength_motor_control",
+      "evidence_tier": "B",
+      "source_refs": [
+        "lbp2021",
+        "diastasis2021"
+      ],
+      "indication_note": "복직근·복사근·복횡근을 기능적 trunk program에 포함합니다. 만성 요통에서는 trunk strengthening/endurance와 specific activation 근거가 있고, rectus diastasis에서는 physiotherapy를 고려할 수 있으나 특정 단일 운동법의 우월성은 확립되지 않았습니다.",
+      "steps": [
+        "통증 없는 중립 자세에서 정상 호흡을 유지한 채 복벽을 가볍게 긴장시킨다.",
+        "ADIM 또는 low-load brace에서 시작해 heel slide, dead-bug 변형, bridge, bird-dog 같은 기능적 과제로 진행할 수 있다.",
+        "복직근·복사근은 curl-up/rotation/anti-rotation 등으로 점진 부하하되 midline doming, hernia bulge 또는 날카로운 통증을 관찰한다.",
+        "일상 기능과 목표에 따라 부하·lever arm·반복을 단계적으로 증가한다."
+      ],
+      "dose": "정해진 단일 표준 용량은 없다. 증상·기능·다음날 반응을 기준으로 점진적으로 진행한다. hernia complication, 급성 muscle tear/hematoma, 수술 직후에는 해당 protocol을 우선한다."
     }
   ],
   "assignments": [
@@ -2306,12 +2331,13 @@
     {
       "muscle_id": "m179",
       "status": "group_evidence",
-      "evidence_tier": "A",
+      "evidence_tier": "B",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px014"
+        "px014",
+        "px018"
       ],
-      "note": "trunk activation/strengthening 근거를 복벽 근육군에 적용."
+      "note": "복벽 근육군은 만성 요통 CPG의 trunk exercise 근거와 EHS rectus-diastasis guideline의 제한적 physiotherapy 근거를 분리해 적용. 이 근육 하나의 단독 운동이 특정 복벽 질환을 치료한다고 표시하지 않음."
     },
     {
       "muscle_id": "m180",
@@ -2326,32 +2352,35 @@
     {
       "muscle_id": "m181",
       "status": "group_evidence",
-      "evidence_tier": "A",
+      "evidence_tier": "B",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px014"
+        "px014",
+        "px018"
       ],
-      "note": "trunk activation/strengthening 근거를 복벽 근육군에 적용."
+      "note": "복벽 근육군은 만성 요통 CPG의 trunk exercise 근거와 EHS rectus-diastasis guideline의 제한적 physiotherapy 근거를 분리해 적용. 이 근육 하나의 단독 운동이 특정 복벽 질환을 치료한다고 표시하지 않음."
     },
     {
       "muscle_id": "m182",
       "status": "group_evidence",
-      "evidence_tier": "A",
+      "evidence_tier": "B",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px014"
+        "px014",
+        "px018"
       ],
-      "note": "trunk activation/strengthening 근거를 복벽 근육군에 적용."
+      "note": "복벽 근육군은 만성 요통 CPG의 trunk exercise 근거와 EHS rectus-diastasis guideline의 제한적 physiotherapy 근거를 분리해 적용. 이 근육 하나의 단독 운동이 특정 복벽 질환을 치료한다고 표시하지 않음."
     },
     {
       "muscle_id": "m183",
       "status": "group_evidence",
-      "evidence_tier": "A",
+      "evidence_tier": "B",
       "stretch_profile_ids": [],
       "strength_profile_ids": [
-        "px014"
+        "px014",
+        "px018"
       ],
-      "note": "trunk activation/strengthening 근거를 복벽 근육군에 적용."
+      "note": "복벽 근육군은 만성 요통 CPG의 trunk exercise 근거와 EHS rectus-diastasis guideline의 제한적 physiotherapy 근거를 분리해 적용. 이 근육 하나의 단독 운동이 특정 복벽 질환을 치료한다고 표시하지 않음."
     },
     {
       "muscle_id": "m184",
