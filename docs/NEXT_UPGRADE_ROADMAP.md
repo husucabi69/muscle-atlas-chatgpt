@@ -128,15 +128,16 @@
 - [x] 경추/후두하 우선 배치 11개 검수 완료
 - [x] 심부둔부 6개 우선 배치 검수 완료
 - [x] 전완심부 8개 우선 배치 검수 완료
-- [ ] 족부심부 우선 재검수
+- [x] 족부 내재근 10개 우선 배치 검수 완료
+- [ ] 충양근·개별 골간근 등 남은 족부 심부근은 더 명확한 개별 대표도해 확보 후 승격
 - [x] reviewed 근육은 대표 1장 우선 원칙 적용
 - [x] 극하근 기존 superior view 대표도해 제거
 - [x] 1차 교체 4개 source/license/attribution 검증 및 유지
 - [x] anatomy detail 카드에 대표 시야 / view / 선정 이유 표시
 
 ## 현재 진행
-- reviewed: 29 / 205
-- pending_review: 176 / 205
+- reviewed: 39 / 205
+- pending_review: 166 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`

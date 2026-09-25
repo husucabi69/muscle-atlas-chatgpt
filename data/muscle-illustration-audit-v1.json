@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.25-stage17-d",
+  "audit_version": "2026.09.25-stage17-e",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1185,37 +1185,85 @@
       "muscle_id": "m157",
       "name_ko": "단지신근",
       "name_en": "Extensor digitorum brevis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray437-Musculus extensor digitorum brevis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray437-Musculus_extensor_digitorum_brevis.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; crop/highlight derivative",
+        "view": "dorsal foot",
+        "educationalReason": "종골 전외측에서 제2–4 발가락 신전건으로 퍼지는 단지신근의 발등 근복과 건 분지를 집중해서 확인"
+      }
     },
     {
       "muscle_id": "m158",
       "name_ko": "단무지신근",
       "name_en": "Extensor hallucis brevis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray437-Musculus extensor hallucis brevis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray437-Musculus_extensor_hallucis_brevis.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy; highlight derivative",
+        "view": "dorsal foot",
+        "educationalReason": "단지신근의 내측 부분에서 엄지 근위지골로 향하는 단무지신근을 발등에서 분리해 확인"
+      }
     },
     {
       "muscle_id": "m159",
       "name_ko": "무지외전근",
       "name_en": "Abductor hallucis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Abductor hallucis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Abductor_hallucis.png",
+        "license": "Public domain (US)",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "plantar superficial medial",
+        "educationalReason": "발뒤꿈치에서 엄지 근위지골로 이어지는 무지외전근의 내측 종주와 발바닥 첫째 층 위치를 가장 쉽게 확인"
+      }
     },
     {
       "muscle_id": "m160",
       "name_ko": "단지굴근",
       "name_en": "Flexor digitorum brevis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Flexor digitorum brevis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Flexor_digitorum_brevis.png",
+        "license": "Public domain (US)",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "plantar superficial",
+        "educationalReason": "종골에서 제2–5 발가락으로 네 갈래 건이 나뉘는 단지굴근을 발바닥 중앙 첫째 층에서 직관적으로 확인"
+      }
     },
     {
       "muscle_id": "m161",
       "name_ko": "소지외전근",
       "name_en": "Abductor digiti minimi (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Abductor digiti minimi (foot).png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Abductor_digiti_minimi_(foot).png",
+        "license": "Public domain (US)",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "plantar superficial lateral",
+        "educationalReason": "종골 외측에서 제5발가락으로 이어지는 소지외전근의 발바닥 외측 경계와 긴 주행을 명확히 확인"
+      }
     },
     {
       "muscle_id": "m162",
       "name_ko": "족척방형근",
       "name_en": "Quadratus plantae",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Muscle carré plantaire.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Muscle_carr%C3%A9_plantaire.png",
+        "license": "CC BY-SA 3.0 / GFDL",
+        "author": "Berichard after Gray's Anatomy",
+        "view": "plantar second layer",
+        "educationalReason": "종골에서 장지굴근 건으로 붙는 족척방형근과 장지굴근 건의 방향 보정 관계를 둘째 층에서 확인"
+      }
     },
     {
       "muscle_id": "m163",
@@ -1245,25 +1293,57 @@
       "muscle_id": "m167",
       "name_ko": "단무지굴근",
       "name_en": "Flexor hallucis brevis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Musculus flexor hallucis brevis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_flexor_hallucis_brevis.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "plantar third layer medial",
+        "educationalReason": "첫째 중족골두 아래에서 두 종자골을 사이에 두고 주행하는 단무지굴근의 내·외측 두 근복을 확인"
+      }
     },
     {
       "muscle_id": "m168",
       "name_ko": "무지내전근-사두",
       "name_en": "Adductor hallucis, oblique head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Musculus adductor hallucis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_adductor_hallucis.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "plantar third layer",
+        "educationalReason": "제2–4 중족골 기저부에서 엄지 쪽으로 사선 주행하는 무지내전근 사두를 횡두와 함께 비교해 확인"
+      }
     },
     {
       "muscle_id": "m169",
       "name_ko": "무지내전근-횡두",
       "name_en": "Adductor hallucis, transverse head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Musculus adductor hallucis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_adductor_hallucis.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "plantar third layer",
+        "educationalReason": "제3–5 중족지절관절 부위에서 엄지 쪽으로 횡주하는 무지내전근 횡두를 사두와 같은 그림에서 명확히 비교"
+      }
     },
     {
       "muscle_id": "m170",
       "name_ko": "단소지굴근",
       "name_en": "Flexor digiti minimi brevis (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Musculus flexor digiti minimi brevis (foot).png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_flexor_digiti_minimi_brevis_(foot).png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "plantar third layer lateral",
+        "educationalReason": "제5중족골에서 제5발가락 근위지골로 이어지는 단소지굴근의 짧은 외측 주행을 셋째 층에서 분리해 확인"
+      }
     },
     {
       "muscle_id": "m171",
@@ -1477,8 +1557,8 @@
     }
   ],
   "progress": {
-    "reviewed": 29,
-    "pending_review": 176,
-    "last_batch": "deep_forearm_priority_batch"
+    "reviewed": 39,
+    "pending_review": 166,
+    "last_batch": "intrinsic_foot_priority_batch"
   }
 }
