@@ -460,3 +460,33 @@ Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contrac
 - license/attribution/figure context 확인 후 추가
 - 생성형 초음파를 실제 영상처럼 사용하지 않음
 - 기존 canonical view보다 교육성이 명확히 좋아지는 경우에만 교체/추가
+
+
+## v9.3 Real Viva Pro + Patient Manual + Ultrasound Refresh
+상태: 개발/QA 진행 — 2026-09-25
+
+### Oral Viva Pro
+- [x] O/I/F/N 외 기능추론·촉진/MMT·증상·감별·초음파·reverse 질문 유지
+- [x] 같은 부위 근육 비교 질문 추가
+- [x] 임상 시나리오 질문 추가
+- [x] 초음파 landmark 질문 추가
+- [x] 친구·동료·선배·대가별 질문/정답/부분정답/오답 반응 다양화
+- [x] 답변 후 같은 근육을 더 파고드는 실제 꼬리질문 flow 추가
+
+### 환자 운동·스트레칭
+- [x] 독립 상단 탭 및 홈 바로가기 유지
+- [x] 쉬운 환자 설명 + 운동별 주의사항 유지
+- [x] 근육별 그림 운동표 A4 인쇄 유지
+- [x] 부위별 공통 운동을 중복 제거해 한 번에 인쇄하는 매뉴얼 추가
+- [x] 인쇄물 주간 실천 체크칸 추가
+
+### Ultrasound continuous refresh
+- [x] Knee PLC usv051을 2024 dedicated pictorial review Figure 5로 우선 reference 승격
+- [x] Peroneal usv059에 2025 CC BY retromalleolar anatomy reference 추가
+- [ ] 향후 새 공개·검증 B-mode/dynamic source가 더 우수할 때만 기존 reference를 승격/교체
+- [ ] generated ultrasound / fake B-mode는 계속 금지
+
+### 배포 게이트
+- [ ] Global QA PASS
+- [ ] PR → main
+- [ ] Pages SUCCESS

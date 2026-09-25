@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.25-stage11-b",
+  "audit_version": "2026.09.25-v9.3",
   "audited_on": "2026-09-25",
   "scope": "Global actual-ultrasound source, media-integrity and reuse-policy audit for Stage 1-10.",
   "policy": {
@@ -13,7 +13,7 @@
   "summary": {
     "ultrasound_views_total": 131,
     "unique_ultrasound_view_ids": 131,
-    "unique_source_pages": 54,
+    "unique_source_pages": 55,
     "embedded_reuse_with_attribution": 5,
     "link_only_reference_views": 126,
     "explicit_license_status": 64,
@@ -363,7 +363,6 @@
         "usv048",
         "usv049",
         "usv050",
-        "usv051",
         "usv052",
         "usv053",
         "usv054",
@@ -971,6 +970,21 @@
       ],
       "license_labels": [
         "REFERENCE_ONLY — redistribution not asserted"
+      ]
+    },
+    {
+      "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10857999/",
+      "modules": [
+        "knee-thigh"
+      ],
+      "view_ids": [
+        "usv051"
+      ],
+      "reuse_modes": [
+        "link_only"
+      ],
+      "license_labels": [
+        "CC BY 4.0"
       ]
     }
   ]

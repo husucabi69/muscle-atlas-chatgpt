@@ -25,6 +25,12 @@
     {
       "title": "A problem-based approach in musculoskeletal ultrasonography: central metatarsalgia",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8942737/"
+    },
+    {
+      "title": "Peroneus brevis split tear — Part 1: Anatomical basis and clinical insights",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11764704/",
+      "license": "CC BY 4.0",
+      "use": "normal retromalleolar tunnel/peroneus longus-brevis anatomy and dynamic positional context"
     }
   ],
   "ultrasound_views": [
@@ -119,7 +125,10 @@
         "정상 해부 변이",
         "probe 압력으로 subluxation을 억제할 수 있음"
       ],
-      "source_ref": "ankle_sono_fig11"
+      "source_ref": "ankle_sono_fig11",
+      "supplemental_source_refs": [
+        "peroneal_review_2025_fig1_fig3"
+      ]
     },
     {
       "ultrasound_view_id": "usv060",

@@ -158,11 +158,11 @@ check('No generated B-mode substitute', mediaGlobal.policy?.actual_ultrasound_on
 for (const token of ['<section id="oral"','startOralSession','gradeOralAnswer','toggleOralMic','speechSynthesis','mskOralProgressV2']) {
   check(`Oral Viva wiring: ${token}`, html.includes(token));
 }
-check('Oral Viva v9.2 examiner roles',
+check('Oral Viva v9.3 examiner roles',
   ['friend:{','colleague:{','senior:{','master:{'].every(token=>html.includes(token))
 );
-check('Oral Viva v9.2 multi-domain question engine',
-  ["category:'anatomy'","category:'function'","category:'exam'","category:'clinical'","category:'ultrasound'","category:'reverse'"].every(token=>html.includes(token))
+check('Oral Viva v9.3 multi-domain question engine',
+  ["category:'anatomy'","category:'function'","category:'exam'","category:'clinical'","category:'ultrasound'","category:'comparison'","category:'scenario'","category:'reverse'"].every(token=>html.includes(token))
 );
 check('Oral Viva completeness grading hardened',
   html.includes("function oralTargetScore") &&
@@ -179,13 +179,18 @@ check('Oral Viva teaching feedback present',
   html.includes("한 단계 더") &&
   html.includes("정본 답")
 );
+check('Oral Viva follow-up examiner flow',
+  html.includes("function makeOralFollowup") && html.includes("function askOralFollowup") && html.includes("꼬리질문 받기") && html.includes("probe:[")
+);
 check('Patient-first exercise UX present',
   html.includes('data-page="education">환자 운동·스트레칭</button>') &&
   html.includes("function printCurrentEducation") &&
+  html.includes("function printEducationRegion") &&
+  html.includes("이번 주 실천") &&
   html.includes("function exerciseIllustration") &&
   html.includes("function exerciseCaution")
 );
-check('App identity v9.2',
+check('App identity v9.3',
   html.includes("<h1>이윤석정형외과 근육</h1>") &&
   manifest.name==="이윤석정형외과 근육"
 );
