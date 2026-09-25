@@ -1633,7 +1633,13 @@ function oralTokens(s){
 function tokenMatch(user,token){
   const u=oralNorm(user),t=oralNorm(token);
   if(!t)return false;
-  return u.includes(t)||t.includes(u)&&u.length>=4;
+  // Short anatomy tokens (e.g. 미골, 신전, C8) must appear as their own spoken/text token.
+  // Substring matching for these creates false positives such as '미골' inside '항문미골인대'.
+  if(t.length<=3){
+    const userTokens=String(user||'').replace(/[;,·/()\[\]{}:+]/g,' ').split(/\s+/).map(x=>oralNorm(x)).filter(Boolean);
+    return userTokens.includes(t);
+  }
+  return u.includes(t)||(t.includes(u)&&u.length>=4);
 }
 function clauseScore(user,expected){
   const toks=[...new Set(oralTokens(expected))];
@@ -1733,7 +1739,7 @@ function gradeOralAnswer(){
     const clauses=String(t.expected||'').split(/[;,]+/).map(x=>x.trim()).filter(Boolean);
     const scores=clauses.map(c=>clauseScore(answer,c));
     const score=scores.length?scores.reduce((a,b)=>a+b,0)/scores.length:0;
-    const missing=clauses.filter((c,i)=>scores[i]<.45);
+    const missing=clauses.filter((c,i)=>scores[i]<.65);
     return{...t,score,missing,complete:missing.length===0};
   });
   const score=details.reduce((s,x)=>s+x.score,0)/details.length;
