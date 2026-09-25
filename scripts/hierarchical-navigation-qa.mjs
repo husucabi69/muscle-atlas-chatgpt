@@ -17,7 +17,7 @@ for(const tab of ['basic','anatomy','ultrasound','clinical','learning']){
   check('Detail tab exists: '+tab,index.includes('data-anatomy-detail-tab="'+tab+'"'));
 }
 
-check('Region list uses internal detail navigation',index.includes("onclick="openRegionMuscle('"));
+check('Region list uses internal detail navigation',index.includes("onclick=\"openRegionMuscle('"));
 check('Legacy region panel removed',!index.includes('id="regionMusclesPanel"'));
 check('Region muscle buttons no longer directly open modal',!index.includes('class="region-muscle" onclick="openMuscle'));
 check('Independent view state function',index.includes('function setAnatomyView(view)'));
