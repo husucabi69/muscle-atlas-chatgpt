@@ -1,0 +1,2573 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.09.25-a",
+  "module_id": "patient_exercise_library_v1",
+  "scope": "Patient-facing stretching and strengthening education linked to canonical muscle IDs. No PHI.",
+  "evidence_policy": {
+    "A": "직접 CPG/RCT 또는 질환·근육군에 강한 임상근거",
+    "B": "부위/근육군 CPG 근거를 해부학적으로 타당하게 연결",
+    "C": "직접 임상근거 제한. 교육용 또는 '개별 단독 protocol 미확립'으로 명시",
+    "rule": "근거가 약한 근육에 운동을 임의 생성해 '검증됨'으로 표시하지 않는다. 수술 후/급성 파열/신경학적 red flag/심폐 red flag는 해당 프로토콜 우선."
+  },
+  "sources": {
+    "neck2017": {
+      "title": "Neck Pain: Revision 2017 Clinical Practice Guideline",
+      "year": 2017,
+      "kind": "CPG",
+      "url": "https://www.orthopt.org/uploads/content_files/files/Neck%20Pain%20CPG%20-%20Revision%202017.pdf",
+      "supports": "cervical ROM, cervical/scapulothoracic stretching, strengthening, endurance, deep neck flexor exercise"
+    },
+    "rc2025": {
+      "title": "Rotator Cuff Tendinopathy Diagnosis, Nonsurgical Medical Care, and Rehabilitation: CPG",
+      "year": 2025,
+      "kind": "CPG",
+      "url": "https://doi.org/10.2519/jospt.2025.13182",
+      "supports": "patient-centred education; active rehabilitation with motor-control and resistance exercise using varied loads"
+    },
+    "elbow2022": {
+      "title": "Lateral Elbow Pain and Muscle Function Impairments CPG",
+      "year": 2022,
+      "kind": "CPG",
+      "url": "https://www.apta.org/patient-care/evidence-based-practice-resources/cpgs/lateral-elbow-pain-and-muscle-function-impairments",
+      "supports": "evidence-based rehabilitation for lateral elbow pain and muscle function impairments"
+    },
+    "gluteal2018": {
+      "title": "Education plus exercise versus corticosteroid injection versus wait-and-see for gluteal tendinopathy",
+      "year": 2018,
+      "kind": "RCT",
+      "url": "https://www.bmj.com/content/361/bmj.k1662",
+      "supports": "load-management education plus progressive specific exercise for gluteal tendinopathy"
+    },
+    "pfp2019": {
+      "title": "Patellofemoral Pain Clinical Practice Guideline",
+      "year": 2019,
+      "kind": "CPG",
+      "url": "https://doi.org/10.2519/jospt.2019.0302",
+      "supports": "combined posterolateral hip and knee-targeted exercise; resisted squat or resisted knee extension"
+    },
+    "achilles2024": {
+      "title": "Achilles Pain, Stiffness, and Muscle Power Deficits: Midportion Achilles Tendinopathy Revision 2024",
+      "year": 2024,
+      "kind": "CPG",
+      "url": "https://www.orthopt.org/uploads/content_files/files/Achilles_Pain_revision_2024.pdf",
+      "supports": "tendon-loading exercise as high as tolerated; at least 3 times weekly for midportion Achilles tendinopathy"
+    },
+    "ankle2021": {
+      "title": "Lateral Ankle Ligament Sprains Revision 2021",
+      "year": 2021,
+      "kind": "CPG",
+      "url": "https://doi.org/10.2519/jospt.2021.0302",
+      "supports": "protected ROM, stretching, strengthening/neuromuscular and balance training; progressive weight bearing"
+    },
+    "plantar2023": {
+      "title": "Heel Pain – Plantar Fasciitis Revision 2023",
+      "year": 2023,
+      "kind": "CPG",
+      "url": "https://doi.org/10.2519/jospt.2023.0303",
+      "supports": "plantar fascia/calf stretching and resistance training for foot and ankle musculature"
+    },
+    "lbp2021": {
+      "title": "Interventions for the Management of Acute and Chronic Low Back Pain: Revision 2021",
+      "year": 2021,
+      "kind": "CPG",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10508241/",
+      "supports": "trunk strengthening/endurance, specific trunk activation, movement-control, mobility and general exercise"
+    },
+    "thoracic2024": {
+      "title": "Pictorial Essay on Ultrasound and MRI of Paraspinal Muscles",
+      "year": 2024,
+      "kind": "anatomy_review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+      "supports": "anatomic localization only; not an exercise efficacy guideline"
+    }
+  },
+  "profiles": [
+    {
+      "profile_id": "px001",
+      "title_ko": "경추 가동성 + 경견갑 스트레칭",
+      "type": "stretch_mobility",
+      "evidence_tier": "B",
+      "source_refs": [
+        "neck2017"
+      ],
+      "indication_note": "기계적 경부통/가동성 저하에서 부위 단위로 적용. 특정 작은 근육 하나만 선택적으로 늘리는 처방은 아님.",
+      "steps": [
+        "편안히 앉거나 선다.",
+        "통증 없는 범위에서 경추 회전·측굴·굴곡/신전을 천천히 시행한다.",
+        "SCM/사각근/상부 승모근 등 과긴장 패턴이 있으면 증상을 유발하지 않는 범위에서 반대 방향으로 부드럽게 늘린다.",
+        "저림·팔 방사통·어지럼·시야 이상이 생기면 즉시 중단한다."
+      ],
+      "dose": "최적 용량은 CPG에서 단일값으로 확정되지 않음. 저강도 반복부터 시작해 반응에 맞춰 조절."
+    },
+    {
+      "profile_id": "px002",
+      "title_ko": "심부 경부굴곡근 motor-control",
+      "type": "strength_motor_control",
+      "evidence_tier": "B",
+      "source_refs": [
+        "neck2017"
+      ],
+      "indication_note": "longus colli/capitis를 포함한 심부 굴곡근 조절·지구력 훈련.",
+      "steps": [
+        "앙와위에서 목을 중립으로 둔다.",
+        "머리를 들지 말고 ‘작게 끄덕이듯’ 턱을 당겨 상부 경추를 가볍게 굴곡한다.",
+        "SCM이 튀어나오거나 숨을 참지 않도록 한다.",
+        "정확한 저강도 수축을 유지한 뒤 완전히 이완한다."
+      ],
+      "dose": "낮은 부하·정확한 조절이 우선. 유지시간과 반복은 증상 및 피로에 맞춰 점진 조절."
+    },
+    {
+      "profile_id": "px003",
+      "title_ko": "경견갑 지구력·근력",
+      "type": "strength_endurance",
+      "evidence_tier": "B",
+      "source_refs": [
+        "neck2017"
+      ],
+      "indication_note": "경부-견갑대의 만성/아급성 기능저하에서 근육군 단위 강화.",
+      "steps": [
+        "중립 목 자세를 유지한다.",
+        "밴드 row 또는 견갑 후인 동작을 천천히 시행한다.",
+        "견갑을 으쓱하지 않고 후인·상방회전 조절을 유지한다.",
+        "통증 없이 가능한 저항에서 시작해 반복/저항을 점진적으로 증가한다."
+      ],
+      "dose": "CPG는 강화·지구력 운동을 지지하지만 최적 단일 용량은 확정하지 않음."
+    },
+    {
+      "profile_id": "px004",
+      "title_ko": "회전근개·견갑 active rehabilitation",
+      "type": "strength_motor_control",
+      "evidence_tier": "A",
+      "source_refs": [
+        "rc2025"
+      ],
+      "indication_note": "rotator cuff tendinopathy에서 초기 치료로 active motor-control/resistance program 권고.",
+      "steps": [
+        "통증 허용 범위에서 밴드 외회전/내회전 또는 scaption 중 해당 목표와 맞는 동작을 선택한다.",
+        "몸통 보상과 견갑 과도한 으쓱을 줄인다.",
+        "천천히 concentric/eccentric control을 유지한다.",
+        "반응이 안정되면 저항·가동범위·기능부하를 단계적으로 높인다."
+      ],
+      "dose": "다양한 부하가 사용 가능하며 특정 한 프로그램의 우월성은 확립되지 않음. 개인별 load tolerance로 진행."
+    },
+    {
+      "profile_id": "px005",
+      "title_ko": "어깨·흉곽 가동성 스트레칭",
+      "type": "stretch_mobility",
+      "evidence_tier": "B",
+      "source_refs": [
+        "rc2025",
+        "neck2017"
+      ],
+      "indication_note": "가동성 제한이 동반될 때 증상 허용 범위에서 사용. 건병증 자체를 '늘려서 치료'하는 개념이 아님.",
+      "steps": [
+        "통증 없는 범위의 어깨 굴곡·외회전·흉곽 신전을 사용한다.",
+        "대흉근/소흉근 단축 패턴에서는 문틀을 이용해 가벼운 전흉부 stretch를 시행할 수 있다.",
+        "통증이 날카롭게 증가하거나 팔 저림이 생기면 중단한다."
+      ],
+      "dose": "저강도·짧은 유지부터 시작하고 다음날 반응을 확인한다."
+    },
+    {
+      "profile_id": "px006",
+      "title_ko": "전완 굴곡·신전근 점진 저항운동",
+      "type": "strength_loading",
+      "evidence_tier": "B",
+      "source_refs": [
+        "elbow2022"
+      ],
+      "indication_note": "특히 lateral elbow pain/근기능 저하에서 손목 신전근 부하 회복 근거를 활용. 개별 전완근 전체에 동일한 질환특이 근거가 있는 것은 아님.",
+      "steps": [
+        "팔꿈치를 지지하고 손목을 중립에 둔다.",
+        "목표에 따라 손목 굴곡/신전 또는 회내/회외를 가벼운 저항으로 시행한다.",
+        "동작을 천천히 하고 통증이 과도하게 누적되지 않도록 한다.",
+        "기능이 회복되면 저항과 반복을 점진적으로 증가한다."
+      ],
+      "dose": "통증·기능과 다음날 반응에 맞춰 점진 부하. 개별 건병증 프로토콜은 진단에 따라 수정."
+    },
+    {
+      "profile_id": "px007",
+      "title_ko": "손 내재근 기능 강화",
+      "type": "strength_functional",
+      "evidence_tier": "C",
+      "source_refs": [],
+      "indication_note": "각 lumbrical/interosseous를 단독으로 치료하는 고품질 근골격 CPG 근거는 제한적. 해부학·기능 기반 교육용.",
+      "steps": [
+        "통증 없는 범위에서 손가락 벌림/모음, MCP 굴곡-지간관절 신전, opposition 등 목표 기능을 저강도로 연습한다.",
+        "작은 고무밴드·퍼티 등은 감각/건/관절 상태를 확인한 뒤 사용한다."
+      ],
+      "dose": "질환·수술·건 손상 여부에 따라 크게 달라지므로 환자별 처방 필요."
+    },
+    {
+      "profile_id": "px008",
+      "title_ko": "둔근 부하관리 + 점진 강화",
+      "type": "strength_loading",
+      "evidence_tier": "A",
+      "source_refs": [
+        "gluteal2018"
+      ],
+      "indication_note": "gluteal tendinopathy에서 교육+운동 프로그램의 임상효과가 RCT로 입증됨. 특정 한 동작보다 압박부하 관리와 점진 강화가 핵심.",
+      "steps": [
+        "통증을 지속적으로 악화시키는 고관절 내전 압박 자세를 줄인다.",
+        "초기에는 통증 허용 범위의 등척성/저부하 외전으로 시작한다.",
+        "standing 또는 side-lying hip abduction 등으로 중둔근·소둔근 부하를 점진적으로 높인다.",
+        "보행·계단·single-leg 기능으로 단계적으로 전환한다."
+      ],
+      "dose": "주 단위로 load tolerance를 관찰하며 진행. 통증 반응에 따라 강도/볼륨 조절."
+    },
+    {
+      "profile_id": "px009",
+      "title_ko": "고관절 외측 + 무릎 표적 운동",
+      "type": "strength_loading",
+      "evidence_tier": "A",
+      "source_refs": [
+        "pfp2019"
+      ],
+      "indication_note": "patellofemoral pain에서 posterolateral hip + knee-targeted exercise 병행 권고.",
+      "steps": [
+        "고관절 외전/외회전 근육을 밴드·체중부하로 강화한다.",
+        "무릎은 resisted squat 같은 체중부하 운동 또는 resisted knee extension을 사용할 수 있다.",
+        "초기에는 필요하면 hip-targeted exercise 비중을 높인다.",
+        "통증·기능에 따라 깊이, 저항, single-leg demand를 점진적으로 증가한다."
+      ],
+      "dose": "CPG는 병합 운동을 권고하나 최적 단일 용량은 확정하지 않음."
+    },
+    {
+      "profile_id": "px010",
+      "title_ko": "대퇴 근육군 유연성·점진 근력",
+      "type": "group_rehab",
+      "evidence_tier": "C",
+      "source_refs": [
+        "pfp2019"
+      ],
+      "indication_note": "대퇴 개별근마다 단독 질환특이 근거가 있는 것은 아니며, 기능적 근육군 단위 교육용.",
+      "steps": [
+        "목표 근육의 주기능 반대 방향에서 통증 없는 범위로 가볍게 stretch한다.",
+        "squat, bridge, hip hinge, step 계열 중 목표 기능에 맞는 동작을 선택한다.",
+        "정렬과 속도를 유지하고 저항을 점진적으로 높인다."
+      ],
+      "dose": "진단·회복단계에 맞춰 조절. 급성 strain/수술 후에는 별도 protocol 우선."
+    },
+    {
+      "profile_id": "px011",
+      "title_ko": "Achilles/종아리 tendon-loading",
+      "type": "strength_loading",
+      "evidence_tier": "A",
+      "source_refs": [
+        "achilles2024"
+      ],
+      "indication_note": "midportion Achilles tendinopathy에서 high-as-tolerated tendon loading을 1차 치료로 권고.",
+      "steps": [
+        "양발 heel raise에서 시작해 필요 시 한발 heel raise로 진행한다.",
+        "무릎 편 자세와 굽힌 자세를 활용해 gastrocnemius/soleus 부하를 조절한다.",
+        "통증과 기능을 모니터링하며 외부 중량 또는 단계 높이를 점진적으로 추가한다.",
+        "급성 파열 의심이나 구조적 취약성이 있으면 적용하지 않는다."
+      ],
+      "dose": "2024 CPG: 가능한 높은 허용 부하로 최소 주 3회. 개인 상태와 다음날 반응에 맞춰 조절."
+    },
+    {
+      "profile_id": "px012",
+      "title_ko": "발목 ROM·근력·고유감각/균형",
+      "type": "multimodal",
+      "evidence_tier": "A",
+      "source_refs": [
+        "ankle2021"
+      ],
+      "indication_note": "lateral ankle sprain/CAI에서 protected ROM, stretching, neuromuscular 및 balance exercise 권고.",
+      "steps": [
+        "통증 허용 범위에서 발목 배굴/족저굴곡·내번/외번 능동 ROM을 시행한다.",
+        "밴드 저항으로 발목 근육군을 강화한다.",
+        "안전한 지지물 옆에서 single-leg balance를 시작한다.",
+        "회복에 따라 reach, 방향전환, hop/landing 같은 동적 과제로 진행한다."
+      ],
+      "dose": "손상 중증도와 기능검사에 따라 진행. 재손상 예방에는 balance/neuromuscular training이 중요."
+    },
+    {
+      "profile_id": "px013",
+      "title_ko": "족저근막·종아리 stretch + 발/발목 저항운동",
+      "type": "stretch_strength",
+      "evidence_tier": "A",
+      "source_refs": [
+        "plantar2023"
+      ],
+      "indication_note": "plantar heel pain에서 plantar fascia/calf stretching과 foot-ankle musculature resistance training을 지지.",
+      "steps": [
+        "앉아서 발가락을 부드럽게 배굴해 족저근막을 긴장시키는 stretch를 시행한다.",
+        "벽/계단에서 무릎 편 자세와 굽힌 자세의 calf stretch를 사용한다.",
+        "short-foot, toe flexion/abduction 또는 heel raise 등 발·발목 근육 저항운동을 선택한다.",
+        "아침 첫발 통증과 다음날 반응을 기준으로 강도를 조절한다."
+      ],
+      "dose": "통증을 지속 악화시키지 않는 범위에서 반복. 환자별 load tolerance에 따라 저항 증가."
+    },
+    {
+      "profile_id": "px014",
+      "title_ko": "요추·몸통 근력·지구력·motor control",
+      "type": "multimodal",
+      "evidence_tier": "A",
+      "source_refs": [
+        "lbp2021"
+      ],
+      "indication_note": "만성 요통에서 trunk strengthening/endurance, specific trunk activation, movement-control, aerobic/general exercise를 권고.",
+      "steps": [
+        "통증 없는 중립 자세에서 복벽-다열근 동시 활성과 호흡을 연습한다.",
+        "bridge, bird-dog, hip hinge 등 기능적 trunk control 과제로 진행할 수 있다.",
+        "지구력과 저항을 단계적으로 높이고 걷기/유산소를 병행한다.",
+        "특정 방향 운동은 증상 반응과 directional preference가 있을 때 선택한다."
+      ],
+      "dose": "한 운동 유형의 절대적 우월성은 확립되지 않음. 개인 기능·선호·반응에 맞춘 점진 프로그램이 핵심."
+    },
+    {
+      "profile_id": "px015",
+      "title_ko": "흉추 가동성·등 근육 지구력",
+      "type": "mobility_endurance",
+      "evidence_tier": "C",
+      "source_refs": [
+        "neck2017",
+        "thoracic2024"
+      ],
+      "indication_note": "흉추 근육별 단독 운동 효과 근거는 제한적. 경견갑/몸통 운동과 해부학 자료를 바탕으로 한 기능적 교육용.",
+      "steps": [
+        "좌위 또는 네발기기에서 통증 없는 흉추 회전·신전을 시행한다.",
+        "가벼운 row 또는 low-load trunk extension으로 등 근육 지구력을 연습한다.",
+        "호흡을 유지하고 날카로운 흉통이나 호흡곤란이 있으면 중단한다."
+      ],
+      "dose": "직접 질환특이 CPG가 아니라 기능적 그룹 교육용. 환자 상태에 맞춰 개별화."
+    },
+    {
+      "profile_id": "px016",
+      "title_ko": "횡격막 중심 호흡 재교육",
+      "type": "respiratory_control",
+      "evidence_tier": "C",
+      "source_refs": [],
+      "indication_note": "횡격막/늑간근을 개별 정형외과 근육처럼 강화·스트레칭하는 표준 근골격 처방은 제한적. 호흡 패턴 교육용.",
+      "steps": [
+        "반좌위 또는 앙와위에서 편안하게 코로 들이쉬며 복부·하부 흉곽 확장을 느낀다.",
+        "어깨를 으쓱하지 않고 천천히 내쉰다.",
+        "호흡곤란, 흉통, 산소포화도 저하 등은 운동 문제가 아니라 의학적 평가 대상이다."
+      ],
+      "dose": "짧고 편안한 반복. 호흡기/심장질환이 있으면 별도 처방 우선."
+    },
+    {
+      "profile_id": "px099",
+      "title_ko": "개별 단독 운동 근거 미확립",
+      "type": "evidence_boundary",
+      "evidence_tier": "C",
+      "source_refs": [],
+      "indication_note": "이 근육만을 선택적으로 스트레칭/강화해 임상결과가 좋아진다는 고품질 근골격 근거가 충분하지 않습니다.",
+      "steps": [
+        "근육의 해부학적 기능은 Atlas에서 학습하되 환자운동은 증상·진단·기능장애에 맞는 근육군/부위 프로그램을 선택합니다.",
+        "임의의 '이 근육 전용 운동'을 만들어 환자에게 처방하지 않습니다."
+      ],
+      "dose": "해당 없음."
+    }
+  ],
+  "assignments": [
+    {
+      "muscle_id": "m001",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부/경견갑 근육군 근거. 사각근 개별 단독 처방 근거와는 구분."
+    },
+    {
+      "muscle_id": "m002",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부/경견갑 근육군 근거. 사각근 개별 단독 처방 근거와는 구분."
+    },
+    {
+      "muscle_id": "m003",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부/경견갑 근육군 근거. 사각근 개별 단독 처방 근거와는 구분."
+    },
+    {
+      "muscle_id": "m004",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부/경견갑 근육군 근거. 사각근 개별 단독 처방 근거와는 구분."
+    },
+    {
+      "muscle_id": "m005",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px002"
+      ],
+      "note": "심부 경부굴곡근 motor-control 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m006",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px002"
+      ],
+      "note": "심부 경부굴곡근 motor-control 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m007",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px002"
+      ],
+      "note": "심부 경부굴곡근 motor-control 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m008",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px002"
+      ],
+      "note": "심부 경부굴곡근 motor-control 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m009",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m010",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m011",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m012",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m013",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m014",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m015",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m016",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m017",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m018",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m019",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m020",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m021",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m022",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m023",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m024",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m025",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m026",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m027",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m028",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m029",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m030",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m031",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [
+        "px015"
+      ],
+      "strength_profile_ids": [
+        "px015"
+      ],
+      "note": "흉추 고유근 개별효과보다 흉추 mobility/등 지구력 그룹 프로그램."
+    },
+    {
+      "muscle_id": "m032",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px016"
+      ],
+      "note": "호흡근/늑간근은 정형외과 단독 강화 처방보다 호흡 패턴·기저 질환 평가가 우선."
+    },
+    {
+      "muscle_id": "m033",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px016"
+      ],
+      "note": "호흡근/늑간근은 정형외과 단독 강화 처방보다 호흡 패턴·기저 질환 평가가 우선."
+    },
+    {
+      "muscle_id": "m034",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px016"
+      ],
+      "note": "호흡근/늑간근은 정형외과 단독 강화 처방보다 호흡 패턴·기저 질환 평가가 우선."
+    },
+    {
+      "muscle_id": "m035",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px016"
+      ],
+      "note": "호흡근/늑간근은 정형외과 단독 강화 처방보다 호흡 패턴·기저 질환 평가가 우선."
+    },
+    {
+      "muscle_id": "m036",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px016"
+      ],
+      "note": "호흡근/늑간근은 정형외과 단독 강화 처방보다 호흡 패턴·기저 질환 평가가 우선."
+    },
+    {
+      "muscle_id": "m037",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px016"
+      ],
+      "note": "호흡근/늑간근은 정형외과 단독 강화 처방보다 호흡 패턴·기저 질환 평가가 우선."
+    },
+    {
+      "muscle_id": "m038",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m039",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m040",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m041",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m042",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m043",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m044",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m045",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m046",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m047",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m048",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m049",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "요통 CPG의 trunk strengthening/endurance 및 specific activation 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m050",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "심부 고관절 외회전근 개별 단독 근거는 제한적; 기능적 hip program."
+    },
+    {
+      "muscle_id": "m051",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "심부 고관절 외회전근 개별 단독 근거는 제한적; 기능적 hip program."
+    },
+    {
+      "muscle_id": "m052",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "심부 고관절 외회전근 개별 단독 근거는 제한적; 기능적 hip program."
+    },
+    {
+      "muscle_id": "m053",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "심부 고관절 외회전근 개별 단독 근거는 제한적; 기능적 hip program."
+    },
+    {
+      "muscle_id": "m054",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "심부 고관절 외회전근 개별 단독 근거는 제한적; 기능적 hip program."
+    },
+    {
+      "muscle_id": "m055",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "심부 고관절 외회전근 개별 단독 근거는 제한적; 기능적 hip program."
+    },
+    {
+      "muscle_id": "m056",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m057",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m058",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m059",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m060",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px003",
+        "px004"
+      ],
+      "note": "cervicoscapular 및 shoulder active-rehab 근육군 근거."
+    },
+    {
+      "muscle_id": "m061",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px003",
+        "px004"
+      ],
+      "note": "cervicoscapular 및 shoulder active-rehab 근육군 근거."
+    },
+    {
+      "muscle_id": "m062",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px003",
+        "px004"
+      ],
+      "note": "cervicoscapular 및 shoulder active-rehab 근육군 근거."
+    },
+    {
+      "muscle_id": "m063",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px003",
+        "px004"
+      ],
+      "note": "cervicoscapular 및 shoulder active-rehab 근육군 근거."
+    },
+    {
+      "muscle_id": "m064",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px003",
+        "px004"
+      ],
+      "note": "cervicoscapular 및 shoulder active-rehab 근육군 근거."
+    },
+    {
+      "muscle_id": "m065",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px004"
+      ],
+      "note": "어깨 active rehab 및 mobility 프로그램 내 근육군 적용."
+    },
+    {
+      "muscle_id": "m066",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m067",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px004"
+      ],
+      "note": "어깨 active rehab 및 mobility 프로그램 내 근육군 적용."
+    },
+    {
+      "muscle_id": "m068",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px003",
+        "px004"
+      ],
+      "note": "cervicoscapular 및 shoulder active-rehab 근육군 근거."
+    },
+    {
+      "muscle_id": "m069",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px004"
+      ],
+      "note": "회전근개/어깨 active rehabilitation CPG 기반. 개별 tendon 상태에 따라 조정."
+    },
+    {
+      "muscle_id": "m070",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px004"
+      ],
+      "note": "회전근개/어깨 active rehabilitation CPG 기반. 개별 tendon 상태에 따라 조정."
+    },
+    {
+      "muscle_id": "m071",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px004"
+      ],
+      "note": "회전근개/어깨 active rehabilitation CPG 기반. 개별 tendon 상태에 따라 조정."
+    },
+    {
+      "muscle_id": "m072",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px004"
+      ],
+      "note": "회전근개/어깨 active rehabilitation CPG 기반. 개별 tendon 상태에 따라 조정."
+    },
+    {
+      "muscle_id": "m073",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px004"
+      ],
+      "note": "회전근개/어깨 active rehabilitation CPG 기반. 개별 tendon 상태에 따라 조정."
+    },
+    {
+      "muscle_id": "m074",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px005"
+      ],
+      "strength_profile_ids": [
+        "px004"
+      ],
+      "note": "회전근개/어깨 active rehabilitation CPG 기반. 개별 tendon 상태에 따라 조정."
+    },
+    {
+      "muscle_id": "m075",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+    },
+    {
+      "muscle_id": "m076",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+    },
+    {
+      "muscle_id": "m077",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+    },
+    {
+      "muscle_id": "m078",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+    },
+    {
+      "muscle_id": "m079",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+    },
+    {
+      "muscle_id": "m080",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+    },
+    {
+      "muscle_id": "m081",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+    },
+    {
+      "muscle_id": "m082",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "상완 개별근의 질환특이 근거는 제한적; 상지 progressive resistance 원칙을 교육용으로 적용."
+    },
+    {
+      "muscle_id": "m083",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m084",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m085",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m086",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m087",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m088",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m089",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m090",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m091",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m092",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m093",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m094",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m095",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m096",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m097",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m098",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m099",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m100",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m101",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px006"
+      ],
+      "note": "lateral elbow/forearm muscle-function CPG를 전완 근육군 수준으로 적용; 개별근 직접근거와 구분."
+    },
+    {
+      "muscle_id": "m102",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m103",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m104",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m105",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m106",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m107",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m108",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m109",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m110",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m111",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m112",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m113",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m114",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m115",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m116",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m117",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m118",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m119",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m120",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m121",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m122",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px007"
+      ],
+      "note": "손 내재근 개별 CPG 근거 제한. 기능적 hand therapy는 진단/수술 상태별 개별화."
+    },
+    {
+      "muscle_id": "m123",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px009"
+      ],
+      "note": "posterolateral hip와 lower-limb functional strengthening 근거를 그룹 수준으로 적용."
+    },
+    {
+      "muscle_id": "m124",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px008",
+        "px009"
+      ],
+      "note": "gluteal tendinopathy education+exercise RCT 및 PFP posterolateral hip exercise 근거."
+    },
+    {
+      "muscle_id": "m125",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px008",
+        "px009"
+      ],
+      "note": "gluteal tendinopathy education+exercise RCT 및 PFP posterolateral hip exercise 근거."
+    },
+    {
+      "muscle_id": "m126",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px009"
+      ],
+      "note": "posterolateral hip와 lower-limb functional strengthening 근거를 그룹 수준으로 적용."
+    },
+    {
+      "muscle_id": "m127",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m128",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px009"
+      ],
+      "note": "PFP CPG의 knee-targeted resisted squat/knee-extension 근거."
+    },
+    {
+      "muscle_id": "m129",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px009"
+      ],
+      "note": "PFP CPG의 knee-targeted resisted squat/knee-extension 근거."
+    },
+    {
+      "muscle_id": "m130",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px009"
+      ],
+      "note": "PFP CPG의 knee-targeted resisted squat/knee-extension 근거."
+    },
+    {
+      "muscle_id": "m131",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px009"
+      ],
+      "note": "PFP CPG의 knee-targeted resisted squat/knee-extension 근거."
+    },
+    {
+      "muscle_id": "m132",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px009"
+      ],
+      "note": "PFP CPG의 knee-targeted resisted squat/knee-extension 근거."
+    },
+    {
+      "muscle_id": "m133",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m134",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m135",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m136",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m137",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m138",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m139",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m140",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m141",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m142",
+      "status": "group_evidence",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px010"
+      ],
+      "note": "대퇴 근육군 기능적 strengthening 교육용; 개별 근육 단독 임상결과 근거는 제한적."
+    },
+    {
+      "muscle_id": "m143",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m144",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m145",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m146",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m147",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m148",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m149",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px011"
+      ],
+      "note": "Achilles CPG tendon loading + plantar heel CPG calf stretching 근거."
+    },
+    {
+      "muscle_id": "m150",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px011"
+      ],
+      "note": "Achilles CPG tendon loading + plantar heel CPG calf stretching 근거."
+    },
+    {
+      "muscle_id": "m151",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px011"
+      ],
+      "note": "Achilles CPG tendon loading + plantar heel CPG calf stretching 근거."
+    },
+    {
+      "muscle_id": "m152",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m153",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m154",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m155",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m156",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px012"
+      ],
+      "note": "발목 손상/불안정성에서 ankle/lower-quarter strengthening, ROM, balance 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m157",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m158",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m159",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m160",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m161",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m162",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m163",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m164",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m165",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m166",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m167",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m168",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m169",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m170",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m171",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m172",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m173",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m174",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m175",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m176",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m177",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m178",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [
+        "px013"
+      ],
+      "strength_profile_ids": [
+        "px013"
+      ],
+      "note": "plantar heel pain CPG가 foot/ankle musculature resistance training을 지지; 개별 intrinsic 단독효과와는 구분."
+    },
+    {
+      "muscle_id": "m179",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "trunk activation/strengthening 근거를 복벽 근육군에 적용."
+    },
+    {
+      "muscle_id": "m180",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m181",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "trunk activation/strengthening 근거를 복벽 근육군에 적용."
+    },
+    {
+      "muscle_id": "m182",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "trunk activation/strengthening 근거를 복벽 근육군에 적용."
+    },
+    {
+      "muscle_id": "m183",
+      "status": "group_evidence",
+      "evidence_tier": "A",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px014"
+      ],
+      "note": "trunk activation/strengthening 근거를 복벽 근육군에 적용."
+    },
+    {
+      "muscle_id": "m184",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m185",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m186",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m187",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m188",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m189",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m190",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m191",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m192",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m193",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부/경견갑 근육군 근거. 사각근 개별 단독 처방 근거와는 구분."
+    },
+    {
+      "muscle_id": "m194",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m195",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m196",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m197",
+      "status": "group_evidence",
+      "evidence_tier": "B",
+      "stretch_profile_ids": [
+        "px001"
+      ],
+      "strength_profile_ids": [
+        "px003"
+      ],
+      "note": "경부-견갑 강화/지구력 및 mobility 근거를 근육군 수준으로 적용."
+    },
+    {
+      "muscle_id": "m198",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m199",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m200",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m201",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m202",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m203",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m204",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    },
+    {
+      "muscle_id": "m205",
+      "status": "no_isolated_protocol",
+      "evidence_tier": "C",
+      "stretch_profile_ids": [],
+      "strength_profile_ids": [
+        "px099"
+      ],
+      "note": "개별 근육 단독 처방의 직접 근거가 부족하여 해부학적으로 그럴듯한 운동을 검증된 치료처럼 표시하지 않음."
+    }
+  ]
+}
