@@ -56,8 +56,8 @@ Stage 1 — 어깨·견갑대·상완
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
 Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
 Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 10 복벽·몸통 심부
-목표 완료일: 2027-01-25
+현재 개발: Stage 11 전신 통합 QA
+목표 완료일: 2027-02-05
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -347,3 +347,19 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - Lumbar/Sacral clinical quiz 30
 - Oral Viva / Patient Education v8.8 기능 유지
 - 다음 공식 단계: Stage 10 — 복벽·몸통 심부
+
+
+## Stage 10 완료 기록
+완료일: 2026-09-25
+상태: COMPLETE — Abdominal/Core Stage 10
+- Rectus abdominis / external oblique / internal oblique / transversus abdominis
+- Linea alba / rectus sheath / transversalis fascia / linea semilunaris
+- Thoracoabdominal anterior cutaneous / iliohypogastric / ilioinguinal nerve relations
+- Abdominal-wall pain / ACNES / rectus diastasis / hernia / athletic groin / motor-control pathways
+- Carnett test 2024 review safety interpretation
+- EHS rectus-diastasis guideline: physiotherapy may be considered, but no single optimal exercise regimen is established
+- Dynamic hernia ultrasound with Valsalva and inferior epigastric vessel landmark
+- Actual ultrasound canonical reference audit 15/15
+- Abdominal/Core clinical quiz 30
+- Oral Viva + Patient Education preserved and abdominal education refined
+- 다음 공식 단계: Stage 11 — 전신 통합 QA
