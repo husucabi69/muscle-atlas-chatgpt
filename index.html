@@ -146,7 +146,7 @@ button,input{font:inherit} button{cursor:pointer}
 <body>
 <div class="header">
   <div class="head-inner">
-    <div class="brand"><img src="icon-192.png" alt="이윤석정형외과 근육"><div><h1>이윤석정형외과 근육</h1><small>v9.2 · Real Viva · Patient Exercise</small></div></div>
+    <div class="brand"><img src="icon-192.png" alt="이윤석정형외과 근육"><div><h1>이윤석정형외과 근육</h1><small>v9.3 · Real Viva Pro · Patient Manual</small></div></div>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab patient-tab" data-page="education">환자 운동·스트레칭</button>
@@ -398,7 +398,7 @@ button,input{font:inherit} button{cursor:pointer}
     <div class="oral-controls">
       <div><label>부위</label><select id="oralRegion"><option value="all">전체 부위</option></select></div>
       <div><label>시험관</label><select id="oralLevel"><option value="friend">친구 · 편하게 확인</option><option value="colleague" selected>동료 · 실전 체크</option><option value="senior">선배 · 이유까지 추궁</option><option value="master">대가 · 통합 viva</option></select></div>
-      <div><label>질문 분야</label><select id="oralField"><option value="mixed">완전 혼합</option><option value="anatomy">기시·정지·신경</option><option value="function">기능·움직임</option><option value="exam">촉진·MMT</option><option value="clinical">증상·감별</option><option value="ultrasound">초음파 연결</option><option value="reverse">설명 보고 근육 맞히기</option></select></div>
+      <div><label>질문 분야</label><select id="oralField"><option value="mixed">완전 혼합</option><option value="anatomy">기시·정지·신경</option><option value="function">기능·움직임</option><option value="exam">촉진·MMT</option><option value="clinical">증상·감별</option><option value="ultrasound">초음파 연결</option><option value="comparison">비슷한 근육 비교</option><option value="scenario">임상 시나리오</option><option value="reverse">설명 보고 근육 맞히기</option></select></div>
       <button class="primary" onclick="clearOralFixed();startOralSession()">10문제 시작</button>
     </div>
   </div>
@@ -1321,7 +1321,7 @@ async function hydrateKnowledgeCore(){
     muscles.forEach(m=>{ultrasoundByMuscle[m.id]=[];diagnosesByMuscle[m.id]=[];});
     for(const v of core.ultrasound_views||[]){
       for(const mid of v.target_structure_ids||[]){
-        if(ultrasoundByMuscle[mid])ultrasoundByMuscle[mid].push({id:v.ultrasound_view_id,ko:v.name_ko,en:v.name_en||''});
+        if(ultrasoundByMuscle[mid])ultrasoundByMuscle[mid].push({id:v.ultrasound_view_id,ko:v.name_ko,en:v.name_en||'',landmarks:v.landmarks||[],probe_orientation:v.probe_orientation||'',patient_position:v.patient_position||''});
       }
     }
     const dxName=Object.fromEntries((core.diagnosis_concepts||[]).map(d=>[d.diagnosis_concept_id,d.name_ko]));
@@ -1733,31 +1733,35 @@ const oralFieldSpec={
 };
 const oralCoachProfiles={
  friend:{
-  ask:['야, 이건 편하게 한번 말해봐. ','같이 공부한다고 생각하고 바로 답해봐. ','이거 헷갈리기 쉬운데, 기억나는 대로 말해봐. '],
-  correct:['좋아. 이 정도면 바로 넘어가도 돼.','맞아. 핵심을 정확히 잡았어.','좋다. 지금 답은 깔끔해.'],
-  partial:['거의 맞았어. 딱 빠진 것만 채우자.','방향은 맞아. 여기 한 조각만 더 붙이면 돼.'],
-  wrong:['여기서 헷갈렸네. 지금 바로 고쳐두자.','이건 틀렸어. 괜찮아, 정답 구조를 한번 다시 잡자.']
+  ask:['야, 편하게 해보자. ','같이 공부한다고 생각하고 바로 말해봐. ','이거 헷갈리기 쉬워. 아는 데까지 말해봐. ','좋아, 짧게 핵심만 가보자. '],
+  correct:['좋아. 핵심 정확해.','맞아. 그 정도면 충분해.','좋다. 그 답은 바로 써먹을 수 있어.'],
+  partial:['거의 다 왔어. 하나만 더 채우자.','방향은 맞아. 빠진 조각만 붙이면 돼.','좋아, 반은 정확해. 이제 빈칸 하나 메우자.'],
+  wrong:['여기서 한번 꼬였네. 지금 바로 고치자.','이건 틀렸어. 정답 구조를 같이 다시 잡자.','괜찮아. 왜 헷갈렸는지 비교해서 기억하자.'],
+  probe:['그럼 하나만 더. ','좋아, 여기서 꼬리질문. ','이왕 나온 김에 이것도 연결해보자. ']
  },
  colleague:{
-  ask:['외래에서 같이 본다고 생각하고 답해보죠. ','동료끼리 체크하듯이 묻겠습니다. ','환자 앞에서 설명해야 한다고 생각하고 말해보세요. '],
-  correct:['맞습니다. 임상에서 이 정도로 정리하면 충분히 통합니다.','정확합니다. 핵심과 표현이 모두 괜찮습니다.'],
-  partial:['핵심은 맞습니다. 다만 동료에게 설명한다면 이 부분까지 붙여야 합니다.','대체로 맞지만 실제 진료에서는 빠진 항목이 중요합니다.'],
-  wrong:['이 답으로는 임상에서 오해가 생길 수 있습니다. 정본 기준으로 바로 수정하겠습니다.','여기는 정확히 고쳐야 합니다. 구조와 기능을 다시 연결해보죠.']
+  ask:['외래에서 같이 본다고 생각하고 답해보죠. ','동료끼리 체크하듯 묻겠습니다. ','환자 앞에서 설명한다고 생각하고 말해보세요. ','컨퍼런스에서 한 문장으로 정리해보죠. '],
+  correct:['맞습니다. 임상에서 충분히 통하는 답입니다.','정확합니다. 구조와 표현 모두 좋습니다.','좋습니다. 다음 판단으로 넘어갈 수 있는 답입니다.'],
+  partial:['핵심은 맞습니다. 다만 실제 진료에서는 이 부분까지 붙여야 합니다.','대체로 맞지만 빠진 항목이 임상적으로 중요합니다.','좋습니다. 그런데 동료에게 인계한다면 한 가지를 더 말해야 합니다.'],
+  wrong:['이 답으로는 임상에서 오해가 생길 수 있습니다. 바로 수정하겠습니다.','여기는 정확히 고쳐야 합니다. 구조와 기능을 다시 연결해보죠.','이건 다시 확인해야 합니다. 비슷한 구조와 구분점이 빠졌습니다.'],
+  probe:['그럼 실전에서 한 단계 더 가보죠. ','좋습니다. 이어서 이것까지 연결해보세요. ','동료라면 여기서 이 질문을 하나 더 할 겁니다. ']
  },
  senior:{
-  ask:['좋아, 이제 외운 답 말고 이유까지 연결해봐. ','선배가 회진에서 묻는다고 생각해. 정확하게 답해봐. ','그 답에서 한 단계 더 들어가 보자. '],
-  correct:['좋아. 선배 입장에서도 통과시킬 답이야. 이제 임상 연결까지 기억해.','정확해. 구조와 기능 연결이 좋다.'],
-  partial:['방향은 맞는데 선배라면 여기서 그냥 안 넘어간다. 빠진 핵심을 채워.','절반은 맞았어. 중요한 구분점이 빠졌으니 지금 교정해두자.'],
-  wrong:['아니야. 이 부분은 기본이라 정확해야 해. 왜 틀렸는지 구조부터 다시 보자.','이건 다시 잡아야 한다. 암기보다 연결이 끊긴 게 문제야.']
+  ask:['좋아, 외운 답 말고 이유까지 연결해봐. ','선배가 회진에서 묻는다고 생각해. 정확하게 답해봐. ','그 답에서 한 단계 더 들어가 보자. ','좋아, 이제 비교해서 설명해봐. '],
+  correct:['좋아. 선배 입장에서도 통과시킬 답이야.','정확해. 구조와 기능 연결이 좋다.','좋다. 이제 감별까지 붙이면 완성이다.'],
+  partial:['방향은 맞는데 여기서 그냥 안 넘어간다. 빠진 핵심을 채워.','절반은 맞았어. 중요한 구분점이 빠졌으니 지금 교정해두자.','좋아, 그런데 왜 그런지 설명이 빠졌어.'],
+  wrong:['아니야. 이 부분은 기본이라 정확해야 해. 구조부터 다시 보자.','이건 다시 잡아야 한다. 암기보다 연결이 끊긴 게 문제야.','틀렸어. 비슷한 근육과 비교해서 다시 세워보자.'],
+  probe:['좋아, 그럼 왜 그런지 설명해봐. ','이제 영상까지 연결해봐. ','그럼 비슷한 근육과 뭐가 다른데? ','여기서 환자 증상을 하나 얹어보자. ']
  },
  master:{
-  ask:['단순 암기는 됐고. 구조와 임상을 하나의 답으로 설명해보세요. ','정확성으로 봅니다. 애매한 표현 없이 답하세요. ','근육 하나를 완전히 이해했는지 보겠습니다. '],
-  correct:['정확합니다. 이제 그 지식을 환자와 영상에 연결할 수 있어야 합니다.','좋습니다. 해부학적 정확성과 임상 연결이 모두 살아 있습니다.'],
-  partial:['답의 방향은 맞습니다. 그러나 대가 수준에서는 누락을 허용할 수 없습니다.','핵심 일부는 맞지만 완결된 답은 아닙니다. 빠진 구조를 정확히 채우세요.'],
-  wrong:['틀렸습니다. 해부학은 비슷한 말로 넘어갈 수 없습니다. 정본과 비교해 다시 구성하세요.','정확하지 않습니다. 구조, 기능, 임상 순서로 다시 세우세요.']
+  ask:['단순 암기는 됐고. 구조와 임상을 하나의 답으로 설명해보세요. ','정확성으로 봅니다. 애매한 표현 없이 답하세요. ','근육 하나를 완전히 이해했는지 보겠습니다. ','답보다 사고과정을 보겠습니다. 근거를 붙여 설명하세요. '],
+  correct:['정확합니다. 이제 그 지식을 환자와 영상에 연결할 수 있어야 합니다.','좋습니다. 해부학적 정확성과 임상 연결이 모두 살아 있습니다.','충분합니다. 다음 단계는 반례와 감별을 설명하는 것입니다.'],
+  partial:['방향은 맞습니다. 그러나 이 수준에서는 누락을 허용할 수 없습니다.','핵심 일부는 맞지만 완결된 답은 아닙니다. 빠진 구조를 정확히 채우세요.','좋습니다. 다만 예외와 한계를 말하지 않으면 완전한 답이 아닙니다.'],
+  wrong:['틀렸습니다. 해부학은 비슷한 말로 넘어갈 수 없습니다. 정본과 비교해 다시 구성하세요.','정확하지 않습니다. 구조, 기능, 임상 순서로 다시 세우세요.','이 답은 근거가 약합니다. 무엇을 알고 무엇을 추정하는지 구분하세요.'],
+  probe:['그럼 이제 제가 한 단계 더 묻겠습니다. ','좋습니다. 반대 관점에서 다시 보죠. ','이 구조를 영상과 진찰에서 어떻게 확인합니까? ','그 답이 틀릴 수 있는 상황은 무엇입니까? ']
  }
 };
-let oralSession=[],oralIndex=0,oralCorrect=0,oralPartial=0,oralWrong=0,oralRecognition=null,oralListening=false,oralFixedMuscleId=null;
+let oralSession=let oralSession=[],oralIndex=0,oralCorrect=0,oralPartial=0,oralWrong=0,oralRecognition=null,oralListening=false,oralFixedMuscleId=null;
 function oralState(){try{return JSON.parse(localStorage.getItem(ORAL_KEY))||{history:{},wrong:{}}}catch(e){return{history:{},wrong:{}}}}
 function saveOralState(s){localStorage.setItem(ORAL_KEY,JSON.stringify(s));}
 function oralNorm(s){
@@ -1819,15 +1823,31 @@ function questionWithRole(level,stem){return rolePick(level,'ask')+stem;}
 function makeOralQuestion(m,level,fieldChoice){
   const anatomyFields=['origin','insertion','nerve'].filter(k=>String(m[oralFieldSpec[k].field]||'').trim());
   const symptomLinks=symptomsByMuscle[m.id]||[],usLinks=ultrasoundByMuscle[m.id]||[],dxLinks=diagnosesByMuscle[m.id]||[];
+  const peers=muscles.filter(x=>x.region===m.region&&x.id!==m.id);
+  const peer=peers.length?peers[Math.floor(Math.random()*peers.length)]:null;
   const candidates=[];
   for(const k of anatomyFields)candidates.push({category:'anatomy',fields:[k],stem:m.ko+'의 '+oralFieldSpec[k].label.split('·')[1].trim()+'를 정확히 말해보세요.',targets:[{field:k,label:oralFieldSpec[k].label,expected:m[k]}]});
-  if(m.function)candidates.push({category:'function',fields:['function'],stem:m.ko+'이 수축하면 어떤 움직임이 생깁니까? 주기능과 보조기능을 말해보세요.',targets:[{field:'function',label:oralFieldSpec.function.label,expected:m.function}],followup:'그 기능에 저항을 준다면 검사 방향은 어떻게 잡을지 생각해보세요.'});
-  if(m.palpation)candidates.push({category:'exam',fields:['palpation'],stem:m.ko+'을 실제 환자에서 어떻게 촉진할지 설명해보세요.',targets:[{field:'palpation',label:oralFieldSpec.palpation.label,expected:m.palpation}],followup:'촉진할 때 바로 옆의 신경·혈관 또는 다른 근육을 무엇과 구분할지도 생각해보세요.'});
-  if(m.mmt)candidates.push({category:'exam',fields:['mmt'],stem:m.ko+'의 기능을 진찰실에서 확인한다면 어떤 자세와 저항을 쓰겠습니까?',targets:[{field:'mmt',label:oralFieldSpec.mmt.label,expected:m.mmt}],followup:'보상 움직임이 나오면 어떤 근육이 대신 쓰이는지도 생각해보세요.'});
-  if(m.pathology)candidates.push({category:'clinical',fields:['pathology'],stem:m.ko+'과 관련해 환자에서 어떤 임상문제와 감별을 생각해야 합니까?',targets:[{field:'pathology',label:oralFieldSpec.pathology.label,expected:m.pathology}],followup:'이 근육의 압통만으로 진단을 확정하면 안 되는 이유도 같이 설명해보세요.'});
-  if(symptomLinks.length)candidates.push({category:'clinical',fields:['symptom'],stem:m.ko+'이 Atlas에서 연결되는 대표 증상경로를 하나 말하고, 왜 연결되는지 설명해보세요.',targets:[{field:'symptom',label:'관련 증상경로',expected:symptomLinks[0].title,alternatives:symptomLinks.map(x=>x.title),mode:'any'}],followup:'그 증상을 이 근육 하나로 확정하지 말고 어떤 다른 원인을 감별할지 떠올려보세요.'});
-  if(dxLinks.length)candidates.push({category:'clinical',fields:['pathology'],stem:m.ko+'이 포함되는 임상 진단 후보를 하나 말해보세요. 그리고 단독 확진이 아닌 이유도 설명해보세요.',targets:[{field:'pathology',label:'관련 진단 후보',expected:dxLinks[0].title,alternatives:dxLinks.map(x=>x.title),mode:'any'}],followup:'검사 하나가 아니라 병력·진찰·영상이 어떻게 맞아야 하는지 연결해보세요.'});
-  if(usLinks.length)candidates.push({category:'ultrasound',fields:['ultrasound'],stem:m.ko+'을 포함하는 실제 초음파 view를 하나 말해보세요.',targets:[{field:'ultrasound',label:'초음파 view',expected:usLinks[0].ko,alternatives:usLinks.flatMap(x=>[x.ko,x.en,x.id]).filter(Boolean),mode:'any'}],followup:'그 view에서 먼저 잡아야 할 뼈·건·근막 landmark가 무엇인지 이어서 생각해보세요.'});
+  if(m.function)candidates.push({category:'function',fields:['function'],stem:m.ko+'이 수축하면 어떤 움직임이 생깁니까? 주기능과 보조기능을 말해보세요.',targets:[{field:'function',label:oralFieldSpec.function.label,expected:m.function}],followup:'그 기능에 저항을 준다면 검사 방향은 어떻게 잡을지 설명해보세요.'});
+  if(m.palpation)candidates.push({category:'exam',fields:['palpation'],stem:m.ko+'을 실제 환자에서 어떻게 촉진할지 설명해보세요.',targets:[{field:'palpation',label:oralFieldSpec.palpation.label,expected:m.palpation}],followup:'촉진할 때 인접 신경·혈관 또는 다른 근육과 무엇을 구분해야 합니까?'});
+  if(m.mmt)candidates.push({category:'exam',fields:['mmt'],stem:m.ko+'의 기능을 진찰실에서 확인한다면 어떤 자세와 저항을 쓰겠습니까?',targets:[{field:'mmt',label:oralFieldSpec.mmt.label,expected:m.mmt}],followup:'보상 움직임이 나오면 어떤 근육이 대신 쓰일 수 있습니까?'});
+  if(m.pathology)candidates.push({category:'clinical',fields:['pathology'],stem:m.ko+'과 관련해 환자에서 어떤 임상문제와 감별을 생각해야 합니까?',targets:[{field:'pathology',label:oralFieldSpec.pathology.label,expected:m.pathology}],followup:'이 근육의 압통만으로 진단을 확정하면 안 되는 이유도 설명해보세요.'});
+  if(symptomLinks.length)candidates.push({category:'clinical',fields:['symptom'],stem:m.ko+'과 연결되는 대표 증상경로를 하나 말하고 왜 연결되는지 설명해보세요.',targets:[{field:'symptom',label:'관련 증상경로',expected:symptomLinks[0].title,alternatives:symptomLinks.map(x=>x.title),mode:'any'}],followup:'그 증상을 이 근육 하나로 설명하지 못하는 대표 mimic을 하나 말해보세요.'});
+  if(dxLinks.length)candidates.push({category:'clinical',fields:['pathology'],stem:m.ko+'이 포함되는 임상 진단 후보를 하나 말하고, 단독 확진이 아닌 이유도 설명해보세요.',targets:[{field:'pathology',label:'관련 진단 후보',expected:dxLinks[0].title,alternatives:dxLinks.map(x=>x.title),mode:'any'}],followup:'병력·진찰·영상 중 무엇이 서로 맞아야 합니까?'});
+  if(usLinks.length)candidates.push({category:'ultrasound',fields:['ultrasound'],stem:m.ko+'을 포함하는 실제 초음파 view를 하나 말해보세요.',targets:[{field:'ultrasound',label:'초음파 view',expected:usLinks[0].ko,alternatives:usLinks.flatMap(x=>[x.ko,x.en,x.id]).filter(Boolean),mode:'any'}],followup:'그 view에서 probe 방향과 첫 landmark를 어떻게 잡겠습니까?'});
+  if(usLinks.length&&Array.isArray(usLinks[0].landmarks)&&usLinks[0].landmarks.length)candidates.push({category:'ultrasound',fields:['ultrasound'],stem:m.ko+'을 초음파로 찾습니다. '+usLinks[0].ko+'에서 먼저 확인할 landmark를 말해보세요.',targets:[{field:'ultrasound',label:'초음파 landmark',expected:usLinks[0].landmarks.join(', ')}],followup:'anisotropy나 probe pressure 때문에 생길 수 있는 오류도 하나 말해보세요.'});
+  if(peer&&m.function&&peer.function)candidates.push({category:'comparison',fields:['function'],stem:m.ko+'과 '+peer.ko+'을 비교하세요. 두 근육의 기능 차이를 중심으로 말해보세요.',targets:[
+    {field:'function',label:m.ko+' 기능',expected:m.function},
+    {field:'function',label:peer.ko+' 기능',expected:peer.function}
+  ],followup:'두 근육을 실제 진찰에서 어떻게 구분할지 한 가지 더 말해보세요.'});
+  if(peer&&m.nerve&&peer.nerve)candidates.push({category:'comparison',fields:['nerve'],stem:m.ko+'과 '+peer.ko+'의 신경지배를 비교해보세요.',targets:[
+    {field:'nerve',label:m.ko+' 신경',expected:m.nerve},
+    {field:'nerve',label:peer.ko+' 신경',expected:peer.nerve}
+  ],followup:'신경손상이 생기면 두 근육의 약화 패턴이 어떻게 달라질지 생각해보세요.'});
+  if(symptomLinks.length&&m.pathology)candidates.push({category:'scenario',fields:['pathology'],stem:'환자가 “'+symptomLinks[0].title+'”라고 호소합니다. '+m.ko+'이 관련될 수 있는 이유와 이 근육만으로 진단을 확정하면 안 되는 이유를 설명해보세요.',targets:[{field:'pathology',label:'임상 추론',expected:m.pathology}],followup:'이 환자에서 먼저 배제해야 할 red flag 또는 다른 구조를 하나 말해보세요.'});
+  if(dxLinks.length&&usLinks.length)candidates.push({category:'scenario',fields:['pathology','ultrasound'],stem:dxLinks[0].title+'을 의심하는 상황입니다. '+m.ko+'과 관련해 진찰과 초음파를 어떻게 연결하겠습니까?',targets:[
+    {field:'pathology',label:'진단 후보',expected:dxLinks[0].title,alternatives:dxLinks.map(x=>x.title),mode:'any'},
+    {field:'ultrasound',label:'초음파 view',expected:usLinks[0].ko,alternatives:usLinks.flatMap(x=>[x.ko,x.en,x.id]).filter(Boolean),mode:'any'}
+  ],followup:'영상이 정상인데 증상이 지속되면 다음 판단을 어떻게 하겠습니까?'});
   const reverseClues=[
     m.function&&{category:'reverse',fields:['muscle'],stem:'기능이 “'+m.function+'”인 근육은 무엇입니까?',targets:[{field:'muscle',label:'근육 이름',expected:m.ko,alternatives:[m.ko,m.en,m.abbr].filter(Boolean),mode:'name'}]},
     m.nerve&&{category:'reverse',fields:['muscle'],stem:'신경지배가 “'+m.nerve+'”이고 '+m.region+'에 있는 근육은 무엇입니까?',targets:[{field:'muscle',label:'근육 이름',expected:m.ko,alternatives:[m.ko,m.en,m.abbr].filter(Boolean),mode:'name'}]},
@@ -1842,19 +1862,37 @@ function makeOralQuestion(m,level,fieldChoice){
       {field:'function',label:'기능',expected:m.function},
       {field:'symptom',label:'관련 증상경로',expected:symptomLinks[0].title,alternatives:symptomLinks.map(x=>x.title),mode:'any'},
       {field:'ultrasound',label:'초음파 view',expected:usLinks[0].ko,alternatives:usLinks.flatMap(x=>[x.ko,x.en,x.id]).filter(Boolean),mode:'any'}
-    ],followup:'이 세 정보가 서로 맞지 않을 때 무엇을 우선 재확인할지 생각해보세요.'});
+    ],followup:'이 세 정보가 서로 맞지 않을 때 무엇을 우선 재확인할지 설명해보세요.'});
   }
   let eligible=candidates;
   if(fieldChoice!=='mixed')eligible=candidates.filter(q=>q.category===fieldChoice||(fieldChoice==='anatomy'&&q.category==='anatomy'));
   if(level==='friend')eligible=eligible.filter(q=>['function','exam','reverse','anatomy'].includes(q.category)&&q.targets.length===1);
   if(level==='colleague')eligible=eligible.filter(q=>q.category!=='master');
-  if(level==='senior')eligible=eligible.filter(q=>['function','exam','clinical','ultrasound','reverse'].includes(q.category));
-  if(level==='master')eligible=eligible.filter(q=>q.category==='master'||q.targets.length>=1);
+  if(level==='senior')eligible=eligible.filter(q=>['function','exam','clinical','ultrasound','reverse','comparison','scenario'].includes(q.category));
+  if(level==='master')eligible=eligible.filter(q=>q.category==='master'||['comparison','scenario','ultrasound','clinical'].includes(q.category));
   if(!eligible.length)eligible=candidates;
   const q=shuffle(eligible)[0];if(!q)return null;
   return{muscleId:m.id,level,category:q.category,fields:q.fields,stem:questionWithRole(level,q.stem),targets:q.targets,followup:q.followup||''};
 }
-function startOralSession(){
+function makeOralFollowup(q){
+  const m=byId[q?.muscleId];if(!m)return null;
+  const symptomLinks=symptomsByMuscle[m.id]||[],usLinks=ultrasoundByMuscle[m.id]||[],dxLinks=diagnosesByMuscle[m.id]||[];
+  const pool=[];
+  if(q.category!=='anatomy'&&m.origin&&m.insertion)pool.push({category:'anatomy',fields:['origin','insertion'],stem:'좋습니다. 그럼 '+m.ko+'의 기시와 정지를 정확히 연결해서 말해보세요.',targets:[{field:'origin',label:'기시',expected:m.origin},{field:'insertion',label:'정지',expected:m.insertion}]});
+  if(q.category!=='function'&&m.function)pool.push({category:'function',fields:['function'],stem:'그 구조가 왜 그런 기능을 만드는지 '+m.ko+'의 기능으로 설명해보세요.',targets:[{field:'function',label:'기능',expected:m.function}]});
+  if(q.category!=='exam'&&m.palpation)pool.push({category:'exam',fields:['palpation'],stem:'그럼 실제 환자에서 '+m.ko+'을 어떻게 찾아서 촉진하겠습니까?',targets:[{field:'palpation',label:'촉진',expected:m.palpation}]});
+  if(q.category!=='ultrasound'&&usLinks.length)pool.push({category:'ultrasound',fields:['ultrasound'],stem:'이제 영상으로 갑니다. '+m.ko+'을 포함하는 초음파 view를 하나 말해보세요.',targets:[{field:'ultrasound',label:'초음파 view',expected:usLinks[0].ko,alternatives:usLinks.flatMap(x=>[x.ko,x.en,x.id]).filter(Boolean),mode:'any'}]});
+  if(q.category!=='clinical'&&dxLinks.length)pool.push({category:'clinical',fields:['pathology'],stem:'마지막으로 '+m.ko+'이 연결되는 진단 후보를 하나 말하고 단독 확진이 아닌 이유를 설명해보세요.',targets:[{field:'pathology',label:'진단 후보',expected:dxLinks[0].title,alternatives:dxLinks.map(x=>x.title),mode:'any'}]});
+  if(q.category!=='clinical'&&symptomLinks.length)pool.push({category:'clinical',fields:['symptom'],stem:'환자가 어떤 증상으로 왔을 때 '+m.ko+'을 떠올릴 수 있는지 대표 경로를 하나 말해보세요.',targets:[{field:'symptom',label:'증상경로',expected:symptomLinks[0].title,alternatives:symptomLinks.map(x=>x.title),mode:'any'}]});
+  const next=shuffle(pool)[0];if(!next)return null;
+  return{muscleId:m.id,level:q.level,category:next.category,fields:next.fields,stem:rolePick(q.level,'probe')+next.stem,targets:next.targets,followup:''};
+}
+function askOralFollowup(){
+  const q=oralSession[oralIndex],next=makeOralFollowup(q);
+  if(!next){alert('이 근육에서 더 만들 수 있는 꼬리질문이 없습니다.');return;}
+  oralSession.splice(oralIndex+1,0,next);oralIndex++;renderOralQuestion();
+}
+function startOralSession(){function startOralSession(){
   const region=document.getElementById('oralRegion').value,level=document.getElementById('oralLevel').value,field=document.getElementById('oralField').value;
   let pool=muscles.filter(m=>region==='all'||m.region===region);
   if(oralFixedMuscleId&&byId[oralFixedMuscleId])pool=[byId[oralFixedMuscleId]];
@@ -1918,7 +1956,7 @@ function gradeOralAnswer(){
   const coach=document.getElementById('oralCoach');
   coach.innerHTML='<div class="oral-coach '+klass+'"><b>'+esc(headline)+'</b><br>'+why+(teaching?'<br><span style="color:var(--muted)">'+esc(teaching)+'</span>':'')+
     '<hr style="border:0;border-top:1px solid var(--line);margin:10px 0"><b>정본 답</b><br>'+canon+follow+
-    '<div class="quiz-actions"><button class="primary" onclick="nextOralQuestion()">다음 질문</button><button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">근육 상세</button></div></div>';
+    '<div class="quiz-actions"><button class="primary" onclick="askOralFollowup()">꼬리질문 받기</button><button class="pill" onclick="nextOralQuestion()">다음 문제</button><button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">근육 상세</button></div></div>';
   speakOral(headline+' '+(grade==='correct'?'좋습니다. 다음 질문으로 갑니다.':grade==='partial'?'빠진 핵심을 정본 답과 비교해보세요.':'정본 답을 보고 왜 틀렸는지 바로 고쳐보세요.'));
   updateOralStats();
 }
