@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-l",
+  "audit_version": "2026.09.26-stage17-m",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1383,25 +1383,57 @@
       "muscle_id": "m139",
       "name_ko": "대퇴이두근-장두",
       "name_en": "Biceps femoris, long head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Long head of biceps femoris.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Long_head_of_biceps_femoris.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D posterior thigh",
+        "educationalReason": "대퇴이두근 장두만 분리된 회전 3D로 좌골결절에서 비골두로 내려가는 긴 후외측 주행과 단두에 대한 표층·근위 관계를 명확히 확인"
+      }
     },
     {
       "muscle_id": "m140",
       "name_ko": "대퇴이두근-단두",
       "name_en": "Biceps femoris, short head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Short head of biceps femoris.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Short_head_of_biceps_femoris.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D posterior thigh",
+        "educationalReason": "대퇴이두근 단두만 분리된 회전 3D로 대퇴골 조선 외측에서 시작해 비골두로 합류하는 짧은 원위 후외측 주행을 장두와 구분"
+      }
     },
     {
       "muscle_id": "m141",
       "name_ko": "반건양근",
       "name_en": "Semitendinosus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Semitendinosus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Semitendinosus.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D posterior-medial thigh",
+        "educationalReason": "좌골결절에서 경골 내측 거위발로 이어지는 반건양근의 긴 원위 건과 후내측 표층 위치를 회전 3D로 명확히 확인"
+      }
     },
     {
       "muscle_id": "m142",
       "name_ko": "반막양근",
       "name_en": "Semimembranosus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Semimembranosus.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Semimembranosus.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D deep posterior-medial thigh",
+        "educationalReason": "반건양근보다 깊고 내측에 위치하며 넓은 막성 근위건을 가진 반막양근의 층 관계와 경골 후내측 부착 방향을 회전 3D로 확인"
+      }
     },
     {
       "muscle_id": "m143",
@@ -1959,8 +1991,8 @@
     }
   ],
   "progress": {
-    "reviewed": 88,
-    "pending_review": 117,
-    "last_batch": "anteromedial_thigh_priority_batch"
+    "reviewed": 92,
+    "pending_review": 113,
+    "last_batch": "posterior_thigh_hamstring_priority_batch"
   }
 }
