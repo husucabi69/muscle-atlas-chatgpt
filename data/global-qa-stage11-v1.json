@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "audit_version": "2026.09.25-stage11-v2",
   "release_target": "v9.4 Stage 11 Global QA Verified",
-  "status": "PASS_STATIC_REVALIDATION_PENDING_CI",
+  "status": "PASS_AUTOMATED_V9_4",
   "manual_verification_pending": [
     "Android installed PWA fullscreen/address-bar-free physical-device confirmation"
   ],
@@ -126,7 +126,11 @@
     "trigger": "pull_request/main push/manual"
   },
   "ci_verification": {
-    "conclusion": "pending_new_v9.4_pr_ci"
+    "pr_number": 23,
+    "workflow": "Global QA",
+    "successful_run_id": 36114980055,
+    "verified_head_sha": "1f95ecc4650f67ff5e4a60f5166b0746960889e2",
+    "conclusion": "success"
   },
   "google_play": {
     "target_api": "Android 16 / API 36+",
