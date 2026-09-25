@@ -539,7 +539,9 @@ async function getCuratedMedia(){
 }
 function curatedCard(x){
   const url='https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(x.file);
-  return mediaCard({title:x.title,url,page:x.sourcePage,license:[x.author,x.license,'검수 고정 영상'].filter(Boolean).join(' · ')});
+  const title=(x.representative?'대표 시야 · ':'')+x.title;
+  const meta=[x.author,x.license,x.view?('시야 '+x.view):'',x.educationalReason?('선정 이유: '+x.educationalReason):'','검수 고정 영상'].filter(Boolean).join(' · ');
+  return mediaCard({title,url,page:x.sourcePage,license:meta});
 }
 
 let shoulderExamModule=null, shoulderUSModule=null, shoulderQuizModule=null, shoulderDifferentialModule=null, shoulderMediaAudit=null;

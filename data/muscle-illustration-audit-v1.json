@@ -1,0 +1,1279 @@
+{
+  "audit_version": "2026.09.25-stage17-a",
+  "status": "IN_PROGRESS",
+  "policy": {
+    "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
+    "reject_as_representative": [
+      "view where the target muscle is poorly exposed",
+      "view chosen only because an image exists",
+      "cropped or layered view that obscures the main course without a specific educational reason"
+    ],
+    "max_primary_assets": 1,
+    "secondary_assets": "Only when a second view adds distinct educational value.",
+    "license_requirement": "Source page, author and reuse license must be explicit for fixed media."
+  },
+  "muscles": [
+    {
+      "muscle_id": "m001",
+      "name_ko": "흉쇄유돌근",
+      "name_en": "Sternocleidomastoid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m002",
+      "name_ko": "전사각근",
+      "name_en": "Scalenus anterior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m003",
+      "name_ko": "중사각근",
+      "name_en": "Scalenus medius",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m004",
+      "name_ko": "후사각근",
+      "name_en": "Scalenus posterior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m005",
+      "name_ko": "두장근",
+      "name_en": "Longus capitis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m006",
+      "name_ko": "경장근",
+      "name_en": "Longus colli",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m007",
+      "name_ko": "전두직근",
+      "name_en": "Rectus capitis anterior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m008",
+      "name_ko": "외측두직근",
+      "name_en": "Rectus capitis lateralis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m009",
+      "name_ko": "두판상근",
+      "name_en": "Splenius capitis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m010",
+      "name_ko": "경판상근",
+      "name_en": "Splenius cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m011",
+      "name_ko": "두반극근",
+      "name_en": "Semispinalis capitis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m012",
+      "name_ko": "경반극근",
+      "name_en": "Semispinalis cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m013",
+      "name_ko": "경다열근",
+      "name_en": "Multifidus cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m014",
+      "name_ko": "경회선근",
+      "name_en": "Rotatores cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m015",
+      "name_ko": "경극간근",
+      "name_en": "Interspinales cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m016",
+      "name_ko": "경횡돌기간근",
+      "name_en": "Intertransversarii cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m017",
+      "name_ko": "후두직근 대",
+      "name_en": "Rectus capitis posterior major",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m018",
+      "name_ko": "후두직근 소",
+      "name_en": "Rectus capitis posterior minor",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m019",
+      "name_ko": "상두사근",
+      "name_en": "Obliquus capitis superior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m020",
+      "name_ko": "하두사근",
+      "name_en": "Obliquus capitis inferior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m021",
+      "name_ko": "흉장늑근",
+      "name_en": "Iliocostalis thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m022",
+      "name_ko": "흉최장근",
+      "name_en": "Longissimus thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m023",
+      "name_ko": "흉극근",
+      "name_en": "Spinalis thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m024",
+      "name_ko": "흉반극근",
+      "name_en": "Semispinalis thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m025",
+      "name_ko": "흉다열근",
+      "name_en": "Multifidus thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m026",
+      "name_ko": "흉회선근",
+      "name_en": "Rotatores thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m027",
+      "name_ko": "흉극간근",
+      "name_en": "Interspinales thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m028",
+      "name_ko": "흉횡돌기간근",
+      "name_en": "Intertransversarii thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m029",
+      "name_ko": "늑골거근",
+      "name_en": "Levatores costarum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m030",
+      "name_ko": "상후거근",
+      "name_en": "Serratus posterior superior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m031",
+      "name_ko": "하후거근",
+      "name_en": "Serratus posterior inferior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m032",
+      "name_ko": "외늑간근",
+      "name_en": "External intercostals",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m033",
+      "name_ko": "내늑간근",
+      "name_en": "Internal intercostals",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m034",
+      "name_ko": "최내늑간근",
+      "name_en": "Innermost intercostals",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m035",
+      "name_ko": "늑하근",
+      "name_en": "Subcostales",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m036",
+      "name_ko": "흉횡근",
+      "name_en": "Transversus thoracis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m037",
+      "name_ko": "횡격막",
+      "name_en": "Diaphragm",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m038",
+      "name_ko": "요장늑근",
+      "name_en": "Iliocostalis lumborum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m039",
+      "name_ko": "요최장근",
+      "name_en": "Longissimus thoracis - lumbar fascicles",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m040",
+      "name_ko": "요극근",
+      "name_en": "Spinalis (lumbar portion, variable)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m041",
+      "name_ko": "요다열근",
+      "name_en": "Multifidus lumborum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m042",
+      "name_ko": "요회선근",
+      "name_en": "Rotatores lumborum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m043",
+      "name_ko": "요극간근",
+      "name_en": "Interspinales lumborum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m044",
+      "name_ko": "요내측 횡돌기간근",
+      "name_en": "Intertransversarii mediales lumborum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m045",
+      "name_ko": "요외측 횡돌기간근",
+      "name_en": "Intertransversarii laterales lumborum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m046",
+      "name_ko": "요방형근",
+      "name_en": "Quadratus lumborum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m047",
+      "name_ko": "대요근",
+      "name_en": "Psoas major",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m048",
+      "name_ko": "소요근",
+      "name_en": "Psoas minor (variable)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m049",
+      "name_ko": "장골근",
+      "name_en": "Iliacus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m050",
+      "name_ko": "이상근",
+      "name_en": "Piriformis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m051",
+      "name_ko": "폐쇄내근",
+      "name_en": "Obturator internus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m052",
+      "name_ko": "상쌍자근",
+      "name_en": "Superior gemellus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m053",
+      "name_ko": "하쌍자근",
+      "name_en": "Inferior gemellus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m054",
+      "name_ko": "폐쇄외근",
+      "name_en": "Obturator externus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m055",
+      "name_ko": "대퇴방형근",
+      "name_en": "Quadratus femoris",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m056",
+      "name_ko": "항문거근-치골직장근",
+      "name_en": "Puborectalis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m057",
+      "name_ko": "항문거근-치골미골근",
+      "name_en": "Pubococcygeus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m058",
+      "name_ko": "항문거근-장골미골근",
+      "name_en": "Iliococcygeus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m059",
+      "name_ko": "미골근",
+      "name_en": "Coccygeus (ischiococcygeus)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m060",
+      "name_ko": "승모근",
+      "name_en": "Trapezius",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m061",
+      "name_ko": "견갑거근",
+      "name_en": "Levator scapulae",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m062",
+      "name_ko": "소능형근",
+      "name_en": "Rhomboid minor",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m063",
+      "name_ko": "대능형근",
+      "name_en": "Rhomboid major",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m064",
+      "name_ko": "전거근",
+      "name_en": "Serratus anterior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m065",
+      "name_ko": "소흉근",
+      "name_en": "Pectoralis minor",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m066",
+      "name_ko": "쇄골하근",
+      "name_en": "Subclavius",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m067",
+      "name_ko": "대흉근",
+      "name_en": "Pectoralis major",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m068",
+      "name_ko": "광배근",
+      "name_en": "Latissimus dorsi",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m069",
+      "name_ko": "삼각근",
+      "name_en": "Deltoid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m070",
+      "name_ko": "극상근",
+      "name_en": "Supraspinatus",
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Supraspinatus muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Supraspinatus_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "견갑극 위 극상와의 근복과 상완골 방향의 주행을 후면에서 가장 직관적으로 확인"
+      }
+    },
+    {
+      "muscle_id": "m071",
+      "name_ko": "극하근",
+      "name_en": "Infraspinatus",
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Infraspinatus muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Infraspinatus_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "견갑극 아래 극하와를 채우는 근복 전체와 상완골로 향하는 주행을 후면에서 명확히 확인"
+      }
+    },
+    {
+      "muscle_id": "m072",
+      "name_ko": "소원근",
+      "name_en": "Teres minor",
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Teres minor muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Teres_minor_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior",
+        "educationalReason": "극하근 아래에서 외측연을 따라 주행하는 소원근과 상완골 부착 방향을 후면에서 구분"
+      }
+    },
+    {
+      "muscle_id": "m073",
+      "name_ko": "견갑하근",
+      "name_en": "Subscapularis",
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Subscapularis muscle frontal.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Subscapularis_muscle_frontal.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "anterior",
+        "educationalReason": "견갑골 전면의 견갑하와를 덮는 근복과 상완골 소결절 방향의 주행을 전면에서 확인"
+      }
+    },
+    {
+      "muscle_id": "m074",
+      "name_ko": "대원근",
+      "name_en": "Teres major",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m075",
+      "name_ko": "상완이두근-장두",
+      "name_en": "Biceps brachii, long head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m076",
+      "name_ko": "상완이두근-단두",
+      "name_en": "Biceps brachii, short head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m077",
+      "name_ko": "상완근",
+      "name_en": "Brachialis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m078",
+      "name_ko": "오훼완근",
+      "name_en": "Coracobrachialis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m079",
+      "name_ko": "상완삼두근-장두",
+      "name_en": "Triceps brachii, long head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m080",
+      "name_ko": "상완삼두근-외측두",
+      "name_en": "Triceps brachii, lateral head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m081",
+      "name_ko": "상완삼두근-내측두",
+      "name_en": "Triceps brachii, medial head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m082",
+      "name_ko": "주근",
+      "name_en": "Anconeus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m083",
+      "name_ko": "원회내근",
+      "name_en": "Pronator teres",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m084",
+      "name_ko": "요측수근굴근",
+      "name_en": "Flexor carpi radialis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m085",
+      "name_ko": "장장근",
+      "name_en": "Palmaris longus (variable)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m086",
+      "name_ko": "척측수근굴근",
+      "name_en": "Flexor carpi ulnaris",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m087",
+      "name_ko": "천지굴근",
+      "name_en": "Flexor digitorum superficialis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m088",
+      "name_ko": "심지굴근",
+      "name_en": "Flexor digitorum profundus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m089",
+      "name_ko": "장무지굴근",
+      "name_en": "Flexor pollicis longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m090",
+      "name_ko": "방형회내근",
+      "name_en": "Pronator quadratus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m091",
+      "name_ko": "상완요골근",
+      "name_en": "Brachioradialis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m092",
+      "name_ko": "장요측수근신근",
+      "name_en": "Extensor carpi radialis longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m093",
+      "name_ko": "단요측수근신근",
+      "name_en": "Extensor carpi radialis brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m094",
+      "name_ko": "지신근",
+      "name_en": "Extensor digitorum",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m095",
+      "name_ko": "소지신근",
+      "name_en": "Extensor digiti minimi",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m096",
+      "name_ko": "척측수근신근",
+      "name_en": "Extensor carpi ulnaris",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m097",
+      "name_ko": "회외근",
+      "name_en": "Supinator",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m098",
+      "name_ko": "장무지외전근",
+      "name_en": "Abductor pollicis longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m099",
+      "name_ko": "단무지신근",
+      "name_en": "Extensor pollicis brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m100",
+      "name_ko": "장무지신근",
+      "name_en": "Extensor pollicis longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m101",
+      "name_ko": "시지신근",
+      "name_en": "Extensor indicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m102",
+      "name_ko": "단무지외전근",
+      "name_en": "Abductor pollicis brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m103",
+      "name_ko": "단무지굴근-표재두",
+      "name_en": "Flexor pollicis brevis, superficial head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m104",
+      "name_ko": "단무지굴근-심두",
+      "name_en": "Flexor pollicis brevis, deep head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m105",
+      "name_ko": "무지대립근",
+      "name_en": "Opponens pollicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m106",
+      "name_ko": "무지내전근-사두",
+      "name_en": "Adductor pollicis, oblique head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m107",
+      "name_ko": "무지내전근-횡두",
+      "name_en": "Adductor pollicis, transverse head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m108",
+      "name_ko": "단소지근",
+      "name_en": "Flexor digiti minimi brevis (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m109",
+      "name_ko": "소지외전근",
+      "name_en": "Abductor digiti minimi (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m110",
+      "name_ko": "소지대립근",
+      "name_en": "Opponens digiti minimi",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m111",
+      "name_ko": "단장근",
+      "name_en": "Palmaris brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m112",
+      "name_ko": "제1충양근",
+      "name_en": "Lumbrical 1 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m113",
+      "name_ko": "제2충양근",
+      "name_en": "Lumbrical 2 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m114",
+      "name_ko": "제3충양근",
+      "name_en": "Lumbrical 3 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m115",
+      "name_ko": "제4충양근",
+      "name_en": "Lumbrical 4 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m116",
+      "name_ko": "제1배측골간근",
+      "name_en": "Dorsal interosseous 1 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m117",
+      "name_ko": "제2배측골간근",
+      "name_en": "Dorsal interosseous 2 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m118",
+      "name_ko": "제3배측골간근",
+      "name_en": "Dorsal interosseous 3 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m119",
+      "name_ko": "제4배측골간근",
+      "name_en": "Dorsal interosseous 4 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m120",
+      "name_ko": "제1수장골간근",
+      "name_en": "Palmar interosseous 1 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m121",
+      "name_ko": "제2수장골간근",
+      "name_en": "Palmar interosseous 2 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m122",
+      "name_ko": "제3수장골간근",
+      "name_en": "Palmar interosseous 3 (hand)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m123",
+      "name_ko": "대둔근",
+      "name_en": "Gluteus maximus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m124",
+      "name_ko": "중둔근",
+      "name_en": "Gluteus medius",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m125",
+      "name_ko": "소둔근",
+      "name_en": "Gluteus minimus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m126",
+      "name_ko": "대퇴근막장근",
+      "name_en": "Tensor fasciae latae",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m127",
+      "name_ko": "봉공근",
+      "name_en": "Sartorius",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m128",
+      "name_ko": "대퇴직근",
+      "name_en": "Rectus femoris",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m129",
+      "name_ko": "외측광근",
+      "name_en": "Vastus lateralis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m130",
+      "name_ko": "내측광근",
+      "name_en": "Vastus medialis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m131",
+      "name_ko": "중간광근",
+      "name_en": "Vastus intermedius",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m132",
+      "name_ko": "무릎관절근",
+      "name_en": "Articularis genus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m133",
+      "name_ko": "치골근",
+      "name_en": "Pectineus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m134",
+      "name_ko": "장내전근",
+      "name_en": "Adductor longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m135",
+      "name_ko": "단내전근",
+      "name_en": "Adductor brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m136",
+      "name_ko": "대내전근-내전부",
+      "name_en": "Adductor magnus, adductor part",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m137",
+      "name_ko": "대내전근-햄스트링부",
+      "name_en": "Adductor magnus, hamstring part",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m138",
+      "name_ko": "박근",
+      "name_en": "Gracilis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m139",
+      "name_ko": "대퇴이두근-장두",
+      "name_en": "Biceps femoris, long head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m140",
+      "name_ko": "대퇴이두근-단두",
+      "name_en": "Biceps femoris, short head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m141",
+      "name_ko": "반건양근",
+      "name_en": "Semitendinosus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m142",
+      "name_ko": "반막양근",
+      "name_en": "Semimembranosus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m143",
+      "name_ko": "전경골근",
+      "name_en": "Tibialis anterior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m144",
+      "name_ko": "장무지신근",
+      "name_en": "Extensor hallucis longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m145",
+      "name_ko": "장지신근",
+      "name_en": "Extensor digitorum longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m146",
+      "name_ko": "제3비골근",
+      "name_en": "Fibularis tertius",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m147",
+      "name_ko": "장비골근",
+      "name_en": "Fibularis longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m148",
+      "name_ko": "단비골근",
+      "name_en": "Fibularis brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m149",
+      "name_ko": "비복근-내측두",
+      "name_en": "Gastrocnemius, medial head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m150",
+      "name_ko": "비복근-외측두",
+      "name_en": "Gastrocnemius, lateral head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m151",
+      "name_ko": "가자미근",
+      "name_en": "Soleus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m152",
+      "name_ko": "족척근",
+      "name_en": "Plantaris",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m153",
+      "name_ko": "슬와근",
+      "name_en": "Popliteus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m154",
+      "name_ko": "후경골근",
+      "name_en": "Tibialis posterior",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m155",
+      "name_ko": "장지굴근",
+      "name_en": "Flexor digitorum longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m156",
+      "name_ko": "장무지굴근",
+      "name_en": "Flexor hallucis longus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m157",
+      "name_ko": "단지신근",
+      "name_en": "Extensor digitorum brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m158",
+      "name_ko": "단무지신근",
+      "name_en": "Extensor hallucis brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m159",
+      "name_ko": "무지외전근",
+      "name_en": "Abductor hallucis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m160",
+      "name_ko": "단지굴근",
+      "name_en": "Flexor digitorum brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m161",
+      "name_ko": "소지외전근",
+      "name_en": "Abductor digiti minimi (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m162",
+      "name_ko": "족척방형근",
+      "name_en": "Quadratus plantae",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m163",
+      "name_ko": "제1충양근",
+      "name_en": "Lumbrical 1 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m164",
+      "name_ko": "제2충양근",
+      "name_en": "Lumbrical 2 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m165",
+      "name_ko": "제3충양근",
+      "name_en": "Lumbrical 3 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m166",
+      "name_ko": "제4충양근",
+      "name_en": "Lumbrical 4 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m167",
+      "name_ko": "단무지굴근",
+      "name_en": "Flexor hallucis brevis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m168",
+      "name_ko": "무지내전근-사두",
+      "name_en": "Adductor hallucis, oblique head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m169",
+      "name_ko": "무지내전근-횡두",
+      "name_en": "Adductor hallucis, transverse head",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m170",
+      "name_ko": "단소지굴근",
+      "name_en": "Flexor digiti minimi brevis (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m171",
+      "name_ko": "소지대립근",
+      "name_en": "Opponens digiti minimi (foot, variable)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m172",
+      "name_ko": "제1배측골간근",
+      "name_en": "Dorsal interosseous 1 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m173",
+      "name_ko": "제2배측골간근",
+      "name_en": "Dorsal interosseous 2 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m174",
+      "name_ko": "제3배측골간근",
+      "name_en": "Dorsal interosseous 3 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m175",
+      "name_ko": "제4배측골간근",
+      "name_en": "Dorsal interosseous 4 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m176",
+      "name_ko": "제1족저골간근",
+      "name_en": "Plantar interosseous 1 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m177",
+      "name_ko": "제2족저골간근",
+      "name_en": "Plantar interosseous 2 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m178",
+      "name_ko": "제3족저골간근",
+      "name_en": "Plantar interosseous 3 (foot)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m179",
+      "name_ko": "복직근",
+      "name_en": "Rectus abdominis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m180",
+      "name_ko": "추체근",
+      "name_en": "Pyramidalis (variable)",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m181",
+      "name_ko": "외복사근",
+      "name_en": "External oblique",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m182",
+      "name_ko": "내복사근",
+      "name_en": "Internal oblique",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m183",
+      "name_ko": "복횡근",
+      "name_en": "Transversus abdominis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m184",
+      "name_ko": "광경근",
+      "name_en": "Platysma",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m185",
+      "name_ko": "이복근",
+      "name_en": "Digastric",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m186",
+      "name_ko": "경돌설골근",
+      "name_en": "Stylohyoid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m187",
+      "name_ko": "하악설골근",
+      "name_en": "Mylohyoid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m188",
+      "name_ko": "이설골근",
+      "name_en": "Geniohyoid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m189",
+      "name_ko": "흉골설골근",
+      "name_en": "Sternohyoid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m190",
+      "name_ko": "흉골갑상근",
+      "name_en": "Sternothyroid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m191",
+      "name_ko": "갑상설골근",
+      "name_en": "Thyrohyoid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m192",
+      "name_ko": "견갑설골근",
+      "name_en": "Omohyoid",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m193",
+      "name_ko": "최소사각근",
+      "name_en": "Scalenus minimus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m194",
+      "name_ko": "경장늑근",
+      "name_en": "Iliocostalis cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m195",
+      "name_ko": "두최장근",
+      "name_en": "Longissimus capitis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m196",
+      "name_ko": "경최장근",
+      "name_en": "Longissimus cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m197",
+      "name_ko": "경극근",
+      "name_en": "Spinalis cervicis",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m198",
+      "name_ko": "외항문괄약근",
+      "name_en": "External anal sphincter",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m199",
+      "name_ko": "구해면체근",
+      "name_en": "Bulbospongiosus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m200",
+      "name_ko": "좌골해면체근",
+      "name_en": "Ischiocavernosus",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m201",
+      "name_ko": "천회음횡근",
+      "name_en": "Superficial transverse perineal",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m202",
+      "name_ko": "심회음횡근",
+      "name_en": "Deep transverse perineal",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m203",
+      "name_ko": "외요도괄약근",
+      "name_en": "External urethral sphincter",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m204",
+      "name_ko": "거고근",
+      "name_en": "Cremaster",
+      "status": "pending_review"
+    },
+    {
+      "muscle_id": "m205",
+      "name_ko": "주관절근",
+      "name_en": "Articularis cubiti (subanconeus)",
+      "status": "pending_review"
+    }
+  ]
+}

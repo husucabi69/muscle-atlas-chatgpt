@@ -7,7 +7,8 @@ const version=fs.readFileSync('app-version.js','utf8');
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 
-check('Stage 16 build version',version.includes("stage16.1")&&version.includes("v10.1 · Stage 16 Hierarchical Navigation"));
+const releaseStage=Number(version.match(/buildVersion:'[^']*-stage(\d+)\./)?.[1]||0);
+check('Hierarchical navigation survives later releases',releaseStage>=16,String(releaseStage));
 check('Canonical muscles still 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 for(const id of ['regionChooserView','regionMusclesView','regionDetailView','regionMuscleDetailHead','regionMuscleDetailContent']){
