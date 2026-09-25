@@ -49,8 +49,8 @@ Stage 1 — 어깨·견갑대·상완
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
 Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
 Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 6 하퇴·발목·발
-목표 완료일: 2026-12-05
+현재 개발: Stage 7 경추
+목표 완료일: 2026-12-18
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
