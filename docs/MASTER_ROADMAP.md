@@ -49,8 +49,8 @@ Stage 1 — 어깨·견갑대·상완
 Stage 2 팔꿈치·전완 COMPLETE — 2026-09-25 조기 완료
 Stage 3 손목·손 COMPLETE — 2026-09-25 조기 완료
 Stage 4 고관절·골반·둔부 COMPLETE — 2026-09-25 조기 완료
-현재 개발: Stage 8 흉추·등·흉곽
-목표 완료일: 2026-12-30
+현재 개발: Stage 9 요추·천추
+목표 완료일: 2027-01-14
 
 
 ## v7.4 진행 체크 — Shoulder Examination + Ultrasound
@@ -279,3 +279,16 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 - Actual ultrasound canonical reference audit 14/14
 - Cervical clinical quiz 30
 - 다음 공식 단계: Stage 8 — 흉추·등·흉곽
+
+
+## Stage 8 완료 기록
+완료일: 2026-09-25
+상태: COMPLETE — Thoracic/Back/Chest Wall Stage 8
+- Thoracic erector spinae / semispinalis / multifidus / rotatores
+- Costotransverse / costovertebral / thoracic facet structures
+- Scapulothoracic mechanics and serratus/long thoracic pathway
+- Intercostal muscles / intercostal nerve / diaphragm
+- Thoracic radiculopathy / myelopathy / serious-pathology red flags
+- Actual ultrasound canonical reference audit 14/14
+- Thoracic clinical quiz 30
+- 다음 공식 단계: Stage 9 — 요추·천추
