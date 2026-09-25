@@ -1726,16 +1726,19 @@ function toggleOralMic(){
 function gradeOralAnswer(){
   if(oralIndex>=oralSession.length)return;
   const q=oralSession[oralIndex],answer=document.getElementById('oralAnswer')?.value?.trim()||'';
-  const levelThreshold={friend:.32,teacher:.45,senior:.52,master:.58}[q.level]||.45;
+  const levelThreshold={friend:.45,teacher:.62,senior:.67,master:.72}[q.level]||.62;
   const details=q.targets.map(t=>{
-    const clauses=String(t.expected||'').split(/[;]+/).map(x=>x.trim()).filter(Boolean);
+    // Comma/semicolon-separated components are treated as separately scorable canonical elements.
+    // This prevents a half-answer (e.g. one insertion site while omitting another) from being promoted to fully correct.
+    const clauses=String(t.expected||'').split(/[;,]+/).map(x=>x.trim()).filter(Boolean);
     const scores=clauses.map(c=>clauseScore(answer,c));
     const score=scores.length?scores.reduce((a,b)=>a+b,0)/scores.length:0;
-    const missing=clauses.filter((c,i)=>scores[i]<.35);
-    return{...t,score,missing};
+    const missing=clauses.filter((c,i)=>scores[i]<.45);
+    return{...t,score,missing,complete:missing.length===0};
   });
   const score=details.reduce((s,x)=>s+x.score,0)/details.length;
-  let grade=score>=levelThreshold?'correct':score>=levelThreshold*.55?'partial':'wrong';
+  const allComplete=details.every(x=>x.complete&&x.score>=levelThreshold);
+  let grade=allComplete?'correct':score>=Math.max(.28,levelThreshold*.55)?'partial':'wrong';
   if(!answer)grade='wrong';
   if(grade==='correct')oralCorrect++;else if(grade==='partial')oralPartial++;else oralWrong++;
   const state=oralState(),key=q.muscleId+':'+q.fields.join('+');
