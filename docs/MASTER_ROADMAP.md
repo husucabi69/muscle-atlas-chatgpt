@@ -425,3 +425,37 @@ Stage 5 — 무릎·대퇴. Quadriceps/patellar tendon, hamstrings, pes, collate
 ### 다음 공식 단계
 Stage 12 — OrthoOS Read-only Integration Contract.
 Muscle Atlas repo/runtime/DB는 독립 유지하며, versioned read-only contract/fixture/API shape만 정의한다. PHI는 Atlas에 들어오지 않는다.
+
+
+## v9.2 Real Viva + 환자교육 UX — 2026-09-25
+상태: DEV COMPLETE / Stage 11 재회귀검사 대상
+
+### 앱 이름
+- [x] PWA/브라우저 표시 이름을 `이윤석정형외과 근육`으로 통일
+- [x] manifest name/short_name 변경
+
+### Oral Viva 2.0
+- [x] O/I/F/N 단독 암기형에서 다영역 viva로 확장
+- [x] 기시·정지·신경 / 기능·움직임 / 촉진·MMT / 증상·감별 / 초음파 / reverse identification
+- [x] 친구 / 동료 / 선배 / 대가 4개 examiner persona
+- [x] examiner별 질문 어투 및 정답·부분정답·오답 반응 차등
+- [x] 오답 시 누락 핵심 + 정본답 + 왜 중요한지 teaching point 제공
+- [x] '한 단계 더' follow-up teaching prompt
+- [x] 증상/진단/초음파 연결은 Knowledge Core Stable ID relationship에서 동적으로 생성
+- [x] 외부 LLM/API로 구술 답변을 전송하지 않음
+
+### 환자 운동·스트레칭
+- [x] 상단 독립 탭으로 승격
+- [x] 홈에서 환자용 바로가기 제공
+- [x] 환자 친화적 설명 순서: 부위 → 근육 → 방법 → 용량 → 주의사항
+- [x] 각 profile에 print-safe vector 동작 개념도 표시
+- [x] 근육별 운동표 A4 인쇄 기능
+- [x] 운동별 주의사항과 전체 stop/reassessment red flag
+- [x] 의료진용 evidence level/source는 접어서 별도 표시
+- [ ] 실제 환자용 도해는 Stage 11 visual QA에서 자세 정확도와 가독성을 추가 검수
+
+### Ultrasound 지속 업데이트 정책
+- 실제 공개 초음파/B-mode 또는 정당한 open-access figure만 사용
+- license/attribution/figure context 확인 후 추가
+- 생성형 초음파를 실제 영상처럼 사용하지 않음
+- 기존 canonical view보다 교육성이 명확히 좋아지는 경우에만 교체/추가
