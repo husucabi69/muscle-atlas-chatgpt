@@ -1,0 +1,69 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_for": "Stage 12 OrthoOS read-only integration",
+  "contract_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.09.25-j",
+  "transport": "static_read_only_bundle",
+  "provider_base": "/muscle-atlas-chatgpt/",
+  "files": {
+    "contract": "data/integration/orthoos-readonly-contract-v1.json",
+    "integration_schema": "data/schema/orthoos-readonly-integration-v1.schema.json",
+    "knowledge_schema": "data/schema/msk-knowledge-schema-v1.json",
+    "knowledge_core": "data/knowledge-core-v1.json",
+    "patient_education": "data/patient-exercise-library-v1.json",
+    "global_qa": "data/global-qa-stage11-v1.json",
+    "media_license_audit": "data/media-license-global-audit-v1.json"
+  },
+  "counts": {
+    "regions": 14,
+    "muscles": 205,
+    "symptom_groups": 10,
+    "symptom_patterns": 62,
+    "tendons": 44,
+    "nerves": 47,
+    "joints": 24,
+    "bursae": 15,
+    "ligaments": 26,
+    "fasciae": 6,
+    "clinical_findings": 128,
+    "clinical_tests": 148,
+    "diagnosis_concepts": 140,
+    "ultrasound_views": 131,
+    "content_assets": 45,
+    "relationships": 1789
+  },
+  "constraints": {
+    "read_only": true,
+    "contains_phi": false,
+    "patient_context": false,
+    "generated_ultrasound_substitute": false
+  },
+  "supported_entity_types": [
+    "region",
+    "muscle",
+    "symptom_group",
+    "symptom_pattern",
+    "tendon",
+    "nerve",
+    "joint",
+    "bursa",
+    "ligament",
+    "fascia",
+    "clinical_finding",
+    "clinical_test",
+    "diagnosis_concept",
+    "ultrasound_view",
+    "content_asset",
+    "relationship"
+  ],
+  "patient_education_dataset_version": "2026.09.25-c",
+  "global_qa_audit_version": "2026.09.25-stage11-v2",
+  "media_license_audit_version": "2026.09.25-v9.3",
+  "fixtures": [
+    "data/integration/fixtures/entity-request-m070.json",
+    "data/integration/fixtures/entity-response-m070.json",
+    "data/integration/fixtures/entity-response-d001-candidate.json",
+    "data/integration/fixtures/error-patient-context-forbidden.json"
+  ]
+}
