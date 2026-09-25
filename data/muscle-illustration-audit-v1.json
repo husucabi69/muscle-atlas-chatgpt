@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.25-stage17-b",
+  "audit_version": "2026.09.25-stage17-c",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -399,37 +399,85 @@
       "muscle_id": "m050",
       "name_ko": "이상근",
       "name_en": "Piriformis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Piriformis muscle.PNG",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Piriformis_muscle.PNG",
+        "license": "Public domain",
+        "author": "Mikael Häggström / Gray's Anatomy derivative",
+        "view": "posterior deep gluteal",
+        "educationalReason": "천골 전면에서 대좌골공을 지나 대전자 쪽으로 향하는 이상근의 위치와 좌골신경 주변의 깊은 둔부 관계를 후면에서 가장 직관적으로 확인"
+      }
     },
     {
       "muscle_id": "m051",
       "name_ko": "폐쇄내근",
       "name_en": "Obturator internus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Obturator internus muscle.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Obturator_internus_muscle.png",
+        "license": "Public domain",
+        "author": "Mikael Häggström / Gray's Anatomy derivative",
+        "view": "posterior deep gluteal",
+        "educationalReason": "소좌골공을 돌아 대전자 내측면으로 향하는 폐쇄내근 건의 방향과 상·하쌍자근 사이 관계를 후면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m052",
       "name_ko": "상쌍자근",
       "name_en": "Superior gemellus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gemellus superior muscle.PNG",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gemellus_superior_muscle.PNG",
+        "license": "Public domain",
+        "author": "Mikael Häggström / Gray's Anatomy derivative",
+        "view": "posterior deep gluteal",
+        "educationalReason": "폐쇄내근 건의 위쪽에서 함께 주행하는 상쌍자근을 이상근·폐쇄내근과 구분하기 쉬운 후면 강조 도해"
+      }
     },
     {
       "muscle_id": "m053",
       "name_ko": "하쌍자근",
       "name_en": "Inferior gemellus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Inferior gemellus muscle.PNG",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Inferior_gemellus_muscle.PNG",
+        "license": "Public domain",
+        "author": "Mikael Häggström / Gray's Anatomy derivative",
+        "view": "posterior deep gluteal",
+        "educationalReason": "폐쇄내근 건의 아래쪽에서 함께 주행하는 하쌍자근과 대퇴방형근의 층별 관계를 후면에서 구분"
+      }
     },
     {
       "muscle_id": "m054",
       "name_ko": "폐쇄외근",
       "name_en": "Obturator externus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Obturator externus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Obturator_externus.png",
+        "license": "Public domain",
+        "author": "Mikael Häggström / Gray's Anatomy derivative",
+        "view": "posterior deep hip",
+        "educationalReason": "폐쇄공 외면에서 대퇴골 전자와로 향하는 폐쇄외근의 짧고 깊은 주행을 주변 심부 외회전근과 비교해 확인"
+      }
     },
     {
       "muscle_id": "m055",
       "name_ko": "대퇴방형근",
       "name_en": "Quadratus femoris",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Quadratus femoris muscle.PNG",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Quadratus_femoris_muscle.PNG",
+        "license": "Public domain",
+        "author": "Mikael Häggström / Gray's Anatomy derivative",
+        "view": "posterior deep gluteal",
+        "educationalReason": "좌골결절에서 대퇴골 전자간능으로 수평 주행하는 대퇴방형근을 하쌍자근 아래에서 후면으로 가장 명확히 확인"
+      }
     },
     {
       "muscle_id": "m056",
@@ -1365,8 +1413,8 @@
     }
   ],
   "progress": {
-    "reviewed": 15,
-    "pending_review": 190,
-    "last_batch": "cervical_suboccipital_priority_batch"
+    "reviewed": 21,
+    "pending_review": 184,
+    "last_batch": "deep_gluteal_priority_batch"
   }
 }
