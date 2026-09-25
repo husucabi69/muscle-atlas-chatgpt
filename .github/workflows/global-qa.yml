@@ -32,3 +32,5 @@ jobs:
         run: node scripts/auto-update-qa.mjs
       - name: Run Stage 16 hierarchical navigation QA
         run: node scripts/hierarchical-navigation-qa.mjs
+      - name: Run Stage 17 muscle illustration audit QA
+        run: node scripts/muscle-illustration-audit-qa.mjs
