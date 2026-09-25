@@ -108,6 +108,8 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
+상태: **IN PROGRESS — 2026-09-25 / rotator-cuff first batch implemented**
+
 목표: 205개 근육 각각에서 “근육을 가장 잘 이해할 수 있는 대표 시야”를 우선 표시한다.
 
 ## 대표 도해 선정 규칙
@@ -120,20 +122,28 @@
 - 실시간 검색 결과를 대표 도해로 자동 승격하지 않음
 
 ## 구현
-- [ ] 205 muscle 대표 anatomy image 전수 audit
-- [ ] 대표시야 metadata: view / side / layer / educational_reason
-- [ ] 극하근 포함 견갑·회전근개 우선 교체
+- [x] 205 muscle 전수 audit ledger 생성 / 각 근육 pending/reviewed 상태 관리 (전수 검수 자체는 진행 중)
+- [x] 대표시야 metadata: view / educationalReason / source / license 구조 도입
+- [x] 회전근개 1차: 극상근 posterior / 극하근 posterior / 소원근 posterior / 견갑하근 anterior 대표시야로 교체
 - [ ] 경추/후두하·심부둔부·전완심부·족부심부 우선 재검수
-- [ ] 대표 1장 + 필요할 때만 보조 1–2장
-- [ ] 저품질/의미 없는 기존 고정도해 제거 또는 secondary 강등
-- [ ] image source/license/attribution 유지
-- [ ] anatomy detail 화면에 “대표 시야” 표시
+- [x] reviewed 근육은 대표 1장 우선 원칙 적용
+- [x] 극하근 기존 superior view 대표도해 제거
+- [x] 1차 교체 4개 source/license/attribution 검증 및 유지
+- [x] anatomy detail 카드에 대표 시야 / view / 선정 이유 표시
+
+## 현재 진행
+- reviewed: 4 / 205
+- pending_review: 201 / 205
+- 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
+- Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
+- Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
 
 ## 완료 Gate
-- 205/205 representative-view decision
-- 대표시야 미등록 0 또는 근거 있는 “공개 적합자료 미확립” 표기
-- source/license 누락 0
-- 극하근 등 우선 문제 사례 시각 QA PASS
+- [ ] 205/205 representative-view decision
+- [ ] 대표시야 미등록 0 또는 근거 있는 “공개 적합자료 미확립” 표기
+- [ ] reviewed source/license 누락 0
+- [x] 극하근 우선 문제 사례 데이터 수정 + 자동 QA
+- [ ] 실제 앱 화면에서 posterior 대표시야 시각 확인
 
 ---
 
