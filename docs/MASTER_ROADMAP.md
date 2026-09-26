@@ -71,9 +71,11 @@ Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과�
 ## 개발 운영
 - 개발은 dev branch에서 한다.
 - 정본 Stage 12 dev branch: `dev/stage12-readonly-integration-20260925`. 과거 stage11/stage12 divergent branch는 참고용이며 merge하지 않는다.
-- 회귀검사 PASS 후에만 main으로 병합한다.
-- Cloudflare 연결 완료 후 모든 기능/도해 변경은 PR Global QA + Cloudflare Preview 실화면 확인을 통과한 뒤 main으로 병합한다.
-- main은 설치형 학습 앱의 stable release다. Cloudflare Production을 정식 origin으로 검증하는 동안 GitHub Pages는 fallback으로 유지한다.
+- 회귀검사 PASS는 Preview 승격 조건이지 main 병합 조건이 아니다.
+- 모든 진행 개발은 장기 branch `preview/development`에 누적하고 Cloudflare Branch Preview에서 반복 검수한다.
+- 개별 기능/도해 배치가 승인되어도 main/Production으로 병합하지 않는다.
+- 전체 개발이 완료되고 더 이상 개발할 항목이 없다고 확인된 뒤, 의장님의 명시적 `Production 승격` 승인 시에만 `preview/development`를 main으로 승격한다.
+- main은 설치형 학습 앱의 stable Production release다. GitHub Pages는 fallback으로 유지한다.
 - 다음 개발 세션은 위 표에서 가장 앞의 미완료 단계부터 재개한다.
 - 일정 변경 시 이유와 새 목표일을 ROADMAP에 기록하며, 완료 기준 자체는 낮추지 않는다.
 
@@ -87,8 +89,8 @@ Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과�
 - Stage 15 Reliable Auto-Update Engine: DEV COMPLETE / automated QA PASS
 - 사용자 실사용 피드백 반영: 계층형 화면 전환 → 근육 대표도해 → 사람 같은 Oral 음성 순으로 우선순위 재정렬
 - Stage 16 Hierarchical Navigation 2.0: DEV COMPLETE / automated QA PASS
-- Stage 17 Muscle Illustration Quality Audit: IN PROGRESS — 122/205 reviewed, 83 pending (suprahyoid/infrahyoid priority batch added; pyramidalis held for license metadata)
-- Cloudflare Preview/Production infrastructure: ACTIVE — GitHub integration verified; PR Preview automatic deployment SUCCESS; visual Preview confirmation required before future main merges
+- Stage 17 Muscle Illustration Quality Audit: PREVIEW IN PROGRESS — Production main 114/205 reviewed, 91 pending; `preview/development` 122/205 reviewed, 83 pending (suprahyoid/infrahyoid batch Preview approved; Production promotion deferred)
+- Cloudflare Preview/Production infrastructure: ACTIVE — GitHub integration verified; `preview/development` is the long-lived development line; repeated visual approval occurs in Preview; Production remains frozen until final explicit promotion
 - 현재 개발: **Stage 17 — Muscle Illustration Quality Audit**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.

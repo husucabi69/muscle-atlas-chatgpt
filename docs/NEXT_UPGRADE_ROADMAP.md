@@ -108,15 +108,16 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
-상태: **IN PROGRESS — 2026-09-26 / 122 of 205 representative views reviewed**
+상태: **PREVIEW IN PROGRESS — 2026-09-26 / Production 114 of 205 · Preview 122 of 205 representative views reviewed**
 
 ## 배포 게이트
 - [x] 저장소 Cloudflare Pages 호환 경로/QA 준비
 - [x] Cloudflare Dashboard에서 GitHub 저장소 연결
 - [x] Production branch = `main`, Preview = all non-production branches 설정
 - [x] Cloudflare Production 배포 + PR Preview 자동생성 확인
-- [ ] Preview 실제 화면 시각 확인
-- [ ] 이후 Stage 17 대표도해 변경은 Preview 실화면 확인 후에만 main 병합
+- [x] 설골상·설골하 배치 Preview 실제 화면 시각 확인 — 의장님 승인
+- [x] 이후 개발은 `preview/development`에만 누적하고 각 배치를 Preview 실화면 검수
+- [ ] 전체 개발 완료 후 의장님의 명시적 Production 승격 승인 시에만 main 병합
 
 목표: 205개 근육 각각에서 “근육을 가장 잘 이해할 수 있는 대표 시야”를 우선 표시한다.
 
@@ -144,8 +145,10 @@
 - [x] anatomy detail 카드에 대표 시야 / view / 선정 이유 표시
 
 ## 현재 진행
-- reviewed: 122 / 205
-- pending_review: 83 / 205
+- Production reviewed: 114 / 205
+- Preview reviewed: 122 / 205
+- Production pending_review: 91 / 205
+- Preview pending_review: 83 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
@@ -165,7 +168,7 @@
 - [x] 복벽 우선 4개(복직근·외복사근·내복사근·복횡근) 대표시야 검수 완료
 - [x] 흉곽·호흡 우선 6개(대흉근·소흉근·쇄골하근·상후거근·하후거근·횡격막) 대표시야 검수 완료
 - [x] 경추 전면 심부 4개(두장근·경장근·전두직근·외측두직근) 대표시야 검수 완료
-- [x] 설골상·설골하 8개(이복근·경돌설골근·하악설골근·이설골근·흉골설골근·흉골갑상근·갑상설골근·견갑설골근) 대표시야 데이터 검수 완료
+- [x] 설골상·설골하 8개(이복근·경돌설골근·하악설골근·이설골근·흉골설골근·흉골갑상근·갑상설골근·견갑설골근) 대표시야 데이터 검수 완료 — `preview/development`에 유지, Production 미승격
   - Gray Plate 378 기반 개별 강조 public-domain 도해로 통일; Preview 실화면 확인 후 main 병합
   - 네 근육 모두 Gray plate 기반 개별 강조 public-domain 도해를 사용하여 작은 심부근도 주변 경추·두개저 표지와 함께 구분 가능
   - 대흉근: `202304 Pectoralis major muscle.svg`는 Commons license review needed 상태라 대표도해에서 제외하고 `Gray410.png` public-domain 정본으로 교체
