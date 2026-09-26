@@ -53,6 +53,9 @@ const required={
   m009:'Musculus splenius capitis marked.png',
   m010:'Splenius cervicis muscle back.png',
   m011:'Gray384 Semispinalis capitis.png',
+  m012:'Essentials of physiology, arranged in the form of questions and answers, prepared especially for students of medicine (1899) (14581458379).jpg',
+  m014:'Rotatores.png',
+  m015:'Essentials of physiology, arranged in the form of questions and answers, prepared especially for students of medicine (1899) (14581458379).jpg',
   m017:'Rectus capitis posterior major muscle back.png',
   m018:'Rectus capitis posterior minor muscle back.png',
   m019:'Obliquus capitis superior muscle.png',
@@ -201,6 +204,19 @@ for(const [id,focusLabel] of Object.entries(handLumbricals)){
   check(id+' hand lumbrical reviewed',row?.status==='reviewed');
   check(id+' hand lumbrical focus label',reg?.focusLabel===focusLabel,reg?.focusLabel||'missing');
   check(id+' hand lumbrical audit focus label',row?.representative_asset?.focusLabel===focusLabel,row?.representative_asset?.focusLabel||'missing');
+}
+
+const deepCervicalExact={
+  m012:'W · Semi-spinalis colli',
+  m014:'cervical rotatores',
+  m015:'X · interspinals'
+};
+for(const [id,focusLabel] of Object.entries(deepCervicalExact)){
+  const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
+  const reg=media.muscles?.[id]?.anatomy?.[0];
+  check(id+' deep cervical reviewed',row?.status==='reviewed');
+  check(id+' deep cervical focus label',reg?.focusLabel===focusLabel,reg?.focusLabel||'missing');
+  check(id+' deep cervical audit focus label',row?.representative_asset?.focusLabel===focusLabel,row?.representative_asset?.focusLabel||'missing');
 }
 
 check('Media registry Stage 17 version',String(media.version||'').includes('stage17'));
