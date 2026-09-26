@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.27-stage17-ac",
+  "version": "2026.09.27-stage17-ad",
   "updated": "2026-09-27",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -2253,6 +2253,66 @@
           "representative": true,
           "view": "palmar deep thumb",
           "educationalReason": "Gray plate 426에서 ADDUCTOR POLLICIS TRANSVERSUS가 직접 라벨링되어 제3중수골 쪽에서 엄지 기저부로 거의 횡행하는 횡두를 사두와 분리해 확인"
+        }
+      ]
+    },
+    "m112": {
+      "anatomy": [
+        {
+          "title": "Lumbrical 1 — Sobotta palmar representative view",
+          "file": "Sobo 1909 288.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain (PD-scan / pre-1931 publication)",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_288.png",
+          "representative": true,
+          "view": "palmar deep hand",
+          "focusLabel": "Lumbricalis I",
+          "educationalReason": "Sobotta 손바닥 심부 도해에서 Lumbricalis I가 직접 라벨링되어 심지굴근건에서 시작해 해당 손가락 요측으로 주행하는 제1충양근 근복과 주변 건의 관계를 명확히 확인"
+        }
+      ]
+    },
+    "m113": {
+      "anatomy": [
+        {
+          "title": "Lumbrical 2 — Sobotta palmar representative view",
+          "file": "Sobo 1909 288.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain (PD-scan / pre-1931 publication)",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_288.png",
+          "representative": true,
+          "view": "palmar deep hand",
+          "focusLabel": "Lumbricalis II",
+          "educationalReason": "Sobotta 손바닥 심부 도해에서 Lumbricalis II가 직접 라벨링되어 심지굴근건에서 시작해 해당 손가락 요측으로 주행하는 제2충양근 근복과 주변 건의 관계를 명확히 확인"
+        }
+      ]
+    },
+    "m114": {
+      "anatomy": [
+        {
+          "title": "Lumbrical 3 — Sobotta palmar representative view",
+          "file": "Sobo 1909 288.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain (PD-scan / pre-1931 publication)",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_288.png",
+          "representative": true,
+          "view": "palmar deep hand",
+          "focusLabel": "Lumbricalis III",
+          "educationalReason": "Sobotta 손바닥 심부 도해에서 Lumbricalis III가 직접 라벨링되어 심지굴근건에서 시작해 해당 손가락 요측으로 주행하는 제3충양근 근복과 주변 건의 관계를 명확히 확인"
+        }
+      ]
+    },
+    "m115": {
+      "anatomy": [
+        {
+          "title": "Lumbrical 4 — Sobotta palmar representative view",
+          "file": "Sobo 1909 288.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain (PD-scan / pre-1931 publication)",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_288.png",
+          "representative": true,
+          "view": "palmar deep hand",
+          "focusLabel": "Lumbricalis IV",
+          "educationalReason": "Sobotta 손바닥 심부 도해에서 Lumbricalis IV가 직접 라벨링되어 심지굴근건에서 시작해 해당 손가락 요측으로 주행하는 제4충양근 근복과 주변 건의 관계를 명확히 확인"
         }
       ]
     }
