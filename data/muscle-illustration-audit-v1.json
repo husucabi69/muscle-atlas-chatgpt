@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-p",
+  "audit_version": "2026.09.26-stage17-q",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -279,13 +279,29 @@
       "muscle_id": "m030",
       "name_ko": "상후거근",
       "name_en": "Serratus posterior superior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Serratus posterior superior muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Serratus_posterior_superior_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior upper thorax",
+        "educationalReason": "C7–T3 부근에서 제2–5늑골로 향하는 상후거근의 얇은 사선 근복과 늑골 부착을 반투명 견갑골 아래의 후면 시야에서 가장 직접적으로 확인"
+      }
     },
     {
       "muscle_id": "m031",
       "name_ko": "하후거근",
       "name_en": "Serratus posterior inferior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Serratus posterior inferior muscle back.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Serratus_posterior_inferior_muscle_back.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior lower thorax",
+        "educationalReason": "T11–L2 부근에서 제9–12늑골로 상외측 주행하는 하후거근의 전체 근복과 하부 늑골 부착을 후면에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m032",
@@ -321,7 +337,15 @@
       "muscle_id": "m037",
       "name_ko": "횡격막",
       "name_en": "Diaphragm",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Diaphragma.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Diaphragma.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter; modified scan by Uwe Gille",
+        "view": "inferior abdominal view",
+        "educationalReason": "횡격막의 양측 돔을 이루는 근육부·중심건·요추각과 주요 통과공의 공간관계를 복강측에서 한 화면에 보여 주어 기시·정지와 기능 해부 이해에 가장 유용"
+      }
     },
     {
       "muscle_id": "m038",
@@ -609,19 +633,43 @@
       "muscle_id": "m065",
       "name_ko": "소흉근",
       "name_en": "Pectoralis minor",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Pectoralis minor.svg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Pectoralis_minor.svg",
+        "license": "CC BY-SA 3.0 / GFDL",
+        "author": "Chrizz; vectorized by Pixelsquid",
+        "view": "anterior deep pectoral",
+        "educationalReason": "제3–5늑골에서 오훼돌기로 향하는 소흉근 전체 삼각형 근복과 늑골·견갑골의 부착 관계를 대흉근에 가리지 않은 전면 시야에서 확인"
+      }
     },
     {
       "muscle_id": "m066",
       "name_ko": "쇄골하근",
       "name_en": "Subclavius",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Subclavius muscle frontal.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Subclavius_muscle_frontal.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "anterior superior thorax",
+        "educationalReason": "제1늑골과 쇄골 사이를 잇는 짧은 쇄골하근의 전 길이와 쇄골 하면 관계를 정면에서 좌우 대칭으로 명확하게 확인"
+      }
     },
     {
       "muscle_id": "m067",
       "name_ko": "대흉근",
       "name_en": "Pectoralis major",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray410.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray410.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter",
+        "view": "anterior superficial chest",
+        "educationalReason": "쇄골·흉골·늑연골에서 상완골로 수렴하는 대흉근의 부채꼴 전체 근복과 전액와주름 방향을 전면에서 주변 뼈 표지와 함께 확인"
+      }
     },
     {
       "muscle_id": "m068",
@@ -2088,8 +2136,8 @@
     }
   ],
   "progress": {
-    "reviewed": 104,
-    "pending_review": 101,
-    "last_batch": "abdominal_wall_priority_batch"
+    "reviewed": 110,
+    "pending_review": 95,
+    "last_batch": "chest_respiratory_priority_batch"
   }
 }
