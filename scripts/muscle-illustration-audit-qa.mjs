@@ -123,6 +123,10 @@ const required={
   m109:'Gray — musculus abductor digiti minimi.png',
   m110:'Gray — musculus opponens digiti minimi.png',
   m111:'Gray — musculus palmaris brevis.png',
+  m112:'Sobo 1909 288.png',
+  m113:'Sobo 1909 288.png',
+  m114:'Sobo 1909 288.png',
+  m115:'Sobo 1909 288.png',
   m029:'Levatores costarum.png',
   m032:'External intercostal muscles lateral.png',
   m033:'Internal intercostal muscles lateral.png',
@@ -185,6 +189,20 @@ for(const [id,expected] of Object.entries(headSpecific)){
   check(id+' focus color',reg?.focusColor===expected.focusColor,reg?.focusColor||'missing');
   check(id+' audit focus matches',row?.representative_asset?.focusLabel===expected.focusLabel);
 }
+const handLumbricals={
+  m112:'Lumbricalis I',
+  m113:'Lumbricalis II',
+  m114:'Lumbricalis III',
+  m115:'Lumbricalis IV'
+};
+for(const [id,focusLabel] of Object.entries(handLumbricals)){
+  const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
+  const reg=media.muscles?.[id]?.anatomy?.[0];
+  check(id+' hand lumbrical reviewed',row?.status==='reviewed');
+  check(id+' hand lumbrical focus label',reg?.focusLabel===focusLabel,reg?.focusLabel||'missing');
+  check(id+' hand lumbrical audit focus label',row?.representative_asset?.focusLabel===focusLabel,row?.representative_asset?.focusLabel||'missing');
+}
+
 check('Media registry Stage 17 version',String(media.version||'').includes('stage17'));
 
 let fail=0;
