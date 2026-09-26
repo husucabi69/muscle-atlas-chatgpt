@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-x",
+  "version": "2026.09.26-stage17-y",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -2043,6 +2043,48 @@
           "representative": false,
           "view": "inferior female perineum",
           "educationalReason": "여성 회음부에서 외항문괄약근의 동일한 고리 구조와 질·회음체·주변 표재근과의 관계를 남성 시야와 비교"
+        }
+      ]
+    },
+    "m057": {
+      "anatomy": [
+        {
+          "title": "Pubococcygeus — superior pelvic floor representative view",
+          "file": "1115 Muscles of the Pelvic Floor.jpg",
+          "author": "OpenStax",
+          "license": "CC BY 4.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:1115_Muscles_of_the_Pelvic_Floor.jpg",
+          "representative": true,
+          "view": "superior pelvic diaphragm",
+          "educationalReason": "골반저 상면도에서 치골미골근(Pubococcygeus)이 직접 라벨링되어 있으며 요도·질·직장관과의 전내측 위치 및 항문거근 내 주행을 한눈에 확인"
+        }
+      ]
+    },
+    "m058": {
+      "anatomy": [
+        {
+          "title": "Iliococcygeus — superior pelvic floor representative view",
+          "file": "1115 Muscles of the Pelvic Floor.jpg",
+          "author": "OpenStax",
+          "license": "CC BY 4.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:1115_Muscles_of_the_Pelvic_Floor.jpg",
+          "representative": true,
+          "view": "superior pelvic diaphragm",
+          "educationalReason": "골반저 상면도에서 장골미골근(Iliococcygeus)이 직접 라벨링되어 있으며 골반측벽에서 미골·항문미골봉선 쪽으로 퍼지는 넓은 후외측 섬유를 치골미골근과 비교"
+        }
+      ]
+    },
+    "m059": {
+      "anatomy": [
+        {
+          "title": "Coccygeus — internal pelvic representative view",
+          "file": "Gray404.png",
+          "author": "Henry Gray / H. V. Carter",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray404.png",
+          "representative": true,
+          "view": "internal pelvic wall",
+          "educationalReason": "천극인대 앞쪽에서 좌골극과 하부 천골·미골 사이에 놓이는 미골근(Coccygeus)이 별도 표기되어 항문거근 후방에서의 삼각형 근육 경계와 위치를 명확히 확인"
         }
       ]
     }

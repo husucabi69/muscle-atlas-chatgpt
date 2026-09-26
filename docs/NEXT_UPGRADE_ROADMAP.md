@@ -108,7 +108,7 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
-상태: **PREVIEW IN PROGRESS — 2026-09-26 / Production 114 of 205 · Preview 140 of 205 representative views reviewed**
+상태: **PREVIEW IN PROGRESS — 2026-09-26 / Production 114 of 205 · Preview 143 of 205 representative views reviewed**
 
 ## 배포 게이트
 - [x] 저장소 Cloudflare Pages 호환 경로/QA 준비
@@ -146,9 +146,9 @@
 
 ## 현재 진행
 - Production reviewed: 114 / 205
-- Preview reviewed: 140 / 205
+- Preview reviewed: 143 / 205
 - Production pending_review: 91 / 205
-- Preview pending_review: 65 / 205
+- Preview pending_review: 62 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
@@ -173,6 +173,8 @@
 - [x] 흉벽 5개(늑골거근·외늑간근·내늑간근·최내늑간근·흉횡근) 대표시야 검수 완료 — `preview/development`
 - [x] 정확도 우선 4개(흉극근·흉반극근·광경근·거고근) 대표시야 검수 완료 — `preview/development`
 - [x] 회음부 3개(외항문괄약근·구해면체근·좌골해면체근) 대표시야 검수 완료 — `preview/development`
+- [x] 골반저 3개(치골미골근·장골미골근·미골근) 직접 라벨/경계 확인 대표시야 검수 완료 — `preview/development`
+  - 치골직장근은 현재 후보 도해에서 독립 구조가 충분히 분리되지 않아 pending 유지
   - 외항문괄약근은 OpenStax inferior perineal overview, 구해면체근·좌골해면체근은 Gray 개별 강조 도해 사용
   - 세 근육 모두 여성 비교 시야를 secondary로 추가해 성별 해부 차이를 학습
   - 회음횡근·골반저 세부 part는 개별 구조가 명확한 정본 확보 전까지 pending 유지
