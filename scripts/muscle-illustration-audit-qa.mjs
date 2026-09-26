@@ -54,6 +54,7 @@ const required={
   m010:'Splenius cervicis muscle back.png',
   m011:'Gray384 Semispinalis capitis.png',
   m012:'Essentials of physiology, arranged in the form of questions and answers, prepared especially for students of medicine (1899) (14581458379).jpg',
+  m013:'1111 Posterior and Side Views of the Neck Deep Posterior.png',
   m014:'Rotatores.png',
   m015:'Essentials of physiology, arranged in the form of questions and answers, prepared especially for students of medicine (1899) (14581458379).jpg',
   m017:'Rectus capitis posterior major muscle back.png',
@@ -145,6 +146,7 @@ const required={
   m032:'External intercostal muscles lateral.png',
   m033:'Internal intercostal muscles lateral.png',
   m034:'Innermost intercostal muscles lateral.png',
+  m035:'Physiology and biochemistry in modern medicine (1918) (14758349676).jpg',
   m036:'Transversus thoracis.png',
   m056:'(155) Stylized depiction of action of puborectalis sling.png',
   m057:'1115 Muscles of the Pelvic Floor.jpg',
@@ -241,6 +243,18 @@ for(const [id,focusLabel] of Object.entries(footIntrinsicNumbered)){
   check(id+' foot intrinsic reviewed',row?.status==='reviewed');
   check(id+' foot intrinsic focus label',reg?.focusLabel===focusLabel,reg?.focusLabel||'missing');
   check(id+' foot intrinsic audit focus label',row?.representative_asset?.focusLabel===focusLabel,row?.representative_asset?.focusLabel||'missing');
+}
+
+const cervicalMultifidusSubcostales={
+  m013:'Multifidus',
+  m035:'10, 10 · subcostal muscles'
+};
+for(const [id,focusLabel] of Object.entries(cervicalMultifidusSubcostales)){
+  const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
+  const reg=media.muscles?.[id]?.anatomy?.[0];
+  check(id+' exact reviewed',row?.status==='reviewed');
+  check(id+' exact focus label',reg?.focusLabel===focusLabel,reg?.focusLabel||'missing');
+  check(id+' exact audit focus label',row?.representative_asset?.focusLabel===focusLabel,row?.representative_asset?.focusLabel||'missing');
 }
 
 check('Media registry Stage 17 version',String(media.version||'').includes('stage17'));
