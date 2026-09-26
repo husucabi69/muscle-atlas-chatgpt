@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-o",
+  "audit_version": "2026.09.26-stage17-p",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1895,31 +1895,64 @@
       "muscle_id": "m179",
       "name_ko": "복직근",
       "name_en": "Rectus abdominis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Rectus abdominis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rectus_abdominis.png",
+        "license": "CC BY-SA 3.0 / GFDL",
+        "author": "Chrizz / Wikimedia Commons",
+        "view": "anterior abdominal wall",
+        "educationalReason": "치골에서 제5–7늑연골·검상돌기 방향으로 이어지는 양측 복직근의 전체 세로 근복과 건획을 전면에서 한눈에 확인"
+      }
     },
     {
       "muscle_id": "m180",
       "name_ko": "추체근",
       "name_en": "Pyramidalis (variable)",
-      "status": "pending_review"
+      "status": "pending_review",
+      "pending_reason": "Suitable anatomy view identified, but current Commons page explicitly flags missing United States public-domain tag; keep pending until reuse metadata is unambiguous."
     },
     {
       "muscle_id": "m181",
       "name_ko": "외복사근",
       "name_en": "External oblique",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray392.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray392.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter",
+        "view": "anterolateral superficial abdominal wall",
+        "educationalReason": "제5–12늑골에서 장골능·백선·서혜부로 향하는 외복사근의 넓은 근복과 하내측 섬유 방향을 늑골·장골능 표지와 함께 확인"
+      }
     },
     {
       "muscle_id": "m182",
       "name_ko": "내복사근",
       "name_en": "Internal oblique",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray395.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray395.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter",
+        "view": "anterolateral middle abdominal layer",
+        "educationalReason": "장골능·서혜부에서 하부 늑골과 백선 방향으로 올라가는 내복사근의 중간층 근복과 상내측 섬유 주행을 늑골·장골능과 함께 확인"
+      }
     },
     {
       "muscle_id": "m183",
       "name_ko": "복횡근",
       "name_en": "Transversus abdominis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Transversus abdominis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Transversus_abdominis.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "deep anterolateral abdominal wall",
+        "educationalReason": "제7–12늑연골·흉요근막·장골능에서 백선으로 횡주하는 복횡근의 깊은 층 전체와 가로 섬유 방향을 늑골·장골능 표지와 함께 명확히 확인"
+      }
     },
     {
       "muscle_id": "m184",
@@ -2055,8 +2088,8 @@
     }
   ],
   "progress": {
-    "reviewed": 100,
-    "pending_review": 105,
-    "last_batch": "deep_lumbopelvic_priority_batch"
+    "reviewed": 104,
+    "pending_review": 101,
+    "last_batch": "abdominal_wall_priority_batch"
   }
 }
