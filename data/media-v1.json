@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-aa",
+  "version": "2026.09.27-stage17-ab",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -2169,6 +2169,48 @@
           "representative": true,
           "view": "comparative male and female urinary tract",
           "educationalReason": "한 도해에서 남성과 여성의 external urethral sphincter가 각각 직접 명시되어 막성 요도 주변 괄약근 위치와 성별 해부 차이를 동시에 비교"
+        }
+      ]
+    },
+    "m194": {
+      "anatomy": [
+        {
+          "title": "Iliocostalis cervicis — posterior cervical representative view",
+          "file": "Atlas and text-book of human anatomy (1914-) (20351418121).jpg",
+          "author": "Johannes Sobotta / J. Playfair McMurrich; Internet Archive Book Images scan",
+          "license": "No known copyright restrictions",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Atlas_and_text-book_of_human_anatomy_(1914-)_(20351418121).jpg",
+          "representative": true,
+          "view": "posterior cervical and upper thoracic back",
+          "educationalReason": "Sobotta 후면 경부 도해에서 Iliocostalis cervicis가 직접 라벨링되어 상부 늑골에서 하부 경추 횡돌기로 올라가는 외측 세로 주행과 longissimus 계열과의 위치 차이를 확인"
+        }
+      ]
+    },
+    "m195": {
+      "anatomy": [
+        {
+          "title": "Longissimus capitis — posterior cervical representative view",
+          "file": "Atlas and text-book of human anatomy (1914-) (20351418121).jpg",
+          "author": "Johannes Sobotta / J. Playfair McMurrich; Internet Archive Book Images scan",
+          "license": "No known copyright restrictions",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Atlas_and_text-book_of_human_anatomy_(1914-)_(20351418121).jpg",
+          "representative": true,
+          "view": "posterior cervical and upper thoracic back",
+          "educationalReason": "Sobotta 후면 경부 도해에서 Longissimus capitis가 직접 라벨링되어 상부 흉·경추에서 유양돌기로 향하는 길고 위쪽으로 모이는 근속과 주변 splenius와의 관계를 확인"
+        }
+      ]
+    },
+    "m196": {
+      "anatomy": [
+        {
+          "title": "Longissimus cervicis — posterior cervical representative view",
+          "file": "Atlas and text-book of human anatomy (1914-) (20351418121).jpg",
+          "author": "Johannes Sobotta / J. Playfair McMurrich; Internet Archive Book Images scan",
+          "license": "No known copyright restrictions",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Atlas_and_text-book_of_human_anatomy_(1914-)_(20351418121).jpg",
+          "representative": true,
+          "view": "posterior cervical and upper thoracic back",
+          "educationalReason": "Sobotta 후면 경부 도해에서 Longissimus cervicis가 직접 라벨링되어 상부 흉추 횡돌기에서 경추 횡돌기로 이어지는 중간 세로기둥의 위치와 iliocostalis cervicis·longissimus capitis와의 배열을 비교"
         }
       ]
     }

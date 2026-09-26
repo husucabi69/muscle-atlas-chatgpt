@@ -108,7 +108,7 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
-상태: **PREVIEW IN PROGRESS — 2026-09-26 / Production 114 of 205 · Preview 149 of 205 representative views reviewed**
+상태: **PREVIEW IN PROGRESS — 2026-09-26 / Production 114 of 205 · Preview 152 of 205 representative views reviewed**
 
 ## 배포 게이트
 - [x] 저장소 Cloudflare Pages 호환 경로/QA 준비
@@ -146,9 +146,9 @@
 
 ## 현재 진행
 - Production reviewed: 114 / 205
-- Preview reviewed: 149 / 205
+- Preview reviewed: 152 / 205
 - Production pending_review: 91 / 205
-- Preview pending_review: 56 / 205
+- Preview pending_review: 53 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
@@ -176,6 +176,9 @@
 - [x] 골반저 3개(치골미골근·장골미골근·미골근) 직접 라벨/경계 확인 대표시야 검수 완료 — `preview/development`
 - [x] 비복근 2개 head(내측두·외측두) OpenStax 후면도에서 각각 직접 라벨 확인 완료 — `preview/development`
 - [x] 추체근 + 회음부 3개(천회음횡근·심회음횡근·외요도괄약근) 직접 라벨/라이선스 확인 완료 — `preview/development`
+- [x] 경추 세로근 3개(경장늑근·두최장근·경최장근) Sobotta 후면도 직접 라벨 확인 완료 — `preview/development`
+  - 동일 후면도에서 세 근육이 각각 독립 라벨로 표시되어 외측-중간 배열 비교 가능
+  - 경극근·경반극근 등은 part-specific 식별이 더 명확한 정본 확보 전까지 pending 유지
   - 추체근은 Gray397의 명확한 미국 포함 Public Domain 메타데이터로 기존 license 보류를 해제
   - 회음횡근은 Toldt 1903 원판, 외요도괄약근은 Cenveo 남녀 비교도해 사용
   - 동일 도해를 각 head 페이지에 사용하되 해당 head 이름과 선택 이유를 별도로 명시

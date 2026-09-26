@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-aa",
+  "audit_version": "2026.09.27-stage17-ab",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -2321,19 +2321,43 @@
       "muscle_id": "m194",
       "name_ko": "경장늑근",
       "name_en": "Iliocostalis cervicis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Atlas and text-book of human anatomy (1914-) (20351418121).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Atlas_and_text-book_of_human_anatomy_(1914-)_(20351418121).jpg",
+        "license": "No known copyright restrictions",
+        "author": "Johannes Sobotta / J. Playfair McMurrich; Internet Archive Book Images scan",
+        "view": "posterior cervical and upper thoracic back",
+        "educationalReason": "Sobotta 후면 경부 도해에서 Iliocostalis cervicis가 직접 라벨링되어 상부 늑골에서 하부 경추 횡돌기로 올라가는 외측 세로 주행과 longissimus 계열과의 위치 차이를 확인"
+      }
     },
     {
       "muscle_id": "m195",
       "name_ko": "두최장근",
       "name_en": "Longissimus capitis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Atlas and text-book of human anatomy (1914-) (20351418121).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Atlas_and_text-book_of_human_anatomy_(1914-)_(20351418121).jpg",
+        "license": "No known copyright restrictions",
+        "author": "Johannes Sobotta / J. Playfair McMurrich; Internet Archive Book Images scan",
+        "view": "posterior cervical and upper thoracic back",
+        "educationalReason": "Sobotta 후면 경부 도해에서 Longissimus capitis가 직접 라벨링되어 상부 흉·경추에서 유양돌기로 향하는 길고 위쪽으로 모이는 근속과 주변 splenius와의 관계를 확인"
+      }
     },
     {
       "muscle_id": "m196",
       "name_ko": "경최장근",
       "name_en": "Longissimus cervicis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Atlas and text-book of human anatomy (1914-) (20351418121).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Atlas_and_text-book_of_human_anatomy_(1914-)_(20351418121).jpg",
+        "license": "No known copyright restrictions",
+        "author": "Johannes Sobotta / J. Playfair McMurrich; Internet Archive Book Images scan",
+        "view": "posterior cervical and upper thoracic back",
+        "educationalReason": "Sobotta 후면 경부 도해에서 Longissimus cervicis가 직접 라벨링되어 상부 흉추 횡돌기에서 경추 횡돌기로 이어지는 중간 세로기둥의 위치와 iliocostalis cervicis·longissimus capitis와의 배열을 비교"
+      }
     },
     {
       "muscle_id": "m197",
@@ -2447,8 +2471,8 @@
     }
   ],
   "progress": {
-    "reviewed": 149,
-    "pending_review": 56,
-    "last_batch": "pyramidalis_perineal_exact_label_batch"
+    "reviewed": 152,
+    "pending_review": 53,
+    "last_batch": "cervical_erector_exact_label_batch"
   }
 }
