@@ -2194,13 +2194,19 @@ function updateOralStats(){
   document.getElementById('oralCorrect').textContent=oralCorrect;document.getElementById('oralPartial').textContent=oralPartial;document.getElementById('oralWrong').textContent=oralWrong;
 }
 const ORAL_VOICE_KEY='mskOralVoiceV3';
+const ORAL_REMOTE_TTS=Object.freeze({
+  enabled:false,
+  endpoint:'./api/oral-tts',
+  timeoutMs:4500,
+  maxChars:600
+});
 const oralVoicePersona={
   friend:{rate:1.00,pitch:1.04,volume:1,pause:90},
   colleague:{rate:.94,pitch:1.00,volume:1,pause:120},
   senior:{rate:.90,pitch:.96,volume:1,pause:150},
   master:{rate:.86,pitch:.92,volume:1,pause:185}
 };
-let oralVoices=[],oralSpeechRunId=0;
+let oralVoices=[],oralSpeechRunId=0,oralRemoteAudio=null,oralRemoteAudioUrl='';
 function oralVoicePreference(){try{return localStorage.getItem(ORAL_VOICE_KEY)||'auto'}catch(e){return'auto';}}
 function oralVoiceId(v){return String(v?.voiceURI||[v?.name||'',v?.lang||''].join('|'));}
 function oralVoiceScore(v){
@@ -2228,7 +2234,8 @@ function updateOralVoiceStatus(){
   const ranked=rankedOralVoices(),voice=selectedOralVoice(),level=document.getElementById('oralLevel')?.value||'colleague',cfg=oralVoicePersona[level]||oralVoicePersona.colleague;
   if(!voice){el.textContent='한국어 전용 음성을 찾지 못했습니다. 브라우저 기본 ko-KR 음성으로 시도합니다.';return;}
   const quality=/natural|neural|premium|enhanced|wavenet|studio/i.test(voice.name||'')?'자연음 우선 후보':'한국어 음성';
-  el.textContent=quality+' · '+voice.name+' · '+(voice.lang||'ko-KR')+' · 현재 시험관 속도 '+cfg.rate.toFixed(2)+'×';
+  const remote=ORAL_REMOTE_TTS.enabled?' · 고품질 서버음성 사용':' · 고품질 서버음성 비활성';
+  el.textContent=quality+' · '+voice.name+' · '+(voice.lang||'ko-KR')+' · 현재 시험관 속도 '+cfg.rate.toFixed(2)+'×'+remote;
 }
 function refreshOralVoices(){
   const select=document.getElementById('oralVoiceSelect');if(!select)return;
@@ -2259,16 +2266,49 @@ function initOralVoiceEngine(){
   setTimeout(refreshOralVoices,250);
   setTimeout(refreshOralVoices,1200);
 }
-function stopOralSpeech(){oralSpeechRunId++;if('speechSynthesis' in window)window.speechSynthesis.cancel();}
+function stopOralRemoteAudio(){
+  if(oralRemoteAudio){try{oralRemoteAudio.pause();oralRemoteAudio.src='';}catch(e){}oralRemoteAudio=null;}
+  if(oralRemoteAudioUrl){try{URL.revokeObjectURL(oralRemoteAudioUrl);}catch(e){}oralRemoteAudioUrl='';}
+}
+function stopOralSpeech(){
+  oralSpeechRunId++;
+  stopOralRemoteAudio();
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+}
 function oralSpeechSegments(text){
   const normalized=String(text||'').replace(/\s+/g,' ').trim().replace(/([,.!?;:])(?=\S)/g,'$1 ');
   if(!normalized)return[];
   return normalized.split(/(?<=[.!?])\s+|(?<=[,;:])\s+/).map(x=>x.trim()).filter(Boolean);
 }
-function speakOral(text,kind='question',levelOverride=null){
+async function tryRemoteOralSpeech(text,kind,level,runId){
+  if(!ORAL_REMOTE_TTS.enabled||!navigator.onLine||runId!==oralSpeechRunId)return false;
+  const safeText=String(text||'').replace(/\s+/g,' ').trim().slice(0,ORAL_REMOTE_TTS.maxChars);
+  if(!safeText)return false;
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),ORAL_REMOTE_TTS.timeoutMs);
+  try{
+    const response=await fetch(ORAL_REMOTE_TTS.endpoint,{
+      method:'POST',
+      credentials:'same-origin',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text:safeText,persona:level,locale:'ko-KR',kind}),
+      signal:controller.signal
+    });
+    if(!response.ok||runId!==oralSpeechRunId)return false;
+    const type=String(response.headers.get('content-type')||'').toLowerCase();
+    if(!type.startsWith('audio/'))return false;
+    const blob=await response.blob();
+    if(runId!==oralSpeechRunId)return false;
+    oralRemoteAudioUrl=URL.createObjectURL(blob);
+    oralRemoteAudio=new Audio(oralRemoteAudioUrl);
+    oralRemoteAudio.onended=stopOralRemoteAudio;
+    oralRemoteAudio.onerror=stopOralRemoteAudio;
+    await oralRemoteAudio.play();
+    return true;
+  }catch(e){return false;}
+  finally{clearTimeout(timer);}
+}
+function speakOralLocal(text,kind,level,runId){
   if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined')return false;
-  stopOralSpeech();
-  const runId=oralSpeechRunId,level=levelOverride||document.getElementById('oralLevel')?.value||'colleague';
   const cfg=oralVoicePersona[level]||oralVoicePersona.colleague,voice=selectedOralVoice(),segments=oralSpeechSegments(text);
   if(!segments.length)return false;
   const speakAt=i=>{
@@ -2287,6 +2327,17 @@ function speakOral(text,kind='question',levelOverride=null){
     window.speechSynthesis.speak(u);
   };
   speakAt(0);return true;
+}
+function speakOral(text,kind='question',levelOverride=null){
+  stopOralSpeech();
+  const runId=oralSpeechRunId,level=levelOverride||document.getElementById('oralLevel')?.value||'colleague';
+  if(ORAL_REMOTE_TTS.enabled&&navigator.onLine){
+    tryRemoteOralSpeech(text,kind,level,runId).then(ok=>{
+      if(!ok&&runId===oralSpeechRunId)speakOralLocal(text,kind,level,runId);
+    });
+    return true;
+  }
+  return speakOralLocal(text,kind,level,runId);
 }
 function previewOralVoice(){
   const level=document.getElementById('oralLevel')?.value||'colleague';

@@ -211,7 +211,7 @@
 
 # Stage 18 — Oral Viva Human Voice 3.0
 
-상태: **IN PROGRESS — Local Voice + Contextual Viva 구현 완료 / High-quality TTS option 미완료**
+상태: **IN PROGRESS — Local Voice + Contextual Viva 완료 / High-quality TTS secure option 준비·기본 비활성 / 실제 provider activation 미완료**
 
 목표: 질문과 피드백이 브라우저 기계음이 아니라 실제 동료·선배·대가와 대화하는 느낌에 가깝게 들리도록 한다.
 
@@ -226,12 +226,12 @@
 - [x] SpeechSynthesis fallback 유지 / 미지원 시 텍스트 Oral 지속
 
 ## 2차 — High-quality TTS option
-- [ ] 실제 사람 수준 TTS provider/server contract 검토
-- [ ] API key를 앱 bundle에 넣지 않음
-- [ ] PHI/patient context 전송 금지
-- [ ] 질문 텍스트만 전송 가능한 구조
-- [ ] network 실패 시 local SpeechSynthesis fallback
-- [ ] Data Safety/Privacy 영향 문서화 후에만 활성화
+- [x] provider-neutral same-origin TTS server contract v1 준비 / 실제 provider 선택은 activation gate에서 수행
+- [x] API key를 앱 bundle에 넣지 않음 / provider credential은 server-side only
+- [x] PHI/patient context·학습자 답변·마이크 audio 전송 금지
+- [x] generic 질문/피드백 text + persona/locale/kind만 allowlist payload
+- [x] offline/timeout/non-2xx/non-audio/playback 실패 시 local SpeechSynthesis fallback
+- [x] Data Safety/Privacy·provider retention 검토 전에는 ORAL_REMOTE_TTS.enabled=false 유지
 
 ## Oral reasoning upgrade
 - [x] 세션 문맥 유지 / 동일 근육에서 이미 물은 category 추적
