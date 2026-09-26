@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-q",
+  "audit_version": "2026.09.26-stage17-r",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -73,25 +73,57 @@
       "muscle_id": "m005",
       "name_ko": "두장근",
       "name_en": "Longus capitis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus longus capitis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_longus_capitis.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+        "view": "anterior prevertebral neck",
+        "educationalReason": "C3–C6 횡돌기 전결절에서 후두골 기저부로 올라가는 두장근의 긴 세로 근복과 두개저·경추 전면 관계를 해당 근육만 강조된 전면 시야에서 확인"
+      }
     },
     {
       "muscle_id": "m006",
       "name_ko": "경장근",
       "name_en": "Longus colli",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus longus colli.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_longus_colli.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+        "view": "anterior prevertebral cervical-thoracic",
+        "educationalReason": "상부 흉추에서 C1–C6 전면으로 이어지는 경장근의 상·하사선부와 수직부를 경추체·횡돌기 표지와 함께 전면에서 가장 분명하게 확인"
+      }
     },
     {
       "muscle_id": "m007",
       "name_ko": "전두직근",
       "name_en": "Rectus capitis anterior",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus rectus capitis anterior.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_rectus_capitis_anterior.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+        "view": "anterior craniovertebral junction",
+        "educationalReason": "C1 외측괴·횡돌기 앞쪽에서 후두골 기저부로 이어지는 짧은 전두직근을 두장근과 구분하여 두개경추 접합부에서 직접 확인"
+      }
     },
     {
       "muscle_id": "m008",
       "name_ko": "외측두직근",
       "name_en": "Rectus capitis lateralis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — musculus rectus capitis lateralis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_rectus_capitis_lateralis.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+        "view": "anterolateral craniovertebral junction",
+        "educationalReason": "C1 횡돌기에서 후두골 경정맥돌기 쪽으로 이어지는 외측두직근의 짧은 외측 주행을 전두직근·두장근과 구분해 확인"
+      }
     },
     {
       "muscle_id": "m009",
@@ -2136,8 +2168,8 @@
     }
   ],
   "progress": {
-    "reviewed": 110,
-    "pending_review": 95,
-    "last_batch": "chest_respiratory_priority_batch"
+    "reviewed": 114,
+    "pending_review": 91,
+    "last_batch": "anterior_deep_cervical_priority_batch"
   }
 }

@@ -100,7 +100,11 @@ const required={
   m037:'Diaphragma.png',
   m065:'Pectoralis minor.svg',
   m066:'Subclavius muscle frontal.png',
-  m067:'Gray410.png'
+  m067:'Gray410.png',
+  m005:'Gray — musculus longus capitis.png',
+  m006:'Gray — musculus longus colli.png',
+  m007:'Gray — musculus rectus capitis anterior.png',
+  m008:'Gray — musculus rectus capitis lateralis.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
