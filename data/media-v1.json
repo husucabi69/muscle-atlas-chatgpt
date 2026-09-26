@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-m",
+  "version": "2026.09.26-stage17-n",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -1352,6 +1352,62 @@
           "representative": true,
           "view": "rotating 3D deep posterior-medial thigh",
           "educationalReason": "반건양근보다 깊고 내측에 위치하며 넓은 막성 근위건을 가진 반막양근의 층 관계와 경골 후내측 부착 방향을 회전 3D로 확인"
+        }
+      ]
+    },
+    "m123": {
+      "anatomy": [
+        {
+          "title": "Gluteus maximus — rotating 3D posterior representative view",
+          "file": "Gluteus maximus 3D.gif",
+          "author": "BodyParts3D / Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gluteus_maximus_3D.gif",
+          "representative": true,
+          "view": "rotating 3D posterior hip",
+          "educationalReason": "대둔근의 큰 표재성 근복이 장골·천골에서 대퇴골 및 장경인대로 이어지는 전체 범위와 후면 돌출 구조를 회전 3D에서 가장 직관적으로 확인"
+        }
+      ]
+    },
+    "m124": {
+      "anatomy": [
+        {
+          "title": "Gluteus medius — isolated 3D representative view",
+          "file": "Gluteus medius muscle01.png",
+          "author": "Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gluteus_medius_muscle01.png",
+          "representative": true,
+          "view": "isolated 3D lateral-oblique hip",
+          "educationalReason": "대둔근보다 깊고 장골 외면에서 대전자까지 부채꼴로 이어지는 중둔근 전체를 다른 근육의 가림 없이 고해상도 3D로 확인"
+        }
+      ]
+    },
+    "m125": {
+      "anatomy": [
+        {
+          "title": "Gluteus minimus — isolated 3D representative view",
+          "file": "Gluteus minimus muscle01.png",
+          "author": "Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gluteus_minimus_muscle01.png",
+          "representative": true,
+          "view": "isolated 3D deep lateral hip",
+          "educationalReason": "중둔근 깊이에 놓인 소둔근을 단독 표시하여 장골 외면의 넓은 기시와 대전자 전면으로 향하는 깊은 주행을 명확히 확인"
+        }
+      ]
+    },
+    "m126": {
+      "anatomy": [
+        {
+          "title": "Tensor fasciae latae — anterolateral representative view",
+          "file": "Tensor fasciae latae.png",
+          "author": "Gray's Anatomy; modified by Uwe Gille",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tensor_fasciae_latae.png",
+          "representative": true,
+          "view": "anterolateral hip and thigh",
+          "educationalReason": "전상장골극 부근에서 시작해 장경인대로 이어지는 대퇴근막장근의 짧은 근복과 장경인대 연속성을 전외측에서 명확히 확인"
         }
       ]
     }
