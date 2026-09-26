@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.27-stage17-af",
+  "audit_version": "2026.09.27-stage17-ag",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -2078,25 +2078,61 @@
       "muscle_id": "m163",
       "name_ko": "제1충양근",
       "name_en": "Lumbrical 1 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray444.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray444.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "plantar second-layer left foot",
+        "focusLabel": "1st",
+        "educationalReason": "Gray plate 444에서 첫째 충양근 근복에 1st가 직접 인쇄되어 장지굴근건에서 제2지 쪽으로 향하는 가장 내측 충양근을 주변 건과 구분해 확인"
+      }
     },
     {
       "muscle_id": "m164",
       "name_ko": "제2충양근",
       "name_en": "Lumbrical 2 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray444.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray444.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "plantar second-layer left foot",
+        "focusLabel": "2d",
+        "educationalReason": "Gray plate 444에서 둘째 충양근 근복에 2d가 직접 인쇄되어 제3지 방향으로 주행하는 둘째 충양근을 번호별로 확인"
+      }
     },
     {
       "muscle_id": "m165",
       "name_ko": "제3충양근",
       "name_en": "Lumbrical 3 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray444.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray444.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "plantar second-layer left foot",
+        "focusLabel": "3d",
+        "educationalReason": "Gray plate 444에서 셋째 충양근 근복에 3d가 직접 인쇄되어 제4지 방향으로 주행하는 셋째 충양근을 번호별로 확인"
+      }
     },
     {
       "muscle_id": "m166",
       "name_ko": "제4충양근",
       "name_en": "Lumbrical 4 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray444.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray444.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "plantar second-layer left foot",
+        "focusLabel": "4th",
+        "educationalReason": "Gray plate 444에서 넷째 충양근 근복에 4th가 직접 인쇄되어 제5지 방향으로 주행하는 가장 외측 충양근을 번호별로 확인"
+      }
     },
     {
       "muscle_id": "m167",
@@ -2621,8 +2657,8 @@
     }
   ],
   "progress": {
-    "reviewed": 169,
-    "pending_review": 36,
-    "last_batch": "foot_interossei_numbered_gray_batch"
+    "reviewed": 173,
+    "pending_review": 32,
+    "last_batch": "foot_intrinsics_numbered_gray_batch"
   }
 }
