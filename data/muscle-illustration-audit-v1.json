@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.27-stage17-ag",
+  "audit_version": "2026.09.27-stage17-ah",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -186,7 +186,16 @@
       "muscle_id": "m013",
       "name_ko": "경다열근",
       "name_en": "Multifidus cervicis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "1111 Posterior and Side Views of the Neck Deep Posterior.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:1111_Posterior_and_Side_Views_of_the_Neck_Deep_Posterior.png",
+        "license": "CC BY 3.0",
+        "author": "OpenStax College",
+        "view": "deep posterior cervical",
+        "focusLabel": "Multifidus",
+        "educationalReason": "경부만을 다룬 심부 후면도에서 Multifidus가 직접 표시되어 하위 경추의 짧은 분절성 근복과 semispinalis·longissimus에 대한 깊은 위치를 동시에 확인"
+      }
     },
     {
       "muscle_id": "m014",
@@ -432,7 +441,16 @@
       "muscle_id": "m035",
       "name_ko": "늑하근",
       "name_en": "Subcostales",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Physiology and biochemistry in modern medicine (1918) (14758349676).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Physiology_and_biochemistry_in_modern_medicine_(1918)_(14758349676).jpg",
+        "license": "No known copyright restrictions",
+        "author": "John James Rickard Macleod / Roy Gentry Pearce; Internet Archive Book Images",
+        "view": "inner lower thoracic wall, anterior view",
+        "focusLabel": "10, 10 · subcostal muscles",
+        "educationalReason": "도해 설명에서 10, 10이 왼쪽 subcostal muscles로 직접 지정되며 흉곽 내면에서 인접 늑골을 건너는 늑하근의 위치를 내·외늑간근과 함께 비교할 수 있음"
+      }
     },
     {
       "muscle_id": "m036",
@@ -2657,8 +2675,8 @@
     }
   ],
   "progress": {
-    "reviewed": 173,
-    "pending_review": 32,
-    "last_batch": "foot_intrinsics_numbered_gray_batch"
+    "reviewed": 175,
+    "pending_review": 30,
+    "last_batch": "cervical_multifidus_subcostales_exact_batch"
   }
 }
