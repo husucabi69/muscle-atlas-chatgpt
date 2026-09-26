@@ -118,7 +118,12 @@ const required={
   m108:'Gray — musculus flexor digiti minimi brevis.png',
   m109:'Gray — musculus abductor digiti minimi.png',
   m110:'Gray — musculus opponens digiti minimi.png',
-  m111:'Gray — musculus palmaris brevis.png'
+  m111:'Gray — musculus palmaris brevis.png',
+  m029:'Levatores costarum.png',
+  m032:'External intercostal muscles lateral.png',
+  m033:'Internal intercostal muscles lateral.png',
+  m034:'Innermost intercostal muscles lateral.png',
+  m036:'Transversus thoracis.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
