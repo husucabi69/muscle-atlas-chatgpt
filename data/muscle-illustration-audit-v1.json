@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.27-stage17-ae",
+  "audit_version": "2026.09.27-stage17-af",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -2164,43 +2164,106 @@
       "muscle_id": "m172",
       "name_ko": "제1배측골간근",
       "name_en": "Dorsal interosseous 1 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray446.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray446.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "dorsal deep left foot",
+        "focusLabel": "1st",
+        "educationalReason": "Gray plate 446에서 첫째 배측골간근 근복 자체에 1st가 직접 인쇄되어 제1·2중족골 사이의 큰 두갈래 근복과 제2지 쪽 정지를 다른 골간근과 구분해 확인"
+      }
     },
     {
       "muscle_id": "m173",
       "name_ko": "제2배측골간근",
       "name_en": "Dorsal interosseous 2 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray446.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray446.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "dorsal deep left foot",
+        "focusLabel": "2d",
+        "educationalReason": "Gray plate 446에서 둘째 배측골간근 근복에 2d가 직접 인쇄되어 제2·3중족골 사이의 위치와 제2지 외측 방향 주행을 번호별로 확인"
+      }
     },
     {
       "muscle_id": "m174",
       "name_ko": "제3배측골간근",
       "name_en": "Dorsal interosseous 3 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray446.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray446.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "dorsal deep left foot",
+        "focusLabel": "3d",
+        "educationalReason": "Gray plate 446에서 셋째 배측골간근 근복에 3d가 직접 인쇄되어 제3·4중족골 사이의 근복과 제3지 방향의 주행을 번호별로 확인"
+      }
     },
     {
       "muscle_id": "m175",
       "name_ko": "제4배측골간근",
       "name_en": "Dorsal interosseous 4 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray446.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray446.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "dorsal deep left foot",
+        "focusLabel": "4th",
+        "educationalReason": "Gray plate 446에서 넷째 배측골간근 근복에 4th가 직접 인쇄되어 제4·5중족골 사이의 가장 외측 근복과 제4지 방향을 번호별로 확인"
+      }
     },
     {
       "muscle_id": "m176",
       "name_ko": "제1족저골간근",
       "name_en": "Plantar interosseous 1 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray447.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray447.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "plantar deep left foot",
+        "focusLabel": "1st",
+        "educationalReason": "Gray plate 447에서 첫째 족저골간근 근복에 1st가 직접 인쇄되어 제3중족골을 따라 제3지 쪽으로 주행하는 가장 내측 근복을 둘째·셋째와 구분해 확인"
+      }
     },
     {
       "muscle_id": "m177",
       "name_ko": "제2족저골간근",
       "name_en": "Plantar interosseous 2 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray447.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray447.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "plantar deep left foot",
+        "focusLabel": "2d",
+        "educationalReason": "Gray plate 447에서 둘째 족저골간근 근복에 2d가 직접 인쇄되어 제4중족골을 따라가는 중앙 근복을 첫째·셋째와 구분해 확인"
+      }
     },
     {
       "muscle_id": "m178",
       "name_ko": "제3족저골간근",
       "name_en": "Plantar interosseous 3 (foot)",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray447.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray447.png",
+        "license": "Public domain (PD-scan / 1918 Gray's Anatomy)",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "plantar deep left foot",
+        "focusLabel": "3d",
+        "educationalReason": "Gray plate 447에서 셋째 족저골간근 근복에 3d가 직접 인쇄되어 제5중족골을 따라가는 가장 외측 근복을 번호별로 확인"
+      }
     },
     {
       "muscle_id": "m179",
@@ -2558,8 +2621,8 @@
     }
   ],
   "progress": {
-    "reviewed": 162,
-    "pending_review": 43,
-    "last_batch": "deep_cervical_exact_label_batch"
+    "reviewed": 169,
+    "pending_review": 36,
+    "last_batch": "foot_interossei_numbered_gray_batch"
   }
 }
