@@ -86,7 +86,11 @@ const required={
   m123:'Gluteus maximus 3D.gif',
   m124:'Gluteus medius muscle01.png',
   m125:'Gluteus minimus muscle01.png',
-  m126:'Tensor fasciae latae.png'
+  m126:'Tensor fasciae latae.png',
+  m046:'Quadratuslumborum.png',
+  m047:'Psoas major.gif',
+  m048:'Musculus psoas minor.png',
+  m049:'Iliacus muscle01.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);

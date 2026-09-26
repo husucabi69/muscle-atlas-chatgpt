@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-n",
+  "version": "2026.09.26-stage17-o",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -1408,6 +1408,62 @@
           "representative": true,
           "view": "anterolateral hip and thigh",
           "educationalReason": "전상장골극 부근에서 시작해 장경인대로 이어지는 대퇴근막장근의 짧은 근복과 장경인대 연속성을 전외측에서 명확히 확인"
+        }
+      ]
+    },
+    "m046": {
+      "anatomy": [
+        {
+          "title": "Quadratus lumborum — posterior deep lumbar representative view",
+          "file": "Quadratuslumborum.png",
+          "author": "Gray's Anatomy; modified by Uwe Gille",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Quadratuslumborum.png",
+          "representative": true,
+          "view": "posterior deep lumbar wall",
+          "educationalReason": "장골능에서 제12늑골과 요추 횡돌기로 이어지는 요방형근의 사각형 근복과 후복벽 위치를 주변 구조와 함께 후면에서 가장 직접적으로 확인"
+        }
+      ]
+    },
+    "m047": {
+      "anatomy": [
+        {
+          "title": "Psoas major — rotating 3D representative view",
+          "file": "Psoas major.gif",
+          "author": "BodyParts3D / Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Psoas_major.gif",
+          "representative": true,
+          "view": "rotating 3D anterior lumbar-pelvic",
+          "educationalReason": "T12–L5 부위에서 골반을 지나 소전자까지 이어지는 대요근 전체 길이와 척추·골반·대퇴골의 입체 관계를 회전 3D로 가장 잘 확인"
+        }
+      ]
+    },
+    "m048": {
+      "anatomy": [
+        {
+          "title": "Psoas minor — highlighted anterior representative view",
+          "file": "Musculus psoas minor.png",
+          "author": "Gray's Anatomy; highlighted by Bemoeial",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_psoas_minor.png",
+          "representative": true,
+          "view": "anterior lumbar wall",
+          "educationalReason": "대요근 앞쪽에 놓이는 가늘고 긴 소요근만 별도로 강조되어 있어 변이근육의 존재 위치와 장골근막 방향을 가장 명확히 확인"
+        }
+      ]
+    },
+    "m049": {
+      "anatomy": [
+        {
+          "title": "Iliacus — isolated 3D representative view",
+          "file": "Iliacus muscle01.png",
+          "author": "Anatomography",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Iliacus_muscle01.png",
+          "representative": true,
+          "view": "isolated 3D anterior pelvis",
+          "educationalReason": "장골와를 채우는 삼각형 장골근 전체와 대요근과 합쳐져 장요근을 이루는 관계를 다른 근육의 가림 없이 고해상도 3D로 확인"
         }
       ]
     }
