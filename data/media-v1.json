@@ -1,6 +1,6 @@
 {
-  "version": "2026.09.27-stage17-ab",
-  "updated": "2026-09-26",
+  "version": "2026.09.27-stage17-ac",
+  "updated": "2026-09-27",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
     "m060": {
@@ -2211,6 +2211,48 @@
           "representative": true,
           "view": "posterior cervical and upper thoracic back",
           "educationalReason": "Sobotta 후면 경부 도해에서 Longissimus cervicis가 직접 라벨링되어 상부 흉추 횡돌기에서 경추 횡돌기로 이어지는 중간 세로기둥의 위치와 iliocostalis cervicis·longissimus capitis와의 배열을 비교"
+        }
+      ]
+    },
+    "m056": {
+      "anatomy": [
+        {
+          "title": "Puborectalis — sagittal sling representative view",
+          "file": "(155) Stylized depiction of action of puborectalis sling.png",
+          "author": "Tepi / Lesion at English Wikipedia",
+          "license": "CC BY-SA 3.0 / GFDL 1.2+",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:(155)_Stylized_depiction_of_action_of_puborectalis_sling.png",
+          "representative": true,
+          "view": "sagittal pelvic floor schematic",
+          "educationalReason": "A로 표시된 치골직장근이 치골에서 직장 뒤를 감싸 U자형 sling을 이루며 anorectal angle을 형성하는 관계를 단독 구조 수준으로 명확히 확인"
+        }
+      ]
+    },
+    "m106": {
+      "anatomy": [
+        {
+          "title": "Adductor pollicis oblique head — palmar representative view",
+          "file": "Gray426.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray426.png",
+          "representative": true,
+          "view": "palmar deep thumb",
+          "educationalReason": "Gray plate 426에서 ADDUCTOR POLLICIS OBLIQUUS가 직접 라벨링되어 수근·중수골 쪽 기시에서 엄지 기저부로 비스듬히 수렴하는 사두의 섬유 방향을 횡두와 분리해 확인"
+        }
+      ]
+    },
+    "m107": {
+      "anatomy": [
+        {
+          "title": "Adductor pollicis transverse head — palmar representative view",
+          "file": "Gray426.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray426.png",
+          "representative": true,
+          "view": "palmar deep thumb",
+          "educationalReason": "Gray plate 426에서 ADDUCTOR POLLICIS TRANSVERSUS가 직접 라벨링되어 제3중수골 쪽에서 엄지 기저부로 거의 횡행하는 횡두를 사두와 분리해 확인"
         }
       ]
     }
