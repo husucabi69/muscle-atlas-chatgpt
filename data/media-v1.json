@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-t",
+  "version": "2026.09.26-stage17-u",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -1845,6 +1845,76 @@
           "representative": true,
           "view": "superficial ulnar palm",
           "educationalReason": "소지구 피부 바로 아래에서 가로로 놓이는 단장근을 붉게 강조해 다른 깊은 소지구 근육과 달리 매우 표재성인 위치와 방향을 확인"
+        }
+      ]
+    },
+    "m029": {
+      "anatomy": [
+        {
+          "title": "Levatores costarum — posterior representative view",
+          "file": "Levatores costarum.png",
+          "author": "Uwe Gille; modified from Gray389",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Levatores_costarum.png",
+          "representative": true,
+          "view": "posterior thoracic wall",
+          "educationalReason": "C7–T11 횡돌기에서 바로 아래 늑골로 내려가는 짧은 사선 다발을 후면에서 연속적으로 보여 주어 늑골거근의 반복 배열과 늑골 부착을 가장 쉽게 확인"
+        }
+      ]
+    },
+    "m032": {
+      "anatomy": [
+        {
+          "title": "External intercostals — lateral representative view",
+          "file": "External intercostal muscles lateral.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:External_intercostal_muscles_lateral.png",
+          "representative": true,
+          "view": "lateral thoracic wall",
+          "educationalReason": "인접 늑골 사이를 채우는 외늑간근의 넓은 분포와 infero-anterior 섬유 방향을 측면에서 직접 확인하며 내늑간근과 비교하기 가장 적합"
+        }
+      ]
+    },
+    "m033": {
+      "anatomy": [
+        {
+          "title": "Internal intercostals — lateral representative view",
+          "file": "Internal intercostal muscles lateral.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Internal_intercostal_muscles_lateral.png",
+          "representative": true,
+          "view": "lateral thoracic wall",
+          "educationalReason": "늑간공간의 내늑간근을 측면에서 붉게 강조해 외늑간근과 교차하는 섬유 방향과 전외측 흉벽 분포를 비교해 확인"
+        }
+      ]
+    },
+    "m034": {
+      "anatomy": [
+        {
+          "title": "Innermost intercostals — lateral representative view",
+          "file": "Innermost intercostal muscles lateral.png",
+          "author": "Anatomography / DBCLS",
+          "license": "CC BY-SA 2.1 JP",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Innermost_intercostal_muscles_lateral.png",
+          "representative": true,
+          "view": "lateral deep thoracic wall",
+          "educationalReason": "늑간근 중 가장 깊은 층을 측면에서 선택적으로 강조해 내늑간근과 같은 방향의 섬유가 더 깊은 흉벽에 놓이는 위치를 비교 학습하기 적합"
+        }
+      ]
+    },
+    "m036": {
+      "anatomy": [
+        {
+          "title": "Transversus thoracis — internal anterior thoracic representative view",
+          "file": "Transversus thoracis.png",
+          "author": "Uwe Gille; modified from Gray390",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Transversus_thoracis.png",
+          "representative": true,
+          "view": "internal anterior thoracic wall",
+          "educationalReason": "흉골·검상돌기 뒤쪽에서 제2–6 늑연골로 방사하는 흉횡근 전체를 흉곽 안쪽 시야에서 보여 주어 기시·정지와 내흉동맥과의 위치 관계를 확인"
         }
       ]
     }
