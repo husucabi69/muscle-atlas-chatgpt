@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-r",
+  "version": "2026.09.26-stage17-t",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -1649,6 +1649,202 @@
           "representative": true,
           "view": "anterolateral craniovertebral junction",
           "educationalReason": "C1 횡돌기에서 후두골 경정맥돌기 쪽으로 이어지는 외측두직근의 짧은 외측 주행을 전두직근·두장근과 구분해 확인"
+        }
+      ]
+    },
+    "m185": {
+      "anatomy": [
+        {
+          "title": "Digastric — highlighted representative view",
+          "file": "Gray — musculus digastricus.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray%20%E2%80%94%20musculus%20digastricus.png",
+          "representative": true,
+          "view": "lateral suprahyoid neck",
+          "educationalReason": "전복과 후복이 중간건을 통해 설골 부근에서 연결되는 이복근의 두 힘살 구조와 하악골·유양부·설골의 공간관계를 한 화면에서 구분"
+        }
+      ]
+    },
+    "m186": {
+      "anatomy": [
+        {
+          "title": "Stylohyoid — highlighted representative view",
+          "file": "Gray — musculus stylohyoideus.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray%20%E2%80%94%20musculus%20stylohyoideus.png",
+          "representative": true,
+          "view": "lateral suprahyoid neck",
+          "educationalReason": "경상돌기에서 설골로 내려오는 가느다란 경돌설골근의 전 길이를 이복근 후복과 비교하면서 확인할 수 있는 측면 강조 시야"
+        }
+      ]
+    },
+    "m187": {
+      "anatomy": [
+        {
+          "title": "Mylohyoid — highlighted representative view",
+          "file": "Gray — musculus mylohyoideus.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray%20%E2%80%94%20musculus%20mylohyoideus.png",
+          "representative": true,
+          "view": "lateral floor-of-mouth / suprahyoid",
+          "educationalReason": "하악골 안쪽에서 설골과 정중봉선으로 이어져 구강저를 만드는 하악설골근의 넓은 판상 구조를 주변 설골상근과 구분"
+        }
+      ]
+    },
+    "m188": {
+      "anatomy": [
+        {
+          "title": "Geniohyoid — highlighted representative view",
+          "file": "Gray — musculus geniohyoideus.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray%20%E2%80%94%20musculus%20geniohyoideus.png",
+          "representative": true,
+          "view": "lateral deep suprahyoid",
+          "educationalReason": "하악결합 뒤쪽에서 설골체로 짧게 이어지는 이설골근을 하악설골근의 깊은 층에서 분리해 확인"
+        }
+      ]
+    },
+    "m189": {
+      "anatomy": [
+        {
+          "title": "Sternohyoid — highlighted representative view",
+          "file": "Gray — musculus sternohyoideus.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray%20%E2%80%94%20musculus%20sternohyoideus.png",
+          "representative": true,
+          "view": "anterior-lateral infrahyoid neck",
+          "educationalReason": "흉골병·쇄골 내측에서 설골체로 수직 상승하는 흉골설골근의 긴 띠 모양 주행과 설골·흉골 기준점을 명확히 확인"
+        }
+      ]
+    },
+    "m190": {
+      "anatomy": [
+        {
+          "title": "Sternothyroid — highlighted representative view",
+          "file": "Gray — musculus sternothyroideus.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray%20%E2%80%94%20musculus%20sternothyroideus.png",
+          "representative": true,
+          "view": "anterior-lateral deep infrahyoid neck",
+          "educationalReason": "흉골병에서 갑상연골로 이어지는 흉골갑상근을 흉골설골근보다 깊은 층에서 확인하고 후두와의 부착관계를 구분"
+        }
+      ]
+    },
+    "m191": {
+      "anatomy": [
+        {
+          "title": "Thyrohyoid — highlighted representative view",
+          "file": "Gray — musculus thyrohyoideus.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray%20%E2%80%94%20musculus%20thyrohyoideus.png",
+          "representative": true,
+          "view": "anterior-lateral superior infrahyoid neck",
+          "educationalReason": "갑상연골에서 설골로 이어지는 짧은 갑상설골근을 흉골갑상근의 상방 연속선상에서 분명하게 확인"
+        }
+      ]
+    },
+    "m192": {
+      "anatomy": [
+        {
+          "title": "Omohyoid — highlighted representative view",
+          "file": "Gray — musculus omohyoideus.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray%20%E2%80%94%20musculus%20omohyoideus.png",
+          "representative": true,
+          "view": "lateral infrahyoid neck",
+          "educationalReason": "견갑골에서 중간건을 거쳐 설골로 이어지는 견갑설골근의 상·하복 전체 경로와 쇄골·견갑·설골 관계를 한 시야에서 확인"
+        }
+      ]
+    },
+    "m102": {
+      "anatomy": [
+        {
+          "title": "Abductor pollicis brevis — highlighted representative view",
+          "file": "Gray — musculus abductor pollicis brevis.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_abductor_pollicis_brevis.png",
+          "representative": true,
+          "view": "palmar thenar hand",
+          "educationalReason": "수근관 원위부에서 근위지골·신전기전 쪽으로 향하는 단무지외전근을 무지구 표층에서 붉게 강조해 전체 근복과 엄지 쪽 위치를 한눈에 확인"
+        }
+      ]
+    },
+    "m105": {
+      "anatomy": [
+        {
+          "title": "Opponens pollicis — highlighted representative view",
+          "file": "Gray — musculus opponens pollicis.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_opponens_pollicis.png",
+          "representative": true,
+          "view": "palmar deep thenar hand",
+          "educationalReason": "대능형골·굴근지지띠에서 제1중수골로 이어지는 무지대립근의 깊은 무지구 주행을 주변 손바닥 근육과 구분해 확인"
+        }
+      ]
+    },
+    "m108": {
+      "anatomy": [
+        {
+          "title": "Flexor digiti minimi brevis — highlighted representative view",
+          "file": "Gray — musculus flexor digiti minimi brevis.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_flexor_digiti_minimi_brevis.png",
+          "representative": true,
+          "view": "palmar hypothenar hand",
+          "educationalReason": "유구골 갈고리·굴근지지띠에서 제5근위지골로 향하는 단소지근을 소지구 중앙에서 붉게 강조해 짧은 근복과 부착 방향을 확인"
+        }
+      ]
+    },
+    "m109": {
+      "anatomy": [
+        {
+          "title": "Abductor digiti minimi — highlighted representative view",
+          "file": "Gray — musculus abductor digiti minimi.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_abductor_digiti_minimi.png",
+          "representative": true,
+          "view": "palmar ulnar hand",
+          "educationalReason": "두상골 부근에서 제5근위지골로 이어지는 소지외전근을 소지구 가장 자쪽에서 길게 강조해 단소지근·소지대립근과 위치를 비교"
+        }
+      ]
+    },
+    "m110": {
+      "anatomy": [
+        {
+          "title": "Opponens digiti minimi — highlighted representative view",
+          "file": "Gray — musculus opponens digiti minimi.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_opponens_digiti_minimi.png",
+          "representative": true,
+          "view": "palmar deep hypothenar hand",
+          "educationalReason": "유구골 갈고리에서 제5중수골 몸통으로 이어지는 소지대립근을 깊은 소지구 층에서 붉게 강조해 중수골과의 직접 관계를 확인"
+        }
+      ]
+    },
+    "m111": {
+      "anatomy": [
+        {
+          "title": "Palmaris brevis — highlighted representative view",
+          "file": "Gray — musculus palmaris brevis.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_musculus_palmaris_brevis.png",
+          "representative": true,
+          "view": "superficial ulnar palm",
+          "educationalReason": "소지구 피부 바로 아래에서 가로로 놓이는 단장근을 붉게 강조해 다른 깊은 소지구 근육과 달리 매우 표재성인 위치와 방향을 확인"
         }
       ]
     }
