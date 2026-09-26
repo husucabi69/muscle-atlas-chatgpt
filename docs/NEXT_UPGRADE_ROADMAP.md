@@ -108,7 +108,7 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
-상태: **PREVIEW IN PROGRESS — 2026-09-27 / Production 114 of 205 · Preview 162 of 205 representative views reviewed**
+상태: **PREVIEW IN PROGRESS — 2026-09-27 / Production 114 of 205 · Preview 173 of 205 representative views reviewed**
 
 ## 배포 게이트
 - [x] 저장소 Cloudflare Pages 호환 경로/QA 준비
@@ -138,7 +138,8 @@
 - [x] 심부둔부 6개 우선 배치 검수 완료
 - [x] 전완심부 8개 우선 배치 검수 완료
 - [x] 족부 내재근 10개 우선 배치 검수 완료
-- [ ] 충양근·개별 골간근 등 남은 족부 심부근은 더 명확한 개별 대표도해 확보 후 승격
+- [x] 발 충양근 4개 + 배측골간근 4개 + 족저골간근 3개: Gray 444/446/447의 근복 위 직접 번호(1st·2d·3d·4th)로 개별 대표시야 승인
+- [ ] 발 소지대립근(가변 구조)은 개별 구조가 명확한 정본 확보 전까지 pending 유지
 - [x] reviewed 근육은 대표 1장 우선 원칙 적용
 - [x] 극하근 기존 superior view 대표도해 제거
 - [x] 1차 교체 4개 source/license/attribution 검증 및 유지
@@ -146,9 +147,9 @@
 
 ## 현재 진행
 - Production reviewed: 114 / 205
-- Preview reviewed: 162 / 205
+- Preview reviewed: 173 / 205
 - Production pending_review: 91 / 205
-- Preview pending_review: 43 / 205
+- Preview pending_review: 32 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
@@ -171,6 +172,7 @@
 - [x] 설골상·설골하 8개(이복근·경돌설골근·하악설골근·이설골근·흉골설골근·흉골갑상근·갑상설골근·견갑설골근) 대표시야 데이터 검수 완료 — `preview/development`에 유지, Production 미승격
 - [x] 손 내재근 6개(단무지외전근·무지대립근·단소지근·소지외전근·소지대립근·단장근) 개별 강조 대표시야 검수 완료 — `preview/development`
 - [x] 손 충양근 4개(제1·2·3·4충양근) Sobotta 심부 손바닥 도해에서 Lumbricalis I–IV 직접 라벨 확인 완료 — `preview/development`
+- [x] 발 내재근 정밀 11개(충양근 4·배측골간근 4·족저골간근 3) Gray 정본의 근복 위 직접 번호 확인 완료 — `preview/development`
 - [x] 흉벽 5개(늑골거근·외늑간근·내늑간근·최내늑간근·흉횡근) 대표시야 검수 완료 — `preview/development`
 - [x] 정확도 우선 4개(흉극근·흉반극근·광경근·거고근) 대표시야 검수 완료 — `preview/development`
 - [x] 회음부 3개(외항문괄약근·구해면체근·좌골해면체근) 대표시야 검수 완료 — `preview/development`
