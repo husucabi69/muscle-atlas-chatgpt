@@ -59,6 +59,8 @@ const required={
   m020:'Obliquus capitis inferior muscle back.png',
   m151:'Posterior compartment of leg - soleus.png',
   m152:'Gray438-Musculus plantaris.png',
+  m149:'1123 Muscles of the Leg that Move the Foot and Toes b.png',
+  m150:'1123 Muscles of the Leg that Move the Foot and Toes b.png',
   m153:'Gray439-Musculus popliteus.png',
   m154:'Tibialis posterior.png',
   m155:'Gray439-Musculus flexor digitorum longus.png',

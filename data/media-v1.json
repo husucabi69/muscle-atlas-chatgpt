@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-y",
+  "version": "2026.09.26-stage17-z",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -2085,6 +2085,34 @@
           "representative": true,
           "view": "internal pelvic wall",
           "educationalReason": "천극인대 앞쪽에서 좌골극과 하부 천골·미골 사이에 놓이는 미골근(Coccygeus)이 별도 표기되어 항문거근 후방에서의 삼각형 근육 경계와 위치를 명확히 확인"
+        }
+      ]
+    },
+    "m149": {
+      "anatomy": [
+        {
+          "title": "Gastrocnemius medial head — posterior representative view",
+          "file": "1123 Muscles of the Leg that Move the Foot and Toes b.png",
+          "author": "OpenStax Anatomy and Physiology (Betts et al.)",
+          "license": "CC BY 4.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:1123_Muscles_of_the_Leg_that_Move_the_Foot_and_Toes_b.png",
+          "representative": true,
+          "view": "posterior proximal leg",
+          "educationalReason": "후면 하퇴 도해에서 비복근 내측두가 직접 라벨링되어 대퇴골 내측과 위쪽 근복부터 아킬레스건으로 수렴하는 큰 내측 근복의 형태와 외측두와의 차이를 명확히 확인"
+        }
+      ]
+    },
+    "m150": {
+      "anatomy": [
+        {
+          "title": "Gastrocnemius lateral head — posterior representative view",
+          "file": "1123 Muscles of the Leg that Move the Foot and Toes b.png",
+          "author": "OpenStax Anatomy and Physiology (Betts et al.)",
+          "license": "CC BY 4.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:1123_Muscles_of_the_Leg_that_Move_the_Foot_and_Toes_b.png",
+          "representative": true,
+          "view": "posterior proximal leg",
+          "educationalReason": "후면 하퇴 도해에서 비복근 외측두가 직접 라벨링되어 대퇴골 외측과 위쪽 근복부터 아킬레스건으로 이어지는 외측 근복의 위치와 내측두와의 상대적 크기·주행을 명확히 확인"
         }
       ]
     }
