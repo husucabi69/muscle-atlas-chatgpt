@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-u",
+  "version": "2026.09.26-stage17-v",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -1915,6 +1915,62 @@
           "representative": true,
           "view": "internal anterior thoracic wall",
           "educationalReason": "흉골·검상돌기 뒤쪽에서 제2–6 늑연골로 방사하는 흉횡근 전체를 흉곽 안쪽 시야에서 보여 주어 기시·정지와 내흉동맥과의 위치 관계를 확인"
+        }
+      ]
+    },
+    "m023": {
+      "anatomy": [
+        {
+          "title": "Spinalis thoracis — posterior representative view",
+          "file": "Spinalis.png",
+          "author": "Uwe Gille; modified from Gray389",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Spinalis.png",
+          "representative": true,
+          "view": "posterior thoracic spine",
+          "educationalReason": "상부 요추·하부 흉추 극돌기에서 중·상부 흉추 극돌기로 이어지는 흉극근을 척주 정중선 바로 옆에서 선택적으로 강조해 위치와 세로 주행을 명확히 확인"
+        }
+      ]
+    },
+    "m024": {
+      "anatomy": [
+        {
+          "title": "Semispinalis thoracis — posterior representative view",
+          "file": "Semispinalis dorsi.png",
+          "author": "Uwe Gille; modified from Gray389",
+          "license": "CC BY-SA 2.5",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Semispinalis_dorsi.png",
+          "representative": true,
+          "view": "posterior deep thoracic spine",
+          "educationalReason": "흉추 횡돌기에서 여러 분절 위 극돌기로 비스듬히 올라가는 흉반극근의 transversospinalis 주행을 주변 척추뼈 표지와 함께 분리해 확인"
+        }
+      ]
+    },
+    "m184": {
+      "anatomy": [
+        {
+          "title": "Platysma — anterior-lateral superficial representative view",
+          "file": "Gray — platysma.png",
+          "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_platysma.png",
+          "representative": true,
+          "view": "anterior-lateral superficial neck",
+          "educationalReason": "하악연에서 전흉부·쇄골 상부로 넓게 퍼지는 광경근의 얇은 판상 범위를 표재층에서 붉게 강조해 얼굴·목 피부와의 넓은 관계를 한눈에 확인"
+        }
+      ]
+    },
+    "m204": {
+      "anatomy": [
+        {
+          "title": "Cremaster — inguinoscrotal representative view",
+          "file": "Musculus cremaster.png",
+          "author": "Uwe Gille; modified from Gray1144",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_cremaster.png",
+          "representative": true,
+          "view": "anterior inguinoscrotal dissection",
+          "educationalReason": "정삭과 고환을 둘러싸며 내려오는 거고근 섬유를 서혜부에서 음낭까지 직접 보여 주어 내복사근 계통과 정삭의 공간관계를 이해하기 적합"
         }
       ]
     }
