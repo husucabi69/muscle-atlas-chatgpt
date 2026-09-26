@@ -108,7 +108,7 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
-상태: **PREVIEW IN PROGRESS — 2026-09-27 / Production 114 of 205 · Preview 175 of 205 representative views reviewed**
+상태: **PREVIEW COMPLETE — 2026-09-27 / 205 of 205 final decisions · 177 fixed representative views · 28 documented source gaps · pending 0**
 
 ## 배포 게이트
 - [x] 저장소 Cloudflare Pages 호환 경로/QA 준비
@@ -131,7 +131,7 @@
 - 실시간 검색 결과를 대표 도해로 자동 승격하지 않음
 
 ## 구현
-- [x] 205 muscle 전수 audit ledger 생성 / 각 근육 pending/reviewed 상태 관리 (전수 검수 자체는 진행 중)
+- [x] 205 muscle 전수 audit ledger 완료 / 모든 근육을 reviewed 또는 no_suitable_public_source로 최종 판정
 - [x] 대표시야 metadata: view / educationalReason / source / license 구조 도입
 - [x] 회전근개 1차: 극상근 posterior / 극하근 posterior / 소원근 posterior / 견갑하근 anterior 대표시야로 교체
 - [x] 경추/후두하 우선 배치 11개 검수 완료
@@ -139,7 +139,7 @@
 - [x] 전완심부 8개 우선 배치 검수 완료
 - [x] 족부 내재근 10개 우선 배치 검수 완료
 - [x] 발 충양근 4개 + 배측골간근 4개 + 족저골간근 3개: Gray 444/446/447의 근복 위 직접 번호(1st·2d·3d·4th)로 개별 대표시야 승인
-- [ ] 발 소지대립근(가변 구조)은 개별 구조가 명확한 정본 확보 전까지 pending 유지
+- [x] 발 소지대립근(가변 구조): 공개 적합 정본 미확립으로 최종 source-gap 판정
 - [x] reviewed 근육은 대표 1장 우선 원칙 적용
 - [x] 극하근 기존 superior view 대표도해 제거
 - [x] 1차 교체 4개 source/license/attribution 검증 및 유지
@@ -147,15 +147,17 @@
 
 ## 현재 진행
 - Production reviewed: 114 / 205
-- Preview reviewed: 175 / 205
+- Preview fixed representative reviewed: 177 / 205
 - Production pending_review: 91 / 205
-- Preview pending_review: 30 / 205
+- Preview documented source-gap: 28 / 205
+- Preview pending_review: 0 / 205
+- Preview final decisions: 205 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
 
 ## 완료 Gate
-- [ ] 205/205 representative-view decision
+- [x] 205/205 representative-view decision — 177 fixed representative + 28 documented source-gap
 - [x] 견갑대·어깨 8개 대표시야 우선 배치 검수 완료
 - [x] 전완 표층 11개 대표시야 우선 배치 검수 완료
 - [x] 상완근·오훼완근·주근 3개 대표시야 검수 완료
@@ -182,9 +184,10 @@
 - [x] 경추 세로근 3개(경장늑근·두최장근·경최장근) Sobotta 후면도 직접 라벨 확인 완료 — `preview/development`
 - [x] 경추 심부 정밀 3개(경반극근·경회선근·경극간근) 직접 라벨/부위 식별 대표시야 검수 완료 — `preview/development`
 - [x] 경다열근 + 늑하근: 경부 deep-posterior 직접 라벨 / 흉곽 내면 번호-캡션 직접 대응 대표시야 검수 완료 — `preview/development`
+- [x] Stage 17 final 30개: 단무지굴근 표재두·심두 2개 신규 대표도해 승인 + 나머지 28개 근거 기반 source-gap 최종 판정 — pending 0
 - [x] 치골직장근 + 무지내전근 2개 head(사두·횡두) 직접 라벨 대표시야 검수 완료 — `preview/development`
   - 동일 후면도에서 세 근육이 각각 독립 라벨로 표시되어 외측-중간 배열 비교 가능
-  - 경반극근은 Semi-spinalis colli 직접 라벨, 경회선근은 cervical rotatores 포함 Anatomography 정본, 경극간근은 경부 plate의 interspinals 직접 라벨로 승인; 경극근·경횡돌기간근은 계속 pending 유지
+  - 경반극근·경회선근·경극간근은 직접 식별 정본으로 승인; 경극근·경횡돌기간근은 final source-gap 판정
   - 추체근은 Gray397의 명확한 미국 포함 Public Domain 메타데이터로 기존 license 보류를 해제
   - 회음횡근은 Toldt 1903 원판, 외요도괄약근은 Cenveo 남녀 비교도해 사용
   - 동일 도해를 각 head 페이지에 사용하되 해당 head 이름과 선택 이유를 별도로 명시
@@ -192,15 +195,15 @@
   - 외항문괄약근은 OpenStax inferior perineal overview, 구해면체근·좌골해면체근은 Gray 개별 강조 도해 사용
   - 세 근육 모두 여성 비교 시야를 secondary로 추가해 성별 해부 차이를 학습
   - 회음횡근·골반저 세부 part는 개별 구조가 명확한 정본 확보 전까지 pending 유지
-  - 흉장늑근·흉최장근은 현재 공개 도해가 전체 muscle group 중심이라 thoracic part 단독 확인이 불충분하여 pending 유지
+  - 흉장늑근·흉최장근은 공개 도해가 전체 muscle group 중심이라 thoracic part 단독 확인이 불충분하여 final source-gap 판정
   - 외/내/최내늑간근은 lateral 시야로 통일해 섬유 방향 비교; 늑하근은 1918 흉곽 내면 Fig.112에서 10,10=subcostal muscles 직접 대응을 확인해 승인
-  - 무지내전근 사두·횡두는 Gray426에서 OBLIQUUS / TRANSVERSUS가 각각 직접 라벨링되어 head-specific 승인; 단무지굴근 표재/심두는 계속 pending 유지
+  - 무지내전근 사두·횡두는 Gray426 직접 라벨로 승인; 단무지굴근 표재/심두는 Braus 1921 plate에서 두 head 직접 라벨을 확인해 승인
   - Gray Plate 378 기반 개별 강조 public-domain 도해로 통일; Preview 실화면 확인 후 main 병합
   - 네 근육 모두 Gray plate 기반 개별 강조 public-domain 도해를 사용하여 작은 심부근도 주변 경추·두개저 표지와 함께 구분 가능
   - 대흉근: `202304 Pectoralis major muscle.svg`는 Commons license review needed 상태라 대표도해에서 제외하고 `Gray410.png` public-domain 정본으로 교체
-- [ ] 대내전근 햄스트링부는 전체 대내전근 도해가 아닌 part-specific 대표도해 추가 검토
-- [ ] 대표시야 미등록 0 또는 근거 있는 “공개 적합자료 미확립” 표기
-- [ ] reviewed source/license 누락 0
+- [x] 대내전근 햄스트링부: part-specific 공개 적합 정본 미확립으로 최종 source-gap 판정
+- [x] 대표시야 미등록 항목은 모두 근거 있는 “공개 적합자료 미확립” source-gap으로 명시
+- [x] reviewed source/license 누락 0 — automated QA gate
 - [x] 극하근 우선 문제 사례 데이터 수정 + 자동 QA
 - [ ] 실제 앱 화면에서 posterior 대표시야 시각 확인
 

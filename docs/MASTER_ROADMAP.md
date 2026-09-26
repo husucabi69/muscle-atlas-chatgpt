@@ -89,9 +89,9 @@ Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과�
 - Stage 15 Reliable Auto-Update Engine: DEV COMPLETE / automated QA PASS
 - 사용자 실사용 피드백 반영: 계층형 화면 전환 → 근육 대표도해 → 사람 같은 Oral 음성 순으로 우선순위 재정렬
 - Stage 16 Hierarchical Navigation 2.0: DEV COMPLETE / automated QA PASS
-- Stage 17 Muscle Illustration Quality Audit: PREVIEW IN PROGRESS — Production main 114/205 reviewed, 91 pending; `preview/development` 175/205 reviewed, 30 pending (approved hyoid + intrinsic hand + thoracic wall + precision-exact + perineal/pelvic-floor + gastrocnemius-head + pyramidalis/perineal-completion + cervical-erector + puborectalis/adductor-head + hand-lumbrical + deep-cervical-exact + foot-intrinsic-numbered + cervical-multifidus/subcostales batches accumulated in Preview; Production promotion deferred)
+- Stage 17 Muscle Illustration Quality Audit: PREVIEW COMPLETE — Production main 114/205 reviewed, 91 pending; `preview/development` 205/205 final decisions = 177 fixed representative views + 28 documented source gaps, pending 0; Production promotion deferred
 - Cloudflare Preview/Production infrastructure: ACTIVE — GitHub integration verified; `preview/development` is the long-lived development line; repeated visual approval occurs in Preview; Production remains frozen until final explicit promotion
-- 현재 개발: **Stage 17 — Muscle Illustration Quality Audit**
+- 현재 개발: **Stage 18 — Oral Viva Human Voice 3.0**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
 

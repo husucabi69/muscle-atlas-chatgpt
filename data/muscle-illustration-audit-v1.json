@@ -1,6 +1,6 @@
 {
-  "audit_version": "2026.09.27-stage17-ah",
-  "status": "IN_PROGRESS",
+  "audit_version": "2026.09.27-stage17-ai",
+  "status": "COMPLETE",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
     "reject_as_representative": [
@@ -10,7 +10,8 @@
     ],
     "max_primary_assets": 1,
     "secondary_assets": "Only when a second view adds distinct educational value.",
-    "license_requirement": "Source page, author and reuse license must be explicit for fixed media."
+    "license_requirement": "Source page, author and reuse license must be explicit for fixed media.",
+    "final_decision_contract": "Every canonical muscle ends as reviewed with one fixed representative asset or no_suitable_public_source with an explicit reason. No pending_review rows remain at Stage 17 completion."
   },
   "muscles": [
     {
@@ -231,7 +232,13 @@
       "muscle_id": "m016",
       "name_ko": "경횡돌기간근",
       "name_en": "Intertransversarii cervicis",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "공개 재사용 자료 중 경추 횡돌기간근을 경추 분절로 직접 라벨링하고 충분한 해상도로 보여 주는 정본을 확인하지 못함.",
+        "evidence": "Commons의 전용 Intertransversarii 도해는 276×113 저해상도이며 경추·흉추·요추 부위를 분리하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m017",
@@ -293,13 +300,25 @@
       "muscle_id": "m021",
       "name_ko": "흉장늑근",
       "name_en": "Iliocostalis thoracis",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "장늑근 전체 도해는 있으나 흉장늑근(iliocostalis thoracis)만의 경계와 주행을 직접 구분하는 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "전체 iliocostalis group 이미지는 thoracis/cervicis/lumborum 경계를 독립 라벨로 분리하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m022",
       "name_ko": "흉최장근",
       "name_en": "Longissimus thoracis",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "최장근 전체 도해는 있으나 흉최장근(longissimus thoracis)의 흉추부를 독립적으로 식별할 수 있는 재사용 가능 대표도해가 부족함.",
+        "evidence": "공개 도해가 longissimus group 중심이며 thoracic part의 직접 경계 라벨이 불충분함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m023",
@@ -333,25 +352,49 @@
       "muscle_id": "m025",
       "name_ko": "흉다열근",
       "name_en": "Multifidus thoracis",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "다열근 전체 연속 구조를 보여 주는 공개도해는 있으나 흉다열근을 thoracic part로 직접 분리·라벨링한 대표 정본을 확인하지 못함.",
+        "evidence": "whole-spine multifidus view만으로 흉추부를 canonical muscle 단위로 고정하기에는 part-specific 근거가 부족함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m026",
       "name_ko": "흉회선근",
       "name_en": "Rotatores thoracis",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "Rotatores 전체 후면 고해상도 공개도해는 있으나 흉회선근만을 별도 part로 직접 표시하는 정본이 없어 대표도해로 고정하지 않음.",
+        "evidence": "Anatomography Rotatores.png는 전체 rotatores chain을 보여 주지만 thoracic subset의 독립 라벨/경계가 없음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m027",
       "name_ko": "흉극간근",
       "name_en": "Interspinales thoracis",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "Interspinales 일반 도해는 있으나 흉극간근을 흉추부로 분리하여 직접 식별할 수 있는 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "공개 자료가 interspinales group 또는 다른 부위 중심임.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m028",
       "name_ko": "흉횡돌기간근",
       "name_en": "Intertransversarii thoracis",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "흉횡돌기간근을 흉추부로 직접 식별하는 고해상도 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "전용 Commons intertransversarii 파일은 저해상도이며 지역별 분리가 없음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m029",
@@ -484,49 +527,97 @@
       "muscle_id": "m038",
       "name_ko": "요장늑근",
       "name_en": "Iliocostalis lumborum",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "장늑근 전체 도해는 있으나 요장늑근(iliocostalis lumborum)만의 근복과 경계를 직접 구분하는 대표 정본이 부족함.",
+        "evidence": "전체 iliocostalis group 도해를 lumbar part 전용 대표시야로 승격하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m039",
       "name_ko": "요최장근",
       "name_en": "Longissimus thoracis - lumbar fascicles",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "Longissimus thoracis의 lumbar fascicles를 별도 구조로 직접 표시하는 공개 재사용 대표도해를 확인하지 못함.",
+        "evidence": "전체 longissimus/erector-spinae 도해에서는 lumbar fascicles의 독립 경계가 불명확함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m040",
       "name_ko": "요극근",
       "name_en": "Spinalis (lumbar portion, variable)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "요극근은 해부학적으로 변이가 크고 lumbar spinalis portion을 안정적으로 분리해 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
+        "evidence": "전체 spinalis 또는 erector-spinae 그림을 가변성 높은 lumbar portion의 정본으로 사용하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m041",
       "name_ko": "요다열근",
       "name_en": "Multifidus lumborum",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "다열근 전체 도해는 있으나 요다열근을 lumborum part로 직접 분리·라벨링한 공개 정본을 확인하지 못함.",
+        "evidence": "whole-spine multifidus view는 지역 교육용 참고가 가능하지만 canonical 대표도해 기준에는 부족함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m042",
       "name_ko": "요회선근",
       "name_en": "Rotatores lumborum",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "Rotatores 전체 후면도는 있으나 요회선근만을 lumbar subset으로 직접 라벨링한 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "Rotatores.png는 전체 chain을 표시하며 lumbar part의 독립 경계가 없음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m043",
       "name_ko": "요극간근",
       "name_en": "Interspinales lumborum",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "Interspinales 일반 자료는 있으나 요극간근을 요추부로 직접 분리해 보여 주는 고품질 재사용 정본을 확인하지 못함.",
+        "evidence": "group-level 도해를 lumbar-specific 대표로 고정하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m044",
       "name_ko": "요내측 횡돌기간근",
       "name_en": "Intertransversarii mediales lumborum",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "요내측 횡돌기간근(intertransversarii mediales lumborum)을 외측군과 분리하여 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
+        "evidence": "일반 intertransversarii 도해는 해상도가 낮고 mediales/laterales 구분이 없음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m045",
       "name_ko": "요외측 횡돌기간근",
       "name_en": "Intertransversarii laterales lumborum",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "요외측 횡돌기간근(intertransversarii laterales lumborum)을 내측군과 분리하여 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
+        "evidence": "일반 intertransversarii 도해는 해상도가 낮고 mediales/laterales 구분이 없음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m046",
@@ -1340,13 +1431,31 @@
       "muscle_id": "m103",
       "name_ko": "단무지굴근-표재두",
       "name_en": "Flexor pollicis brevis, superficial head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Braus 1921 215.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Braus_1921_215.png",
+        "license": "Public domain (PD-Art / 1921)",
+        "author": "Hermann Braus",
+        "view": "palmar deep hand",
+        "focusLabel": "Caput superficiale des M. flex. pollic. brev.",
+        "educationalReason": "Braus 1921 심부 손바닥 도해에서 단무지굴근 표재두의 기시와 표재두 정지가 직접 라벨링되어 무지구의 표재성 근복과 심두에 대한 위치를 구분해 확인"
+      }
     },
     {
       "muscle_id": "m104",
       "name_ko": "단무지굴근-심두",
       "name_en": "Flexor pollicis brevis, deep head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Braus 1921 215.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Braus_1921_215.png",
+        "license": "Public domain (PD-Art / 1921)",
+        "author": "Hermann Braus",
+        "view": "palmar deep hand",
+        "focusLabel": "Caput profundum des M. flex. poll. brevis",
+        "educationalReason": "Braus 1921 심부 손바닥 도해에서 Caput profundum이 직접 라벨링되어 단무지굴근 심두의 깊은 근복과 표재두·무지대립근에 대한 공간관계를 구분해 확인"
+      }
     },
     {
       "muscle_id": "m105",
@@ -1510,43 +1619,85 @@
       "muscle_id": "m116",
       "name_ko": "제1배측골간근",
       "name_en": "Dorsal interosseous 1 (hand)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "손 제1배측골간근을 현대 번호 체계로 독립 고정할 수 있는 일관된 공개 정본 세트를 확보하지 못해 단일 역사 도해를 대표로 승격하지 않음.",
+        "evidence": "고해상도 Braus 도해에 일부 역사적 interosseus 표기가 있으나 1–4 전체를 동일 기준으로 검증하기 어려움.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m117",
       "name_ko": "제2배측골간근",
       "name_en": "Dorsal interosseous 2 (hand)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "손 제2배측골간근의 근복과 번호를 직접 대응시키는 고해상도 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "공개 group 도해는 4개 배측골간근을 함께 보여 주지만 개별 번호 고정 근거가 부족함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m118",
       "name_ko": "제3배측골간근",
       "name_en": "Dorsal interosseous 3 (hand)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "손 제3배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
+        "evidence": "부분적으로만 번호가 보이는 단일 plate보다 일관된 현대 ordinal mapping을 우선함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m119",
       "name_ko": "제4배측골간근",
       "name_en": "Dorsal interosseous 4 (hand)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "손 제4배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
+        "evidence": "부분 라벨 plate를 canonical ordinal 대표로 고정하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m120",
       "name_ko": "제1수장골간근",
       "name_en": "Palmar interosseous 1 (hand)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "손 제1수장골간근의 현대 번호와 근복을 직접 대응시키는 공개 정본을 확인하지 못함.",
+        "evidence": "역사적 internus 표기는 존재하지만 현대 palmar interosseous 1–3 체계와의 일대일 고정 근거가 불충분함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m121",
       "name_ko": "제2수장골간근",
       "name_en": "Palmar interosseous 2 (hand)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "손 제2수장골간근의 현대 번호와 근복을 직접 대응시키는 공개 정본을 확인하지 못함.",
+        "evidence": "역사적 internus 번호를 현대 canonical numbering으로 자동 치환하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m122",
       "name_ko": "제3수장골간근",
       "name_en": "Palmar interosseous 3 (hand)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "손 제3수장골간근의 현대 번호와 근복을 직접 대응시키는 공개 정본을 확인하지 못함.",
+        "evidence": "역사적 internus 번호를 현대 canonical numbering으로 자동 치환하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m123",
@@ -1678,7 +1829,13 @@
       "muscle_id": "m132",
       "name_ko": "무릎관절근",
       "name_en": "Articularis genus",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "무릎관절근(articularis genus)을 중간광근과 분리하여 근복 전체를 직접 보여 주는 재사용 가능 대표도해를 확인하지 못함.",
+        "evidence": "vastus intermedius 중심 자료를 articularis genus 단독 대표로 대체하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m133",
@@ -1740,7 +1897,13 @@
       "muscle_id": "m137",
       "name_ko": "대내전근-햄스트링부",
       "name_en": "Adductor magnus, hamstring part",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "대내전근 햄스트링부를 내전부와 분리해 직접 라벨링하고 근복-정지 관계를 보여 주는 공개 대표 정본을 확인하지 못함.",
+        "evidence": "adductor magnus 전체/부착부 도해는 있으나 hamstring part 독립 경계가 불충분함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m138",
@@ -2212,7 +2375,13 @@
       "muscle_id": "m171",
       "name_ko": "소지대립근",
       "name_en": "Opponens digiti minimi (foot, variable)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "발 소지대립근은 가변적 구조이며 해당 발 근육을 독립적으로 확인할 수 있는 신뢰도 높은 공개 재사용 정본을 확인하지 못함.",
+        "evidence": "검색되는 opponens digiti minimi 자료의 대부분은 손 근육이며 발 구조를 대표하지 않음.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m172",
@@ -2519,7 +2688,13 @@
       "muscle_id": "m193",
       "name_ko": "최소사각근",
       "name_en": "Scalenus minimus",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "최소사각근(scalenus minimus)은 변이가 크고 독립 근복을 안정적으로 보여 주는 공개 재사용 대표 정본을 확인하지 못함.",
+        "evidence": "일반 scalenes 도해에서 최소사각근을 별도 구조로 확정할 근거가 부족함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m194",
@@ -2567,7 +2742,13 @@
       "muscle_id": "m197",
       "name_ko": "경극근",
       "name_en": "Spinalis cervicis",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "경극근(spinalis cervicis)을 다른 spinalis/semispinalis 구조와 분리해 직접 라벨링한 고품질 공개 대표 정본을 확인하지 못함.",
+        "evidence": "기존 공개도해는 erector-spinae group 중심이라 cervical part의 독립 식별이 부족함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     },
     {
       "muscle_id": "m198",
@@ -2671,12 +2852,20 @@
       "muscle_id": "m205",
       "name_ko": "주관절근",
       "name_en": "Articularis cubiti (subanconeus)",
-      "status": "pending_review"
+      "status": "no_suitable_public_source",
+      "decision": {
+        "reason": "주관절근(articularis cubiti/subanconeus)을 주근·상완삼두근과 분리해 근복을 직접 보여 주는 재사용 가능 대표 정본을 확인하지 못함.",
+        "evidence": "공개 검색에서 standalone human representative view를 확보하지 못함.",
+        "reviewedOn": "2026-09-27",
+        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
     }
   ],
   "progress": {
-    "reviewed": 175,
-    "pending_review": 30,
-    "last_batch": "cervical_multifidus_subcostales_exact_batch"
+    "reviewed": 177,
+    "no_suitable_public_source": 28,
+    "pending_review": 0,
+    "decided": 205,
+    "last_batch": "stage17_final_decision_batch"
   }
 }

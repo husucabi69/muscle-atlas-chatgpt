@@ -1706,8 +1706,12 @@ function mediaCard(x){return `<div class="media"><a href="${esc(x.page||x.full||
 async function loadAnatomyInto(m,el){
   if(!el)return;
   el.innerHTML='<div class="status">검수된 고정 해부 이미지를 확인하는 중…</div>';
-  const reg=await getCuratedMedia(), fixed=reg.muscles?.[m.id]?.anatomy||[];
+  const reg=await getCuratedMedia(), slot=reg.muscles?.[m.id]||{}, fixed=slot.anatomy||[], decision=slot.anatomyDecision;
   if(fixed.length){el.innerHTML=fixed.map(curatedCard).join('');return;}
+  if(decision?.status==='no_suitable_public_source'){
+    el.innerHTML='<div class="status"><b>대표도해 정본 미확립</b><br>'+esc(decision.reason||'현재 기준을 충족하는 공개 대표도해를 확정하지 못했습니다.')+'<br><span class="small">검수되지 않은 자동 검색 이미지는 대표도해로 표시하지 않습니다. 더 나은 재사용 가능 정본이 확보되면 다시 검토합니다.</span></div>';
+    return;
+  }
   el.innerHTML='<div class="status">고정 영상 미등록 · 공개 고해상도 해부 이미지를 검색하는 중…</div>';
   const base=m.en.replace(/\([^)]*\)/g,'').trim(); const terms=base.split(/\s+/).filter(x=>x.length>2);
   const qs=[`"${base}" Anatomography muscle`,`"${base}" Gray anatomy`,`"${base}" muscle anatomy`];

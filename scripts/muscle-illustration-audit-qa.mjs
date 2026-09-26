@@ -20,12 +20,18 @@ check('Audit IDs match canonical core',
 );
 
 const reviewed=(audit.muscles||[]).filter(x=>x.status==='reviewed');
+const sourceGaps=(audit.muscles||[]).filter(x=>x.status==='no_suitable_public_source');
 const pending=(audit.muscles||[]).filter(x=>x.status==='pending_review');
-check('Audit accounting = 205',reviewed.length+pending.length===205,`${reviewed.length}+${pending.length}`);
+const invalidStatus=(audit.muscles||[]).filter(x=>!['reviewed','no_suitable_public_source','pending_review'].includes(x.status));
+check('Audit statuses valid',invalidStatus.length===0,String(invalidStatus.length));
+check('Audit accounting = 205',reviewed.length+sourceGaps.length+pending.length===205,`${reviewed.length}+${sourceGaps.length}+${pending.length}`);
 check('Audit has progressed beyond first batch',reviewed.length>=4,String(reviewed.length));
+check('COMPLETE audit has zero pending',audit.status!=='COMPLETE'||pending.length===0,String(pending.length));
 if(audit.progress){
   check('Progress reviewed count matches',audit.progress.reviewed===reviewed.length,`${audit.progress.reviewed}/${reviewed.length}`);
+  check('Progress source-gap count matches',audit.progress.no_suitable_public_source===sourceGaps.length,`${audit.progress.no_suitable_public_source}/${sourceGaps.length}`);
   check('Progress pending count matches',audit.progress.pending_review===pending.length,`${audit.progress.pending_review}/${pending.length}`);
+  check('Progress decided count matches',audit.progress.decided===reviewed.length+sourceGaps.length,`${audit.progress.decided}/${reviewed.length+sourceGaps.length}`);
 }
 
 for(const row of reviewed){
@@ -39,6 +45,18 @@ for(const row of reviewed){
   check(row.muscle_id+' educational reason',typeof asset?.educationalReason==='string'&&asset.educationalReason.length>12);
   check(row.muscle_id+' source page',String(asset?.sourcePage||'').startsWith('https://commons.wikimedia.org/wiki/File:'));
   check(row.muscle_id+' license',typeof asset?.license==='string'&&asset.license.length>2);
+}
+
+for(const row of sourceGaps){
+  const decision=row.decision;
+  const registryDecision=media.muscles?.[row.muscle_id]?.anatomyDecision;
+  check(row.muscle_id+' source-gap decision exists',!!decision);
+  check(row.muscle_id+' source-gap reason',typeof decision?.reason==='string'&&decision.reason.length>20);
+  check(row.muscle_id+' source-gap evidence',typeof decision?.evidence==='string'&&decision.evidence.length>20);
+  check(row.muscle_id+' source-gap revisit trigger',typeof decision?.revisitTrigger==='string'&&decision.revisitTrigger.length>20);
+  check(row.muscle_id+' media source-gap exists',registryDecision?.status==='no_suitable_public_source');
+  check(row.muscle_id+' media/audit source-gap reason matches',registryDecision?.reason===decision?.reason);
+  check(row.muscle_id+' has no fixed representative anatomy',!(media.muscles?.[row.muscle_id]?.anatomy||[]).some(x=>x.representative===true));
 }
 
 const required={
@@ -120,6 +138,8 @@ const required={
   m191:'Gray — musculus thyrohyoideus.png',
   m192:'Gray — musculus omohyoideus.png',
   m102:'Gray — musculus abductor pollicis brevis.png',
+  m103:'Braus 1921 215.png',
+  m104:'Braus 1921 215.png',
   m105:'Gray — musculus opponens pollicis.png',
   m106:'Gray426.png',
   m107:'Gray426.png',
@@ -257,6 +277,9 @@ for(const [id,focusLabel] of Object.entries(cervicalMultifidusSubcostales)){
   check(id+' exact audit focus label',row?.representative_asset?.focusLabel===focusLabel,row?.representative_asset?.focusLabel||'missing');
 }
 
+check('Stage 17 final decision UI rendered',index.includes('대표도해 정본 미확립'));
+check('Stage 17 final decision suppresses unreviewed auto-search',index.includes("decision?.status==='no_suitable_public_source'"));
+check('Stage 17 COMPLETE decision count',audit.status!=='COMPLETE'||(reviewed.length+sourceGaps.length===205&&pending.length===0),`${reviewed.length}+${sourceGaps.length}/${pending.length}`);
 check('Media registry Stage 17 version',String(media.version||'').includes('stage17'));
 
 let fail=0;
