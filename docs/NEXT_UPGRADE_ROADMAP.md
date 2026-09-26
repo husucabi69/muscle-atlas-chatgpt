@@ -211,17 +211,19 @@
 
 # Stage 18 — Oral Viva Human Voice 3.0
 
+상태: **IN PROGRESS — Local Voice 1차 구현 완료 / Stage 18 전체 미완료**
+
 목표: 질문과 피드백이 브라우저 기계음이 아니라 실제 동료·선배·대가와 대화하는 느낌에 가깝게 들리도록 한다.
 
 ## 1차 — 기기 내 최적 음성
-- [ ] Korean neural/natural voice가 있으면 우선 선택
-- [ ] voiceschanged 이후 voice ranking
-- [ ] persona별 rate / pitch / pause tuning
-- [ ] 질문 앞뒤 불필요한 기계적 문장 제거
-- [ ] punctuation 기반 자연스러운 쉼
-- [ ] friend / colleague / senior / master speaking style 차등
-- [ ] 음성 설정 미리듣기
-- [ ] SpeechSynthesis fallback 유지
+- [x] Korean neural/natural voice가 있으면 이름·언어 점수로 우선 선택
+- [x] voiceschanged 이후 voice ranking 재계산
+- [x] persona별 rate / pitch / pause tuning
+- [x] 질문 앞뒤 불필요한 기계적 문장 축소
+- [x] punctuation 기반 문장·구 단위 자연스러운 쉼
+- [x] friend / colleague / senior / master speaking style 차등
+- [x] 음성 선택·상태 표시·미리듣기
+- [x] SpeechSynthesis fallback 유지 / 미지원 시 텍스트 Oral 지속
 
 ## 2차 — High-quality TTS option
 - [ ] 실제 사람 수준 TTS provider/server contract 검토
