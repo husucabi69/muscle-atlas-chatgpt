@@ -110,6 +110,13 @@
 
 상태: **IN PROGRESS — 2026-09-26 / 114 of 205 representative views reviewed**
 
+## 배포 게이트
+- [x] 저장소 Cloudflare Pages 호환 경로/QA 준비
+- [ ] Cloudflare Dashboard에서 GitHub 저장소 연결
+- [ ] Production branch = `main`, Preview = all non-production branches 설정
+- [ ] 최초 Cloudflare Production + PR Preview 실제 화면 확인
+- [ ] 이후 Stage 17 대표도해 변경은 Preview 실화면 확인 후에만 main 병합
+
 목표: 205개 근육 각각에서 “근육을 가장 잘 이해할 수 있는 대표 시야”를 우선 표시한다.
 
 ## 대표 도해 선정 규칙

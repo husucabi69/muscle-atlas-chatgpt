@@ -22,6 +22,8 @@ jobs:
           node-version: '20'
       - name: Run Muscle Atlas global QA
         run: node scripts/global-qa.mjs
+      - name: Run Cloudflare Pages portability QA
+        run: node scripts/cloudflare-pages-qa.mjs
       - name: Run OrthoOS read-only integration contract QA
         run: node scripts/integration-contract-qa.mjs
       - name: Run Android TWA static configuration QA
