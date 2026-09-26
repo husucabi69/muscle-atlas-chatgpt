@@ -108,7 +108,7 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
-상태: **PREVIEW IN PROGRESS — 2026-09-27 / Production 114 of 205 · Preview 173 of 205 representative views reviewed**
+상태: **PREVIEW IN PROGRESS — 2026-09-27 / Production 114 of 205 · Preview 175 of 205 representative views reviewed**
 
 ## 배포 게이트
 - [x] 저장소 Cloudflare Pages 호환 경로/QA 준비
@@ -147,9 +147,9 @@
 
 ## 현재 진행
 - Production reviewed: 114 / 205
-- Preview reviewed: 173 / 205
+- Preview reviewed: 175 / 205
 - Production pending_review: 91 / 205
-- Preview pending_review: 32 / 205
+- Preview pending_review: 30 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
@@ -181,6 +181,7 @@
 - [x] 추체근 + 회음부 3개(천회음횡근·심회음횡근·외요도괄약근) 직접 라벨/라이선스 확인 완료 — `preview/development`
 - [x] 경추 세로근 3개(경장늑근·두최장근·경최장근) Sobotta 후면도 직접 라벨 확인 완료 — `preview/development`
 - [x] 경추 심부 정밀 3개(경반극근·경회선근·경극간근) 직접 라벨/부위 식별 대표시야 검수 완료 — `preview/development`
+- [x] 경다열근 + 늑하근: 경부 deep-posterior 직접 라벨 / 흉곽 내면 번호-캡션 직접 대응 대표시야 검수 완료 — `preview/development`
 - [x] 치골직장근 + 무지내전근 2개 head(사두·횡두) 직접 라벨 대표시야 검수 완료 — `preview/development`
   - 동일 후면도에서 세 근육이 각각 독립 라벨로 표시되어 외측-중간 배열 비교 가능
   - 경반극근은 Semi-spinalis colli 직접 라벨, 경회선근은 cervical rotatores 포함 Anatomography 정본, 경극간근은 경부 plate의 interspinals 직접 라벨로 승인; 경극근·경횡돌기간근은 계속 pending 유지
@@ -192,7 +193,7 @@
   - 세 근육 모두 여성 비교 시야를 secondary로 추가해 성별 해부 차이를 학습
   - 회음횡근·골반저 세부 part는 개별 구조가 명확한 정본 확보 전까지 pending 유지
   - 흉장늑근·흉최장근은 현재 공개 도해가 전체 muscle group 중심이라 thoracic part 단독 확인이 불충분하여 pending 유지
-  - 외/내/최내늑간근은 lateral 시야로 통일해 섬유 방향 비교; 늑하근은 개별 강조 정본 부족으로 pending 유지
+  - 외/내/최내늑간근은 lateral 시야로 통일해 섬유 방향 비교; 늑하근은 1918 흉곽 내면 Fig.112에서 10,10=subcostal muscles 직접 대응을 확인해 승인
   - 무지내전근 사두·횡두는 Gray426에서 OBLIQUUS / TRANSVERSUS가 각각 직접 라벨링되어 head-specific 승인; 단무지굴근 표재/심두는 계속 pending 유지
   - Gray Plate 378 기반 개별 강조 public-domain 도해로 통일; Preview 실화면 확인 후 main 병합
   - 네 근육 모두 Gray plate 기반 개별 강조 public-domain 도해를 사용하여 작은 심부근도 주변 경추·두개저 표지와 함께 구분 가능
