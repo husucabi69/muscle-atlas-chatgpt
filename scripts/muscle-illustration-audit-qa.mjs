@@ -82,7 +82,11 @@ const required={
   m139:'Long head of biceps femoris.gif',
   m140:'Short head of biceps femoris.gif',
   m141:'Semitendinosus.png',
-  m142:'Semimembranosus.gif'
+  m142:'Semimembranosus.gif',
+  m123:'Gluteus maximus 3D.gif',
+  m124:'Gluteus medius muscle01.png',
+  m125:'Gluteus minimus muscle01.png',
+  m126:'Tensor fasciae latae.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);

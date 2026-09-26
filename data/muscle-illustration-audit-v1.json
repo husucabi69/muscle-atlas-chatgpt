@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-m",
+  "audit_version": "2026.09.26-stage17-n",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1207,25 +1207,57 @@
       "muscle_id": "m123",
       "name_ko": "대둔근",
       "name_en": "Gluteus maximus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gluteus maximus 3D.gif",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gluteus_maximus_3D.gif",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "BodyParts3D / Anatomography",
+        "view": "rotating 3D posterior hip",
+        "educationalReason": "대둔근의 큰 표재성 근복이 장골·천골에서 대퇴골 및 장경인대로 이어지는 전체 범위와 후면 돌출 구조를 회전 3D에서 가장 직관적으로 확인"
+      }
     },
     {
       "muscle_id": "m124",
       "name_ko": "중둔근",
       "name_en": "Gluteus medius",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gluteus medius muscle01.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gluteus_medius_muscle01.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography",
+        "view": "isolated 3D lateral-oblique hip",
+        "educationalReason": "대둔근보다 깊고 장골 외면에서 대전자까지 부채꼴로 이어지는 중둔근 전체를 다른 근육의 가림 없이 고해상도 3D로 확인"
+      }
     },
     {
       "muscle_id": "m125",
       "name_ko": "소둔근",
       "name_en": "Gluteus minimus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gluteus minimus muscle01.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gluteus_minimus_muscle01.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography",
+        "view": "isolated 3D deep lateral hip",
+        "educationalReason": "중둔근 깊이에 놓인 소둔근을 단독 표시하여 장골 외면의 넓은 기시와 대전자 전면으로 향하는 깊은 주행을 명확히 확인"
+      }
     },
     {
       "muscle_id": "m126",
       "name_ko": "대퇴근막장근",
       "name_en": "Tensor fasciae latae",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Tensor fasciae latae.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Tensor_fasciae_latae.png",
+        "license": "Public domain",
+        "author": "Gray's Anatomy; modified by Uwe Gille",
+        "view": "anterolateral hip and thigh",
+        "educationalReason": "전상장골극 부근에서 시작해 장경인대로 이어지는 대퇴근막장근의 짧은 근복과 장경인대 연속성을 전외측에서 명확히 확인"
+      }
     },
     {
       "muscle_id": "m127",
@@ -1991,8 +2023,8 @@
     }
   ],
   "progress": {
-    "reviewed": 92,
-    "pending_review": 113,
-    "last_batch": "posterior_thigh_hamstring_priority_batch"
+    "reviewed": 96,
+    "pending_review": 109,
+    "last_batch": "superficial_gluteal_priority_batch"
   }
 }
