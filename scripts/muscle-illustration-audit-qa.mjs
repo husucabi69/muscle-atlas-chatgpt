@@ -104,7 +104,15 @@ const required={
   m005:'Gray — musculus longus capitis.png',
   m006:'Gray — musculus longus colli.png',
   m007:'Gray — musculus rectus capitis anterior.png',
-  m008:'Gray — musculus rectus capitis lateralis.png'
+  m008:'Gray — musculus rectus capitis lateralis.png',
+  m185:'Gray — musculus digastricus.png',
+  m186:'Gray — musculus stylohyoideus.png',
+  m187:'Gray — musculus mylohyoideus.png',
+  m188:'Gray — musculus geniohyoideus.png',
+  m189:'Gray — musculus sternohyoideus.png',
+  m190:'Gray — musculus sternothyroideus.png',
+  m191:'Gray — musculus thyrohyoideus.png',
+  m192:'Gray — musculus omohyoideus.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);

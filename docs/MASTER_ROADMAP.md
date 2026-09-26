@@ -87,8 +87,8 @@ Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과�
 - Stage 15 Reliable Auto-Update Engine: DEV COMPLETE / automated QA PASS
 - 사용자 실사용 피드백 반영: 계층형 화면 전환 → 근육 대표도해 → 사람 같은 Oral 음성 순으로 우선순위 재정렬
 - Stage 16 Hierarchical Navigation 2.0: DEV COMPLETE / automated QA PASS
-- Stage 17 Muscle Illustration Quality Audit: IN PROGRESS — 114/205 reviewed, 91 pending (anterior deep cervical priority batch added; pyramidalis held for license metadata)
-- Cloudflare Preview/Production infrastructure: REPOSITORY READY — portable PWA paths + Cloudflare QA + cache headers prepared; Dashboard GitHub authorization/project creation pending
+- Stage 17 Muscle Illustration Quality Audit: IN PROGRESS — 122/205 reviewed, 83 pending (suprahyoid/infrahyoid priority batch added; pyramidalis held for license metadata)
+- Cloudflare Preview/Production infrastructure: ACTIVE — GitHub integration verified; PR Preview automatic deployment SUCCESS; visual Preview confirmation required before future main merges
 - 현재 개발: **Stage 17 — Muscle Illustration Quality Audit**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
