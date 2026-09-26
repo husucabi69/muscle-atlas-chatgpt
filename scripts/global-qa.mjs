@@ -279,8 +279,8 @@ check('Stage 10 UI present', html.includes('Stage 10 COMPLETE') && html.includes
 const requiredPages=['home','symptoms','regions','clinical','education','quiz','oral'];
 check('All 7 app pages wired', requiredPages.every(id=>html.includes(`data-page="${id}"`) && html.includes(`<section id="${id}"`)), requiredPages.join(','));
 check('PWA id', manifest.id==='/muscle-atlas-chatgpt/', manifest.id);
-check('PWA start_url', manifest.start_url==='/muscle-atlas-chatgpt/?source=pwa', manifest.start_url);
-check('PWA scope', manifest.scope==='/muscle-atlas-chatgpt/', manifest.scope);
+check('PWA portable start_url', manifest.start_url==='./?source=pwa', manifest.start_url);
+check('PWA portable scope', manifest.scope==='./', manifest.scope);
 check('PWA fullscreen', manifest.display==='fullscreen' && manifest.display_override?.includes('standalone'), manifest.display);
 
 const cacheNeedles=['patient-exercise-library-v1.json','knowledge-core-v1.json','symptom-groups-v1.json','symptoms-v1.json',...Object.keys(modules).flatMap(m=>[
