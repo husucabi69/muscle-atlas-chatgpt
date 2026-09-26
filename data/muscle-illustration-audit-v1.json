@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.27-stage17-ad",
+  "audit_version": "2026.09.27-stage17-ae",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -171,7 +171,16 @@
       "muscle_id": "m012",
       "name_ko": "경반극근",
       "name_en": "Semispinalis cervicis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Essentials of physiology, arranged in the form of questions and answers, prepared especially for students of medicine (1899) (14581458379).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Essentials_of_physiology,_arranged_in_the_form_of_questions_and_answers,_prepared_especially_for_students_of_medicine_(1899)_(14581458379).jpg",
+        "license": "No known copyright restrictions",
+        "author": "H. A. Hare / Joseph H. Raymond; Internet Archive Book Images",
+        "view": "posterior-lateral cervical deep muscle plate",
+        "focusLabel": "W · Semi-spinalis colli",
+        "educationalReason": "1899 경부 해부판의 설명에서 W가 Semi-spinalis colli로 직접 지정되어 상부 흉추 횡돌기에서 경추 극돌기로 올라가는 경반극근의 깊은 후경부 위치를 주변 splenius·suboccipital 근육과 함께 확인"
+      }
     },
     {
       "muscle_id": "m013",
@@ -183,13 +192,31 @@
       "muscle_id": "m014",
       "name_ko": "경회선근",
       "name_en": "Rotatores cervicis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Rotatores.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rotatores.png",
+        "license": "CC BY-SA 2.1 JP",
+        "author": "Anatomography / DBCLS",
+        "view": "posterior spine with cervical rotatores",
+        "focusLabel": "cervical rotatores",
+        "educationalReason": "Anatomography 정본이 경추 rotatores를 포함하도록 업데이트된 후면도여서 횡돌기에서 위쪽 추궁판·극돌기 방향으로 짧게 비스듬히 주행하는 경회선근의 분절성 배열을 실제 근복 형태로 확인"
+      }
     },
     {
       "muscle_id": "m015",
       "name_ko": "경극간근",
       "name_en": "Interspinales cervicis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Essentials of physiology, arranged in the form of questions and answers, prepared especially for students of medicine (1899) (14581458379).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Essentials_of_physiology,_arranged_in_the_form_of_questions_and_answers,_prepared_especially_for_students_of_medicine_(1899)_(14581458379).jpg",
+        "license": "No known copyright restrictions",
+        "author": "H. A. Hare / Joseph H. Raymond; Internet Archive Book Images",
+        "view": "posterior-lateral cervical deep muscle plate",
+        "focusLabel": "X · interspinals",
+        "educationalReason": "1899 경부 해부판의 설명에서 X가 interspinals로 직접 지정되어 인접 경추 극돌기 사이를 잇는 짧은 경극간근의 위치와 semispinalis·suboccipital 근육에 대한 깊이 관계를 확인"
+      }
     },
     {
       "muscle_id": "m016",
@@ -2531,8 +2558,8 @@
     }
   ],
   "progress": {
-    "reviewed": 159,
-    "pending_review": 46,
-    "last_batch": "hand_lumbricals_exact_label_batch"
+    "reviewed": 162,
+    "pending_review": 43,
+    "last_batch": "deep_cervical_exact_label_batch"
   }
 }
