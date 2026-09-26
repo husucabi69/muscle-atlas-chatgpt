@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-z",
+  "audit_version": "2026.09.26-stage17-aa",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -2133,8 +2133,15 @@
       "muscle_id": "m180",
       "name_ko": "추체근",
       "name_en": "Pyramidalis (variable)",
-      "status": "pending_review",
-      "pending_reason": "Suitable anatomy view identified, but current Commons page explicitly flags missing United States public-domain tag; keep pending until reuse metadata is unambiguous."
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray397.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray397.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter",
+        "view": "anterior lower abdominal wall",
+        "educationalReason": "치골 앞쪽에서 백선 하부로 올라가는 작은 삼각형 추체근이 직접 표시된 Gray 397 원판으로, 복직근 하단과의 위치관계와 짧은 수직 주행을 가장 명확히 확인"
+      }
     },
     {
       "muscle_id": "m181",
@@ -2380,19 +2387,43 @@
       "muscle_id": "m201",
       "name_ko": "천회음횡근",
       "name_en": "Superficial transverse perineal",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:An_atlas_of_human_anatomy_for_students_and_physicians_(1903)_(14596813859).jpg",
+        "license": "No known copyright restrictions",
+        "author": "Carl Toldt / Alois Dalla Rosa; Internet Archive Book Images scan",
+        "view": "inferior male perineum",
+        "educationalReason": "남성 회음부 하방도에서 superficial transverse perineal muscle이 직접 라벨링되어 좌골결절에서 회음체로 가로지르는 표재성 섬유의 전체 방향을 구해면체근·외항문괄약근과 함께 확인"
+      }
     },
     {
       "muscle_id": "m202",
       "name_ko": "심회음횡근",
       "name_en": "Deep transverse perineal",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:An_atlas_of_human_anatomy_for_students_and_physicians_(1903)_(14596813859).jpg",
+        "license": "No known copyright restrictions",
+        "author": "Carl Toldt / Alois Dalla Rosa; Internet Archive Book Images scan",
+        "view": "inferior male deep perineum",
+        "educationalReason": "같은 Toldt 회음부 도해에서 deep transverse perineal muscle이 constrictor/compressor urethrae와 함께 직접 라벨링되어 표재횡근보다 깊은 위치와 요생식막 주변의 가로 주행을 비교"
+      }
     },
     {
       "muscle_id": "m203",
       "name_ko": "외요도괄약근",
       "name_en": "External urethral sphincter",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Anatomytool Male and female urinary tract English.jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Anatomytool_Male_and_female_urinary_tract_English.jpg",
+        "license": "CC BY 4.0",
+        "author": "Cenveo",
+        "view": "comparative male and female urinary tract",
+        "educationalReason": "한 도해에서 남성과 여성의 external urethral sphincter가 각각 직접 명시되어 막성 요도 주변 괄약근 위치와 성별 해부 차이를 동시에 비교"
+      }
     },
     {
       "muscle_id": "m204",
@@ -2416,8 +2447,8 @@
     }
   ],
   "progress": {
-    "reviewed": 145,
-    "pending_review": 60,
-    "last_batch": "gastrocnemius_head_exact_label_batch"
+    "reviewed": 149,
+    "pending_review": 56,
+    "last_batch": "pyramidalis_perineal_exact_label_batch"
   }
 }

@@ -131,10 +131,14 @@ const required={
   m059:'Gray404.png',
   m023:'Spinalis.png',
   m024:'Semispinalis dorsi.png',
+  m180:'Gray397.png',
   m184:'Gray — platysma.png',
   m198:'1116 Muscle of the Male Perineum.png',
   m199:'Bulbospongiosus-Male.png',
   m200:'Ischiocavernosus-male.png',
+  m201:'An atlas of human anatomy for students and physicians (1903) (14596813859).jpg',
+  m202:'An atlas of human anatomy for students and physicians (1903) (14596813859).jpg',
+  m203:'Anatomytool Male and female urinary tract English.jpg',
   m204:'Musculus cremaster.png'
 };
 for(const [id,file] of Object.entries(required)){
