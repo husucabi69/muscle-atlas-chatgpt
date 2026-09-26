@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.27-stage17-ag",
+  "version": "2026.09.27-stage17-ah",
   "updated": "2026-09-27",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -2523,6 +2523,36 @@
           "view": "plantar second-layer left foot",
           "focusLabel": "4th",
           "educationalReason": "Gray plate 444에서 넷째 충양근 근복에 4th가 직접 인쇄되어 제5지 방향으로 주행하는 가장 외측 충양근을 번호별로 확인"
+        }
+      ]
+    },
+    "m013": {
+      "anatomy": [
+        {
+          "title": "Multifidus cervicis — deep posterior cervical representative view",
+          "file": "1111 Posterior and Side Views of the Neck Deep Posterior.png",
+          "author": "OpenStax College",
+          "license": "CC BY 3.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:1111_Posterior_and_Side_Views_of_the_Neck_Deep_Posterior.png",
+          "representative": true,
+          "view": "deep posterior cervical",
+          "focusLabel": "Multifidus",
+          "educationalReason": "경부만을 다룬 심부 후면도에서 Multifidus가 직접 표시되어 하위 경추의 짧은 분절성 근복과 semispinalis·longissimus에 대한 깊은 위치를 동시에 확인"
+        }
+      ]
+    },
+    "m035": {
+      "anatomy": [
+        {
+          "title": "Subcostales — inner thoracic wall representative view",
+          "file": "Physiology and biochemistry in modern medicine (1918) (14758349676).jpg",
+          "author": "John James Rickard Macleod / Roy Gentry Pearce; Internet Archive Book Images",
+          "license": "No known copyright restrictions",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Physiology_and_biochemistry_in_modern_medicine_(1918)_(14758349676).jpg",
+          "representative": true,
+          "view": "inner lower thoracic wall, anterior view",
+          "focusLabel": "10, 10 · subcostal muscles",
+          "educationalReason": "도해 설명에서 10, 10이 왼쪽 subcostal muscles로 직접 지정되며 흉곽 내면에서 인접 늑골을 건너는 늑하근의 위치를 내·외늑간근과 함께 비교할 수 있음"
         }
       ]
     }
