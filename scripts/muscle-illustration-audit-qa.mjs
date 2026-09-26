@@ -123,7 +123,11 @@ const required={
   m032:'External intercostal muscles lateral.png',
   m033:'Internal intercostal muscles lateral.png',
   m034:'Innermost intercostal muscles lateral.png',
-  m036:'Transversus thoracis.png'
+  m036:'Transversus thoracis.png',
+  m023:'Spinalis.png',
+  m024:'Semispinalis dorsi.png',
+  m184:'Gray — platysma.png',
+  m204:'Musculus cremaster.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
