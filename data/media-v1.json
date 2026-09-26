@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-v",
+  "version": "2026.09.26-stage17-w",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -1971,6 +1971,34 @@
           "representative": true,
           "view": "anterior inguinoscrotal dissection",
           "educationalReason": "정삭과 고환을 둘러싸며 내려오는 거고근 섬유를 서혜부에서 음낭까지 직접 보여 주어 내복사근 계통과 정삭의 공간관계를 이해하기 적합"
+        }
+      ]
+    },
+    "m199": {
+      "anatomy": [
+        {
+          "title": "Bulbospongiosus — male inferior perineal representative view",
+          "file": "Bulbospongiosus-Male.png",
+          "author": "Uwe Gille; modified from Gray406",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Bulbospongiosus-Male.png",
+          "representative": true,
+          "view": "inferior male perineum",
+          "educationalReason": "회음부 아래쪽 시야에서 구해면체근의 양측 근복을 선택적으로 강조해 회음체·음경구 주변의 주행과 좌골해면체근·외항문괄약근과의 상대 위치를 한눈에 확인"
+        }
+      ]
+    },
+    "m200": {
+      "anatomy": [
+        {
+          "title": "Ischiocavernosus — male inferior perineal representative view",
+          "file": "Ischiocavernosus-male.png",
+          "author": "Uwe Gille; modified from Gray406",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ischiocavernosus-male.png",
+          "representative": true,
+          "view": "inferior male perineum",
+          "educationalReason": "회음부 아래쪽 시야에서 좌골해면체근을 선택적으로 강조해 좌골지 부근에서 음경해면체 다리(crus)를 따라가는 주행과 구해면체근과의 상대 위치를 명확히 확인"
         }
       ]
     }

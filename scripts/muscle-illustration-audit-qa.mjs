@@ -127,6 +127,8 @@ const required={
   m023:'Spinalis.png',
   m024:'Semispinalis dorsi.png',
   m184:'Gray — platysma.png',
+  m199:'Bulbospongiosus-Male.png',
+  m200:'Ischiocavernosus-male.png',
   m204:'Musculus cremaster.png'
 };
 for(const [id,file] of Object.entries(required)){

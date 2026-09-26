@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-v",
+  "audit_version": "2026.09.26-stage17-w",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -2304,13 +2304,29 @@
       "muscle_id": "m199",
       "name_ko": "구해면체근",
       "name_en": "Bulbospongiosus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Bulbospongiosus-Male.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bulbospongiosus-Male.png",
+        "license": "Public domain",
+        "author": "Uwe Gille; modified from Gray406",
+        "view": "inferior male perineum",
+        "educationalReason": "회음부 아래쪽 시야에서 구해면체근의 양측 근복을 선택적으로 강조해 회음체·음경구 주변의 주행과 좌골해면체근·외항문괄약근과의 상대 위치를 한눈에 확인"
+      }
     },
     {
       "muscle_id": "m200",
       "name_ko": "좌골해면체근",
       "name_en": "Ischiocavernosus",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Ischiocavernosus-male.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Ischiocavernosus-male.png",
+        "license": "Public domain",
+        "author": "Uwe Gille; modified from Gray406",
+        "view": "inferior male perineum",
+        "educationalReason": "회음부 아래쪽 시야에서 좌골해면체근을 선택적으로 강조해 좌골지 부근에서 음경해면체 다리(crus)를 따라가는 주행과 구해면체근과의 상대 위치를 명확히 확인"
+      }
     },
     {
       "muscle_id": "m201",
@@ -2352,8 +2368,8 @@
     }
   ],
   "progress": {
-    "reviewed": 137,
-    "pending_review": 68,
-    "last_batch": "precision_exact_representative_batch"
+    "reviewed": 139,
+    "pending_review": 66,
+    "last_batch": "perineal_exact_representative_batch"
   }
 }
