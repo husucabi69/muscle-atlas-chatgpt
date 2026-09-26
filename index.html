@@ -2259,7 +2259,7 @@ function renderOralQuestion(){
   area.innerHTML='<div style="color:var(--muted);font-size:14px">문제 '+(oralIndex+1)+' / '+oralSession.length+' · '+esc(m.region)+' · '+esc(document.getElementById('oralLevel').selectedOptions[0].text)+' · '+esc(q.category)+'</div>'+
     '<div class="oral-question">'+esc(q.stem)+'</div>'+
     '<textarea id="oralAnswer" class="oral-answer" placeholder="선생님 앞에서 말하듯 자유롭게 답하세요."></textarea>'+
-    '<div class="quiz-actions"><button id="oralMicBtn" class="primary" onclick="toggleOralMic()">🎙 말하기</button><button class="pill" onclick="speakOral(oralSession[oralIndex].stem,'question',oralSession[oralIndex].level)">질문 다시 듣기</button><button class="pill" onclick="gradeOralAnswer()">채점·교정</button></div><div id="oralCoach"></div>';
+    '<div class="quiz-actions"><button id="oralMicBtn" class="primary" onclick="toggleOralMic()">🎙 말하기</button><button class="pill" onclick="speakOral(oralSession[oralIndex].stem,\'question\',oralSession[oralIndex].level)">질문 다시 듣기</button><button class="pill" onclick="gradeOralAnswer()">채점·교정</button></div><div id="oralCoach"></div>';
   updateOralMicAvailability();speakOral(q.stem,'question',q.level);
 }
 function updateOralMicAvailability(){const b=document.getElementById('oralMicBtn');if(!b)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){b.disabled=true;b.textContent='음성인식 미지원 · 입력 사용';}}
