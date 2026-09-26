@@ -130,6 +130,17 @@ const required={
   m113:'Sobo 1909 288.png',
   m114:'Sobo 1909 288.png',
   m115:'Sobo 1909 288.png',
+  m163:'Gray444.png',
+  m164:'Gray444.png',
+  m165:'Gray444.png',
+  m166:'Gray444.png',
+  m172:'Gray446.png',
+  m173:'Gray446.png',
+  m174:'Gray446.png',
+  m175:'Gray446.png',
+  m176:'Gray447.png',
+  m177:'Gray447.png',
+  m178:'Gray447.png',
   m029:'Levatores costarum.png',
   m032:'External intercostal muscles lateral.png',
   m033:'Internal intercostal muscles lateral.png',
@@ -217,6 +228,19 @@ for(const [id,focusLabel] of Object.entries(deepCervicalExact)){
   check(id+' deep cervical reviewed',row?.status==='reviewed');
   check(id+' deep cervical focus label',reg?.focusLabel===focusLabel,reg?.focusLabel||'missing');
   check(id+' deep cervical audit focus label',row?.representative_asset?.focusLabel===focusLabel,row?.representative_asset?.focusLabel||'missing');
+}
+
+const footIntrinsicNumbered={
+  m163:'1st',m164:'2d',m165:'3d',m166:'4th',
+  m172:'1st',m173:'2d',m174:'3d',m175:'4th',
+  m176:'1st',m177:'2d',m178:'3d'
+};
+for(const [id,focusLabel] of Object.entries(footIntrinsicNumbered)){
+  const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
+  const reg=media.muscles?.[id]?.anatomy?.[0];
+  check(id+' foot intrinsic reviewed',row?.status==='reviewed');
+  check(id+' foot intrinsic focus label',reg?.focusLabel===focusLabel,reg?.focusLabel||'missing');
+  check(id+' foot intrinsic audit focus label',row?.representative_asset?.focusLabel===focusLabel,row?.representative_asset?.focusLabel||'missing');
 }
 
 check('Media registry Stage 17 version',String(media.version||'').includes('stage17'));
