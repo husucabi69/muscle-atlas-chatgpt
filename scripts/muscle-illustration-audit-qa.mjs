@@ -94,7 +94,13 @@ const required={
   m179:'Rectus abdominis.png',
   m181:'Gray392.png',
   m182:'Gray395.png',
-  m183:'Transversus abdominis.png'
+  m183:'Transversus abdominis.png',
+  m030:'Serratus posterior superior muscle back.png',
+  m031:'Serratus posterior inferior muscle back.png',
+  m037:'Diaphragma.png',
+  m065:'Pectoralis minor.svg',
+  m066:'Subclavius muscle frontal.png',
+  m067:'Gray410.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
@@ -104,6 +110,9 @@ for(const [id,file] of Object.entries(required)){
 
 check('Infraspinatus old superior view removed',
   !(media.muscles?.m071?.anatomy||[]).some(x=>x.file==='Infraspinatus muscle top.png')
+);
+check('Pectoralis major unreviewed DBCLS asset removed',
+  !(media.muscles?.m067?.anatomy||[]).some(x=>x.file==='202304 Pectoralis major muscle.svg')
 );
 check('Representative label rendered in app',index.includes("x.representative?'대표 시야 · ':'"));
 check('Representative view metadata rendered',index.includes("x.view?('시야 '+x.view):''"));
