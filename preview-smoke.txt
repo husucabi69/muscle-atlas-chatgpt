@@ -1,0 +1,5 @@
+Cloudflare Preview smoke test
+date: 2026-09-26
+base_main: 56531c8f2bd7c8b5044950d204410c74e26a54ab
+purpose: verify non-production branch preview deployment
+production_merge_required: no
