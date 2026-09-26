@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-w",
+  "audit_version": "2026.09.26-stage17-x",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -2298,7 +2298,15 @@
       "muscle_id": "m198",
       "name_ko": "외항문괄약근",
       "name_en": "External anal sphincter",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "1116 Muscle of the Male Perineum.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:1116_Muscle_of_the_Male_Perineum.png",
+        "license": "CC BY 3.0",
+        "author": "OpenStax",
+        "view": "inferior male perineum",
+        "educationalReason": "항문을 둘러싸는 외항문괄약근의 타원형 근육 고리 전체가 직접 라벨링되어 보이며 회음횡근·항문거근·구해면체근과의 상대 위치를 동시에 확인"
+      }
     },
     {
       "muscle_id": "m199",
@@ -2368,8 +2376,8 @@
     }
   ],
   "progress": {
-    "reviewed": 139,
-    "pending_review": 66,
-    "last_batch": "perineal_exact_representative_batch"
+    "reviewed": 140,
+    "pending_review": 65,
+    "last_batch": "perineal_sex_comparison_batch"
   }
 }

@@ -108,7 +108,7 @@
 
 # Stage 17 — Muscle Illustration Quality Audit
 
-상태: **PREVIEW IN PROGRESS — 2026-09-26 / Production 114 of 205 · Preview 139 of 205 representative views reviewed**
+상태: **PREVIEW IN PROGRESS — 2026-09-26 / Production 114 of 205 · Preview 140 of 205 representative views reviewed**
 
 ## 배포 게이트
 - [x] 저장소 Cloudflare Pages 호환 경로/QA 준비
@@ -146,9 +146,9 @@
 
 ## 현재 진행
 - Production reviewed: 114 / 205
-- Preview reviewed: 139 / 205
+- Preview reviewed: 140 / 205
 - Production pending_review: 91 / 205
-- Preview pending_review: 66 / 205
+- Preview pending_review: 65 / 205
 - 극하근: `Infraspinatus muscle top.png` 제거 → `Infraspinatus muscle back.png` 대표시야로 교체
 - Stage 17 audit ledger: `data/muscle-illustration-audit-v1.json`
 - Stage 17 QA: `scripts/muscle-illustration-audit-qa.mjs`
@@ -172,8 +172,10 @@
 - [x] 손 내재근 6개(단무지외전근·무지대립근·단소지근·소지외전근·소지대립근·단장근) 개별 강조 대표시야 검수 완료 — `preview/development`
 - [x] 흉벽 5개(늑골거근·외늑간근·내늑간근·최내늑간근·흉횡근) 대표시야 검수 완료 — `preview/development`
 - [x] 정확도 우선 4개(흉극근·흉반극근·광경근·거고근) 대표시야 검수 완료 — `preview/development`
-- [x] 회음부 정확도 우선 2개(구해면체근·좌골해면체근) Gray406 개별 강조 대표시야 검수 완료 — `preview/development`
-  - 외항문괄약근·회음횡근·골반저 세부 part는 개별 구조가 명확한 정본 확보 전까지 pending 유지
+- [x] 회음부 3개(외항문괄약근·구해면체근·좌골해면체근) 대표시야 검수 완료 — `preview/development`
+  - 외항문괄약근은 OpenStax inferior perineal overview, 구해면체근·좌골해면체근은 Gray 개별 강조 도해 사용
+  - 세 근육 모두 여성 비교 시야를 secondary로 추가해 성별 해부 차이를 학습
+  - 회음횡근·골반저 세부 part는 개별 구조가 명확한 정본 확보 전까지 pending 유지
   - 흉장늑근·흉최장근은 현재 공개 도해가 전체 muscle group 중심이라 thoracic part 단독 확인이 불충분하여 pending 유지
   - 외/내/최내늑간근은 lateral 시야로 통일해 섬유 방향 비교; 늑하근은 개별 강조 정본 부족으로 pending 유지
   - 단무지굴근 표재/심두와 무지내전근 사두/횡두는 head-specific 도해 확보 전까지 pending 유지

@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.26-stage17-w",
+  "version": "2026.09.26-stage17-x",
   "updated": "2026-09-26",
   "note": "Curated anatomy/ultrasound registry. Stage 17 representative-view audit started; representative anatomy assets are selected by educational visibility, not mere availability.",
   "muscles": {
@@ -1985,6 +1985,16 @@
           "representative": true,
           "view": "inferior male perineum",
           "educationalReason": "회음부 아래쪽 시야에서 구해면체근의 양측 근복을 선택적으로 강조해 회음체·음경구 주변의 주행과 좌골해면체근·외항문괄약근과의 상대 위치를 한눈에 확인"
+        },
+        {
+          "title": "Bulbospongiosus — female inferior perineal comparison",
+          "file": "Bulbospongiosus-Female.png",
+          "author": "Uwe Gille; modified from Gray408",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Bulbospongiosus-Female.png",
+          "representative": false,
+          "view": "inferior female perineum",
+          "educationalReason": "여성에서 질전정 양측을 감싸는 구해면체근의 분리된 근복을 남성 Gray406 대표시야와 비교해 성별에 따른 형태와 주변 구조 차이를 학습"
         }
       ]
     },
@@ -1999,6 +2009,40 @@
           "representative": true,
           "view": "inferior male perineum",
           "educationalReason": "회음부 아래쪽 시야에서 좌골해면체근을 선택적으로 강조해 좌골지 부근에서 음경해면체 다리(crus)를 따라가는 주행과 구해면체근과의 상대 위치를 명확히 확인"
+        },
+        {
+          "title": "Ischiocavernosus — female inferior perineal comparison",
+          "file": "Ischiocavernosus-female.png",
+          "author": "Uwe Gille; modified from Gray408",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ischiocavernosus-female.png",
+          "representative": false,
+          "view": "inferior female perineum",
+          "educationalReason": "여성에서 음핵해면체 다리(crus)를 덮는 좌골해면체근을 개별 강조해 남성 대표시야와 성별 해부 차이를 직접 비교"
+        }
+      ]
+    },
+    "m198": {
+      "anatomy": [
+        {
+          "title": "External anal sphincter — male inferior perineal overview",
+          "file": "1116 Muscle of the Male Perineum.png",
+          "author": "OpenStax",
+          "license": "CC BY 3.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:1116_Muscle_of_the_Male_Perineum.png",
+          "representative": true,
+          "view": "inferior male perineum",
+          "educationalReason": "항문을 둘러싸는 외항문괄약근의 타원형 근육 고리 전체가 직접 라벨링되어 보이며 회음횡근·항문거근·구해면체근과의 상대 위치를 동시에 확인"
+        },
+        {
+          "title": "External anal sphincter — female inferior perineal comparison",
+          "file": "1116 Muscle of the Female Perineum.png",
+          "author": "OpenStax",
+          "license": "CC BY 3.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:1116_Muscle_of_the_Female_Perineum.png",
+          "representative": false,
+          "view": "inferior female perineum",
+          "educationalReason": "여성 회음부에서 외항문괄약근의 동일한 고리 구조와 질·회음체·주변 표재근과의 관계를 남성 시야와 비교"
         }
       ]
     }

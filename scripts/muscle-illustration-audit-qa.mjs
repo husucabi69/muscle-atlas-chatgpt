@@ -127,6 +127,7 @@ const required={
   m023:'Spinalis.png',
   m024:'Semispinalis dorsi.png',
   m184:'Gray — platysma.png',
+  m198:'1116 Muscle of the Male Perineum.png',
   m199:'Bulbospongiosus-Male.png',
   m200:'Ischiocavernosus-male.png',
   m204:'Musculus cremaster.png'
@@ -136,6 +137,11 @@ for(const [id,file] of Object.entries(required)){
   check(id+' required reviewed',row?.status==='reviewed');
   check(id+' required file',row?.representative_asset?.file===file,row?.representative_asset?.file||'missing');
 }
+
+const secondaryFiles=(id)=>new Set((media.muscles?.[id]?.anatomy||[]).slice(1).map(x=>x.file));
+check('m198 female comparison view',secondaryFiles('m198').has('1116 Muscle of the Female Perineum.png'));
+check('m199 female comparison view',secondaryFiles('m199').has('Bulbospongiosus-Female.png'));
+check('m200 female comparison view',secondaryFiles('m200').has('Ischiocavernosus-female.png'));
 
 check('Infraspinatus old superior view removed',
   !(media.muscles?.m071?.anatomy||[]).some(x=>x.file==='Infraspinatus muscle top.png')
