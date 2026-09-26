@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.26-stage17-u",
+  "audit_version": "2026.09.26-stage17-v",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -269,13 +269,29 @@
       "muscle_id": "m023",
       "name_ko": "흉극근",
       "name_en": "Spinalis thoracis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Spinalis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Spinalis.png",
+        "license": "Public domain",
+        "author": "Uwe Gille; modified from Gray389",
+        "view": "posterior thoracic spine",
+        "educationalReason": "상부 요추·하부 흉추 극돌기에서 중·상부 흉추 극돌기로 이어지는 흉극근을 척주 정중선 바로 옆에서 선택적으로 강조해 위치와 세로 주행을 명확히 확인"
+      }
     },
     {
       "muscle_id": "m024",
       "name_ko": "흉반극근",
       "name_en": "Semispinalis thoracis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Semispinalis dorsi.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Semispinalis_dorsi.png",
+        "license": "CC BY-SA 2.5",
+        "author": "Uwe Gille; modified from Gray389",
+        "view": "posterior deep thoracic spine",
+        "educationalReason": "흉추 횡돌기에서 여러 분절 위 극돌기로 비스듬히 올라가는 흉반극근의 transversospinalis 주행을 주변 척추뼈 표지와 함께 분리해 확인"
+      }
     },
     {
       "muscle_id": "m025",
@@ -2126,7 +2142,15 @@
       "muscle_id": "m184",
       "name_ko": "광경근",
       "name_en": "Platysma",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray — platysma.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray_%E2%80%94_platysma.png",
+        "license": "Public domain",
+        "author": "Henry Gray / H. V. Carter; highlighted by Helgo13",
+        "view": "anterior-lateral superficial neck",
+        "educationalReason": "하악연에서 전흉부·쇄골 상부로 넓게 퍼지는 광경근의 얇은 판상 범위를 표재층에서 붉게 강조해 얼굴·목 피부와의 넓은 관계를 한눈에 확인"
+      }
     },
     {
       "muscle_id": "m185",
@@ -2310,7 +2334,15 @@
       "muscle_id": "m204",
       "name_ko": "거고근",
       "name_en": "Cremaster",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Musculus cremaster.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Musculus_cremaster.png",
+        "license": "Public domain",
+        "author": "Uwe Gille; modified from Gray1144",
+        "view": "anterior inguinoscrotal dissection",
+        "educationalReason": "정삭과 고환을 둘러싸며 내려오는 거고근 섬유를 서혜부에서 음낭까지 직접 보여 주어 내복사근 계통과 정삭의 공간관계를 이해하기 적합"
+      }
     },
     {
       "muscle_id": "m205",
@@ -2320,8 +2352,8 @@
     }
   ],
   "progress": {
-    "reviewed": 133,
-    "pending_review": 72,
-    "last_batch": "thoracic_wall_intercostal_priority_batch"
+    "reviewed": 137,
+    "pending_review": 68,
+    "last_batch": "precision_exact_representative_batch"
   }
 }
