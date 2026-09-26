@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.27-stage17-ab",
+  "audit_version": "2026.09.27-stage17-ac",
   "status": "IN_PROGRESS",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -627,7 +627,15 @@
       "muscle_id": "m056",
       "name_ko": "항문거근-치골직장근",
       "name_en": "Puborectalis",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "(155) Stylized depiction of action of puborectalis sling.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:(155)_Stylized_depiction_of_action_of_puborectalis_sling.png",
+        "license": "CC BY-SA 3.0 / GFDL 1.2+",
+        "author": "Tepi / Lesion at English Wikipedia",
+        "view": "sagittal pelvic floor schematic",
+        "educationalReason": "A로 표시된 치골직장근이 치골에서 직장 뒤를 감싸 U자형 sling을 이루며 anorectal angle을 형성하는 관계를 단독 구조 수준으로 명확히 확인"
+      }
     },
     {
       "muscle_id": "m057",
@@ -1313,13 +1321,29 @@
       "muscle_id": "m106",
       "name_ko": "무지내전근-사두",
       "name_en": "Adductor pollicis, oblique head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray426.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray426.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "palmar deep thumb",
+        "educationalReason": "Gray plate 426에서 ADDUCTOR POLLICIS OBLIQUUS가 직접 라벨링되어 수근·중수골 쪽 기시에서 엄지 기저부로 비스듬히 수렴하는 사두의 섬유 방향을 횡두와 분리해 확인"
+      }
     },
     {
       "muscle_id": "m107",
       "name_ko": "무지내전근-횡두",
       "name_en": "Adductor pollicis, transverse head",
-      "status": "pending_review"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Gray426.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray426.png",
+        "license": "Public domain",
+        "author": "Henry Vandyke Carter / Gray's Anatomy",
+        "view": "palmar deep thumb",
+        "educationalReason": "Gray plate 426에서 ADDUCTOR POLLICIS TRANSVERSUS가 직접 라벨링되어 제3중수골 쪽에서 엄지 기저부로 거의 횡행하는 횡두를 사두와 분리해 확인"
+      }
     },
     {
       "muscle_id": "m108",
@@ -2471,8 +2495,8 @@
     }
   ],
   "progress": {
-    "reviewed": 152,
-    "pending_review": 53,
-    "last_batch": "cervical_erector_exact_label_batch"
+    "reviewed": 155,
+    "pending_review": 50,
+    "last_batch": "puborectalis_adductor_heads_exact_label_batch"
   }
 }
