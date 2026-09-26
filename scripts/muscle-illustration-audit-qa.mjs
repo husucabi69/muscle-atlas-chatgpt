@@ -90,7 +90,11 @@ const required={
   m046:'Quadratuslumborum.png',
   m047:'Psoas major.gif',
   m048:'Musculus psoas minor.png',
-  m049:'Iliacus muscle01.png'
+  m049:'Iliacus muscle01.png',
+  m179:'Rectus abdominis.png',
+  m181:'Gray392.png',
+  m182:'Gray395.png',
+  m183:'Transversus abdominis.png'
 };
 for(const [id,file] of Object.entries(required)){
   const row=(audit.muscles||[]).find(x=>x.muscle_id===id);
