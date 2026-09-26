@@ -211,7 +211,7 @@
 
 # Stage 18 — Oral Viva Human Voice 3.0
 
-상태: **IN PROGRESS — Local Voice 1차 구현 완료 / Stage 18 전체 미완료**
+상태: **IN PROGRESS — Local Voice + Contextual Viva 구현 완료 / High-quality TTS option 미완료**
 
 목표: 질문과 피드백이 브라우저 기계음이 아니라 실제 동료·선배·대가와 대화하는 느낌에 가깝게 들리도록 한다.
 
@@ -234,12 +234,12 @@
 - [ ] Data Safety/Privacy 영향 문서화 후에만 활성화
 
 ## Oral reasoning upgrade
-- [ ] 세션 문맥 유지
-- [ ] anatomy → function → exam → clinical → ultrasound 연속 질문
-- [ ] 부분정답은 빠진 핵심만 되묻기
-- [ ] 오답은 교정 후 즉시 재질문
-- [ ] 비교·reverse·scenario 강화
-- [ ] 약점 기반 spaced repetition
+- [x] 세션 문맥 유지 / 동일 근육에서 이미 물은 category 추적
+- [x] anatomy → function → exam → clinical → ultrasound 순차 follow-up 우선
+- [x] 부분정답은 빠진 핵심 target만 즉시 교정 질문
+- [x] 오답은 정본 교정 후 같은 핵심 1회 즉시 재질문
+- [x] 비교·reverse·scenario 기존 고급 출제 유지 + contextual flow와 공존
+- [x] local history/wrong 기반 약점 근육을 다음 10문제의 최대 40% 우선 편성
 
 ## 완료 Gate
 - O/I/F/N 820/820 회귀

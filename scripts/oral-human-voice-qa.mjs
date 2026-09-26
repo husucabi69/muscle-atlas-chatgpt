@@ -21,6 +21,13 @@ check('Question TTS uses persona level',index.includes("speakOral(q.stem,'questi
 check('Feedback TTS uses persona level',index.includes("),'feedback',q.level);"));
 check('Mic stops active TTS',index.includes('function toggleOralMic(){')&&index.includes('stopOralSpeech();'));
 check('Voice engine initialized',index.includes('initOralVoiceEngine();'));
+check('Session context tracks seen categories',index.includes('function oralSeenCategories')&&index.includes('contextFrom:q.category'));
+check('Reasoning follow-up order exists',index.includes("const order=['anatomy','function','exam','clinical','ultrasound']"));
+check('Partial answer targeted repair exists',index.includes("grade==='partial'")&&index.includes('빠진 핵심만 다시 묻겠습니다'));
+check('Wrong answer immediate repair exists',index.includes('정본을 확인했으니 바로 다시 답해보세요')&&index.includes('queueOralRepair'));
+check('Repair loop capped',index.includes('q.repairDepth>=1'));
+check('Weakness-based session sampling exists',index.includes('function oralWeaknessScores')&&index.includes('Math.ceil(count*.4)'));
+check('Comparison/reverse/scenario domains preserved',["category:'comparison'","category:'reverse'","category:'scenario'"].every(x=>index.includes(x)));
 check('No external TTS API key embedded',!/(elevenlabs|openai\.com\/v1\/audio|azure.*speech|google.*texttospeech).*api[_-]?key/i.test(index));
 
 let fail=0;

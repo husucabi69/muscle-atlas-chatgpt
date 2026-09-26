@@ -1998,6 +1998,26 @@ const oralCoachProfiles={
 let oralSession=[],oralIndex=0,oralCorrect=0,oralPartial=0,oralWrong=0,oralRecognition=null,oralListening=false,oralFixedMuscleId=null;
 function oralState(){try{return JSON.parse(localStorage.getItem(ORAL_KEY))||{history:{},wrong:{}}}catch(e){return{history:{},wrong:{}}}}
 function saveOralState(s){localStorage.setItem(ORAL_KEY,JSON.stringify(s));}
+function oralWeaknessScores(){
+  const s=oralState(),scores={};
+  for(const [key,count] of Object.entries(s.wrong||{})){const id=key.split(':')[0];scores[id]=(scores[id]||0)+Number(count||0)*3;}
+  for(const [key,h] of Object.entries(s.history||{})){
+    const id=key.split(':')[0];if(!id||!h)continue;
+    if(h.grade==='wrong')scores[id]=(scores[id]||0)+2;
+    else if(h.grade==='partial')scores[id]=(scores[id]||0)+1;
+    if(h.grade!=='correct'&&Date.now()-Number(h.last||0)>7*86400000)scores[id]=(scores[id]||0)+1;
+  }
+  return scores;
+}
+function chooseOralSessionMuscles(pool,count){
+  const scores=oralWeaknessScores(),weak=pool.filter(m=>(scores[m.id]||0)>0).sort((a,b)=>(scores[b.id]||0)-(scores[a.id]||0));
+  const weakCount=Math.min(weak.length,Math.ceil(count*.4)),chosen=weak.slice(0,weakCount),used=new Set(chosen.map(m=>m.id));
+  const rest=shuffle(pool.filter(m=>!used.has(m.id))).slice(0,Math.max(0,count-chosen.length));
+  return shuffle(chosen.concat(rest));
+}
+function oralSeenCategories(muscleId){
+  return new Set(oralSession.slice(0,Math.min(oralIndex+1,oralSession.length)).filter(q=>q.muscleId===muscleId).map(q=>q.category));
+}
 function oralNorm(s){
   return String(s||'').toLowerCase()
     .replace(/transverse process/g,'횡돌기').replace(/posterior tubercle/g,'후결절').replace(/anterior tubercle/g,'전결절')
@@ -2118,8 +2138,37 @@ function makeOralFollowup(q){
   if(q.category!=='ultrasound'&&usLinks.length)pool.push({category:'ultrasound',fields:['ultrasound'],stem:'이제 영상으로 갑니다. '+m.ko+'을 포함하는 초음파 view를 하나 말해보세요.',targets:[{field:'ultrasound',label:'초음파 view',expected:usLinks[0].ko,alternatives:usLinks.flatMap(x=>[x.ko,x.en,x.id]).filter(Boolean),mode:'any'}]});
   if(q.category!=='clinical'&&dxLinks.length)pool.push({category:'clinical',fields:['pathology'],stem:'마지막으로 '+m.ko+'이 연결되는 진단 후보를 하나 말하고 단독 확진이 아닌 이유를 설명해보세요.',targets:[{field:'pathology',label:'진단 후보',expected:dxLinks[0].title,alternatives:dxLinks.map(x=>x.title),mode:'any'}]});
   if(q.category!=='clinical'&&symptomLinks.length)pool.push({category:'clinical',fields:['symptom'],stem:'환자가 어떤 증상으로 왔을 때 '+m.ko+'을 떠올릴 수 있는지 대표 경로를 하나 말해보세요.',targets:[{field:'symptom',label:'증상경로',expected:symptomLinks[0].title,alternatives:symptomLinks.map(x=>x.title),mode:'any'}]});
-  const next=shuffle(pool)[0];if(!next)return null;
-  return{muscleId:m.id,level:q.level,category:next.category,fields:next.fields,stem:rolePick(q.level,'probe')+next.stem,targets:next.targets,followup:''};
+  const seen=oralSeenCategories(m.id),fresh=pool.filter(x=>!seen.has(x.category)),available=fresh.length?fresh:pool;
+  const order=['anatomy','function','exam','clinical','ultrasound'],current=order.indexOf(q.category);
+  let next=null;
+  if(current>=0){
+    for(const cat of order.slice(current+1)){next=available.find(x=>x.category===cat);if(next)break;}
+  }
+  next=next||shuffle(available)[0];if(!next)return null;
+  return{muscleId:m.id,level:q.level,category:next.category,fields:next.fields,stem:rolePick(q.level,'probe')+next.stem,targets:next.targets,followup:'',contextFrom:q.category};
+}
+function makeOralRepairQuestion(q,details,grade){
+  if(!q||q.repairDepth>=1||grade==='correct')return null;
+  let targets=[];
+  if(grade==='partial'){
+    targets=details.filter(d=>!d.complete).map(d=>{
+      if(d.mode==='name'||d.mode==='any')return{field:d.field,label:d.label,expected:d.expected,alternatives:d.alternatives,mode:d.mode};
+      const expected=(d.missing||[]).length?d.missing.join('; '):d.expected;
+      return{field:d.field,label:d.label,expected};
+    });
+  }else{
+    targets=q.targets.map(t=>({...t}));
+  }
+  if(!targets.length)return null;
+  const labels=[...new Set(targets.map(t=>t.label))].join(' · ');
+  const stem=grade==='partial'
+    ? rolePick(q.level,'probe')+'빠진 핵심만 다시 묻겠습니다. '+labels+'만 정확히 답해보세요.'
+    : rolePick(q.level,'probe')+'정본을 확인했으니 바로 다시 답해보세요. '+labels+'를 정확히 다시 설명하세요.';
+  return{muscleId:q.muscleId,level:q.level,category:q.category,fields:targets.map(t=>t.field),stem,targets,followup:'',repairDepth:(q.repairDepth||0)+1,repairOf:q.category};
+}
+function queueOralRepair(q,details,grade){
+  const repair=makeOralRepairQuestion(q,details,grade);if(!repair)return null;
+  oralSession.splice(oralIndex+1,0,repair);return repair;
 }
 function askOralFollowup(){
   const q=oralSession[oralIndex],next=makeOralFollowup(q);
@@ -2130,7 +2179,7 @@ function startOralSession(){
   const region=document.getElementById('oralRegion').value,level=document.getElementById('oralLevel').value,field=document.getElementById('oralField').value;
   let pool=muscles.filter(m=>region==='all'||m.region===region);
   if(oralFixedMuscleId&&byId[oralFixedMuscleId])pool=[byId[oralFixedMuscleId]];
-  const chosen=oralFixedMuscleId?Array.from({length:10},()=>pool[0]):shuffle(pool).slice(0,Math.min(10,pool.length));
+  const chosen=oralFixedMuscleId?Array.from({length:10},()=>pool[0]):chooseOralSessionMuscles(pool,Math.min(10,pool.length));
   oralSession=chosen.map(m=>makeOralQuestion(m,level,field)).filter(Boolean);
   oralIndex=0;oralCorrect=0;oralPartial=0;oralWrong=0;renderOralQuestion();
 }
@@ -2292,10 +2341,14 @@ function gradeOralAnswer(){
   const why=grade==='correct'?'핵심 답은 충분합니다.':missing.length?'빠진 핵심: '+esc(missing.slice(0,5).join(' / ')):'정본 핵심어와 충분히 연결되지 않았습니다.';
   const teaching=[...new Set(details.filter(d=>!d.complete||grade==='wrong').map(d=>fieldTeaching(d.field)))].join(' ');
   const follow=q.followup?'<div class="note" style="margin-top:10px"><b>한 단계 더</b><br>'+esc(q.followup)+'</div>':'';
+  const repair=queueOralRepair(q,details,grade);
+  const repairNotice=repair?'<div class="note" style="margin-top:10px"><b>즉시 교정 질문 예약</b><br>'+(grade==='partial'?'빠진 핵심만 다시 묻습니다.':'같은 핵심을 바로 다시 묻습니다.')+'</div>':'';
+  const actions=repair
+    ? '<div class="quiz-actions"><button class="primary" onclick="nextOralQuestion()">교정 질문 바로 답하기</button><button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">근육 상세</button></div>'
+    : '<div class="quiz-actions"><button class="primary" onclick="askOralFollowup()">꼬리질문 받기</button><button class="pill" onclick="nextOralQuestion()">다음 문제</button><button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">근육 상세</button></div>';
   const coach=document.getElementById('oralCoach');
   coach.innerHTML='<div class="oral-coach '+klass+'"><b>'+esc(headline)+'</b><br>'+why+(teaching?'<br><span style="color:var(--muted)">'+esc(teaching)+'</span>':'')+
-    '<hr style="border:0;border-top:1px solid var(--line);margin:10px 0"><b>정본 답</b><br>'+canon+follow+
-    '<div class="quiz-actions"><button class="primary" onclick="askOralFollowup()">꼬리질문 받기</button><button class="pill" onclick="nextOralQuestion()">다음 문제</button><button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">근육 상세</button></div></div>';
+    '<hr style="border:0;border-top:1px solid var(--line);margin:10px 0"><b>정본 답</b><br>'+canon+follow+repairNotice+actions+'</div>';
   speakOral(headline+' '+(grade==='correct'?'좋습니다. 다음 질문으로 갑니다.':grade==='partial'?'빠진 핵심을 정본 답과 비교해보세요.':'정본 답을 보고 왜 틀렸는지 바로 고쳐보세요.'),'feedback',q.level);
   updateOralStats();
 }
