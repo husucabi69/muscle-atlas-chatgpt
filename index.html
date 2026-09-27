@@ -125,7 +125,7 @@ button,input{font:inherit} button{cursor:pointer}
 .patient-warning{border:1px solid #efc3bd;background:#fff8f7;border-radius:16px;padding:15px 16px;line-height:1.75;margin:12px 0}
 .patient-help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.patient-help-grid>div{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff}.patient-help-grid b{display:block;font-size:18px;margin-bottom:6px}.patient-help-grid span{color:var(--muted);line-height:1.6}
 .clinician-note{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:14px 0;color:#475467}.clinician-note summary{cursor:pointer;font-weight:750}
-.us-probe-guide{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:#f8fafc}.us-probe-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}.us-probe-head b{font-size:15px}.us-probe-badge{font-size:11px;border:1px solid #98a2b3;border-radius:999px;padding:3px 7px;white-space:nowrap}.us-probe-grid{display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center}.us-probe-grid svg{width:100%;height:auto;display:block}.us-probe-meta{font-size:13px;line-height:1.55}.us-probe-meta div+div{margin-top:5px}.us-probe-warning{margin-top:8px;font-size:12px;line-height:1.5;color:var(--muted)}@media(max-width:520px){.us-probe-grid{grid-template-columns:1fr}.us-probe-grid svg{max-width:180px;margin:auto}}
+.us-probe-guide{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:#f8fafc}.us-probe-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}.us-probe-head b{font-size:15px}.us-probe-badge{font-size:11px;border:1px solid #98a2b3;border-radius:999px;padding:3px 7px;white-space:nowrap}.us-probe-grid{display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center}.us-probe-grid svg{width:100%;height:auto;display:block}.us-probe-meta{font-size:13px;line-height:1.55}.us-probe-meta div+div{margin-top:5px}.us-probe-warning{margin-top:8px;font-size:12px;line-height:1.5;color:var(--muted)}.us-pitfall-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.us-pitfall-tag{font-size:11px;border:1px solid #cbd5e1;border-radius:999px;padding:3px 7px;background:#fff;color:#475467}@media(max-width:520px){.us-probe-grid{grid-template-columns:1fr}.us-probe-grid svg{max-width:180px;margin:auto}}
 .exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:10px;margin:10px 0 12px}.exercise-sequence{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exercise-phase{border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px}.exercise-phase b{display:block;font-size:13px;margin-bottom:4px}.exercise-phase svg{width:100%;height:auto;display:block;margin:auto}.exercise-phase p{font-size:12px;line-height:1.45;color:var(--muted);margin:5px 0 0}.exercise-cues{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.exercise-cue{border-left:3px solid #667085;padding:7px 9px;background:#fff;border-radius:7px;font-size:13px;line-height:1.5}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:8px}.exercise-log{margin-top:12px;border-top:1px dashed #98a2b3;padding-top:8px;font-size:13px;word-spacing:8px}.region-print-muscles{font-size:13px;color:#475467;line-height:1.6;margin:6px 0 10px}
 .patient-step-label{display:inline-block;font-weight:800;margin-bottom:4px}.patient-caution{border-left:4px solid #d92d20;background:#fff8f7;padding:10px 12px;border-radius:8px;line-height:1.65;margin-top:10px}
 .print-only{display:none}
@@ -600,10 +600,23 @@ function ultrasoundProbeAngle(axis){
   if(axis==='dynamic')return 20;
   return 0;
 }
+function ultrasoundPitfallTags(v){
+  const s=(v?.pitfalls||[]).join(' ').toLowerCase(),tags=[];
+  if(/anisotrop/.test(s))tags.push('anisotropy');
+  if(/압박|pressure|compress/.test(s))tags.push('compression');
+  if(/level|레벨|count|orientation|방향|plane|평면|축/.test(s))tags.push('level/orientation');
+  if(/동적|dynamic|sublux|instability|movement|회전/.test(s))tags.push('dynamic');
+  if(/nerve|신경|arter|vein|혈관|pleura|흉막|spinal canal|vertebral artery/.test(s))tags.push('neurovascular safety');
+  if(/오인|과해석|확정|단독|diagnos|interpret|병변|tear/.test(s))tags.push('over-interpretation');
+  if(/variant|변이|무증상|normal|정상/.test(s))tags.push('normal variant');
+  if(!tags.length)tags.push('scan pitfall');
+  return [...new Set(tags)];
+}
 function renderUltrasoundProbeGuide(v){
   const axis=ultrasoundProbeAxis(v),angle=ultrasoundProbeAngle(axis),label=ultrasoundAxisLabel(axis);
   const lm=(v.landmarks||[]).slice(0,4).join(' · ');
   const pit=(v.pitfalls||[]).slice(0,2).join(' / ');
+  const pitTags=ultrasoundPitfallTags(v);
   const dyn=axis.includes('dynamic')||axis==='dynamic';
   const arrow=dyn?'<path d="M34 112 C74 132 146 132 186 112" fill="none" stroke="currentColor" stroke-width="3" marker-end="url(#usArrow)"/>':'';
   return '<div class="us-probe-guide">'+
@@ -618,6 +631,7 @@ function renderUltrasoundProbeGuide(v){
       '<div><b>Probe 위치·방향</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div><b>Landmark</b><br>'+esc(lm)+'</div></div></div>'+
     (pit?'<div class="us-probe-warning"><b>Pitfall</b> · '+esc(pit)+'</div>':'')+
+    '<div class="us-pitfall-tags">'+pitTags.map(t=>'<span class="us-pitfall-tag">'+esc(t)+'</span>').join('')+'</div>'+
     '</div>';
 }
 function shoulderMediaStatusLabel(status){
