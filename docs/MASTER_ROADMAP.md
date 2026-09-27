@@ -623,12 +623,38 @@ Stage 12는 versioned read-only knowledge contract만 제공하며 실제 환자
 
 우선순위:
 1. Stage 15 Reliable Auto-Update Engine — DEV COMPLETE, physical verification deferred to Stage 23
-2. Stage 16 Hierarchical Navigation 2.0 — NEXT
-3. Stage 17 Muscle Illustration Quality Audit
-4. Stage 18 Oral Viva Human Voice 3.0
-5. Stage 19 Patient Exercise Illustration 2.0
-6. Stage 20 Ultrasound Atlas 2.0
-7. Stage 21 Clinical Learning Flow 2.0
-8. Stage 22 Search & Personal Learning 2.0
+2. Stage 16 Hierarchical Navigation 2.0 — DEV COMPLETE
+3. Stage 17 Muscle Illustration Quality Audit — PREVIEW COMPLETE
+4. Stage 18 Oral Viva Human Voice 3.0 — local/contextual DEV COMPLETE, remote provider activation deferred
+5. Stage 19 Patient Exercise Illustration 2.0 — DEV COMPLETE
+6. Stage 20 Ultrasound Atlas 2.0 — DEV COMPLETE
+7. Stage 21 Clinical Learning Flow 2.0 — DEV COMPLETE / automated QA gate
+8. Stage 22 Search & Personal Learning 2.0 — NEXT
 9. Stage 23 Real Device & Offline Quality Gate
 10. Stage 24 Google Play Production Release
+
+
+---
+
+## Stage 21 완료 기록 — Clinical Learning Flow 2.0
+완료일: 2026-09-27
+상태: **DEV COMPLETE — Preview only / Production 미승격**
+
+- [x] symptom → anatomy → differential → examination → ultrasound → quiz → Oral → patient education 8단계 공통 흐름
+- [x] `learningFlowContext`: symptom_id / muscle_id / clinical module / canonical ultrasound_view_id / source page 문맥 유지
+- [x] muscle → clinical module은 canonical ultrasound view를 1순위로 사용하고 해부학 region은 fallback으로만 사용
+- [x] muscle 자체뿐 아니라 parent tendon의 `target_structure_ids`를 추적해 canonical ultrasound view를 해석
+- [x] 임상검사 148개를 목적 / 방법 / 양성 기준 / 해석 / 한계·흔한 오류 / Stable ID 형식으로 통일
+- [x] 10개 differential module의 safety_rule을 Red flag / 안전 경계로 독립 표시
+- [x] diagnosis supporting clue(`look_for`)와 opposing/limiting clue(`not_diagnostic_alone`)를 분리 표시
+- [x] tendon / nerve / joint / bursa / ligament / fascia Stable ID 기반 빠른 이동
+- [x] clinical_test_id / diagnosis_concept_id / ultrasound_view_id 기반 카드 focus navigation
+- [x] symptom overlay에서 선택한 근육 문맥을 anatomy·clinical·quiz·Oral·education까지 보존
+- [x] 페이지 이동 시 muscle/symptom overlay 및 body overflow 정리
+- [x] 환자별 진단·치료 자동 권고 금지 및 PHI/encounter context 미사용
+- [x] Stage 21 전용 regression QA를 Global QA workflow에 유지
+- [ ] 실제 Preview 화면 시각검수는 사용자 승인 전까지 별도 미완료로 유지
+
+다음 개발 시작점: **Stage 22 — Search & Personal Learning 2.0**
+
+Production `main`은 사용자 명시 승인 전까지 동결한다.
