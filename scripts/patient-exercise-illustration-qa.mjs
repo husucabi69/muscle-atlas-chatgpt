@@ -18,7 +18,8 @@ check('Illustration IDs match patient exercise library',lib.profiles.every(p=>!!
 check('Actionable profiles = 18',actionable.length===18,String(actionable.length));
 check('Evidence-boundary profile = 1',boundary.length===1&&boundary[0].profile_id==='px099',boundary.map(x=>x.profile_id).join(','));
 for(const x of actionable){
-  for(const field of ['figure_key','start_pose','end_pose','movement','support','common_error','stop_rule','alt_text']){
+  check(x.profile_id+' figure_key',typeof x.figure_key==='string'&&x.figure_key.length>1,x.figure_key||'missing');
+  for(const field of ['start_pose','end_pose','movement','support','common_error','stop_rule','alt_text']){
     check(x.profile_id+' '+field,typeof x[field]==='string'&&x[field].length>5,x[field]||'missing');
   }
 }
