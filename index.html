@@ -356,18 +356,7 @@ button,input{font:inherit} button{cursor:pointer}
       <span class="crumb" id="regionDetailBreadcrumb"></span>
     </div>
     <div id="regionMuscleDetailHead" class="anatomy-detail-head"></div>
-    <div id="regionMuscleHubTabs" class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습"></div>
-  </div>
-
-  <div id="regionDeepView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="deep" hidden>
-    <div class="anatomy-nav">
-      <button class="region-back" type="button" onclick="anatomyBack('detail')">← 근육</button>
-      <button class="pill" type="button" onclick="showCurrentRegionMuscles()">근육 목록</button>
-      <button class="pill" type="button" onclick="showAnatomyRegions()">해부학 부위</button>
-      <span class="crumb" id="regionDeepBreadcrumb"></span>
-    </div>
-    <div id="regionMuscleDeepHead" class="anatomy-detail-head"></div>
-    <div id="regionMuscleDeepTabs" class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습"></div>
+    <div id="regionMuscleDetailTabs" class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습"></div>
     <div id="regionMuscleDetailContent" class="anatomy-detail-content"></div>
   </div>
 </section>
@@ -1779,15 +1768,14 @@ function recordAnatomyHistory(level,mode='push'){
     lysPage:'regions',
     anatomyLevel:level,
     anatomyRegion:selectedRegionName,
-    anatomyMuscleId:selectedRegionMuscleId,
-    anatomyTopic:selectedRegionMuscleTab
+    anatomyMuscleId:selectedRegionMuscleId
   };
   if(mode==='replace')replaceAppNavigationState(state);
   else pushAppNavigationState(state);
 }
 
 function setAnatomyView(view){
-  const map={regions:'regionChooserView',muscles:'regionMusclesView',detail:'regionDetailView',deep:'regionDeepView'};
+  const map={regions:'regionChooserView',muscles:'regionMusclesView',detail:'regionDetailView'};
   if(!map[view])return null;
   return setDrillView('anatomy',view);
 }
@@ -1834,12 +1822,11 @@ function showCurrentRegionMuscles(record=true){
 
 function anatomyBack(fallbackLevel){
   const state=history.state;
-  if(state?.lysPage==='regions'&&['muscles','detail','deep'].includes(state.anatomyLevel)){
+  if(state?.lysPage==='regions'&&['muscles','detail'].includes(state.anatomyLevel)){
     history.back();
     return;
   }
-  if(fallbackLevel==='detail'&&selectedRegionMuscleId)openRegionMuscle(selectedRegionMuscleId,false);
-  else if(fallbackLevel==='muscles'&&selectedRegionName)openRegion(selectedRegionName,false);
+  if(fallbackLevel==='muscles'&&selectedRegionName)openRegion(selectedRegionName,false);
   else showAnatomyRegions(false);
 }
 
@@ -1880,19 +1867,13 @@ function anatomyDetailTabsHtml(activeTab=null){
 
 function refreshCurrentAnatomyMuscleHead(){
   const m=byId[selectedRegionMuscleId];if(!m)return;
-  const html=regionMuscleHeaderHtml(m);
-  const hub=document.getElementById('regionMuscleDetailHead');
-  const deep=document.getElementById('regionMuscleDeepHead');
-  if(hub)hub.innerHTML=html;
-  if(deep)deep.innerHTML=html;
+  const head=document.getElementById('regionMuscleDetailHead');
+  if(head)head.innerHTML=regionMuscleHeaderHtml(m);
 }
 
-function renderAnatomyDetailTabs(activeTab=null){
-  const html=anatomyDetailTabsHtml(activeTab);
-  const hub=document.getElementById('regionMuscleHubTabs');
-  const deep=document.getElementById('regionMuscleDeepTabs');
-  if(hub)hub.innerHTML=html;
-  if(deep)deep.innerHTML=html;
+function renderAnatomyDetailTabs(activeTab='basic'){
+  const host=document.getElementById('regionMuscleDetailTabs');
+  if(host)host.innerHTML=anatomyDetailTabsHtml(activeTab);
 }
 
 function openRegionMuscle(id,record=true){
@@ -1900,23 +1881,20 @@ function openRegionMuscle(id,record=true){
   recordRecentEntity('muscle',id);
   selectedRegionMuscleId=id;
   selectedRegionName=m.region;
-  selectedRegionMuscleTab=null;
+  selectedRegionMuscleTab='basic';
   refreshCurrentAnatomyMuscleHead();
-  renderAnatomyDetailTabs(null);
   const crumb=document.getElementById('regionDetailBreadcrumb');
   if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko;
   setAnatomyView('detail');
+  showRegionMuscleTab('basic',false);
   if(record)recordAnatomyHistory('detail');
 }
 
 function showRegionMuscleTab(tab,record=true){
   const m=byId[selectedRegionMuscleId];if(!m||!anatomyTopicMeta[tab])return;
   selectedRegionMuscleTab=tab;
-  const meta=anatomyTopicMeta[tab];
   refreshCurrentAnatomyMuscleHead();
   renderAnatomyDetailTabs(tab);
-  const crumb=document.getElementById('regionDeepBreadcrumb');
-  if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko+' › '+meta[0];
   const el=document.getElementById('regionMuscleDetailContent');if(!el)return;
 
   if(tab==='basic'){
@@ -1945,17 +1923,17 @@ function showRegionMuscleTab(tab,record=true){
       '</div>';
   }
 
-  setAnatomyView('deep');
+  setAnatomyView('detail');
   if(tab==='anatomy')loadAnatomyInto(m,document.getElementById('regionAnatomyMedia'));
   if(tab==='ultrasound')loadUSInto(m,document.getElementById('regionUSMedia'));
-  if(record)recordAnatomyHistory('deep');
 }
 
 function refreshRegionNavigation(){
   renderRegionChooser();
-  if(selectedRegionMuscleId&&selectedRegionMuscleTab&&byId[selectedRegionMuscleId])showRegionMuscleTab(selectedRegionMuscleTab,false);
-  else if(selectedRegionMuscleId&&byId[selectedRegionMuscleId])openRegionMuscle(selectedRegionMuscleId,false);
-  else if(selectedRegionName&&regions.includes(selectedRegionName))openRegion(selectedRegionName,false);
+  if(selectedRegionMuscleId&&byId[selectedRegionMuscleId]){
+    openRegionMuscle(selectedRegionMuscleId,false);
+    if(selectedRegionMuscleTab&&selectedRegionMuscleTab!=='basic')showRegionMuscleTab(selectedRegionMuscleTab,false);
+  }else if(selectedRegionName&&regions.includes(selectedRegionName))openRegion(selectedRegionName,false);
   else setAnatomyView('regions');
 }
 
@@ -1964,12 +1942,7 @@ window.addEventListener('popstate',event=>{
   if(!state||state.lysPage!=='regions')return;
   restoringAnatomyHistory=true;
   showPage('regions');
-  if(state.anatomyLevel==='deep'&&state.anatomyMuscleId&&state.anatomyTopic&&byId[state.anatomyMuscleId]){
-    selectedRegionName=state.anatomyRegion||byId[state.anatomyMuscleId].region;
-    selectedRegionMuscleId=state.anatomyMuscleId;
-    openRegionMuscle(state.anatomyMuscleId,false);
-    showRegionMuscleTab(state.anatomyTopic,false);
-  }else if(state.anatomyLevel==='detail'&&state.anatomyMuscleId&&byId[state.anatomyMuscleId]){
+  if(state.anatomyLevel==='detail'&&state.anatomyMuscleId&&byId[state.anatomyMuscleId]){
     openRegionMuscle(state.anatomyMuscleId,false);
   }else if(state.anatomyLevel==='muscles'&&state.anatomyRegion&&regions.includes(state.anatomyRegion)){
     openRegion(state.anatomyRegion,false);
