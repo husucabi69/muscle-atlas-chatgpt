@@ -22,10 +22,10 @@
 
 | ID | 아이디어 | 중요도 | 선행조건 | 상태 / 배치 |
 |---|---|---|---|---|
-| UX-001 | 모든 탭을 목차 → 하위목록 → 상세 → 심화 독립 화면 drill-down 구조로 통일 | Release blocker | 공통 navigation shell | **IN PROGRESS / A1·A2 완료** |
+| UX-001 | top-level 흐름을 목차 → 하위목록 → 상세 계층으로 정리하되, 검증된 내부 탭 UX는 보존 | Release blocker | 공통 navigation shell | **IN PROGRESS / A1 완료 · A2 사용자검수 대기** |
 | UX-002 | 탭/항목을 눌렀을 때 같은 화면 아래에 내용을 붙여 사용자가 스크롤로 찾아야 하는 패턴 제거 | Release blocker | UX-001 | **Stage 23A** |
 | UX-003 | 각 단계에 뒤로가기 / 상위목차 / breadcrumb / 현재위치 제공 | High | UX-001 | **Stage 23A** |
-| UX-004 | 해부학: 부위만 표시 → 부위 근육만 표시 → 근육 상세 → 심화학습 | Release blocker | UX-001 | **IMPLEMENTED / A2** |
+| UX-004 | 해부학: 부위만 표시 → 부위 근육만 표시 → 근육 상세 3단계; 상세 내부 5개 탭은 v11.14 same-screen | Release blocker | UX-001 | **IMPLEMENTED / A2 USER VERIFY PENDING** |
 | UX-005 | 증상·환자교육·임상·초음파·퀴즈·Oral·내학습에도 같은 계층 UX 적용 | Release blocker | UX-004 공통 shell 검증 | **IN PROGRESS · 환자교육·증상 완료 / 다음 임상** |
 | EDU-001 | 현재 환자 운동·스트레칭의 개념형 SVG를 전문 환자교육 수준 일러스트로 교체 | High | navigation 구조 고정 후 통합 | **Stage 23B** |
 | EDU-002 | 손·손가락·상지 등 인체 비율과 시작/끝 자세, 지지점, 움직임 방향을 실제 교육용 수준으로 개선 | High | EDU-001 | **Stage 23B** |
@@ -60,7 +60,7 @@
 
 1. **계층형 화면 전환을 먼저 완성한다.**
    - 한 화면에서 아래로 스크롤해 다음 계층을 찾는 방식 금지
-   - 해부학 부위 → 해당 부위 근육 → 근육 상세 → 심화학습을 각각 독립 화면처럼 전환
+   - 해부학은 `부위 → 해당 부위 근육 → 근육 상세`까지만 독립 화면처럼 전환하고, 근육 상세의 5개 탭은 v11.14처럼 같은 화면에서 콘텐츠만 교체
    - 뒤로가기 / 부위목록 / 해당 부위 근육목록 이동을 항상 명확히 제공
 2. **근육 도해는 “그 근육이 가장 잘 보이는 시야”를 대표 도해로 쓴다.**
    - 단순히 이미지가 있다는 이유로 사용하지 않음
@@ -417,6 +417,8 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 4. 4단계: 심화학습 목차
 5. 5단계: 선택한 심화 콘텐츠만 표시
 
+> **해부학 A2 예외:** v11.14 기준선 보존을 위해 해부학은 3단계 `부위 → 근육 목록 → 근육 상세`까지만 독립 view다. 근육 상세의 기본정보/해부도해/초음파/임상/심화·학습 5개 탭은 4·5단계 deep view를 만들지 않고 같은 상세 화면에서 content swap한다.
+
 각 전환 시:
 - 기존 단계 콘텐츠는 화면에서 제거/숨김
 - 새 단계는 viewport top에서 시작
@@ -549,7 +551,8 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [x] DOM visibility/state source-of-truth 정리 — 실제 screen registry와 drillNavigationState 분리
 - [x] 14개 모든 부위 근육 수 canonical data 대조 — browser E2E PASS
 - [x] 각 부위 첫 근육 클릭 → v11.14 기본정보 상세 visible 확인 — browser E2E PASS
-- [x] back/history 상위단계 복귀 확인 — browser E2E PASS
+- [x] 14개 모든 부위에서 5개 가로 탭 전수 클릭 → same-screen 유지 / content non-empty / tab history 증가 0 검증
+- [x] 실제 browser back 2회 → 근육 목록 → 해부학 부위 복귀 검증
 - [x] Stage 15~23A 전체 QA PASS
 - [ ] 실제 Preview 화면 사용자 확인
 
@@ -588,7 +591,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [ ] 실제 Preview 사용자 시각 확인
 
 
-### v11.44 exact v11.14 anatomy restore — AUTOMATED PASS / USER VERIFY PENDING
+### v11.45 v11.14 anatomy contract lock — AUTOMATED GATE RUNNING / USER VERIFY PENDING
 - v11.14 기준 SHA: `e6dc0492a4d16d0536e15db3f6162b8ec57ee757`
 - anatomy 계층은 **부위 → 근육 목록 → 근육 상세** 3단계만 독립 화면
 - 근육 클릭 즉시 **기본정보** 활성
@@ -598,6 +601,6 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - 별도 anatomy deep screen / 세로형 학습목차 없음
 - Navigation 3.1은 screen registry와 runtime state 분리를 유지
 - Global QA PASS
-- Playwright 390×844 실제 브라우저: 14개 부위 전수 → 근육목록 → 첫 근육 → 탭 전환 → back PASS
+- Playwright 390×844 실제 브라우저: 14개 부위 전수 → 근육목록 → 첫 근육 → 각 5개 탭 전수 전환 → 실제 browser back 2단계 검증
 - runtime error 0
 - 최종 닫기 조건: 실제 Preview에서 의장님 시각 확인
