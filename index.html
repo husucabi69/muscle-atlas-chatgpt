@@ -124,6 +124,7 @@ button,input{font:inherit} button{cursor:pointer}
 .patient-kicker{display:inline-block;background:#eaf8f3;color:#0b6b5d;padding:5px 10px;border-radius:999px;font-weight:800;font-size:13px}
 .patient-warning{border:1px solid #efc3bd;background:#fff8f7;border-radius:16px;padding:15px 16px;line-height:1.75;margin:12px 0}
 .patient-help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.patient-help-grid>div{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff}.patient-help-grid b{display:block;font-size:18px;margin-bottom:6px}.patient-help-grid span{color:var(--muted);line-height:1.6}
+.clinical-flow-context{border:1px solid #b8d2ff;background:#f6f9ff;border-radius:16px;padding:14px;margin:12px 0 18px}.clinical-flow-title{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:9px}.clinical-flow-title b{font-size:16px}.clinical-flow-bar{display:flex;flex-wrap:wrap;gap:7px}.clinical-flow-step{border:1px solid #cbd5e1;background:#fff;border-radius:999px;padding:8px 11px;font-weight:750;cursor:pointer}.clinical-flow-step.active{border-color:#2563eb;background:#eff6ff;color:#1d4ed8}.clinical-flow-step:disabled{opacity:.45;cursor:not-allowed}.clinical-flow-muscle-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:stretch}.clinical-flow-muscle-row+.clinical-flow-muscle-row{margin-top:8px}.clinical-flow-focus{outline:3px solid rgba(37,99,235,.22);outline-offset:6px;border-radius:14px}@media(max-width:520px){.clinical-flow-muscle-row{grid-template-columns:1fr}.clinical-flow-step{padding:8px 10px;font-size:13px}}
 .clinician-note{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:14px 0;color:#475467}.clinician-note summary{cursor:pointer;font-weight:750}
 .us-probe-guide{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:#f8fafc}.us-probe-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}.us-probe-head b{font-size:15px}.us-probe-badge{font-size:11px;border:1px solid #98a2b3;border-radius:999px;padding:3px 7px;white-space:nowrap}.us-probe-grid{display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center}.us-probe-grid svg{width:100%;height:auto;display:block}.us-probe-meta{font-size:13px;line-height:1.55}.us-probe-meta div+div{margin-top:5px}.us-probe-warning{margin-top:8px;font-size:12px;line-height:1.5;color:var(--muted)}.us-pitfall-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.us-pitfall-tag{font-size:11px;border:1px solid #cbd5e1;border-radius:999px;padding:3px 7px;background:#fff;color:#475467}@media(max-width:520px){.us-probe-grid{grid-template-columns:1fr}.us-probe-grid svg{max-width:180px;margin:auto}}
 .exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:10px;margin:10px 0 12px}.exercise-sequence{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exercise-phase{border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px}.exercise-phase b{display:block;font-size:13px;margin-bottom:4px}.exercise-phase svg{width:100%;height:auto;display:block;margin:auto}.exercise-phase p{font-size:12px;line-height:1.45;color:var(--muted);margin:5px 0 0}.exercise-cues{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.exercise-cue{border-left:3px solid #667085;padding:7px 9px;background:#fff;border-radius:7px;font-size:13px;line-height:1.5}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:8px}.exercise-log{margin-top:12px;border-top:1px dashed #98a2b3;padding-top:8px;font-size:13px;word-spacing:8px}.region-print-muscles{font-size:13px;color:#475467;line-height:1.6;margin:6px 0 10px}
@@ -274,6 +275,7 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 <section id="clinical" class="page">
+  <div id="clinicalFlowContext" class="clinical-flow-context" hidden></div>
   <div class="section-title"><h3>어깨 임상 모듈</h3><span>Stage 1 COMPLETE</span></div>
   <div class="card" style="margin-bottom:16px">
     <h3>Shoulder Knowledge Module</h3>
@@ -1729,6 +1731,71 @@ function showPage(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active', p.id===page));
   window.scrollTo({top:0,behavior:'smooth'});
 }
+const clinicalFlowModules={
+  shoulder:{label:'어깨',differential:'shoulderDifferentialGrid',exam:'shoulderExamGrid',ultrasound:'shoulderUSGrid'},
+  elbow:{label:'팔꿈치·전완',differential:'elbowDifferentialGrid',exam:'elbowExamGrid',ultrasound:'elbowUSGrid'},
+  wristHand:{label:'손목·손',differential:'wristHandDifferentialGrid',exam:'wristHandExamGrid',ultrasound:'wristHandUSGrid'},
+  hipPelvis:{label:'고관절·골반',differential:'hipPelvisDifferentialGrid',exam:'hipPelvisExamGrid',ultrasound:'hipPelvisUSGrid'},
+  kneeThigh:{label:'무릎·대퇴',differential:'kneeThighDifferentialGrid',exam:'kneeThighExamGrid',ultrasound:'kneeThighUSGrid'},
+  legAnkleFoot:{label:'하퇴·발목·발',differential:'legAnkleFootDifferentialGrid',exam:'legAnkleFootExamGrid',ultrasound:'legAnkleFootUSGrid'},
+  cervical:{label:'경추',differential:'cervicalDifferentialGrid',exam:'cervicalExamGrid',ultrasound:'cervicalUSGrid'},
+  thoracic:{label:'흉추·등·흉곽',differential:'thoracicDifferentialGrid',exam:'thoracicExamGrid',ultrasound:'thoracicUSGrid'},
+  lumbarSacral:{label:'요추·천추',differential:'lumbarSacralDifferentialGrid',exam:'lumbarSacralExamGrid',ultrasound:'lumbarSacralUSGrid'},
+  abdominalCore:{label:'복벽·코어',differential:'abdominalCoreDifferentialGrid',exam:'abdominalCoreExamGrid',ultrasound:'abdominalCoreUSGrid'}
+};
+const clinicalRegionFallback={
+  '경추·후두하부':'cervical','흉추·흉벽·호흡근':'thoracic','요추·천추·심부고관절·골반저':'lumbarSacral',
+  '견갑대·흉견갑부':'shoulder','어깨·회전근개':'shoulder','상완부':'elbow',
+  '전완부 - 굴곡·회내군':'elbow','전완부 - 신전·회외군':'elbow','손 내재근':'wristHand',
+  '둔부·고관절 외측':'hipPelvis','대퇴부':'kneeThigh','하퇴부':'legAnkleFoot','발 내재근':'legAnkleFoot','복벽':'abdominalCore'
+};
+let activeClinicalFlowMuscleId=null,activeClinicalFlowStep='';
+function clinicalModuleFromViewId(viewId){
+  const n=Number(String(viewId||'').match(/usv(\d+)/i)?.[1]||0);
+  if(n>=1&&n<=9)return'shoulder';if(n<=17)return'elbow';if(n<=29)return'wristHand';if(n<=41)return'hipPelvis';
+  if(n<=55)return'kneeThigh';if(n<=73)return'legAnkleFoot';if(n<=87)return'cervical';if(n<=101)return'thoracic';
+  if(n<=116)return'lumbarSacral';if(n<=131)return'abdominalCore';return'';
+}
+function clinicalModuleForMuscle(id){
+  const us=(ultrasoundByMuscle?.[id]||[]).map(v=>clinicalModuleFromViewId(v.id)).find(Boolean);
+  return us||clinicalRegionFallback[byId?.[id]?.region]||'shoulder';
+}
+function clinicalFlowBar(id,active=''){
+  const sx=symptomsByMuscle?.[id]||[],hasSymptom=!!sx.length;
+  const steps=[
+    ['symptom','증상',!hasSymptom],['anatomy','해부학',false],['differential','감별',false],['exam','진찰',false],
+    ['ultrasound','초음파',false],['quiz','Quiz',false],['viva','Oral',false],['education','환자교육',false]
+  ];
+  return '<div class="clinical-flow-bar">'+steps.map(([key,label,disabled])=>
+    '<button type="button" class="clinical-flow-step '+(active===key?'active':'')+'" '+(disabled?'disabled':'')+
+    ' onclick="openClinicalFlowStep(\''+id+'\',\''+key+'\')">'+label+'</button>').join('')+'</div>';
+}
+function renderClinicalFlowContext(id,step){
+  const el=document.getElementById('clinicalFlowContext'),m=byId[id];if(!el||!m)return;
+  const moduleKey=clinicalModuleForMuscle(id),meta=clinicalFlowModules[moduleKey];
+  el.hidden=false;
+  el.innerHTML='<div class="clinical-flow-title"><b>'+esc(m.ko)+' · 임상 학습 흐름</b><span>'+esc(meta?.label||m.region)+'</span></div>'+
+    clinicalFlowBar(id,step)+'<div style="margin-top:8px;color:var(--muted);font-size:13px">일반 지식 학습 흐름입니다. 환자별 진단·치료 권고를 자동 생성하지 않습니다.</div>';
+}
+function openClinicalFlowStep(id,step){
+  const m=byId[id];if(!m)return;
+  activeClinicalFlowMuscleId=id;activeClinicalFlowStep=step;
+  if(step==='symptom'){
+    const s=(symptomsByMuscle[id]||[])[0];if(!s)return;
+    closeMuscle();closeSymptom();activatePage('symptoms');openSymptom(s.id);return;
+  }
+  if(step==='anatomy'){closeSymptom();openMuscle(id);return;}
+  if(step==='quiz'){closeMuscle();closeSymptom();startQuizForMuscle(id);return;}
+  if(step==='viva'){closeSymptom();startOralForMuscle(id);return;}
+  if(step==='education'){closeSymptom();openEducationForMuscle(id);return;}
+  const moduleKey=clinicalModuleForMuscle(id),meta=clinicalFlowModules[moduleKey],targetId=meta?.[step];
+  closeMuscle();closeSymptom();activatePage('clinical');renderClinicalFlowContext(id,step);
+  setTimeout(()=>{
+    const target=document.getElementById(targetId);if(!target)return;
+    target.scrollIntoView({behavior:'smooth',block:'start'});target.classList.add('clinical-flow-focus');
+    setTimeout(()=>target.classList.remove('clinical-flow-focus'),1800);
+  },80);
+}
 
 document.getElementById('searchBox').addEventListener('input', e=>{
   const q=e.target.value.trim();
@@ -1752,7 +1819,7 @@ function openSymptom(id){
       <div class="box"><h4>관련 근육 수</h4><p>${muscles.length}개</p></div>
     </div>
     <div class="section-title" style="margin-top:26px"><h3 style="font-size:25px">관련 근육</h3><span>각 근육을 눌러 상세 카드로 이동</span></div>
-    <div class="region-list">${muscles.map(m=>`<button class="muscle-btn" onclick="openMuscle('${m.id}')"><b>${esc(m.ko)}</b><small>${esc(m.en)}${m.abbr?` · ${esc(m.abbr)}`:''}</small></button>`).join('')}</div>
+    <div class="region-list">${muscles.map(m=>`<div class="clinical-flow-muscle-row"><button class="muscle-btn" onclick="openMuscle('${m.id}')"><b>${esc(m.ko)}</b><small>${esc(m.en)}${m.abbr?` · ${esc(m.abbr)}`:''}</small></button><button class="pill" onclick="openClinicalFlowStep('${m.id}','differential')">임상 흐름 시작</button></div>`).join('')}</div>
     <div style="padding-top:28px;text-align:center"><button class="primary" onclick="closeSymptom()">증상 목록으로 돌아가기</button></div>`;
   document.getElementById('symptomOverlay').classList.add('show');
   document.body.style.overflow='hidden';
@@ -1825,6 +1892,7 @@ function openMuscle(id){
   const sx=(symptomsByMuscle[id]||[]);
   document.getElementById('muscleBody').innerHTML=`
     <div style="margin-bottom:18px"><h2 style="font-size:38px;margin:0 0 7px;letter-spacing:-.04em">${esc(m.ko)}</h2><div style="font-size:19px;color:#667085">${esc(m.en)}${m.abbr?` · ${esc(m.abbr)}`:''}</div><div class="tagrow"><span class="tag">${esc(m.region)}</span>${sx.map(s=>`<button class="tag" onclick="openSymptom('${s.id}')">${esc(s.title)}</button>`).join('')}</div></div>
+    <div class="clinical-flow-context"><div class="clinical-flow-title"><b>임상 학습 흐름</b><span>근육 문맥 유지</span></div>${clinicalFlowBar(m.id,'anatomy')}</div>
     <div class="kpi">
       <div class="box"><h4>Origin · 기시</h4><p>${esc(m.origin)}</p></div>
       <div class="box"><h4>Insertion · 정지</h4><p>${esc(m.insertion)}</p></div>
@@ -2567,6 +2635,20 @@ function makeQuestion(m,type,sourcePool,direction){
     ? m.ko+'('+m.en+')와 관련된 임상적으로 중요한 설명은?'
     : m.ko+'('+m.en+')의 '+spec.label+'는?';
   return{muscleId:m.id,type,direction,stem,correct,options};
+}
+function startQuizForMuscle(id){
+  const m=byId[id];if(!m)return;
+  const types=Object.keys(quizFields),pool=muscles.filter(x=>x.region===m.region);
+  const sourcePool=pool.length>=4?pool:muscles,questions=[];
+  for(let i=0;i<10;i++){
+    const type=types[i%types.length],direction=i%2===0?'forward':'reverse';
+    let q=makeQuestion(m,type,sourcePool,direction);
+    if(!q)q=makeQuestion(m,type,muscles,direction);
+    if(q){q.quizLabel=m.ko+' 집중';questions.push(q);}
+  }
+  if(!questions.length)return;
+  quizSession=questions;quizIndex=0;quizScore=0;quizAnswered=false;
+  activeClinicalFlowMuscleId=id;activeClinicalFlowStep='quiz';activatePage('quiz');renderQuiz();
 }
 function startQuiz(mode='normal'){
   const region=document.getElementById('quizRegion').value;
