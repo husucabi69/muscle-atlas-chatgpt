@@ -291,16 +291,27 @@
 
 # Stage 21 — Clinical Learning Flow 2.0
 
-상태: **IN PROGRESS — 10개 임상모듈 공통 8단계 flow + 근육 문맥 유지 navigation 구현 / red flag·clue·entity quick-nav 고도화 진행 중**
+상태: **DEV COMPLETE / AUTOMATED QA GATE — Preview 시각검수 미완료**
 
 목표: symptom → anatomy → differential → examination → ultrasound → quiz → viva → education을 같은 계층 UX로 연결한다.
 
 - [x] Stage 1–10 동일 navigation contract — symptom → anatomy → differential → examination → ultrasound → fixed-muscle quiz → viva → education
-- [ ] clinical test: 목적 / 방법 / 양성 / 한계 / 오류
-- [ ] red flag 별도 표시
-- [ ] diagnosis supporting/opposing clues
-- [ ] tendon/nerve/joint/bursa/ligament 빠른 이동
-- [ ] patient-specific recommendation 금지
+- [x] 공통 Learning Flow Context — symptom_id / muscle_id / clinical module / ultrasound_view_ids / source page
+- [x] muscle → clinical module resolver — canonical ultrasound view 우선, region fallback
+- [x] parent tendon target_structure_ids까지 추적하여 muscle canonical ultrasound view 해석
+- [x] clinical test: 목적 / 방법 / 양성 기준 / 해석 / 한계·흔한 오류 / Stable ID
+- [x] red flag / safety_rule 별도 표시
+- [x] diagnosis supporting / opposing·limiting clues 분리 표시
+- [x] tendon / nerve / joint / bursa / ligament / fascia 빠른 이동
+- [x] clinical_test_id / diagnosis_concept_id / ultrasound_view_id Stable ID focus navigation
+- [x] symptom에서 선택한 muscle context를 quiz / Oral / patient education까지 유지
+- [x] overlay / body overflow cleanup
+- [x] patient-specific diagnosis/treatment recommendation 금지
+- [x] PHI / encounter context 저장·전송 없음
+- [x] Stage 21 전용 QA + Global regression gate
+- [ ] Preview 실제 화면의 사용자 시각승인
+
+완료 기준: 자동 QA critical FAIL 0. 시각승인은 Production 승격과 별도이며, 승인 전 main merge 금지.
 
 ---
 
@@ -363,4 +374,4 @@
 
 # 현재 바로 시작할 순서
 
-**Stage 16 Hierarchical Navigation → Stage 17 Muscle Illustration → Stage 18 Human Voice Oral → Stage 19 Patient Exercise Illustration → Stage 20 Ultrasound → Stage 21 Clinical Flow → Stage 22 Search → Stage 23 Real Device → Stage 24 Play**
+**Stage 22 Search & Personal Learning → Stage 23 Real Device & Offline Quality Gate → Stage 24 Google Play Production Release**
