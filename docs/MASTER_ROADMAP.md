@@ -814,16 +814,16 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 해결: screen registry를 .drill-screen[data-drill-group]로 한정하고 runtime state를 drillNavigationState로 분리
 - documentElement는 data-active-drill-*만 진단용으로 사용
 - Playwright E2E를 Global QA에 추가하여 실제 클릭 기반 회귀검사 상시 실행
-- 14개 해부학 부위 → 근육 목록 → 첫 근육 → 학습목차 → back 전수 PASS
+- 14개 해부학 부위 → 근육 목록 → 첫 근육 → v11.14 기본정보 상세 → back 전수 PASS
 - 정적 QA PASS + runtime E2E PASS
 - 사용자 실기기 Preview 확인 전 A2 COMPLETE 처리 금지
 
 
 ### v11.14 Anatomy UX Baseline — LOCKED — 2026-09-27
 - 사용자 검증 기준: v11.14 · Stage 17 Precision Anatomy
-- 보존 요소: 개별 근육 헤더 + 가로 탭 5개(기본정보 / 해부도해 / 초음파 / 임상 / 심화·학습)
-- Navigation 3.1은 레이아웃을 재설계하지 않고 독립 화면 전환만 담당
-- 현재 구현: 근육 허브에서 v11.14 가로 탭 유지 → 탭 선택 시 독립 deep 화면 → deep 화면에서도 동일 근육 헤더와 가로 탭 유지
-- 세로형 drill-menu 카드로 대체 금지
+- 보존 요소: 개별 근육 헤더 + 가로 탭 5개(기본정보 / 해부도해 / 초음파 / 임상 / 심화·학습) + 기본정보 즉시 표시
+- Navigation 3.1은 `부위 → 근육 목록 → 근육 상세`까지만 독립 화면 전환을 담당
+- 근육 상세 내부 탭은 v11.14처럼 **같은 상세 화면에서 콘텐츠만 교체**하며 별도 deep 화면/history 계층을 만들지 않음
+- 세로형 drill-menu 카드 또는 별도 학습목차 허브로 대체 금지
 - Static QA + Playwright runtime E2E에 기준선 검사 추가
 - 실제 Preview 사용자 확인 전 A2 COMPLETE 처리 금지
