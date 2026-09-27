@@ -548,7 +548,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [x] 공통 drill navigation state/render 원인 규명 — documentElement이 drill registry selector에 섞여 html.hidden=true가 되는 구조 결함
 - [x] DOM visibility/state source-of-truth 정리 — 실제 screen registry와 drillNavigationState 분리
 - [x] 14개 모든 부위 근육 수 canonical data 대조 — browser E2E PASS
-- [x] 각 부위 첫 근육 클릭 → 학습목차 visible 확인 — browser E2E PASS
+- [x] 각 부위 첫 근육 클릭 → v11.14 기본정보 상세 visible 확인 — browser E2E PASS
 - [x] back/history 상위단계 복귀 확인 — browser E2E PASS
 - [x] Stage 15~23A 전체 QA PASS
 - [ ] 실제 Preview 화면 사용자 확인
@@ -579,9 +579,10 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [x] 근육 상세 헤더 유지
 - [x] 가로 탭 5개 유지: 기본정보 / 해부도해 / 초음파 / 임상 / 심화·학습
 - [x] 세로형 학습목차 카드 제거
-- [x] 탭 선택 → 독립 deep 화면
-- [x] deep 화면에서도 동일 근육 헤더 + 동일 가로 탭 유지
+- [x] 근육 클릭 즉시 기본정보 탭 활성 + Origin/Insertion/Function/Nerve/Blood supply/촉지/임상 핵심/초음파 핵심 표시
+- [x] 탭 선택 → 같은 근육 상세 화면에서 콘텐츠만 교체
+- [x] anatomy deep 화면/history 계층 없음
 - [x] selected tab active 상태 표시
-- [x] browser back → 같은 근육 허브 복귀
+- [x] browser back → 현재 부위 근육 목록 복귀
 - [x] 실제 browser E2E 추가
 - [ ] 실제 Preview 사용자 시각 확인
