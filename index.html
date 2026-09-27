@@ -275,15 +275,57 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 <section id="symptoms" class="page">
-  <div class="section-title"><h3>증상으로 찾기</h3><span>해부 부위를 먼저 선택하세요</span></div>
-  <div id="symptomGroupChooser" class="symptom-group-chooser"></div>
-  <div id="symptomListPanel" class="symptom-list-panel" hidden>
-    <button class="symptom-group-back" type="button" onclick="closeSymptomGroup()">← 부위 목록</button>
+  <div id="symptomGroupView" class="drill-screen" data-drill-group="symptoms" data-drill-view="groups">
+    <div class="section-title"><h3>증상으로 찾기</h3><span>증상 부위를 먼저 선택하세요</span></div>
+    <div class="note"><b>1단계 · 증상군 목차</b><br>현재 화면에는 증상군만 표시됩니다.</div>
+    <div id="symptomGroupChooser" class="symptom-group-chooser"></div>
+  </div>
+
+  <div id="symptomListPanel" class="drill-screen" data-drill-group="symptoms" data-drill-view="list" hidden>
+    <div class="anatomy-nav">
+      <button class="symptom-group-back" type="button" onclick="symptomBack('groups')">← 증상군</button>
+      <span class="crumb" id="symptomListBreadcrumb"></span>
+    </div>
     <div class="symptom-group-head">
       <h3 id="selectedSymptomGroupTitle"></h3>
       <span id="selectedSymptomGroupCount"></span>
     </div>
+    <div class="note"><b>2단계 · 증상 목차</b><br>선택한 증상군에 해당하는 증상만 표시됩니다.</div>
     <div id="selectedSymptomList" class="grid2"></div>
+  </div>
+
+  <div id="symptomMenuView" class="drill-screen" data-drill-group="symptoms" data-drill-view="menu" hidden>
+    <div class="anatomy-nav">
+      <button class="symptom-group-back" type="button" onclick="symptomBack('list')">← 증상 목록</button>
+      <button class="pill" type="button" onclick="showSymptomGroups()">증상군</button>
+      <span class="crumb" id="symptomMenuBreadcrumb"></span>
+    </div>
+    <div id="symptomMenuHead" class="anatomy-detail-head"></div>
+    <div class="drill-screen-title">
+      <h3>학습 목차</h3>
+      <p>한 항목을 선택하면 그 내용만 새 화면에서 표시됩니다.</p>
+    </div>
+    <div class="drill-menu-grid" role="navigation" aria-label="증상 상세 학습 목차">
+      <button class="drill-menu-item" type="button" data-symptom-topic="differential" onclick="showSymptomTopic('differential')"><span><strong>감별 · 병리</strong><small>핵심 감별 포인트와 연결 진단 개념</small></span><span class="arrow">›</span></button>
+      <button class="drill-menu-item" type="button" data-symptom-topic="muscles" onclick="showSymptomTopic('muscles')"><span><strong>관련 근육</strong><small>이 증상과 직접 연결된 근육과 Stable ID</small></span><span class="arrow">›</span></button>
+      <button class="drill-menu-item" type="button" data-symptom-topic="nerves" onclick="showSymptomTopic('nerves')"><span><strong>신경 · 구조</strong><small>관련 신경과 구조적 연결고리</small></span><span class="arrow">›</span></button>
+      <button class="drill-menu-item" type="button" data-symptom-topic="ultrasound" onclick="showSymptomTopic('ultrasound')"><span><strong>초음파 시작점</strong><small>증상 기반 스캔 포인트와 canonical view</small></span><span class="arrow">›</span></button>
+      <button class="drill-menu-item" type="button" data-symptom-topic="learning" onclick="showSymptomTopic('learning')"><span><strong>학습 흐름</strong><small>근육을 선택해 해부 → 감별 → 진찰 → 초음파 → Quiz → Oral → 환자교육</small></span><span class="arrow">›</span></button>
+    </div>
+  </div>
+
+  <div id="symptomDeepView" class="drill-screen" data-drill-group="symptoms" data-drill-view="deep" hidden>
+    <div class="anatomy-nav">
+      <button class="symptom-group-back" type="button" onclick="symptomBack('menu')">← 학습 목차</button>
+      <button class="pill" type="button" onclick="showCurrentSymptomList()">증상 목록</button>
+      <button class="pill" type="button" onclick="showSymptomGroups()">증상군</button>
+      <span class="crumb" id="symptomDeepBreadcrumb"></span>
+    </div>
+    <div class="drill-screen-title">
+      <h3 id="symptomDeepTitle">증상 상세</h3>
+      <p id="symptomDeepSubtitle"></p>
+    </div>
+    <div id="symptomDeepContent"></div>
   </div>
 </section>
 
@@ -1590,6 +1632,35 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const norm=s=>String(s||'').toLowerCase().replace(/\s+/g,'').replace(/[·\-_/()]/g,'');
 
 let selectedSymptomGroupId=null;
+let selectedSymptomId=null;
+let selectedSymptomTopic=null;
+let selectedSymptomMuscleId=null;
+let restoringSymptomHistory=false;
+
+function symptomGroupForSymptom(id){
+  return symptomGroups.find(g=>(g.symptom_ids||[]).includes(id))||null;
+}
+
+function setSymptomView(view){
+  const map={groups:'symptomGroupView',list:'symptomListPanel',menu:'symptomMenuView',deep:'symptomDeepView'};
+  if(!map[view])return null;
+  return setDrillView('symptoms',view);
+}
+
+function recordSymptomHistory(level,mode='push'){
+  if(restoringSymptomHistory)return;
+  const state={
+    lysPage:'symptoms',
+    symptomLevel:level,
+    symptomGroupId:selectedSymptomGroupId,
+    symptomId:selectedSymptomId,
+    symptomTopic:selectedSymptomTopic,
+    symptomMuscleId:selectedSymptomMuscleId
+  };
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
+}
+
 function renderSymptomGroupChooser(){
   const chooser=document.getElementById('symptomGroupChooser');
   if(!chooser)return;
@@ -1598,32 +1669,62 @@ function renderSymptomGroupChooser(){
     return '<button type="button" class="symptom-group-choice" onclick="openSymptomGroup(\''+g.symptom_group_id+'\')"><span><b>'+esc(g.name_ko)+'</b><br><small>'+count+'개 증상</small></span><span class="arrow">›</span></button>';
   }).join('');
 }
-function openSymptomGroup(groupId){
-  const g=symptomGroups.find(x=>x.symptom_group_id===groupId); if(!g)return;
+
+function showSymptomGroups(record=true){
+  selectedSymptomGroupId=null;
+  selectedSymptomId=null;
+  selectedSymptomTopic=null;
+  selectedSymptomMuscleId=null;
+  setSymptomView('groups');
+  if(record)recordSymptomHistory('groups');
+}
+
+function openSymptomGroup(groupId,record=true){
+  const g=symptomGroups.find(x=>x.symptom_group_id===groupId);if(!g)return;
   selectedSymptomGroupId=groupId;
+  selectedSymptomId=null;
+  selectedSymptomTopic=null;
+  selectedSymptomMuscleId=null;
   const list=(g.symptom_ids||[]).map(id=>symptomById[id]).filter(Boolean);
-  const chooser=document.getElementById('symptomGroupChooser');
-  const panel=document.getElementById('symptomListPanel');
-  if(chooser)chooser.hidden=true;
-  if(panel)panel.hidden=false;
   document.getElementById('selectedSymptomGroupTitle').textContent=g.name_ko;
   document.getElementById('selectedSymptomGroupCount').textContent=list.length+'개 증상';
-  document.getElementById('selectedSymptomList').innerHTML=list.map(s=>
-    '<button type="button" class="symptom-card" onclick="openSymptom(\''+s.id+'\')"><h4>'+esc(s.title)+'</h4><p>'+esc(s.summary)+'</p><div class="symptom-meta">관련 근육 '+(s.muscleIds||[]).length+'개 · '+esc(s.conditions)+'</div></button>'
+  const crumb=document.getElementById('symptomListBreadcrumb');
+  if(crumb)crumb.textContent='증상으로 찾기 › '+g.name_ko;
+  document.getElementById('selectedSymptomList').innerHTML=list.map(x=>
+    '<button type="button" class="symptom-card" onclick="openSymptom(\''+x.id+'\')"><h4>'+esc(x.title)+'</h4><p>'+esc(x.summary)+'</p><div class="symptom-meta">관련 근육 '+(x.muscleIds||[]).length+'개 · '+esc(x.conditions)+'</div></button>'
   ).join('');
-  window.scrollTo({top:0,behavior:'smooth'});
+  setSymptomView('list');
+  if(record)recordSymptomHistory('list');
 }
-function closeSymptomGroup(){
-  selectedSymptomGroupId=null;
-  const chooser=document.getElementById('symptomGroupChooser');
-  const panel=document.getElementById('symptomListPanel');
-  if(chooser)chooser.hidden=false;
-  if(panel)panel.hidden=true;
-  window.scrollTo({top:0,behavior:'smooth'});
+
+function closeSymptomGroup(){showSymptomGroups();}
+
+function showCurrentSymptomList(record=true){
+  if(selectedSymptomGroupId)openSymptomGroup(selectedSymptomGroupId,record);
+  else showSymptomGroups(record);
 }
+
+function symptomBack(fallbackLevel){
+  const state=history.state;
+  if(state?.lysPage==='symptoms'&&['list','menu','deep'].includes(state.symptomLevel)){
+    history.back();
+    return;
+  }
+  if(fallbackLevel==='menu'&&selectedSymptomId)openSymptom(selectedSymptomId,selectedSymptomMuscleId,false);
+  else if(fallbackLevel==='list'&&selectedSymptomGroupId)openSymptomGroup(selectedSymptomGroupId,false);
+  else showSymptomGroups(false);
+}
+
 function refreshSymptomNavigation(){
   renderSymptomGroupChooser();
-  if(selectedSymptomGroupId&&symptomGroups.some(x=>x.symptom_group_id===selectedSymptomGroupId))openSymptomGroup(selectedSymptomGroupId);
+  if(selectedSymptomId&&symptomById[selectedSymptomId]){
+    openSymptom(selectedSymptomId,selectedSymptomMuscleId,false);
+    if(selectedSymptomTopic)showSymptomTopic(selectedSymptomTopic,false);
+  }else if(selectedSymptomGroupId&&symptomGroups.some(x=>x.symptom_group_id===selectedSymptomGroupId)){
+    openSymptomGroup(selectedSymptomGroupId,false);
+  }else{
+    setSymptomView('groups');
+  }
 }
 
 const APP_DRILL_NAV_VERSION='3.0';
