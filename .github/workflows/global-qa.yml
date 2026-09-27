@@ -50,3 +50,5 @@ jobs:
         run: node scripts/search-personal-learning-qa.mjs
       - name: Run Stage 23 real-device offline QA
         run: node scripts/real-device-offline-qa.mjs
+      - name: Run Stage 23A hierarchical navigation 3.0 QA
+        run: node scripts/hierarchical-navigation-3-qa.mjs
