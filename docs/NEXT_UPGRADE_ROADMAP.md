@@ -35,6 +35,8 @@
 | VID-001 | 초음파 상세에 최고품질 검수 YouTube 영상 링크/임베드 추가 | High | Stage 23A navigation shell | **Stage 23B/Media layer** |
 | VID-002 | 환자교육 운동·스트레칭에 고품질 YouTube 환자교육 영상 링크/임베드 추가 | High | Stage 23A + exercise profile mapping | **Stage 23B** |
 | VID-003 | 영상 출처·채널·언어·duration·last_verified·embed 가능 여부·교육목적을 metadata로 관리하고 broken-link audit | High | VID-001/002 | **Stage 23B QA** |
+| VID-004 | 영어 영상에 한국어 접근성 레이어 추가: YouTube 한국어 자막 우선 + 앱내 한국어 핵심해설/타임스탬프 | High | VID-001/002 | **Stage 23B Media UX** |
+| VID-005 | CC BY/Public Domain/명시적 허가 영상에 한해 한국어 번역자막 및 선택적 TTS 더빙 지원 | Medium | license/permission audit | **Stage 23B Media UX** |
 
 아이디어 상태는 NEXT / queued / deferred / implemented / superseded 중 하나로 남긴다. superseded도 삭제하지 않고 대체 아이디어와 이유를 기록한다.
 
@@ -469,6 +471,11 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - [ ] 정확한 구조/운동을 보여주지 않거나 광고성·과장성·출처 불명 영상은 제외
 - [ ] title / channel / language / duration / topic / canonical target / last_verified / embed_allowed metadata 관리
 - [ ] 삭제·비공개·URL 변경을 정기 source-health QA에서 감시
+- [ ] 영어 영상은 YouTube 제공 한국어 자동번역 자막이 있으면 우선 사용
+- [ ] 자막이 불충분하거나 없는 경우 앱내 **한국어 핵심 해설 + 타임스탬프**를 별도 제공
+- [ ] 전체 한국어 번역자막/더빙은 CC BY·Public Domain·명시적 허가 등 파생저작 허용 조건이 확인된 영상에만 적용
+- [ ] 저작권 불명확 영상은 원본 임베드 + 독자적 한국어 교육요약만 제공하고 원문 전체 번역/더빙 재배포는 금지
+- [ ] 허가된 영상의 한국어 TTS 더빙은 원본 음성과 별도 트랙으로 제공하고 원본 출처·라이선스를 명시
 
 완료 Gate: 18/18 실제 Preview 시각검수 + 환자가 그림만 보고 시작/끝/방향을 구분 가능 + clipping 0.
 
