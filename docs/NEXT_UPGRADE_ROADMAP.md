@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **REGRESSION RECOVERY — A2 AUTOMATED FIX PASS / USER PREVIEW VERIFY PENDING · A5 BLOCKED**
+상태: **REGRESSION RECOVERY — A2 v11.14 EXACT FLOW AUTOMATED PASS / USER PREVIEW VERIFY PENDING · A5 BLOCKED**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -586,3 +586,18 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [x] browser back → 현재 부위 근육 목록 복귀
 - [x] 실제 browser E2E 추가
 - [ ] 실제 Preview 사용자 시각 확인
+
+
+### v11.44 exact v11.14 anatomy restore — AUTOMATED PASS / USER VERIFY PENDING
+- v11.14 기준 SHA: `e6dc0492a4d16d0536e15db3f6162b8ec57ee757`
+- anatomy 계층은 **부위 → 근육 목록 → 근육 상세** 3단계만 독립 화면
+- 근육 클릭 즉시 **기본정보** 활성
+- 동일 화면에 Origin / Insertion / Function / Nerve / Blood supply / 촉지 / 임상 중요점 / 초음파 핵심 즉시 표시
+- 가로 탭 5개를 v11.14 고정 DOM으로 복원: 기본정보 / 해부도해 / 초음파 / 임상 / 심화·학습
+- 탭 클릭은 새 화면/history를 만들지 않고 같은 근육 상세 화면 콘텐츠만 교체
+- 별도 anatomy deep screen / 세로형 학습목차 없음
+- Navigation 3.1은 screen registry와 runtime state 분리를 유지
+- Global QA PASS
+- Playwright 390×844 실제 브라우저: 14개 부위 전수 → 근육목록 → 첫 근육 → 탭 전환 → back PASS
+- runtime error 0
+- 최종 닫기 조건: 실제 Preview에서 의장님 시각 확인
