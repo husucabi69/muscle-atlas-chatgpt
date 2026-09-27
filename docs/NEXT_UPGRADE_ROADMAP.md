@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **REGRESSION RECOVERY — A2 REOPENED · A5 BLOCKED**
+상태: **REGRESSION RECOVERY — A2 AUTOMATED FIX PASS / USER PREVIEW VERIFY PENDING · A5 BLOCKED**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -426,7 +426,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 ## 적용 순서
 - [x] **A1. 공통 navigation shell / view-state / history contract** — drill screen 공통 전환·viewport reset·history helper
-- [ ] **A2. 해부학 부위 — REOPENED** — 실기기에서 부위 선택 후 근육 목록이 보이지 않고 흰 화면. root-cause + browser E2E + Preview 실화면 확인 후 다시 완료
+- [ ] **A2. 해부학 부위 — USER VERIFY PENDING** — root cause 수정 및 14개 부위 browser E2E PASS. 실제 Preview 실기기 확인 후 다시 완료
 - [x] **A3. 환자 운동·스트레칭** — 부위만 → 근육만 → 운동목차 → 운동 1개 상세 독립 화면
 - [x] **A4. 증상으로 찾기** — 증상군만 → 증상만 → 관련 구조/감별 학습목차 → 선택 상세 독립 화면
 - [ ] **A5. 임상 모듈** — 부위/모듈 목차 → 검사/감별/초음파 목차 → 상세
@@ -543,14 +543,14 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - 실제: 흰 화면 / 근육 목록 미표시
 
 복구 절차:
-- [ ] 실제 browser click으로 재현되는 E2E test 작성
-- [ ] runtime console/page error 캡처
-- [ ] 공통 drill navigation state/render 원인 규명
-- [ ] DOM visibility/state source-of-truth 정리
-- [ ] 14개 모든 부위 근육 수 canonical data 대조
-- [ ] 각 부위 첫 근육 클릭 → 학습목차 visible 확인
-- [ ] back/history 상위단계 복귀 확인
-- [ ] Stage 15~23A 전체 QA PASS
+- [x] 실제 browser click으로 재현되는 E2E test 작성
+- [x] runtime console/page error 캡처
+- [x] 공통 drill navigation state/render 원인 규명 — documentElement이 drill registry selector에 섞여 html.hidden=true가 되는 구조 결함
+- [x] DOM visibility/state source-of-truth 정리 — 실제 screen registry와 drillNavigationState 분리
+- [x] 14개 모든 부위 근육 수 canonical data 대조 — browser E2E PASS
+- [x] 각 부위 첫 근육 클릭 → 학습목차 visible 확인 — browser E2E PASS
+- [x] back/history 상위단계 복귀 확인 — browser E2E PASS
+- [x] Stage 15~23A 전체 QA PASS
 - [ ] 실제 Preview 화면 사용자 확인
 
 금지:
@@ -559,3 +559,15 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - CSS !important 덧대기로 원인 은폐
 - 중복 DOM 삽입
 - 사용자 확인 전 COMPLETE 처리
+
+
+### A2 root cause 기록 — 2026-09-27
+- 공통 setDrillView가 document.documentElement에 data-drill-group/data-drill-view를 상태표시용으로 기록
+- 다음 전환 때 querySelectorAll('[data-drill-group=...]')가 실제 drill screen뿐 아니라 html까지 수집
+- html의 이전 view와 새 view가 다르면 html.hidden=true 실행
+- 결과: 내부 근육 목록은 정상 렌더링되지만 문서 전체가 display:none이 되어 흰 화면
+- 구조 수정: 실제 registry는 .drill-screen[data-drill-group=...]로 제한
+- runtime state는 별도 drillNavigationState + data-active-drill-* 진단 속성으로 분리
+- 존재하지 않는 group/view는 fail-fast
+- Playwright browser E2E에서 14개 부위 전수 PASS
+- A2 최종 닫기 조건: 의장님 실제 Preview 확인
