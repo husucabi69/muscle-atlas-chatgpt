@@ -42,3 +42,5 @@ jobs:
         run: node scripts/patient-exercise-illustration-qa.mjs
       - name: Run Stage 20 ultrasound atlas 2.0 QA
         run: node scripts/ultrasound-atlas-2-qa.mjs
+      - name: Run Stage 20 ultrasound source health QA
+        run: node scripts/ultrasound-source-health-qa.mjs
