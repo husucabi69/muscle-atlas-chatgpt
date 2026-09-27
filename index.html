@@ -484,39 +484,43 @@ button,input{font:inherit} button{cursor:pointer}
 
 
 <section id="education" class="page patient-page">
-  <div class="patient-hero">
-    <div>
-      <span class="patient-kicker">환자용</span>
-      <h2>운동 · 스트레칭</h2>
-      <p>아픈 부위와 근육을 고르면 <b>어떻게 하는지 → 얼마나 하는지 → 언제 멈춰야 하는지</b>를 쉽게 설명합니다.</p>
+  <div id="educationRootView" class="drill-screen" data-drill-group="education" data-drill-view="regions">
+    <div class="patient-hero">
+      <div>
+        <span class="patient-kicker">환자용</span>
+        <h2>운동 · 스트레칭</h2>
+        <p>먼저 부위를 고르세요. 선택하면 그 부위의 근육만 보이는 새 화면으로 이동합니다.</p>
+      </div>
     </div>
-    <button class="pill" onclick="printCurrentEducation()">현재 운동표 인쇄</button>
+    <div class="patient-warning">
+      <b>먼저 확인하세요.</b>
+      운동 중 새로 생긴 심한 저림·마비·근력저하, 심한 야간통과 발열, 갑작스러운 파열 느낌이나 큰 멍, 흉통·호흡곤란, 심한 복통이 있으면 운동을 계속하지 말고 진료를 받으세요.
+    </div>
+    <div class="note" style="margin-top:12px"><b>1단계 · 부위 목차</b><br>현재 화면에는 부위만 표시됩니다.</div>
+    <div id="educationRegionChooser" class="region-chooser patient-region-grid" style="margin-top:18px"></div>
   </div>
-  <div class="patient-warning">
-    <b>먼저 확인하세요.</b>
-    운동 중 새로 생긴 심한 저림·마비·근력저하, 심한 야간통과 발열, 갑작스러운 파열 느낌이나 큰 멍, 흉통·호흡곤란, 심한 복통이 있으면 운동을 계속하지 말고 진료를 받으세요.
-  </div>
-  <div class="note" style="margin-top:12px">
-    <b>의학적 안내</b><br>
-    이 앱은 근육·운동을 쉽게 배우기 위한 교육용 앱이며 의료기기가 아닙니다. 질병을 자동으로 진단하거나 치료·예방하는 기능이 아닙니다.
-    통증이나 저림이 계속되거나 진단·치료가 필요한 경우에는 의사 등 의료전문가와 상담하세요.
-  </div>
-  <div class="patient-help-grid">
-    <div><b>1. 부위를 고르세요</b><span>목, 어깨, 허리, 무릎, 발처럼 먼저 부위를 선택합니다.</span></div>
-    <div><b>2. 근육을 고르세요</b><span>모르면 진료실에서 알려드린 근육 이름을 찾으세요.</span></div>
-    <div><b>3. 천천히 따라 하세요</b><span>그림과 순서대로 하되 통증을 억지로 참지 않습니다.</span></div>
-  </div>
-  <details class="clinician-note"><summary>의료진·근거 정보 보기</summary>
-    <p>A=직접 CPG/RCT 또는 강한 질환·근육군 근거, B=부위/근육군 근거, C=직접 근거 제한/교육용입니다. 개별 근육만의 치료효과가 검증되지 않은 경우 억지로 운동을 만들지 않습니다.</p>
-  </details>
-  <div id="educationRegionChooser" class="region-chooser patient-region-grid" style="margin-top:18px"></div>
-  <div id="educationMusclesPanel" class="region-muscles-panel" hidden>
-    <button class="region-back" type="button" onclick="closeEducationRegion()">← 부위 다시 고르기</button>
+
+  <div id="educationMusclesPanel" class="drill-screen" data-drill-group="education" data-drill-view="muscles" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="educationBack('regions')">← 부위 목록</button>
+      <span class="crumb" id="educationMuscleBreadcrumb"></span>
+    </div>
     <div class="region-panel-head"><h3 id="educationRegionTitle"></h3><span id="educationRegionCount"></span></div>
-    <div class="quiz-actions no-print" style="margin:0 0 14px"><button class="primary" type="button" onclick="printEducationRegion()">이 부위 운동 모음 인쇄</button></div>
+    <div class="note"><b>2단계 · 근육 목차</b><br>선택한 부위의 근육만 표시됩니다.</div>
+    <div class="quiz-actions no-print" style="margin:0 0 14px"><button class="pill" type="button" onclick="printEducationRegion()">이 부위 운동 모음 인쇄</button></div>
     <div id="educationMuscleList" class="region-list"></div>
   </div>
-  <div id="educationDetail" class="printable-education" hidden></div>
+
+  <div id="educationDetail" class="drill-screen printable-education" data-drill-group="education" data-drill-view="menu" hidden></div>
+
+  <div id="educationExerciseView" class="drill-screen" data-drill-group="education" data-drill-view="exercise" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="educationBack('menu')">← 운동 목차</button>
+      <button class="pill" type="button" onclick="openEducationRegion(selectedEducationRegion)">근육 목록</button>
+      <span class="crumb" id="educationExerciseBreadcrumb"></span>
+    </div>
+    <div id="educationExerciseContent"></div>
+  </div>
 </section>
 
 <section id="oral" class="page">
@@ -2557,26 +2561,65 @@ function renderEducationRegions(){
     return '<button type="button" class="region-choice" onclick="openEducationRegion('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span><b>'+esc(r)+'</b><br><small>'+count+'개 근육</small></span><span class="arrow">›</span></button>';
   }).join('');
 }
-let selectedEducationRegion=null,selectedEducationMuscleId=null;
-function openEducationRegion(region){
+let selectedEducationRegion=null,selectedEducationMuscleId=null,selectedEducationProfileId=null,restoringEducationHistory=false;
+
+function setEducationView(view){
+  const map={regions:'educationRootView',muscles:'educationMusclesPanel',menu:'educationDetail',exercise:'educationExerciseView'};
+  if(!map[view])return null;
+  return setDrillView('education',view);
+}
+
+function recordEducationHistory(level,mode='push'){
+  if(restoringEducationHistory)return;
+  const state={
+    lysPage:'education',
+    educationLevel:level,
+    educationRegion:selectedEducationRegion,
+    educationMuscleId:selectedEducationMuscleId,
+    educationProfileId:selectedEducationProfileId
+  };
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
+}
+
+function showEducationRegions(record=true){
+  selectedEducationRegion=null;
+  selectedEducationMuscleId=null;
+  selectedEducationProfileId=null;
+  setEducationView('regions');
+  if(record)recordEducationHistory('regions');
+}
+
+function openEducationRegion(region,record=true){
   selectedEducationRegion=region;
+  selectedEducationMuscleId=null;
+  selectedEducationProfileId=null;
   const list=muscles.filter(m=>m.region===region);
-  document.getElementById('educationRegionChooser').hidden=true;
-  document.getElementById('educationMusclesPanel').hidden=false;
-  document.getElementById('educationDetail').hidden=true;
   document.getElementById('educationRegionTitle').textContent=region;
   document.getElementById('educationRegionCount').textContent=list.length+'개 근육';
+  const crumb=document.getElementById('educationMuscleBreadcrumb');
+  if(crumb)crumb.textContent='환자교육 › '+region;
   document.getElementById('educationMuscleList').innerHTML=list.map(m=>{
     const a=exerciseAssignmentByMuscle[m.id],tier=a?.evidence_tier||'—';
     return '<button type="button" class="region-muscle" onclick="openEducationMuscle(\''+m.id+'\')"><b>'+esc(m.ko)+'</b><small>'+esc(m.en)+' · 근거 '+esc(tier)+'</small></button>';
   }).join('');
+  setEducationView('muscles');
+  if(record)recordEducationHistory('muscles');
 }
-function closeEducationRegion(){
-  selectedEducationRegion=null;
-  document.getElementById('educationRegionChooser').hidden=false;
-  document.getElementById('educationMusclesPanel').hidden=true;
-  document.getElementById('educationDetail').hidden=true;
+
+function closeEducationRegion(){showEducationRegions();}
+
+function educationBack(fallbackLevel){
+  const state=history.state;
+  if(state?.lysPage==='education'&&['muscles','menu','exercise'].includes(state.educationLevel)){
+    history.back();
+    return;
+  }
+  if(fallbackLevel==='menu'&&selectedEducationMuscleId)openEducationMuscle(selectedEducationMuscleId,false);
+  else if(fallbackLevel==='muscles'&&selectedEducationRegion)openEducationRegion(selectedEducationRegion,false);
+  else showEducationRegions(false);
 }
+
 function evidencePatientLabel(tier){
   return tier==='A'?'근거가 비교적 충분해요':tier==='B'?'부위·근육군 근거가 있어요':'직접 근거는 제한적이에요';
 }
