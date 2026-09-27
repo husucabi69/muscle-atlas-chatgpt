@@ -11,7 +11,8 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 const byId=Object.fromEntries(ill.profiles.map(x=>[x.profile_id,x]));
 const actionable=ill.profiles.filter(x=>x.actionability===true);
 const boundary=ill.profiles.filter(x=>x.actionability===false);
-check('Stage 19 release version',/buildVersion:'[^']*-stage19\./.test(version),version.match(/buildVersion:'([^']+)'/)?.[1]||'missing');
+const releaseStage=Number(version.match(/buildVersion:'[^']*-stage(\d+)\./)?.[1]||0);
+check('Stage 19 survives current/later release',releaseStage>=19,String(releaseStage));
 check('Illustration audit covers all 19 profiles',ill.profiles.length===19,String(ill.profiles.length));
 check('Illustration profile IDs unique',new Set(ill.profiles.map(x=>x.profile_id)).size===19);
 check('Illustration IDs match patient exercise library',lib.profiles.every(p=>!!byId[p.profile_id])&&ill.profiles.every(x=>lib.profiles.some(p=>p.profile_id===x.profile_id)));
