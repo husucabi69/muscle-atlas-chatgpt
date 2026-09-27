@@ -1727,23 +1727,39 @@ function refreshSymptomNavigation(){
   }
 }
 
-const APP_DRILL_NAV_VERSION='3.0';
+const APP_DRILL_NAV_VERSION='3.1';
+const drillNavigationState=Object.seal({group:null,view:null});
 
 function resetNavigationViewport(){
   window.scrollTo({top:0,behavior:'auto'});
 }
 
+function drillViewsFor(group){
+  return [...document.querySelectorAll('.drill-screen[data-drill-group="'+group+'"]')];
+}
+
 function setDrillView(group,viewId){
-  const views=[...document.querySelectorAll('[data-drill-group="'+group+'"]')];
-  let active=null;
-  views.forEach(view=>{
-    const on=view.dataset.drillView===viewId;
+  const views=drillViewsFor(group);
+  if(!views.length)throw new Error('Unknown drill group: '+group);
+  const active=views.find(view=>view.dataset.drillView===viewId);
+  if(!active)throw new Error('Unknown drill view: '+group+' / '+viewId);
+
+  for(const view of views){
+    const on=view===active;
     view.hidden=!on;
     view.setAttribute('aria-hidden',on?'false':'true');
-    if(on)active=view;
-  });
-  document.documentElement.dataset.drillGroup=group;
-  document.documentElement.dataset.drillView=viewId;
+  }
+
+  drillNavigationState.group=group;
+  drillNavigationState.view=viewId;
+
+  // Runtime diagnostics only. These names deliberately do not overlap
+  // with data-drill-group/data-drill-view, which identify actual screens.
+  delete document.documentElement.dataset.drillGroup;
+  delete document.documentElement.dataset.drillView;
+  document.documentElement.dataset.activeDrillGroup=group;
+  document.documentElement.dataset.activeDrillView=viewId;
+
   resetNavigationViewport();
   return active;
 }
