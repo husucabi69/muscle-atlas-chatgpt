@@ -123,7 +123,7 @@ try{
     if(await page.locator('#regionDetailView .drill-menu-item').count()!==0)fail('No vertical learning-menu cards in anatomy detail',region.label+' / '+firstName);
     if(await page.locator('#regionDeepView').count()!==0)fail('No extra anatomy deep screen',region.label+' / '+firstName);
 
-    const topics=region===regions[0].label?['anatomy','ultrasound','clinical','learning','basic']:['basic'];
+    const topics=['anatomy','ultrasound','clinical','learning','basic'];
     for(const topic of topics){
       const historyBefore=await page.evaluate(()=>history.length);
       await page.locator('#regionDetailView .anatomy-detail-tabs .anatomy-detail-tab[data-anatomy-detail-tab="'+topic+'"]').click();
@@ -137,13 +137,13 @@ try{
       if(historyAfter!==historyBefore)fail('Tab switch must not add hierarchy history entry',region.label+' / '+topic);
     }
 
-    await page.locator('#regionDetailView .region-back').click();
+    await page.goBack();
     await page.waitForFunction(()=>!document.querySelector('#regionMusclesView')?.hidden,{timeout:3000});
-    if(!await visible('#regionMusclesView'))fail('Back returns to region muscle list',region.label);
+    if(!await visible('#regionMusclesView'))fail('Browser back returns to region muscle list',region.label);
 
-    await page.locator('#regionMusclesView .region-back').click();
+    await page.goBack();
     await page.waitForFunction(()=>!document.querySelector('#regionChooserView')?.hidden,{timeout:3000});
-    if(!await visible('#regionChooserView'))fail('Back returns to anatomy regions',region.label);
+    if(!await visible('#regionChooserView'))fail('Browser back returns to anatomy regions',region.label);
 
     pass('Anatomy drill flow',region.label+' / '+count+' muscles');
   }
