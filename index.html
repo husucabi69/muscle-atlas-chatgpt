@@ -1978,7 +1978,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>{
@@ -2498,36 +2498,183 @@ async function importLearningRecords(input){
   }finally{if(input)input.value='';}
 }
 
+function symptomRelatedDiagnosisConcepts(symptom){
+  const map=new Map();
+  for(const mid of symptom?.muscleIds||[]){
+    for(const d of diagnosesByMuscle?.[mid]||[])if(d?.id)map.set(d.id,d);
+  }
+  return [...map.values()];
+}
+
+function symptomCanonicalViews(symptom){
+  const map=new Map();
+  for(const mid of symptom?.muscleIds||[]){
+    for(const v of canonicalUltrasoundViewsForMuscle(mid)||[]){
+      const id=v.ultrasound_view_id||v.id;
+      if(id&&!map.has(id))map.set(id,v);
+    }
+  }
+  return [...map.values()];
+}
+
+function openAnatomyFromSymptom(muscleId){
+  const m=byId[muscleId];if(!m)return;
+  setLearningFlowContext({symptomId:selectedSymptomId,muscleId,sourcePage:'symptom',step:'anatomy'});
+  cleanupLearningOverlays();
+  showPage('regions');
+  openRegion(m.region,true);
+  openRegionMuscle(m.id,true);
+}
+
 function selectSymptomFlowMuscle(symptomId,muscleId){
+  const symptom=symptomById[symptomId],m=byId[muscleId];
+  if(!symptom||!m||!(symptom.muscleIds||[]).includes(muscleId))return;
+  selectedSymptomId=symptomId;
+  selectedSymptomMuscleId=muscleId;
   setLearningFlowContext({symptomId,muscleId,sourcePage:'symptom',step:'symptom'});
-  const host=document.getElementById('symptomFlowContext');if(!host)return;
-  const m=byId[muscleId];host.innerHTML='<div class="clinical-flow-title"><b>'+esc(m?.ko||muscleId)+' · 학습 흐름</b><span>'+esc(m?.region||'')+'</span></div>'+clinicalFlowBar(muscleId,'symptom')+
-    '<div class="clinical-flow-stable">symptom_id '+esc(symptomId)+' · muscle_id '+esc(muscleId)+'</div>';
-  host.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if(selectedSymptomTopic==='learning')showSymptomTopic('learning',false);
+  if(history.state?.lysPage==='symptoms'&&history.state?.symptomLevel==='deep')recordSymptomHistory('deep','replace');
 }
-function openSymptom(id,preferredMuscleId){
-  const s=symptomById[id]; if(!s) return;
+
+function openSymptom(id,preferredMuscleId,record=true){
+  const symptom=symptomById[id];if(!symptom)return;
+  const group=symptomGroupForSymptom(id);
+  const preserved=preferredMuscleId&&(symptom.muscleIds||[]).includes(preferredMuscleId)?preferredMuscleId:
+    (learningFlowContext.muscleId&&(symptom.muscleIds||[]).includes(learningFlowContext.muscleId)?learningFlowContext.muscleId:null);
+
   recordRecentEntity('symptom_pattern',id);
-  const muscles=s.muscleIds.map(mid=>byId[mid]).filter(Boolean);
-  const preserved=preferredMuscleId&&s.muscleIds.includes(preferredMuscleId)?preferredMuscleId:
-    (learningFlowContext.muscleId&&s.muscleIds.includes(learningFlowContext.muscleId)?learningFlowContext.muscleId:null);
+  cleanupLearningOverlays();
+  showPage('symptoms');
+  selectedSymptomGroupId=group?.symptom_group_id||selectedSymptomGroupId;
+  selectedSymptomId=id;
+  selectedSymptomTopic=null;
+  selectedSymptomMuscleId=preserved||null;
   setLearningFlowContext({symptomId:id,muscleId:preserved,sourcePage:'symptom',step:'symptom'});
-  document.getElementById('symptomBody').innerHTML=`
-    <div style="margin-bottom:20px"><h2 style="font-size:34px;margin:0 0 8px;letter-spacing:-.04em">${esc(s.title)}</h2><p style="margin:0;color:#667085;line-height:1.85;font-size:17px">${esc(s.summary)}</p></div>
-    <div id="symptomFlowContext" class="clinical-flow-context">${preserved?'<div class="clinical-flow-title"><b>'+esc(byId[preserved]?.ko||preserved)+' · 학습 흐름</b><span>'+esc(byId[preserved]?.region||'')+'</span></div>'+clinicalFlowBar(preserved,'symptom')+'<div class="clinical-flow-stable">symptom_id '+esc(id)+' · muscle_id '+esc(preserved)+'</div>':'<b>학습할 근육을 선택하세요.</b><div class="clinical-flow-disclaimer">아래 관련 근육의 “학습 흐름 선택”을 누르면 같은 증상 문맥으로 해부→감별→진찰→초음파→퀴즈→Oral→환자교육을 이어갑니다.</div>'}</div>
-    <div class="kpi">
-      <div class="amberbox"><h4>핵심 감별/병리</h4><p>${esc(s.conditions)}</p></div>
-      <div class="box"><h4>관련 신경</h4><p>${esc(s.nerves)}</p></div>
-      <div class="box"><h4>초음파 시작 포인트</h4><p>${esc(s.ultrasound)}</p></div>
-      <div class="box"><h4>관련 근육 수</h4><p>${muscles.length}개</p></div>
-    </div>
-    <div class="section-title" style="margin-top:26px"><h3 style="font-size:25px">관련 근육</h3><span>Stable ID 문맥으로 연결</span></div>
-    <div class="region-list">${muscles.map(m=>`<div class="clinical-flow-muscle-row"><button class="muscle-btn" onclick="setLearningFlowContext({symptomId:'${s.id}',muscleId:'${m.id}',sourcePage:'symptom'});openMuscle('${m.id}')"><b>${esc(m.ko)}</b><small>${esc(m.en)}${m.abbr?` · ${esc(m.abbr)}`:''} · ${esc(m.id)}</small></button><button class="pill" onclick="selectSymptomFlowMuscle('${s.id}','${m.id}')">학습 흐름 선택</button></div>`).join('')}</div>
-    <div style="padding-top:28px;text-align:center"><button class="primary" onclick="closeSymptom()">증상 목록으로 돌아가기</button></div>`;
-  document.getElementById('symptomOverlay').classList.add('show');
-  document.body.style.overflow='hidden';
+
+  const head=document.getElementById('symptomMenuHead');
+  const crumb=document.getElementById('symptomMenuBreadcrumb');
+  if(crumb)crumb.textContent='증상으로 찾기 › '+esc(group?.name_ko||'증상')+' › '+symptom.title;
+  if(head)head.innerHTML=
+    '<h2>'+esc(symptom.title)+'</h2>'+
+    '<div class="sub">'+esc(symptom.summary)+'</div>'+
+    '<div class="tagrow"><span class="tag">'+esc(id)+'</span>'+
+    (group?'<span class="tag">'+esc(group.name_ko)+'</span>':'')+
+    '<span class="tag">관련 근육 '+(symptom.muscleIds||[]).length+'개</span></div>';
+
+  setSymptomView('menu');
+  if(record)recordSymptomHistory('menu');
 }
-function closeSymptom(){document.getElementById('symptomOverlay').classList.remove('show'); document.body.style.overflow='';}
+
+function showSymptomTopic(topic,record=true){
+  const symptom=symptomById[selectedSymptomId];if(!symptom)return;
+  const valid=new Set(['differential','muscles','nerves','ultrasound','learning']);
+  if(!valid.has(topic))return;
+  selectedSymptomTopic=topic;
+
+  const titles={
+    differential:['감별 · 병리','핵심 감별 포인트와 관련 진단 개념'],
+    muscles:['관련 근육','증상과 연결된 근육을 하나씩 확인합니다.'],
+    nerves:['신경 · 구조','관련 신경과 구조적 연결고리를 확인합니다.'],
+    ultrasound:['초음파 시작점','증상 기반 스캔 시작점과 canonical view를 확인합니다.'],
+    learning:['학습 흐름','근육을 하나 선택해 동일 증상 문맥으로 다음 학습을 이어갑니다.']
+  };
+  const [title,subtitle]=titles[topic];
+  const titleEl=document.getElementById('symptomDeepTitle');
+  const subEl=document.getElementById('symptomDeepSubtitle');
+  const crumb=document.getElementById('symptomDeepBreadcrumb');
+  const host=document.getElementById('symptomDeepContent');
+  if(titleEl)titleEl.textContent=symptom.title+' · '+title;
+  if(subEl)subEl.textContent=subtitle;
+  if(crumb)crumb.textContent='증상으로 찾기 › '+symptom.title+' › '+title;
+  if(!host)return;
+
+  const relatedMuscles=(symptom.muscleIds||[]).map(id=>byId[id]).filter(Boolean);
+  const diagnoses=symptomRelatedDiagnosisConcepts(symptom);
+  const views=symptomCanonicalViews(symptom);
+
+  if(topic==='differential'){
+    host.innerHTML=
+      '<div class="amberbox"><h4>핵심 감별 / 병리</h4><p>'+esc(symptom.conditions||'')+'</p></div>'+
+      '<div class="section-title"><h3>관련 진단 개념</h3><span>'+diagnoses.length+'개</span></div>'+
+      (diagnoses.length?'<div class="grid2">'+diagnoses.map(d=>
+        '<button class="result-btn" type="button" onclick="focusClinicalStableEntity(\'diagnosis_concept\',\''+d.id+'\')"><b>'+esc(d.title||d.id)+'</b><small>'+esc(d.id)+'</small></button>'
+      ).join('')+'</div>':'<div class="note">현재 Stable ID로 직접 연결된 진단 개념이 없습니다.</div>')+
+      '<div class="clinical-flow-disclaimer" style="margin-top:14px">증상 하나나 진찰 하나만으로 확정진단하지 않습니다. 병력·진찰·필요한 영상 및 red flag를 함께 봅니다.</div>';
+  }else if(topic==='muscles'){
+    host.innerHTML=
+      '<div class="section-title"><h3>관련 근육</h3><span>'+relatedMuscles.length+'개</span></div>'+
+      (relatedMuscles.length?'<div class="region-list">'+relatedMuscles.map(m=>
+        '<div class="clinical-flow-muscle-row"><button class="muscle-btn" type="button" onclick="openAnatomyFromSymptom(\''+m.id+'\')"><b>'+esc(m.ko)+'</b><small>'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+' · '+esc(m.id)+'</small></button><button class="pill" type="button" onclick="selectSymptomFlowMuscle(\''+symptom.id+'\',\''+m.id+'\');showSymptomTopic(\'learning\')">학습 흐름</button></div>'
+      ).join('')+'</div>':'<div class="note">직접 연결된 근육이 없습니다.</div>');
+  }else if(topic==='nerves'){
+    const nerveEntities=new Map();
+    for(const m of relatedMuscles){
+      for(const e of relatedStructureEntitiesForMuscle(m.id)||[])if(e._entityType==='nerve')nerveEntities.set(e._stableId,e);
+    }
+    host.innerHTML=
+      '<div class="box"><h4>증상 데이터의 관련 신경</h4><p>'+esc(symptom.nerves||'등록된 관련 신경 설명이 없습니다.')+'</p></div>'+
+      '<div class="section-title"><h3>Stable ID 연결 신경</h3><span>'+nerveEntities.size+'개</span></div>'+
+      (nerveEntities.size?'<div class="grid2">'+[...nerveEntities.values()].map(e=>
+        '<button class="result-btn" type="button" onclick="focusClinicalStableEntity(\'nerve\',\''+e._stableId+'\')"><b>'+esc(e.name_ko||e.name_en||e._stableId)+'</b><small>'+esc(e._stableId)+'</small></button>'
+      ).join('')+'</div>':'<div class="note">현재 별도 Stable ID 신경 연결이 없습니다.</div>');
+  }else if(topic==='ultrasound'){
+    host.innerHTML=
+      '<div class="box"><h4>초음파 시작 포인트</h4><p>'+esc(symptom.ultrasound||'등록된 증상 기반 초음파 시작점이 없습니다.')+'</p></div>'+
+      '<div class="section-title"><h3>연결 canonical view</h3><span>'+views.length+'개</span></div>'+
+      (views.length?'<div class="grid2">'+views.map(v=>{
+        const vid=v.ultrasound_view_id||v.id;
+        const mid=relatedMuscles.find(m=>canonicalUltrasoundViewsForMuscle(m.id).some(x=>(x.ultrasound_view_id||x.id)===vid))?.id||relatedMuscles[0]?.id||'';
+        return '<button class="result-btn" type="button" onclick="'+(mid?'setLearningFlowContext({symptomId:\''+symptom.id+'\',muscleId:\''+mid+'\',sourcePage:\'symptom\'});':'')+'focusClinicalStableEntity(\'ultrasound_view\',\''+vid+'\')"><b>'+esc(v.name_ko||v.ko||vid)+'</b><small>'+esc(v.name_en||v.en||'')+' · '+esc(vid)+'</small></button>';
+      }).join('')+'</div>':'<div class="note">현재 직접 연결된 canonical ultrasound view가 없습니다.</div>');
+  }else if(topic==='learning'){
+    const selected=selectedSymptomMuscleId&&byId[selectedSymptomMuscleId]?byId[selectedSymptomMuscleId]:null;
+    host.innerHTML=
+      (selected?
+        '<div class="clinical-flow-context"><div class="clinical-flow-title"><b>'+esc(selected.ko)+' · 학습 흐름</b><span>'+esc(selected.region)+'</span></div>'+clinicalFlowBar(selected.id,'symptom')+'<div class="clinical-flow-stable">symptom_id '+esc(symptom.id)+' · muscle_id '+esc(selected.id)+'</div><div class="clinical-flow-disclaimer">위 단계 버튼을 누르면 이 증상 문맥을 유지한 채 해부학·감별·진찰·초음파·Quiz·Oral·환자교육으로 이동합니다.</div></div>':
+        '<div class="note"><b>학습할 근육을 먼저 고르세요.</b><br>아래 목록에서 하나를 선택하면 동일 증상 문맥으로 학습 흐름이 연결됩니다.</div>')+
+      '<div class="region-list">'+relatedMuscles.map(m=>
+        '<button type="button" class="region-muscle" onclick="selectSymptomFlowMuscle(\''+symptom.id+'\',\''+m.id+'\')"><b>'+(selected?.id===m.id?'✓ ':'')+esc(m.ko)+'</b><small>'+esc(m.en)+' · '+esc(m.id)+'</small></button>'
+      ).join('')+'</div>';
+  }
+
+  setSymptomView('deep');
+  if(record)recordSymptomHistory('deep');
+}
+
+function closeSymptom(){
+  const overlay=document.getElementById('symptomOverlay');
+  if(overlay?.classList.contains('show')){
+    overlay.classList.remove('show');
+    document.body.style.overflow='';
+    return;
+  }
+  if(document.getElementById('symptoms')?.classList.contains('active')&&selectedSymptomId){
+    showCurrentSymptomList();
+  }
+}
+
+window.addEventListener('popstate',event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='symptoms')return;
+  restoringSymptomHistory=true;
+  showPage('symptoms');
+  selectedSymptomGroupId=state.symptomGroupId||null;
+  selectedSymptomId=state.symptomId||null;
+  selectedSymptomTopic=state.symptomTopic||null;
+  selectedSymptomMuscleId=state.symptomMuscleId||null;
+
+  if(state.symptomLevel==='deep'&&state.symptomId&&symptomById[state.symptomId]){
+    openSymptom(state.symptomId,state.symptomMuscleId,false);
+    showSymptomTopic(state.symptomTopic||'differential',false);
+  }else if(state.symptomLevel==='menu'&&state.symptomId&&symptomById[state.symptomId]){
+    openSymptom(state.symptomId,state.symptomMuscleId,false);
+  }else if(state.symptomLevel==='list'&&state.symptomGroupId&&symptomGroups.some(x=>x.symptom_group_id===state.symptomGroupId)){
+    openSymptomGroup(state.symptomGroupId,false);
+  }else{
+    showSymptomGroups(false);
+  }
+  restoringSymptomHistory=false;
+});
 
 function stripHTML(s){const d=document.createElement('div'); d.innerHTML=s||''; return d.textContent||d.innerText||'';}
 function licenseText(meta){
@@ -2648,6 +2795,7 @@ async function loadPatientExerciseLibrary(){
 function activatePage(pageId){
   cleanupLearningOverlays();
   if(pageId==='education')showEducationRegions(false);
+  if(pageId==='symptoms')showSymptomGroups(false);
   showPage(pageId);
   if(learningFlowContext.muscleId)learningFlowContext.sourcePage=pageId;
   if(pageId==='learning')renderLearningDashboard();
