@@ -69,6 +69,47 @@ check('Direct muscle education entry seeds hierarchy',
   index.includes('openEducationMuscle(id,true);')
 );
 
+check('Symptoms hierarchy has 4 drill screens',
+  ['groups','list','menu','deep'].every(view=>index.includes('data-drill-group="symptoms" data-drill-view="'+view+'"'))
+);
+check('Symptoms group opens symptom-only list',
+  index.includes('function openSymptomGroup(groupId,record=true)') &&
+  index.includes("setSymptomView('list')") &&
+  index.includes('2단계 · 증상 목차')
+);
+check('Symptom opens learning menu instead of overlay',
+  index.includes('function openSymptom(id,preferredMuscleId,record=true)') &&
+  index.includes("setSymptomView('menu')") &&
+  !index.slice(index.indexOf('function openSymptom(id,preferredMuscleId,record=true)'),index.indexOf('function stripHTML')).includes("classList.add('show')")
+);
+check('Symptom menu exposes five topics',
+  ['differential','muscles','nerves','ultrasound','learning'].every(topic=>index.includes('data-symptom-topic="'+topic+'"'))
+);
+check('Symptom deep topic uses separate screen',
+  index.includes('function showSymptomTopic(topic,record=true)') &&
+  index.includes("setSymptomView('deep')") &&
+  index.includes('id="symptomDeepContent"')
+);
+check('Symptom hierarchy records and restores history',
+  index.includes('function recordSymptomHistory(') &&
+  index.includes('symptomTopic:selectedSymptomTopic') &&
+  index.includes("state.symptomLevel==='deep'") &&
+  index.includes('showSymptomTopic(state.symptomTopic')
+);
+check('Direct symptom entry seeds its list state',
+  index.includes('hasMatchingListState') &&
+  index.includes('openSymptomGroup(groupId,true)')
+);
+check('Symptom selected muscle context persists',
+  index.includes('selectedSymptomMuscleId') &&
+  index.includes('function selectSymptomFlowMuscle(') &&
+  index.includes("symptomId,muscleId,sourcePage:'symptom'")
+);
+check('Symptom root resets on top-level entry',
+  index.includes("if(pageId==='symptoms')showSymptomGroups(false)") &&
+  index.includes("if(btn.dataset.page==='symptoms')showSymptomGroups(true)")
+);
+
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 const inline=[...index.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>m[1]).join('\n');
