@@ -125,6 +125,7 @@ button,input{font:inherit} button{cursor:pointer}
 .patient-warning{border:1px solid #efc3bd;background:#fff8f7;border-radius:16px;padding:15px 16px;line-height:1.75;margin:12px 0}
 .patient-help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.patient-help-grid>div{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff}.patient-help-grid b{display:block;font-size:18px;margin-bottom:6px}.patient-help-grid span{color:var(--muted);line-height:1.6}
 .clinician-note{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:14px 0;color:#475467}.clinician-note summary{cursor:pointer;font-weight:750}
+.us-probe-guide{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:#f8fafc}.us-probe-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}.us-probe-head b{font-size:15px}.us-probe-badge{font-size:11px;border:1px solid #98a2b3;border-radius:999px;padding:3px 7px;white-space:nowrap}.us-probe-grid{display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center}.us-probe-grid svg{width:100%;height:auto;display:block}.us-probe-meta{font-size:13px;line-height:1.55}.us-probe-meta div+div{margin-top:5px}.us-probe-warning{margin-top:8px;font-size:12px;line-height:1.5;color:var(--muted)}@media(max-width:520px){.us-probe-grid{grid-template-columns:1fr}.us-probe-grid svg{max-width:180px;margin:auto}}
 .exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:10px;margin:10px 0 12px}.exercise-sequence{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exercise-phase{border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px}.exercise-phase b{display:block;font-size:13px;margin-bottom:4px}.exercise-phase svg{width:100%;height:auto;display:block;margin:auto}.exercise-phase p{font-size:12px;line-height:1.45;color:var(--muted);margin:5px 0 0}.exercise-cues{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.exercise-cue{border-left:3px solid #667085;padding:7px 9px;background:#fff;border-radius:7px;font-size:13px;line-height:1.5}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:8px}.exercise-log{margin-top:12px;border-top:1px dashed #98a2b3;padding-top:8px;font-size:13px;word-spacing:8px}.region-print-muscles{font-size:13px;color:#475467;line-height:1.6;margin:6px 0 10px}
 .patient-step-label{display:inline-block;font-weight:800;margin-bottom:4px}.patient-caution{border-left:4px solid #d92d20;background:#fff8f7;padding:10px 12px;border-radius:8px;line-height:1.65;margin-top:10px}
 .print-only{display:none}
@@ -575,6 +576,50 @@ async function loadShoulderClinicalModule(){
   }catch(e){console.warn('Shoulder clinical module fallback',e);return false;}
 }
 function commonsAssetUrl(file){return 'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(file);}
+function ultrasoundProbeAxis(v){
+  const s=String(v?.probe_orientation||'').toLowerCase();
+  const long=/장축|longitudinal|long axis|종축|parasagittal|parallel|평행/.test(s);
+  const trans=/단축|transverse|short axis|횡축|횡단/.test(s);
+  const obl=/사선|oblique|비스듬/.test(s);
+  const dyn=/dynamic|동적|sweep|회전|추적/.test(s);
+  if((long&&trans)||(obl&&(long||trans)))return dyn?'mixed_dynamic':'mixed';
+  if(obl)return dyn?'oblique_dynamic':'oblique';
+  if(long)return dyn?'longitudinal_dynamic':'longitudinal';
+  if(trans)return dyn?'transverse_dynamic':'transverse';
+  return dyn?'dynamic':'local';
+}
+function ultrasoundAxisLabel(axis){
+  const map={longitudinal:'LAX · 장축',transverse:'SAX · 단축',oblique:'사선',mixed:'혼합면',dynamic:'동적 sweep',
+    longitudinal_dynamic:'LAX + 동적',transverse_dynamic:'SAX + 동적',oblique_dynamic:'사선 + 동적',mixed_dynamic:'혼합면 + 동적',local:'국소 기준면'};
+  return map[axis]||'국소 기준면';
+}
+function ultrasoundProbeAngle(axis){
+  if(axis.startsWith('longitudinal'))return 90;
+  if(axis.startsWith('oblique'))return 35;
+  if(axis.startsWith('mixed'))return 45;
+  if(axis==='dynamic')return 20;
+  return 0;
+}
+function renderUltrasoundProbeGuide(v){
+  const axis=ultrasoundProbeAxis(v),angle=ultrasoundProbeAngle(axis),label=ultrasoundAxisLabel(axis);
+  const lm=(v.landmarks||[]).slice(0,4).join(' · ');
+  const pit=(v.pitfalls||[]).slice(0,2).join(' / ');
+  const dyn=axis.includes('dynamic')||axis==='dynamic';
+  const arrow=dyn?'<path d="M34 112 C74 132 146 132 186 112" fill="none" stroke="currentColor" stroke-width="3" marker-end="url(#usArrow)"/>':'';
+  return '<div class="us-probe-guide">'+
+    '<div class="us-probe-head"><b>교육용 Probe 도해</b><span class="us-probe-badge">실제 B-mode 아님</span></div>'+
+    '<div class="us-probe-grid"><svg viewBox="0 0 220 145" role="img" aria-label="'+esc(v.name_ko+' probe placement schematic')+'" style="color:#344054">'+
+      '<defs><marker id="usArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>'+
+      '<rect x="24" y="106" width="172" height="18" rx="9" fill="none" stroke="currentColor" stroke-width="3"/>'+
+      '<g transform="rotate('+angle+' 110 72)"><rect x="74" y="57" width="72" height="26" rx="7" fill="none" stroke="currentColor" stroke-width="4"/><line x1="110" y1="83" x2="110" y2="104" stroke="currentColor" stroke-width="3"/></g>'+
+      '<text x="110" y="20" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">'+esc(label)+'</text>'+
+      '<text x="110" y="139" text-anchor="middle" font-size="11" fill="currentColor">피부면 · probe 방향 개념도</text>'+arrow+
+    '</svg><div class="us-probe-meta"><div><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
+      '<div><b>Probe 위치·방향</b><br>'+esc(v.probe_orientation)+'</div>'+
+      '<div><b>Landmark</b><br>'+esc(lm)+'</div></div></div>'+
+    (pit?'<div class="us-probe-warning"><b>Pitfall</b> · '+esc(pit)+'</div>':'')+
+    '</div>';
+}
 function shoulderMediaStatusLabel(status){
   if(status==='verified_fixed_media')return '검증 실제 영상 · 앱 내 표시';
   if(status==='verified_fixed_reference')return '검증 실제 영상 · 원문 Figure 고정';
@@ -582,8 +627,8 @@ function shoulderMediaStatusLabel(status){
 }
 function renderShoulderMediaAudit(viewId){
   const audit=shoulderMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!audit)return '<div class="note"><b>영상 상태</b><br>감사 정보 없음</div>';
-  let out='<div class="note"><b>영상 상태</b><br>'+esc(shoulderMediaStatusLabel(audit.status))+'</div>';
+  if(!audit)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>감사 정보 없음</div>';
+  let out='<div class="note"><b>실제 B-mode / 검증 원문</b><br>'+esc(shoulderMediaStatusLabel(audit.status))+'</div>';
   for(const a of (audit.assets||[])){
     const src=commonsAssetUrl(a.file);
     if(a.asset_type==='video'){
@@ -614,7 +659,7 @@ function renderShoulderClinicalModule(){
     const cov=shoulderMediaAudit?.coverage;
     const covEl=document.getElementById('shoulderMediaCoverage');
     if(covEl&&cov) covEl.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>앱 내 고정 영상 '+cov.embedded_verified+'개 · 검증 원문 Figure 직접 연결 '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
-    ug.innerHTML=shoulderUSModule.ultrasound_views.map(v=>'<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p><div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div><div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div><div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div><div class="note"><b>정상 확인</b><br>'+esc(v.normal_finding)+'</div><small style="color:var(--muted)">'+esc(v.ultrasound_view_id)+' · '+esc((v.pitfalls||[]).join(' / '))+'</small></div>').join('');
+    ug.innerHTML=shoulderUSModule.ultrasound_views.map(v=>'<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+renderUltrasoundProbeGuide(v)+'<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div><div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div><div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div><div class="note"><b>정상 확인</b><br>'+esc(v.normal_finding)+'</div><small style="color:var(--muted)">'+esc(v.ultrasound_view_id)+' · '+esc((v.pitfalls||[]).join(' / '))+'</small><div style="margin-top:12px">'+renderShoulderMediaAudit(v.ultrasound_view_id)+'</div></div>').join('');
   }
 }
 async function startShoulderClinicalQuiz(){
@@ -664,8 +709,8 @@ function renderElbowDifferential(){
 }
 function renderElbowMediaAudit(viewId){
   const a=elbowMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  let out='<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>';
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  let out='<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>';
   out+='<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span>'+
@@ -692,6 +737,7 @@ function renderElbowClinicalModule(){
     if(covEl&&cov) covEl.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>검증 원문 Figure '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=elbowUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
@@ -748,8 +794,8 @@ function renderWristHandDifferential(){
 }
 function renderWristHandMediaAudit(viewId){
   const a=wristHandMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  return '<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
     '<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span>'+
@@ -774,6 +820,7 @@ function renderWristHandClinicalModule(){
     if(covEl&&cov)covEl.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>검증 원문 Figure '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=wristHandUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
@@ -830,8 +877,8 @@ function renderHipPelvisDifferential(){
 }
 function renderHipPelvisMediaAudit(viewId){
   const a=hipPelvisMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  return '<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
     '<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span>'+
@@ -856,6 +903,7 @@ function renderHipPelvisClinicalModule(){
     if(covEl&&cov)covEl.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>검증 원문 Figure '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=hipPelvisUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
@@ -915,8 +963,8 @@ function renderKneeThighDifferential(){
 }
 function renderKneeThighMediaAudit(viewId){
   const a=kneeThighMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  return '<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
     '<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span>'+
@@ -941,6 +989,7 @@ function renderKneeThighClinicalModule(){
     if(covEl&&cov)covEl.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>검증 원문 Figure '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=kneeThighUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
@@ -997,8 +1046,8 @@ function renderLegAnkleFootDifferential(){
 }
 function renderLegAnkleFootMediaAudit(viewId){
   const a=legAnkleFootMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  return '<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
     '<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span></div>';
@@ -1022,6 +1071,7 @@ function renderLegAnkleFootClinicalModule(){
     if(ce&&cov)ce.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>원문 reference '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=legAnkleFootUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
@@ -1076,8 +1126,8 @@ function renderCervicalDifferential(){
 }
 function renderCervicalMediaAudit(viewId){
   const a=cervicalMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  return '<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
     '<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span></div>';
@@ -1101,6 +1151,7 @@ function renderCervicalClinicalModule(){
     if(ce&&cov)ce.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>원문 reference '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=cervicalUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
@@ -1155,8 +1206,8 @@ function renderThoracicDifferential(){
 }
 function renderThoracicMediaAudit(viewId){
   const a=thoracicMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  return '<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
     '<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span></div>';
@@ -1180,6 +1231,7 @@ function renderThoracicClinicalModule(){
     if(ce&&cov)ce.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>원문 reference '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=thoracicUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
@@ -1234,8 +1286,8 @@ function renderLumbarSacralDifferential(){
 }
 function renderLumbarSacralMediaAudit(viewId){
   const a=lumbarSacralMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  return '<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
     '<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span></div>';
@@ -1259,6 +1311,7 @@ function renderLumbarSacralClinicalModule(){
     if(ce&&cov)ce.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>원문 reference '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=lumbarSacralUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
@@ -1309,8 +1362,8 @@ function renderAbdominalCoreDifferential(){
 }
 function renderAbdominalCoreMediaAudit(viewId){
   const a=abdominalCoreMediaAudit?.views?.find(x=>x.ultrasound_view_id===viewId);
-  if(!a)return '<div class="note"><b>영상 상태</b><br>검증 정보 없음</div>';
-  return '<div class="note"><b>영상 상태</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
+  if(!a)return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 정보 없음</div>';
+  return '<div class="note"><b>실제 B-mode / 검증 원문</b><br>검증 실제 초음파 · 원문 Figure 고정</div>'+
     '<div class="note"><b>'+esc(a.title||'실제 초음파 원문')+'</b><br>'+esc(a.figure_label||'')+
     '<br><a href="'+esc(a.source_page)+'" target="_blank" rel="noopener">검증된 공개 원문 열기</a>'+
     '<br><span style="color:var(--muted)">'+esc(a.license||'')+'</span></div>';
@@ -1334,6 +1387,7 @@ function renderAbdominalCoreClinicalModule(){
     if(ce&&cov)ce.innerHTML='<b>실제 초음파 출처 검증 '+cov.views_total+'/'+cov.views_total+' 완료</b><br>원문 reference '+cov.exact_figure_reference+'개 · 미검증 '+cov.unverified+'개';
     ug.innerHTML=abdominalCoreUSModule.ultrasound_views.map(v=>
       '<div class="card"><h3>'+esc(v.name_ko)+'</h3><p><b>'+esc(v.name_en)+'</b></p>'+
+      renderUltrasoundProbeGuide(v)+
       '<div class="note"><b>환자 자세</b><br>'+esc(v.patient_position)+'</div>'+
       '<div class="note"><b>Probe</b><br>'+esc(v.probe_orientation)+'</div>'+
       '<div class="note"><b>Landmark</b><br>'+esc((v.landmarks||[]).join(' · '))+'</div>'+
