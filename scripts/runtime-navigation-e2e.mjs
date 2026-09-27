@@ -59,7 +59,22 @@ try{
         countText:document.getElementById('selectedRegionCount')?.textContent||'',
         drillGroup:document.documentElement.dataset.drillGroup||'',
         drillView:document.documentElement.dataset.drillView||'',
-        page:document.documentElement.dataset.appPage||''
+        page:document.documentElement.dataset.appPage||'',
+        targetRect:(()=>{
+          const el=document.getElementById('regionMusclesView'),r=el?.getBoundingClientRect();
+          return r?{x:r.x,y:r.y,width:r.width,height:r.height}:null;
+        })(),
+        targetVisibility:getComputedStyle(document.getElementById('regionMusclesView')).visibility,
+        targetOpacity:getComputedStyle(document.getElementById('regionMusclesView')).opacity,
+        ancestors:(()=>{
+          const rows=[];let el=document.getElementById('regionMusclesView');
+          while(el&&rows.length<8){
+            const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+            rows.push({tag:el.tagName,id:el.id||'',class:el.className||'',hidden:!!el.hidden,display:cs.display,visibility:cs.visibility,opacity:cs.opacity,width:r.width,height:r.height});
+            el=el.parentElement;
+          }
+          return rows;
+        })()
       }));
       console.error('DIAG | '+JSON.stringify(diag));
       if(pageErrors.length)console.error('PAGEERRORS | '+pageErrors.join(' || '));
