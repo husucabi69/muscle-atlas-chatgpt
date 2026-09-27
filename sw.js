@@ -133,7 +133,32 @@ self.addEventListener('message',event=>{
     return;
   }
   if(message.type==='GET_VERSION'&&event.ports&&event.ports[0]){
-    event.ports[0].postMessage({type:'VERSION',buildVersion:RELEASE.buildVersion,displayVersion:RELEASE.displayVersion});
+    event.ports[0].postMessage({type:'VERSION',buildVersion:RELEASE.buildVersion,displayVersion:RELEASE.displayVersion,cacheKey:RELEASE.cacheKey});
+    return;
+  }
+  if(message.type==='GET_CACHE_STATUS'&&event.ports&&event.ports[0]){
+    const port=event.ports[0];
+    event.waitUntil((async()=>{
+      try{
+        const cache=await caches.open(SHELL_CACHE);
+        const missing=[];
+        for(const item of CORE){
+          const absolute=new URL(item,self.location.href).href;
+          if(!(await cache.match(absolute)))missing.push(item);
+        }
+        port.postMessage({
+          type:'CACHE_STATUS',
+          buildVersion:RELEASE.buildVersion,
+          cacheKey:RELEASE.cacheKey,
+          shellCache:SHELL_CACHE,
+          coreTotal:CORE.length,
+          coreCached:CORE.length-missing.length,
+          missing
+        });
+      }catch(error){
+        port.postMessage({type:'CACHE_STATUS',buildVersion:RELEASE.buildVersion,cacheKey:RELEASE.cacheKey,coreTotal:CORE.length,coreCached:0,missing:[...CORE],error:String(error)});
+      }
+    })());
   }
 });
 
