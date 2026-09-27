@@ -23,13 +23,13 @@ const detailTabs=[
 ];
 for(const [tab,label] of detailTabs){
   check('Detail tab exists: '+tab,
-    index.includes("['"+tab+"','"+label+"']") &&
-    index.includes('data-anatomy-detail-tab=')
+    index.includes('data-anatomy-detail-tab="'+tab+'"') &&
+    index.includes(">"+label+"</button>")
   );
 }
-check('Detail tabs use shared v11.14 renderer',
-  index.includes('function anatomyDetailTabsHtml(activeTab=null)') &&
-  index.includes("function renderAnatomyDetailTabs(activeTab='basic')")
+check('Detail tabs preserve v11.14 fixed DOM and active-state sync',
+  index.includes('class="anatomy-detail-tabs"') &&
+  index.includes("function syncAnatomyDetailTabState(activeTab='basic')")
 );
 
 check('Region list uses internal detail navigation',index.includes("openRegionMuscle(\\'"));
