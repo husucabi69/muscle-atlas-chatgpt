@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **IN PROGRESS — A1/A2/A3/A4 COMPLETE · 다음 A5 임상**
+상태: **REGRESSION RECOVERY — A2 REOPENED · A5 BLOCKED**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -426,7 +426,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 ## 적용 순서
 - [x] **A1. 공통 navigation shell / view-state / history contract** — drill screen 공통 전환·viewport reset·history helper
-- [x] **A2. 해부학 부위** — 14개 부위만 → 해당 부위 근육만 → 근육 학습목차 → 선택한 심화내용 독립 화면
+- [ ] **A2. 해부학 부위 — REOPENED** — 실기기에서 부위 선택 후 근육 목록이 보이지 않고 흰 화면. root-cause + browser E2E + Preview 실화면 확인 후 다시 완료
 - [x] **A3. 환자 운동·스트레칭** — 부위만 → 근육만 → 운동목차 → 운동 1개 상세 독립 화면
 - [x] **A4. 증상으로 찾기** — 증상군만 → 증상만 → 관련 구조/감별 학습목차 → 선택 상세 독립 화면
 - [ ] **A5. 임상 모듈** — 부위/모듈 목차 → 검사/감별/초음파 목차 → 상세
@@ -528,4 +528,34 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**Stage 23A A5 임상 → A6 초음파 → A7 퀴즈 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
+**Stage 23A A2 회귀 root-cause 복구 → browser E2E + Preview 실화면 검증 → A5 임상 → A6 초음파 → A7 퀴즈 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
+
+
+## A2 회귀 복구 Gate — 2026-09-27
+
+상태: **ACTIVE / RELEASE BLOCKER**
+
+재현 경로:
+- 홈
+- 해부학 위치 찾기
+- 경추·상지·견갑대 등 임의 부위 선택
+- 기대: 해당 부위 근육 목록
+- 실제: 흰 화면 / 근육 목록 미표시
+
+복구 절차:
+- [ ] 실제 browser click으로 재현되는 E2E test 작성
+- [ ] runtime console/page error 캡처
+- [ ] 공통 drill navigation state/render 원인 규명
+- [ ] DOM visibility/state source-of-truth 정리
+- [ ] 14개 모든 부위 근육 수 canonical data 대조
+- [ ] 각 부위 첫 근육 클릭 → 학습목차 visible 확인
+- [ ] back/history 상위단계 복귀 확인
+- [ ] Stage 15~23A 전체 QA PASS
+- [ ] 실제 Preview 화면 사용자 확인
+
+금지:
+- 특정 경추 버튼만 예외처리
+- setTimeout으로 억지 표시
+- CSS !important 덧대기로 원인 은폐
+- 중복 DOM 삽입
+- 사용자 확인 전 COMPLETE 처리
