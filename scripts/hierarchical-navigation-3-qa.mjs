@@ -26,15 +26,15 @@ for(const view of ['regions','muscles','detail']){
   check('Anatomy drill screen: '+view,index.includes('data-drill-group="anatomy" data-drill-view="'+view+'"'));
 }
 check('Anatomy has no extra deep hierarchy',!index.includes('data-drill-group="anatomy" data-drill-view="deep"'));
-check('Anatomy root shows only region chooser contract',index.includes('1단계 · 부위 목차'));
-check('Anatomy region opens muscle-only level',index.includes('2단계 · 근육 목차')&&index.includes("setAnatomyView('muscles')"));
+check('Anatomy root preserves v11.14 region chooser contract',index.includes('단계 1 · 부위 선택'));
+check('Anatomy region opens muscle-only level',index.includes('단계 2 · 근육 선택')&&index.includes("setAnatomyView('muscles')"));
 check('Anatomy visual baseline locked to v11.14',
   index.includes("const ANATOMY_DETAIL_LAYOUT_BASELINE='v11.14 · Stage 17 Precision Anatomy'")
 );
 check('Muscle opens exact v11.14 single detail screen',
-  index.includes('id="regionMuscleDetailTabs" class="anatomy-detail-tabs"') &&
+  index.includes('class="anatomy-detail-tabs"') &&
   index.includes('id="regionMuscleDetailContent" class="anatomy-detail-content"') &&
-  index.includes("showRegionMuscleTab('basic',false)") &&
+  index.includes("showRegionMuscleTab('basic')") &&
   index.includes("selectedRegionMuscleTab='basic'") &&
   index.includes("setAnatomyView('detail')")
 );
@@ -46,9 +46,8 @@ check('No repeated deep anatomy header or deep screen',
   !index.includes('id="regionMuscleDeepTabs"') &&
   !index.includes('id="regionDeepView"')
 );
-check('Shared anatomy tab renderer is single source of truth',
-  index.includes('function anatomyDetailTabsHtml(activeTab=null)') &&
-  index.includes("function renderAnatomyDetailTabs(activeTab='basic')")
+check('Anatomy fixed tabs are v11.14 source of truth',
+  index.includes("function syncAnatomyDetailTabState(activeTab='basic')")
 );
 const expectedAnatomyTabs=[
   ['basic','기본정보'],
@@ -58,11 +57,16 @@ const expectedAnatomyTabs=[
   ['learning','심화·학습']
 ];
 for(const [topic,label] of expectedAnatomyTabs){
-  check('Anatomy v11.14 tab: '+topic,index.includes("['"+topic+"','"+label+"']"));
+  check('Anatomy v11.14 tab: '+topic,
+    index.includes('data-anatomy-detail-tab="'+topic+'"') &&
+    index.includes(">"+label+"</button>")
+  );
 }
+const anatomyTabBlock=index.slice(index.indexOf('function showRegionMuscleTab'),index.indexOf('function refreshRegionNavigation'));
 check('Anatomy tabs swap content in same detail view',
-  index.includes("setAnatomyView('detail');") &&
-  !index.slice(index.indexOf('function showRegionMuscleTab'),index.indexOf('function refreshRegionNavigation')).includes("recordAnatomyHistory('deep')")
+  !anatomyTabBlock.includes("setAnatomyView('deep')") &&
+  !anatomyTabBlock.includes("setAnatomyView('detail')") &&
+  !anatomyTabBlock.includes('recordAnatomyHistory(')
 );
 check('Anatomy browser history has only regions muscles detail',
   !index.includes("state.anatomyLevel==='deep'") &&
