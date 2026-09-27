@@ -317,14 +317,21 @@
 
 # Stage 22 — Search & Personal Learning 2.0
 
-- [ ] 한글/영문/약어/Stable ID 통합검색
-- [ ] entity type filter
-- [ ] 최근 본 항목
-- [ ] 즐겨찾기
-- [ ] 오답·약점 자동 모음
-- [ ] 부위별 mastery dashboard
-- [ ] 기본 local-only
-- [ ] PHI 없는 학습기록만 export/import
+상태: **DEV COMPLETE / AUTOMATED QA PASS — Preview 실제 시각검수 미완료**
+
+- [x] 한글 / 영문 / 약어 / Stable ID 통합검색
+- [x] entity type filter — region / muscle / symptom / tendon / nerve / joint / bursa / ligament / fascia / clinical test / diagnosis concept / ultrasound view
+- [x] 최근 본 항목 — Stable ID + 마지막 조회시각만 localStorage 저장
+- [x] 즐겨찾기 — Stable ID 기반, 검색결과/근육상세/내 학습 화면 연동
+- [x] 오답·약점 자동 모음 — Quiz wrong/due + Oral wrong/partial을 합산해 근육별 우선순위 표시
+- [x] 부위별 mastery dashboard — 학습 coverage 30% + 앱 내 정오답/Oral performance 70%의 투명한 학습지표
+- [x] 기본 local-only — 외부 계정/서버 동기화 없음
+- [x] PHI 없는 학습기록 export/import — Quiz 통계, Oral grade/score, favorites/recent Stable ID만 허용목록으로 이동
+- [x] 음성 원문 / 자유서술 답변 / 환자 이름 / 환자 ID / encounter 정보는 export/import에 포함하지 않음
+- [x] Stage 22 전용 QA + Global regression gate
+- [ ] Preview 실제 화면의 사용자 시각승인
+
+완료 기준: automated critical FAIL 0. 시각승인은 Production 승격과 별도이며, 사용자 승인 전 main merge 금지.
 
 ---
 
@@ -374,4 +381,4 @@
 
 # 현재 바로 시작할 순서
 
-**Stage 22 Search & Personal Learning → Stage 23 Real Device & Offline Quality Gate → Stage 24 Google Play Production Release**
+**Stage 23 Real Device & Offline Quality Gate → Stage 24 Google Play Production Release**
