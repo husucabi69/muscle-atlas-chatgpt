@@ -27,6 +27,48 @@ check('Hierarchy back controls exist',index.includes("anatomyBack('regions')")&&
 check('Anatomy state records deep topic',index.includes('anatomyTopic:selectedRegionMuscleTab'));
 check('Browser back restores deep topic',index.includes("state.anatomyLevel==='deep'")&&index.includes('showRegionMuscleTab(state.anatomyTopic,false)'));
 check('Every drill transition resets to top',index.includes("window.scrollTo({top:0,behavior:'auto'})"));
+check('Education hierarchy has 4 drill screens',
+  ['regions','muscles','menu','exercise'].every(view=>index.includes('data-drill-group="education" data-drill-view="'+view+'"'))
+);
+check('Education root-to-muscle navigation exists',
+  index.includes('function showEducationRegions(') &&
+  index.includes('function openEducationRegion(') &&
+  index.includes("setEducationView('muscles')")
+);
+check('Education muscle opens program menu, not full program stack',
+  index.includes('function openEducationMuscle(') &&
+  index.includes("setEducationView('menu')") &&
+  index.includes('3단계 · 운동 목차')
+);
+check('Education exercise opens single detail screen',
+  index.includes('function openEducationExercise(') &&
+  index.includes("setEducationView('exercise')") &&
+  index.includes('4단계 · 운동 상세')
+);
+check('Education hierarchy records and restores history',
+  index.includes('function recordEducationHistory(') &&
+  index.includes('educationProfileId:selectedEducationProfileId') &&
+  index.includes("state.educationLevel==='exercise'") &&
+  index.includes('openEducationExercise(state.educationProfileId,false)')
+);
+check('Education back contract exists',
+  index.includes("educationBack('regions')") &&
+  index.includes("educationBack('menu')")
+);
+check('Patient safety disclaimer preserved',
+  index.includes('의료기기가 아닙니다') &&
+  index.includes('의료전문가와 상담')
+);
+check('Patient print/share remain available',
+  index.includes('function printCurrentEducation()') &&
+  index.includes('function printEducationRegion()') &&
+  index.includes('function shareCurrentEducation()')
+);
+check('Direct muscle education entry seeds hierarchy',
+  index.includes('openEducationRegion(m.region,true);') &&
+  index.includes('openEducationMuscle(id,true);')
+);
+
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 const inline=[...index.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>m[1]).join('\n');
