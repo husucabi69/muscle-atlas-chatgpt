@@ -93,8 +93,8 @@ Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과�
 - Cloudflare Preview/Production infrastructure: ACTIVE — GitHub integration verified; `preview/development` is the long-lived development line; repeated visual approval occurs in Preview; Production remains frozen until final explicit promotion
 - Stage 18 Oral Viva Human Voice 3.0: IN PROGRESS — local voice + contextual viva complete; provider-neutral same-origin high-quality TTS adapter/contract prepared but disabled by default pending provider/privacy/real-device approval
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
-- Stage 20 Ultrasound Atlas 2.0: IN PROGRESS — 131/131 probe placement/orientation guidance layer generated; probe schematic explicitly separated from real B-mode/reference media
-- 현재 개발: **Stage 20 — Ultrasound Atlas 2.0**
+- Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
+- 현재 개발: **Stage 21 — Clinical Learning Flow 2.0**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
 
