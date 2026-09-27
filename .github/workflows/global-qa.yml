@@ -40,3 +40,5 @@ jobs:
         run: node scripts/oral-human-voice-qa.mjs
       - name: Run Stage 19 patient exercise illustration QA
         run: node scripts/patient-exercise-illustration-qa.mjs
+      - name: Run Stage 20 ultrasound atlas 2.0 QA
+        run: node scripts/ultrasound-atlas-2-qa.mjs
