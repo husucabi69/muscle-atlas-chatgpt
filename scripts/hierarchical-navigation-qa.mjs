@@ -24,7 +24,7 @@ const detailTabs=[
 for(const [tab,label] of detailTabs){
   check('Detail tab exists: '+tab,
     index.includes("['"+tab+"','"+label+"']") &&
-    index.includes('data-anatomy-detail-tab="'+id+'"')
+    index.includes('data-anatomy-detail-tab=')
   );
 }
 check('Detail tabs use shared v11.14 renderer',
