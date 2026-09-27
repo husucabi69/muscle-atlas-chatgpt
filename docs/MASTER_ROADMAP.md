@@ -837,3 +837,12 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 후속 기능은 기준 레이아웃을 깨지 않는 범위에서만 유지
 - Global QA + Chromium runtime E2E PASS
 - 사용자 실기기 Preview 확인 전 A2 COMPLETE 금지
+
+### v11.45 · v11.14 Anatomy Contract Lock — 2026-09-28
+- v11.14 기준 DOM/기본정보 레이아웃 재대조 PASS
+- Runtime E2E를 14개 해부학 부위 × 5개 상세 탭 전수 클릭으로 강화
+- 모든 상세 탭 전환에서 same-screen 유지 / content non-empty / history.length 증가 0 검증
+- 실제 browser back 2회로 근육 상세 → 근육 목록 → 해부학 부위 복귀 검증
+- Cloudflare Branch Preview 배포 SUCCESS
+- 라이브 Preview 경추·후두하부 → 흉쇄유돌근 실제 클릭 검수 PASS
+- A2 상태는 사용자 실기기 확인 전 USER PREVIEW VERIFY PENDING 유지
