@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.0 (**A2 REOPENED — 해부학 부위 선택 후 흰 화면 회귀 조사 중 / A5 BLOCKED**)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (**A2 AUTOMATED FIX PASS / USER PREVIEW VERIFY PENDING / A5 BLOCKED**)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -805,3 +805,15 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 임시 CSS/timeout/조건문 patch 금지
 - 실제 click 기반 browser E2E를 새 gate로 추가한 뒤 공통 navigation 구조에서 원인 해결
 - 실제 Preview 확인 전 A2를 다시 COMPLETE로 표시하지 않음
+
+
+### Navigation Root Fix — v11.41 — 2026-09-27
+- Root cause: drill screen registry selector와 documentElement의 runtime state dataset이 같은 data-drill-* namespace를 공유
+- 두 번째 drill 전환에서 html이 screen으로 오인되어 html.hidden=true가 됨
+- 증상: 내부 근육 DOM은 정상 생성되나 문서 전체가 숨겨져 흰 화면
+- 해결: screen registry를 .drill-screen[data-drill-group]로 한정하고 runtime state를 drillNavigationState로 분리
+- documentElement는 data-active-drill-*만 진단용으로 사용
+- Playwright E2E를 Global QA에 추가하여 실제 클릭 기반 회귀검사 상시 실행
+- 14개 해부학 부위 → 근육 목록 → 첫 근육 → 학습목차 → back 전수 PASS
+- 정적 QA PASS + runtime E2E PASS
+- 사용자 실기기 Preview 확인 전 A2 COMPLETE 처리 금지
