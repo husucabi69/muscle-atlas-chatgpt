@@ -4,6 +4,38 @@
 앱 이름: 이윤석정형외과 근육  
 정본 원칙: Stage 1–15의 완성 기능을 유지하면서, 실제 사용 흐름과 교육 품질을 우선 개선한다.
 
+## 개발 통제 원칙 — 아이디어 보존 / 우선순위 / 작업선 관리
+
+사용자 아이디어는 즉시 구현 지시로 해석하지 않는다. 먼저 아래 절차를 거쳐 정본 로드맵에 배치한다.
+
+1. **아이디어 보존** — 새 아이디어는 반드시 Idea Register에 기록한다. 삭제하지 않는다.
+2. **선후관계 분석** — 기반 구조를 먼저 고쳐야 뒤 작업의 재작업이 줄어드는지 판단한다.
+3. **중요도 분류** — Release blocker / High / Medium / Later 로 분류한다.
+4. **의존성 확인** — 기존 Stable ID, PWA, 학습기록, 임상 모듈, 환자교육 구조를 깨지 않는지 확인한다.
+5. **로드맵 배치 후 구현** — 현재 작업선보다 우선도가 낮으면 뒤로 보낸다. 좋은 아이디어라도 즉시 끼워 넣지 않는다.
+6. **중간 아이디어 유실 금지** — 구현을 미루더라도 deferred 상태와 이유를 남긴다.
+7. **작업선 단일화** — 한 시점에 하나의 주 작업선만 진행하고, 별도 아이디어는 backlog에 축적한다.
+8. **Preview 우선** — 자동 QA → Preview 실제화면 검수 → 사용자 승인 후에만 다음 release gate로 이동한다.
+9. **Production 동결** — 명시적 Production 승격 승인 전에는 main을 변경하지 않는다.
+
+### Idea Register — 2026-09-27
+
+| ID | 아이디어 | 중요도 | 선행조건 | 상태 / 배치 |
+|---|---|---|---|---|
+| UX-001 | 모든 탭을 목차 → 하위목록 → 상세 → 심화 독립 화면 drill-down 구조로 통일 | Release blocker | 공통 navigation shell | **NEXT / Stage 23A** |
+| UX-002 | 탭/항목을 눌렀을 때 같은 화면 아래에 내용을 붙여 사용자가 스크롤로 찾아야 하는 패턴 제거 | Release blocker | UX-001 | **Stage 23A** |
+| UX-003 | 각 단계에 뒤로가기 / 상위목차 / breadcrumb / 현재위치 제공 | High | UX-001 | **Stage 23A** |
+| UX-004 | 해부학: 부위만 표시 → 부위 근육만 표시 → 근육 상세 → 심화학습 | Release blocker | UX-001 | **Stage 23A 우선 기준화** |
+| UX-005 | 증상·환자교육·임상·초음파·퀴즈·Oral·내학습에도 같은 계층 UX 적용 | Release blocker | UX-004 공통 shell 검증 | **Stage 23A 전탭 확장** |
+| EDU-001 | 현재 환자 운동·스트레칭의 개념형 SVG를 전문 환자교육 수준 일러스트로 교체 | High | navigation 구조 고정 후 통합 | **Stage 23B** |
+| EDU-002 | 손·손가락·상지 등 인체 비율과 시작/끝 자세, 지지점, 움직임 방향을 실제 교육용 수준으로 개선 | High | EDU-001 | **Stage 23B** |
+| UPD-001 | 앱 실행/재개/포커스 시 자동 업데이트 확인 | High | Stage 15 | **IMPLEMENTED v11.37** |
+| UPD-002 | 홈 최상단에서 아래로 당겨 업데이트 확인/재로드 | High | Stage 15 | **IMPLEMENTED v11.37** |
+| QA-001 | 실제 Android에서 offline cold start / mic / TTS / 큰글자 / 회전 / print-share 확인 | Release blocker | Stage 23A + 23B | **Stage 23C** |
+
+아이디어 상태는 NEXT / queued / deferred / implemented / superseded 중 하나로 남긴다. superseded도 삭제하지 않고 대체 아이디어와 이유를 기록한다.
+
+---
 ## 현재 기준선
 
 - Canonical muscles: 205
@@ -367,6 +399,89 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 ---
 
+# Stage 23A — Full Hierarchical Navigation 3.0
+
+상태: **NEXT — 최우선 Release blocker**
+
+목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
+
+## 공통 화면 계약
+1. 1단계: 상위 목차만 표시
+2. 2단계: 선택한 항목의 하위 목록만 표시
+3. 3단계: 선택한 항목의 상세만 표시
+4. 4단계: 심화학습 목차
+5. 5단계: 선택한 심화 콘텐츠만 표시
+
+각 전환 시:
+- 기존 단계 콘텐츠는 화면에서 제거/숨김
+- 새 단계는 viewport top에서 시작
+- 뒤로가기 / 상위목차 / breadcrumb 제공
+- 사용자가 “아래로 내려가면 새 내용이 생겼다”는 경험 0
+- browser/Android back과 내부 back의 의미를 일치시킴
+
+## 적용 순서
+- [ ] **A1. 공통 navigation shell / view-state / history contract**
+- [ ] **A2. 해부학 부위** — 14개 부위만 → 해당 부위 근육만 → 근육 상세 → 심화목차 → 심화내용
+- [ ] **A3. 환자 운동·스트레칭** — 부위만 → 근육만 → 운동목차 → 운동 상세
+- [ ] **A4. 증상으로 찾기** — 증상군만 → 증상만 → 관련 구조/감별 목차 → 상세
+- [ ] **A5. 임상 모듈** — 부위/모듈 목차 → 검사/감별/초음파 목차 → 상세
+- [ ] **A6. 초음파** — 부위/구조 목차 → canonical view 목록 → view 상세
+- [ ] **A7. 퀴즈** — 모드/부위 선택 화면 → 세션 화면 → 결과/오답 화면
+- [ ] **A8. Oral Viva** — 모드/부위 선택 화면 → 세션 화면 → 결과/약점 화면
+- [ ] **A9. 내 학습** — dashboard 목차 → 최근/즐겨찾기/약점/mastery 개별 화면
+- [ ] **A10. 홈/검색** — 검색 결과에서 목적지 상세로 직접 들어가되 같은 navigation shell 사용
+
+## 완료 Gate
+- 모든 top-level 탭에서 drill-down 단계가 독립 화면처럼 전환
+- 하위 콘텐츠가 동일 화면 아래쪽에 append 되는 주요 경로 0
+- 각 단계 진입 시 scrollTop=0
+- Android/browser back dead-end 0
+- 기존 Stable ID deep-link/학습기록/임상 흐름 회귀 0
+- 360px/큰글자에서도 breadcrumb/back/navigation 사용 가능
+- 사용자 Preview 실제 화면 승인
+
+---
+
+# Stage 23B — Patient Exercise Illustration 3.0
+
+상태: **QUEUED — Stage 23A 구조 고정 후 시작**
+
+현재 Stage 19의 운동 그림은 **기능 검증용 개념형 SVG**이며 최종 환자교육 품질로 보지 않는다.
+
+목표:
+- [ ] 18 actionable profile 전수 재도해
+- [ ] 사람의 실제 비율에 가까운 몸통·팔·손·손가락·하지 표현
+- [ ] 시작자세와 끝자세를 한눈에 구분
+- [ ] 움직임 방향 / 지지점 / 고정점 / 흔한 오류를 그림에서 직접 이해
+- [ ] 손·손가락이 기호/만화처럼 보이는 표현 제거
+- [ ] 환자에게 인쇄·공유해도 어색하지 않은 임상교육용 스타일
+- [ ] 모바일과 A4 모두 가독성 유지
+- [ ] 근거 없는 동작/가동범위/반복횟수 시각적으로 임의 생성 금지
+- [ ] 최종 시각검수 전 기존 개념 SVG를 “완성품”으로 표시하지 않음
+
+완료 Gate: 18/18 실제 Preview 시각검수 + 환자가 그림만 보고 시작/끝/방향을 구분 가능 + clipping 0.
+
+---
+
+# Stage 23C — Integrated Real Device & Visual Gate
+
+상태: **QUEUED — Stage 23A + 23B 후 최종 실행**
+
+- Stage 23 기존 자동 device/offline gate 재실행
+- 전 탭 계층 navigation 실제 Android 검수
+- exercise illustration 실제 화면/인쇄 검수
+- offline cold start / online recovery
+- auto update / pull refresh
+- Oral mic / TTS
+- print / share
+- 세로·가로 / 작은 화면 / 큰글자
+- 학습기록 data loss 0
+- critical FAIL 0
+- 사용자 Preview 최종 승인
+
+Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않는다.
+
+---
 # Stage 24 — Google Play Production Release
 
 - [ ] final package ID
@@ -395,4 +510,4 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # 현재 바로 시작할 순서
 
-**Stage 23 Real Device & Offline Quality Gate → Stage 24 Google Play Production Release**
+**Stage 23A Full Hierarchical Navigation 3.0 → Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
