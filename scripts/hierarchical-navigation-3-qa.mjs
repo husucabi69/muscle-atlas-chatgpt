@@ -27,11 +27,38 @@ for(const view of ['regions','muscles','detail','deep']){
 }
 check('Anatomy root shows only region chooser contract',index.includes('1단계 · 부위 목차'));
 check('Anatomy region opens muscle-only level',index.includes('2단계 · 근육 목차')&&index.includes("setAnatomyView('muscles')"));
-check('Muscle opens learning menu before content',index.includes('학습 목차')&&index.includes("setAnatomyView('detail')"));
-check('Deep topic is separate screen',index.includes('id="regionDeepView"')&&index.includes("setAnatomyView('deep')"));
-check('Muscle opening does not auto-open basic topic',!/indexOf/.test('') && !index.slice(index.indexOf('function openRegionMuscle'),index.indexOf('function showRegionMuscleTab')).includes("showRegionMuscleTab('basic')"));
-for(const topic of ['basic','anatomy','ultrasound','clinical','learning']){
-  check('Anatomy menu topic: '+topic,index.includes('data-anatomy-detail-tab="'+topic+'"'));
+check('Anatomy visual baseline locked to v11.14',
+  index.includes("const ANATOMY_DETAIL_LAYOUT_BASELINE='v11.14 · Stage 17 Precision Anatomy'")
+);
+check('Muscle opens v11.14 horizontal tab hub before content',
+  index.includes('id="regionMuscleHubTabs" class="anatomy-detail-tabs"') &&
+  index.includes("setAnatomyView('detail')") &&
+  !index.slice(index.indexOf('id="regionDetailView"'),index.indexOf('id="regionDeepView"')).includes('drill-menu-grid')
+);
+check('Deep topic is separate screen with preserved muscle header and tabs',
+  index.includes('id="regionDeepView"') &&
+  index.includes('id="regionMuscleDeepHead" class="anatomy-detail-head"') &&
+  index.includes('id="regionMuscleDeepTabs" class="anatomy-detail-tabs"') &&
+  index.includes("setAnatomyView('deep')")
+);
+check('Muscle opening does not auto-open basic topic',
+  !index.slice(index.indexOf('function openRegionMuscle'),index.indexOf('function showRegionMuscleTab')).includes("showRegionMuscleTab('basic')")
+);
+check('Shared anatomy tab renderer is single source of truth',
+  index.includes('function anatomyDetailTabsHtml(activeTab=null)') &&
+  index.includes('function renderAnatomyDetailTabs(activeTab=null)')
+);
+const expectedAnatomyTabs=[
+  ['basic','기본정보'],
+  ['anatomy','해부도해'],
+  ['ultrasound','초음파'],
+  ['clinical','임상'],
+  ['learning','심화·학습']
+];
+for(const [topic,label] of expectedAnatomyTabs){
+  check('Anatomy v11.14 tab: '+topic,
+    index.includes("['"+topic+"','"+label+"']")
+  );
 }
 check('Deep breadcrumb exists',index.includes('id="regionDeepBreadcrumb"'));
 check('Hierarchy back controls exist',index.includes("anatomyBack('regions')")&&index.includes("anatomyBack('muscles')")&&index.includes("anatomyBack('detail')"));
