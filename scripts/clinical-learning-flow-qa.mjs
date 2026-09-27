@@ -60,7 +60,7 @@ check('Muscle modal keeps flow context',
   index.includes("setLearningFlowContext({muscleId:id")
 );
 check('Symptom context preserves selected muscle',
-  index.includes('function openSymptom(id,preferredMuscleId)') &&
+  (index.includes('function openSymptom(id,preferredMuscleId)')||index.includes('function openSymptom(id,preferredMuscleId,record=true)')) &&
   index.includes('function selectSymptomFlowMuscle') &&
   index.includes("symptomId:id,muscleId:preserved")
 );
