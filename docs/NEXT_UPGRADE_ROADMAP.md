@@ -22,10 +22,10 @@
 
 | ID | 아이디어 | 중요도 | 선행조건 | 상태 / 배치 |
 |---|---|---|---|---|
-| UX-001 | 모든 탭을 목차 → 하위목록 → 상세 → 심화 독립 화면 drill-down 구조로 통일 | Release blocker | 공통 navigation shell | **NEXT / Stage 23A** |
+| UX-001 | 모든 탭을 목차 → 하위목록 → 상세 → 심화 독립 화면 drill-down 구조로 통일 | Release blocker | 공통 navigation shell | **IN PROGRESS / A1·A2 완료** |
 | UX-002 | 탭/항목을 눌렀을 때 같은 화면 아래에 내용을 붙여 사용자가 스크롤로 찾아야 하는 패턴 제거 | Release blocker | UX-001 | **Stage 23A** |
 | UX-003 | 각 단계에 뒤로가기 / 상위목차 / breadcrumb / 현재위치 제공 | High | UX-001 | **Stage 23A** |
-| UX-004 | 해부학: 부위만 표시 → 부위 근육만 표시 → 근육 상세 → 심화학습 | Release blocker | UX-001 | **Stage 23A 우선 기준화** |
+| UX-004 | 해부학: 부위만 표시 → 부위 근육만 표시 → 근육 상세 → 심화학습 | Release blocker | UX-001 | **IMPLEMENTED / A2** |
 | UX-005 | 증상·환자교육·임상·초음파·퀴즈·Oral·내학습에도 같은 계층 UX 적용 | Release blocker | UX-004 공통 shell 검증 | **Stage 23A 전탭 확장** |
 | EDU-001 | 현재 환자 운동·스트레칭의 개념형 SVG를 전문 환자교육 수준 일러스트로 교체 | High | navigation 구조 고정 후 통합 | **Stage 23B** |
 | EDU-002 | 손·손가락·상지 등 인체 비율과 시작/끝 자세, 지지점, 움직임 방향을 실제 교육용 수준으로 개선 | High | EDU-001 | **Stage 23B** |
@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **NEXT — 최우선 Release blocker**
+상태: **IN PROGRESS — A1/A2 COMPLETE · 다음 A3 환자교육**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -425,8 +425,8 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - browser/Android back과 내부 back의 의미를 일치시킴
 
 ## 적용 순서
-- [ ] **A1. 공통 navigation shell / view-state / history contract**
-- [ ] **A2. 해부학 부위** — 14개 부위만 → 해당 부위 근육만 → 근육 상세 → 심화목차 → 심화내용
+- [x] **A1. 공통 navigation shell / view-state / history contract** — drill screen 공통 전환·viewport reset·history helper
+- [x] **A2. 해부학 부위** — 14개 부위만 → 해당 부위 근육만 → 근육 학습목차 → 선택한 심화내용 독립 화면
 - [ ] **A3. 환자 운동·스트레칭** — 부위만 → 근육만 → 운동목차 → 운동 상세
 - [ ] **A4. 증상으로 찾기** — 증상군만 → 증상만 → 관련 구조/감별 목차 → 상세
 - [ ] **A5. 임상 모듈** — 부위/모듈 목차 → 검사/감별/초음파 목차 → 상세
@@ -528,4 +528,4 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**Stage 23A Full Hierarchical Navigation 3.0 → Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
+**Stage 23A A3 환자교육 계층화 → A4 증상 → A5 임상 → A6 초음파 → A7 퀴즈 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
