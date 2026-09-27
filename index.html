@@ -2546,6 +2546,7 @@ async function loadPatientExerciseLibrary(){
 }
 function activatePage(pageId){
   cleanupLearningOverlays();
+  if(pageId==='education')showEducationRegions(false);
   showPage(pageId);
   if(learningFlowContext.muscleId)learningFlowContext.sourcePage=pageId;
   if(pageId==='learning')renderLearningDashboard();
