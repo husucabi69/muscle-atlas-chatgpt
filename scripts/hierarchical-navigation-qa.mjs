@@ -27,7 +27,7 @@ check('Muscle to detail transition',index.includes("setAnatomyView('detail')"));
 check('Back to anatomy regions',index.includes('onclick="showAnatomyRegions()"')||index.includes('onclick="showAnatomyRegions(true)"'));
 check('Back to current region list',index.includes('onclick="showCurrentRegionMuscles()"'));
 check('Immediate scroll reset',index.includes("window.scrollTo({top:0,behavior:'auto'})"));
-check('History state recorded',index.includes('function recordAnatomyHistory(level)')&&index.includes('history.pushState'));
+check('History state recorded',(index.includes('function recordAnatomyHistory(level)')||index.includes("function recordAnatomyHistory(level,mode='push')"))&&(index.includes('history.pushState')||index.includes('pushAppNavigationState(state)')));
 check('Physical/browser back handled',index.includes("window.addEventListener('popstate'"));
 check('History restore does not repush',index.includes('restoringAnatomyHistory=true')&&index.includes('openRegionMuscle(state.anatomyMuscleId,false)'));
 
