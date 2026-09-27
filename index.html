@@ -1871,13 +1871,13 @@ function flowStableContextHtml(id,moduleKey){
   if(us.length)html+=' · ultrasound '+esc(us.map(v=>v.ultrasound_view_id).join(', '));
   html+='</div>';
   if(safety)html+='<div class="clinical-redflag"><b>Red flag / 안전 경계</b><br>'+esc(safety)+'</div>';
-  if(clues.length)html+='<div class="clinical-flow-grid"><div class="clinical-flow-panel"><b>감별 단서</b>'+clues.map(x=>
+  if(clues.length||tests.length)html+='<div class="clinical-flow-grid"><div class="clinical-flow-panel"><b>감별 단서</b>'+clues.map(x=>
     '<button class="clinical-clue" type="button" onclick="focusClinicalStableEntity(\'diagnosis_concept\',\''+x.id+'\')"><strong>'+esc(x.name)+' · '+esc(x.id)+'</strong><span>지지: '+esc(x.support.join(' · ')||'—')+'</span><span>반대·제한: '+esc(x.oppose.join(' · ')||'—')+'</span></button>'
   ).join('')+'</div>';
   if(tests.length)html+='<div class="clinical-flow-panel"><b>연결 진찰</b>'+tests.map(t=>
     '<button class="clinical-mini-link" type="button" onclick="focusClinicalStableEntity(\'clinical_test\',\''+t.clinical_test_id+'\')">'+esc(t.name_ko)+' <small>'+esc(t.clinical_test_id)+'</small></button>'
   ).join('')+'</div>';
-  if(clues.length)html+='</div>';
+  if(clues.length||tests.length)html+='</div>';
   if(entities.length)html+='<div class="clinical-entity-links"><b>구조 빠른 이동</b>'+entities.map(e=>
     '<button type="button" onclick="focusClinicalStableEntity(\''+e._entityType+'\',\''+e._stableId+'\')">'+esc(e.name_ko||e.name_en||e._stableId)+' <small>'+esc(e._stableId)+'</small></button>'
   ).join('')+'</div>';
@@ -1924,6 +1924,8 @@ function annotateClinicalModuleCards(moduleKey){
         (g.candidates||[]).forEach((c,ci)=>{
           const note=notes[ci];if(!note)return;
           note.id='diagnosis-concept-'+c.diagnosis_concept_id;note.dataset.diagnosisConceptId=c.diagnosis_concept_id;
+          if(note.dataset.stage21Contract==='1')return;
+          note.dataset.stage21Contract='1';
           const d=dxMap[c.diagnosis_concept_id];
           note.innerHTML='<b>'+esc(d?.name_ko||c.diagnosis_concept_id)+' · '+esc(c.diagnosis_concept_id)+'</b><br>'+
             '<span class="clinical-support"><b>지지 단서</b> '+esc((c.look_for||[]).join(' · ')||'—')+'</span><br>'+
@@ -2136,7 +2138,7 @@ function closeMuscle(){document.getElementById('muscleOverlay').classList.remove
 
 
 
-let patientExerciseLibrary=let patientExerciseLibrary=null,patientExerciseIllustrations=null,exerciseIllustrationById={},exerciseProfileById={},exerciseAssignmentByMuscle={};
+let patientExerciseLibrary=null,patientExerciseIllustrations=null,exerciseIllustrationById={},exerciseProfileById={},exerciseAssignmentByMuscle={};
 async function loadPatientExerciseLibrary(){
   try{
     const [r,ir]=await Promise.all([fetch('./data/patient-exercise-library-v1.json',{cache:'no-cache'}),fetch('./data/patient-exercise-illustration-v2.json',{cache:'no-cache'})]);
