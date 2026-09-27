@@ -629,8 +629,8 @@ Stage 12는 versioned read-only knowledge contract만 제공하며 실제 환자
 5. Stage 19 Patient Exercise Illustration 2.0 — DEV COMPLETE
 6. Stage 20 Ultrasound Atlas 2.0 — DEV COMPLETE
 7. Stage 21 Clinical Learning Flow 2.0 — DEV COMPLETE / automated QA gate
-8. Stage 22 Search & Personal Learning 2.0 — NEXT
-9. Stage 23 Real Device & Offline Quality Gate
+8. Stage 22 Search & Personal Learning 2.0 — DEV COMPLETE / automated QA PASS
+9. Stage 23 Real Device & Offline Quality Gate — NEXT
 10. Stage 24 Google Play Production Release
 
 
@@ -655,6 +655,29 @@ Stage 12는 versioned read-only knowledge contract만 제공하며 실제 환자
 - [x] Stage 21 전용 regression QA를 Global QA workflow에 유지
 - [ ] 실제 Preview 화면 시각검수는 사용자 승인 전까지 별도 미완료로 유지
 
-다음 개발 시작점: **Stage 22 — Search & Personal Learning 2.0**
+다음 개발 시작점: **Stage 23 — Real Device & Offline Quality Gate**
+
+Production `main`은 사용자 명시 승인 전까지 동결한다.
+
+
+---
+
+## Stage 22 완료 기록 — Search & Personal Learning 2.0
+완료일: 2026-09-27
+상태: **DEV COMPLETE / AUTOMATED QA PASS — Preview only / Production 미승격**
+
+- [x] 통합검색: 한글 / 영문 / 약어 / Stable ID
+- [x] entity type filter: 12개 canonical entity 계층
+- [x] 최근 본 항목: Stable ID + last-view timestamp만 local 저장
+- [x] 즐겨찾기: Stable ID 기반 local-only
+- [x] Quiz wrong/due + Oral wrong/partial을 합친 취약근육 자동 모음
+- [x] 부위별 학습지표: coverage + 학습기록 performance 기반, 실제 숙련도·임상역량 평가가 아니라 앱 내 학습지표로 명시
+- [x] 학습기록 export/import 허용목록: Quiz 수치, Oral grade/score/level, favorites/recent Stable ID
+- [x] export/import에서 자유서술 답변·음성 원문·환자/encounter 식별정보 제외
+- [x] 외부 서버 동기화 없음 / localStorage 기본
+- [x] Stage 22 QA를 Global QA workflow에 추가
+- [ ] Preview 실제 화면 시각검수는 사용자 승인 전까지 미완료
+
+다음 개발 시작점: **Stage 23 — Real Device & Offline Quality Gate**
 
 Production `main`은 사용자 명시 승인 전까지 동결한다.
