@@ -291,9 +291,11 @@
 
 # Stage 21 — Clinical Learning Flow 2.0
 
+상태: **IN PROGRESS — 10개 임상모듈 공통 8단계 flow + 근육 문맥 유지 navigation 구현 / red flag·clue·entity quick-nav 고도화 진행 중**
+
 목표: symptom → anatomy → differential → examination → ultrasound → quiz → viva → education을 같은 계층 UX로 연결한다.
 
-- [ ] Stage 1–10 동일 navigation contract
+- [x] Stage 1–10 동일 navigation contract — symptom → anatomy → differential → examination → ultrasound → fixed-muscle quiz → viva → education
 - [ ] clinical test: 목적 / 방법 / 양성 / 한계 / 오류
 - [ ] red flag 별도 표시
 - [ ] diagnosis supporting/opposing clues
