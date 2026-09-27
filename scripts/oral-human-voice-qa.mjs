@@ -6,7 +6,8 @@ const ttsContract=fs.readFileSync('docs/ORAL_TTS_SERVER_CONTRACT.md','utf8');
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 
-check('Stage 18 release version',/buildVersion:'[^']*-stage18\./.test(version),version.match(/buildVersion:'([^']+)'/)?.[1]||'missing');
+const releaseStage=Number(version.match(/buildVersion:'[^']*-stage(\d+)\./)?.[1]||0);
+check('Stage 18 survives current/later release',releaseStage>=18,String(releaseStage));
 check('Voice preference persisted locally',index.includes("ORAL_VOICE_KEY='mskOralVoiceV3'"));
 check('Natural/neural voice ranking exists',index.includes('natural|neural|premium|enhanced|wavenet|studio'));
 check('Korean voice ranking prefers ko-KR',index.includes("if(lang==='ko-kr')score+=120"));
