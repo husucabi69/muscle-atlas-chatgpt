@@ -2,6 +2,7 @@ import fs from 'node:fs';
 
 const modules=['shoulder','elbow','wrist-hand','hip-pelvis','knee-thigh','leg-ankle-foot','cervical','thoracic-back-chestwall','lumbar-sacral','abdominal-core'];
 const guidance=JSON.parse(fs.readFileSync('data/ultrasound-probe-guidance-v2.json','utf8'));
+const promotion=JSON.parse(fs.readFileSync('data/ultrasound-media-promotion-audit-v2.json','utf8'));
 const media=JSON.parse(fs.readFileSync('data/media-license-global-audit-v1.json','utf8'));
 const index=fs.readFileSync('index.html','utf8');
 const sw=fs.readFileSync('sw.js','utf8');
@@ -51,6 +52,14 @@ check('Probe axis/orientation visualization exists',index.includes('function ult
 check('Guidance cached offline',sw.includes('./data/ultrasound-probe-guidance-v2.json'));
 check('Actual ultrasound only policy retained',media.policy?.actual_ultrasound_only===true);
 check('Generated B-mode remains forbidden',media.policy?.generated_b_mode_substitute===false&&guidance.policy?.generated_bmode===false);
+check('Pitfall taxonomy covers 131 views',guidance.views.every(x=>Array.isArray(x.pitfall_tags)&&x.pitfall_tags.length>0));
+check('Pitfall tags rendered in UI',index.includes('function ultrasoundPitfallTags')&&index.includes('us-pitfall-tag'));
+check('Promotion audit covers 131 views',promotion.views.length===131,String(promotion.views.length));
+check('Promotion audit decisions sum to 131',Object.values(promotion.summary).filter(x=>typeof x==='number').length>0&&promotion.views.filter(x=>['embedded_reusable','promotion_candidate_direct_asset_required','reference_only'].includes(x.promotion_decision)).length===131);
+check('Embedded actual ultrasound count preserved',promotion.summary.embedded_reusable===5,String(promotion.summary.embedded_reusable));
+check('Permissive direct-asset candidates tracked',promotion.summary.promotion_candidate_direct_asset_required===9,String(promotion.summary.promotion_candidate_direct_asset_required));
+check('Reference-only views tracked',promotion.summary.reference_only===117,String(promotion.summary.reference_only));
+check('Publication page alone cannot trigger embed',promotion.policy?.publication_page_is_not_media_asset===true);
 check('No synthetic B-mode generator introduced',!index.includes('generateBMode')&&!index.includes('syntheticBMode'));
 
 let fail=0;
