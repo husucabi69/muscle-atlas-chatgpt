@@ -571,3 +571,17 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - 존재하지 않는 group/view는 fail-fast
 - Playwright browser E2E에서 14개 부위 전수 PASS
 - A2 최종 닫기 조건: 의장님 실제 Preview 확인
+
+
+### Anatomy UX Baseline Gate — v11.14 LOCKED
+
+- [x] v11.14 Precision Anatomy 코드 정본 SHA 확인: `e6dc0492a4d16d0536e15db3f6162b8ec57ee757`
+- [x] 근육 상세 헤더 유지
+- [x] 가로 탭 5개 유지: 기본정보 / 해부도해 / 초음파 / 임상 / 심화·학습
+- [x] 세로형 학습목차 카드 제거
+- [x] 탭 선택 → 독립 deep 화면
+- [x] deep 화면에서도 동일 근육 헤더 + 동일 가로 탭 유지
+- [x] selected tab active 상태 표시
+- [x] browser back → 같은 근육 허브 복귀
+- [x] 실제 browser E2E 추가
+- [ ] 실제 Preview 사용자 시각 확인
