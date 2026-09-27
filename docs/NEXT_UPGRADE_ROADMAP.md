@@ -252,18 +252,20 @@
 
 # Stage 19 — Patient Exercise Illustration 2.0
 
+상태: **IN PROGRESS — 19/19 profile 구조감사 + 18 actionable two-phase illustration 구현 완료 / Preview 시각검수 미완료**
+
 목표: 현재 운동 개념 SVG를 환자가 설명 없이도 따라 하기 쉬운 전문 환자교육 도해로 고도화한다.
 
-- [ ] 19 patient exercise profile 전수 시각감사
-- [ ] 시작자세 / 끝자세
-- [ ] 움직임 방향 화살표
-- [ ] 지지점·고정부위·주의관절
-- [ ] 반복횟수 / 유지시간 / 세트 / 빈도
-- [ ] 흔한 잘못된 자세
-- [ ] stop/reassessment 표시
-- [ ] 모바일 카드 + A4 인쇄
-- [ ] grayscale print readability
-- [ ] alt text / 쉬운 한국어 caption
+- [x] 19 patient exercise profile 전수 구조감사 — 18 actionable + px099 evidence boundary
+- [x] 시작자세 / 끝자세 two-phase card 18/18
+- [x] 움직임 방향 화살표/끝자세 변화 18/18
+- [x] 지지점·고정부위 안내 18/18
+- [x] 반복·유지·세트·빈도는 기존 근거 기반 dose 문구만 표시하고 임의 숫자 생성 금지
+- [x] 흔한 잘못된 자세 18/18
+- [x] stop/reassessment 기준 18/18
+- [x] 모바일 반응형 card + A4 break-inside/흑백 print-safe 구현
+- [x] grayscale print-safe CSS 적용
+- [x] 18/18 alt text + 쉬운 한국어 caption
 
 완료 Gate: actionable profile 그림 누락 0 / A4 clipping 0 / 360px 의미손실 0
 

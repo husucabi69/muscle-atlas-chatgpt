@@ -125,7 +125,7 @@ button,input{font:inherit} button{cursor:pointer}
 .patient-warning{border:1px solid #efc3bd;background:#fff8f7;border-radius:16px;padding:15px 16px;line-height:1.75;margin:12px 0}
 .patient-help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.patient-help-grid>div{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff}.patient-help-grid b{display:block;font-size:18px;margin-bottom:6px}.patient-help-grid span{color:var(--muted);line-height:1.6}
 .clinician-note{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:14px 0;color:#475467}.clinician-note summary{cursor:pointer;font-weight:750}
-.exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:10px;margin:10px 0 12px}.exercise-figure svg{width:100%;max-width:420px;height:auto;display:block;margin:auto}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:4px}.exercise-log{margin-top:12px;border-top:1px dashed #98a2b3;padding-top:8px;font-size:13px;word-spacing:8px}.region-print-muscles{font-size:13px;color:#475467;line-height:1.6;margin:6px 0 10px}
+.exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:10px;margin:10px 0 12px}.exercise-sequence{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exercise-phase{border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px}.exercise-phase b{display:block;font-size:13px;margin-bottom:4px}.exercise-phase svg{width:100%;height:auto;display:block;margin:auto}.exercise-phase p{font-size:12px;line-height:1.45;color:var(--muted);margin:5px 0 0}.exercise-cues{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.exercise-cue{border-left:3px solid #667085;padding:7px 9px;background:#fff;border-radius:7px;font-size:13px;line-height:1.5}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:8px}.exercise-log{margin-top:12px;border-top:1px dashed #98a2b3;padding-top:8px;font-size:13px;word-spacing:8px}.region-print-muscles{font-size:13px;color:#475467;line-height:1.6;margin:6px 0 10px}
 .patient-step-label{display:inline-block;font-weight:800;margin-bottom:4px}.patient-caution{border-left:4px solid #d92d20;background:#fff8f7;padding:10px 12px;border-radius:8px;line-height:1.65;margin-top:10px}
 .print-only{display:none}
 @media(max-width:900px){.patient-help-grid{grid-template-columns:1fr}.patient-hero{align-items:flex-start;flex-direction:column}.patient-hero h2{font-size:31px}}
@@ -137,11 +137,11 @@ button,input{font:inherit} button{cursor:pointer}
   body.printing-education .no-print{display:none!important}
   body.printing-education .print-only{display:block!important}
   body.printing-education .exercise-card{break-inside:avoid;box-shadow:none;border:1px solid #bbb;margin:10px 0}
-  body.printing-education .exercise-figure{break-inside:avoid}
+  body.printing-education .exercise-figure{break-inside:avoid;background:#fff!important;color:#000!important}body.printing-education .exercise-phase{background:#fff!important;border-color:#999!important}body.printing-education .exercise-cue{background:#fff!important;color:#000!important;border-color:#666!important}
   body.printing-education a{color:#000;text-decoration:none}
 }
 @media(max-width:900px){.oral-controls{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.oral-controls{grid-template-columns:1fr}.oral-voice-panel{grid-template-columns:1fr}.oral-voice-status{grid-column:auto}}
+@media(max-width:520px){.oral-controls{grid-template-columns:1fr}.oral-voice-panel{grid-template-columns:1fr}.oral-voice-status{grid-column:auto}.exercise-cues{grid-template-columns:1fr}}@media(max-width:420px){.exercise-sequence{grid-template-columns:1fr}}
 
 @media(max-width:900px){.grid3,.grid2,.kpi,.media-grid{grid-template-columns:1fr}.quiz-controls{grid-template-columns:1fr}.quiz-stats{grid-template-columns:1fr 1fr}.hero h2{font-size:32px}.modal-body{padding:20px 14px 34px}.region-list{grid-template-columns:1fr 1fr}.region-chooser,.symptom-group-chooser{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){
@@ -1788,12 +1788,14 @@ function closeMuscle(){document.getElementById('muscleOverlay').classList.remove
 
 
 
-let patientExerciseLibrary=null,exerciseProfileById={},exerciseAssignmentByMuscle={};
+let patientExerciseLibrary=null,patientExerciseIllustrations=null,exerciseIllustrationById={},exerciseProfileById={},exerciseAssignmentByMuscle={};
 async function loadPatientExerciseLibrary(){
   try{
-    const r=await fetch('./data/patient-exercise-library-v1.json',{cache:'no-cache'});
-    if(!r.ok)throw new Error('patient exercise library unavailable');
+    const [r,ir]=await Promise.all([fetch('./data/patient-exercise-library-v1.json',{cache:'no-cache'}),fetch('./data/patient-exercise-illustration-v2.json',{cache:'no-cache'})]);
+    if(!r.ok||!ir.ok)throw new Error('patient exercise library unavailable');
     patientExerciseLibrary=await r.json();
+    patientExerciseIllustrations=await ir.json();
+    exerciseIllustrationById=Object.fromEntries((patientExerciseIllustrations.profiles||[]).map(x=>[x.profile_id,x]));
     exerciseProfileById=Object.fromEntries((patientExerciseLibrary.profiles||[]).map(x=>[x.profile_id,x]));
     exerciseAssignmentByMuscle=Object.fromEntries((patientExerciseLibrary.assignments||[]).map(x=>[x.muscle_id,x]));
     refreshLearningLayerNavigation();
@@ -1852,38 +1854,53 @@ function exerciseCaution(p){
   return '운동 중 통증이 뚜렷하게 증가하거나 다음날까지 악화가 지속되면 강도·횟수를 줄이고 필요하면 진료를 받으세요.';
 }
 function exerciseFigureKey(id){
+  const fromSpec=exerciseIllustrationById[id]?.figure_key;
+  if(fromSpec)return fromSpec;
   const map={px001:'neckStretch',px002:'chinTuck',px003:'row',px004:'shoulderER',px005:'doorStretch',px006:'wrist',px007:'hand',
     px008:'hipAbduction',px009:'squat',px010:'bridge',px011:'heelRaise',px012:'balance',px013:'plantar',px014:'birdDog',
     px015:'thoracic',px016:'breathing',px017:'elbowCurl',px018:'deadBug'};
   return map[id]||'general';
 }
-function exerciseIllustration(p){
-  if(!p||p.profile_id==='px099')return '';
-  const k=exerciseFigureKey(p.profile_id);
-  const common='<circle cx="82" cy="37" r="13" fill="none" stroke="currentColor" stroke-width="5"/><line x1="82" y1="50" x2="82" y2="112" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>';
-  const arrow='<path d="M180 48 C205 48 214 68 214 86" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M206 78 L214 88 L220 76" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>';
+function exercisePoseMarkup(k,phase){
+  const end=phase==='end',stroke='currentColor';
+  const head=(x=72,y=28)=>'<circle cx="'+x+'" cy="'+y+'" r="11" fill="none" stroke="'+stroke+'" stroke-width="4"/>';
+  const line=(x1,y1,x2,y2,w=5)=>'<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+stroke+'" stroke-width="'+w+'" stroke-linecap="round"/>';
+  const arrow=(x1,y1,x2,y2)=>'<defs><marker id="mv-'+k+'-'+phase+'" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs><line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+stroke+'" stroke-width="3" marker-end="url(#mv-'+k+'-'+phase+')"/>';
+  const standing=()=>head()+line(72,39,72,93)+line(72,55,45,72)+line(72,55,99,72)+line(72,93,55,132)+line(72,93,90,132);
   let body='';
-  const caption={
-    neckStretch:'목 옆을 부드럽게 늘리기',chinTuck:'턱을 작게 당겨 목 깊은근육 깨우기',row:'밴드 로우 · 견갑을 뒤로 조절',
-    shoulderER:'팔꿈치를 붙이고 어깨 바깥돌림',doorStretch:'문틀에서 앞가슴을 부드럽게 늘리기',wrist:'손목을 천천히 저항하며 움직이기',
-    hand:'손가락 벌림·모음과 손 기능 연습',hipAbduction:'골반을 고정하고 다리 옆으로 들기',squat:'엉덩이를 뒤로 보내며 천천히 앉았다 일어나기',
-    bridge:'엉덩이 들기 · 몸통과 둔근 함께 쓰기',heelRaise:'뒤꿈치 들기 · 종아리/아킬레스 점진 부하',balance:'안전한 지지물 옆 한발 균형',
-    plantar:'종아리·발바닥을 부드럽게 늘리고 강화',birdDog:'네발기기에서 반대 팔·다리 뻗기',thoracic:'흉추를 천천히 회전·펴기',
-    breathing:'어깨 힘을 빼고 아랫가슴·배로 호흡',elbowCurl:'팔꿈치 굽힘·폄 저항운동',deadBug:'허리를 편안히 유지하며 팔·다리 교대',general:'천천히 정확한 자세로 운동'
-  }[k];
-  if(k==='chinTuck'||k==='neckStretch'){body=common+'<line x1="82" y1="68" x2="45" y2="91" stroke="currentColor" stroke-width="6"/><line x1="82" y1="68" x2="119" y2="91" stroke="currentColor" stroke-width="6"/><path d="M63 30 Q82 18 101 31" fill="none" stroke="currentColor" stroke-width="4"/>'+arrow;}
-  else if(k==='row'||k==='shoulderER'||k==='elbowCurl'||k==='wrist'){body=common+'<line x1="82" y1="68" x2="40" y2="83" stroke="currentColor" stroke-width="6"/><line x1="82" y1="68" x2="126" y2="83" stroke="currentColor" stroke-width="6"/><line x1="126" y1="83" x2="161" y2="68" stroke="currentColor" stroke-width="6"/>'+arrow;}
-  else if(k==='doorStretch'){body=common+'<line x1="82" y1="68" x2="35" y2="68" stroke="currentColor" stroke-width="6"/><line x1="82" y1="68" x2="129" y2="68" stroke="currentColor" stroke-width="6"/><line x1="30" y1="20" x2="30" y2="135" stroke="currentColor" stroke-width="5"/><line x1="134" y1="20" x2="134" y2="135" stroke="currentColor" stroke-width="5"/>'+arrow;}
-  else if(k==='squat'||k==='heelRaise'||k==='balance'){body=common+'<line x1="82" y1="112" x2="54" y2="151" stroke="currentColor" stroke-width="6"/><line x1="82" y1="112" x2="112" y2="151" stroke="currentColor" stroke-width="6"/><line x1="54" y1="151" x2="37" y2="151" stroke="currentColor" stroke-width="6"/><line x1="112" y1="151" x2="132" y2="151" stroke="currentColor" stroke-width="6"/>'+arrow;}
-  else if(k==='hipAbduction'){body=common+'<line x1="82" y1="112" x2="60" y2="155" stroke="currentColor" stroke-width="6"/><line x1="82" y1="112" x2="139" y2="135" stroke="currentColor" stroke-width="6"/>'+arrow;}
-  else if(k==='bridge'||k==='deadBug'){body='<circle cx="43" cy="94" r="12" fill="none" stroke="currentColor" stroke-width="5"/><line x1="55" y1="94" x2="116" y2="94" stroke="currentColor" stroke-width="6"/><line x1="116" y1="94" x2="150" y2="125" stroke="currentColor" stroke-width="6"/><line x1="150" y1="125" x2="188" y2="125" stroke="currentColor" stroke-width="6"/><line x1="82" y1="94" x2="108" y2="57" stroke="currentColor" stroke-width="6"/>'+arrow;}
-  else if(k==='birdDog'){body='<circle cx="83" cy="65" r="12" fill="none" stroke="currentColor" stroke-width="5"/><line x1="95" y1="70" x2="151" y2="91" stroke="currentColor" stroke-width="6"/><line x1="115" y1="78" x2="67" y2="111" stroke="currentColor" stroke-width="6"/><line x1="145" y1="89" x2="196" y2="66" stroke="currentColor" stroke-width="6"/><line x1="145" y1="91" x2="163" y2="134" stroke="currentColor" stroke-width="6"/>'+arrow;}
-  else if(k==='breathing'){body=common+'<ellipse cx="82" cy="86" rx="28" ry="22" fill="none" stroke="currentColor" stroke-width="3"/><path d="M42 82 Q28 92 42 105 M122 82 Q136 92 122 105" fill="none" stroke="currentColor" stroke-width="4"/>'+arrow;}
-  else if(k==='thoracic'){body=common+'<line x1="82" y1="68" x2="42" y2="56" stroke="currentColor" stroke-width="6"/><line x1="82" y1="68" x2="124" y2="82" stroke="currentColor" stroke-width="6"/><path d="M45 40 Q82 17 123 42" fill="none" stroke="currentColor" stroke-width="4"/>'+arrow;}
-  else if(k==='plantar'){body='<circle cx="58" cy="56" r="12" fill="none" stroke="currentColor" stroke-width="5"/><line x1="70" y1="64" x2="110" y2="100" stroke="currentColor" stroke-width="6"/><line x1="110" y1="100" x2="160" y2="126" stroke="currentColor" stroke-width="6"/><line x1="160" y1="126" x2="204" y2="126" stroke="currentColor" stroke-width="6"/>'+arrow;}
-  else if(k==='hand'){body='<path d="M65 125 L65 76 M65 88 L43 57 M65 83 L59 44 M67 83 L78 42 M70 88 L98 55 M65 124 Q104 119 101 84" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>'+arrow;}
-  else{body=common+'<line x1="82" y1="68" x2="46" y2="93" stroke="currentColor" stroke-width="6"/><line x1="82" y1="68" x2="119" y2="93" stroke="currentColor" stroke-width="6"/><line x1="82" y1="112" x2="57" y2="151" stroke="currentColor" stroke-width="6"/><line x1="82" y1="112" x2="108" y2="151" stroke="currentColor" stroke-width="6"/>'+arrow;}
-  return '<div class="exercise-figure"><svg viewBox="0 0 260 175" role="img" aria-label="'+esc(caption)+'" style="color:#344054">'+body+'</svg><div class="exercise-caption">동작 개념도 · '+esc(caption)+'</div></div>';
+  if(k==='neckStretch'){body=standing()+(end?'<path d="M58 25 Q72 36 86 25" fill="none" stroke="currentColor" stroke-width="3"/>'+arrow(112,35,142,56):'');}
+  else if(k==='chinTuck'){body=head(48,70)+line(59,70,126,70)+line(126,70,160,110)+line(160,110,190,110)+(end?arrow(52,48,38,48):'');}
+  else if(k==='row'){body=standing()+(end?line(72,56,42,62)+line(42,62,28,48)+line(72,56,102,62)+line(102,62,116,48)+arrow(25,88,52,72):line(72,56,28,68)+line(72,56,116,68));}
+  else if(k==='shoulderER'){body=standing()+line(72,57,48,75)+line(72,57,96,75)+(end?line(48,75,20,62)+line(96,75,124,62)+arrow(48,94,22,82):line(48,75,48,105)+line(96,75,96,105));}
+  else if(k==='doorStretch'){body=standing()+line(28,18,28,135,4)+line(116,18,116,135,4)+line(72,58,30,58)+line(72,58,114,58)+(end?arrow(145,84,165,84):'');}
+  else if(k==='wrist'){body=line(28,75,112,75,7)+line(112,75,end?150:148,end?54:75,6)+(end?arrow(148,88,148,60):'');}
+  else if(k==='hand'){body='<path d="M76 130 L76 72 M76 86 L54 54 M76 82 L69 43 M78 82 L88 42 M81 87 L110 55 M76 129 Q113 123 109 87" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>'+(end?arrow(118,90,150,62):'');}
+  else if(k==='hipAbduction'){body=standing()+(end?line(72,93,128,112)+arrow(102,128,136,112):'');}
+  else if(k==='squat'){body=end?head(78,45)+line(78,56,92,90)+line(92,90,58,112)+line(58,112,40,136)+line(92,90,124,112)+line(124,112,142,136)+arrow(160,38,160,86):standing();}
+  else if(k==='bridge'){body=head(30,95)+line(41,95,end?105:116,end?70:95,6)+line(end?105:116,end?70:95,154,118,6)+line(154,118,192,118,6)+(end?arrow(100,112,100,77):'');}
+  else if(k==='heelRaise'){body=standing()+(end?line(55,132,45,124)+line(90,132,100,124)+arrow(130,126,130,92):line(55,132,42,132)+line(90,132,103,132));}
+  else if(k==='balance'){body=standing()+(end?line(72,93,107,111)+line(107,111,116,96)+arrow(130,120,130,85):'');}
+  else if(k==='plantar'){body=head(35,45)+line(46,52,83,85,6)+line(83,85,130,112,6)+line(130,112,end?185:174,end?96:112,6)+(end?arrow(180,128,180,100):'');}
+  else if(k==='birdDog'){body=head(65,55)+line(76,60,128,78,6)+line(92,67,end?42:64,end?47:105,6)+line(122,76,end?176:142,end?55:118,6)+line(118,76,132,117,6)+(end?arrow(150,40,180,40):'');}
+  else if(k==='thoracic'){body=standing()+(end?line(72,58,40,42)+line(72,58,104,82)+arrow(125,34,154,55):line(72,58,42,70)+line(72,58,102,70));}
+  else if(k==='breathing'){body=standing()+'<ellipse cx="72" cy="75" rx="'+(end?32:23)+'" ry="'+(end?24:18)+'" fill="none" stroke="currentColor" stroke-width="3"/>'+(end?arrow(40,76,24,76)+arrow(104,76,120,76):'');}
+  else if(k==='elbowCurl'){body=standing()+line(72,58,48,78)+(end?line(48,78,65,50)+arrow(32,98,48,75):line(48,78,36,112));}
+  else if(k==='deadBug'){body=head(28,96)+line(39,96,96,96,6)+line(96,96,end?146:126,end?124:72,6)+line(126,72,end?178:150,end?72:42,6)+line(67,96,end?28:64,end?56:53,6)+(end?arrow(160,138,184,138):'');}
+  else{body=standing();}
+  return body;
+}
+function exerciseIllustration(p){
+  if(!p)return '';
+  const spec=exerciseIllustrationById[p.profile_id];
+  if(p.profile_id==='px099'||spec?.actionability===false)return '';
+  const k=exerciseFigureKey(p.profile_id),alt=spec?.alt_text||p.title_ko;
+  const phase=(label,pose,text)=>'<div class="exercise-phase"><b>'+label+'</b><svg viewBox="0 0 210 150" role="img" aria-label="'+esc(alt+' · '+label)+'" style="color:#344054">'+exercisePoseMarkup(k,pose)+'</svg><p>'+esc(text||'')+'</p></div>';
+  const cues='<div class="exercise-cues">'+
+    '<div class="exercise-cue"><b>움직임</b><br>'+esc(spec?.movement||'천천히 정확하게 움직입니다.')+'</div>'+
+    '<div class="exercise-cue"><b>고정·지지</b><br>'+esc(spec?.support||'안전한 자세를 유지합니다.')+'</div>'+
+    '<div class="exercise-cue"><b>흔한 실수</b><br>'+esc(spec?.common_error||'통증을 참으며 보상하지 않습니다.')+'</div>'+
+    '<div class="exercise-cue"><b>중단 기준</b><br>'+esc(spec?.stop_rule||exerciseCaution(p))+'</div></div>';
+  return '<div class="exercise-figure"><div class="exercise-sequence">'+phase('1 · 시작','start',spec?.start_pose)+phase('2 · 끝','end',spec?.end_pose)+'</div>'+cues+'<div class="exercise-caption">'+esc(alt)+'</div></div>';
 }
 function exerciseProfileCard(p){
   if(!p)return '';
@@ -1893,7 +1910,7 @@ function exerciseProfileCard(p){
     '<p>'+esc(p.indication_note||'')+'</p>'+
     '<div class="patient-step-label">이렇게 하세요</div><ol>'+((p.steps||[]).map(x=>'<li>'+esc(x)+'</li>').join(''))+'</ol>'+
     (p.dose?'<p><b>얼마나?</b> '+esc(p.dose)+'</p>':'')+
-    '<div class="patient-caution"><b>주의</b><br>'+esc(exerciseCaution(p))+'</div>'+    '<div class="print-only exercise-log"><b>이번 주 실천</b> 월 □ 화 □ 수 □ 목 □ 금 □ 토 □ 일 □</div>'+
+    '<div class="patient-caution"><b>주의</b><br>'+esc(exerciseIllustrationById[p.profile_id]?.stop_rule||exerciseCaution(p))+'</div>'+    '<div class="print-only exercise-log"><b>이번 주 실천</b> 월 □ 화 □ 수 □ 목 □ 금 □ 토 □ 일 □</div>'+
     (refs.length?'<details class="clinician-note"><summary>근거 문헌 보기</summary>'+refs.map(s=>'<a class="education-source" href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.year)+' · '+esc(s.kind)+' · '+esc(s.title)+'</a>').join('')+'</details>':'')+
     '</div>';
 }

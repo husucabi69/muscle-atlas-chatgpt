@@ -58,6 +58,7 @@ const CORE=[
   './data/differential-thoracic-back-chestwall-v1.json',
   './data/media-audit-thoracic-back-chestwall-v1.json',
   './data/patient-exercise-library-v1.json',
+  './data/patient-exercise-illustration-v2.json',
   './privacy.html',
   './data/examination-lumbar-sacral-v1.json',
   './data/ultrasound-lumbar-sacral-v1.json',

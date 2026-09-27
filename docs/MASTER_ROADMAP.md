@@ -92,7 +92,8 @@ Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과�
 - Stage 17 Muscle Illustration Quality Audit: PREVIEW COMPLETE — Production main 114/205 reviewed, 91 pending; `preview/development` 205/205 final decisions = 177 fixed representative views + 28 documented source gaps, pending 0; Production promotion deferred
 - Cloudflare Preview/Production infrastructure: ACTIVE — GitHub integration verified; `preview/development` is the long-lived development line; repeated visual approval occurs in Preview; Production remains frozen until final explicit promotion
 - Stage 18 Oral Viva Human Voice 3.0: IN PROGRESS — local voice + contextual viva complete; provider-neutral same-origin high-quality TTS adapter/contract prepared but disabled by default pending provider/privacy/real-device approval
-- 현재 개발: **Stage 18 — Oral Viva Human Voice 3.0**
+- Stage 19 Patient Exercise Illustration 2.0: IN PROGRESS — 19/19 profile metadata audit complete; 18 actionable profiles upgraded to start/end + movement/support/error/stop two-phase patient education format; px099 evidence boundary remains non-actionable
+- 현재 개발: **Stage 19 — Patient Exercise Illustration 2.0**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
 
