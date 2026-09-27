@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (**A2 AUTOMATED FIX PASS / USER PREVIEW VERIFY PENDING / A5 BLOCKED**)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (**A2 v11.14 EXACT FLOW AUTOMATED PASS / USER PREVIEW VERIFY PENDING / A5 BLOCKED**)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -827,3 +827,13 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 세로형 drill-menu 카드 또는 별도 학습목차 허브로 대체 금지
 - Static QA + Playwright runtime E2E에 기준선 검사 추가
 - 실제 Preview 사용자 확인 전 A2 COMPLETE 처리 금지
+
+
+### v11.44 · v11.14 Anatomy Restored — 2026-09-28
+- v11.14 Stage 17 Precision Anatomy를 개별 근육 상세 UX의 코드 기준선으로 재적용
+- 부위 → 근육 목록 → 근육 상세까지만 독립 view
+- 근육 상세는 v11.14 고정 가로 탭 5개 + 기본정보 즉시 표시
+- 탭 내부 전환은 same-screen content swap, history push 0, extra deep view 0
+- 후속 기능은 기준 레이아웃을 깨지 않는 범위에서만 유지
+- Global QA + Chromium runtime E2E PASS
+- 사용자 실기기 Preview 확인 전 A2 COMPLETE 금지
