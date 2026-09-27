@@ -337,19 +337,32 @@
 
 # Stage 23 — Real Device & Offline Quality Gate
 
-- [ ] 홈 아이콘 / fullscreen
-- [ ] 자동 update
-- [ ] offline cold start / online recovery
-- [ ] Oral microphone + human-voice TTS + fallback
-- [ ] 환자교육 print/share
-- [ ] hierarchical anatomy navigation
-- [ ] representative muscle illustration
-- [ ] 131 ultrasound navigation
-- [ ] quiz/oral history persistence
-- [ ] 화면회전 / 작은화면 / 큰글자
-- [ ] Chrome/PWA/TWA 차이 기록
+상태: **DEV / AUTOMATED GATE COMPLETE — REAL DEVICE VERIFICATION PENDING**
 
-완료 Gate: critical FAIL 0 / data loss 0 / update regression 0
+- [x] 홈 아이콘 / fullscreen 계약 — manifest 192/512 + fullscreen + 앱내 runtime mode 진단
+- [x] 자동 update — 기존 Stage 15 계약 유지 + worker/page version 진단
+- [x] offline cache readiness — Service Worker가 CORE cached/missing 상태를 직접 보고
+- [ ] 실제 offline cold start / online recovery — Android 실기기 비행기모드 검수 필요
+- [x] Oral microphone + human-voice TTS + fallback 계약/기능 유지
+- [ ] 실제 Oral microphone 입력 + 실제 TTS 청취 — 실기기 확인 필요
+- [x] 환자교육 print + Web Share / clipboard fallback
+- [ ] 실제 Android 인쇄·공유창 결과 확인
+- [x] hierarchical anatomy navigation 자동 회귀
+- [x] representative muscle illustration 205개 최종결정 audit 확인
+- [x] 131 ultrasound navigation canonical count 확인
+- [x] quiz/oral history persistence JSON + localStorage round-trip 진단
+- [x] 360px / landscape / 44px touch target / root overflow runtime 진단
+- [ ] 실제 화면회전 / 작은화면 / Android 큰글자 시각검수
+- [x] Chrome / PWA / TWA 차이 문서화 — `docs/REAL_DEVICE_OFFLINE_QA.md`
+- [x] 앱 홈에 **실기기·오프라인 품질 점검** 패널 + 수동 PASS/FAIL 기록 추가
+- [x] Stage 23 static QA를 Global QA workflow에 연결
+- [ ] TWA toolbar-less 실제 확인 — Play signing fingerprint + root Digital Asset Links 의존
+- [ ] Preview 실제 화면 사용자 승인
+
+자동 Gate: **critical FAIL 0 / data-loss 코드경로 0 / update regression 0**
+
+실기기 완료 Gate: 실제 대상 기기에서 수동 항목 PASS + offline cold start PASS + 학습기록 data loss 0.  
+Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 전까지 시작/승격하지 않는다.
 
 ---
 
