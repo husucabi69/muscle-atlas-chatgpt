@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.0 (A1/A2/A3/A4 COMPLETE, 다음 A5 임상)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.0 (**A2 REOPENED — 해부학 부위 선택 후 흰 화면 회귀 조사 중 / A5 BLOCKED**)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -796,3 +796,12 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - Stage 21 기존 학습흐름 QA와 Stage 23A navigation 3.0 QA 모두 PASS
 - Preview version: v11.40 · Hierarchy A1-A4
 - 다음 작업: A5 임상 모듈 계층화
+
+
+### Stage 23A A2 REOPENED — 실기기 흰 화면 회귀 — 2026-09-27
+- 사용자 재현: 홈 → 해부학 위치 찾기 → 경추/상지/견갑대 등 부위 선택 → 근육 목록 대신 흰 화면
+- 자동 QA PASS였지만 실제 runtime 경로 FAIL이므로 A2 완료판정 철회
+- A5 임상 계층화는 A2 root-cause 해결 전까지 BLOCKED
+- 임시 CSS/timeout/조건문 patch 금지
+- 실제 click 기반 browser E2E를 새 gate로 추가한 뒤 공통 navigation 구조에서 원인 해결
+- 실제 Preview 확인 전 A2를 다시 COMPLETE로 표시하지 않음
