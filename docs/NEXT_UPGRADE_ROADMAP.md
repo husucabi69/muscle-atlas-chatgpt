@@ -591,7 +591,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [ ] 실제 Preview 사용자 시각 확인
 
 
-### v11.45 v11.14 anatomy contract lock — AUTOMATED GATE RUNNING / USER VERIFY PENDING
+### v11.45 v11.14 anatomy contract lock — AUTOMATED PASS / LIVE PREVIEW PASS / USER DEVICE VERIFY PENDING
 - v11.14 기준 SHA: `e6dc0492a4d16d0536e15db3f6162b8ec57ee757`
 - anatomy 계층은 **부위 → 근육 목록 → 근육 상세** 3단계만 독립 화면
 - 근육 클릭 즉시 **기본정보** 활성
