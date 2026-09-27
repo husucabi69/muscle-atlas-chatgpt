@@ -27,7 +27,8 @@
 
 ### 다음 정본 로드맵
 새 기능 개발은 `docs/NEXT_UPGRADE_ROADMAP.md`를 따른다.
-Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과했다. 다음 기능 개발은 **Stage 16 — Patient Exercise Illustration 2.0**이다. Stage 15의 실제 설치폰 검증은 Stage 21에서 최종 닫는다.
+현재 release 전 필수 순서는 **Stage 23A Full Hierarchical Navigation 3.0 → Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**다.
+Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 그 구조가 고정된 뒤 통합해 재작업을 줄인다.
 
 ## 완료의 정의
 한 부위는 아래 8개 층이 모두 연결되어야 COMPLETE로 처리한다.
@@ -68,6 +69,23 @@ Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과�
 | 11 | 전신 통합 QA | 2027-02-10 | ID audit, orphan relation=0, media/license audit, quiz coverage audit | 전신 종합/취약부위 quiz |
 | 12 | OrthoOS Read-only 준비 | 2027-02-20 | Integration Contract v1, read-only fixture/API shape, no-PHI verification | 교육 모드 재사용 검증 |
 
+## 아이디어 통제 및 로드맵 편입 원칙
+- 사용자 피드백/아이디어는 즉시 구현하지 않고 먼저 정본 Idea Register에 기록한다.
+- 좋은 아이디어는 구현이 미뤄져도 삭제하지 않는다. queued/deferred/superseded 상태와 이유를 남긴다.
+- 선행 구조를 고쳐야 후속 작업 재작업이 줄어드는 경우 구조 작업을 우선한다.
+- 한 시점에 하나의 주 작업선만 진행한다. 병렬 아이디어는 backlog로 유지한다.
+- 중요도는 Release blocker / High / Medium / Later로 분류한다.
+- UX 기반 구조 → 콘텐츠 품질 → 실기기 통합 QA → Production 순서를 기본 원칙으로 한다.
+- 자동 QA PASS만으로 사용자 시각검수나 실기기 검수를 대체하지 않는다.
+
+현재 사용자 아이디어 정본:
+- 모든 탭을 목차 → 하위목록 → 상세 → 심화 독립 화면 drill-down 방식으로 통일
+- 같은 화면 아래쪽에 하위 콘텐츠가 생겨 스크롤로 찾는 패턴 제거
+- 각 단계에 뒤로가기 / 상위목차 / breadcrumb 제공
+- 환자 운동·스트레칭의 개념형 SVG를 전문 환자교육 수준 일러스트로 전면 고도화
+- 앱 실행/재개 자동 업데이트 + 홈 pull-to-refresh 업데이트는 v11.37에서 구현 완료
+
+---
 ## 개발 운영
 - 개발은 dev branch에서 한다.
 - 정본 Stage 12 dev branch: `dev/stage12-readonly-integration-20260925`. 과거 stage11/stage12 divergent branch는 참고용이며 merge하지 않는다.
@@ -95,7 +113,8 @@ Stage 15 Reliable Auto-Update Engine은 개발 완료되어 자동 QA를 통과�
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 21 — Clinical Learning Flow 2.0**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.0**
+- 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
 
@@ -715,3 +734,30 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 Stage 24 Production Release는 위 실기기 gate와 사용자 명시 승인 전까지 진행하지 않는다.
 
 Production `main`은 사용자 명시 승인 전까지 동결한다.
+
+
+---
+
+## 2026-09-27 사용자 실사용 피드백 재정렬
+
+### Stage 23A — Full Hierarchical Navigation 3.0 — NEXT
+- 전 탭 공통 drill-down 화면 구조
+- 해부학을 기준 구현으로 먼저 완성
+- 환자교육 → 증상 → 임상 → 초음파 → 퀴즈 → Oral → 내 학습 → 홈/검색 순으로 확장
+- 동일 화면 아래 append 방식 제거
+- view-state/history/back/breadcrumb 공통화
+
+### Stage 23B — Patient Exercise Illustration 3.0 — QUEUED
+- Stage 19 개념형 SVG는 final quality 아님
+- 18 actionable profile 전수 고품질 재도해
+- 손/손가락/상지/하지 비율, 시작/끝 자세, 움직임/지지점 개선
+- 환자에게 인쇄·공유 가능한 임상교육 수준을 완료 기준으로 사용
+
+### Stage 23C — Integrated Real Device & Visual Gate — QUEUED
+- 23A/23B 이후 실제 Android에서 통합 검수
+- offline/update/mic/TTS/print/share/rotation/large-text/data persistence
+- 사용자 Preview 최종 승인
+
+### Stage 24 — Google Play Production Release
+- Stage 23C 완료 전 시작하지 않음
+- Production main은 사용자 명시 승인 전까지 동결
