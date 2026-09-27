@@ -5,8 +5,19 @@ const core=JSON.parse(fs.readFileSync('data/knowledge-core-v1.json','utf8'));
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 
-check('Common drill navigation v3 contract',index.includes("const APP_DRILL_NAV_VERSION='3.0'"));
+check('Common drill navigation v3.1 contract',index.includes("const APP_DRILL_NAV_VERSION='3.1'"));
 check('Reusable drill screen switcher exists',index.includes('function setDrillView(group,viewId)'));
+check('Drill registry is scoped to real screens',
+  index.includes("querySelectorAll('.drill-screen[data-drill-group=") &&
+  index.includes('function drillViewsFor(group)')
+);
+check('Drill runtime state is separate from screen registry',
+  index.includes('const drillNavigationState=Object.seal') &&
+  index.includes('dataset.activeDrillGroup') &&
+  index.includes('dataset.activeDrillView') &&
+  !index.includes('document.documentElement.dataset.drillGroup=') &&
+  !index.includes('document.documentElement.dataset.drillView=')
+);
 check('Reusable navigation viewport reset exists',index.includes('function resetNavigationViewport()'));
 check('Reusable navigation history helpers exist',index.includes('function pushAppNavigationState(state)')&&index.includes('function replaceAppNavigationState(state)'));
 check('Top-level pages share navigation reset',index.includes('document.documentElement.dataset.appPage=page')&&index.includes('resetNavigationViewport();'));
