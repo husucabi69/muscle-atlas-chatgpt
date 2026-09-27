@@ -252,7 +252,7 @@
 
 # Stage 19 — Patient Exercise Illustration 2.0
 
-상태: **IN PROGRESS — 19/19 profile 구조감사 + 18 actionable two-phase illustration 구현 완료 / Preview 시각검수 미완료**
+상태: **DEV COMPLETE / AUTOMATED QA PASS — 19/19 profile 구조감사 + 18 actionable two-phase illustration 구현 완료 / Preview 최종 시각검수는 release gate에서 수행**
 
 목표: 현재 운동 개념 SVG를 환자가 설명 없이도 따라 하기 쉬운 전문 환자교육 도해로 고도화한다.
 
@@ -273,17 +273,19 @@
 
 # Stage 20 — Ultrasound Atlas 2.0
 
+상태: **IN PROGRESS — 131/131 probe guidance layer 구현 / 실제 B-mode 분리 완료 / media·pitfall 고도화 진행 중**
+
 목표: 131 canonical view를 probe 위치 → orientation → landmark → 정상 실제 영상 → pitfall 순으로 학습하게 한다.
 
-- [ ] 131 view 교육성 재평가
-- [ ] probe placement/orientation 자체 도해 131/131
-- [ ] 실제 B-mode와 probe 도해 명확히 구분
+- [x] 131 view 필수 교육 필드 전수 구조감사 — patient position / probe orientation / landmark / normal / pitfall 누락 0
+- [x] probe placement/orientation 교육용 schematic 131/131 자동 생성
+- [x] 교육용 Probe 도해와 실제 B-mode/검증 원문을 UI에서 명확히 분리
 - [ ] landmark layer
 - [ ] anisotropy/common pitfall
 - [ ] reusable image/video 직접 승격
 - [ ] 불명확 라이선스는 reference-only
 - [ ] source health/broken-link audit
-- [ ] generated/fake B-mode 금지
+- [x] generated/fake B-mode 금지 정책 유지 + Stage 20 QA
 
 ---
 
