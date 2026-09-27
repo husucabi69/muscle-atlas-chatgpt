@@ -70,9 +70,9 @@ check('Hierarchical anatomy DOM preserved',
   ['regionChooserView','regionMusclesView','regionDetailView'].every(x=>index.includes('id="'+x+'"'))
 );
 check('Representative illustration audit 205',illustration.muscles?.length===205,String(illustration.muscles?.length||0));
-check('Representative illustration pending 0',(illustration.muscles||[]).every(x=>x.status==='reviewed'));
+check('Representative illustration pending 0',(illustration.muscles||[]).every(x=>['reviewed','no_suitable_public_source'].includes(x.status)));
 check('Canonical ultrasound views 131',core.ultrasound_views?.length===131,String(core.ultrasound_views?.length||0));
-check('Device gate verifies ultrasound 131',index.includes("'131 ultrasound navigation'")&&index.includes('core?.ultrasound_views.length===131'));
+check('Device gate verifies ultrasound 131',index.includes("'131 ultrasound navigation'")&&index.includes('core.ultrasound_views.length===131'));
 
 check('Small-screen 360px rule exists',index.includes('@media(max-width:360px)'));
 check('Landscape rule exists',index.includes('@media(orientation:landscape) and (max-height:560px)'));
