@@ -48,3 +48,5 @@ jobs:
         run: node scripts/clinical-learning-flow-qa.mjs
       - name: Run Stage 22 search & personal learning QA
         run: node scripts/search-personal-learning-qa.mjs
+      - name: Run Stage 23 real-device offline QA
+        run: node scripts/real-device-offline-qa.mjs
