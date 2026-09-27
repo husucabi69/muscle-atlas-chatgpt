@@ -3523,7 +3523,8 @@ async function initAppServiceWorker(){
 
 const appUpdateButton=document.getElementById('appUpdateButton');
 if(appUpdateButton)appUpdateButton.addEventListener('click',()=>checkForAppUpdate(true));
-window.addEventListener('online',()=>{checkForAppUpdate(false);if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
+window.addEventListener('online',()=>checkForAppUpdate(false));
+window.addEventListener('online',()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
 window.addEventListener('offline',()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
 window.addEventListener('orientationchange',()=>setTimeout(()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();},250));
 window.addEventListener('load',initAppServiceWorker);
