@@ -57,8 +57,8 @@ try{
         muscleCount:document.querySelectorAll('#selectedRegionList .region-muscle').length,
         title:document.getElementById('selectedRegionTitle')?.textContent||'',
         countText:document.getElementById('selectedRegionCount')?.textContent||'',
-        drillGroup:document.documentElement.dataset.drillGroup||'',
-        drillView:document.documentElement.dataset.drillView||'',
+        drillGroup:document.documentElement.dataset.activeDrillGroup||'',
+        drillView:document.documentElement.dataset.activeDrillView||'',
         page:document.documentElement.dataset.appPage||'',
         targetRect:(()=>{
           const el=document.getElementById('regionMusclesView'),r=el?.getBoundingClientRect();
@@ -82,6 +82,16 @@ try{
       fail('Region muscle screen is visible',region.label);
     }
     if(await visible('#regionChooserView'))fail('Region chooser must be hidden after selection',region.label);
+    const rootInvariant=await page.evaluate(()=>({
+      hidden:document.documentElement.hidden,
+      drillGroupAttr:document.documentElement.hasAttribute('data-drill-group'),
+      drillViewAttr:document.documentElement.hasAttribute('data-drill-view'),
+      activeGroup:document.documentElement.dataset.activeDrillGroup||'',
+      activeView:document.documentElement.dataset.activeDrillView||''
+    }));
+    if(rootInvariant.hidden)fail('HTML root must never be hidden by drill navigation',region.label);
+    if(rootInvariant.drillGroupAttr||rootInvariant.drillViewAttr)fail('HTML root must not be registered as a drill screen',JSON.stringify(rootInvariant));
+    if(rootInvariant.activeGroup!=='anatomy'||rootInvariant.activeView!=='muscles')fail('Runtime drill state matches anatomy muscles',JSON.stringify(rootInvariant));
 
     const title=(await page.locator('#selectedRegionTitle').textContent()||'').trim();
     const count=await page.locator('#selectedRegionList .region-muscle').count();
