@@ -29,7 +29,7 @@ for(const [tab,label] of detailTabs){
 }
 check('Detail tabs use shared v11.14 renderer',
   index.includes('function anatomyDetailTabsHtml(activeTab=null)') &&
-  index.includes('function renderAnatomyDetailTabs(activeTab=null)')
+  index.includes("function renderAnatomyDetailTabs(activeTab='basic')")
 );
 
 check('Region list uses internal detail navigation',index.includes("openRegionMuscle(\\'"));
@@ -39,7 +39,10 @@ check('Independent view state function',index.includes('function setAnatomyView(
 check('Region to list transition',index.includes("setAnatomyView('muscles')"));
 check('Muscle to detail transition',index.includes("setAnatomyView('detail')"));
 check('Back to anatomy regions',index.includes('onclick="showAnatomyRegions()"')||index.includes('onclick="showAnatomyRegions(true)"'));
-check('Back to current region list',index.includes('onclick="showCurrentRegionMuscles()"'));
+check('Back to current region list',
+  index.includes("onclick=\"anatomyBack('muscles')\"") ||
+  index.includes('onclick="showCurrentRegionMuscles()"')
+);
 check('Immediate scroll reset',index.includes("window.scrollTo({top:0,behavior:'auto'})"));
 check('History state recorded',(index.includes('function recordAnatomyHistory(level)')||index.includes("function recordAnatomyHistory(level,mode='push')"))&&(index.includes('history.pushState')||index.includes('pushAppNavigationState(state)')));
 check('Physical/browser back handled',index.includes("window.addEventListener('popstate'"));
