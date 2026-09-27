@@ -3396,8 +3396,11 @@ async function runDeviceQualityGate(){
 
   add('계층형 해부 navigation',!!document.getElementById('regionChooserView')&&!!document.getElementById('regionMusclesView')&&!!document.getElementById('regionDetailView'),'부위 → 근육 → 상세 3단계 DOM');
   const illustration=await deviceFetchJson('./data/muscle-illustration-audit-v1.json');
-  const illRows=illustration?.muscles||[],pending=illRows.filter(x=>x.status!=='reviewed').length;
-  add('대표 근육도해 audit',illRows.length===205&&pending===0,illRows.length+' / 205 reviewed · pending '+pending);
+  const illRows=illustration?.muscles||[],finalStatuses=new Set(['reviewed','no_suitable_public_source']);
+  const pending=illRows.filter(x=>!finalStatuses.has(x.status)).length;
+  const fixed=illRows.filter(x=>x.status==='reviewed'&&x.representative_asset).length;
+  const noSuitable=illRows.filter(x=>x.status==='no_suitable_public_source').length;
+  add('대표 근육도해 audit',illRows.length===205&&pending===0,illRows.length+' / 205 final · fixed '+fixed+' · no_suitable_public_source '+noSuitable+' · pending '+pending);
   const core=knowledgeCoreData||await deviceFetchJson('./data/knowledge-core-v1.json');
   add('131 ultrasound navigation',Array.isArray(core?.ultrasound_views)&&core.ultrasound_views.length===131,String(core?.ultrasound_views?.length||0)+' / 131 canonical views');
 
