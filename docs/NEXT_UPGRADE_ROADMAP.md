@@ -32,6 +32,9 @@
 | UPD-001 | 앱 실행/재개/포커스 시 자동 업데이트 확인 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | UPD-002 | 홈 최상단에서 아래로 당겨 업데이트 확인/재로드 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | QA-001 | 실제 Android에서 offline cold start / mic / TTS / 큰글자 / 회전 / print-share 확인 | Release blocker | Stage 23A + 23B | **Stage 23C** |
+| VID-001 | 초음파 상세에 최고품질 검수 YouTube 영상 링크/임베드 추가 | High | Stage 23A navigation shell | **Stage 23B/Media layer** |
+| VID-002 | 환자교육 운동·스트레칭에 고품질 YouTube 환자교육 영상 링크/임베드 추가 | High | Stage 23A + exercise profile mapping | **Stage 23B** |
+| VID-003 | 영상 출처·채널·언어·duration·last_verified·embed 가능 여부·교육목적을 metadata로 관리하고 broken-link audit | High | VID-001/002 | **Stage 23B QA** |
 
 아이디어 상태는 NEXT / queued / deferred / implemented / superseded 중 하나로 남긴다. superseded도 삭제하지 않고 대체 아이디어와 이유를 기록한다.
 
@@ -458,6 +461,14 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - [ ] 모바일과 A4 모두 가독성 유지
 - [ ] 근거 없는 동작/가동범위/반복횟수 시각적으로 임의 생성 금지
 - [ ] 최종 시각검수 전 기존 개념 SVG를 “완성품”으로 표시하지 않음
+- [ ] **환자교육 curated video** — 운동 profile별 고품질 YouTube 영상 0~N개를 검수해 연결
+- [ ] **초음파 curated video** — canonical view별 probe 위치/orientation/landmark/실제 B-mode 교육성이 높은 YouTube 영상 연결
+- [ ] 영상은 다운로드·재호스팅하지 않고 YouTube 링크/허용된 embed만 사용
+- [ ] uploader가 embed를 막으면 “YouTube에서 보기” 외부 링크로 fallback
+- [ ] 대학병원·의과대학·전문학회·전문 초음파교육기관·공신력 있는 재활기관 우선
+- [ ] 정확한 구조/운동을 보여주지 않거나 광고성·과장성·출처 불명 영상은 제외
+- [ ] title / channel / language / duration / topic / canonical target / last_verified / embed_allowed metadata 관리
+- [ ] 삭제·비공개·URL 변경을 정기 source-health QA에서 감시
 
 완료 Gate: 18/18 실제 Preview 시각검수 + 환자가 그림만 보고 시작/끝/방향을 구분 가능 + clipping 0.
 
