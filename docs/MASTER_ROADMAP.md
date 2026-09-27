@@ -630,7 +630,7 @@ Stage 12는 versioned read-only knowledge contract만 제공하며 실제 환자
 6. Stage 20 Ultrasound Atlas 2.0 — DEV COMPLETE
 7. Stage 21 Clinical Learning Flow 2.0 — DEV COMPLETE / automated QA gate
 8. Stage 22 Search & Personal Learning 2.0 — DEV COMPLETE / automated QA PASS
-9. Stage 23 Real Device & Offline Quality Gate — NEXT
+9. Stage 23 Real Device & Offline Quality Gate — DEV / automated gate COMPLETE, physical verification PENDING
 10. Stage 24 Google Play Production Release
 
 
@@ -679,5 +679,39 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - [ ] Preview 실제 화면 시각검수는 사용자 승인 전까지 미완료
 
 다음 개발 시작점: **Stage 23 — Real Device & Offline Quality Gate**
+
+Production `main`은 사용자 명시 승인 전까지 동결한다.
+
+
+---
+
+## Stage 23 진행 기록 — Real Device & Offline Quality Gate
+개발일: 2026-09-27
+상태: **DEV / AUTOMATED GATE COMPLETE — Preview only / REAL DEVICE VERIFICATION PENDING**
+
+- [x] 앱 내부 실기기·오프라인 품질 점검 패널
+- [x] Chrome / 설치 PWA / TWA runtime mode 식별
+- [x] Service Worker `GET_CACHE_STATUS` — CORE cache total/cached/missing 보고
+- [x] page / active worker version 일치 확인
+- [x] localStorage sentinel round-trip — 기존 Quiz/Oral 기록을 지우지 않고 저장소 검사
+- [x] Quiz/Oral persistence JSON 무결성 검사
+- [x] home icon 192/512 + fullscreen manifest contract 검사
+- [x] representative illustration 205개 최종결정 audit 검사
+- [x] canonical ultrasound 131 view 검사
+- [x] 360px / landscape / touch-target / horizontal-overflow 진단
+- [x] 환자교육 Web Share 추가 + clipboard fallback + 기존 print 유지
+- [x] 공유 payload는 일반 교육 텍스트만 사용하며 patient/encounter 식별정보 없음
+- [x] 실기기 수동 Gate 7개 항목을 local-only PASS/FAIL/pending으로 기록
+- [x] `docs/REAL_DEVICE_OFFLINE_QA.md` — Chrome/PWA/TWA 차이와 수동 검수 절차
+- [x] `scripts/real-device-offline-qa.mjs` + Global QA 연결
+- [x] Stage 15~23 전체 automated regression PASS
+- [ ] 실제 Android offline cold start / online recovery
+- [ ] 실제 Oral microphone / TTS
+- [ ] 실제 환자교육 print/share
+- [ ] 실제 회전 / 작은화면 / 큰글자
+- [ ] 실제 Preview 사용자 시각승인
+- [ ] TWA toolbar-less — Play signing fingerprint + origin-root Digital Asset Links 필요
+
+Stage 24 Production Release는 위 실기기 gate와 사용자 명시 승인 전까지 진행하지 않는다.
 
 Production `main`은 사용자 명시 승인 전까지 동결한다.
