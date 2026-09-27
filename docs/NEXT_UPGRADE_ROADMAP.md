@@ -340,7 +340,8 @@
 상태: **DEV / AUTOMATED GATE COMPLETE — REAL DEVICE VERIFICATION PENDING**
 
 - [x] 홈 아이콘 / fullscreen 계약 — manifest 192/512 + fullscreen + 앱내 runtime mode 진단
-- [x] 자동 update — 기존 Stage 15 계약 유지 + worker/page version 진단
+- [x] 자동 update — 실행/재개/포커스 시 자동 확인 + worker/page version 진단
+- [x] 홈 화면 pull-to-refresh — 아래로 당겨 업데이트 확인 후 최신 화면 재로드
 - [x] offline cache readiness — Service Worker가 CORE cached/missing 상태를 직접 보고
 - [ ] 실제 offline cold start / online recovery — Android 실기기 비행기모드 검수 필요
 - [x] Oral microphone + human-voice TTS + fallback 계약/기능 유지
