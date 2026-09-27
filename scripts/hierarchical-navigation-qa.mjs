@@ -14,9 +14,23 @@ check('Canonical muscles still 205',(core.muscles||[]).length===205,String((core
 for(const id of ['regionChooserView','regionMusclesView','regionDetailView','regionMuscleDetailHead','regionMuscleDetailContent']){
   check('Anatomy view exists: '+id,index.includes('id="'+id+'"'));
 }
-for(const tab of ['basic','anatomy','ultrasound','clinical','learning']){
-  check('Detail tab exists: '+tab,index.includes('data-anatomy-detail-tab="'+tab+'"'));
+const detailTabs=[
+  ['basic','기본정보'],
+  ['anatomy','해부도해'],
+  ['ultrasound','초음파'],
+  ['clinical','임상'],
+  ['learning','심화·학습']
+];
+for(const [tab,label] of detailTabs){
+  check('Detail tab exists: '+tab,
+    index.includes("['"+tab+"','"+label+"']") &&
+    index.includes('data-anatomy-detail-tab="'+id+'"')
+  );
 }
+check('Detail tabs use shared v11.14 renderer',
+  index.includes('function anatomyDetailTabsHtml(activeTab=null)') &&
+  index.includes('function renderAnatomyDetailTabs(activeTab=null)')
+);
 
 check('Region list uses internal detail navigation',index.includes("openRegionMuscle(\\'"));
 check('Legacy region panel removed',!index.includes('id="regionMusclesPanel"'));
