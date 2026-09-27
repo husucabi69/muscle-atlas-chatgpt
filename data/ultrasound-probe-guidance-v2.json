@@ -1,13 +1,24 @@
 {
   "schema_version": "2.0.0",
-  "dataset_version": "2026.09.27-stage20-a",
+  "dataset_version": "2026.09.27-stage20-b",
   "module_id": "ultrasound_probe_guidance_v2",
   "scope": "Educational probe placement/orientation schematics derived from canonical 131 ultrasound views. Schematic only; never a B-mode substitute.",
   "policy": {
     "canonical_views": 131,
     "schematic_not_bmode": true,
     "actual_ultrasound_only_for_bmode": true,
-    "generated_bmode": false
+    "generated_bmode": false,
+    "pitfall_taxonomy": true,
+    "pitfall_tag_set": [
+      "anisotropy",
+      "compression",
+      "level_orientation",
+      "dynamic",
+      "neurovascular_safety",
+      "overinterpretation",
+      "normal_variant",
+      "general_scan_pitfall"
+    ]
   },
   "views": [
     {
@@ -28,7 +39,12 @@
         "삽입부 anisotropy를 피하기 위해 probe tilt 필요",
         "과도한 내회전 자세는 tear 크기 평가에 영향을 줄 수 있음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "dynamic",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv002",
@@ -48,7 +64,11 @@
         "후방으로 지나치게 이동하면 극하건을 극상건으로 오인할 수 있음",
         "anisotropy"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv003",
@@ -68,7 +88,12 @@
         "probe 압박과 anisotropy",
         "건초액과 병적 fluid를 임상 문맥 없이 과해석하지 않음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "compression",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv004",
@@ -87,7 +112,10 @@
       "pitfalls": [
         "장축은 단축보다 국소 탈구/아탈구 확인에 제한이 있을 수 있어 두 평면을 함께 본다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation"
+      ]
     },
     {
       "ultrasound_view_id": "usv005",
@@ -106,7 +134,10 @@
       "pitfalls": [
         "팔꿈치가 몸통에서 들리지 않도록 하고 동적 내·외회전으로 전체 폭을 확인한다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "dynamic"
+      ]
     },
     {
       "ultrasound_view_id": "usv006",
@@ -124,7 +155,11 @@
       "pitfalls": [
         "부분 파열은 한 평면만으로 판단하지 않고 직교면과 동적 평가를 병행한다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation",
+        "dynamic"
+      ]
     },
     {
       "ultrasound_view_id": "usv007",
@@ -144,7 +179,10 @@
       "pitfalls": [
         "견갑극 기준을 사용해 극상와와 극하와를 혼동하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv008",
@@ -163,7 +201,10 @@
       "pitfalls": [
         "통증 유발 자체를 구조적 충돌의 확정진단으로 해석하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv009",
@@ -182,7 +223,10 @@
       "pitfalls": [
         "관절 변화의 임상적 의미는 증상 및 진찰과 함께 판단한다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv010",
@@ -202,7 +246,11 @@
         "anisotropy를 병변으로 오인하지 않는다",
         "ECRB 중심이지만 인접 신근건 섬유가 함께 보인다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv011",
@@ -220,7 +268,11 @@
       "pitfalls": [
         "한 평면의 저에코만으로 건병증을 확정하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv012",
@@ -240,7 +292,11 @@
         "UCL과 건을 혼동하지 않는다",
         "척골신경을 과도하게 압박하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv013",
@@ -260,7 +316,10 @@
         "신경 단면적만으로 진단하지 않는다",
         "snapping triceps와 동반 여부를 함께 본다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv014",
@@ -281,7 +340,11 @@
         "깊은 삽입부 anisotropy가 흔함",
         "부분파열과 완전파열은 여러 접근과 동적 검사로 확인한다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "dynamic"
+      ]
     },
     {
       "ultrasound_view_id": "usv015",
@@ -302,7 +365,11 @@
         "작은 PIN은 probe 압박에 민감",
         "통증만으로 radial tunnel/PIN 병변을 확정하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv016",
@@ -320,7 +387,10 @@
       "pitfalls": [
         "점액낭 액체 존재만으로 감염성/비감염성 원인을 구분하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv017",
@@ -340,7 +410,10 @@
       "pitfalls": [
         "관절액과 지방패드/연부조직을 구분한다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv018",
@@ -361,7 +434,12 @@
         "APL/EPB 분리 중격 변이를 확인",
         "anisotropy를 건초염으로 오인하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "overinterpretation",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv019",
@@ -382,7 +460,11 @@
         "ECU 위치는 전완 회전과 검사 자세에 따라 달라진다",
         "무증상 아탈구 가능성을 임상증상과 구분한다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "dynamic",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv020",
@@ -401,7 +483,11 @@
         "동적 간격 변화만으로 파열 확정 금지",
         "초음파는 배측 구성요소 평가에 특히 유용하다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "dynamic",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv021",
@@ -422,7 +508,10 @@
         "TFCC 전체 구성요소가 초음파 한 평면에서 모두 보이는 것은 아니다",
         "MRI/관절경과 역할이 다르다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation"
+      ]
     },
     {
       "ultrasound_view_id": "usv022",
@@ -443,7 +532,11 @@
         "CSA cutoff는 측정 위치·프로토콜 의존적",
         "probe 압박으로 신경을 변형시키지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv023",
@@ -462,7 +555,11 @@
         "장축 anisotropy와 부분 부피효과 주의",
         "초음파만으로 CTS 중증도 전체를 결정하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "level_orientation"
+      ]
     },
     {
       "ultrasound_view_id": "usv024",
@@ -482,7 +579,12 @@
         "혈관을 신경으로 오인하지 않는다",
         "분지 형태와 변이가 흔하다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety",
+        "overinterpretation",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv025",
@@ -502,7 +604,11 @@
         "probe 압박이 활주를 제한하지 않게 한다",
         "두께만으로 임상 trigger finger를 확정하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv026",
@@ -520,7 +626,10 @@
       "pitfalls": [
         "sesamoid와 pulley/건을 구분한다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv027",
@@ -539,7 +648,11 @@
       "pitfalls": [
         "동적 검사 시 통증과 catching을 함께 기록하되 영상만으로 확정하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "dynamic",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv028",
@@ -557,7 +670,11 @@
       "pitfalls": [
         "장축 anisotropy 주의."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "level_orientation"
+      ]
     },
     {
       "ultrasound_view_id": "usv029",
@@ -576,7 +693,10 @@
         "과도한 stress를 주지 않는다",
         "급성 불안정성은 임상검사·방사선과 함께 평가한다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv030",
@@ -596,7 +716,10 @@
         "관절삼출은 임상 문맥과 함께 해석",
         "초음파로 감염을 배제할 수 없다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv031",
@@ -618,7 +741,13 @@
         "점액낭은 정상에서 보이지 않을 수 있다.",
         "anisotropy 주의"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "compression",
+        "neurovascular_safety",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv032",
@@ -637,7 +766,10 @@
       "pitfalls": [
         "indirect head의 낮은 에코를 병변으로 오인하지 않는다."
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv033",
@@ -658,7 +790,11 @@
         "해부 변이가 흔함",
         "CSA 수치 하나만으로 포착 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv034",
@@ -678,7 +814,11 @@
       "pitfalls": [
         "conjoint attachment 변이와 anisotropy 주의"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv035",
@@ -700,7 +840,12 @@
         "facet orientation에 따른 anisotropy",
         "무증상 구조 변화 가능"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "level_orientation",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv036",
@@ -719,7 +864,10 @@
       "pitfalls": [
         "대전자 피질 불규칙만으로 증상 원인 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv037",
@@ -739,7 +887,12 @@
         "좌골신경의 해부 변이",
         "증상 없는 형태차이를 포착으로 오인 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety",
+        "overinterpretation",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv038",
@@ -759,7 +912,10 @@
         "깊이에 따라 curvilinear probe 필요",
         "anisotropy 최소화"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy"
+      ]
     },
     {
       "ultrasound_view_id": "usv039",
@@ -778,7 +934,10 @@
         "부분파열과 anisotropy 구분",
         "반대측 비교가 유용"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy"
+      ]
     },
     {
       "ultrasound_view_id": "usv040",
@@ -797,7 +956,10 @@
         "무증상 snapping도 가능",
         "통증/소리와 영상의 시간적 일치가 중요"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv041",
@@ -817,7 +979,10 @@
       "pitfalls": [
         "소량 액체나 영상 변화만으로 통증 원인 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv042",
@@ -837,7 +1002,11 @@
         "anisotropy를 줄이기 위해 distal tilt 필요",
         "층수의 해부학적 변이가 존재"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv043",
@@ -857,7 +1026,11 @@
         "섬유 방향 차이로 각 층의 echogenicity가 달라질 수 있음",
         "영상 변화만으로 건병증 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv044",
@@ -877,7 +1050,10 @@
         "소량 관절액은 임상 맥락 필요",
         "초음파가 깊은 관절내 병변을 완전히 배제하지 못함"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv045",
@@ -897,7 +1073,11 @@
         "삽입부 anisotropy",
         "두께·저에코만으로 증상 원인 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv046",
@@ -916,7 +1096,10 @@
       "pitfalls": [
         "소량 deep bursal fluid를 병적 bursitis로 과진단 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv047",
@@ -936,7 +1119,10 @@
         "MPFL 전체를 한 영상으로 단순화하지 않음",
         "급성 불안정성은 임상·MRI 등과 통합"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv048",
@@ -956,7 +1142,10 @@
         "deep MCL/meniscocapsular 구조와 혼동 주의",
         "stress opening을 임상 안정성 검사와 함께 해석"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv049",
@@ -977,7 +1166,10 @@
         "정상 bursa 비가시성이 흔함",
         "MCL 및 semimembranosus arm과 혼동 주의"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv050",
@@ -997,7 +1189,11 @@
         "압박으로 소량 액체가 소실될 수 있음",
         "영상 이상만으로 ITBS 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv051",
@@ -1017,7 +1213,10 @@
         "biceps tendon이 LCL을 둘러싸는 정상 변이",
         "소량 subpopliteal recess fluid는 정상일 수 있음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv052",
@@ -1037,7 +1236,11 @@
         "후방 낭성 구조에서 혈관을 Doppler로 구분",
         "Baker cyst를 혈관성 병변과 혼동 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv053",
@@ -1057,7 +1260,11 @@
         "혈관 압박 최소화",
         "후방 종괴 평가에서 Doppler 확인 필요"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv054",
@@ -1077,7 +1284,12 @@
         "신경 단면적 하나만으로 neuropathy 확정 금지",
         "probe pressure로 신경 형태 왜곡 가능"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "neurovascular_safety",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv055",
@@ -1096,7 +1308,10 @@
       "pitfalls": [
         "작은 관절액·ganglion의 임상 의미는 증상과 신경소견을 함께 해석"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv056",
@@ -1117,7 +1332,11 @@
         "anisotropy",
         "deep fibular nerve를 혈관과 구분"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv057",
@@ -1137,7 +1356,10 @@
         "retinaculum 아래 anisotropy",
         "삽입부를 EHL과 혼동"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy"
+      ]
     },
     {
       "ultrasound_view_id": "usv058",
@@ -1156,7 +1378,12 @@
         "부분 용적·anisotropy",
         "단일 US 소견으로 syndesmotic instability 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "dynamic",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv059",
@@ -1176,7 +1403,11 @@
         "정상 해부 변이",
         "probe 압력으로 subluxation을 억제할 수 있음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "dynamic",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv060",
@@ -1195,7 +1426,10 @@
         "anisotropy",
         "급성 혈종이 인대 경계를 흐릴 수 있음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy"
+      ]
     },
     {
       "ultrasound_view_id": "usv061",
@@ -1215,7 +1449,10 @@
         "비골건과 겹쳐 보임",
         "배굴로 tension을 주면 시인성 향상"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv062",
@@ -1236,7 +1473,11 @@
         "TP와 FDL 혼동",
         "신경과 정맥을 Doppler/압박으로 구분"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv063",
@@ -1256,7 +1497,10 @@
         "accessory navicular 존재 가능",
         "건초액/비후를 임상 맥락과 통합"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv064",
@@ -1277,7 +1521,11 @@
         "분지 위치 변이",
         "Baxter nerve는 매우 작아 추적 어려울 수 있음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv065",
@@ -1297,7 +1545,11 @@
         "probe 압력으로 bursal fluid 소실",
         "partial tear와 anisotropy 구분"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv066",
@@ -1317,7 +1569,10 @@
         "Doppler는 과도한 tension을 줄이면 혈류 확인에 유리",
         "삽입부 enthesophyte만으로 통증 원인 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv067",
@@ -1337,7 +1592,10 @@
         "두께 cut-off 하나로 진단 금지",
         "비체중부하와 측정 위치를 일관되게 유지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv068",
@@ -1357,7 +1615,10 @@
         "oblique scan에서 가성 저에코",
         "국소 두께 변화만으로 통증 원인 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv069",
@@ -1377,7 +1638,11 @@
         "작은 intrinsic muscle은 비등방성 영향",
         "근육 위축은 좌우·임상 신경소견과 통합"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation",
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv070",
@@ -1397,7 +1662,10 @@
         "neuroma와 bursitis 동반 가능",
         "정상 bursa도 보일 수 있어 크기 하나로 진단 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv071",
@@ -1417,7 +1685,10 @@
         "sesamoid 음영",
         "골성 stress injury는 US만으로 배제 불가"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv072",
@@ -1437,7 +1708,10 @@
         "소량 fluid의 임상 의미는 증상과 통합",
         "osteophyte는 radiograph가 더 적합할 수 있음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv073",
@@ -1457,7 +1731,11 @@
         "신경 크기 하나로 entrapment 확정 금지",
         "Doppler로 혈관 구분"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv074",
@@ -1478,7 +1756,11 @@
         "경동맥·내경정맥과 직접 압박 주의",
         "근두께 차이만으로 통증 원인 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv075",
@@ -1499,7 +1781,12 @@
         "레벨 오인 방지를 위해 C7부터 상방 counting",
         "probe pressure로 thickness 감소 가능"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "level_orientation",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv076",
@@ -1520,7 +1807,10 @@
         "vertebral artery와 spinal canal 위치를 항상 인지",
         "중재 유도와 단순 진단 스캔을 혼동하지 않음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv077",
@@ -1540,7 +1830,10 @@
         "occipital artery와 구분",
         "신경 크기만으로 occipital neuralgia 진단 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv078",
@@ -1560,7 +1853,10 @@
         "vertebral artery가 매우 가깝고 spinal canal이 인접",
         "교육용 sonoanatomy이며 무분별한 중재 유도 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv079",
@@ -1580,7 +1876,10 @@
         "Color Doppler로 vertebral vessels 확인이 중요",
         "관절통의 확진영상이 아님"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv080",
@@ -1600,7 +1899,11 @@
         "level identification 필수",
         "CSA/diameter 하나로 radiculopathy 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv081",
@@ -1619,7 +1922,10 @@
         "C6 anterior tubercle이 두드러짐",
         "신경근 크기 비대칭은 임상·MRI/EDX와 통합"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv082",
@@ -1639,7 +1945,12 @@
         "vertebral artery 위치 변이",
         "C8와 혼동하지 않도록 level tracing"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation",
+        "neurovascular_safety",
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv083",
@@ -1659,7 +1970,11 @@
         "깊은 위치로 시인성이 제한",
         "Doppler landmark를 nerve로 오인하지 않음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv084",
@@ -1679,7 +1994,10 @@
         "phrenic nerve·vascular structures 주의",
         "증상만으로 neurogenic thoracic outlet로 확장 해석 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv085",
@@ -1699,7 +2017,11 @@
         "external jugular vein은 가벼운 압박에 소실 가능",
         "작은 sensory branches 개별 식별이 제한될 수 있음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv086",
@@ -1719,7 +2041,10 @@
         "carotid sheath와 vertebral artery를 항상 식별",
         "시술 목표로 자동 해석 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv087",
@@ -1739,7 +2064,10 @@
         "vertebral artery는 suboccipital triangle과 인접",
         "근육 두께/trigger point를 진단으로 단정하지 않음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv088",
@@ -1760,7 +2088,11 @@
         "흉막 위치를 항상 인지",
         "probe pressure로 근두께 왜곡 가능"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv089",
@@ -1781,7 +2113,10 @@
         "level counting 필요",
         "늑골과 transverse process 음영 구분"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation"
+      ]
     },
     {
       "ultrasound_view_id": "usv090",
@@ -1802,7 +2137,11 @@
         "근육 경계는 level에 따라 달라짐",
         "thickness/echogenicity 단독 진단 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv091",
@@ -1822,7 +2161,10 @@
         "levator scapulae와 rhomboid minor 혼동",
         "scapular motion으로 layer 확인"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv092",
@@ -1841,7 +2183,10 @@
       "pitfalls": [
         "얇은 근육이라 anisotropy·fascial line과 혼동"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy"
+      ]
     },
     {
       "ultrasound_view_id": "usv093",
@@ -1861,7 +2206,10 @@
         "level identification 위해 T12/rib counting 활용",
         "US는 intra-articular pathology를 완전히 평가하지 못함"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation"
+      ]
     },
     {
       "ultrasound_view_id": "usv094",
@@ -1881,7 +2229,10 @@
         "pleura가 바로 깊게 위치",
         "T11-12에는 true CTJ가 없음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv095",
@@ -1901,7 +2252,10 @@
         "short axis가 effusion 비교에 유리",
         "관절액 하나도 임상 맥락과 연결"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv096",
@@ -1924,7 +2278,10 @@
         "Color Doppler로 artery를 landmark로 사용",
         "pleura 주의"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv097",
@@ -1945,7 +2302,10 @@
         "long thoracic nerve는 직접 식별이 어려울 수 있음",
         "pleura를 깊은 경계로 인지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv098",
@@ -1966,7 +2326,10 @@
         "thoracoacromial/axillary vascular structures를 Doppler로 구분",
         "중재가 아닌 교육용 sonoanatomy"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv099",
@@ -1986,7 +2349,11 @@
         "pleura/peritoneum 두께를 muscle thickness에 포함하지 않음",
         "측정 cut-off 하나로 dysfunction 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv100",
@@ -2005,7 +2372,10 @@
         "angle 의존성",
         "position/effort에 따라 정상값 변동"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "normal_variant"
+      ]
     },
     {
       "ultrasound_view_id": "usv101",
@@ -2024,7 +2394,10 @@
         "근육층 경계가 얇아 측정오차 가능",
         "COPD 연구의 기능지표를 일반 MSK 진단 cutoff로 직접 전용하지 않음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv102",
@@ -2043,7 +2416,11 @@
         "레벨 확인 필요",
         "probe pressure와 lordosis가 thickness에 영향"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression",
+        "level_orientation"
+      ]
     },
     {
       "ultrasound_view_id": "usv103",
@@ -2064,7 +2441,10 @@
         "근육 경계의 observer dependence",
         "CSA 차이만으로 통증 원인 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv104",
@@ -2084,7 +2464,11 @@
         "level과 lateral position 표준화",
         "echogenicity 단독 진단 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "level_orientation",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv105",
@@ -2104,7 +2488,10 @@
         "effort·breathing·probe pressure 통제 필요",
         "activation asymmetry는 impairment 정보"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression"
+      ]
     },
     {
       "ultrasound_view_id": "usv106",
@@ -2124,7 +2511,10 @@
         "신장/복막·혈관 위치 인지",
         "block anatomy를 통증 진단으로 자동 전용하지 않음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv107",
@@ -2145,7 +2535,10 @@
         "복막과 신장 위치 확인",
         "MPS 진단을 US appearance 하나로 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv108",
@@ -2165,7 +2558,10 @@
         "lumbar plexus가 psoas 내에 위치할 수 있음",
         "교육용 anatomy이며 통증 generator 단독판정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv109",
@@ -2185,7 +2581,10 @@
         "관절내 병변 전체를 US로 평가할 수 없음",
         "facet pain 확진은 임상/진단적 block 맥락"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv110",
@@ -2204,7 +2603,10 @@
         "sacral foramen을 SIJ로 오인하지 않음",
         "Doppler로 vascular flow 확인 가능"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv111",
@@ -2224,7 +2626,10 @@
         "posterior portion만 시각화",
         "US만으로 SI pain source 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv112",
@@ -2245,7 +2650,10 @@
         "nerve size alone does not establish entrapment",
         "branch variability"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv113",
@@ -2265,7 +2673,11 @@
         "visualization alone is not diagnosis",
         "small sensory branch anisotropy"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "anisotropy",
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv114",
@@ -2286,7 +2698,10 @@
         "deep root direct visualization은 체형·장비 의존",
         "중재 anatomy를 진단으로 자동 해석 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv115",
@@ -2306,7 +2721,10 @@
         "대퇴혈관과 구분",
         "lumbar root pathology를 이 view로 배제하지 못함"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv116",
@@ -2326,7 +2744,10 @@
         "TLF thickening/enthesophyte alone does not establish pain source",
         "clinical provocation required"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv117",
@@ -2348,7 +2769,10 @@
         "probe pressure로 muscle thickness 변형",
         "복벽 병리와 visceral structure 혼동 주의"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression"
+      ]
     },
     {
       "ultrasound_view_id": "usv118",
@@ -2367,7 +2791,10 @@
         "건획을 tear/scar로 오인하지 않음",
         "두께만으로 dysfunction 확정 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "overinterpretation"
+      ]
     },
     {
       "ultrasound_view_id": "usv119",
@@ -2388,7 +2815,10 @@
         "호흡단계와 위치를 표준화",
         "fascial line을 muscle로 측정하지 않음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv120",
@@ -2408,7 +2838,10 @@
         "thickness change는 activation proxy이지 strength 자체가 아님",
         "task/probe pressure 동일화"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "compression"
+      ]
     },
     {
       "ultrasound_view_id": "usv121",
@@ -2427,7 +2860,10 @@
         "측정 위치와 contraction 강도를 기록",
         "두께 증가를 근력검사와 동일시하지 않음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv122",
@@ -2447,7 +2883,10 @@
         "umbilicus 기준 거리와 rest/contraction 상태 명시",
         "단일 cutoff 자동진단 금지"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv123",
@@ -2466,7 +2905,10 @@
         "환원성·bowel viability concern 평가",
         "통증성 비환원성 hernia는 긴급평가"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv124",
@@ -2485,7 +2927,10 @@
         "rectus diastasis와 true focal defect 구분",
         "Valsalva response 확인"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv125",
@@ -2505,7 +2950,10 @@
         "bowel obstruction/strangulation sign 주의",
         "큰 hernia는 전체 anatomy가 US에서 제한될 수 있음"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv126",
@@ -2525,7 +2973,10 @@
         "external oblique가 sac을 덮어 palpable bulge가 없을 수 있음",
         "incarceration concern은 외과 평가"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv127",
@@ -2545,7 +2996,10 @@
         "direct/indirect 분류는 inferior epigastric vessel relation 필요",
         "asymptomatic bulging 가능"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "general_scan_pitfall"
+      ]
     },
     {
       "ultrasound_view_id": "usv128",
@@ -2564,7 +3018,10 @@
         "불충분한 Valsalva는 false negative",
         "physiologic movement와 pathologic protrusion 구분"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "dynamic"
+      ]
     },
     {
       "ultrasound_view_id": "usv129",
@@ -2584,7 +3041,10 @@
         "anatomic variation",
         "동적 scan과 clinical symptoms를 함께 해석"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "dynamic"
+      ]
     },
     {
       "ultrasound_view_id": "usv130",
@@ -2605,7 +3065,10 @@
         "작은 nerve branch variability",
         "visualization alone does not establish neuralgia"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     },
     {
       "ultrasound_view_id": "usv131",
@@ -2625,7 +3088,10 @@
         "작은 신경은 직접 식별이 어려울 수 있음",
         "ACNES는 임상진단을 중심으로 하며 US는 구조/유도 보조"
       ],
-      "diagram_kind": "probe-placement-schematic-not-bmode"
+      "diagram_kind": "probe-placement-schematic-not-bmode",
+      "pitfall_tags": [
+        "neurovascular_safety"
+      ]
     }
   ]
 }
