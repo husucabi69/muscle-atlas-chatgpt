@@ -2,7 +2,7 @@
   "name": "이윤석정형외과 근육",
   "short_name": "이윤석정형외과 근육",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "이윤석정형외과 근육 · v11.14 Precision Anatomy 상세 레이아웃 복원 · 부위→근육목록→근육상세 독립 Navigation 3.1 · v11.44",
+  "description": "이윤석정형외과 근육 · v11.14 Precision Anatomy 상세 레이아웃 고정 · 부위→근육목록→근육상세 3단계 · 내부 5탭 same-screen · v11.45",
   "start_url": "./?source=pwa",
   "scope": "./",
   "display": "fullscreen",
