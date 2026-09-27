@@ -106,13 +106,13 @@ try{
 
     if(!await visible('#regionDetailView'))fail('v11.14 muscle detail visible',region.label+' / '+firstName);
 
-    const tabs=page.locator('#regionMuscleDetailTabs .anatomy-detail-tab');
+    const tabs=page.locator('#regionDetailView .anatomy-detail-tabs .anatomy-detail-tab');
     if(await tabs.count()!==5)fail('v11.14 muscle detail has five horizontal tabs',region.label+' / '+firstName);
     const labels=(await tabs.allTextContents()).map(x=>x.trim());
     const expectedLabels=['기본정보','해부도해','초음파','임상','심화·학습'];
     if(JSON.stringify(labels)!==JSON.stringify(expectedLabels))fail('v11.14 tab labels preserved',region.label+' / '+JSON.stringify(labels));
 
-    const active=page.locator('#regionMuscleDetailTabs .anatomy-detail-tab.active');
+    const active=page.locator('#regionDetailView .anatomy-detail-tabs .anatomy-detail-tab.active');
     if(await active.count()!==1)fail('Exactly one default anatomy tab active',region.label+' / '+firstName);
     if(await active.getAttribute('data-anatomy-detail-tab')!=='basic')fail('Basic tab active immediately on muscle open',region.label+' / '+firstName);
 
@@ -126,10 +126,10 @@ try{
     const topics=region===regions[0].label?['anatomy','ultrasound','clinical','learning','basic']:['basic'];
     for(const topic of topics){
       const historyBefore=await page.evaluate(()=>history.length);
-      await page.locator('#regionMuscleDetailTabs .anatomy-detail-tab[data-anatomy-detail-tab="'+topic+'"]').click();
+      await page.locator('#regionDetailView .anatomy-detail-tabs .anatomy-detail-tab[data-anatomy-detail-tab="'+topic+'"]').click();
       await page.waitForTimeout(60);
       if(!await visible('#regionDetailView'))fail('Tab content stays in same muscle detail screen',region.label+' / '+topic);
-      const selected=page.locator('#regionMuscleDetailTabs .anatomy-detail-tab.active');
+      const selected=page.locator('#regionDetailView .anatomy-detail-tabs .anatomy-detail-tab.active');
       if(await selected.count()!==1||await selected.getAttribute('data-anatomy-detail-tab')!==topic)fail('Selected tab active',region.label+' / '+topic);
       const detailText=(await page.locator('#regionMuscleDetailContent').textContent()||'').trim();
       if(!detailText)fail('Selected tab renders content',region.label+' / '+topic);
