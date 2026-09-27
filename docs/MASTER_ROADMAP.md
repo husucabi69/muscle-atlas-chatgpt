@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.0 (A1/A2/A3 COMPLETE, 다음 A4 증상)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.0 (A1/A2/A3/A4 COMPLETE, 다음 A5 임상)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -784,3 +784,15 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - Stage 15~23A 전체 QA PASS
 - Preview version: v11.39 · Hierarchy A1-A3
 - 다음 작업: A4 증상으로 찾기 계층화
+
+
+### Stage 23A A4 증상으로 찾기 계층화 COMPLETE — 2026-09-27
+- 흐름: 증상군 목차 → 증상 목록 → 증상 학습목차 → 선택한 상세
+- 증상 상세의 modal overlay를 주 탐색경로에서 제거
+- 상세 목차: 감별·병리 / 관련 근육 / 신경·구조 / 초음파 시작점 / 학습 흐름
+- 홈 빠른진입·검색·임상 학습흐름에서 특정 증상 직접 진입 시에도 동일한 drill 구조 사용
+- 직접 진입 시 해당 증상 목록 history를 먼저 seed하여 내부 뒤로가기가 목록으로 복귀
+- 선택 근육의 symptom_id + muscle_id 문맥 유지
+- Stage 21 기존 학습흐름 QA와 Stage 23A navigation 3.0 QA 모두 PASS
+- Preview version: v11.40 · Hierarchy A1-A4
+- 다음 작업: A5 임상 모듈 계층화
