@@ -46,3 +46,5 @@ jobs:
         run: node scripts/ultrasound-source-health-qa.mjs
       - name: Run Stage 21 clinical learning flow QA
         run: node scripts/clinical-learning-flow-qa.mjs
+      - name: Run Stage 22 search & personal learning QA
+        run: node scripts/search-personal-learning-qa.mjs
