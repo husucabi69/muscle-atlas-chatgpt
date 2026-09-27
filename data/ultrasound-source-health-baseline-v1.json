@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "audit_version": "2026.09.27-stage20-c",
+  "checked_at": "2026-09-27T03:57:14Z",
+  "workflow_run_id": 36292887984,
+  "scope": "Live health check of all unique canonical ultrasound source URLs referenced by the global media audit.",
+  "policy": {
+    "healthy": "HTTP 2xx/3xx",
+    "hard_broken": "HTTP 404/410 => CI failure",
+    "transient": "403/429/5xx/timeout/DNS => reported separately, not treated as a broken canonical link"
+  },
+  "summary": {
+    "total": 55,
+    "healthy": 55,
+    "transient": 0,
+    "broken": 0
+  },
+  "note": "Every canonical source URL responded successfully in the Stage 20 live source-health QA run."
+}
