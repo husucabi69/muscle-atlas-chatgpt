@@ -356,30 +356,18 @@ button,input{font:inherit} button{cursor:pointer}
       <span class="crumb" id="regionDetailBreadcrumb"></span>
     </div>
     <div id="regionMuscleDetailHead" class="anatomy-detail-head"></div>
-    <div class="drill-screen-title">
-      <h3>학습 목차</h3>
-      <p>한 항목만 선택해 새 화면에서 학습합니다. 다른 심화 내용이 이 화면 아래에 이어 붙지 않습니다.</p>
-    </div>
-    <div class="drill-menu-grid" role="navigation" aria-label="근육 상세 학습 목차">
-      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="basic" onclick="showRegionMuscleTab('basic')"><span><strong>기본정보</strong><small>기시 · 정지 · 기능 · 신경 · 혈액공급 · 촉지</small></span><span class="arrow">›</span></button>
-      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="anatomy" onclick="showRegionMuscleTab('anatomy')"><span><strong>해부도해</strong><small>대표 해부학 도해와 시야 선정 이유</small></span><span class="arrow">›</span></button>
-      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="ultrasound" onclick="showRegionMuscleTab('ultrasound')"><span><strong>초음파</strong><small>Probe · landmark · 실제 검수 초음파</small></span><span class="arrow">›</span></button>
-      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="clinical" onclick="showRegionMuscleTab('clinical')"><span><strong>임상</strong><small>관련 증상 · 병리 · 감별 개념</small></span><span class="arrow">›</span></button>
-      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="learning" onclick="showRegionMuscleTab('learning')"><span><strong>심화·학습</strong><small>Oral Viva · 환자교육 · 연결 학습</small></span><span class="arrow">›</span></button>
-    </div>
+    <div id="regionMuscleHubTabs" class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습"></div>
   </div>
 
   <div id="regionDeepView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="deep" hidden>
     <div class="anatomy-nav">
-      <button class="region-back" type="button" onclick="anatomyBack('detail')">← 학습 목차</button>
+      <button class="region-back" type="button" onclick="anatomyBack('detail')">← 근육</button>
       <button class="pill" type="button" onclick="showCurrentRegionMuscles()">근육 목록</button>
       <button class="pill" type="button" onclick="showAnatomyRegions()">해부학 부위</button>
       <span class="crumb" id="regionDeepBreadcrumb"></span>
     </div>
-    <div class="drill-screen-title">
-      <h3 id="regionDeepTitle">심화 학습</h3>
-      <p id="regionDeepSubtitle"></p>
-    </div>
+    <div id="regionMuscleDeepHead" class="anatomy-detail-head"></div>
+    <div id="regionMuscleDeepTabs" class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습"></div>
     <div id="regionMuscleDetailContent" class="anatomy-detail-content"></div>
   </div>
 </section>
@@ -1871,14 +1859,50 @@ function regionMuscleBasicHtml(m){
     '<br><br><b>임상 체크포인트</b><br>'+esc(ui['임상 체크포인트']||ui['임상 주의']||ui['임상/주의']||'')+'</p></div>';
 }
 
+const ANATOMY_DETAIL_LAYOUT_BASELINE='v11.14 · Stage 17 Precision Anatomy';
+
+function regionMuscleHeaderHtml(m){
+  return '<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><h2>'+esc(m.ko)+'</h2><div class="sub">'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</div></div><button class="favorite-toggle '+(isFavoriteEntity('muscle',m.id)?'on':'')+'" type="button" onclick="toggleFavoriteEntity(\'muscle\',\''+m.id+'\');refreshCurrentAnatomyMuscleHead()">'+(isFavoriteEntity('muscle',m.id)?'★':'☆')+'</button></div><div class="tagrow"><span class="tag">'+esc(m.region)+'</span><span class="tag">'+esc(m.id)+'</span></div>';
+}
+
+function anatomyDetailTabsHtml(activeTab=null){
+  const tabs=[
+    ['basic','기본정보'],
+    ['anatomy','해부도해'],
+    ['ultrasound','초음파'],
+    ['clinical','임상'],
+    ['learning','심화·학습']
+  ];
+  return tabs.map(([id,label])=>
+    '<button class="anatomy-detail-tab '+(activeTab===id?'active':'')+'" type="button" data-anatomy-detail-tab="'+id+'" onclick="showRegionMuscleTab(\''+id+'\')">'+label+'</button>'
+  ).join('');
+}
+
+function refreshCurrentAnatomyMuscleHead(){
+  const m=byId[selectedRegionMuscleId];if(!m)return;
+  const html=regionMuscleHeaderHtml(m);
+  const hub=document.getElementById('regionMuscleDetailHead');
+  const deep=document.getElementById('regionMuscleDeepHead');
+  if(hub)hub.innerHTML=html;
+  if(deep)deep.innerHTML=html;
+}
+
+function renderAnatomyDetailTabs(activeTab=null){
+  const html=anatomyDetailTabsHtml(activeTab);
+  const hub=document.getElementById('regionMuscleHubTabs');
+  const deep=document.getElementById('regionMuscleDeepTabs');
+  if(hub)hub.innerHTML=html;
+  if(deep)deep.innerHTML=html;
+}
+
 function openRegionMuscle(id,record=true){
   const m=byId[id];if(!m)return;
   recordRecentEntity('muscle',id);
   selectedRegionMuscleId=id;
   selectedRegionName=m.region;
   selectedRegionMuscleTab=null;
-  const head=document.getElementById('regionMuscleDetailHead');
-  if(head)head.innerHTML='<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><h2>'+esc(m.ko)+'</h2><div class="sub">'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</div></div><button class="favorite-toggle '+(isFavoriteEntity('muscle',m.id)?'on':'')+'" type="button" onclick="toggleFavoriteEntity(\'muscle\',\''+m.id+'\');openRegionMuscle(\''+m.id+'\',false)">'+(isFavoriteEntity('muscle',m.id)?'★':'☆')+'</button></div><div class="tagrow"><span class="tag">'+esc(m.region)+'</span><span class="tag">'+esc(m.id)+'</span></div>';
+  refreshCurrentAnatomyMuscleHead();
+  renderAnatomyDetailTabs(null);
   const crumb=document.getElementById('regionDetailBreadcrumb');
   if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko;
   setAnatomyView('detail');
@@ -1889,11 +1913,9 @@ function showRegionMuscleTab(tab,record=true){
   const m=byId[selectedRegionMuscleId];if(!m||!anatomyTopicMeta[tab])return;
   selectedRegionMuscleTab=tab;
   const meta=anatomyTopicMeta[tab];
-  const title=document.getElementById('regionDeepTitle');
-  const subtitle=document.getElementById('regionDeepSubtitle');
+  refreshCurrentAnatomyMuscleHead();
+  renderAnatomyDetailTabs(tab);
   const crumb=document.getElementById('regionDeepBreadcrumb');
-  if(title)title.textContent=m.ko+' · '+meta[0];
-  if(subtitle)subtitle.textContent=meta[1];
   if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko+' › '+meta[0];
   const el=document.getElementById('regionMuscleDetailContent');if(!el)return;
 
