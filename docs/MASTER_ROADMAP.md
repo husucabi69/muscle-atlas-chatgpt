@@ -817,3 +817,13 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 14개 해부학 부위 → 근육 목록 → 첫 근육 → 학습목차 → back 전수 PASS
 - 정적 QA PASS + runtime E2E PASS
 - 사용자 실기기 Preview 확인 전 A2 COMPLETE 처리 금지
+
+
+### v11.14 Anatomy UX Baseline — LOCKED — 2026-09-27
+- 사용자 검증 기준: v11.14 · Stage 17 Precision Anatomy
+- 보존 요소: 개별 근육 헤더 + 가로 탭 5개(기본정보 / 해부도해 / 초음파 / 임상 / 심화·학습)
+- Navigation 3.1은 레이아웃을 재설계하지 않고 독립 화면 전환만 담당
+- 현재 구현: 근육 허브에서 v11.14 가로 탭 유지 → 탭 선택 시 독립 deep 화면 → deep 화면에서도 동일 근육 헤더와 가로 탭 유지
+- 세로형 drill-menu 카드로 대체 금지
+- Static QA + Playwright runtime E2E에 기준선 검사 추가
+- 실제 Preview 사용자 확인 전 A2 COMPLETE 처리 금지
