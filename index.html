@@ -2195,7 +2195,7 @@ function regionMasteryRows(){
     const ms=muscles.filter(m=>m.region===region),studied=new Set(),quizSeen=[],oralPerf=[];
     for(const m of ms){
       const p=q.progress?.[m.id];if(p?.seen){studied.add(m.id);quizSeen.push({correct:Number(p.correct||0),seen:Number(p.seen||0)});}
-      const hs=oralRows[m.id]||[];if(hs.length){studied.add(m.id);oralPerf.push(...hs.map(h=>h.grade==='correct'?1:h.grade==='partial'?.5:0));}
+      const hs=oralRows[m.id]||[];if(hs.length){studied.add(m.id);oralPerf.push(...hs.map(h=>h.grade==='correct'?1:h.grade==='partial'?0.5:0));}
     }
     const coverage=ms.length?studied.size/ms.length:0;
     const qSeen=quizSeen.reduce((a,x)=>a+x.seen,0),qCorrect=quizSeen.reduce((a,x)=>a+x.correct,0);
