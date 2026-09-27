@@ -273,18 +273,18 @@
 
 # Stage 20 — Ultrasound Atlas 2.0
 
-상태: **IN PROGRESS — 131/131 probe guidance layer 구현 / 실제 B-mode 분리 완료 / media·pitfall 고도화 진행 중**
+상태: **DEV COMPLETE / AUTOMATED QA PASS — 131/131 guidance·landmark·pitfall 완료 / 5 embedded actual US + 9 direct-asset candidates + 117 reference-only / 55 source healthy · broken 0**
 
 목표: 131 canonical view를 probe 위치 → orientation → landmark → 정상 실제 영상 → pitfall 순으로 학습하게 한다.
 
 - [x] 131 view 필수 교육 필드 전수 구조감사 — patient position / probe orientation / landmark / normal / pitfall 누락 0
 - [x] probe placement/orientation 교육용 schematic 131/131 자동 생성
 - [x] 교육용 Probe 도해와 실제 B-mode/검증 원문을 UI에서 명확히 분리
-- [ ] landmark layer
-- [ ] anisotropy/common pitfall
-- [ ] reusable image/video 직접 승격
-- [ ] 불명확 라이선스는 reference-only
-- [ ] source health/broken-link audit
+- [x] landmark layer — canonical landmark 최대 4개를 probe guide에 직접 표시
+- [x] anisotropy/common pitfall — 131/131 pitfall 존재 + 8종 taxonomy tag
+- [x] reusable image/video 승격 정책 적용 — 기존 5개 검증 actual-US embedded 유지; 9개 permissive 후보는 stable direct media asset URL 미확립으로 안전하게 보류
+- [x] 불명확/NC/ND 라이선스는 reference-only — 117 view
+- [x] source health/broken-link audit — 55/55 healthy · transient 0 · broken 0, CI 상시 감시
 - [x] generated/fake B-mode 금지 정책 유지 + Stage 20 QA
 
 ---
