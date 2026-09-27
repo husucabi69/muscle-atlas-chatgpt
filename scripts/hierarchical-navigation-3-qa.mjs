@@ -22,31 +22,33 @@ check('Reusable navigation viewport reset exists',index.includes('function reset
 check('Reusable navigation history helpers exist',index.includes('function pushAppNavigationState(state)')&&index.includes('function replaceAppNavigationState(state)'));
 check('Top-level pages share navigation reset',index.includes('document.documentElement.dataset.appPage=page')&&index.includes('resetNavigationViewport();'));
 
-for(const view of ['regions','muscles','detail','deep']){
+for(const view of ['regions','muscles','detail']){
   check('Anatomy drill screen: '+view,index.includes('data-drill-group="anatomy" data-drill-view="'+view+'"'));
 }
+check('Anatomy has no extra deep hierarchy',!index.includes('data-drill-group="anatomy" data-drill-view="deep"'));
 check('Anatomy root shows only region chooser contract',index.includes('1단계 · 부위 목차'));
 check('Anatomy region opens muscle-only level',index.includes('2단계 · 근육 목차')&&index.includes("setAnatomyView('muscles')"));
 check('Anatomy visual baseline locked to v11.14',
   index.includes("const ANATOMY_DETAIL_LAYOUT_BASELINE='v11.14 · Stage 17 Precision Anatomy'")
 );
-check('Muscle opens v11.14 horizontal tab hub before content',
-  index.includes('id="regionMuscleHubTabs" class="anatomy-detail-tabs"') &&
-  index.includes("setAnatomyView('detail')") &&
-  !index.slice(index.indexOf('id="regionDetailView"'),index.indexOf('id="regionDeepView"')).includes('drill-menu-grid')
+check('Muscle opens exact v11.14 single detail screen',
+  index.includes('id="regionMuscleDetailTabs" class="anatomy-detail-tabs"') &&
+  index.includes('id="regionMuscleDetailContent" class="anatomy-detail-content"') &&
+  index.includes("showRegionMuscleTab('basic',false)") &&
+  index.includes("selectedRegionMuscleTab='basic'") &&
+  index.includes("setAnatomyView('detail')")
 );
-check('Deep topic is separate screen with preserved muscle header and tabs',
-  index.includes('id="regionDeepView"') &&
-  index.includes('id="regionMuscleDeepHead" class="anatomy-detail-head"') &&
-  index.includes('id="regionMuscleDeepTabs" class="anatomy-detail-tabs"') &&
-  index.includes("setAnatomyView('deep')")
+check('No vertical learning-menu cards in anatomy muscle detail',
+  !index.slice(index.indexOf('id="regionDetailView"'),index.indexOf('</section>',index.indexOf('id="regionDetailView"'))).includes('drill-menu-grid')
 );
-check('Muscle opening does not auto-open basic topic',
-  !index.slice(index.indexOf('function openRegionMuscle'),index.indexOf('function showRegionMuscleTab')).includes("showRegionMuscleTab('basic')")
+check('No repeated deep anatomy header or deep screen',
+  !index.includes('id="regionMuscleDeepHead"') &&
+  !index.includes('id="regionMuscleDeepTabs"') &&
+  !index.includes('id="regionDeepView"')
 );
 check('Shared anatomy tab renderer is single source of truth',
   index.includes('function anatomyDetailTabsHtml(activeTab=null)') &&
-  index.includes('function renderAnatomyDetailTabs(activeTab=null)')
+  index.includes("function renderAnatomyDetailTabs(activeTab='basic')")
 );
 const expectedAnatomyTabs=[
   ['basic','기본정보'],
@@ -56,15 +58,16 @@ const expectedAnatomyTabs=[
   ['learning','심화·학습']
 ];
 for(const [topic,label] of expectedAnatomyTabs){
-  check('Anatomy v11.14 tab: '+topic,
-    index.includes("['"+topic+"','"+label+"']")
-  );
+  check('Anatomy v11.14 tab: '+topic,index.includes("['"+topic+"','"+label+"']"));
 }
-check('Deep breadcrumb exists',index.includes('id="regionDeepBreadcrumb"'));
-check('Hierarchy back controls exist',index.includes("anatomyBack('regions')")&&index.includes("anatomyBack('muscles')")&&index.includes("anatomyBack('detail')"));
-check('Anatomy state records deep topic',index.includes('anatomyTopic:selectedRegionMuscleTab'));
-check('Browser back restores deep topic',index.includes("state.anatomyLevel==='deep'")&&index.includes('showRegionMuscleTab(state.anatomyTopic,false)'));
-check('Every drill transition resets to top',index.includes("window.scrollTo({top:0,behavior:'auto'})"));
+check('Anatomy tabs swap content in same detail view',
+  index.includes("setAnatomyView('detail');") &&
+  !index.slice(index.indexOf('function showRegionMuscleTab'),index.indexOf('function refreshRegionNavigation')).includes("recordAnatomyHistory('deep')")
+);
+check('Anatomy browser history has only regions muscles detail',
+  !index.includes("state.anatomyLevel==='deep'") &&
+  !index.includes('anatomyTopic:selectedRegionMuscleTab')
+);
 check('Education hierarchy has 4 drill screens',
   ['regions','muscles','menu','exercise'].every(view=>index.includes('data-drill-group="education" data-drill-view="'+view+'"'))
 );
