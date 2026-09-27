@@ -42,6 +42,37 @@ check('manual update button exists',index.includes('id="appUpdateButton"')&&upda
 check('visible current-version label exists',index.includes('id="appVersionLabel"')&&index.includes("appVersionLabel.textContent=APP_RELEASE.displayVersion"));
 check('offline status preserves stable app',updateCode.includes("오프라인입니다. 저장된 앱으로 계속 사용할 수 있습니다."));
 check('online recovery triggers update check',updateCode.includes("window.addEventListener('online',()=>checkForAppUpdate(false))"));
+check('app resume checks for updates',
+  updateCode.includes("window.addEventListener('pageshow',()=>requestAppUpdateCheck('pageshow'))") &&
+  updateCode.includes("window.addEventListener('focus',()=>requestAppUpdateCheck('focus'))") &&
+  updateCode.includes("document.addEventListener('visibilitychange'") &&
+  updateCode.includes("document.visibilityState==='visible'")
+);
+check('resume update checks are throttled',
+  updateCode.includes('APP_AUTO_UPDATE_MIN_INTERVAL=15000') &&
+  updateCode.includes('now-appLastAutoUpdateCheckAt<APP_AUTO_UPDATE_MIN_INTERVAL')
+);
+check('pull-to-refresh update indicator exists',
+  index.includes('id="pullRefreshIndicator"') &&
+  index.includes('아래로 당겨 업데이트')
+);
+check('pull-to-refresh is home/top guarded',
+  updateCode.includes("window.scrollY>0") &&
+  updateCode.includes("document.getElementById('home')?.classList.contains('active')")
+);
+check('pull gesture prevents native double refresh only while tracking',
+  updateCode.includes("document.addEventListener('touchmove'") &&
+  updateCode.includes("event.preventDefault()") &&
+  updateCode.includes("{passive:false}")
+);
+check('pull release triggers explicit update check',
+  updateCode.includes('function triggerPullRefresh()') &&
+  updateCode.includes('await checkForAppUpdate(true)')
+);
+check('pull refresh reloads latest network-first page when no worker transition',
+  updateCode.includes("setAppUpdateStatus('최신 화면을 다시 불러옵니다.'") &&
+  updateCode.includes('window.location.reload()')
+);
 
 let failed=0;
 for(const item of checks){
