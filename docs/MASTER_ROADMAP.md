@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.0 (A1/A2 COMPLETE, 다음 A3 환자교육)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.0 (A1/A2/A3 COMPLETE, 다음 A4 증상)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -772,3 +772,15 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - Stage 16 legacy QA + Stage 23A navigation 3.0 QA PASS
 - Preview version: v11.38 · Hierarchical Navigation 3.0
 - 다음 작업: A3 환자 운동·스트레칭 계층화
+
+
+### Stage 23A A3 환자교육 계층화 COMPLETE — 2026-09-27
+- 흐름: 부위 목차 → 해당 부위 근육 → 선택 근육의 운동 목차 → 선택 운동 1개 상세
+- 근육 선택 직후 모든 운동카드를 세로로 길게 붙이던 구조 제거
+- 운동 상세 화면에는 선택한 profile 하나만 표시
+- browser/Android back + 내부 back + history 복원 계약 추가
+- 전체 근육 운동표 인쇄 / 부위별 인쇄 / 공유 기능 유지
+- 환자 의료기기 아님·의료전문가 상담 안전문구 유지
+- Stage 15~23A 전체 QA PASS
+- Preview version: v11.39 · Hierarchy A1-A3
+- 다음 작업: A4 증상으로 찾기 계층화
