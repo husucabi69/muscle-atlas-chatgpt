@@ -32,7 +32,7 @@ check('Offline shell contains canonical knowledge',sw.includes("'./data/knowledg
 check('Offline shell contains patient exercise',sw.includes("'./data/patient-exercise-library-v1.json'")&&sw.includes("'./data/patient-exercise-illustration-v2.json'"));
 check('Offline shell contains ultrasound guidance',sw.includes("'./data/ultrasound-probe-guidance-v2.json'"));
 check('Offline navigation fallback exists',sw.includes("networkFirst(event.request,'./index.html')"));
-check('Online recovery update hook exists',index.includes("window.addEventListener('online',()=>{checkForAppUpdate(false)"));
+check('Online recovery update hook exists',index.includes("window.addEventListener('online',()=>checkForAppUpdate(false))"));
 check('Offline runtime hook exists',index.includes("window.addEventListener('offline'"));
 check('Update path preserves learning storage',!sw.includes('localStorage.clear')&&!index.includes('localStorage.clear'));
 check('One-shot update reload guard exists',index.includes("sessionStorage.getItem(reloadKey)!==APP_RELEASE.buildVersion"));
