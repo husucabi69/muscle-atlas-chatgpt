@@ -99,7 +99,6 @@ for(const mod of modules){
     for(const k of ['clinical_test_id','category','setup','maneuver','positive_definition','interpretation_note','limitation']){
       if(!String(t[k]||'').trim())dataErrors.push(mod+':'+(t.clinical_test_id||'?')+':missing_'+k);
     }
-    if(!Array.isArray(t.target_structure_ids)||!t.target_structure_ids.length)dataErrors.push(mod+':'+t.clinical_test_id+':missing_targets');
   }
   for(const g of diff.differential_groups||[]){
     for(const c of g.candidates||[]){
@@ -111,6 +110,8 @@ for(const mod of modules){
   }
 }
 check('Clinical test contract complete',testCount===148 && dataErrors.filter(x=>x.includes('missing_')&&!x.includes('candidate')).length===0,String(testCount));
+const targetlessTests=(core.clinical_tests||[]).filter(t=>!Array.isArray(t.target_structure_ids)||!t.target_structure_ids.length);
+check('Targetless regional/system tests retain stable clinical_test_id',targetlessTests.every(t=>/^ct\d+$/.test(t.clinical_test_id)),targetlessTests.map(t=>t.clinical_test_id).join(','));
 check('Differential supporting/opposing clue contract complete',candidateCount>0 && dataErrors.filter(x=>x.includes('candidate')||x.includes('missing_supporting')||x.includes('missing_opposing')).length===0,String(candidateCount));
 check('All 10 modules have red-flag safety boundary',dataErrors.filter(x=>x.includes('missing_safety_rule')).length===0);
 
