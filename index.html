@@ -55,6 +55,18 @@ button,input{font:inherit} button{cursor:pointer}
 .region-panel-head h3{font-size:28px;letter-spacing:-.035em;margin:0}
 .region-panel-head span{color:var(--muted);font-size:14px}
 .anatomy-view[hidden]{display:none!important}
+.drill-screen[hidden]{display:none!important}
+.drill-screen{min-height:calc(100dvh - 118px);animation:drillIn .16s ease-out}
+@keyframes drillIn{from{opacity:.55;transform:translateX(10px)}to{opacity:1;transform:none}}
+.drill-menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.drill-menu-item{width:100%;min-height:106px;text-align:left;border:1px solid var(--line);border-radius:18px;background:#fff;padding:17px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.drill-menu-item:hover{border-color:#a8c3fb;box-shadow:var(--shadow)}
+.drill-menu-item strong{display:block;font-size:19px;margin-bottom:5px}
+.drill-menu-item small{display:block;color:var(--muted);line-height:1.55}
+.drill-menu-item .arrow{font-size:26px;color:#98a2b3;flex:0 0 auto}
+.drill-screen-title{margin:2px 0 16px}
+.drill-screen-title h3{font-size:28px;letter-spacing:-.035em;margin:0 0 5px}
+.drill-screen-title p{margin:0;color:var(--muted);line-height:1.6}
 .anatomy-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .anatomy-nav .crumb{color:var(--muted);font-size:14px;margin-left:auto}
 .anatomy-detail-head{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;margin-bottom:14px}
@@ -276,38 +288,55 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 <section id="regions" class="page">
-  <div id="regionChooserView" class="anatomy-view">
+  <div id="regionChooserView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="regions">
     <div class="section-title"><h3>해부학 부위</h3><span>부위를 선택하세요</span></div>
-    <div class="note"><b>단계 1 · 부위 선택</b><br>부위를 누르면 해당 근육 목록 화면으로 전환됩니다.</div>
+    <div class="note"><b>1단계 · 부위 목차</b><br>이 화면에는 해부학 부위만 표시됩니다. 부위를 누르면 해당 부위의 근육 목록만 보이는 새 화면으로 이동합니다.</div>
     <div id="regionChooser" class="region-chooser"></div>
   </div>
 
-  <div id="regionMusclesView" class="anatomy-view" hidden>
+  <div id="regionMusclesView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="muscles" hidden>
     <div class="anatomy-nav">
-      <button class="region-back" type="button" onclick="showAnatomyRegions()">← 해부부위</button>
+      <button class="region-back" type="button" onclick="anatomyBack('regions')">← 해부학 부위</button>
       <span class="crumb" id="regionMuscleBreadcrumb"></span>
     </div>
     <div class="region-panel-head">
       <h3 id="selectedRegionTitle"></h3>
       <span id="selectedRegionCount"></span>
     </div>
-    <div class="note"><b>단계 2 · 근육 선택</b><br>근육을 누르면 상세 학습 화면으로 전환됩니다.</div>
+    <div class="note"><b>2단계 · 근육 목차</b><br>선택한 부위의 근육만 표시됩니다. 근육을 누르면 그 근육의 학습 목차가 새 화면으로 열립니다.</div>
     <div id="selectedRegionList" class="region-list"></div>
   </div>
 
-  <div id="regionDetailView" class="anatomy-view" hidden>
+  <div id="regionDetailView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="detail" hidden>
     <div class="anatomy-nav">
-      <button class="region-back" type="button" onclick="showCurrentRegionMuscles()">← 근육 목록</button>
-      <button class="pill" type="button" onclick="showAnatomyRegions()">해부부위로</button>
+      <button class="region-back" type="button" onclick="anatomyBack('muscles')">← 근육 목록</button>
+      <button class="pill" type="button" onclick="showAnatomyRegions()">해부학 부위</button>
       <span class="crumb" id="regionDetailBreadcrumb"></span>
     </div>
     <div id="regionMuscleDetailHead" class="anatomy-detail-head"></div>
-    <div class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습">
-      <button class="anatomy-detail-tab active" type="button" data-anatomy-detail-tab="basic" onclick="showRegionMuscleTab('basic')">기본정보</button>
-      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="anatomy" onclick="showRegionMuscleTab('anatomy')">해부도해</button>
-      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="ultrasound" onclick="showRegionMuscleTab('ultrasound')">초음파</button>
-      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="clinical" onclick="showRegionMuscleTab('clinical')">임상</button>
-      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="learning" onclick="showRegionMuscleTab('learning')">심화·학습</button>
+    <div class="drill-screen-title">
+      <h3>학습 목차</h3>
+      <p>한 항목만 선택해 새 화면에서 학습합니다. 다른 심화 내용이 이 화면 아래에 이어 붙지 않습니다.</p>
+    </div>
+    <div class="drill-menu-grid" role="navigation" aria-label="근육 상세 학습 목차">
+      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="basic" onclick="showRegionMuscleTab('basic')"><span><strong>기본정보</strong><small>기시 · 정지 · 기능 · 신경 · 혈액공급 · 촉지</small></span><span class="arrow">›</span></button>
+      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="anatomy" onclick="showRegionMuscleTab('anatomy')"><span><strong>해부도해</strong><small>대표 해부학 도해와 시야 선정 이유</small></span><span class="arrow">›</span></button>
+      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="ultrasound" onclick="showRegionMuscleTab('ultrasound')"><span><strong>초음파</strong><small>Probe · landmark · 실제 검수 초음파</small></span><span class="arrow">›</span></button>
+      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="clinical" onclick="showRegionMuscleTab('clinical')"><span><strong>임상</strong><small>관련 증상 · 병리 · 감별 개념</small></span><span class="arrow">›</span></button>
+      <button class="drill-menu-item" type="button" data-anatomy-detail-tab="learning" onclick="showRegionMuscleTab('learning')"><span><strong>심화·학습</strong><small>Oral Viva · 환자교육 · 연결 학습</small></span><span class="arrow">›</span></button>
+    </div>
+  </div>
+
+  <div id="regionDeepView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="deep" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="anatomyBack('detail')">← 학습 목차</button>
+      <button class="pill" type="button" onclick="showCurrentRegionMuscles()">근육 목록</button>
+      <button class="pill" type="button" onclick="showAnatomyRegions()">해부학 부위</button>
+      <span class="crumb" id="regionDeepBreadcrumb"></span>
+    </div>
+    <div class="drill-screen-title">
+      <h3 id="regionDeepTitle">심화 학습</h3>
+      <p id="regionDeepSubtitle"></p>
     </div>
     <div id="regionMuscleDetailContent" class="anatomy-detail-content"></div>
   </div>
@@ -1592,30 +1621,65 @@ function refreshSymptomNavigation(){
   if(selectedSymptomGroupId&&symptomGroups.some(x=>x.symptom_group_id===selectedSymptomGroupId))openSymptomGroup(selectedSymptomGroupId);
 }
 
+const APP_DRILL_NAV_VERSION='3.0';
+
+function resetNavigationViewport(){
+  window.scrollTo({top:0,left:0,behavior:'auto'});
+}
+
+function setDrillView(group,viewId){
+  const views=[...document.querySelectorAll('[data-drill-group="'+group+'"]')];
+  let active=null;
+  views.forEach(view=>{
+    const on=view.dataset.drillView===viewId;
+    view.hidden=!on;
+    view.setAttribute('aria-hidden',on?'false':'true');
+    if(on)active=view;
+  });
+  document.documentElement.dataset.drillGroup=group;
+  document.documentElement.dataset.drillView=viewId;
+  resetNavigationViewport();
+  return active;
+}
+
+function pushAppNavigationState(state){
+  history.pushState({...(history.state||{}),...state},'');
+}
+
+function replaceAppNavigationState(state){
+  history.replaceState({...(history.state||{}),...state},'');
+}
+
 let selectedRegionName=null;
 let selectedRegionMuscleId=null;
-let selectedRegionMuscleTab='basic';
+let selectedRegionMuscleTab=null;
 let restoringAnatomyHistory=false;
 
-function recordAnatomyHistory(level){
+const anatomyTopicMeta={
+  basic:['기본정보','기시 · 정지 · 기능 · 신경 · 혈액공급 · 촉지 · 임상 핵심'],
+  anatomy:['해부도해','대표 해부학 도해와 교육용 시야'],
+  ultrasound:['초음파','Probe · landmark · 실제 검수 초음파'],
+  clinical:['임상','관련 증상 · 병리 · 진단 개념'],
+  learning:['심화·학습','Oral Viva · 환자교육 · 연결 학습']
+};
+
+function recordAnatomyHistory(level,mode='push'){
   if(restoringAnatomyHistory)return;
-  history.pushState({
-    ...(history.state||{}),
+  const state={
     lysPage:'regions',
     anatomyLevel:level,
     anatomyRegion:selectedRegionName,
-    anatomyMuscleId:selectedRegionMuscleId
-  },'');
+    anatomyMuscleId:selectedRegionMuscleId,
+    anatomyTopic:selectedRegionMuscleTab
+  };
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
 }
 
 function setAnatomyView(view){
-  const chooser=document.getElementById('regionChooserView');
-  const musclesView=document.getElementById('regionMusclesView');
-  const detailView=document.getElementById('regionDetailView');
-  if(chooser)chooser.hidden=view!=='regions';
-  if(musclesView)musclesView.hidden=view!=='muscles';
-  if(detailView)detailView.hidden=view!=='detail';
-  window.scrollTo({top:0,behavior:'auto'});
+  const map={regions:'regionChooserView',muscles:'regionMusclesView',detail:'regionDetailView',deep:'regionDeepView'};
+  if(!map[view])return null;
+  return setDrillView('anatomy',view);
 }
 
 function renderRegionChooser(){
@@ -1630,6 +1694,7 @@ function renderRegionChooser(){
 function openRegion(region,record=true){
   selectedRegionName=region;
   selectedRegionMuscleId=null;
+  selectedRegionMuscleTab=null;
   const list=muscles.filter(m=>m.region===region);
   document.getElementById('selectedRegionTitle').textContent=region;
   document.getElementById('selectedRegionCount').textContent=list.length+'개 근육';
@@ -1645,7 +1710,7 @@ function openRegion(region,record=true){
 function showAnatomyRegions(record=true){
   selectedRegionName=null;
   selectedRegionMuscleId=null;
-  selectedRegionMuscleTab='basic';
+  selectedRegionMuscleTab=null;
   setAnatomyView('regions');
   if(record)recordAnatomyHistory('regions');
 }
@@ -1655,6 +1720,17 @@ function closeRegionMuscles(){showAnatomyRegions();}
 function showCurrentRegionMuscles(record=true){
   if(selectedRegionName)openRegion(selectedRegionName,record);
   else showAnatomyRegions(record);
+}
+
+function anatomyBack(fallbackLevel){
+  const state=history.state;
+  if(state?.lysPage==='regions'&&['muscles','detail','deep'].includes(state.anatomyLevel)){
+    history.back();
+    return;
+  }
+  if(fallbackLevel==='detail'&&selectedRegionMuscleId)openRegionMuscle(selectedRegionMuscleId,false);
+  else if(fallbackLevel==='muscles'&&selectedRegionName)openRegion(selectedRegionName,false);
+  else showAnatomyRegions(false);
 }
 
 function regionMuscleBasicHtml(m){
@@ -1678,62 +1754,63 @@ function openRegionMuscle(id,record=true){
   recordRecentEntity('muscle',id);
   selectedRegionMuscleId=id;
   selectedRegionName=m.region;
-  selectedRegionMuscleTab='basic';
+  selectedRegionMuscleTab=null;
   const head=document.getElementById('regionMuscleDetailHead');
   if(head)head.innerHTML='<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><h2>'+esc(m.ko)+'</h2><div class="sub">'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</div></div><button class="favorite-toggle '+(isFavoriteEntity('muscle',m.id)?'on':'')+'" type="button" onclick="toggleFavoriteEntity(\'muscle\',\''+m.id+'\');openRegionMuscle(\''+m.id+'\',false)">'+(isFavoriteEntity('muscle',m.id)?'★':'☆')+'</button></div><div class="tagrow"><span class="tag">'+esc(m.region)+'</span><span class="tag">'+esc(m.id)+'</span></div>';
   const crumb=document.getElementById('regionDetailBreadcrumb');
   if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko;
   setAnatomyView('detail');
-  showRegionMuscleTab('basic');
   if(record)recordAnatomyHistory('detail');
 }
 
-function showRegionMuscleTab(tab){
-  const m=byId[selectedRegionMuscleId];if(!m)return;
+function showRegionMuscleTab(tab,record=true){
+  const m=byId[selectedRegionMuscleId];if(!m||!anatomyTopicMeta[tab])return;
   selectedRegionMuscleTab=tab;
-  document.querySelectorAll('[data-anatomy-detail-tab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.anatomyDetailTab===tab));
+  const meta=anatomyTopicMeta[tab];
+  const title=document.getElementById('regionDeepTitle');
+  const subtitle=document.getElementById('regionDeepSubtitle');
+  const crumb=document.getElementById('regionDeepBreadcrumb');
+  if(title)title.textContent=m.ko+' · '+meta[0];
+  if(subtitle)subtitle.textContent=meta[1];
+  if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko+' › '+meta[0];
   const el=document.getElementById('regionMuscleDetailContent');if(!el)return;
+
   if(tab==='basic'){
     el.innerHTML=regionMuscleBasicHtml(m);
-    return;
-  }
-  if(tab==='anatomy'){
-    el.innerHTML='<div class="section-title"><h3>대표 해부학 도해</h3><span>Stage 17에서 205개 대표시야 전수감사</span></div>'+
-      '<div class="note">현재 검수 고정 도해를 우선 표시합니다. 다음 단계에서 각 근육이 가장 잘 보이는 시야를 대표 도해로 다시 선정합니다.</div>'+
+  }else if(tab==='anatomy'){
+    el.innerHTML='<div class="section-title"><h3>대표 해부학 도해</h3><span>Stage 17 · 205개 대표시야 전수감사</span></div>'+
+      '<div class="note">검수 고정 도해를 우선 표시합니다. 공개 적합 정본이 없는 근육은 source-gap 상태를 유지합니다.</div>'+
       '<div id="regionAnatomyMedia" class="media-grid"></div>';
-    loadAnatomyInto(m,document.getElementById('regionAnatomyMedia'));
-    return;
-  }
-  if(tab==='ultrasound'){
+  }else if(tab==='ultrasound'){
     const ui=usInfo[m.region]||{};
     el.innerHTML='<div class="box"><h4>Probe / 스캔</h4><p>'+esc(ui['Probe/스캔']||'')+'</p></div>'+
       '<div class="section-title"><h3>실제 초음파</h3><span>검수 자료 우선</span></div>'+
       '<div id="regionUSMedia" class="media-grid"></div>';
-    loadUSInto(m,document.getElementById('regionUSMedia'));
-    return;
-  }
-  if(tab==='clinical'){
+  }else if(tab==='clinical'){
     const sx=symptomsByMuscle[m.id]||[];
     const dx=diagnosesByMuscle[m.id]||[];
     el.innerHTML='<div class="pathbox"><h4>임상 중요점</h4><p>'+esc(m.pathology)+'</p></div>'+
       '<div class="section-title"><h3>관련 증상</h3><span>'+sx.length+'개</span></div>'+
-      (sx.length?'<div class="grid2">'+sx.map(s=>'<button class="symptom-card" type="button" onclick="openSymptom(\''+s.id+'\')"><h4>'+esc(s.title)+'</h4><p>증상 흐름 자세히 보기</p></button>').join('')+'</div>':'<div class="note">현재 직접 연결된 증상 항목이 없습니다.</div>')+
+      (sx.length?'<div class="grid2">'+sx.map(x=>'<button class="symptom-card" type="button" onclick="openSymptom(\''+x.id+'\')"><h4>'+esc(x.title)+'</h4><p>증상 흐름 자세히 보기</p></button>').join('')+'</div>':'<div class="note">현재 직접 연결된 증상 항목이 없습니다.</div>')+
       '<div class="section-title"><h3>관련 진단 개념</h3><span>일반 지식 후보</span></div>'+
       (dx.length?'<div class="tagrow">'+dx.map(d=>'<span class="tag">'+esc(d.title)+'</span>').join('')+'</div>':'<div class="note">현재 직접 연결된 진단 개념이 없습니다.</div>');
-    return;
-  }
-  if(tab==='learning'){
+  }else if(tab==='learning'){
     el.innerHTML='<div class="grid2">'+
       '<div class="card"><h3>Oral Viva</h3><p>이 근육을 바로 구술시험으로 이어갑니다.</p><div class="anatomy-detail-actions"><button class="primary" onclick="startOralForMuscle(\''+m.id+'\')">이 근육 Oral 시작</button></div></div>'+
       '<div class="card"><h3>환자교육</h3><p>이 근육과 연결된 운동·스트레칭 교육으로 이동합니다.</p><div class="anatomy-detail-actions"><button class="primary" onclick="openEducationForMuscle(\''+m.id+'\')">환자교육 열기</button></div></div>'+
-      '</div>'+
-      '<div class="anatomy-detail-actions"><button class="pill" onclick="showRegionMuscleTab(\'anatomy\')">해부도해 심화</button><button class="pill" onclick="showRegionMuscleTab(\'ultrasound\')">초음파 심화</button><button class="pill" onclick="showRegionMuscleTab(\'clinical\')">임상 심화</button></div>';
+      '</div>';
   }
+
+  setAnatomyView('deep');
+  if(tab==='anatomy')loadAnatomyInto(m,document.getElementById('regionAnatomyMedia'));
+  if(tab==='ultrasound')loadUSInto(m,document.getElementById('regionUSMedia'));
+  if(record)recordAnatomyHistory('deep');
 }
 
 function refreshRegionNavigation(){
   renderRegionChooser();
-  if(selectedRegionMuscleId&&byId[selectedRegionMuscleId])openRegionMuscle(selectedRegionMuscleId,false);
+  if(selectedRegionMuscleId&&selectedRegionMuscleTab&&byId[selectedRegionMuscleId])showRegionMuscleTab(selectedRegionMuscleTab,false);
+  else if(selectedRegionMuscleId&&byId[selectedRegionMuscleId])openRegionMuscle(selectedRegionMuscleId,false);
   else if(selectedRegionName&&regions.includes(selectedRegionName))openRegion(selectedRegionName,false);
   else setAnatomyView('regions');
 }
@@ -1743,7 +1820,12 @@ window.addEventListener('popstate',event=>{
   if(!state||state.lysPage!=='regions')return;
   restoringAnatomyHistory=true;
   showPage('regions');
-  if(state.anatomyLevel==='detail'&&state.anatomyMuscleId&&byId[state.anatomyMuscleId]){
+  if(state.anatomyLevel==='deep'&&state.anatomyMuscleId&&state.anatomyTopic&&byId[state.anatomyMuscleId]){
+    selectedRegionName=state.anatomyRegion||byId[state.anatomyMuscleId].region;
+    selectedRegionMuscleId=state.anatomyMuscleId;
+    openRegionMuscle(state.anatomyMuscleId,false);
+    showRegionMuscleTab(state.anatomyTopic,false);
+  }else if(state.anatomyLevel==='detail'&&state.anatomyMuscleId&&byId[state.anatomyMuscleId]){
     openRegionMuscle(state.anatomyMuscleId,false);
   }else if(state.anatomyLevel==='muscles'&&state.anatomyRegion&&regions.includes(state.anatomyRegion)){
     openRegion(state.anatomyRegion,false);
@@ -1792,9 +1874,14 @@ updatePWADisplayMode();
 
 document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
-  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.page===page));
-  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active', p.id===page));
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+  document.querySelectorAll('.page').forEach(p=>{
+    const on=p.id===page;
+    p.classList.toggle('active',on);
+    p.setAttribute('aria-hidden',on?'false':'true');
+  });
+  document.documentElement.dataset.appPage=page;
+  resetNavigationViewport();
 }
 const clinicalFlowModules={
   shoulder:{label:'어깨',differential:'shoulderDifferentialGrid',exam:'shoulderExamGrid',ultrasound:'shoulderUSGrid'},
@@ -2454,12 +2541,9 @@ async function loadPatientExerciseLibrary(){
 }
 function activatePage(pageId){
   cleanupLearningOverlays();
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const p=document.getElementById(pageId);if(p)p.classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===pageId));
+  showPage(pageId);
   if(learningFlowContext.muscleId)learningFlowContext.sourcePage=pageId;
   if(pageId==='learning')renderLearningDashboard();
-  window.scrollTo({top:0,behavior:'smooth'});
 }
 function refreshLearningLayerNavigation(){
   const oralRegion=document.getElementById('oralRegion');
