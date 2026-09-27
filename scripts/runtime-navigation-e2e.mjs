@@ -47,7 +47,25 @@ try{
     await choice.click();
     await page.waitForTimeout(60);
 
-    if(!await visible('#regionMusclesView'))fail('Region muscle screen is visible',region.label);
+    if(!await visible('#regionMusclesView')){
+      const diag=await page.evaluate(()=>({
+        activePages:[...document.querySelectorAll('.page.active')].map(x=>x.id),
+        rootHidden:document.getElementById('regionChooserView')?.hidden,
+        rootDisplay:getComputedStyle(document.getElementById('regionChooserView')).display,
+        musclesHidden:document.getElementById('regionMusclesView')?.hidden,
+        musclesDisplay:getComputedStyle(document.getElementById('regionMusclesView')).display,
+        muscleCount:document.querySelectorAll('#selectedRegionList .region-muscle').length,
+        title:document.getElementById('selectedRegionTitle')?.textContent||'',
+        countText:document.getElementById('selectedRegionCount')?.textContent||'',
+        drillGroup:document.documentElement.dataset.drillGroup||'',
+        drillView:document.documentElement.dataset.drillView||'',
+        page:document.documentElement.dataset.appPage||''
+      }));
+      console.error('DIAG | '+JSON.stringify(diag));
+      if(pageErrors.length)console.error('PAGEERRORS | '+pageErrors.join(' || '));
+      if(consoleErrors.length)console.error('CONSOLEERRORS | '+consoleErrors.join(' || '));
+      fail('Region muscle screen is visible',region.label);
+    }
     if(await visible('#regionChooserView'))fail('Region chooser must be hidden after selection',region.label);
 
     const title=(await page.locator('#selectedRegionTitle').textContent()||'').trim();
