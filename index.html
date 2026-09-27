@@ -2545,7 +2545,14 @@ function openSymptom(id,preferredMuscleId,record=true){
   recordRecentEntity('symptom_pattern',id);
   cleanupLearningOverlays();
   showPage('symptoms');
-  selectedSymptomGroupId=group?.symptom_group_id||selectedSymptomGroupId;
+
+  const groupId=group?.symptom_group_id||null;
+  const hasMatchingListState=history.state?.lysPage==='symptoms'&&history.state?.symptomLevel==='list'&&history.state?.symptomGroupId===groupId;
+  if(record&&groupId&&!hasMatchingListState){
+    openSymptomGroup(groupId,true);
+  }
+
+  selectedSymptomGroupId=groupId||selectedSymptomGroupId;
   selectedSymptomId=id;
   selectedSymptomTopic=null;
   selectedSymptomMuscleId=preserved||null;
@@ -2649,7 +2656,7 @@ function closeSymptom(){
     return;
   }
   if(document.getElementById('symptoms')?.classList.contains('active')&&selectedSymptomId){
-    showCurrentSymptomList();
+    symptomBack('list');
   }
 }
 
