@@ -165,9 +165,16 @@ button,input{font:inherit} button{cursor:pointer}
   .region-panel-head h3{font-size:24px}
   .overlay{padding:0}.modal{min-height:100%;border-radius:0}.modal-top{border-radius:0;padding:10px 12px}.modal-body{padding:18px 10px 30px}
 }
+
+.pull-refresh-indicator{position:fixed;left:50%;top:8px;z-index:120;transform:translate(-50%,-76px);transition:transform .18s ease,opacity .18s ease;opacity:0;pointer-events:none;background:#111827;color:#fff;border-radius:999px;padding:9px 14px;font-size:13px;font-weight:800;box-shadow:0 8px 24px rgba(15,23,42,.18);max-width:calc(100vw - 24px);white-space:nowrap}
+.pull-refresh-indicator.show{opacity:1}
+.pull-refresh-indicator.ready{background:#087a55}
+.pull-refresh-indicator.running{background:#1d4ed8}
+@media(max-width:420px){.pull-refresh-indicator{top:6px;font-size:12px;padding:8px 12px}}
 </style>
 </head>
 <body>
+<div id="pullRefreshIndicator" class="pull-refresh-indicator" aria-live="polite">아래로 당겨 업데이트</div>
 <div class="header">
   <div class="head-inner">
     <div class="brand"><img src="icon-192.png" alt="이윤석정형외과 근육"><div><h1>이윤석정형외과 근육</h1><small id="appVersionLabel">버전 확인 중…</small></div></div>
@@ -192,7 +199,7 @@ button,input{font:inherit} button{cursor:pointer}
   </div>
   <div id="appUpdatePanel" class="note" style="margin:0 0 12px;border-color:#cce8e3">
     <b id="appUpdateState">앱 최신 상태를 확인하는 중입니다.</b><br>
-    <span id="appUpdateDetail" style="color:var(--muted)">현재 버전을 확인합니다.</span>
+    <span id="appUpdateDetail" style="color:var(--muted)">앱을 열 때 자동 확인합니다. 홈에서 아래로 당겨도 업데이트됩니다.</span>
     <div class="quiz-actions"><button id="appUpdateButton" class="pill" type="button">업데이트 확인</button></div>
   </div>
   <details id="deviceQualityGate" class="device-qa">
@@ -3416,6 +3423,89 @@ renderDeviceManualGate();
 
 let appSWRegistration=null;
 let appSWControllerChanged=false;
+let appLastAutoUpdateCheckAt=0;
+let appPullRefreshing=false;
+const APP_AUTO_UPDATE_MIN_INTERVAL=15000;
+const APP_PULL_REFRESH_THRESHOLD=72;
+
+async function requestAppUpdateCheck(reason='resume',force=false){
+  if(!navigator.onLine)return false;
+  const now=Date.now();
+  if(!force&&now-appLastAutoUpdateCheckAt<APP_AUTO_UPDATE_MIN_INTERVAL)return false;
+  appLastAutoUpdateCheckAt=now;
+  return checkForAppUpdate(false);
+}
+
+function setPullRefreshIndicator(distance,state='pull'){
+  const el=document.getElementById('pullRefreshIndicator');if(!el)return;
+  const clamped=Math.max(0,Math.min(104,Number(distance)||0));
+  el.classList.toggle('show',clamped>4||state==='running');
+  el.classList.toggle('ready',state==='ready');
+  el.classList.toggle('running',state==='running');
+  if(state==='running'){
+    el.textContent='업데이트 확인 중…';
+    el.style.transform='translate(-50%, 0)';
+    return;
+  }
+  el.textContent=state==='ready'?'놓으면 최신 버전으로 업데이트':'아래로 당겨 업데이트';
+  el.style.transform='translate(-50%, '+Math.round(-76+clamped*.72)+'px)';
+}
+
+async function triggerPullRefresh(){
+  if(appPullRefreshing)return;
+  appPullRefreshing=true;
+  setPullRefreshIndicator(APP_PULL_REFRESH_THRESHOLD,'running');
+  setAppUpdateStatus('당겨서 업데이트 확인 중입니다.','학습기록은 그대로 유지됩니다.');
+  try{
+    await checkForAppUpdate(true);
+    const registration=appSWRegistration||await navigator.serviceWorker?.getRegistration?.('./');
+    if(!registration?.installing&&!registration?.waiting&&!appSWControllerChanged){
+      setAppUpdateStatus('최신 화면을 다시 불러옵니다.',APP_RELEASE.displayVersion);
+      window.location.reload();
+      return;
+    }
+    setTimeout(()=>{
+      appPullRefreshing=false;
+      setPullRefreshIndicator(0,'pull');
+    },900);
+  }catch(error){
+    appPullRefreshing=false;
+    setPullRefreshIndicator(0,'pull');
+  }
+}
+
+function initPullToRefresh(){
+  let tracking=false,startY=0,startX=0,distance=0;
+  document.addEventListener('touchstart',event=>{
+    if(appPullRefreshing||window.scrollY>0||!document.getElementById('home')?.classList.contains('active'))return;
+    const t=event.touches?.[0];if(!t)return;
+    const tag=event.target?.closest?.('input,textarea,select,[contenteditable="true"]');
+    if(tag)return;
+    tracking=true;startY=t.clientY;startX=t.clientX;distance=0;
+  },{passive:true});
+  document.addEventListener('touchmove',event=>{
+    if(!tracking)return;
+    const t=event.touches?.[0];if(!t)return;
+    const dy=t.clientY-startY,dx=Math.abs(t.clientX-startX);
+    if(dy<=0||dy<dx*1.15){if(dy<0)tracking=false;return;}
+    if(window.scrollY>0){tracking=false;setPullRefreshIndicator(0);return;}
+    event.preventDefault();
+    distance=Math.min(104,dy*.62);
+    setPullRefreshIndicator(distance,distance>=APP_PULL_REFRESH_THRESHOLD?'ready':'pull');
+  },{passive:false});
+  const finish=()=>{
+    if(!tracking)return;
+    const shouldRefresh=distance>=APP_PULL_REFRESH_THRESHOLD;
+    tracking=false;
+    if(shouldRefresh)triggerPullRefresh();
+    else setPullRefreshIndicator(0,'pull');
+    distance=0;
+  };
+  document.addEventListener('touchend',finish,{passive:true});
+  document.addEventListener('touchcancel',()=>{tracking=false;distance=0;setPullRefreshIndicator(0,'pull');},{passive:true});
+}
+
+
 const appHadControllerAtLoad=('serviceWorker' in navigator)&&!!navigator.serviceWorker.controller;
 
 function setAppUpdateStatus(state,detail){
@@ -3518,7 +3608,7 @@ async function initAppServiceWorker(){
     appSWRegistration=registration;
     if(registration.installing)watchInstallingWorker(registration.installing);
     registration.addEventListener('updatefound',()=>watchInstallingWorker(registration.installing));
-    await checkForAppUpdate(false);
+    await requestAppUpdateCheck('launch',true);
   }catch(error){
     setAppUpdateStatus('업데이트 엔진 등록 실패','기존 앱은 계속 사용할 수 있습니다.');
   }
@@ -3530,7 +3620,10 @@ window.addEventListener('online',()=>checkForAppUpdate(false));
 window.addEventListener('online',()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
 window.addEventListener('offline',()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
 window.addEventListener('orientationchange',()=>setTimeout(()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();},250));
-window.addEventListener('load',initAppServiceWorker);
+window.addEventListener('pageshow',()=>requestAppUpdateCheck('pageshow'));
+window.addEventListener('focus',()=>requestAppUpdateCheck('focus'));
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')requestAppUpdateCheck('resume');});
+window.addEventListener('load',()=>{initPullToRefresh();initAppServiceWorker();});
 </script>
 </body>
 </html>
