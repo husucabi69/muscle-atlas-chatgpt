@@ -332,31 +332,37 @@ button,input{font:inherit} button{cursor:pointer}
 <section id="regions" class="page">
   <div id="regionChooserView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="regions">
     <div class="section-title"><h3>해부학 부위</h3><span>부위를 선택하세요</span></div>
-    <div class="note"><b>1단계 · 부위 목차</b><br>이 화면에는 해부학 부위만 표시됩니다. 부위를 누르면 해당 부위의 근육 목록만 보이는 새 화면으로 이동합니다.</div>
+    <div class="note"><b>단계 1 · 부위 선택</b><br>부위를 누르면 해당 근육 목록 화면으로 전환됩니다.</div>
     <div id="regionChooser" class="region-chooser"></div>
   </div>
 
   <div id="regionMusclesView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="muscles" hidden>
     <div class="anatomy-nav">
-      <button class="region-back" type="button" onclick="anatomyBack('regions')">← 해부학 부위</button>
+      <button class="region-back" type="button" onclick="anatomyBack('regions')">← 해부부위</button>
       <span class="crumb" id="regionMuscleBreadcrumb"></span>
     </div>
     <div class="region-panel-head">
       <h3 id="selectedRegionTitle"></h3>
       <span id="selectedRegionCount"></span>
     </div>
-    <div class="note"><b>2단계 · 근육 목차</b><br>선택한 부위의 근육만 표시됩니다. 근육을 누르면 그 근육의 학습 목차가 새 화면으로 열립니다.</div>
+    <div class="note"><b>단계 2 · 근육 선택</b><br>근육을 누르면 상세 학습 화면으로 전환됩니다.</div>
     <div id="selectedRegionList" class="region-list"></div>
   </div>
 
   <div id="regionDetailView" class="anatomy-view drill-screen" data-drill-group="anatomy" data-drill-view="detail" hidden>
     <div class="anatomy-nav">
       <button class="region-back" type="button" onclick="anatomyBack('muscles')">← 근육 목록</button>
-      <button class="pill" type="button" onclick="showAnatomyRegions()">해부학 부위</button>
+      <button class="pill" type="button" onclick="showAnatomyRegions()">해부부위로</button>
       <span class="crumb" id="regionDetailBreadcrumb"></span>
     </div>
     <div id="regionMuscleDetailHead" class="anatomy-detail-head"></div>
-    <div id="regionMuscleDetailTabs" class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습"></div>
+    <div class="anatomy-detail-tabs" role="tablist" aria-label="근육 상세 학습">
+      <button class="anatomy-detail-tab active" type="button" data-anatomy-detail-tab="basic" onclick="showRegionMuscleTab('basic')">기본정보</button>
+      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="anatomy" onclick="showRegionMuscleTab('anatomy')">해부도해</button>
+      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="ultrasound" onclick="showRegionMuscleTab('ultrasound')">초음파</button>
+      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="clinical" onclick="showRegionMuscleTab('clinical')">임상</button>
+      <button class="anatomy-detail-tab" type="button" data-anatomy-detail-tab="learning" onclick="showRegionMuscleTab('learning')">심화·학습</button>
+    </div>
     <div id="regionMuscleDetailContent" class="anatomy-detail-content"></div>
   </div>
 </section>
@@ -1852,28 +1858,14 @@ function regionMuscleHeaderHtml(m){
   return '<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><h2>'+esc(m.ko)+'</h2><div class="sub">'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</div></div><button class="favorite-toggle '+(isFavoriteEntity('muscle',m.id)?'on':'')+'" type="button" onclick="toggleFavoriteEntity(\'muscle\',\''+m.id+'\');refreshCurrentAnatomyMuscleHead()">'+(isFavoriteEntity('muscle',m.id)?'★':'☆')+'</button></div><div class="tagrow"><span class="tag">'+esc(m.region)+'</span><span class="tag">'+esc(m.id)+'</span></div>';
 }
 
-function anatomyDetailTabsHtml(activeTab=null){
-  const tabs=[
-    ['basic','기본정보'],
-    ['anatomy','해부도해'],
-    ['ultrasound','초음파'],
-    ['clinical','임상'],
-    ['learning','심화·학습']
-  ];
-  return tabs.map(([id,label])=>
-    '<button class="anatomy-detail-tab '+(activeTab===id?'active':'')+'" type="button" data-anatomy-detail-tab="'+id+'" onclick="showRegionMuscleTab(\''+id+'\')">'+label+'</button>'
-  ).join('');
-}
-
-function refreshCurrentAnatomyMuscleHead(){
-  const m=byId[selectedRegionMuscleId];if(!m)return;
-  const head=document.getElementById('regionMuscleDetailHead');
-  if(head)head.innerHTML=regionMuscleHeaderHtml(m);
-}
-
-function renderAnatomyDetailTabs(activeTab='basic'){
-  const host=document.getElementById('regionMuscleDetailTabs');
-  if(host)host.innerHTML=anatomyDetailTabsHtml(activeTab);
+function syncAnatomyDetailTabState(activeTab='basic'){
+  const detail=document.getElementById('regionDetailView');
+  if(!detail)return;
+  detail.querySelectorAll('[data-anatomy-detail-tab]').forEach(btn=>{
+    const on=btn.dataset.anatomyDetailTab===activeTab;
+    btn.classList.toggle('active',on);
+    btn.setAttribute('aria-selected',on?'true':'false');
+  });
 }
 
 function openRegionMuscle(id,record=true){
@@ -1886,15 +1878,14 @@ function openRegionMuscle(id,record=true){
   const crumb=document.getElementById('regionDetailBreadcrumb');
   if(crumb)crumb.textContent='해부학 부위 › '+m.region+' › '+m.ko;
   setAnatomyView('detail');
-  showRegionMuscleTab('basic',false);
+  showRegionMuscleTab('basic');
   if(record)recordAnatomyHistory('detail');
 }
 
-function showRegionMuscleTab(tab,record=true){
+function showRegionMuscleTab(tab){
   const m=byId[selectedRegionMuscleId];if(!m||!anatomyTopicMeta[tab])return;
   selectedRegionMuscleTab=tab;
-  refreshCurrentAnatomyMuscleHead();
-  renderAnatomyDetailTabs(tab);
+  syncAnatomyDetailTabState(tab);
   const el=document.getElementById('regionMuscleDetailContent');if(!el)return;
 
   if(tab==='basic'){
@@ -1924,6 +1915,8 @@ function showRegionMuscleTab(tab,record=true){
   }
 
   setAnatomyView('detail');
+  if(tab==='anatomy')loadAnatomyInto(m,document.getElementById('regionAnatomyMedia'));
+
   if(tab==='anatomy')loadAnatomyInto(m,document.getElementById('regionAnatomyMedia'));
   if(tab==='ultrasound')loadUSInto(m,document.getElementById('regionUSMedia'));
 }
