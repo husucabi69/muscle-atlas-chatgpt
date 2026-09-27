@@ -1858,6 +1858,12 @@ function regionMuscleHeaderHtml(m){
   return '<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><h2>'+esc(m.ko)+'</h2><div class="sub">'+esc(m.en)+(m.abbr?' · '+esc(m.abbr):'')+'</div></div><button class="favorite-toggle '+(isFavoriteEntity('muscle',m.id)?'on':'')+'" type="button" onclick="toggleFavoriteEntity(\'muscle\',\''+m.id+'\');refreshCurrentAnatomyMuscleHead()">'+(isFavoriteEntity('muscle',m.id)?'★':'☆')+'</button></div><div class="tagrow"><span class="tag">'+esc(m.region)+'</span><span class="tag">'+esc(m.id)+'</span></div>';
 }
 
+function refreshCurrentAnatomyMuscleHead(){
+  const m=byId[selectedRegionMuscleId];if(!m)return;
+  const head=document.getElementById('regionMuscleDetailHead');
+  if(head)head.innerHTML=regionMuscleHeaderHtml(m);
+}
+
 function syncAnatomyDetailTabState(activeTab='basic'){
   const detail=document.getElementById('regionDetailView');
   if(!detail)return;
@@ -1913,9 +1919,6 @@ function showRegionMuscleTab(tab){
       '<div class="card"><h3>환자교육</h3><p>이 근육과 연결된 운동·스트레칭 교육으로 이동합니다.</p><div class="anatomy-detail-actions"><button class="primary" onclick="openEducationForMuscle(\''+m.id+'\')">환자교육 열기</button></div></div>'+
       '</div>';
   }
-
-  setAnatomyView('detail');
-  if(tab==='anatomy')loadAnatomyInto(m,document.getElementById('regionAnatomyMedia'));
 
   if(tab==='anatomy')loadAnatomyInto(m,document.getElementById('regionAnatomyMedia'));
   if(tab==='ultrasound')loadUSInto(m,document.getElementById('regionUSMedia'));
