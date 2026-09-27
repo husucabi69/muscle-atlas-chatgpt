@@ -1876,7 +1876,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')closeSymptomGroup();showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>{
@@ -2694,27 +2694,64 @@ function exerciseProfileCard(p){
     (refs.length?'<details class="clinician-note"><summary>근거 문헌 보기</summary>'+refs.map(s=>'<a class="education-source" href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.year)+' · '+esc(s.kind)+' · '+esc(s.title)+'</a>').join('')+'</details>':'')+
     '</div>';
 }
-function openEducationMuscle(id){
-  const m=byId[id];if(!m)return;
-  selectedEducationMuscleId=id;
-  setLearningFlowContext({muscleId:id,sourcePage:'education',step:'education'});
+function educationProgramsForMuscle(id){
   const a=exerciseAssignmentByMuscle[id]||{evidence_tier:'C',stretch_profile_ids:[],strength_profile_ids:['px099'],note:'직접 근거 미확립'};
   const stretch=(a.stretch_profile_ids||[]).map(x=>exerciseProfileById[x]).filter(Boolean);
   const strength=(a.strength_profile_ids||[]).map(x=>exerciseProfileById[x]).filter(Boolean);
-  const detail=document.getElementById('educationDetail');
-  document.getElementById('educationMusclesPanel').hidden=true;detail.hidden=false;
-  detail.innerHTML='<div class="print-only"><h1>이윤석정형외과 근육 · 환자 운동표</h1></div>'+
-    '<button class="region-back no-print" type="button" onclick="openEducationRegion('+JSON.stringify(m.region).replace(/"/g,'&quot;')+')">← '+esc(m.region)+'</button>'+
-    '<div class="section-title"><h3>'+esc(m.ko)+'</h3><span>'+esc(m.en)+'</span></div><div class="clinical-flow-context"><div class="clinical-flow-title"><b>임상 학습 흐름</b><span>환자교육 단계</span></div>'+clinicalFlowBar(id,'education')+'<div class="clinical-flow-stable">muscle_id '+esc(id)+(learningFlowContext.symptomId?' · symptom_id '+esc(learningFlowContext.symptomId):'')+'</div></div>'+
-    '<div class="note"><b>이 근육 운동을 볼 때</b><br>'+esc(a.note||'')+'<br><span style="color:var(--muted)">현재 근거 수준: '+esc(evidencePatientLabel(a.evidence_tier))+'</span></div>'+
-    '<div class="section-title"><h3 style="font-size:23px">스트레칭 · 움직임</h3></div>'+
-    (stretch.length?stretch.map(exerciseProfileCard).join(''):'<div class="exercise-card"><b>이 근육만 따로 늘리는 표준 치료법은 확인되지 않았습니다.</b><p>진료에서 안내받은 부위 운동이나 근육군 운동을 우선하세요.</p></div>')+
-    '<div class="section-title"><h3 style="font-size:23px">근력 · 조절 운동</h3></div>'+
-    (strength.length?strength.map(exerciseProfileCard).join(''):'<div class="exercise-card">현재 등록된 근육군 강화 프로그램이 없습니다.</div>')+
-    '<div class="patient-warning"><b>운동을 멈추고 다시 확인해야 할 때</b><br>새로운 진행성 근력저하·감각저하, 심한 야간통과 발열, 갑작스러운 파열 느낌이나 큰 멍, 흉통·호흡곤란, 심한 복통, 운동 후 계속 악화되는 통증이 있으면 일반 운동보다 진료가 우선입니다.</div>'+
-    '<div class="quiz-actions no-print"><button class="primary" onclick="printCurrentEducation()">이 운동표 인쇄</button><button class="pill" onclick="shareCurrentEducation()">공유</button><button class="pill" onclick="startOralForMuscle(\''+id+'\')">의료진용 오랄 테스트</button><button class="pill" onclick="openMuscle(\''+id+'\')">근육 해부학 보기</button></div><div id="educationShareStatus" class="share-status no-print"></div>';
+  return{assignment:a,stretch,strength};
 }
-let printRestoreRegion=null;
+
+function educationProgramMenuItem(p,kind){
+  if(!p)return'';
+  return '<button class="drill-menu-item" type="button" onclick="openEducationExercise(\''+p.profile_id+'\')"><span><strong>'+esc(p.title_ko)+'</strong><small>'+esc(kind)+' · '+esc(evidencePatientLabel(p.evidence_tier))+'</small></span><span class="arrow">›</span></button>';
+}
+
+function openEducationMuscle(id,record=true){
+  const m=byId[id];if(!m)return;
+  selectedEducationRegion=m.region;
+  selectedEducationMuscleId=id;
+  selectedEducationProfileId=null;
+  setLearningFlowContext({muscleId:id,sourcePage:'education',step:'education'});
+  const {assignment:a,stretch,strength}=educationProgramsForMuscle(id);
+  const programs=[
+    ...stretch.map(p=>({p,kind:'스트레칭 · 움직임'})),
+    ...strength.filter(p=>p.profile_id!=='px099').map(p=>({p,kind:'근력 · 조절 운동'}))
+  ];
+  const detail=document.getElementById('educationDetail');if(!detail)return;
+  detail.innerHTML=
+    '<div class="anatomy-nav no-print"><button class="region-back" type="button" onclick="educationBack(\'muscles\')">← 근육 목록</button><button class="pill" type="button" onclick="showEducationRegions()">부위 목록</button><span class="crumb">환자교육 › '+esc(m.region)+' › '+esc(m.ko)+'</span></div>'+
+    '<div class="section-title"><h3>'+esc(m.ko)+'</h3><span>'+esc(m.en)+'</span></div>'+
+    '<div class="note"><b>3단계 · 운동 목차</b><br>'+esc(a.note||'')+'<br><span style="color:var(--muted)">현재 근거 수준: '+esc(evidencePatientLabel(a.evidence_tier))+'</span></div>'+
+    (programs.length?'<div class="drill-menu-grid">'+programs.map(x=>educationProgramMenuItem(x.p,x.kind)).join('')+'</div>':
+      '<div class="exercise-card"><b>이 근육만을 위한 표준 운동 프로그램은 확인되지 않았습니다.</b><p>진료에서 안내받은 부위 운동 또는 근육군 운동을 우선하세요.</p></div>')+
+    '<div class="patient-warning" style="margin-top:16px"><b>운동을 멈추고 다시 확인해야 할 때</b><br>새로운 진행성 근력저하·감각저하, 심한 야간통과 발열, 갑작스러운 파열 느낌이나 큰 멍, 흉통·호흡곤란, 심한 복통, 운동 후 계속 악화되는 통증이 있으면 일반 운동보다 진료가 우선입니다.</div>'+
+    '<div class="quiz-actions no-print"><button class="primary" onclick="printCurrentEducation()">전체 운동표 인쇄</button><button class="pill" onclick="shareCurrentEducation()">공유</button><button class="pill" onclick="startOralForMuscle(\''+id+'\')">의료진용 Oral</button><button class="pill" onclick="openMuscle(\''+id+'\')">근육 해부학</button></div><div class="share-status no-print"></div>';
+  setEducationView('menu');
+  if(record)recordEducationHistory('menu');
+}
+
+function openEducationExercise(profileId,record=true){
+  const m=byId[selectedEducationMuscleId],p=exerciseProfileById[profileId];
+  if(!m||!p)return;
+  const {assignment:a}=educationProgramsForMuscle(m.id);
+  const allowed=new Set([...(a.stretch_profile_ids||[]),...(a.strength_profile_ids||[])]);
+  if(!allowed.has(profileId)||profileId==='px099')return;
+  selectedEducationProfileId=profileId;
+  const kind=(a.stretch_profile_ids||[]).includes(profileId)?'스트레칭 · 움직임':'근력 · 조절 운동';
+  const crumb=document.getElementById('educationExerciseBreadcrumb');
+  if(crumb)crumb.textContent='환자교육 › '+m.region+' › '+m.ko+' › '+p.title_ko;
+  const content=document.getElementById('educationExerciseContent');if(!content)return;
+  content.innerHTML=
+    '<div class="section-title"><h3>'+esc(p.title_ko)+'</h3><span>'+esc(kind)+'</span></div>'+
+    '<div class="note"><b>4단계 · 운동 상세</b><br>현재 선택한 운동 하나만 표시합니다.</div>'+
+    exerciseProfileCard(p)+
+    '<div class="patient-warning"><b>안전 우선</b><br>'+esc(exerciseIllustrationById[p.profile_id]?.stop_rule||exerciseCaution(p))+'</div>'+
+    '<div class="quiz-actions no-print"><button class="pill" onclick="printCurrentEducation()">이 근육 전체 운동표 인쇄</button><button class="pill" onclick="shareCurrentEducation()">공유</button></div><div class="share-status no-print"></div>';
+  setEducationView('exercise');
+  if(record)recordEducationHistory('exercise');
+}
+
+let printRestoreEducation=null;
 function patientEducationShareText(id){
   const m=byId[id];if(!m)return'';
   const a=exerciseAssignmentByMuscle[id]||{};
@@ -2727,7 +2764,7 @@ function patientEducationShareText(id){
   return lines.join('\n');
 }
 async function shareCurrentEducation(){
-  const id=selectedEducationMuscleId,m=byId[id],status=document.getElementById('educationShareStatus');
+  const id=selectedEducationMuscleId,m=byId[id],status=document.querySelector('[data-drill-group="education"]:not([hidden]) .share-status');
   if(!m){if(status)status.textContent='먼저 근육 운동표를 열어 주세요.';return false;}
   const text=patientEducationShareText(id),url=location.href.split('#')[0];
   try{
@@ -2749,12 +2786,30 @@ async function shareCurrentEducation(){
     return false;
   }
 }
-function printCurrentEducation(){
-  const detail=document.getElementById('educationDetail');
-  if(!detail||detail.hidden){alert('먼저 부위와 근육을 선택해 주세요.');return;}
-  printRestoreRegion=null;
-  document.body.classList.add('printing-education');window.print();
+function fullEducationSheetHtml(id){
+  const m=byId[id];if(!m)return'';
+  const {assignment:a,stretch,strength}=educationProgramsForMuscle(id);
+  return '<div class="print-only"><h1>이윤석정형외과 근육 · '+esc(m.ko)+' 환자 운동표</h1></div>'+
+    '<div class="section-title"><h3>'+esc(m.ko)+'</h3><span>'+esc(m.en)+'</span></div>'+
+    '<div class="note"><b>이 근육 운동을 볼 때</b><br>'+esc(a.note||'')+'<br><span style="color:var(--muted)">현재 근거 수준: '+esc(evidencePatientLabel(a.evidence_tier))+'</span></div>'+
+    '<div class="section-title"><h3 style="font-size:23px">스트레칭 · 움직임</h3></div>'+
+    (stretch.length?stretch.map(exerciseProfileCard).join(''):'<div class="exercise-card"><b>이 근육만 따로 늘리는 표준 치료법은 확인되지 않았습니다.</b><p>진료에서 안내받은 부위 운동이나 근육군 운동을 우선하세요.</p></div>')+
+    '<div class="section-title"><h3 style="font-size:23px">근력 · 조절 운동</h3></div>'+
+    (strength.length?strength.map(exerciseProfileCard).join(''):'<div class="exercise-card">현재 등록된 근육군 강화 프로그램이 없습니다.</div>')+
+    '<div class="patient-warning"><b>운동을 멈추고 다시 확인해야 할 때</b><br>새로운 진행성 근력저하·감각저하, 심한 야간통과 발열, 갑작스러운 파열 느낌이나 큰 멍, 흉통·호흡곤란, 심한 복통, 운동 후 계속 악화되는 통증이 있으면 일반 운동보다 진료가 우선입니다.</div>';
 }
+
+function printCurrentEducation(){
+  const id=selectedEducationMuscleId;
+  if(!id||!byId[id]){alert('먼저 부위와 근육을 선택해 주세요.');return;}
+  printRestoreEducation={region:selectedEducationRegion,muscleId:id,profileId:selectedEducationProfileId,level:selectedEducationProfileId?'exercise':'menu'};
+  const detail=document.getElementById('educationDetail');
+  detail.innerHTML=fullEducationSheetHtml(id);
+  setEducationView('menu');
+  document.body.classList.add('printing-education');
+  setTimeout(()=>window.print(),50);
+}
+
 function printEducationRegion(){
   if(!selectedEducationRegion){alert('먼저 부위를 선택해 주세요.');return;}
   const region=selectedEducationRegion;
@@ -2770,9 +2825,8 @@ function printEducationRegion(){
   }
   const ids=Object.keys(profileToMuscles);
   if(!ids.length){alert('이 부위에 인쇄할 공통 운동 프로그램이 없습니다.');return;}
+  printRestoreEducation={region,level:'muscles'};
   const detail=document.getElementById('educationDetail');
-  document.getElementById('educationMusclesPanel').hidden=true;detail.hidden=false;
-  printRestoreRegion=region;
   detail.innerHTML='<div class="print-only"><h1>이윤석정형외과 근육 · '+esc(region)+' 환자 운동 매뉴얼</h1><p>진료실에서 설명받은 동작을 집에서 다시 볼 수 있도록 정리한 일반 교육자료입니다.</p></div>'+
     '<div class="section-title"><h3>'+esc(region)+' 운동·스트레칭</h3><span>'+ids.length+'개 프로그램</span></div>'+
     '<div class="patient-warning"><b>먼저 읽어주세요</b><br>통증을 억지로 참고 하지 마세요. 새 근력저하·감각저하, 심한 붓기·큰 멍, 파열 느낌, 흉통·호흡곤란, 발열 또는 운동 후 계속 심해지는 통증이 있으면 운동보다 진료가 우선입니다.</div>'+
@@ -2782,14 +2836,53 @@ function printEducationRegion(){
       return '<div class="region-print-muscles"><b>이 운동과 연결된 근육</b><br>'+esc(who)+'</div>'+exerciseProfileCard(p);
     }).join('')+
     '<div class="print-only patient-warning"><b>기억하세요</b><br>이 자료는 개인 진단이나 수술 후 프로토콜을 대신하지 않습니다. 진료 중 받은 개별 지시가 있으면 그 지시를 우선하세요.</div>';
+  setEducationView('menu');
   document.body.classList.add('printing-education');
   setTimeout(()=>window.print(),50);
 }
+
 window.addEventListener('afterprint',()=>{
   document.body.classList.remove('printing-education');
-  if(printRestoreRegion){const r=printRestoreRegion;printRestoreRegion=null;openEducationRegion(r);}
+  const restore=printRestoreEducation;printRestoreEducation=null;
+  if(!restore)return;
+  if(restore.muscleId){
+    openEducationMuscle(restore.muscleId,false);
+    if(restore.level==='exercise'&&restore.profileId)openEducationExercise(restore.profileId,false);
+  }else if(restore.region){
+    openEducationRegion(restore.region,false);
+  }else{
+    showEducationRegions(false);
+  }
 });
-function openEducationForMuscle(id){setLearningFlowContext({muscleId:id,sourcePage:'education',step:'education'});cleanupLearningOverlays();activatePage('education');openEducationMuscle(id);}
+
+function openEducationForMuscle(id){
+  const m=byId[id];if(!m)return;
+  setLearningFlowContext({muscleId:id,sourcePage:'education',step:'education'});
+  cleanupLearningOverlays();
+  activatePage('education');
+  openEducationRegion(m.region,true);
+  openEducationMuscle(id,true);
+}
+
+window.addEventListener('popstate',event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='education')return;
+  restoringEducationHistory=true;
+  showPage('education');
+  if(state.educationLevel==='exercise'&&state.educationMuscleId&&state.educationProfileId&&byId[state.educationMuscleId]){
+    openEducationRegion(state.educationRegion||byId[state.educationMuscleId].region,false);
+    openEducationMuscle(state.educationMuscleId,false);
+    openEducationExercise(state.educationProfileId,false);
+  }else if(state.educationLevel==='menu'&&state.educationMuscleId&&byId[state.educationMuscleId]){
+    openEducationRegion(state.educationRegion||byId[state.educationMuscleId].region,false);
+    openEducationMuscle(state.educationMuscleId,false);
+  }else if(state.educationLevel==='muscles'&&state.educationRegion&&regions.includes(state.educationRegion)){
+    openEducationRegion(state.educationRegion,false);
+  }else{
+    showEducationRegions(false);
+  }
+  restoringEducationHistory=false;
+});
 
 const ORAL_KEY='mskOralProgressV2';
 const oralFieldSpec={
