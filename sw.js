@@ -12,6 +12,7 @@ const CORE=[
   './icon-192.png',
   './icon-512.png',
   './data/media-v1.json',
+  './data/muscle-illustration-audit-v1.json',
   './data/ultrasound-probe-guidance-v2.json',
   './data/knowledge-core-v1.json',
   './data/regions-v1.json',
