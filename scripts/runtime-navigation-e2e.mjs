@@ -104,40 +104,37 @@ try{
     await first.click();
     await page.waitForTimeout(60);
 
-    if(!await visible('#regionDetailView'))fail('Muscle hub visible',region.label+' / '+firstName);
+    if(!await visible('#regionDetailView'))fail('v11.14 muscle detail visible',region.label+' / '+firstName);
 
-    const hubTabs=page.locator('#regionMuscleHubTabs .anatomy-detail-tab');
-    const hubTabCount=await hubTabs.count();
-    if(hubTabCount!==5)fail('v11.14 muscle hub has five horizontal tabs',region.label+' / '+firstName+' count='+hubTabCount);
-    const labels=await hubTabs.allTextContents();
+    const tabs=page.locator('#regionMuscleDetailTabs .anatomy-detail-tab');
+    if(await tabs.count()!==5)fail('v11.14 muscle detail has five horizontal tabs',region.label+' / '+firstName);
+    const labels=(await tabs.allTextContents()).map(x=>x.trim());
     const expectedLabels=['기본정보','해부도해','초음파','임상','심화·학습'];
-    if(JSON.stringify(labels.map(x=>x.trim()))!==JSON.stringify(expectedLabels)){
-      fail('v11.14 muscle hub tab labels preserved',region.label+' / '+JSON.stringify(labels));
+    if(JSON.stringify(labels)!==JSON.stringify(expectedLabels))fail('v11.14 tab labels preserved',region.label+' / '+JSON.stringify(labels));
+
+    const active=page.locator('#regionMuscleDetailTabs .anatomy-detail-tab.active');
+    if(await active.count()!==1)fail('Exactly one default anatomy tab active',region.label+' / '+firstName);
+    if(await active.getAttribute('data-anatomy-detail-tab')!=='basic')fail('Basic tab active immediately on muscle open',region.label+' / '+firstName);
+
+    const basicText=(await page.locator('#regionMuscleDetailContent').textContent()||'').trim();
+    for(const label of ['Origin · 기시','Insertion · 정지','Function · 기능','Nerve · 신경지배','Blood supply · 혈액공급','촉지법','임상 중요점','초음파 핵심']){
+      if(!basicText.includes(label))fail('Default basic detail contains '+label,region.label+' / '+firstName);
     }
-    const legacyMenuCount=await page.locator('#regionDetailView .drill-menu-item').count();
-    if(legacyMenuCount!==0)fail('Vertical learning-menu cards removed from anatomy muscle hub',region.label+' / '+firstName);
+    if(await page.locator('#regionDetailView .drill-menu-item').count()!==0)fail('No vertical learning-menu cards in anatomy detail',region.label+' / '+firstName);
+    if(await page.locator('#regionDeepView').count()!==0)fail('No extra anatomy deep screen',region.label+' / '+firstName);
 
-    const topics=region===regions[0].label?['basic','anatomy','ultrasound','clinical','learning']:['basic'];
+    const topics=region===regions[0].label?['anatomy','ultrasound','clinical','learning','basic']:['basic'];
     for(const topic of topics){
-      await page.locator('#regionMuscleHubTabs .anatomy-detail-tab[data-anatomy-detail-tab="'+topic+'"]').click();
-      await page.waitForFunction(()=>!document.querySelector('#regionDeepView')?.hidden,{timeout:3000});
-      if(!await visible('#regionDeepView'))fail('Anatomy topic opens independent deep screen',region.label+' / '+firstName+' / '+topic);
-
-      const deepHead=(await page.locator('#regionMuscleDeepHead h2').textContent()||'').trim();
-      if(deepHead!==firstName)fail('Deep screen preserves selected muscle header',region.label+' / '+topic+' / '+deepHead);
-
-      const deepTabs=page.locator('#regionMuscleDeepTabs .anatomy-detail-tab');
-      if(await deepTabs.count()!==5)fail('Deep screen preserves five horizontal tabs',region.label+' / '+topic);
-      const active=page.locator('#regionMuscleDeepTabs .anatomy-detail-tab.active');
-      if(await active.count()!==1)fail('Exactly one anatomy tab active in deep screen',region.label+' / '+topic);
-      if(await active.getAttribute('data-anatomy-detail-tab')!==topic)fail('Selected anatomy tab remains active',region.label+' / '+topic);
-
+      const historyBefore=await page.evaluate(()=>history.length);
+      await page.locator('#regionMuscleDetailTabs .anatomy-detail-tab[data-anatomy-detail-tab="'+topic+'"]').click();
+      await page.waitForTimeout(60);
+      if(!await visible('#regionDetailView'))fail('Tab content stays in same muscle detail screen',region.label+' / '+topic);
+      const selected=page.locator('#regionMuscleDetailTabs .anatomy-detail-tab.active');
+      if(await selected.count()!==1||await selected.getAttribute('data-anatomy-detail-tab')!==topic)fail('Selected tab active',region.label+' / '+topic);
       const detailText=(await page.locator('#regionMuscleDetailContent').textContent()||'').trim();
-      if(!detailText)fail('Independent anatomy topic has visible content',region.label+' / '+topic);
-
-      await page.locator('#regionDeepView .region-back').click();
-      await page.waitForFunction(()=>!document.querySelector('#regionDetailView')?.hidden,{timeout:3000});
-      if(!await visible('#regionDetailView'))fail('Deep back returns to same muscle hub',region.label+' / '+topic);
+      if(!detailText)fail('Selected tab renders content',region.label+' / '+topic);
+      const historyAfter=await page.evaluate(()=>history.length);
+      if(historyAfter!==historyBefore)fail('Tab switch must not add hierarchy history entry',region.label+' / '+topic);
     }
 
     await page.locator('#regionDetailView .region-back').click();
