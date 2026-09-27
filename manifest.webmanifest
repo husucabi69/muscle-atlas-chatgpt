@@ -2,7 +2,7 @@
   "name": "이윤석정형외과 근육",
   "short_name": "이윤석정형외과 근육",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "이윤석정형외과 근육 · 계층형 화면 3.0 A1-A3 · 환자교육 drill-down · 자동 업데이트 · Oral Viva · 실제 초음파 131 view · v11.39",
+  "description": "이윤석정형외과 근육 · 계층형 화면 3.0 A1-A4 · 증상/환자교육 drill-down · 자동 업데이트 · Oral Viva · 실제 초음파 131 view · v11.40",
   "start_url": "./?source=pwa",
   "scope": "./",
   "display": "fullscreen",
