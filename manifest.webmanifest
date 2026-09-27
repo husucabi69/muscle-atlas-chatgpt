@@ -2,7 +2,7 @@
   "name": "이윤석정형외과 근육",
   "short_name": "이윤석정형외과 근육",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "이윤석정형외과 근육 · Navigation Root Fix · 계층형 화면 3.1 · 실제 브라우저 E2E · 자동 업데이트 · v11.41",
+  "description": "이윤석정형외과 근육 · v11.14 Precision Anatomy UX baseline · 독립 계층 화면 Navigation 3.1 · 실제 브라우저 E2E · v11.42",
   "start_url": "./?source=pwa",
   "scope": "./",
   "display": "fullscreen",
