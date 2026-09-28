@@ -530,12 +530,12 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**Stage 23A A2 회귀 root-cause 복구 → browser E2E + Preview 실화면 검증 → A5 임상 → A6 초음파 → A7 퀴즈 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
+**A5 사용자 실기기 Preview 검수 → 승인 후 A6 초음파 → A7 퀴즈 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
 
 
 ## A2 회귀 복구 Gate — 2026-09-27
 
-상태: **ACTIVE / RELEASE BLOCKER**
+상태: **CLOSED — A2 COMPLETE / USER DEVICE PREVIEW PASS**
 
 재현 경로:
 - 홈
@@ -554,7 +554,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [x] 14개 모든 부위에서 5개 가로 탭 전수 클릭 → same-screen 유지 / content non-empty / tab history 증가 0 검증
 - [x] 실제 browser back 2회 → 근육 목록 → 해부학 부위 복귀 검증
 - [x] Stage 15~23A 전체 QA PASS
-- [ ] 실제 Preview 화면 사용자 확인
+- [x] 실제 Preview 화면 사용자 확인 — 2026-09-28
 
 금지:
 - 특정 경추 버튼만 예외처리
@@ -573,7 +573,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - runtime state는 별도 drillNavigationState + data-active-drill-* 진단 속성으로 분리
 - 존재하지 않는 group/view는 fail-fast
 - Playwright browser E2E에서 14개 부위 전수 PASS
-- A2 최종 닫기 조건: 의장님 실제 Preview 확인
+- A2 최종 닫기 조건 충족: 사용자 실기기 Preview 확인 완료 — 2026-09-28
 
 
 ### Anatomy UX Baseline Gate — v11.14 LOCKED
@@ -588,7 +588,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [x] selected tab active 상태 표시
 - [x] browser back → 현재 부위 근육 목록 복귀
 - [x] 실제 browser E2E 추가
-- [ ] 실제 Preview 사용자 시각 확인
+- [x] 실제 Preview 사용자 시각 확인 — 2026-09-28
 
 
 ### v11.45 v11.14 anatomy contract lock — COMPLETE / USER DEVICE PREVIEW PASS
