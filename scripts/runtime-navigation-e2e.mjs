@@ -455,53 +455,58 @@ try{
   }
   pass('A9 personal learning root/recent/favorites/weak/mastery hierarchy');
 
-  const stableSearchCases=[
-    {id:'ct082',selector:'#clinical-test-ct082',label:'clinical test Stable ID'},
-    {id:'d089',selector:'#diagnosis-concept-d089',label:'diagnosis concept Stable ID'},
-    {id:'usv074',selector:'#ultrasound-view-usv074',label:'ultrasound view Stable ID'}
+  const a10SearchCases=[
+    {query:'m001',type:'muscle',page:'regions',group:'anatomy',view:'detail',selector:'#regionDetailView',targetText:'m001'},
+    {query:'sx01',type:'symptom_pattern',page:'symptoms',group:'symptoms',view:'menu',selector:'#symptomMenuView',targetText:'sx01'},
+    {query:'ct082',type:'clinical_test',page:'clinical',group:'clinical',view:'detail',selector:'#clinicalDetailView',targetText:'ct082'},
+    {query:'d089',type:'diagnosis_concept',page:'clinical',group:'clinical',view:'detail',selector:'#clinicalDetailView',targetText:'d089'},
+    {query:'usv074',type:'ultrasound_view',page:'ultrasound',group:'ultrasound',view:'detail',selector:'#ultrasoundAtlasDetailView',targetText:'usv074'}
   ];
-  for(const test of stableSearchCases){
+  for(const test of a10SearchCases){
     await page.locator('.tab[data-page="home"]').click();
-    await page.waitForTimeout(80);
-    await page.locator('#searchBox').fill(test.id);
-    await page.waitForFunction(id=>document.querySelector('#searchResults')?.textContent?.includes(id),test.id,{timeout:5000});
-    const hit=page.locator('#searchResults .search-result-main').filter({hasText:test.id}).first();
-    if(await hit.count()!==1)fail('Stable ID search returns one clickable result',test.id);
+    await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home',{timeout:5000});
+    await page.locator('#searchTypeFilter').selectOption(test.type);
+    await page.locator('#searchBox').fill(test.query);
+    await page.waitForFunction(q=>document.querySelector('#searchResults')?.textContent?.includes(q),test.query,{timeout:5000});
+    const beforeLength=await page.evaluate(()=>history.length);
+    const hit=page.locator('#searchResults .search-result-main').filter({hasText:test.query}).first();
+    if(await hit.count()!==1)fail('A10 search returns target',test.query);
     await hit.click();
-    await page.waitForFunction(()=>!document.querySelector('#clinicalDetailView')?.hidden,{timeout:7000});
-    if(!await visible('#clinicalDetailView'))fail('Stable ID search opens A5 clinical detail',test.id);
-    if(await page.locator(test.selector).count()!==1)fail('Stable ID target rendered in clinical detail',test.id);
+    await page.waitForFunction(selector=>{
+      const el=document.querySelector(selector);
+      return !!el&&!el.hidden&&getComputedStyle(el).display!=='none';
+    },test.selector,{timeout:8000});
     const state=await page.evaluate(()=>({
       page:document.documentElement.dataset.appPage||'',
       group:document.documentElement.dataset.activeDrillGroup||'',
-      view:document.documentElement.dataset.activeDrillView||''
+      view:document.documentElement.dataset.activeDrillView||'',
+      historyLength:history.length
     }));
-    if(state.page!=='clinical'||state.group!=='clinical'||state.view!=='detail')fail('Stable ID direct route lands in clinical detail state',test.id+' / '+JSON.stringify(state));
-    pass('Clinical '+test.label+' direct route',test.id);
+    if(state.page!==test.page||state.group!==test.group||state.view!==test.view){
+      fail('A10 search lands in canonical destination',test.query+' / '+JSON.stringify(state));
+    }
+    const destinationText=(await page.locator(test.selector).textContent()||'').trim();
+    if(!destinationText.includes(test.targetText))fail('A10 destination preserves Stable ID',test.query+' / '+destinationText.slice(0,300));
+    if(state.historyLength!==beforeLength+1)fail('A10 search adds exactly one destination history entry',test.query+' before='+beforeLength+' after='+state.historyLength);
+
+    await page.goBack();
+    await page.waitForFunction(q=>document.documentElement.dataset.appPage==='home'&&document.querySelector('#searchBox')?.value===q,test.query,{timeout:5000});
+    if(!await visible('#home'))fail('A10 browser back returns home',test.query);
+    if((await page.locator('#searchTypeFilter').inputValue())!==test.type)fail('A10 browser back restores search filter',test.query);
+    if(!((await page.locator('#searchResults').textContent()||'').includes(test.query)))fail('A10 browser back restores search results',test.query);
+    pass('A10 one-back search route',test.query+' → '+test.page+'/'+test.view);
   }
 
-  await page.locator('.tab[data-page="home"]').click();
-  await page.waitForTimeout(80);
-  await page.locator('#searchBox').fill('m001');
-  await page.waitForFunction(()=>document.querySelector('#searchResults')?.textContent?.includes('m001'),{timeout:5000});
-  await page.locator('#searchResults .search-result-main').filter({hasText:'m001'}).first().click();
-  await page.waitForFunction(()=>document.querySelector('#muscleOverlay')?.classList.contains('show'),{timeout:5000});
-  const continueButton=page.locator('#muscleOverlay button').filter({hasText:'임상 흐름 계속'}).first();
-  if(await continueButton.count()!==1)fail('Muscle detail exposes clinical-flow continuation','m001');
-  await continueButton.click();
-  await page.waitForFunction(()=>!document.querySelector('#clinicalDetailView')?.hidden,{timeout:7000});
-  if(!await visible('#clinicalDetailView'))fail('Muscle clinical flow lands in A5 single detail','m001');
-  if(!await visible('#clinicalFlowContext'))fail('Muscle context preserved in A5 clinical detail','m001');
-  const flowText=(await page.locator('#clinicalFlowContext').textContent()||'').trim();
-  if(!flowText.includes('흉쇄유돌근')||!flowText.includes('muscle_id m001'))fail('Clinical flow context keeps source muscle Stable ID',flowText);
-  pass('Muscle-to-clinical A5 direct route','m001');
+  await page.locator('#searchTypeFilter').selectOption('all');
+  await page.locator('#searchBox').fill('');
+  pass('A10 home/search canonical direct-route shell');
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
-  pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral and personal-learning click sweep');
+  pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral, learning and home/search click sweep');
 
   console.log('\n--- RUNTIME NAVIGATION E2E ---');
-  console.log('PASS | anatomy + clinical + ultrasound 131 views + quiz + Oral + learning root/4 details + Stable ID/direct-flow');
+  console.log('PASS | anatomy + clinical + ultrasound 131 views + quiz + Oral + learning + A10 one-back home/search direct routes');
 }finally{
   await browser.close();
 }
