@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **A2 COMPLETE · A5 CLOSED · A6 CLOSED · A7 CLOSED · A8 CLOSED · A9 CLOSED / USER PROCEED AUTHORIZED · A10 AUTOMATED PASS / PREVIEW DEPLOYED / USER PREVIEW VERIFY PENDING**
+상태: **Stage 23A CLOSED / USER PROCEED AUTHORIZED · Stage 23B ACTIVE — REALISTIC PATIENT ILLUSTRATION MIGRATION**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -436,7 +436,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - [x] **A7. 퀴즈 — CLOSED / USER PROCEED AUTHORIZED** — 사용자가 2026-09-28 `다음 작업 진행해`로 A8 진입 승인. 별도 A7 실기기 시각 PASS로 오기하지 않음
 - [x] **A8. Oral Viva — CLOSED / USER PROCEED AUTHORIZED** — 사용자가 2026-09-28 `다음 작업 진행해`로 A9 진입 승인. 별도 A8 실기기 시각 PASS로 오기하지 않음
 - [x] **A9. 내 학습 — CLOSED / USER PROCEED AUTHORIZED** — 사용자가 2026-09-28 `진행해`로 A10 진입 승인. 별도 A9 실기기 시각 PASS로 오기하지 않음
-- [ ] **A10. 홈/검색 — AUTOMATED PASS / USER PREVIEW VERIFY PENDING** — 검색 결과 → 정식 목적지 상세 direct route + 뒤로가기 1회 → 원래 검색결과
+- [x] **A10. 홈/검색 — CLOSED / USER PROCEED AUTHORIZED** — 사용자가 2026-09-28 `진행해`로 Stage 23B 진입 승인. 별도 A10 실기기 시각 PASS로 오기하지 않음
 
 ## 완료 Gate
 - 모든 top-level 탭에서 drill-down 단계가 독립 화면처럼 전환
@@ -450,6 +450,19 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 ---
 
 # Stage 23B — Patient Exercise Illustration 3.0
+
+상태: **ACTIVE — USER-APPROVED REALISTIC STYLE / ASSET PIPELINE IN PROGRESS**
+
+사용자 승인 스타일:
+- 최종 환자교육 그림은 막대인간/추상 SVG가 아니라 **실제 사람처럼 보이는 실사형 의료·재활 교육 일러스트**
+- 한 운동당 **1장 composite** 안에 `1 · 시작` / `2 · 끝` 두 패널
+- 같은 사람·같은 복장·같은 시점으로 시작/끝 자세 연속성 유지
+- 움직임 화살표 / 고정·지지 / 흔한 보상동작을 그림 안에서 바로 이해 가능하게 표시
+- 한국어 라벨, 흰 배경, 모바일·A4 인쇄 대응
+- 사용자 승인 스쿼트 샘플을 전체 18개 운동의 스타일 기준으로 사용
+- 인터넷 무단 사진·워터마크·초상권 불명 자료 사용 금지
+- 기존 SVG는 **migration fallback**으로만 유지하며 최종품으로 사용하지 않음
+
 
 상태: **QUEUED — Stage 23A 구조 고정 후 시작**
 
@@ -530,7 +543,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**A10 사용자 Preview 검수 또는 다음 단계 진행 승인 → Stage 23B → Stage 23C → Stage 24**
+**Stage 23B 실사형 환자교육 일러스트 18종 제작/검수 → Stage 23C → Stage 24**
 
 
 ## A2 회귀 복구 Gate — 2026-09-27
@@ -712,8 +725,8 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - Playwright 실제 검색 전수: m001 / sx01 / ct082 / d089 / usv074 목적지 + history 1-entry + one-back 복귀 PASS
 - Cloudflare Preview 배포 PASS
 - TinyFish 미사용
-- A10 사용자 Preview 승인 또는 명시적 다음 단계 진행 승인 전 Stage 23A COMPLETE 처리 금지
-- Stage 23B는 A10 사용자 확인/진행 승인 전 시작 금지
+- 2026-09-28 사용자 `진행해` 지시로 A10 다음 단계 진입 승인. 별도 A10 실기기 시각 PASS로 오기하지 않음
+- Stage 23B 시작 승인 완료
 
 ### v11.47 · A5 Clinical Direct Route Lock — AUTOMATED PASS / LIVE PREVIEW PASS / USER VERIFY PENDING
 - A5 Runtime E2E 상세 계약 강화: 10개 모듈의 감별/진찰/초음파 첫 상세에서 필수 필드 전수 확인
