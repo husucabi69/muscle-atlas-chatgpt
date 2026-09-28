@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (A9 CLOSED / USER PROCEED AUTHORIZED · A10 AUTOMATED PASS / USER PREVIEW VERIFY PENDING)**
+- 현재 개발: **Stage 23B — Patient Exercise Illustration 3.0 (REALISTIC STYLE USER APPROVED / ASSET PIPELINE IN PROGRESS)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -747,7 +747,15 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 동일 화면 아래 append 방식 제거
 - view-state/history/back/breadcrumb 공통화
 
-### Stage 23B — Patient Exercise Illustration 3.0 — QUEUED
+### Stage 23B — Patient Exercise Illustration 3.0 — ACTIVE
+
+- 사용자 승인 정본 스타일: 실제 사람처럼 보이는 고품질 의료·재활 환자교육용 디지털 일러스트
+- 18개 actionable exercise 각각 한 장의 2-panel composite(`시작 / 끝`)
+- 움직임 방향·고정/지지·피할 보상동작을 시각적으로 포함
+- 기존 SVG는 realistic asset 완성 전 임시 fallback
+- realistic asset manifest: `data/patient-exercise-realistic-assets-v1.json`
+- 작업 운영: 기본 15분 / 최대 18분, 초과 전 반드시 checkpoint 보고
+
 - Stage 19 개념형 SVG는 final quality 아님
 - 18 actionable profile 전수 고품질 재도해
 - 손/손가락/상지/하지 비율, 시작/끝 자세, 움직임/지지점 개선
@@ -938,5 +946,5 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - Stage 15~23A static QA SUCCESS
 - Cloudflare Preview SUCCESS
 - TinyFish 미사용
-- A10 사용자 Preview 승인 또는 명시적 다음 단계 진행 승인 전 Stage 23A COMPLETE 금지
-- Stage 23B Patient Exercise Illustration 3.0은 그 이후 시작
+- 2026-09-28 사용자 `진행해` 지시로 Stage 23A 다음 단계 진입 승인. 별도 A10 실기기 시각 PASS로 오기하지 않음
+- Stage 23B Patient Exercise Illustration 3.0 시작
