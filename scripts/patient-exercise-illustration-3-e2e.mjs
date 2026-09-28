@@ -8,7 +8,7 @@ const pass=(name,detail='')=>console.log('PASS | '+name+(detail?' | '+detail:'')
 
 try{
   await page.goto(base,{waitUntil:'networkidle',timeout:30000});
-  await page.waitForFunction(()=>Array.isArray(window.patientExerciseIllustrations?.profiles)&&window.patientExerciseIllustrations.profiles.length===19,{timeout:10000});
+  await page.waitForFunction(()=>typeof patientExerciseIllustrations!=='undefined'&&Array.isArray(patientExerciseIllustrations?.profiles)&&patientExerciseIllustrations.profiles.length===19,{timeout:10000});
   const ids=await page.evaluate(()=>patientExerciseIllustrations.profiles.filter(x=>x.actionability===true).map(x=>x.profile_id));
   if(ids.length!==18)fail('18 actionable profiles available',String(ids.length));
 
