@@ -275,7 +275,7 @@ try {
   new Function(m[1]);
 } catch (e) { jsSyntax=false; jsError=String(e); }
 check('App JavaScript syntax', jsSyntax, jsError);
-check('Stage 10 UI present', html.includes('Stage 10 COMPLETE') && html.includes('loadAbdominalCoreClinicalModule();'));
+check('Stage 10 clinical module present', html.includes("abdominalCore:{label:'복벽·코어',stage:'Stage 10'") && html.includes('loadAbdominalCoreClinicalModule()'));
 const requiredPages=['home','symptoms','regions','clinical','education','quiz','oral'];
 check('All 7 app pages wired', requiredPages.every(id=>html.includes(`data-page="${id}"`) && html.includes(`<section id="${id}"`)), requiredPages.join(','));
 check('PWA id', manifest.id==='/muscle-atlas-chatgpt/', manifest.id);
