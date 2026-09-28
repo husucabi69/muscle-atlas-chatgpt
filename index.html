@@ -368,143 +368,48 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 <section id="clinical" class="page">
-  <div id="clinicalFlowContext" class="clinical-flow-context" hidden></div>
-  <div class="section-title"><h3>어깨 임상 모듈</h3><span>Stage 1 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Shoulder Knowledge Module</h3>
-    <p>진찰법과 초음파 view를 Stable ID로 분리했습니다. 검사 하나를 확정진단으로 취급하지 않고 관련 구조·소견·영상과 함께 학습합니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startShoulderClinicalQuiz()">어깨 임상 10문제</button></div>
+  <div id="clinicalRootView" class="drill-screen" data-drill-group="clinical" data-drill-view="modules">
+    <div class="section-title"><h3>임상 모듈</h3><span>10개 부위 · Stage 23A A5</span></div>
+    <div class="card" style="margin-bottom:16px">
+      <h3>Clinical Knowledge Modules</h3>
+      <p>먼저 부위·모듈을 고르세요. 다음 화면에서 감별진단, 진찰법, 초음파 View 중 하나를 선택하고 세부 항목 하나씩 학습합니다.</p>
+    </div>
+    <div class="note"><b>1단계 · 임상 모듈 목차</b><br>현재 화면에는 임상 모듈만 표시됩니다.</div>
+    <div id="clinicalModuleChooser" class="region-chooser" style="margin-top:18px"></div>
   </div>
-  <div class="section-title"><h3>감별진단 흐름</h3><span>후보 지식 · 확정진단 아님</span></div><div id="shoulderDifferentialGrid" class="grid2"><div class="status">감별진단 모듈을 불러오는 중…</div></div><div class="section-title"><h3>진찰법</h3><span id="shoulderExamCount">불러오는 중…</span></div>
-  <div id="shoulderExamGrid" class="grid2"><div class="status">진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>초음파 View</h3><span id="shoulderUSCount">불러오는 중…</span></div><div id="shoulderMediaCoverage" class="note">영상 검증 상태를 불러오는 중…</div>
-  <div id="shoulderUSGrid" class="grid2"><div class="status">초음파 모듈을 불러오는 중…</div></div>
 
-  <div class="section-title" style="margin-top:38px"><h3>팔꿈치·전완 임상 모듈</h3><span>Stage 2 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Elbow / Forearm Knowledge Module</h3>
-    <p>외측·내측·전방·후방 팔꿈치 통증에서 건, 척골신경, PIN, 원위 이두건, 삼두건, UCL까지 Stable ID로 연결합니다. 검사 하나나 초음파 소견 하나를 확정진단으로 사용하지 않습니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startElbowClinicalQuiz()">팔꿈치 임상 10문제</button></div>
+  <div id="clinicalMenuView" class="drill-screen" data-drill-group="clinical" data-drill-view="menu" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="clinicalBack('modules')">← 임상 모듈</button>
+      <span class="crumb" id="clinicalMenuBreadcrumb"></span>
+    </div>
+    <div id="clinicalModuleHead" class="anatomy-detail-head"></div>
+    <div class="note"><b>2단계 · 학습항목 목차</b><br>감별진단, 진찰법, 초음파 View 중 하나를 선택하세요.</div>
+    <div id="clinicalModuleMenu" class="drill-menu-grid" role="navigation" aria-label="임상 학습항목 목차"></div>
+    <div class="quiz-actions" style="margin-top:16px"><button id="clinicalModuleQuizButton" class="primary" type="button">이 모듈 임상 10문제</button></div>
   </div>
-  <div class="section-title"><h3>팔꿈치 감별진단</h3><span>후보 지식 · 확정진단 아님</span></div>
-  <div id="elbowDifferentialGrid" class="grid2"><div class="status">팔꿈치 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>팔꿈치 진찰법</h3><span id="elbowExamCount">불러오는 중…</span></div>
-  <div id="elbowExamGrid" class="grid2"><div class="status">팔꿈치 진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>팔꿈치 초음파 View</h3><span id="elbowUSCount">불러오는 중…</span></div>
-  <div id="elbowMediaCoverage" class="note">팔꿈치 초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="elbowUSGrid" class="grid2"><div class="status">팔꿈치 초음파 모듈을 불러오는 중…</div></div>
 
-  <div class="section-title" style="margin-top:38px"><h3>손목·손 임상 모듈</h3><span>Stage 3 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Wrist / Hand Knowledge Module</h3>
-    <p>1–6 신전구획, 손목터널·Guyon관, TFCC, 주상월상인대, CMC 관절, A1 pulley를 증상·진찰·초음파와 연결합니다. 단일 검사나 초음파 수치 하나를 확정진단으로 사용하지 않습니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startWristHandClinicalQuiz()">손목·손 임상 10문제</button></div>
+  <div id="clinicalListView" class="drill-screen" data-drill-group="clinical" data-drill-view="list" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="clinicalBack('menu')">← 학습항목</button>
+      <button class="pill" type="button" onclick="showClinicalModules()">임상 모듈</button>
+      <span class="crumb" id="clinicalListBreadcrumb"></span>
+    </div>
+    <div class="region-panel-head"><h3 id="clinicalListTitle"></h3><span id="clinicalListCount"></span></div>
+    <div class="note"><b>3단계 · 세부 항목 목차</b><br>한 항목을 선택하면 그 항목의 상세만 표시됩니다.</div>
+    <div id="clinicalItemList" class="region-list"></div>
   </div>
-  <div class="section-title"><h3>손목·손 감별진단</h3><span>후보 지식 · 확정진단 아님</span></div>
-  <div id="wristHandDifferentialGrid" class="grid2"><div class="status">손목·손 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>손목·손 진찰법</h3><span id="wristHandExamCount">불러오는 중…</span></div>
-  <div id="wristHandExamGrid" class="grid2"><div class="status">손목·손 진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>손목·손 초음파 View</h3><span id="wristHandUSCount">불러오는 중…</span></div>
-  <div id="wristHandMediaCoverage" class="note">손목·손 초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="wristHandUSGrid" class="grid2"><div class="status">손목·손 초음파 모듈을 불러오는 중…</div></div>
 
-  <div class="section-title" style="margin-top:38px"><h3>고관절·골반·둔부 임상 모듈</h3><span>Stage 4 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Hip / Pelvis / Gluteal Knowledge Module</h3>
-    <p>장요근, 둔근건, GTPS, 내전근, 심부 둔부·좌골신경, 근위 햄스트링, 외측대퇴피신경을 증상·진찰·실제 초음파 원문과 연결합니다. 단일 검사나 초음파 소견 하나를 확정진단으로 사용하지 않습니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startHipPelvisClinicalQuiz()">고관절 임상 10문제</button></div>
+  <div id="clinicalDetailView" class="drill-screen" data-drill-group="clinical" data-drill-view="detail" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="clinicalBack('list')">← 세부 항목</button>
+      <button class="pill" type="button" onclick="openClinicalModule(selectedClinicalModuleKey)">학습항목</button>
+      <button class="pill" type="button" onclick="showClinicalModules()">임상 모듈</button>
+      <span class="crumb" id="clinicalDetailBreadcrumb"></span>
+    </div>
+    <div id="clinicalFlowContext" class="clinical-flow-context" hidden></div>
+    <div id="clinicalDetailContent"></div>
   </div>
-  <div class="section-title"><h3>고관절·골반 감별진단</h3><span>후보 지식 · 확정진단 아님</span></div>
-  <div id="hipPelvisDifferentialGrid" class="grid2"><div class="status">고관절 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>고관절·골반 진찰법</h3><span id="hipPelvisExamCount">불러오는 중…</span></div>
-  <div id="hipPelvisExamGrid" class="grid2"><div class="status">고관절 진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>고관절·골반 초음파 View</h3><span id="hipPelvisUSCount">불러오는 중…</span></div>
-  <div id="hipPelvisMediaCoverage" class="note">고관절 초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="hipPelvisUSGrid" class="grid2"><div class="status">고관절 초음파 모듈을 불러오는 중…</div></div>
-
-  <div class="section-title" style="margin-top:38px"><h3>무릎·대퇴 임상 모듈</h3><span>Stage 5 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Knee / Thigh Knowledge Module</h3>
-    <p>대퇴사두건·슬개건·슬개대퇴 구조, 햄스트링·거위발, MCL/LCL, 장경인대, 슬와부·근위 경비관절을 증상·진찰·실제 초음파 원문과 연결합니다. 단일 검사나 초음파 소견 하나를 확정진단으로 사용하지 않습니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startKneeThighClinicalQuiz()">무릎·대퇴 임상 10문제</button></div>
-  </div>
-  <div class="section-title"><h3>무릎·대퇴 감별진단</h3><span>후보 지식 · 확정진단 아님</span></div>
-  <div id="kneeThighDifferentialGrid" class="grid2"><div class="status">무릎·대퇴 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>무릎·대퇴 진찰법</h3><span id="kneeThighExamCount">불러오는 중…</span></div>
-  <div id="kneeThighExamGrid" class="grid2"><div class="status">무릎·대퇴 진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>무릎·대퇴 초음파 View</h3><span id="kneeThighUSCount">불러오는 중…</span></div>
-  <div id="kneeThighMediaCoverage" class="note">무릎·대퇴 초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="kneeThighUSGrid" class="grid2"><div class="status">무릎·대퇴 초음파 모듈을 불러오는 중…</div></div>
-
-  <div class="section-title" style="margin-top:38px"><h3>하퇴·발목·발 임상 모듈</h3><span>Stage 6 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Leg / Ankle / Foot Knowledge Module</h3>
-    <p>종아리·Achilles, 전방/내측/외측 발목 건, ATFL/CFL·syndesmosis, 족근관, 족저근막·내재근, 전족부 web-space를 증상·진찰·실제 초음파와 연결합니다. 단일 검사나 영상소견 하나를 확정진단으로 사용하지 않습니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startLegAnkleFootClinicalQuiz()">하퇴·발목·발 임상 10문제</button></div>
-  </div>
-  <div class="section-title"><h3>하퇴·발목·발 감별진단</h3><span>후보 지식 · 확정진단 아님</span></div>
-  <div id="legAnkleFootDifferentialGrid" class="grid2"><div class="status">하퇴·발목·발 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>하퇴·발목·발 진찰법</h3><span id="legAnkleFootExamCount">불러오는 중…</span></div>
-  <div id="legAnkleFootExamGrid" class="grid2"><div class="status">진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>하퇴·발목·발 초음파 View</h3><span id="legAnkleFootUSCount">불러오는 중…</span></div>
-  <div id="legAnkleFootMediaCoverage" class="note">초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="legAnkleFootUSGrid" class="grid2"><div class="status">초음파 모듈을 불러오는 중…</div></div>
-
-  <div class="section-title" style="margin-top:38px"><h3>경추 임상 모듈</h3><span>Stage 7 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Cervical Knowledge Module</h3>
-    <p>심부굴곡근, SCM·사각근, 후두하근, splenius·semispinalis·multifidus, C5–C8 nerve roots, C1–2·후관절, 경추척수병증 red flag를 증상·진찰·실제 초음파와 연결합니다. 단일 진찰검사나 신경근 초음파 수치 하나를 확정진단으로 사용하지 않습니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startCervicalClinicalQuiz()">경추 임상 10문제</button></div>
-  </div>
-  <div class="section-title"><h3>경추 감별진단</h3><span>후보 지식 · 확정진단 아님</span></div>
-  <div id="cervicalDifferentialGrid" class="grid2"><div class="status">경추 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>경추 진찰법</h3><span id="cervicalExamCount">불러오는 중…</span></div>
-  <div id="cervicalExamGrid" class="grid2"><div class="status">경추 진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>경추 초음파 View</h3><span id="cervicalUSCount">불러오는 중…</span></div>
-  <div id="cervicalMediaCoverage" class="note">경추 초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="cervicalUSGrid" class="grid2"><div class="status">경추 초음파 모듈을 불러오는 중…</div></div>
-
-  <div class="section-title" style="margin-top:38px"><h3>흉추·등·흉곽 임상 모듈</h3><span>Stage 8 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Thoracic / Back / Chest Wall Knowledge Module</h3>
-    <p>흉추 척추기립근·다열근/반극근, 늑횡돌기관절·늑척추관절, 견갑흉곽 mechanics, 늑간근·늑간신경, 횡격막과 흉벽을 증상·진찰·실제 초음파와 연결합니다. 흉추 통증에서는 근골격 원인뿐 아니라 척수·골절·감염·종양·심폐 red flag를 우선 분리합니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startThoracicClinicalQuiz()">흉추·등·흉곽 임상 10문제</button></div>
-  </div>
-  <div class="section-title"><h3>흉추·등·흉곽 감별진단</h3><span>후보 지식 · 확정진단 아님</span></div>
-  <div id="thoracicDifferentialGrid" class="grid2"><div class="status">흉추 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>흉추·등·흉곽 진찰법</h3><span id="thoracicExamCount">불러오는 중…</span></div>
-  <div id="thoracicExamGrid" class="grid2"><div class="status">흉추 진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>흉추·흉벽 초음파 View</h3><span id="thoracicUSCount">불러오는 중…</span></div>
-  <div id="thoracicMediaCoverage" class="note">흉추 초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="thoracicUSGrid" class="grid2"><div class="status">흉추 초음파 모듈을 불러오는 중…</div></div>
-
-  <div class="section-title" style="margin-top:38px"><h3>요추·천추 임상 모듈</h3><span>Stage 9 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Lumbar / Sacral Knowledge Module</h3>
-    <p>요다열근·척추기립근·요방형근·대요근, L2–S1 신경근, 요추 후관절, 천장관절, superior cluneal nerve, cauda equina red flag를 증상·진찰·실제 초음파와 연결합니다. SI provocation cluster와 neurodynamic test는 단독 확진검사로 사용하지 않습니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startLumbarSacralClinicalQuiz()">요추·천추 임상 10문제</button></div>
-  </div>
-  <div class="section-title"><h3>요추·천추 감별진단</h3><span>후보 지식 · 확정진단 아님</span></div>
-  <div id="lumbarSacralDifferentialGrid" class="grid2"><div class="status">요추·천추 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>요추·천추 진찰법</h3><span id="lumbarSacralExamCount">불러오는 중…</span></div>
-  <div id="lumbarSacralExamGrid" class="grid2"><div class="status">요추·천추 진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>요추·천추 초음파 View</h3><span id="lumbarSacralUSCount">불러오는 중…</span></div>
-  <div id="lumbarSacralMediaCoverage" class="note">요추·천추 초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="lumbarSacralUSGrid" class="grid2"><div class="status">요추·천추 초음파 모듈을 불러오는 중…</div></div>
-
-  <div class="section-title" style="margin-top:38px"><h3>복벽·몸통 심부 임상 모듈</h3><span>Stage 10 COMPLETE</span></div>
-  <div class="card" style="margin-bottom:16px">
-    <h3>Abdominal Wall / Core Knowledge Module</h3>
-    <p>복직근·외복사근·내복사근·복횡근, linea alba·rectus sheath·transversalis fascia, thoracoabdominal/ilioinguinal/iliohypogastric nerves를 복벽통·rectus diastasis·hernia·athletic groin·motor-control과 연결합니다. Carnett, diastasis, dynamic hernia ultrasound 모두 단독 확진검사로 사용하지 않습니다.</p>
-    <div class="quiz-actions"><button class="primary" onclick="startAbdominalCoreClinicalQuiz()">복벽·코어 임상 10문제</button></div>
-  </div>
-  <div class="section-title"><h3>복벽·코어 감별진단</h3><span>후보 지식 · visceral red flag 우선</span></div>
-  <div id="abdominalCoreDifferentialGrid" class="grid2"><div class="status">복벽 감별진단 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>복벽·코어 진찰법</h3><span id="abdominalCoreExamCount">불러오는 중…</span></div>
-  <div id="abdominalCoreExamGrid" class="grid2"><div class="status">복벽 진찰 모듈을 불러오는 중…</div></div>
-  <div class="section-title"><h3>복벽·코어 초음파 View</h3><span id="abdominalCoreUSCount">불러오는 중…</span></div>
-  <div id="abdominalCoreMediaCoverage" class="note">복벽 초음파 영상 검증 상태를 불러오는 중…</div>
-  <div id="abdominalCoreUSGrid" class="grid2"><div class="status">복벽 초음파 모듈을 불러오는 중…</div></div>
 </section>
 
 
@@ -1985,7 +1890,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>{
@@ -1997,17 +1902,280 @@ function showPage(page){
   resetNavigationViewport();
 }
 const clinicalFlowModules={
-  shoulder:{label:'어깨',differential:'shoulderDifferentialGrid',exam:'shoulderExamGrid',ultrasound:'shoulderUSGrid'},
-  elbow:{label:'팔꿈치·전완',differential:'elbowDifferentialGrid',exam:'elbowExamGrid',ultrasound:'elbowUSGrid'},
-  wristHand:{label:'손목·손',differential:'wristHandDifferentialGrid',exam:'wristHandExamGrid',ultrasound:'wristHandUSGrid'},
-  hipPelvis:{label:'고관절·골반',differential:'hipPelvisDifferentialGrid',exam:'hipPelvisExamGrid',ultrasound:'hipPelvisUSGrid'},
-  kneeThigh:{label:'무릎·대퇴',differential:'kneeThighDifferentialGrid',exam:'kneeThighExamGrid',ultrasound:'kneeThighUSGrid'},
-  legAnkleFoot:{label:'하퇴·발목·발',differential:'legAnkleFootDifferentialGrid',exam:'legAnkleFootExamGrid',ultrasound:'legAnkleFootUSGrid'},
-  cervical:{label:'경추',differential:'cervicalDifferentialGrid',exam:'cervicalExamGrid',ultrasound:'cervicalUSGrid'},
-  thoracic:{label:'흉추·등·흉곽',differential:'thoracicDifferentialGrid',exam:'thoracicExamGrid',ultrasound:'thoracicUSGrid'},
-  lumbarSacral:{label:'요추·천추',differential:'lumbarSacralDifferentialGrid',exam:'lumbarSacralExamGrid',ultrasound:'lumbarSacralUSGrid'},
-  abdominalCore:{label:'복벽·코어',differential:'abdominalCoreDifferentialGrid',exam:'abdominalCoreExamGrid',ultrasound:'abdominalCoreUSGrid'}
+  shoulder:{label:'어깨',stage:'Stage 1',summary:'회전근개·이두건·견봉하 통증과 어깨 진찰·초음파를 연결합니다.',differential:'shoulderDifferentialGrid',exam:'shoulderExamGrid',ultrasound:'shoulderUSGrid'},
+  elbow:{label:'팔꿈치·전완',stage:'Stage 2',summary:'외측·내측 팔꿈치, 척골신경, PIN, 원위 이두건·삼두건·UCL을 다룹니다.',differential:'elbowDifferentialGrid',exam:'elbowExamGrid',ultrasound:'elbowUSGrid'},
+  wristHand:{label:'손목·손',stage:'Stage 3',summary:'신전구획, 손목터널·Guyon관, TFCC, 인대·A1 pulley를 다룹니다.',differential:'wristHandDifferentialGrid',exam:'wristHandExamGrid',ultrasound:'wristHandUSGrid'},
+  hipPelvis:{label:'고관절·골반',stage:'Stage 4',summary:'장요근, 둔근건, GTPS, 내전근, 심부 둔부·근위 햄스트링을 다룹니다.',differential:'hipPelvisDifferentialGrid',exam:'hipPelvisExamGrid',ultrasound:'hipPelvisUSGrid'},
+  kneeThigh:{label:'무릎·대퇴',stage:'Stage 5',summary:'대퇴사두건·슬개건, 측부인대, 거위발, 장경인대·슬와부를 다룹니다.',differential:'kneeThighDifferentialGrid',exam:'kneeThighExamGrid',ultrasound:'kneeThighUSGrid'},
+  legAnkleFoot:{label:'하퇴·발목·발',stage:'Stage 6',summary:'Achilles, 발목 건·인대, syndesmosis, 족근관·족저근막을 다룹니다.',differential:'legAnkleFootDifferentialGrid',exam:'legAnkleFootExamGrid',ultrasound:'legAnkleFootUSGrid'},
+  cervical:{label:'경추',stage:'Stage 7',summary:'경추 신경근·척수 red flag, 후두하부·심부근과 경추 진찰·초음파를 다룹니다.',differential:'cervicalDifferentialGrid',exam:'cervicalExamGrid',ultrasound:'cervicalUSGrid'},
+  thoracic:{label:'흉추·등·흉곽',stage:'Stage 8',summary:'흉추·늑골관절, 견갑흉곽, 늑간신경·횡격막과 흉벽을 다룹니다.',differential:'thoracicDifferentialGrid',exam:'thoracicExamGrid',ultrasound:'thoracicUSGrid'},
+  lumbarSacral:{label:'요추·천추',stage:'Stage 9',summary:'요추 근육, 신경근, 후관절·천장관절, cluneal nerve와 red flag를 다룹니다.',differential:'lumbarSacralDifferentialGrid',exam:'lumbarSacralExamGrid',ultrasound:'lumbarSacralUSGrid'},
+  abdominalCore:{label:'복벽·코어',stage:'Stage 10',summary:'복벽 근육·근막·신경, diastasis·hernia·athletic groin을 다룹니다.',differential:'abdominalCoreDifferentialGrid',exam:'abdominalCoreExamGrid',ultrasound:'abdominalCoreUSGrid'}
 };
+const clinicalModuleLoaders={
+  shoulder:loadShoulderClinicalModule,elbow:loadElbowClinicalModule,wristHand:loadWristHandClinicalModule,
+  hipPelvis:loadHipPelvisClinicalModule,kneeThigh:loadKneeThighClinicalModule,legAnkleFoot:loadLegAnkleFootClinicalModule,
+  cervical:loadCervicalClinicalModule,thoracic:loadThoracicClinicalModule,lumbarSacral:loadLumbarSacralClinicalModule,
+  abdominalCore:loadAbdominalCoreClinicalModule
+};
+const clinicalQuizStarters={
+  shoulder:startShoulderClinicalQuiz,elbow:startElbowClinicalQuiz,wristHand:startWristHandClinicalQuiz,
+  hipPelvis:startHipPelvisClinicalQuiz,kneeThigh:startKneeThighClinicalQuiz,legAnkleFoot:startLegAnkleFootClinicalQuiz,
+  cervical:startCervicalClinicalQuiz,thoracic:startThoracicClinicalQuiz,lumbarSacral:startLumbarSacralClinicalQuiz,
+  abdominalCore:startAbdominalCoreClinicalQuiz
+};
+const clinicalMediaAuditRenderers={
+  shoulder:renderShoulderMediaAudit,elbow:renderElbowMediaAudit,wristHand:renderWristHandMediaAudit,
+  hipPelvis:renderHipPelvisMediaAudit,kneeThigh:renderKneeThighMediaAudit,legAnkleFoot:renderLegAnkleFootMediaAudit,
+  cervical:renderCervicalMediaAudit,thoracic:renderThoracicMediaAudit,lumbarSacral:renderLumbarSacralMediaAudit,
+  abdominalCore:renderAbdominalCoreMediaAudit
+};
+const clinicalTopicMeta={
+  differential:{label:'감별진단',unit:'개 감별군',description:'증상별 후보와 지지·반대 단서를 분리해 봅니다.'},
+  exam:{label:'진찰법',unit:'개 검사',description:'검사 목적·방법·양성 기준·해석·한계를 한 항목씩 봅니다.'},
+  ultrasound:{label:'초음파 View',unit:'개 view',description:'Probe 위치·landmark·정상소견·pitfall과 검수 원문을 봅니다.'}
+};
+let selectedClinicalModuleKey=null,selectedClinicalTopic=null,selectedClinicalItemId=null,restoringClinicalHistory=false;
+
+function setClinicalView(view){
+  const map={modules:'clinicalRootView',menu:'clinicalMenuView',list:'clinicalListView',detail:'clinicalDetailView'};
+  if(!map[view])return null;
+  return setDrillView('clinical',view);
+}
+function recordClinicalHistory(level,mode='push'){
+  if(restoringClinicalHistory)return;
+  const state={
+    lysPage:'clinical',
+    clinicalLevel:level,
+    clinicalModule:selectedClinicalModuleKey,
+    clinicalTopic:selectedClinicalTopic,
+    clinicalItemId:selectedClinicalItemId
+  };
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
+}
+function clinicalTopicItems(moduleKey,topic){
+  const data=clinicalModuleData(moduleKey);
+  if(topic==='differential')return data.differential?.differential_groups||[];
+  if(topic==='exam')return data.exam?.clinical_tests||[];
+  if(topic==='ultrasound')return data.ultrasound?.ultrasound_views||[];
+  return[];
+}
+function clinicalItemId(topic,item){
+  if(topic==='differential')return item?.differential_group_id||'';
+  if(topic==='exam')return item?.clinical_test_id||'';
+  if(topic==='ultrasound')return item?.ultrasound_view_id||'';
+  return'';
+}
+function clinicalItemTitle(topic,item){
+  if(topic==='differential')return item?.title_ko||item?.differential_group_id||'감별진단';
+  return item?.name_ko||clinicalItemId(topic,item);
+}
+function clinicalItemSubtitle(topic,item){
+  if(topic==='differential')return (item?.candidates?.length||0)+'개 후보 · '+(item?.symptom_id||'');
+  if(topic==='exam')return [item?.name_en,item?.category,item?.clinical_test_id].filter(Boolean).join(' · ');
+  if(topic==='ultrasound')return [item?.name_en,item?.ultrasound_view_id].filter(Boolean).join(' · ');
+  return'';
+}
+function renderClinicalModuleChooser(){
+  const host=document.getElementById('clinicalModuleChooser');if(!host)return;
+  host.innerHTML=Object.entries(clinicalFlowModules).map(([key,meta])=>{
+    const data=clinicalModuleData(key);
+    const n=(data.differential?.differential_groups||[]).length+(data.exam?.clinical_tests||[]).length+(data.ultrasound?.ultrasound_views||[]).length;
+    return '<button type="button" class="region-choice clinical-module-choice" data-clinical-module="'+key+'" onclick="openClinicalModule(\''+key+'\')"><span><b>'+esc(meta.label)+'</b><br><small>'+esc(meta.stage)+' · '+(n?n+'개 학습항목':'데이터 불러오는 중')+'</small></span><span class="arrow">›</span></button>';
+  }).join('');
+}
+function showClinicalModules(record=true){
+  selectedClinicalModuleKey=null;
+  selectedClinicalTopic=null;
+  selectedClinicalItemId=null;
+  const flow=document.getElementById('clinicalFlowContext');if(flow)flow.hidden=true;
+  renderClinicalModuleChooser();
+  setClinicalView('modules');
+  if(record)recordClinicalHistory('modules');
+}
+async function ensureClinicalModuleLoaded(key){
+  if(!clinicalFlowModules[key])return false;
+  const data=clinicalModuleData(key);
+  if(data.exam&&data.differential&&data.ultrasound)return true;
+  const loader=clinicalModuleLoaders[key];
+  return loader?await loader():false;
+}
+function renderClinicalModuleMenu(key){
+  const meta=clinicalFlowModules[key],data=clinicalModuleData(key);if(!meta)return;
+  const crumb=document.getElementById('clinicalMenuBreadcrumb');if(crumb)crumb.textContent='임상 › '+meta.label;
+  const head=document.getElementById('clinicalModuleHead');
+  if(head)head.innerHTML='<h2>'+esc(meta.label)+' 임상</h2><div class="sub">'+esc(meta.summary)+'</div><div class="tagrow"><span class="tag">'+esc(meta.stage)+'</span></div>';
+  const menu=document.getElementById('clinicalModuleMenu');if(!menu)return;
+  menu.innerHTML=Object.entries(clinicalTopicMeta).map(([topic,spec])=>{
+    const count=clinicalTopicItems(key,topic).length;
+    return '<button class="drill-menu-item" type="button" data-clinical-topic="'+topic+'" onclick="openClinicalTopic(\''+topic+'\')"><span><strong>'+esc(spec.label)+'</strong><small>'+count+esc(spec.unit)+' · '+esc(spec.description)+'</small></span><span class="arrow">›</span></button>';
+  }).join('');
+  const quiz=document.getElementById('clinicalModuleQuizButton');
+  if(quiz){quiz.textContent=meta.label+' 임상 10문제';quiz.onclick=()=>startClinicalModuleQuiz(key);}
+}
+async function openClinicalModule(key,record=true){
+  const meta=clinicalFlowModules[key];if(!meta)return;
+  selectedClinicalModuleKey=key;
+  selectedClinicalTopic=null;
+  selectedClinicalItemId=null;
+  const flow=document.getElementById('clinicalFlowContext');if(flow)flow.hidden=true;
+  setClinicalView('menu');
+  const menu=document.getElementById('clinicalModuleMenu');if(menu)menu.innerHTML='<div class="status">임상 모듈을 불러오는 중…</div>';
+  renderClinicalModuleMenu(key);
+  if(record)recordClinicalHistory('menu');
+  await ensureClinicalModuleLoaded(key);
+  if(selectedClinicalModuleKey===key)renderClinicalModuleMenu(key);
+}
+function renderClinicalTopicList(moduleKey,topic){
+  const meta=clinicalFlowModules[moduleKey],spec=clinicalTopicMeta[topic];if(!meta||!spec)return;
+  const items=clinicalTopicItems(moduleKey,topic);
+  const crumb=document.getElementById('clinicalListBreadcrumb');if(crumb)crumb.textContent='임상 › '+meta.label+' › '+spec.label;
+  const title=document.getElementById('clinicalListTitle');if(title)title.textContent=meta.label+' · '+spec.label;
+  const count=document.getElementById('clinicalListCount');if(count)count.textContent=items.length+spec.unit;
+  const host=document.getElementById('clinicalItemList');if(!host)return;
+  host.innerHTML=items.length?items.map(item=>{
+    const id=clinicalItemId(topic,item);
+    return '<button type="button" class="region-muscle clinical-item" data-clinical-item="'+esc(id)+'" onclick="openClinicalItem(\''+id+'\')"><b>'+esc(clinicalItemTitle(topic,item))+'</b><small>'+esc(clinicalItemSubtitle(topic,item))+'</small></button>';
+  }).join(''):'<div class="status">표시할 임상 항목이 없습니다.</div>';
+}
+async function openClinicalTopic(topic,record=true){
+  if(!selectedClinicalModuleKey||!clinicalTopicMeta[topic])return;
+  await ensureClinicalModuleLoaded(selectedClinicalModuleKey);
+  selectedClinicalTopic=topic;
+  selectedClinicalItemId=null;
+  const flow=document.getElementById('clinicalFlowContext');if(flow)flow.hidden=true;
+  renderClinicalTopicList(selectedClinicalModuleKey,topic);
+  setClinicalView('list');
+  if(record)recordClinicalHistory('list');
+}
+function clinicalDifferentialDetailHtml(group,moduleKey){
+  const data=clinicalModuleData(moduleKey),diff=data.differential||{},dxMap=Object.fromEntries((diff.diagnosis_concepts||[]).map(d=>[d.diagnosis_concept_id,d]));
+  const sx=symptomById?.[group.symptom_id];
+  let html='<div class="anatomy-detail-head"><h2>'+esc(group.title_ko||'감별진단')+'</h2><div class="sub">'+esc(sx?.title||group.symptom_id||'증상 기반 감별')+'</div><div class="tagrow"><span class="tag">'+esc(group.differential_group_id||'')+'</span></div></div>';
+  if(diff.safety_rule)html+='<div class="clinical-redflag"><b>Red flag / 안전 경계</b><br>'+esc(diff.safety_rule)+'</div>';
+  html+='<div class="section-title"><h3>감별 후보</h3><span>후보 지식 · 확정진단 아님</span></div><div class="grid2">';
+  html+=(group.candidates||[]).map(candidate=>{
+    const d=dxMap[candidate.diagnosis_concept_id]||{};
+    return '<div class="card" id="diagnosis-concept-'+esc(candidate.diagnosis_concept_id)+'"><h3>'+esc(d.name_ko||candidate.diagnosis_concept_id)+'</h3><p><b>'+esc(d.name_en||'')+'</b></p>'+
+      '<div class="note clinical-support"><b>지지 단서</b><br>'+esc((candidate.look_for||[]).join(' · ')||'—')+'</div>'+
+      '<div class="note clinical-oppose"><b>반대·제한 단서</b><br>'+esc((candidate.not_diagnostic_alone||[]).join(' · ')||'—')+'</div>'+
+      '<small style="color:var(--muted)">Stable ID · '+esc(candidate.diagnosis_concept_id)+'</small></div>';
+  }).join('');
+  return html+'</div>';
+}
+function clinicalExamDetailHtml(test){
+  const target=(test.target_structure_ids||[]).map(sid=>clinicalEntityLabel(sid)+' ('+sid+')').join(' · ');
+  return '<div class="anatomy-detail-head" id="clinical-test-'+esc(test.clinical_test_id)+'"><h2>'+esc(test.name_ko)+'</h2><div class="sub">'+esc(test.name_en||'')+'</div><div class="tagrow"><span class="tag">'+esc(test.clinical_test_id)+'</span></div></div>'+
+    '<div class="card"><div class="note"><b>목적</b><br>'+esc(test.category||'임상 진찰')+(target?'<br><span style="color:var(--muted)">대상: '+esc(target)+'</span>':'')+'</div>'+
+    '<div class="note"><b>방법</b><br>'+esc(test.setup||'')+' '+esc(test.maneuver||'')+'</div>'+
+    '<div class="note"><b>양성 기준</b><br>'+esc(test.positive_definition||'')+'</div>'+
+    '<div class="note"><b>해석</b><br>'+esc(test.interpretation_note||'')+'</div>'+
+    '<div class="note"><b>한계 / 흔한 오류</b><br>'+esc(test.limitation||'단일 검사만으로 확정하지 않는다.')+'</div>'+
+    '<small style="color:var(--muted)">Stable ID · '+esc(test.clinical_test_id)+'</small></div>';
+}
+function clinicalUltrasoundDetailHtml(view,moduleKey){
+  const media=clinicalMediaAuditRenderers[moduleKey];
+  return '<div class="anatomy-detail-head" id="ultrasound-view-'+esc(view.ultrasound_view_id)+'"><h2>'+esc(view.name_ko)+'</h2><div class="sub">'+esc(view.name_en||'')+'</div><div class="tagrow"><span class="tag">'+esc(view.ultrasound_view_id)+'</span></div></div>'+
+    '<div class="card">'+renderUltrasoundProbeGuide(view)+
+    '<div class="note"><b>환자 자세</b><br>'+esc(view.patient_position||'')+'</div>'+
+    '<div class="note"><b>Probe 위치·방향</b><br>'+esc(view.probe_orientation||'')+'</div>'+
+    '<div class="note"><b>Landmark</b><br>'+esc((view.landmarks||[]).join(' · '))+'</div>'+
+    '<div class="note"><b>정상 확인</b><br>'+esc(view.normal_finding||'')+'</div>'+
+    '<div class="note"><b>Pitfall / 주의</b><br>'+esc((view.pitfalls||[]).join(' · ')||'—')+'</div>'+
+    '<small style="color:var(--muted)">Stable ID · '+esc(view.ultrasound_view_id)+'</small>'+
+    '<div style="margin-top:12px">'+(media?media(view.ultrasound_view_id):'')+'</div></div>';
+}
+function renderClinicalItemDetail(moduleKey,topic,item){
+  const meta=clinicalFlowModules[moduleKey],spec=clinicalTopicMeta[topic];if(!meta||!spec||!item)return;
+  const id=clinicalItemId(topic,item);
+  const crumb=document.getElementById('clinicalDetailBreadcrumb');if(crumb)crumb.textContent='임상 › '+meta.label+' › '+spec.label+' › '+clinicalItemTitle(topic,item);
+  const host=document.getElementById('clinicalDetailContent');if(!host)return;
+  if(topic==='differential')host.innerHTML=clinicalDifferentialDetailHtml(item,moduleKey);
+  else if(topic==='exam')host.innerHTML=clinicalExamDetailHtml(item);
+  else if(topic==='ultrasound')host.innerHTML=clinicalUltrasoundDetailHtml(item,moduleKey);
+  else host.innerHTML='<div class="status">상세 정보를 표시할 수 없습니다.</div>';
+}
+async function openClinicalItem(itemId,record=true){
+  if(!selectedClinicalModuleKey||!selectedClinicalTopic)return;
+  await ensureClinicalModuleLoaded(selectedClinicalModuleKey);
+  const item=clinicalTopicItems(selectedClinicalModuleKey,selectedClinicalTopic).find(x=>clinicalItemId(selectedClinicalTopic,x)===itemId);
+  if(!item)return;
+  selectedClinicalItemId=itemId;
+  const flow=document.getElementById('clinicalFlowContext');if(flow)flow.hidden=true;
+  renderClinicalItemDetail(selectedClinicalModuleKey,selectedClinicalTopic,item);
+  setClinicalView('detail');
+  if(record)recordClinicalHistory('detail');
+}
+function clinicalBack(fallbackLevel){
+  const state=history.state;
+  if(state?.lysPage==='clinical'&&['menu','list','detail'].includes(state.clinicalLevel)){
+    history.back();
+    return;
+  }
+  if(fallbackLevel==='list'&&selectedClinicalTopic)openClinicalTopic(selectedClinicalTopic,false);
+  else if(fallbackLevel==='menu'&&selectedClinicalModuleKey)openClinicalModule(selectedClinicalModuleKey,false);
+  else showClinicalModules(false);
+}
+function startClinicalModuleQuiz(key){
+  const fn=clinicalQuizStarters[key];if(fn)fn();
+}
+function clinicalModuleForStableItem(type,id){
+  const topic=type==='clinical_test'?'exam':type==='ultrasound_view'?'ultrasound':type==='diagnosis_concept'?'differential':'';
+  if(!topic)return null;
+  for(const key of Object.keys(clinicalFlowModules)){
+    const items=clinicalTopicItems(key,topic);
+    if(type==='clinical_test'&&items.some(x=>x.clinical_test_id===id))return{key,topic,itemId:id};
+    if(type==='ultrasound_view'&&items.some(x=>x.ultrasound_view_id===id))return{key,topic,itemId:id};
+    if(type==='diagnosis_concept'){
+      const group=items.find(g=>(g.candidates||[]).some(x=>x.diagnosis_concept_id===id));
+      if(group)return{key,topic,itemId:group.differential_group_id,focusId:id};
+    }
+  }
+  return null;
+}
+async function openClinicalStableDetail(type,id,muscleId=null){
+  let route=clinicalModuleForStableItem(type,id);
+  if(!route&&muscleId){
+    const key=clinicalModuleForMuscle(muscleId);
+    await ensureClinicalModuleLoaded(key);
+    route=clinicalModuleForStableItem(type,id);
+  }
+  if(!route)return false;
+  cleanupLearningOverlays();
+  showPage('clinical');
+  showClinicalModules(true);
+  await openClinicalModule(route.key,true);
+  await openClinicalTopic(route.topic,true);
+  await openClinicalItem(route.itemId,true);
+  if(muscleId)renderClinicalFlowContext(muscleId,route.topic);
+  if(route.focusId)setTimeout(()=>document.getElementById('diagnosis-concept-'+route.focusId)?.scrollIntoView({behavior:'smooth',block:'center'}),80);
+  return true;
+}
+window.addEventListener('popstate',async event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='clinical')return;
+  restoringClinicalHistory=true;
+  showPage('clinical');
+  selectedClinicalModuleKey=state.clinicalModule||null;
+  selectedClinicalTopic=state.clinicalTopic||null;
+  selectedClinicalItemId=state.clinicalItemId||null;
+  if(state.clinicalLevel==='detail'&&state.clinicalModule&&state.clinicalTopic&&state.clinicalItemId){
+    await openClinicalModule(state.clinicalModule,false);
+    await openClinicalTopic(state.clinicalTopic,false);
+    await openClinicalItem(state.clinicalItemId,false);
+  }else if(state.clinicalLevel==='list'&&state.clinicalModule&&state.clinicalTopic){
+    await openClinicalModule(state.clinicalModule,false);
+    await openClinicalTopic(state.clinicalTopic,false);
+  }else if(state.clinicalLevel==='menu'&&state.clinicalModule){
+    await openClinicalModule(state.clinicalModule,false);
+  }else{
+    showClinicalModules(false);
+  }
+  restoringClinicalHistory=false;
+});
+
 const clinicalRegionFallback={
   '경추·후두하부':'cervical','흉추·흉벽·호흡근':'thoracic','요추·천추·심부고관절·골반저':'lumbarSacral',
   '견갑대·흉견갑부':'shoulder','어깨·회전근개':'shoulder','상완부':'elbow',
@@ -2215,27 +2383,19 @@ function annotateClinicalModuleCards(moduleKey){
 function annotateAllClinicalModuleCards(){
   Object.keys(clinicalFlowModules).forEach(annotateClinicalModuleCards);
 }
-function focusClinicalStableEntity(type,id){
-  const muscleId=learningFlowContext.muscleId||activeClinicalFlowMuscleId;if(!muscleId)return;
-  if(type==='clinical_test'){
-    openClinicalFlowStep(muscleId,'exam');
-    setTimeout(()=>document.getElementById('clinical-test-'+id)?.scrollIntoView({behavior:'smooth',block:'center'}),180);return;
+async function focusClinicalStableEntity(type,id){
+  const muscleId=learningFlowContext.muscleId||activeClinicalFlowMuscleId;
+  if(['clinical_test','diagnosis_concept','ultrasound_view'].includes(type)){
+    if(await openClinicalStableDetail(type,id,muscleId))return;
   }
-  if(type==='diagnosis_concept'){
-    openClinicalFlowStep(muscleId,'differential');
-    setTimeout(()=>document.getElementById('diagnosis-concept-'+id)?.scrollIntoView({behavior:'smooth',block:'center'}),180);return;
-  }
-  if(type==='ultrasound_view'){
-    openClinicalFlowStep(muscleId,'ultrasound');
-    setTimeout(()=>document.getElementById('ultrasound-view-'+id)?.scrollIntoView({behavior:'smooth',block:'center'}),180);return;
-  }
+  if(!muscleId)return;
   const tests=(knowledgeCoreData?.clinical_tests||[]).filter(t=>(t.target_structure_ids||[]).includes(id));
-  if(tests.length){focusClinicalStableEntity('clinical_test',tests[0].clinical_test_id);return;}
+  if(tests.length&&await openClinicalStableDetail('clinical_test',tests[0].clinical_test_id,muscleId))return;
   const views=(knowledgeCoreData?.ultrasound_views||[]).filter(v=>(v.target_structure_ids||[]).includes(id));
-  if(views.length){focusClinicalStableEntity('ultrasound_view',views[0].ultrasound_view_id);return;}
-  openClinicalFlowStep(muscleId,'differential');
+  if(views.length&&await openClinicalStableDetail('ultrasound_view',views[0].ultrasound_view_id,muscleId))return;
+  await openClinicalFlowStep(muscleId,'differential');
 }
-function openClinicalFlowStep(id,step){
+async function openClinicalFlowStep(id,step){
   const m=byId[id];if(!m)return;
   setLearningFlowContext({muscleId:id,sourcePage:step,step});
   if(step==='symptom'){
@@ -2247,19 +2407,31 @@ function openClinicalFlowStep(id,step){
   if(step==='quiz'){cleanupLearningOverlays();startQuizForMuscle(id);return;}
   if(step==='viva'){cleanupLearningOverlays();startOralForMuscle(id);return;}
   if(step==='education'){cleanupLearningOverlays();openEducationForMuscle(id);return;}
-  const moduleKey=clinicalModuleForMuscle(id),meta=clinicalFlowModules[moduleKey],targetId=meta?.[step];
-  cleanupLearningOverlays();activatePage('clinical');renderClinicalFlowContext(id,step);
-  setTimeout(()=>{
-    annotateClinicalModuleCards(moduleKey);
-    let target=document.getElementById(targetId);
-    if(step==='ultrasound'){
-      const first=learningFlowContext.ultrasoundViewIds[0];
-      target=document.getElementById('ultrasound-view-'+first)||target;
-    }
-    if(!target)return;
-    target.scrollIntoView({behavior:'smooth',block:'start'});target.classList.add('clinical-flow-focus');
-    setTimeout(()=>target.classList.remove('clinical-flow-focus'),1800);
-  },100);
+  if(!clinicalTopicMeta[step])return;
+
+  const moduleKey=clinicalModuleForMuscle(id);
+  cleanupLearningOverlays();
+  activatePage('clinical');
+  showClinicalModules(true);
+  await openClinicalModule(moduleKey,true);
+  await openClinicalTopic(step,true);
+
+  const data=clinicalModuleData(moduleKey);
+  let itemId='';
+  if(step==='exam'){
+    const allowed=new Set((data.exam?.clinical_tests||[]).map(x=>x.clinical_test_id));
+    itemId=clinicalTestsForMuscle(id).map(x=>x.clinical_test_id).find(x=>allowed.has(x))||'';
+  }else if(step==='ultrasound'){
+    const allowed=new Set((data.ultrasound?.ultrasound_views||[]).map(x=>x.ultrasound_view_id));
+    itemId=canonicalUltrasoundViewsForMuscle(id).map(x=>x.ultrasound_view_id||x.id).find(x=>allowed.has(x))||'';
+  }else if(step==='differential'){
+    const dxIds=new Set((diagnosesByMuscle?.[id]||[]).map(x=>x.id));
+    const groups=data.differential?.differential_groups||[];
+    const group=groups.find(g=>g.symptom_id===learningFlowContext.symptomId)||groups.find(g=>(g.candidates||[]).some(x=>dxIds.has(x.diagnosis_concept_id)))||groups[0];
+    itemId=group?.differential_group_id||'';
+  }
+  if(itemId)await openClinicalItem(itemId,true);
+  renderClinicalFlowContext(id,step);
 }
 
 const PERSONAL_LEARNING_KEY='mskPersonalLearningV1';
@@ -2810,6 +2982,7 @@ function activatePage(pageId){
   cleanupLearningOverlays();
   if(pageId==='education')showEducationRegions(false);
   if(pageId==='symptoms')showSymptomGroups(false);
+  if(pageId==='clinical')showClinicalModules(false);
   showPage(pageId);
   if(learningFlowContext.muscleId)learningFlowContext.sourcePage=pageId;
   if(pageId==='learning')renderLearningDashboard();
@@ -3758,21 +3931,12 @@ renderRegionChooser();
 renderSymptomGroupChooser();
 hydrateKnowledgeCore();
 loadPatientExerciseLibrary();
-loadShoulderClinicalModule();
-loadElbowClinicalModule();
-loadWristHandClinicalModule();
-loadHipPelvisClinicalModule();
-loadKneeThighClinicalModule();
-loadLegAnkleFootClinicalModule();
-loadCervicalClinicalModule();
-loadThoracicClinicalModule();
-loadLumbarSacralClinicalModule();
-loadAbdominalCoreClinicalModule();
-const clinicalPageObserverTarget=document.getElementById('clinical');
-if(clinicalPageObserverTarget){
-  new MutationObserver(()=>{if(!clinicalAnnotating)annotateAllClinicalModuleCards();}).observe(clinicalPageObserverTarget,{childList:true,subtree:true});
-  setTimeout(annotateAllClinicalModuleCards,400);
-}
+Promise.all([
+  loadShoulderClinicalModule(),loadElbowClinicalModule(),loadWristHandClinicalModule(),loadHipPelvisClinicalModule(),
+  loadKneeThighClinicalModule(),loadLegAnkleFootClinicalModule(),loadCervicalClinicalModule(),loadThoracicClinicalModule(),
+  loadLumbarSacralClinicalModule(),loadAbdominalCoreClinicalModule()
+]).then(()=>renderClinicalModuleChooser());
+renderClinicalModuleChooser();
 setTimeout(()=>{if(activeClinicalFlowMuscleId&&document.getElementById('clinical')?.classList.contains('active'))renderClinicalFlowContext(activeClinicalFlowMuscleId,activeClinicalFlowStep);},500);
 
 
