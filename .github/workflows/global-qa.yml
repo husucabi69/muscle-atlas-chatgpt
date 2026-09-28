@@ -54,6 +54,8 @@ jobs:
         run: node scripts/hierarchical-navigation-3-qa.mjs
       - name: Run Stage 23B patient exercise illustration 3.0 QA
         run: node scripts/patient-exercise-illustration-3-qa.mjs
+      - name: Run Stage 23B realistic exercise asset pipeline QA
+        run: node scripts/patient-exercise-realistic-assets-qa.mjs
 
 
   runtime-navigation-e2e:
