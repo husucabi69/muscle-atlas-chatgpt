@@ -1,0 +1,38 @@
+import fs from 'node:fs';
+
+const manifest=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-assets-v1.json','utf8'));
+const index=fs.readFileSync('index.html','utf8');
+const checks=[];
+const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
+
+check('Realistic asset manifest schema',manifest.schema_version==='1.0.0',manifest.schema_version);
+check('User-approved style lock',manifest.style_lock?.status==='USER_APPROVED',manifest.style_lock?.status||'missing');
+check('18 actionable realistic asset slots',manifest.profiles?.length===18,String(manifest.profiles?.length||0));
+check('Unique profile slots',new Set(manifest.profiles.map(x=>x.profile_id)).size===18);
+check('Only px009 is approved style reference before asset generation',
+  manifest.profiles.filter(x=>x.status==='STYLE_REFERENCE_APPROVED').map(x=>x.profile_id).join(',')==='px009'
+);
+check('No pending slot pretends to have an asset URL',
+  manifest.profiles.filter(x=>x.status!=='APPROVED').every(x=>!x.composite_url)
+);
+check('Any APPROVED asset must have WebP URL',
+  manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>typeof x.composite_url==='string'&&/\.webp(?:\?|$)/.test(x.composite_url))
+);
+check('App loads realistic asset manifest',index.includes("fetch('./data/patient-exercise-realistic-assets-v1.json'"));
+check('App indexes realistic assets',index.includes('exerciseRealisticAssetById=Object.fromEntries'));
+check('Renderer prefers APPROVED realistic asset',index.includes("asset?.status==='APPROVED'&&asset?.composite_url"));
+check('Renderer preserves SVG fallback',index.includes('exercise-svg-fallback'));
+check('Broken realistic image restores fallback',index.includes("onerror=\"this.parentElement.style.display='none';this.parentElement.nextElementSibling.hidden=false\""));
+check('Realistic image is lazy and async decoded',index.includes('loading="lazy" decoding="async"'));
+check('Realistic final style is not stick-figure final',
+  manifest.style_lock?.forbidden?.includes('stick figure final')
+);
+
+let failed=0;
+for(const x of checks){
+  console.log(`${x.pass?'PASS':'FAIL'} | ${x.name}${x.detail?' | '+x.detail:''}`);
+  if(!x.pass)failed++;
+}
+console.log('\n--- STAGE 23B REALISTIC ASSET PIPELINE QA ---');
+console.log(`PASS=${checks.length-failed} FAIL=${failed}`);
+if(failed)process.exit(1);
