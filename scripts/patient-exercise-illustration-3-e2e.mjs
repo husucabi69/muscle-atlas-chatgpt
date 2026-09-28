@@ -56,9 +56,11 @@ try{
   const print=await page.evaluate(()=>{
     const p=exerciseProfileById.px009;
     const host=document.createElement('div');
+    host.id='educationDetail';
     host.style.width='180mm';
     host.innerHTML=exerciseIllustration(p);
     document.body.appendChild(host);
+    document.body.classList.add('printing-education');
     const figure=host.querySelector('.exercise-figure');
     const phase=host.querySelector('.exercise-phase');
     const out={
@@ -67,6 +69,7 @@ try{
       phaseBackground:getComputedStyle(phase).backgroundColor,
       overflow:figure.scrollWidth-figure.clientWidth
     };
+    document.body.classList.remove('printing-education');
     host.remove();
     return out;
   });
