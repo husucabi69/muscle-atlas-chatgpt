@@ -402,6 +402,59 @@ try{
   await page.waitForFunction(()=>!document.querySelector('#oralSetupView')?.hidden,{timeout:5000});
   pass('A8 Oral setup/session/result weakness hierarchy');
 
+  await page.evaluate(()=>{
+    const personal=personalLearningState();
+    personal.favorites=['muscle:m001'];
+    personal.recent=[{key:'muscle:m001',last:Date.now()},{key:'clinical_test:ct082',last:Date.now()-1000}];
+    localStorage.setItem(PERSONAL_LEARNING_KEY,JSON.stringify(personal));
+    const qs=quizState();
+    qs.wrong=Object.assign({},qs.wrong,{m001:2});
+    qs.progress=Object.assign({},qs.progress,{m001:{seen:3,correct:1,streak:0,nextDue:0,last:Date.now()}});
+    qs.total=Math.max(Number(qs.total||0),3);qs.correct=Math.max(Number(qs.correct||0),1);
+    localStorage.setItem(QUIZ_KEY,JSON.stringify(qs));
+    const os=oralState();
+    os.history=Object.assign({},os.history,{'m001:anatomy:origin':{last:Date.now(),grade:'wrong',score:0,level:'colleague'}});
+    os.wrong=Object.assign({},os.wrong,{'m001:anatomy:origin':1});
+    localStorage.setItem(ORAL_KEY,JSON.stringify(os));
+  });
+
+  await page.locator('.tab[data-page="learning"]').click();
+  await page.waitForFunction(()=>!document.querySelector('#learningRootView')?.hidden,{timeout:5000});
+  if(!await visible('#learningRootView'))fail('A9 learning root visible after tab entry');
+  if(await page.locator('#learningSectionChooser .learning-section-choice').count()!==4)fail('A9 learning root section count = 4');
+  const rootText=(await page.locator('#learningRootView').textContent()||'').trim();
+  for(const label of ['최근 본 항목','즐겨찾기','오답·약점 자동 모음','부위별 학습지표']){
+    if(!rootText.includes(label))fail('A9 root section label present',label);
+  }
+  if((await page.locator('#learningRecentMenuCount').textContent()||'').trim()!=='2')fail('A9 recent root count reflects stored state');
+  if((await page.locator('#learningFavoriteMenuCount').textContent()||'').trim()!=='1')fail('A9 favorite root count reflects stored state');
+
+  const learningChecks=[
+    {key:'recent',view:'#learningRecentView',target:'#recentLearningList .learning-item',expect:'흉쇄유돌근'},
+    {key:'favorites',view:'#learningFavoritesView',target:'#favoriteLearningList .learning-item',expect:'흉쇄유돌근'},
+    {key:'weak',view:'#learningWeakView',target:'#weakLearningList .learning-item',expect:'흉쇄유돌근'},
+    {key:'mastery',view:'#learningMasteryView',target:'#masteryDashboard .mastery-row',expect:'경추·후두하부'}
+  ];
+  for(const item of learningChecks){
+    await page.locator('#learningSectionChooser [data-learning-section="'+item.key+'"]').click();
+    await page.waitForFunction(selector=>!document.querySelector(selector)?.hidden,item.view,{timeout:5000});
+    if(!await visible(item.view))fail('A9 learning detail visible',item.key);
+    if(await visible('#learningRootView'))fail('A9 learning root hidden while detail visible',item.key);
+    if(await page.locator(item.target).count()<1)fail('A9 learning detail contains data',item.key);
+    const detailText=(await page.locator(item.view).textContent()||'').trim();
+    if(!detailText.includes(item.expect))fail('A9 learning detail contains expected content',item.key+' / '+item.expect);
+    const drill=await page.evaluate(()=>({
+      page:document.documentElement.dataset.appPage||'',
+      group:document.documentElement.dataset.activeDrillGroup||'',
+      view:document.documentElement.dataset.activeDrillView||''
+    }));
+    if(drill.page!=='learning'||drill.group!=='learning'||drill.view!==item.key)fail('A9 runtime drill state matches detail',item.key+' / '+JSON.stringify(drill));
+    await page.goBack();
+    await page.waitForFunction(()=>!document.querySelector('#learningRootView')?.hidden,{timeout:5000});
+    if(!await visible('#learningRootView'))fail('A9 browser back detail to root',item.key);
+  }
+  pass('A9 personal learning root/recent/favorites/weak/mastery hierarchy');
+
   const stableSearchCases=[
     {id:'ct082',selector:'#clinical-test-ct082',label:'clinical test Stable ID'},
     {id:'d089',selector:'#diagnosis-concept-d089',label:'diagnosis concept Stable ID'},
@@ -445,10 +498,10 @@ try{
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
-  pass('No runtime errors during anatomy, clinical, ultrasound, quiz and Oral click sweep');
+  pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral and personal-learning click sweep');
 
   console.log('\n--- RUNTIME NAVIGATION E2E ---');
-  console.log('PASS | anatomy 14 regions + clinical 10 modules + ultrasound 10 regions/131 views + quiz hierarchy + Oral setup/session/result weakness + Stable ID/direct-flow');
+  console.log('PASS | anatomy + clinical + ultrasound 131 views + quiz + Oral + learning root/4 details + Stable ID/direct-flow');
 }finally{
   await browser.close();
 }
