@@ -198,6 +198,15 @@ check('Clinical learning-flow routes into A5 hierarchy',
   index.includes('await openClinicalModule(moduleKey,true)') &&
   index.includes('await openClinicalTopic(step,true)')
 );
+check('Clinical Stable IDs route directly without requiring a muscle proxy',
+  index.includes('async function openSearchEntity(type,id)') &&
+  index.includes("['clinical_test','diagnosis_concept','ultrasound_view'].includes(type)") &&
+  index.includes('await openClinicalStableDetail(type,id,null)')
+);
+check('Clinical Stable ID routing tolerates pre-load timing',
+  index.includes('await Promise.all(Object.keys(clinicalFlowModules).map(ensureClinicalModuleLoaded))') &&
+  index.includes('route=clinicalModuleForStableItem(type,id)')
+);
 
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
