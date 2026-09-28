@@ -219,6 +219,69 @@ try{
     pass('Clinical drill flow',mod.label);
   }
 
+  await page.locator('.tab[data-page="ultrasound"]').click();
+  await page.waitForFunction(()=>!document.querySelector('#ultrasoundAtlasRootView')?.hidden,{timeout:5000});
+  if(!await visible('#ultrasoundAtlasRootView'))fail('A6 ultrasound root visible after tab entry');
+
+  const ultrasoundModules=await page.locator('#ultrasoundAtlasRegionChooser .ultrasound-atlas-region').evaluateAll(btns=>btns.map(b=>({
+    key:b.dataset.ultrasoundModule||'',
+    label:(b.querySelector('b')?.textContent||'').trim()
+  })));
+  if(ultrasoundModules.length!==10)fail('A6 ultrasound region count = 10',String(ultrasoundModules.length));
+  let ultrasoundViewTotal=0;
+
+  for(const mod of ultrasoundModules){
+    const expected=await page.evaluate(key=>ultrasoundAtlasViewsForModule(key).length,mod.key);
+    if(expected<=0)fail('A6 ultrasound module has canonical views',mod.label);
+    ultrasoundViewTotal+=expected;
+
+    await page.locator('#ultrasoundAtlasRegionChooser .ultrasound-atlas-region[data-ultrasound-module="'+mod.key+'"]').click();
+    await page.waitForFunction(()=>!document.querySelector('#ultrasoundAtlasListView')?.hidden,{timeout:7000});
+    if(!await visible('#ultrasoundAtlasListView'))fail('A6 canonical view list visible',mod.label);
+    if(await visible('#ultrasoundAtlasRootView'))fail('A6 root hidden while view list visible',mod.label);
+
+    const views=page.locator('#ultrasoundAtlasViewList .ultrasound-atlas-view');
+    const actual=await views.count();
+    if(actual!==expected)fail('A6 canonical view list count matches module data',mod.label+' expected='+expected+' actual='+actual);
+    const structureText=(await page.locator('#ultrasoundAtlasStructureSummary').textContent()||'').trim();
+    if(!structureText.includes('연결 구조'))fail('A6 region exposes structure summary',mod.label);
+
+    const first=views.first();
+    const viewId=await first.getAttribute('data-ultrasound-view');
+    const viewTitle=(await first.locator('b').textContent()||'').trim();
+    await first.click();
+    await page.waitForFunction(()=>!document.querySelector('#ultrasoundAtlasDetailView')?.hidden,{timeout:7000});
+    if(!await visible('#ultrasoundAtlasDetailView'))fail('A6 single ultrasound view detail visible',mod.label+' / '+viewTitle);
+    if(await visible('#ultrasoundAtlasListView'))fail('A6 view list hidden while detail visible',mod.label);
+
+    const detailText=(await page.locator('#ultrasoundAtlasDetailContent').textContent()||'').trim();
+    for(const required of ['환자 자세','Probe 위치·방향','Landmark','정상 확인','Pitfall / 주의','Stable ID']){
+      if(!detailText.includes(required))fail('A6 ultrasound detail required field: '+required,mod.label+' / '+viewId);
+    }
+    if(!detailText.includes(viewId||''))fail('A6 ultrasound detail preserves Stable ID',mod.label+' / '+viewId);
+
+    const drill=await page.evaluate(()=>({
+      page:document.documentElement.dataset.appPage||'',
+      group:document.documentElement.dataset.activeDrillGroup||'',
+      view:document.documentElement.dataset.activeDrillView||'',
+      hidden:document.documentElement.hidden
+    }));
+    if(drill.hidden||drill.page!=='ultrasound'||drill.group!=='ultrasound'||drill.view!=='detail'){
+      fail('A6 runtime drill state is ultrasound detail',mod.label+' / '+JSON.stringify(drill));
+    }
+
+    await page.goBack();
+    await page.waitForFunction(()=>!document.querySelector('#ultrasoundAtlasListView')?.hidden,{timeout:5000});
+    if(!await visible('#ultrasoundAtlasListView'))fail('A6 browser back detail to view list',mod.label);
+
+    await page.goBack();
+    await page.waitForFunction(()=>!document.querySelector('#ultrasoundAtlasRootView')?.hidden,{timeout:5000});
+    if(!await visible('#ultrasoundAtlasRootView'))fail('A6 browser back view list to root',mod.label);
+    pass('A6 ultrasound drill flow',mod.label+' / '+expected+' views');
+  }
+  if(ultrasoundViewTotal!==131)fail('A6 canonical ultrasound total = 131',String(ultrasoundViewTotal));
+  pass('A6 canonical ultrasound total',String(ultrasoundViewTotal));
+
   const stableSearchCases=[
     {id:'ct082',selector:'#clinical-test-ct082',label:'clinical test Stable ID'},
     {id:'d089',selector:'#diagnosis-concept-d089',label:'diagnosis concept Stable ID'},
@@ -262,10 +325,10 @@ try{
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
-  pass('No runtime errors during anatomy and clinical click sweep');
+  pass('No runtime errors during anatomy, clinical and ultrasound click sweep');
 
   console.log('\n--- RUNTIME NAVIGATION E2E ---');
-  console.log('PASS | anatomy 14 regions + clinical 10 modules + Stable ID/direct-flow hierarchical click-through');
+  console.log('PASS | anatomy 14 regions + clinical 10 modules + ultrasound 10 regions/131 views + Stable ID/direct-flow hierarchical click-through');
 }finally{
   await browser.close();
 }
