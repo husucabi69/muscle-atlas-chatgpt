@@ -290,6 +290,46 @@ check('A7 preserves quiz progress storage keys',
   index.includes("const OLD_QUIZ_KEY='mskQuizProgressV1'")
 );
 
+check('A8 Oral hierarchy has setup session result screens',
+  ['setup','session','result'].every(view=>index.includes('data-drill-group="oral" data-drill-view="'+view+'"'))
+);
+check('A8 Oral setup preserves region examiner field and voice controls',
+  ['id="oralRegion"','id="oralLevel"','id="oralField"','id="oralVoiceSelect"'].every(x=>index.includes(x)) &&
+  index.includes('음성 미리듣기')
+);
+check('A8 Oral session preserves mic voice grading and repair actions',
+  index.includes('id="oralMicBtn"') &&
+  index.includes('toggleOralMic()') &&
+  index.includes('gradeOralAnswer()') &&
+  index.includes('queueOralRepair(') &&
+  index.includes('askOralFollowup()')
+);
+check('A8 Oral result separates score weakness categories and muscles',
+  index.includes('id="oralResultContent"') &&
+  index.includes('취약 질문 분야') &&
+  index.includes('다시 볼 근육') &&
+  index.includes('oral-weak-muscle')
+);
+check('A8 Oral records session grade without changing persistent progress key',
+  index.includes("const ORAL_KEY='mskOralProgressV2'") &&
+  index.includes('q.grade=grade') &&
+  index.includes('q.gradeScore=Number(score.toFixed(2))')
+);
+check('A8 Oral result is terminal history state',
+  index.includes('function recordOralHistory(') &&
+  index.includes("recordOralHistory('result','replace')") &&
+  index.includes("['session','result'].includes(state.oralLevel)")
+);
+check('A8 Oral top-level entry resets setup and direct muscle flow preserves fixed muscle',
+  index.includes("if(btn.dataset.page==='oral')showOralSetup(true,true)") &&
+  index.includes("if(pageId==='oral')showOralSetup(false,false)") &&
+  index.includes('function startOralForMuscle(id)')
+);
+check('A8 Oral session completion opens result instead of overwriting question card',
+  index.includes('renderOralResult();return;') &&
+  index.includes("setOralView('result')")
+);
+
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 const inline=[...index.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>m[1]).join('\n');
