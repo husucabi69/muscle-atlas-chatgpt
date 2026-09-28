@@ -847,3 +847,16 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 라이브 Preview 경추·후두하부 → 흉쇄유돌근 실제 클릭 검수 PASS
 - 사용자 실기기 Preview 확인 완료 — 2026-09-28
 - A2 COMPLETE. 다음 개발 작업선은 A5 임상 모듈.
+
+### v11.46 · Stage 23A A5 Clinical Drilldown 3.1 — 2026-09-28
+- 임상 탭의 10개 모듈 세로 누적 UI를 공통 drill navigation으로 교체
+- 임상 모듈 → 감별/진찰/초음파 → 세부항목 목록 → 단일 상세의 4단계
+- 148 clinical tests / 131 ultrasound views / differential Stable ID와 기존 media audit 보존
+- browser back 의미를 각 상위계층과 일치
+- 기존 Clinical Learning Flow의 differential/exam/ultrasound 직접 진입을 A5 hierarchy로 재연결
+- Global QA SUCCESS
+- Runtime E2E 10개 모듈 전수 SUCCESS
+- Cloudflare Preview SUCCESS
+- 라이브 Preview 경추 진찰/초음파 실제 클릭 SUCCESS
+- 사용자 실기기 Preview 승인 전 A5 COMPLETE 금지
+- A6 초음파 독립 계층화는 BLOCKED
