@@ -52,6 +52,8 @@ jobs:
         run: node scripts/real-device-offline-qa.mjs
       - name: Run Stage 23A hierarchical navigation 3.0 QA
         run: node scripts/hierarchical-navigation-3-qa.mjs
+      - name: Run Stage 23B patient exercise illustration 3.0 QA
+        run: node scripts/patient-exercise-illustration-3-qa.mjs
 
 
   runtime-navigation-e2e:
@@ -80,3 +82,5 @@ jobs:
           exit 1
       - name: Run anatomy click-through runtime E2E
         run: node scripts/runtime-navigation-e2e.mjs
+      - name: Run Stage 23B patient exercise illustration runtime E2E
+        run: node scripts/patient-exercise-illustration-3-e2e.mjs
