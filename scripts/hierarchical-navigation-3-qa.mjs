@@ -155,6 +155,50 @@ check('Symptom root resets on top-level entry',
   index.includes("if(btn.dataset.page==='symptoms')showSymptomGroups(true)")
 );
 
+check('Clinical hierarchy has 4 drill screens',
+  ['modules','menu','list','detail'].every(view=>index.includes('data-drill-group="clinical" data-drill-view="'+view+'"'))
+);
+check('Clinical root exposes 10 canonical modules',
+  index.includes('function renderClinicalModuleChooser()') &&
+  ['shoulder','elbow','wristHand','hipPelvis','kneeThigh','legAnkleFoot','cervical','thoracic','lumbarSacral','abdominalCore'].every(key=>index.includes(key+':{label:'))
+);
+check('Clinical module menu exposes three topics',
+  ['differential','exam','ultrasound'].every(topic=>index.includes(topic+':{label:')) &&
+  index.includes('data-clinical-topic="')
+);
+check('Clinical topic opens item-only list',
+  index.includes('async function openClinicalTopic(topic,record=true)') &&
+  index.includes("setClinicalView('list')") &&
+  index.includes('id="clinicalItemList"')
+);
+check('Clinical item opens one detail screen',
+  index.includes('async function openClinicalItem(itemId,record=true)') &&
+  index.includes("setClinicalView('detail')") &&
+  index.includes('id="clinicalDetailContent"')
+);
+check('Clinical detail preserves Stable IDs and safety fields',
+  index.includes("id=\"clinical-test-'+esc(test.clinical_test_id)") &&
+  index.includes("id=\"ultrasound-view-'+esc(view.ultrasound_view_id)") &&
+  index.includes("id=\"diagnosis-concept-'+esc(candidate.diagnosis_concept_id)") &&
+  index.includes('Red flag / 안전 경계') &&
+  index.includes('한계 / 흔한 오류')
+);
+check('Clinical hierarchy records and restores history',
+  index.includes('function recordClinicalHistory(') &&
+  index.includes('clinicalItemId:selectedClinicalItemId') &&
+  index.includes("state.clinicalLevel==='detail'") &&
+  index.includes('await openClinicalItem(state.clinicalItemId,false)')
+);
+check('Clinical top-level entry resets to module root',
+  index.includes("if(pageId==='clinical')showClinicalModules(false)") &&
+  index.includes("if(btn.dataset.page==='clinical')showClinicalModules(true)")
+);
+check('Clinical learning-flow routes into A5 hierarchy',
+  index.includes('async function openClinicalFlowStep(id,step)') &&
+  index.includes('await openClinicalModule(moduleKey,true)') &&
+  index.includes('await openClinicalTopic(step,true)')
+);
+
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 const inline=[...index.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>m[1]).join('\n');
