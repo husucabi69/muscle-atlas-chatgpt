@@ -276,8 +276,8 @@ try {
 } catch (e) { jsSyntax=false; jsError=String(e); }
 check('App JavaScript syntax', jsSyntax, jsError);
 check('Stage 10 clinical module present', html.includes("abdominalCore:{label:'복벽·코어',stage:'Stage 10'") && html.includes('loadAbdominalCoreClinicalModule()'));
-const requiredPages=['home','symptoms','regions','clinical','education','quiz','oral'];
-check('All 7 app pages wired', requiredPages.every(id=>html.includes(`data-page="${id}"`) && html.includes(`<section id="${id}"`)), requiredPages.join(','));
+const requiredPages=['home','education','symptoms','regions','clinical','ultrasound','quiz','learning','oral'];
+check('All top-level app pages wired', requiredPages.every(id=>html.includes(`data-page="${id}"`) && html.includes(`<section id="${id}"`)), requiredPages.join(','));
 check('PWA id', manifest.id==='/muscle-atlas-chatgpt/', manifest.id);
 check('PWA portable start_url', manifest.start_url==='./?source=pwa', manifest.start_url);
 check('PWA portable scope', manifest.scope==='./', manifest.scope);
