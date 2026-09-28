@@ -236,11 +236,11 @@ button,input{font:inherit} button{cursor:pointer}
       <span>부위와 근육을 고르면 쉬운 설명, 주의사항, 인쇄용 운동 그림을 볼 수 있습니다.</span>
     </div>
     <div class="quick">
-      <button class="pill" onclick="openSymptom('sx01')">외측 어깨 통증</button>
-      <button class="pill" onclick="openSymptom('sx04')">견갑 내측 통증</button>
-      <button class="pill" onclick="openSymptom('sx06')">외측 팔꿈치 통증</button>
-      <button class="pill" onclick="openSymptom('sx11')">둔부 외측 통증</button>
-      <button class="pill" onclick="openSymptom('sx18')">족저 통증</button>
+      <button class="pill" onclick="openSearchEntity('symptom_pattern','sx01')">외측 어깨 통증</button>
+      <button class="pill" onclick="openSearchEntity('symptom_pattern','sx04')">견갑 내측 통증</button>
+      <button class="pill" onclick="openSearchEntity('symptom_pattern','sx06')">외측 팔꿈치 통증</button>
+      <button class="pill" onclick="openSearchEntity('symptom_pattern','sx11')">둔부 외측 통증</button>
+      <button class="pill" onclick="openSearchEntity('symptom_pattern','sx18')">족저 통증</button>
     </div>
   </div>
 
@@ -1979,7 +1979,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);if(btn.dataset.page==='quiz')showQuizSetup(true);if(btn.dataset.page==='oral')showOralSetup(true,true);if(btn.dataset.page==='learning')showLearningRoot(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='home')showHome(true);if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);if(btn.dataset.page==='quiz')showQuizSetup(true);if(btn.dataset.page==='oral')showOralSetup(true,true);if(btn.dataset.page==='learning')showLearningRoot(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>{
@@ -2224,7 +2224,7 @@ function clinicalModuleForStableItem(type,id){
   }
   return null;
 }
-async function openClinicalStableDetail(type,id,muscleId=null){
+async function openClinicalStableDetail(type,id,muscleId=null,record=true){
   let route=clinicalModuleForStableItem(type,id);
   if(!route&&muscleId){
     const key=clinicalModuleForMuscle(muscleId);
@@ -2238,10 +2238,10 @@ async function openClinicalStableDetail(type,id,muscleId=null){
   if(!route)return false;
   cleanupLearningOverlays();
   showPage('clinical');
-  showClinicalModules(true);
-  await openClinicalModule(route.key,true);
-  await openClinicalTopic(route.topic,true);
-  await openClinicalItem(route.itemId,true);
+  showClinicalModules(record);
+  await openClinicalModule(route.key,record);
+  await openClinicalTopic(route.topic,record);
+  await openClinicalItem(route.itemId,record);
   if(muscleId)renderClinicalFlowContext(muscleId,route.topic);
   if(route.focusId)setTimeout(()=>document.getElementById('diagnosis-concept-'+route.focusId)?.scrollIntoView({behavior:'smooth',block:'center'}),80);
   return true;
@@ -2745,26 +2745,107 @@ function relatedMuscleForEntity(type,id){
   }
   return null;
 }
+function currentHomeNavigationState(){
+  const input=document.getElementById('searchBox'),filter=document.getElementById('searchTypeFilter');
+  const query=input?.value?.trim()||'';
+  return{
+    lysPage:'home',
+    homeLevel:query?'search':'root',
+    homeQuery:query,
+    homeFilter:filter?.value||'all',
+    homeScrollY:Math.max(0,Math.round(window.scrollY||0))
+  };
+}
+function syncHomeNavigationDiagnostics(){
+  drillNavigationState.group=null;
+  drillNavigationState.view=null;
+  delete document.documentElement.dataset.activeDrillGroup;
+  delete document.documentElement.dataset.activeDrillView;
+}
+function recordHomeHistory(mode='push'){
+  const state=currentHomeNavigationState();
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
+}
+function ensureCurrentHomeHistory(){
+  if(document.documentElement.dataset.appPage==='home')recordHomeHistory('replace');
+}
+function restoreHomeNavigation(state=history.state){
+  cleanupLearningOverlays();
+  document.getElementById('muscleOverlay')?.classList.remove('show');
+  document.body.style.overflow='';
+  showPage('home');
+  syncHomeNavigationDiagnostics();
+  const input=document.getElementById('searchBox'),filter=document.getElementById('searchTypeFilter');
+  if(input)input.value=state?.homeQuery||'';
+  if(filter)filter.value=state?.homeFilter||'all';
+  renderUnifiedSearch();
+  const y=Math.max(0,Number(state?.homeScrollY||0));
+  requestAnimationFrame(()=>window.scrollTo({top:y,behavior:'auto'}));
+}
+function showHome(record=true){
+  showPage('home');
+  syncHomeNavigationDiagnostics();
+  renderUnifiedSearch();
+  if(record)recordHomeHistory('push');
+}
 async function openSearchEntity(type,id){
+  const sourcePage=document.documentElement.dataset.appPage||'home';
+  if(sourcePage==='home')ensureCurrentHomeHistory();
   recordRecentEntity(type,id);
-  if(type==='muscle'){openMuscle(id);return;}
-  if(type==='symptom_pattern'){activatePage('symptoms');openSymptom(id);return;}
+
+  if(type==='muscle'){
+    const m=byId[id];if(!m)return;
+    cleanupLearningOverlays();
+    showPage('regions');
+    openRegion(m.region,false);
+    openRegionMuscle(id,false);
+    recordAnatomyHistory('detail');
+    return;
+  }
+  if(type==='symptom_pattern'){
+    if(!symptomById[id])return;
+    openSymptom(id,null,false);
+    recordSymptomHistory('menu');
+    return;
+  }
   if(type==='region'){
     const r=(knowledgeCoreData?.regions||[]).find(x=>x.region_id===id);if(!r)return;
-    activatePage('regions');openRegion(r.name_ko,true);return;
+    cleanupLearningOverlays();
+    showPage('regions');
+    openRegion(r.name_ko,false);
+    recordAnatomyHistory('muscles');
+    return;
   }
-  if(['clinical_test','diagnosis_concept','ultrasound_view'].includes(type)){
-    if(await openClinicalStableDetail(type,id,null))return;
+  if(type==='clinical_test'||type==='diagnosis_concept'){
+    if(await openClinicalStableDetail(type,id,null,false)){
+      recordClinicalHistory('detail');
+      return;
+    }
   }
+  if(type==='ultrasound_view'){
+    if(await openUltrasoundAtlasStableView(id,false)){
+      recordUltrasoundAtlasHistory('detail');
+      return;
+    }
+  }
+
   const mid=relatedMuscleForEntity(type,id);
-  if(mid){
+  if(mid&&byId[mid]){
     setLearningFlowContext({muscleId:mid,sourcePage:'search'});
-    if(type==='clinical_test'){focusClinicalStableEntity('clinical_test',id);return;}
-    if(type==='diagnosis_concept'){focusClinicalStableEntity('diagnosis_concept',id);return;}
-    if(type==='ultrasound_view'){focusClinicalStableEntity('ultrasound_view',id);return;}
-    focusClinicalStableEntity(type,id);return;
+    const m=byId[mid];
+    cleanupLearningOverlays();
+    showPage('regions');
+    openRegion(m.region,false);
+    openRegionMuscle(mid,false);
+    recordAnatomyHistory('detail');
+    return;
   }
-  activatePage('clinical');annotateAllClinicalModuleCards();
+
+  cleanupLearningOverlays();
+  showPage('clinical');
+  showClinicalModules(false);
+  recordClinicalHistory('modules');
 }
 function unifiedSearchHits(query,typeFilter='all'){
   const q=norm(query);if(!q)return[];
@@ -2786,8 +2867,14 @@ function renderUnifiedSearch(){
   wrap.innerHTML='<div class="region-block"><h4 class="region-title">통합검색 · '+hits.length+'개</h4>'+
     (hits.length?hits.map(x=>'<div class="search-result-card"><button class="search-result-main" type="button" onclick="openSearchEntity(\''+x.type+'\',\''+x.id+'\')"><b><span class="entity-type-badge">'+esc(entityTypeLabels[x.type]||x.type)+'</span>'+esc(x.title)+'</b><small>'+esc(x.subtitle)+' · '+esc(x.id)+'</small></button><button class="favorite-toggle '+(isFavoriteEntity(x.type,x.id)?'on':'')+'" type="button" aria-label="즐겨찾기" onclick="toggleFavoriteEntity(\''+x.type+'\',\''+x.id+'\')">'+(isFavoriteEntity(x.type,x.id)?'★':'☆')+'</button></div>').join(''):'<div class="note">검색 결과가 없습니다.</div>')+'</div>';
 }
-document.getElementById('searchBox')?.addEventListener('input',renderUnifiedSearch);
-document.getElementById('searchTypeFilter')?.addEventListener('change',renderUnifiedSearch);
+document.getElementById('searchBox')?.addEventListener('input',()=>{renderUnifiedSearch();if(document.documentElement.dataset.appPage==='home')recordHomeHistory('replace');});
+document.getElementById('searchTypeFilter')?.addEventListener('change',()=>{renderUnifiedSearch();if(document.documentElement.dataset.appPage==='home')recordHomeHistory('replace');});
+window.addEventListener('popstate',event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='home')return;
+  restoreHomeNavigation(state);
+});
+if(!history.state?.lysPage)recordHomeHistory('replace');
 
 function combinedWeakness(){
   const q=quizState(),oral=oralWeaknessScores(),due=new Set(dueMuscleIds(q)),scores={};
