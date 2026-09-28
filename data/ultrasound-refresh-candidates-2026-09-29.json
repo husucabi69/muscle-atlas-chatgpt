@@ -1,0 +1,52 @@
+{
+  "audit_date": "2026-09-29",
+  "policy": "Candidate-only audit. Do not replace canonical ultrasound views unless educational value, figure context, actual-ultrasound status and reuse terms are verified.",
+  "candidates": [
+    {
+      "candidate_id": "usr_20260929_ankle_ligament_review",
+      "region": "ankle",
+      "title": "Role of Ultrasound in Evaluating Ligament Injuries Around the Ankle: A Narrative Review",
+      "year": 2025,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11817055/",
+      "value": "ATFL/CFL/syndesmosis/deltoid ligament dynamic and stress-ultrasound overview; useful comparator for existing ankle canonical views.",
+      "actual_ultrasound": true,
+      "license_status": "VERIFY_FIGURE_BY_FIGURE_BEFORE_EMBED",
+      "decision": "REFERENCE_CANDIDATE"
+    },
+    {
+      "candidate_id": "usr_20260929_deltoid_ligament",
+      "region": "ankle",
+      "title": "Diagnostic Musculoskeletal Ultrasound in the Evaluation of the Deltoid Ligament of the Ankle",
+      "year": 2025,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11964700/",
+      "value": "Focused medial-ankle sonographic anatomy, technique and injury patterns.",
+      "actual_ultrasound": true,
+      "license": "CC BY-NC 4.0",
+      "decision": "REFERENCE_CANDIDATE_NONCOMMERCIAL_ONLY"
+    },
+    {
+      "candidate_id": "usr_20260929_plantar_fascia",
+      "region": "foot",
+      "title": "Diagnostic Musculoskeletal Ultrasound in the Evaluation of the Plantar Fascia",
+      "year": 2025,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12222039/",
+      "value": "Focused plantar-fascia scanning and pathology teaching reference.",
+      "actual_ultrasound": true,
+      "license": "CC BY-NC 4.0",
+      "decision": "REFERENCE_CANDIDATE_NONCOMMERCIAL_ONLY"
+    },
+    {
+      "candidate_id": "usr_20260929_achilles",
+      "region": "ankle",
+      "title": "Diagnostic Musculoskeletal Ultrasound of the Achilles Tendon",
+      "year": 2025,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11788094/",
+      "value": "Normal anatomy, tendinopathy, tear, insertional disease and retrocalcaneal bursa teaching reference.",
+      "actual_ultrasound": true,
+      "license": "CC BY-NC 4.0",
+      "decision": "REFERENCE_CANDIDATE_NONCOMMERCIAL_ONLY"
+    }
+  ],
+  "canonical_changes": [],
+  "reason_no_promotion": "This pass found useful current references, but no candidate was promoted without a view-by-view comparison against the existing canonical asset and explicit figure-level reuse verification. Generated B-mode remains prohibited."
+}
