@@ -200,8 +200,10 @@ check('Clinical learning-flow routes into A5 hierarchy',
 );
 check('Clinical Stable IDs route directly without requiring a muscle proxy',
   index.includes('async function openSearchEntity(type,id)') &&
-  index.includes("['clinical_test','diagnosis_concept','ultrasound_view'].includes(type)") &&
-  index.includes('await openClinicalStableDetail(type,id,null)')
+  index.includes("if(type==='clinical_test'||type==='diagnosis_concept')") &&
+  index.includes('await openClinicalStableDetail(type,id,null,false)') &&
+  index.includes("if(type==='ultrasound_view')") &&
+  index.includes('await openUltrasoundAtlasStableView(id,false)')
 );
 check('Clinical Stable ID routing tolerates pre-load timing',
   index.includes('await Promise.all(Object.keys(clinicalFlowModules).map(ensureClinicalModuleLoaded))') &&
