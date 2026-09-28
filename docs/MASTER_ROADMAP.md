@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (**A2 v11.14 EXACT FLOW AUTOMATED PASS / USER PREVIEW VERIFY PENDING / A5 BLOCKED**)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (**A2 COMPLETE / USER DEVICE PREVIEW PASS / A5 NEXT**)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -845,4 +845,5 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 실제 browser back 2회로 근육 상세 → 근육 목록 → 해부학 부위 복귀 검증
 - Cloudflare Branch Preview 배포 SUCCESS
 - 라이브 Preview 경추·후두하부 → 흉쇄유돌근 실제 클릭 검수 PASS
-- A2 상태는 사용자 실기기 확인 전 USER PREVIEW VERIFY PENDING 유지
+- 사용자 실기기 Preview 확인 완료 — 2026-09-28
+- A2 COMPLETE. 다음 개발 작업선은 A5 임상 모듈.
