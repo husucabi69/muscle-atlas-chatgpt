@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **A2 COMPLETE · A5 CLOSED / USER PROCEED AUTHORIZED · A6 AUTOMATED PASS / PREVIEW DEPLOYED / USER PREVIEW VERIFY PENDING**
+상태: **A2 COMPLETE · A5 CLOSED · A6 CLOSED / USER PROCEED AUTHORIZED · A7 AUTOMATED PASS / PREVIEW DEPLOYED / USER PREVIEW VERIFY PENDING**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -432,9 +432,9 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - [x] **A3. 환자 운동·스트레칭** — 부위만 → 근육만 → 운동목차 → 운동 1개 상세 독립 화면
 - [x] **A4. 증상으로 찾기** — 증상군만 → 증상만 → 관련 구조/감별 학습목차 → 선택 상세 독립 화면
 - [x] **A5. 임상 모듈 — CLOSED / USER PROCEED AUTHORIZED** — 10개 모듈 계층화 + Stable ID direct route. 사용자가 2026-09-28 `다음 작업 진행`을 명시하여 A6 진입 승인. 별도 A5 실기기 시각 PASS를 했다고 기록하지 않음
-- [ ] **A6. 초음파 — AUTOMATED PASS / USER PREVIEW VERIFY PENDING** — 독립 초음파 탭 → 10개 부위/구조 목차 → 131 canonical view 목록 → 단일 view 상세
-- [ ] **A7. 퀴즈** — 모드/부위 선택 화면 → 세션 화면 → 결과/오답 화면
-- [ ] **A8. Oral Viva** — 모드/부위 선택 화면 → 세션 화면 → 결과/약점 화면
+- [x] **A6. 초음파 — CLOSED / USER PROCEED AUTHORIZED** — 독립 초음파 탭 → 10개 부위/구조 → 131 canonical view → 단일 상세. 사용자가 2026-09-28 `진행해`로 A7 진입 승인. 별도 A6 실기기 시각 PASS로 오기하지 않음
+- [ ] **A7. 퀴즈 — AUTOMATED PASS / USER PREVIEW VERIFY PENDING** — 모드/부위 선택 → 문제 세션 → 결과/오답 독립 화면. 기존 학습기록·오답·복습 로직 보존
+- [ ] **A8. Oral Viva — BLOCKED BY A7 USER VERIFY/PROCEED** — 모드/부위 선택 화면 → 세션 화면 → 결과/약점 화면
 - [ ] **A9. 내 학습** — dashboard 목차 → 최근/즐겨찾기/약점/mastery 개별 화면
 - [ ] **A10. 홈/검색** — 검색 결과에서 목적지 상세로 직접 들어가되 같은 navigation shell 사용
 
@@ -530,7 +530,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**A6 사용자 실기기 Preview 검수 → 승인 후 A7 퀴즈 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
+**A7 사용자 Preview 검수 또는 다음 단계 진행 승인 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
 
 
 ## A2 회귀 복구 Gate — 2026-09-27
@@ -636,8 +636,26 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - Playwright Runtime E2E: 10개 부위 전수, 각 첫 view 상세, 필수필드, browser back, 총 131 view PASS
 - Cloudflare Preview 배포 PASS
 - TinyFish 미사용. 자동 browser 검증은 GitHub Actions Playwright만 사용
-- 사용자 실기기 Preview 승인 전 A6 COMPLETE 처리 금지
-- A7은 A6 사용자 확인 전 시작 금지
+- 2026-09-28 사용자 `진행해` 지시로 A6 다음 단계 진입 승인. 별도 A6 실기기 시각 PASS로 오기하지 않음
+- A7은 자동 QA/Preview 배포 완료 후 사용자 시각 확인 또는 명시적 다음 단계 진행 승인 전까지 COMPLETE 처리 금지
+
+### v11.49 · A7 Quiz Drilldown 3.1 — AUTOMATED PASS / USER VERIFY PENDING
+- 기존 단일 `quizArea` 덮어쓰기 구조를 공통 drill navigation으로 분리
+- 계층: 모드/부위 선택(setup) → 문제 세션(session) → 결과/오답(result)
+- setup에는 부위 / 문제유형 / 문제방향 + 일반/오답/오늘복습 + 10개 임상모듈 시작점을 유지
+- session에는 현재 문제·4개 선택지·즉시 피드백·다음 문제만 표시
+- result에는 세션 점수·정답률·이번 오답 근육 목록·재학습 action을 별도 표시
+- 기존 `mskQuizProgressV2` / `mskQuizProgressV1` 학습기록 호환 유지
+- 기존 weighted wrong/due selection 및 spaced-review nextDue 계산 유지
+- 10개 임상모듈 퀴즈도 모두 동일 A7 session renderer/state로 통합
+- 근육 집중 10문제도 동일 A7 session으로 통합
+- result는 terminal state로 current history를 replace하여 browser back이 설정 화면으로 복귀
+- Global QA / Stage 15~23A static QA PASS
+- Playwright Runtime E2E: 일반 경추 퀴즈 실제 전 문항 응답 → 결과 → browser back PASS
+- Playwright Runtime E2E: 경추 임상 10문제 → 공통 session 진입 → browser back PASS
+- Cloudflare Preview 배포 PASS
+- TinyFish 미사용
+- 사용자 Preview 승인 또는 다음 단계 진행 승인 전 A7 COMPLETE 처리 금지
 
 ### v11.47 · A5 Clinical Direct Route Lock — AUTOMATED PASS / LIVE PREVIEW PASS / USER VERIFY PENDING
 - A5 Runtime E2E 상세 계약 강화: 10개 모듈의 감별/진찰/초음파 첫 상세에서 필수 필드 전수 확인
