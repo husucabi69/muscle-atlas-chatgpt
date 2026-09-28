@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (A5 CLOSED / USER PROCEED AUTHORIZED · A6 AUTOMATED PASS / USER PREVIEW VERIFY PENDING)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (A6 CLOSED / USER PROCEED AUTHORIZED · A7 AUTOMATED PASS / USER PREVIEW VERIFY PENDING)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -883,5 +883,18 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - Playwright Runtime E2E: 10개 부위 전수 / 첫 view 상세 필수필드 / 총 131 canonical view PASS
 - Cloudflare Preview 배포 PASS
 - TinyFish 미사용. 자동 browser 검증은 GitHub Actions Playwright E2E로 고정
-- 사용자 실기기 Preview 승인 전 A6 COMPLETE 금지
-- A7 퀴즈 계층화는 A6 승인 후 진행
+- 2026-09-28 사용자 `진행해` 지시로 A6 다음 단계 진입 승인. 별도 A6 실기기 시각 PASS로 오기하지 않음
+- A7은 자동 QA/Preview 배포 완료. 사용자 시각 확인 또는 명시적 다음 단계 진행 승인 전 COMPLETE 처리 금지
+
+### v11.49 · Stage 23A A7 Quiz Drilldown 3.1 — 2026-09-28
+- 퀴즈 UI를 setup / session / result 3개 독립 drill screen으로 분리
+- 기존 문제은행, `mskQuizProgressV2`, 오답은행, due/streak/nextDue 로직 보존
+- 일반·오답·오늘복습·근육집중·10개 임상모듈을 공통 session renderer로 통합
+- result에서 점수/정답률/이번 오답 근육을 별도 표시
+- terminal result history replace → browser back은 설정 화면
+- Stage 15~23A static QA SUCCESS
+- Playwright 일반 퀴즈 full session + 결과 + browser back SUCCESS
+- Playwright 경추 임상 퀴즈 common session SUCCESS
+- Cloudflare Preview SUCCESS
+- TinyFish 미사용
+- A8 Oral 계층화는 A7 사용자 확인 또는 다음 단계 진행 승인 전 BLOCKED
