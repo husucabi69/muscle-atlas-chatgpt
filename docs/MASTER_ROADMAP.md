@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (A6 CLOSED / USER PROCEED AUTHORIZED · A7 AUTOMATED PASS / USER PREVIEW VERIFY PENDING)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (A7 CLOSED / USER PROCEED AUTHORIZED · A8 AUTOMATED PASS / USER PREVIEW VERIFY PENDING)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -898,3 +898,16 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - Cloudflare Preview SUCCESS
 - TinyFish 미사용
 - A8 Oral 계층화는 A7 사용자 확인 또는 다음 단계 진행 승인 전 BLOCKED
+
+### v11.50 · Stage 23A A8 Oral Viva Drilldown 3.1 — 2026-09-28
+- Oral을 설정 / 구술 세션 / 결과·약점 3단계로 분리
+- 기존 질문 생성·시험관 persona·음성합성·음성인식·직접입력·채점·즉시교정 로직 보존
+- 결과에서 취약 질문 분야와 다시 볼 근육을 별도 집계
+- `mskOralProgressV2` 호환 유지
+- browser back: result/session → setup
+- 근육 직접 Viva fixed muscle 문맥 유지
+- Stage 15~23A static QA SUCCESS
+- Playwright 의도적 오답 + repair + 세션 완료 + 결과·약점 + browser back SUCCESS
+- Cloudflare Preview SUCCESS
+- TinyFish 미사용
+- A9 내 학습 계층화는 A8 사용자 확인 또는 다음 단계 진행 승인 전 BLOCKED
