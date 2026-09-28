@@ -56,6 +56,8 @@ jobs:
         run: node scripts/patient-exercise-illustration-3-qa.mjs
       - name: Run Stage 23B realistic exercise asset pipeline QA
         run: node scripts/patient-exercise-realistic-assets-qa.mjs
+      - name: Run Stage 23B disease rehabilitation roadmap QA
+        run: node scripts/patient-rehab-disease-roadmap-qa.mjs
 
 
   runtime-navigation-e2e:
