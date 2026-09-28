@@ -365,6 +365,55 @@ check('A9 detail screens expose full stored limits instead of old dashboard trun
   index.includes("if(weakEl)weakEl.innerHTML=weak.map(w=>")
 );
 
+check('A10 home search state preserves query filter and scroll',
+  index.includes('function currentHomeNavigationState()') &&
+  index.includes("lysPage:'home'") &&
+  index.includes('homeQuery:query') &&
+  index.includes("homeFilter:filter?.value||'all'") &&
+  index.includes('homeScrollY:')
+);
+check('A10 home popstate restores search results',
+  index.includes('function restoreHomeNavigation(state=history.state)') &&
+  index.includes("if(!state||state.lysPage!=='home')return") &&
+  index.includes('renderUnifiedSearch()') &&
+  index.includes("input.value=state?.homeQuery||''")
+);
+check('A10 muscle search routes to canonical v11.14 anatomy detail not legacy overlay',
+  index.includes("if(type==='muscle'){") &&
+  index.includes('openRegion(m.region,false)') &&
+  index.includes('openRegionMuscle(id,false)') &&
+  index.includes("recordAnatomyHistory('detail')")
+);
+check('A10 symptom search routes directly to symptom menu',
+  index.includes("if(type==='symptom_pattern'){") &&
+  index.includes('openSymptom(id,null,false)') &&
+  index.includes("recordSymptomHistory('menu')")
+);
+check('A10 clinical test and diagnosis search use one-shot clinical detail',
+  index.includes("if(type==='clinical_test'||type==='diagnosis_concept')") &&
+  index.includes('openClinicalStableDetail(type,id,null,false)') &&
+  index.includes("recordClinicalHistory('detail')")
+);
+check('A10 ultrasound search routes to independent A6 detail',
+  index.includes("if(type==='ultrasound_view')") &&
+  index.includes('openUltrasoundAtlasStableView(id,false)') &&
+  index.includes("recordUltrasoundAtlasHistory('detail')")
+);
+check('A10 clinical Stable-ID renderer supports no-history mode',
+  index.includes('async function openClinicalStableDetail(type,id,muscleId=null,record=true)') &&
+  index.includes('showClinicalModules(record)') &&
+  index.includes('await openClinicalModule(route.key,record)') &&
+  index.includes('await openClinicalTopic(route.topic,record)') &&
+  index.includes('await openClinicalItem(route.itemId,record)')
+);
+check('A10 search inputs continuously replace canonical home history',
+  index.includes("addEventListener('input',()=>{renderUnifiedSearch();if(document.documentElement.dataset.appPage==='home')recordHomeHistory('replace');})") &&
+  index.includes("addEventListener('change',()=>{renderUnifiedSearch();if(document.documentElement.dataset.appPage==='home')recordHomeHistory('replace');})")
+);
+check('A10 home quick symptom buttons use common direct router',
+  ['sx01','sx04','sx06','sx11','sx18'].every(id=>index.includes("openSearchEntity('symptom_pattern','"+id+"')"))
+);
+
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 const inline=[...index.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>m[1]).join('\n');
