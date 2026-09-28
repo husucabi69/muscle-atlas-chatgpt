@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **A2 COMPLETE · A5 AUTOMATED PASS / LIVE PREVIEW PASS / USER PREVIEW VERIFY PENDING · A6 BLOCKED**
+상태: **A2 COMPLETE · A5 CLOSED / USER PROCEED AUTHORIZED · A6 AUTOMATED PASS / PREVIEW DEPLOYED / USER PREVIEW VERIFY PENDING**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -431,8 +431,8 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - [x] **A2. 해부학 부위 — COMPLETE** — root cause 수정, 14개 부위 × 5탭 browser E2E PASS, Live Preview PASS, 사용자 실기기 Preview 확인 완료
 - [x] **A3. 환자 운동·스트레칭** — 부위만 → 근육만 → 운동목차 → 운동 1개 상세 독립 화면
 - [x] **A4. 증상으로 찾기** — 증상군만 → 증상만 → 관련 구조/감별 학습목차 → 선택 상세 독립 화면
-- [ ] **A5. 임상 모듈 — USER PREVIEW VERIFY PENDING** — 10개 모듈 목차 → 감별/진찰/초음파 목차 → 세부항목 목록 → 단일 상세. Global QA + 10개 모듈 browser E2E + Live Preview PASS
-- [ ] **A6. 초음파 — BLOCKED BY A5 USER VERIFY** — 부위/구조 목차 → canonical view 목록 → view 상세
+- [x] **A5. 임상 모듈 — CLOSED / USER PROCEED AUTHORIZED** — 10개 모듈 계층화 + Stable ID direct route. 사용자가 2026-09-28 `다음 작업 진행`을 명시하여 A6 진입 승인. 별도 A5 실기기 시각 PASS를 했다고 기록하지 않음
+- [ ] **A6. 초음파 — AUTOMATED PASS / USER PREVIEW VERIFY PENDING** — 독립 초음파 탭 → 10개 부위/구조 목차 → 131 canonical view 목록 → 단일 view 상세
 - [ ] **A7. 퀴즈** — 모드/부위 선택 화면 → 세션 화면 → 결과/오답 화면
 - [ ] **A8. Oral Viva** — 모드/부위 선택 화면 → 세션 화면 → 결과/약점 화면
 - [ ] **A9. 내 학습** — dashboard 목차 → 최근/즐겨찾기/약점/mastery 개별 화면
@@ -530,7 +530,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**A5 사용자 실기기 Preview 검수 → 승인 후 A6 초음파 → A7 퀴즈 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
+**A6 사용자 실기기 Preview 검수 → 승인 후 A7 퀴즈 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
 
 
 ## A2 회귀 복구 Gate — 2026-09-27
@@ -620,7 +620,24 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - Cloudflare Branch Preview 배포 PASS
 - 라이브 Preview 경추 → 진찰법 → Spurling 검사, 경추 → 초음파 → SCM·경장근 횡단면 직접 클릭 PASS
 - 사용자 실기기 Preview 승인 전 A5 COMPLETE 처리 금지
-- A6는 A5 사용자 확인 전 시작 금지
+- A5는 사용자 `다음 작업 진행` 지시로 2026-09-28 다음 단계 진입 승인. 별도 A5 실기기 시각 PASS로 오기하지 않음
+
+### v11.48 · A6 Ultrasound Drilldown 3.1 — AUTOMATED PASS / USER VERIFY PENDING
+- 독립 top-level `초음파` 탭 추가
+- 기존 해부학 v11.14 내부 `초음파` 가로탭은 변경하지 않음
+- 기존 A5 임상 모듈의 초음파 경로도 변경하지 않음
+- 계층: 10개 부위/구조 목차 → 해당 부위 canonical view 목록 → 단일 view 상세
+- 각 부위 카드에 canonical view 수와 연결 target structure 수/요약 표시
+- 상세는 A5와 동일한 canonical ultrasound renderer를 공유하여 source of truth 중복 방지
+- 상세 필드: 환자 자세 / Probe 위치·방향 / Landmark / 정상 확인 / Pitfall / Stable ID / 기존 검수 media
+- 10개 부위 canonical view 총합 131 유지
+- browser history: view 상세 → 해당 부위 view 목록 → 초음파 부위/구조 목차
+- Global QA / Stage 15~23A static QA PASS
+- Playwright Runtime E2E: 10개 부위 전수, 각 첫 view 상세, 필수필드, browser back, 총 131 view PASS
+- Cloudflare Preview 배포 PASS
+- TinyFish 미사용. 자동 browser 검증은 GitHub Actions Playwright만 사용
+- 사용자 실기기 Preview 승인 전 A6 COMPLETE 처리 금지
+- A7은 A6 사용자 확인 전 시작 금지
 
 ### v11.47 · A5 Clinical Direct Route Lock — AUTOMATED PASS / LIVE PREVIEW PASS / USER VERIFY PENDING
 - A5 Runtime E2E 상세 계약 강화: 10개 모듈의 감별/진찰/초음파 첫 상세에서 필수 필드 전수 확인
