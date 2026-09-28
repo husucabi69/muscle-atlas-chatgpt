@@ -330,6 +330,41 @@ check('A8 Oral session completion opens result instead of overwriting question c
   index.includes("setOralView('result')")
 );
 
+check('A9 personal learning has root plus four independent detail screens',
+  ['root','recent','favorites','weak','mastery'].every(view=>index.includes('data-drill-group="learning" data-drill-view="'+view+'"'))
+);
+check('A9 learning root exposes exactly four section choices',
+  ['recent','favorites','weak','mastery'].every(section=>index.includes('data-learning-section="'+section+'"')) &&
+  index.includes('id="learningSectionChooser"')
+);
+check('A9 preserves summary metrics and transfer controls on root',
+  ['id="learningStudied"','id="learningFavoriteCount"','id="learningWeakCount"','id="learningDueCount"','exportLearningRecords()','importLearningRecords(this)'].every(x=>index.includes(x))
+);
+check('A9 recent favorites weak and mastery retain canonical render targets',
+  ['id="recentLearningList"','id="favoriteLearningList"','id="weakLearningList"','id="masteryDashboard"'].every(x=>index.includes(x))
+);
+check('A9 detail sections use common navigation and history',
+  index.includes('function openLearningSection(section,record=true)') &&
+  index.includes('function recordLearningHistory(') &&
+  index.includes('function learningBack()') &&
+  index.includes("state?.lysPage==='learning'") &&
+  index.includes("['recent','favorites','weak','mastery'].includes(state.learningLevel)")
+);
+check('A9 top-level entry resets to learning root',
+  index.includes("if(btn.dataset.page==='learning')showLearningRoot(true)") &&
+  index.includes("if(pageId==='learning')showLearningRoot(false)")
+);
+check('A9 preserves personal learning and transfer storage contracts',
+  index.includes("const PERSONAL_LEARNING_KEY='mskPersonalLearningV1'") &&
+  index.includes("const LEARNING_EXPORT_SCHEMA='lys-muscle-learning-v1'") &&
+  index.includes("data:{quiz:sanitizeQuizForTransfer(quizState()),oral:sanitizeOralForTransfer(oralState()),personal:sanitizePersonalForTransfer(personalLearningState())}")
+);
+check('A9 detail screens expose full stored limits instead of old dashboard truncation',
+  index.includes("(state.recent||[]).slice(0,30)") &&
+  index.includes("(state.favorites||[]).slice(0,100)") &&
+  index.includes("if(weakEl)weakEl.innerHTML=weak.map(w=>")
+);
+
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 const inline=[...index.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>m[1]).join('\n');
