@@ -22,8 +22,12 @@ check('App loads realistic asset manifest',index.includes("fetch('./data/patient
 check('App indexes realistic assets',index.includes('exerciseRealisticAssetById=Object.fromEntries'));
 check('Renderer prefers APPROVED realistic asset',index.includes("asset?.status==='APPROVED'&&asset?.composite_url"));
 check('Renderer preserves SVG fallback',index.includes('exercise-svg-fallback'));
-check('Broken realistic image restores fallback',index.includes("onerror=\"this.parentElement.style.display='none';this.parentElement.nextElementSibling.hidden=false\""));
-check('Realistic image is lazy and async decoded',index.includes('loading="lazy" decoding="async"'));
+// Keep this gate semantic rather than matching one exact JS-escaped HTML literal.
+// The renderer source contains escaped quotes because the <img> markup is itself built inside a JS string.
+check('Broken realistic image restores fallback',
+  /onerror=.*parentElement\.style\.display=.*none.*nextElementSibling\.hidden=false/.test(index)
+);
+check('Realistic image is lazy and async decoded',/loading=[\\"']?lazy[\\"']?.*decoding=[\\"']?async/.test(index));
 check('Realistic final style is not stick-figure final',
   manifest.style_lock?.forbidden?.includes('stick figure final')
 );
