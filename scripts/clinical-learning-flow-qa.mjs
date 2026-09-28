@@ -64,12 +64,15 @@ check('Symptom context preserves selected muscle',
   index.includes('function selectSymptomFlowMuscle') &&
   index.includes("symptomId:id,muscleId:preserved")
 );
-check('Differential/exam/ultrasound direct routing exists',
-  index.includes("meta?.[step]") &&
-  index.includes("scrollIntoView")
+check('Differential/exam/ultrasound direct routing uses clinical hierarchy',
+  index.includes('async function openClinicalFlowStep(id,step)') &&
+  index.includes('await openClinicalModule(moduleKey,true)') &&
+  index.includes('await openClinicalTopic(step,true)') &&
+  index.includes('await openClinicalItem(itemId,true)')
 );
 check('Ultrasound route can focus canonical stable view',
-  index.includes("document.getElementById('ultrasound-view-'+first)")
+  index.includes("itemId=canonicalUltrasoundViewsForMuscle(id)") &&
+  index.includes("x=>x.ultrasound_view_id||x.id")
 );
 check('Fixed-muscle quiz exists',
   index.includes('function startQuizForMuscle') &&
