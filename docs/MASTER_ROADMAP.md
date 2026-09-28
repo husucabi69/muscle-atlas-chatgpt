@@ -83,6 +83,8 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - 같은 화면 아래쪽에 하위 콘텐츠가 생겨 스크롤로 찾는 패턴 제거
 - 각 단계에 뒤로가기 / 상위목차 / breadcrumb 제공
 - 환자 운동·스트레칭의 개념형 SVG를 전문 환자교육 수준 일러스트로 전면 고도화
+- 각 해부학 영역의 대표 정형외과 질환을 질환별 재활교육 모듈로 구축하고 스트레칭·강화·생활습관·red flag·인쇄를 제공
+- 환자가 앱을 직접 설치한 뒤 `부위 → 질환 → 재활` 경로로 쉽게 찾을 수 있게 하고 홈 검색/임상상세와 연결
 - 앱 실행/재개 자동 업데이트 + 홈 pull-to-refresh 업데이트는 v11.37에서 구현 완료
 
 ---
@@ -114,7 +116,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
 - 현재 개발: **Stage 23B — Patient Exercise Illustration 3.0 (REALISTIC STYLE USER APPROVED / ASSET PIPELINE IN PROGRESS)**
-- 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
+- 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23B-Disease Rehab Patient Rehabilitation Education 1.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
 
@@ -748,6 +750,20 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - view-state/history/back/breadcrumb 공통화
 
 ### Stage 23B — Patient Exercise Illustration 3.0 — ACTIVE
+
+#### Stage 23B-Disease Rehab — Patient Rehabilitation Education 1.0 — MANDATORY
+- 목적: 환자가 실제 진단명으로 찾아 들어가 **질환 설명 → 스트레칭 → 강화운동 → 생활습관 교정 → 주의/재진 기준 → 인쇄**까지 한 번에 이용하게 한다.
+- UI: `환자교육 → 질환별 재활 → 부위 → 대표 질환 → 재활 프로그램`
+- 기존 `환자교육 → 부위 → 근육 → 운동` 경로는 유지한다.
+- 최소 10개 해부학 영역 모두 대표 질환 coverage를 갖는다.
+- 사용자 예시: 오십견, 극상근/회전근개 파열·건병증, 극상근 스트레칭·강화, 퇴행성 관절염은 우선순위 후보로 유지한다.
+- 사용자 표현 `퇴행성 통증 증후군`, `연골 낭종`은 원문 그대로 보존하며 구현 전 표준 질환명 매핑을 검토한다.
+- 질환별 콘텐츠는 CPG / systematic review / 고품질 RCT 기반으로 작성하고 source + last-reviewed를 저장한다.
+- 수술 후 / 급성 외상 / red flag / 불안정성 / 신경학적 결손은 일반 보존적 재활과 분리한다.
+- 각 질환의 운동 그림은 Stage 23B 사용자 승인 실사형 2-panel 스타일을 사용한다.
+- 모바일 환자 화면 + A4/PDF 인쇄를 같은 source-of-truth에서 생성한다.
+- 홈 검색과 임상 진단 상세에서 해당 환자교육으로 direct route를 제공한다.
+- **이 substage 완료 전 Stage 23C 진입 금지.**
 
 - 사용자 승인 정본 스타일: 실제 사람처럼 보이는 고품질 의료·재활 환자교육용 디지털 일러스트
 - 18개 actionable exercise 각각 한 장의 2-panel composite(`시작 / 끝`)
