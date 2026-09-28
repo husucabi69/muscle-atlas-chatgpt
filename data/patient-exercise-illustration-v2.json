@@ -1,15 +1,23 @@
 {
-  "schema_version": "2.0.0",
-  "dataset_version": "2026.09.27-stage19-a",
+  "schema_version": "3.0.0",
+  "dataset_version": "2026.09.28-stage23b-a",
   "module_id": "patient_exercise_illustration_v2",
-  "scope": "Patient-facing two-phase exercise illustration metadata for the 19 canonical patient exercise profiles. No PHI.",
+  "scope": "Patient-facing two-phase clinical education illustration metadata for the 19 canonical patient exercise profiles. Stage 23B render contract; no PHI.",
   "policy": {
     "actionable_profiles": 18,
     "evidence_boundary_profiles": 1,
     "no_invented_dose": true,
     "dose_source": "Existing patient-exercise-library-v1 profile dose text only.",
     "grayscale_safe": true,
-    "mobile_safe": true
+    "mobile_safe": true,
+    "illustration_standard": "clinical_patient_education_v3",
+    "phase_count": 2,
+    "human_proportion_required": true,
+    "hands_feet_required_when_visible": true,
+    "movement_direction_required": true,
+    "support_fixation_required": true,
+    "common_error_visual_required": true,
+    "mobile_a4_required": true
   },
   "profiles": [
     {
@@ -22,7 +30,11 @@
       "support": "몸통과 어깨는 편안히 고정합니다.",
       "common_error": "어깨를 으쓱하거나 끝범위를 억지로 밀지 않습니다.",
       "stop_rule": "팔 저림·심한 어지럼·시야 이상·새 근력저하가 생기면 중단합니다.",
-      "alt_text": "목 중립 자세에서 시작해 통증 없는 범위로 천천히 움직이는 두 단계 그림"
+      "alt_text": "목 중립 자세에서 시작해 통증 없는 범위로 천천히 움직이는 두 단계 그림",
+      "view_mode": "front",
+      "support_visual": "body/shoulder",
+      "motion_focus": "cervical motion",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px002",
@@ -34,7 +46,11 @@
       "support": "뒤통수는 바닥에 가볍게 닿은 채 유지합니다.",
       "common_error": "머리를 들거나 SCM이 두드러지게 힘쓰지 않도록 합니다.",
       "stop_rule": "팔 저림·심한 어지럼·시야 이상·새 근력저하가 생기면 중단합니다.",
-      "alt_text": "바로 누운 중립 자세와 작은 턱 당기기 끝자세를 비교하는 그림"
+      "alt_text": "바로 누운 중립 자세와 작은 턱 당기기 끝자세를 비교하는 그림",
+      "view_mode": "side_supine",
+      "support_visual": "mat/occiput",
+      "motion_focus": "small chin tuck",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px003",
@@ -46,7 +62,11 @@
       "support": "몸통과 목은 흔들리지 않게 유지합니다.",
       "common_error": "어깨를 으쓱하거나 허리를 젖혀 당기지 않습니다.",
       "stop_rule": "통증이 뚜렷하게 증가하거나 다음날 악화가 지속되면 강도를 낮춥니다.",
-      "alt_text": "밴드 로우의 시작자세와 견갑 후인 끝자세를 비교하는 그림"
+      "alt_text": "밴드 로우의 시작자세와 견갑 후인 끝자세를 비교하는 그림",
+      "view_mode": "front",
+      "support_visual": "band/body",
+      "motion_focus": "scapular row",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px004",
@@ -58,7 +78,11 @@
       "support": "팔꿈치와 몸통 사이를 고정하고 몸통 회전을 막습니다.",
       "common_error": "팔꿈치가 벌어지거나 몸통 전체를 돌리지 않습니다.",
       "stop_rule": "날카로운 어깨 통증이나 밤새 악화되는 통증이 생기면 중단합니다.",
-      "alt_text": "팔꿈치를 몸통에 붙인 상태의 어깨 외회전 시작과 끝을 비교하는 그림"
+      "alt_text": "팔꿈치를 몸통에 붙인 상태의 어깨 외회전 시작과 끝을 비교하는 그림",
+      "view_mode": "front",
+      "support_visual": "elbow/body",
+      "motion_focus": "shoulder external rotation",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px005",
@@ -70,7 +94,11 @@
       "support": "전완은 문틀에 지지하고 어깨는 내려 둡니다.",
       "common_error": "허리를 과하게 젖히거나 앞쪽 어깨 통증을 참지 않습니다.",
       "stop_rule": "날카로운 어깨 통증이나 팔 저림이 생기면 중단합니다.",
-      "alt_text": "문틀 지지 시작자세와 가슴 앞을 부드럽게 늘린 끝자세 그림"
+      "alt_text": "문틀 지지 시작자세와 가슴 앞을 부드럽게 늘린 끝자세 그림",
+      "view_mode": "front",
+      "support_visual": "door frame/forearm",
+      "motion_focus": "forward body shift",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px006",
@@ -82,7 +110,11 @@
       "support": "전완과 팔꿈치를 지지해 보상을 줄입니다.",
       "common_error": "팔꿈치나 어깨를 크게 움직여 손목 운동을 대신하지 않습니다.",
       "stop_rule": "통증이 과도하게 누적되거나 다음날 뚜렷이 악화되면 부하를 줄입니다.",
-      "alt_text": "전완 지지 손목 중립과 저항운동 끝자세를 비교하는 그림"
+      "alt_text": "전완 지지 손목 중립과 저항운동 끝자세를 비교하는 그림",
+      "view_mode": "closeup_side",
+      "support_visual": "table/forearm",
+      "motion_focus": "wrist motion",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px007",
@@ -94,7 +126,11 @@
       "support": "손목과 전완은 편안히 지지합니다.",
       "common_error": "통증을 참고 강하게 벌리거나 수술·건 손상 후 임의로 저항을 주지 않습니다.",
       "stop_rule": "통증이 증가하거나 감각저하·붓기가 생기면 중단하고 개별 지시를 확인합니다.",
-      "alt_text": "편안한 손 시작자세와 손가락 벌림 기능 끝자세를 비교하는 그림"
+      "alt_text": "편안한 손 시작자세와 손가락 벌림 기능 끝자세를 비교하는 그림",
+      "view_mode": "closeup_hand",
+      "support_visual": "wrist/forearm",
+      "motion_focus": "finger spread/control",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px008",
@@ -106,7 +142,11 @@
       "support": "손으로 안전한 지지물을 잡고 골반을 고정합니다.",
       "common_error": "몸통을 반대로 기울이거나 골반을 끌어올리지 않습니다.",
       "stop_rule": "한쪽 다리에 갑자기 힘이 빠지거나 관절이 붓고 잠기면 중단합니다.",
-      "alt_text": "지지한 선 자세와 골반을 유지한 다리 외전 끝자세를 비교하는 그림"
+      "alt_text": "지지한 선 자세와 골반을 유지한 다리 외전 끝자세를 비교하는 그림",
+      "view_mode": "front",
+      "support_visual": "rail/hand/pelvis",
+      "motion_focus": "hip abduction",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px009",
@@ -118,7 +158,11 @@
       "support": "발바닥 전체와 무릎 정렬을 유지합니다.",
       "common_error": "무릎이 안쪽으로 무너지거나 뒤꿈치가 뜨지 않도록 합니다.",
       "stop_rule": "관절이 붓거나 잠기거나 갑자기 힘이 빠지면 중단합니다.",
-      "alt_text": "선 자세와 정렬을 유지한 스쿼트 아래 자세를 비교하는 그림"
+      "alt_text": "선 자세와 정렬을 유지한 스쿼트 아래 자세를 비교하는 그림",
+      "view_mode": "side",
+      "support_visual": "feet/ground",
+      "motion_focus": "squat descent",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px010",
@@ -130,7 +174,11 @@
       "support": "양발과 어깨를 바닥에 안정적으로 지지합니다.",
       "common_error": "허리만 과하게 젖혀 골반을 들어 올리지 않습니다.",
       "stop_rule": "급성 strain·수술 후 상태에서는 별도 프로토콜을 우선합니다.",
-      "alt_text": "바로 누운 시작자세와 골반을 든 브리지 끝자세를 비교하는 그림"
+      "alt_text": "바로 누운 시작자세와 골반을 든 브리지 끝자세를 비교하는 그림",
+      "view_mode": "side_supine",
+      "support_visual": "mat/feet/shoulders",
+      "motion_focus": "bridge hip lift",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px011",
@@ -142,7 +190,11 @@
       "support": "안전한 지지물을 잡고 발목을 곧게 유지합니다.",
       "common_error": "반동으로 튀어 오르거나 발목이 안팎으로 무너지지 않게 합니다.",
       "stop_rule": "갑작스러운 파열 느낌·큰 멍·체중부하 곤란 통증이 생기면 중단합니다.",
-      "alt_text": "뒤꿈치가 바닥에 닿은 시작과 천천히 들어 올린 끝자세 그림"
+      "alt_text": "뒤꿈치가 바닥에 닿은 시작과 천천히 들어 올린 끝자세 그림",
+      "view_mode": "front",
+      "support_visual": "wall/hand/forefoot",
+      "motion_focus": "heel raise",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px012",
@@ -154,7 +206,11 @@
       "support": "항상 손이 닿는 지지물 옆에서 시행합니다.",
       "common_error": "처음부터 눈을 감거나 지지물 없이 위험하게 시행하지 않습니다.",
       "stop_rule": "넘어질 것 같거나 발목 통증이 증가하면 즉시 양발 지지로 돌아옵니다.",
-      "alt_text": "안전 지지 옆 양발 시작과 한발 균형 끝자세를 비교하는 그림"
+      "alt_text": "안전 지지 옆 양발 시작과 한발 균형 끝자세를 비교하는 그림",
+      "view_mode": "front",
+      "support_visual": "rail/hand",
+      "motion_focus": "single-leg balance",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px013",
@@ -166,7 +222,11 @@
       "support": "발 또는 벽 지지를 이용해 균형을 유지합니다.",
       "common_error": "족저 통증을 강하게 누르거나 끝범위를 억지로 당기지 않습니다.",
       "stop_rule": "파열 느낌·큰 멍·체중부하 곤란 통증이 생기면 중단합니다.",
-      "alt_text": "발과 종아리 중립 시작에서 발목·발바닥을 부드럽게 신장한 끝자세 그림"
+      "alt_text": "발과 종아리 중립 시작에서 발목·발바닥을 부드럽게 신장한 끝자세 그림",
+      "view_mode": "side_seated",
+      "support_visual": "mat/leg",
+      "motion_focus": "ankle/toe stretch",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px014",
@@ -178,7 +238,11 @@
       "support": "손·무릎 네 점 지지에서 시작합니다.",
       "common_error": "허리가 처지거나 골반이 돌아가지 않도록 합니다.",
       "stop_rule": "다리 힘이 진행해서 빠지거나 회음부 감각·배뇨 이상이 있으면 운동보다 진료가 우선입니다.",
-      "alt_text": "네발기기 시작자세와 반대 팔·다리를 뻗은 끝자세를 비교하는 그림"
+      "alt_text": "네발기기 시작자세와 반대 팔·다리를 뻗은 끝자세를 비교하는 그림",
+      "view_mode": "side_quadruped",
+      "support_visual": "mat/hands/knees",
+      "motion_focus": "contralateral arm-leg reach",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px015",
@@ -190,7 +254,11 @@
       "support": "골반과 요추의 과도한 움직임을 줄입니다.",
       "common_error": "허리 회전으로 흉추 움직임을 대신하지 않습니다.",
       "stop_rule": "통증이 뚜렷이 증가하거나 호흡 시 심한 통증이 생기면 중단합니다.",
-      "alt_text": "몸통 중립 시작과 골반을 고정한 흉추 회전 끝자세 그림"
+      "alt_text": "몸통 중립 시작과 골반을 고정한 흉추 회전 끝자세 그림",
+      "view_mode": "front_seated",
+      "support_visual": "seat/pelvis",
+      "motion_focus": "thoracic rotation",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px016",
@@ -202,7 +270,11 @@
       "support": "목과 어깨는 이완하고 몸통을 편안히 지지합니다.",
       "common_error": "어깨를 들어 숨 쉬거나 숨을 오래 참지 않습니다.",
       "stop_rule": "숨참·흉통·어지럼·산소포화도 저하가 있으면 즉시 중단합니다.",
-      "alt_text": "편안한 호기 상태와 아랫가슴·배가 넓어지는 흡기 상태를 비교하는 그림"
+      "alt_text": "편안한 호기 상태와 아랫가슴·배가 넓어지는 흡기 상태를 비교하는 그림",
+      "view_mode": "front_seated",
+      "support_visual": "seat/shoulders",
+      "motion_focus": "lower-rib expansion",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px017",
@@ -214,7 +286,11 @@
       "support": "상완과 몸통을 고정해 반동을 줄입니다.",
       "common_error": "어깨를 흔들거나 몸통 반동으로 무게를 들지 않습니다.",
       "stop_rule": "급성 건 손상·수술 후·신경손상은 해당 프로토콜을 우선합니다.",
-      "alt_text": "팔꿈치를 편 시작자세와 상완을 고정한 굴곡 끝자세를 비교하는 그림"
+      "alt_text": "팔꿈치를 편 시작자세와 상완을 고정한 굴곡 끝자세를 비교하는 그림",
+      "view_mode": "front",
+      "support_visual": "upper arm/body",
+      "motion_focus": "elbow flexion",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px018",
@@ -226,7 +302,11 @@
       "support": "등과 골반을 바닥에 안정적으로 지지합니다.",
       "common_error": "허리가 크게 뜨거나 숨을 참은 채 범위를 늘리지 않습니다.",
       "stop_rule": "다리 힘이 진행해서 빠지거나 회음부 감각·배뇨 이상이 있으면 즉시 진료가 우선입니다.",
-      "alt_text": "바로 누운 90도 시작자세와 반대 팔·다리를 뻗은 끝자세를 비교하는 그림"
+      "alt_text": "바로 누운 90도 시작자세와 반대 팔·다리를 뻗은 끝자세를 비교하는 그림",
+      "view_mode": "side_supine",
+      "support_visual": "mat/lumbar contact",
+      "motion_focus": "contralateral arm-leg extension",
+      "render_standard": "clinical_patient_education_v3"
     },
     {
       "profile_id": "px099",
@@ -238,7 +318,37 @@
       "support": "",
       "common_error": "",
       "stop_rule": "",
-      "alt_text": "개별 단독 운동의 근거가 미확립되어 실행 그림을 제공하지 않는 근거경계 프로필"
+      "alt_text": "개별 단독 운동의 근거가 미확립되어 실행 그림을 제공하지 않는 근거경계 프로필",
+      "render_standard": "evidence_boundary_no_action_figure"
     }
-  ]
+  ],
+  "render_contract": {
+    "canvas": "240x180",
+    "phase_labels": [
+      "1 · 시작",
+      "2 · 끝"
+    ],
+    "visual_legend": [
+      "→ 움직임 방향",
+      "◎ 고정·지지",
+      "× 피할 보상"
+    ],
+    "required_primitives": [
+      "head",
+      "torso",
+      "jointed limb",
+      "hand/fingers",
+      "foot",
+      "movement arrow",
+      "fixed/support marker"
+    ],
+    "support_objects": [
+      "wall",
+      "rail",
+      "mat",
+      "band",
+      "table/seat"
+    ],
+    "no_invented_range_or_dose": true
+  }
 }
