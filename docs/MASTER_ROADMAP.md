@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (A8 CLOSED / USER PROCEED AUTHORIZED · A9 AUTOMATED PASS / USER PREVIEW VERIFY PENDING)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (A9 CLOSED / USER PROCEED AUTHORIZED · A10 AUTOMATED PASS / USER PREVIEW VERIFY PENDING)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -923,4 +923,20 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - Playwright 4개 detail actual click + data + history SUCCESS
 - Cloudflare Preview SUCCESS
 - TinyFish 미사용
-- A10 홈/검색 계층화는 A9 사용자 확인 또는 다음 단계 진행 승인 전 BLOCKED
+- 2026-09-28 사용자 `진행해` 지시로 A9 다음 단계 진입 승인. 별도 A9 실기기 시각 PASS로 오기하지 않음
+
+### v11.52 · Stage 23A A10 Home Search Navigation Lock — 2026-09-28
+- 홈 검색을 canonical navigation source로 승격
+- 검색어 / type filter / scroll 위치를 browser history에 저장·복원
+- 검색 결과 목적지까지 중간 hierarchy entry 없이 단일 push
+- 근육 → v11.14 anatomy detail
+- 증상 → symptom menu
+- 진찰검사 / 감별개념 → A5 clinical single detail
+- 초음파 View → A6 ultrasound single detail
+- browser back 한 번으로 원래 홈 검색결과 복귀
+- m001 / sx01 / ct082 / d089 / usv074 Playwright actual click + one-back SUCCESS
+- Stage 15~23A static QA SUCCESS
+- Cloudflare Preview SUCCESS
+- TinyFish 미사용
+- A10 사용자 Preview 승인 또는 명시적 다음 단계 진행 승인 전 Stage 23A COMPLETE 금지
+- Stage 23B Patient Exercise Illustration 3.0은 그 이후 시작
