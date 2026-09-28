@@ -605,3 +605,19 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - runtime error 0
 - 사용자 실기기 Preview 확인 완료 — 2026-09-28
 - A2 COMPLETE. 다음 작업선은 A5 임상 모듈.
+
+### v11.46 · A5 Clinical Drilldown 3.1 — AUTOMATED PASS / LIVE PREVIEW PASS / USER VERIFY PENDING
+- 기존 10개 임상 모듈 전체 세로 누적 화면을 계층형 navigation으로 교체
+- 흐름: 임상 모듈 10개 → 감별진단/진찰법/초음파 View → 세부 항목 목록 → 단일 상세
+- 기존 148개 진찰검사, 10개 모듈 감별 데이터, 131개 초음파 View Stable ID를 source-of-truth로 유지
+- 감별 상세: 후보별 지지 단서 / 반대·제한 단서 / Red flag 경계
+- 진찰 상세: 목적 / 방법 / 양성 기준 / 해석 / 한계·흔한 오류 / Stable ID
+- 초음파 상세: 환자 자세 / Probe 위치·방향 / Landmark / 정상 확인 / Pitfall / Stable ID / 기존 검수 media
+- 기존 근육 기반 Clinical Learning Flow에서 임상 단계로 직접 진입할 때도 동일 A5 hierarchy 사용
+- browser/Android history: 상세 → 목록 → 학습항목 → 임상 모듈
+- Global QA PASS
+- Chromium Runtime E2E: 10개 임상 모듈 × 감별/진찰/초음파 → 첫 항목 상세 → browser back 전수 PASS
+- Cloudflare Branch Preview 배포 PASS
+- 라이브 Preview 경추 → 진찰법 → Spurling 검사, 경추 → 초음파 → SCM·경장근 횡단면 직접 클릭 PASS
+- 사용자 실기기 Preview 승인 전 A5 COMPLETE 처리 금지
+- A6는 A5 사용자 확인 전 시작 금지
