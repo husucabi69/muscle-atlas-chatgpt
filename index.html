@@ -196,6 +196,7 @@ button,input{font:inherit} button{cursor:pointer}
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
       <button class="tab" data-page="regions">해부학 부위</button>
       <button class="tab" data-page="clinical">임상 모듈</button>
+      <button class="tab" data-page="ultrasound">초음파</button>
       <button class="tab" data-page="quiz">퀴즈</button>
       <button class="tab" data-page="learning">내 학습</button>
       <button class="tab" data-page="oral">오랄 테스트</button>
@@ -409,6 +410,39 @@ button,input{font:inherit} button{cursor:pointer}
     </div>
     <div id="clinicalFlowContext" class="clinical-flow-context" hidden></div>
     <div id="clinicalDetailContent"></div>
+  </div>
+</section>
+
+<section id="ultrasound" class="page">
+  <div id="ultrasoundAtlasRootView" class="drill-screen" data-drill-group="ultrasound" data-drill-view="regions">
+    <div class="section-title"><h3>초음파 Atlas</h3><span>131 canonical views · Stage 23A A6</span></div>
+    <div class="card" style="margin-bottom:16px">
+      <h3>Ultrasound Atlas 2.0</h3>
+      <p>부위와 구조를 먼저 고른 뒤 canonical view 하나씩 학습합니다. 기존 검수 원문·실제 초음파·source/license audit를 그대로 사용합니다.</p>
+    </div>
+    <div class="note"><b>1단계 · 부위/구조 목차</b><br>현재 화면에는 초음파 부위와 연결 구조 요약만 표시됩니다.</div>
+    <div id="ultrasoundAtlasRegionChooser" class="region-chooser" style="margin-top:18px"></div>
+  </div>
+
+  <div id="ultrasoundAtlasListView" class="drill-screen" data-drill-group="ultrasound" data-drill-view="views" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="ultrasoundAtlasBack('regions')">← 부위/구조</button>
+      <span class="crumb" id="ultrasoundAtlasListBreadcrumb"></span>
+    </div>
+    <div class="region-panel-head"><h3 id="ultrasoundAtlasRegionTitle"></h3><span id="ultrasoundAtlasRegionCount"></span></div>
+    <div id="ultrasoundAtlasStructureSummary" class="note"></div>
+    <div class="note"><b>2단계 · Canonical View 목차</b><br>선택한 부위의 검수 canonical view만 표시됩니다.</div>
+    <div id="ultrasoundAtlasViewList" class="region-list"></div>
+  </div>
+
+  <div id="ultrasoundAtlasDetailView" class="drill-screen" data-drill-group="ultrasound" data-drill-view="detail" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="ultrasoundAtlasBack('views')">← View 목록</button>
+      <button class="pill" type="button" onclick="showUltrasoundAtlasRegions()">부위/구조</button>
+      <span class="crumb" id="ultrasoundAtlasDetailBreadcrumb"></span>
+    </div>
+    <div class="note"><b>3단계 · View 상세</b><br>Probe 위치·orientation·landmark·정상 확인·pitfall과 검수 media를 한 view만 표시합니다.</div>
+    <div id="ultrasoundAtlasDetailContent"></div>
   </div>
 </section>
 
@@ -1890,7 +1924,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>{
@@ -2178,6 +2212,130 @@ window.addEventListener('popstate',async event=>{
     showClinicalModules(false);
   }
   restoringClinicalHistory=false;
+});
+
+let selectedUltrasoundAtlasModuleKey=null,selectedUltrasoundAtlasViewId=null,restoringUltrasoundAtlasHistory=false;
+
+function setUltrasoundAtlasView(view){
+  const map={regions:'ultrasoundAtlasRootView',views:'ultrasoundAtlasListView',detail:'ultrasoundAtlasDetailView'};
+  if(!map[view])return null;
+  return setDrillView('ultrasound',view);
+}
+function recordUltrasoundAtlasHistory(level,mode='push'){
+  if(restoringUltrasoundAtlasHistory)return;
+  const state={
+    lysPage:'ultrasound',
+    ultrasoundLevel:level,
+    ultrasoundModule:selectedUltrasoundAtlasModuleKey,
+    ultrasoundViewId:selectedUltrasoundAtlasViewId
+  };
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
+}
+function ultrasoundAtlasViewsForModule(moduleKey){
+  return clinicalModuleData(moduleKey).ultrasound?.ultrasound_views||[];
+}
+function ultrasoundAtlasTargetIds(moduleKey){
+  return [...new Set(ultrasoundAtlasViewsForModule(moduleKey).flatMap(v=>v.target_structure_ids||[]))];
+}
+function ultrasoundAtlasStructureText(moduleKey,limit=6){
+  const ids=ultrasoundAtlasTargetIds(moduleKey),labels=ids.map(id=>clinicalEntityLabel(id)).filter(Boolean);
+  const shown=labels.slice(0,limit);
+  return shown.join(' · ')+(labels.length>limit?' 외 '+(labels.length-limit)+'개':'');
+}
+function renderUltrasoundAtlasRegions(){
+  const host=document.getElementById('ultrasoundAtlasRegionChooser');if(!host)return;
+  host.innerHTML=Object.entries(clinicalFlowModules).map(([key,meta])=>{
+    const views=ultrasoundAtlasViewsForModule(key),targets=ultrasoundAtlasTargetIds(key);
+    const structureText=ultrasoundAtlasStructureText(key,4);
+    return '<button type="button" class="region-choice ultrasound-atlas-region" data-ultrasound-module="'+key+'" onclick="openUltrasoundAtlasRegion(\''+key+'\')"><span><b>'+esc(meta.label)+'</b><br><small>'+views.length+'개 canonical view · 구조 '+targets.length+'개'+(structureText?' · '+esc(structureText):'')+'</small></span><span class="arrow">›</span></button>';
+  }).join('');
+}
+function showUltrasoundAtlasRegions(record=true){
+  selectedUltrasoundAtlasModuleKey=null;
+  selectedUltrasoundAtlasViewId=null;
+  renderUltrasoundAtlasRegions();
+  setUltrasoundAtlasView('regions');
+  if(record)recordUltrasoundAtlasHistory('regions');
+}
+function renderUltrasoundAtlasList(moduleKey){
+  const meta=clinicalFlowModules[moduleKey];if(!meta)return;
+  const views=ultrasoundAtlasViewsForModule(moduleKey);
+  const crumb=document.getElementById('ultrasoundAtlasListBreadcrumb');if(crumb)crumb.textContent='초음파 › '+meta.label;
+  const title=document.getElementById('ultrasoundAtlasRegionTitle');if(title)title.textContent=meta.label+' 초음파';
+  const count=document.getElementById('ultrasoundAtlasRegionCount');if(count)count.textContent=views.length+'개 view';
+  const summary=document.getElementById('ultrasoundAtlasStructureSummary');
+  if(summary){
+    const ids=ultrasoundAtlasTargetIds(moduleKey),structureText=ultrasoundAtlasStructureText(moduleKey,12);
+    summary.innerHTML='<b>연결 구조 '+ids.length+'개</b><br>'+esc(structureText||'구조 메타데이터 확인 중');
+  }
+  const host=document.getElementById('ultrasoundAtlasViewList');if(!host)return;
+  host.innerHTML=views.map(v=>
+    '<button type="button" class="region-muscle ultrasound-atlas-view" data-ultrasound-view="'+esc(v.ultrasound_view_id)+'" onclick="openUltrasoundAtlasView(\''+v.ultrasound_view_id+'\')"><b>'+esc(v.name_ko)+'</b><small>'+esc(v.name_en||'')+' · '+esc(v.ultrasound_view_id)+'</small></button>'
+  ).join('');
+}
+async function openUltrasoundAtlasRegion(moduleKey,record=true){
+  if(!clinicalFlowModules[moduleKey])return;
+  selectedUltrasoundAtlasModuleKey=moduleKey;
+  selectedUltrasoundAtlasViewId=null;
+  setUltrasoundAtlasView('views');
+  const host=document.getElementById('ultrasoundAtlasViewList');if(host)host.innerHTML='<div class="status">canonical view를 불러오는 중…</div>';
+  if(record)recordUltrasoundAtlasHistory('views');
+  await ensureClinicalModuleLoaded(moduleKey);
+  if(selectedUltrasoundAtlasModuleKey===moduleKey)renderUltrasoundAtlasList(moduleKey);
+}
+function renderUltrasoundAtlasDetail(moduleKey,view){
+  const meta=clinicalFlowModules[moduleKey];if(!meta||!view)return;
+  const crumb=document.getElementById('ultrasoundAtlasDetailBreadcrumb');
+  if(crumb)crumb.textContent='초음파 › '+meta.label+' › '+view.name_ko;
+  const host=document.getElementById('ultrasoundAtlasDetailContent');if(!host)return;
+  host.innerHTML=clinicalUltrasoundDetailHtml(view,moduleKey);
+}
+async function openUltrasoundAtlasView(viewId,record=true){
+  let moduleKey=selectedUltrasoundAtlasModuleKey||clinicalModuleFromViewId(viewId);
+  if(!moduleKey)return;
+  await ensureClinicalModuleLoaded(moduleKey);
+  const view=ultrasoundAtlasViewsForModule(moduleKey).find(v=>v.ultrasound_view_id===viewId);
+  if(!view)return;
+  selectedUltrasoundAtlasModuleKey=moduleKey;
+  selectedUltrasoundAtlasViewId=viewId;
+  renderUltrasoundAtlasDetail(moduleKey,view);
+  setUltrasoundAtlasView('detail');
+  if(record)recordUltrasoundAtlasHistory('detail');
+}
+function ultrasoundAtlasBack(fallbackLevel){
+  const state=history.state;
+  if(state?.lysPage==='ultrasound'&&['views','detail'].includes(state.ultrasoundLevel)){
+    history.back();
+    return;
+  }
+  if(fallbackLevel==='views'&&selectedUltrasoundAtlasModuleKey)openUltrasoundAtlasRegion(selectedUltrasoundAtlasModuleKey,false);
+  else showUltrasoundAtlasRegions(false);
+}
+async function openUltrasoundAtlasStableView(viewId,record=true){
+  const moduleKey=clinicalModuleFromViewId(viewId);if(!moduleKey)return false;
+  showPage('ultrasound');
+  showUltrasoundAtlasRegions(record);
+  await openUltrasoundAtlasRegion(moduleKey,record);
+  await openUltrasoundAtlasView(viewId,record);
+  return true;
+}
+window.addEventListener('popstate',async event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='ultrasound')return;
+  restoringUltrasoundAtlasHistory=true;
+  showPage('ultrasound');
+  selectedUltrasoundAtlasModuleKey=state.ultrasoundModule||null;
+  selectedUltrasoundAtlasViewId=state.ultrasoundViewId||null;
+  if(state.ultrasoundLevel==='detail'&&state.ultrasoundModule&&state.ultrasoundViewId){
+    await openUltrasoundAtlasRegion(state.ultrasoundModule,false);
+    await openUltrasoundAtlasView(state.ultrasoundViewId,false);
+  }else if(state.ultrasoundLevel==='views'&&state.ultrasoundModule){
+    await openUltrasoundAtlasRegion(state.ultrasoundModule,false);
+  }else{
+    showUltrasoundAtlasRegions(false);
+  }
+  restoringUltrasoundAtlasHistory=false;
 });
 
 const clinicalRegionFallback={
@@ -2990,6 +3148,7 @@ function activatePage(pageId){
   if(pageId==='education')showEducationRegions(false);
   if(pageId==='symptoms')showSymptomGroups(false);
   if(pageId==='clinical')showClinicalModules(false);
+  if(pageId==='ultrasound')showUltrasoundAtlasRegions(false);
   showPage(pageId);
   if(learningFlowContext.muscleId)learningFlowContext.sourcePage=pageId;
   if(pageId==='learning')renderLearningDashboard();
@@ -3942,8 +4101,9 @@ Promise.all([
   loadShoulderClinicalModule(),loadElbowClinicalModule(),loadWristHandClinicalModule(),loadHipPelvisClinicalModule(),
   loadKneeThighClinicalModule(),loadLegAnkleFootClinicalModule(),loadCervicalClinicalModule(),loadThoracicClinicalModule(),
   loadLumbarSacralClinicalModule(),loadAbdominalCoreClinicalModule()
-]).then(()=>renderClinicalModuleChooser());
+]).then(()=>{renderClinicalModuleChooser();renderUltrasoundAtlasRegions();});
 renderClinicalModuleChooser();
+renderUltrasoundAtlasRegions();
 setTimeout(()=>{if(activeClinicalFlowMuscleId&&document.getElementById('clinical')?.classList.contains('active'))renderClinicalFlowContext(activeClinicalFlowMuscleId,activeClinicalFlowStep);},500);
 
 
