@@ -540,25 +540,56 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 <section id="learning" class="page">
-  <div class="section-title"><h3>내 학습</h3><span>Stage 22 · local-only</span></div>
-  <div class="learning-local"><b>개인 학습기록은 기본적으로 이 기기에만 저장됩니다.</b><br>최근 본 항목·즐겨찾기·퀴즈 정오답·Oral 등급만 사용하며 환자 이름, 차트번호, 진료내용, 음성 원문은 저장하지 않습니다.</div>
-  <div class="quiz-stats">
-    <div class="quiz-stat"><span>학습한 근육</span><b id="learningStudied">0</b></div>
-    <div class="quiz-stat"><span>즐겨찾기</span><b id="learningFavoriteCount">0</b></div>
-    <div class="quiz-stat"><span>취약 근육</span><b id="learningWeakCount">0</b></div>
-    <div class="quiz-stat"><span>오늘 복습</span><b id="learningDueCount">0</b></div>
+  <div id="learningRootView" class="drill-screen" data-drill-group="learning" data-drill-view="root">
+    <div class="section-title"><h3>내 학습</h3><span>Stage 22 · local-only</span></div>
+    <div class="learning-local"><b>개인 학습기록은 기본적으로 이 기기에만 저장됩니다.</b><br>최근 본 항목·즐겨찾기·퀴즈 정오답·Oral 등급만 사용하며 환자 이름, 차트번호, 진료내용, 음성 원문은 저장하지 않습니다.</div>
+    <div class="quiz-stats">
+      <div class="quiz-stat"><span>학습한 근육</span><b id="learningStudied">0</b></div>
+      <div class="quiz-stat"><span>즐겨찾기</span><b id="learningFavoriteCount">0</b></div>
+      <div class="quiz-stat"><span>취약 근육</span><b id="learningWeakCount">0</b></div>
+      <div class="quiz-stat"><span>오늘 복습</span><b id="learningDueCount">0</b></div>
+    </div>
+    <div class="card">
+      <h3>1단계 · 학습 목차</h3>
+      <p>원하는 기록 하나를 선택하면 해당 내용만 독립 화면에서 봅니다.</p>
+      <div id="learningSectionChooser" class="region-chooser">
+        <button type="button" class="region-choice learning-section-choice" data-learning-section="recent" onclick="openLearningSection('recent')"><span><b>최근 본 항목</b><br><small><span id="learningRecentMenuCount">0</span>개 · 최근 열어본 구조와 학습 항목</small></span><span class="arrow">›</span></button>
+        <button type="button" class="region-choice learning-section-choice" data-learning-section="favorites" onclick="openLearningSection('favorites')"><span><b>즐겨찾기</b><br><small><span id="learningFavoriteMenuCount">0</span>개 · 별표로 저장한 항목</small></span><span class="arrow">›</span></button>
+        <button type="button" class="region-choice learning-section-choice" data-learning-section="weak" onclick="openLearningSection('weak')"><span><b>오답·약점 자동 모음</b><br><small><span id="learningWeakMenuCount">0</span>개 · Quiz·Oral·복습 기록 기반</small></span><span class="arrow">›</span></button>
+        <button type="button" class="region-choice learning-section-choice" data-learning-section="mastery" onclick="openLearningSection('mastery')"><span><b>부위별 학습지표</b><br><small><span id="learningMasteryMenuCount">0</span>개 부위 · 학습 범위와 수행 기록</small></span><span class="arrow">›</span></button>
+      </div>
+    </div>
+    <div class="learning-actions">
+      <button class="pill" type="button" onclick="exportLearningRecords()">학습기록 내보내기</button>
+      <label class="pill learning-import">학습기록 가져오기<input id="learningImportFile" type="file" accept="application/json,.json" onchange="importLearningRecords(this)"></label>
+      <button class="pill" type="button" onclick="renderLearningDashboard()">새로고침</button>
+    </div>
+    <div id="learningImportStatus" class="note" style="display:none"></div>
   </div>
-  <div class="learning-actions">
-    <button class="pill" type="button" onclick="exportLearningRecords()">학습기록 내보내기</button>
-    <label class="pill learning-import">학습기록 가져오기<input id="learningImportFile" type="file" accept="application/json,.json" onchange="importLearningRecords(this)"></label>
-    <button class="pill" type="button" onclick="renderLearningDashboard()">새로고침</button>
+
+  <div id="learningRecentView" class="drill-screen" data-drill-group="learning" data-drill-view="recent" hidden>
+    <div class="anatomy-nav"><button class="region-back" type="button" onclick="learningBack()">← 내 학습</button><span class="crumb">내 학습 › 최근 본 항목</span></div>
+    <div class="section-title"><h3>최근 본 항목</h3><span>최근 30개까지 저장</span></div>
+    <div id="recentLearningList" class="learning-list"></div>
   </div>
-  <div id="learningImportStatus" class="note" style="display:none"></div>
-  <div class="learning-grid">
-    <div class="learning-panel"><h4>최근 본 항목</h4><div id="recentLearningList" class="learning-list"></div></div>
-    <div class="learning-panel"><h4>즐겨찾기</h4><div id="favoriteLearningList" class="learning-list"></div></div>
-    <div class="learning-panel"><h4>오답·약점 자동 모음</h4><div id="weakLearningList" class="learning-list"></div></div>
-    <div class="learning-panel"><h4>부위별 학습지표</h4><div id="masteryDashboard"></div></div>
+
+  <div id="learningFavoritesView" class="drill-screen" data-drill-group="learning" data-drill-view="favorites" hidden>
+    <div class="anatomy-nav"><button class="region-back" type="button" onclick="learningBack()">← 내 학습</button><span class="crumb">내 학습 › 즐겨찾기</span></div>
+    <div class="section-title"><h3>즐겨찾기</h3><span>Stable ID 기준 저장</span></div>
+    <div id="favoriteLearningList" class="learning-list"></div>
+  </div>
+
+  <div id="learningWeakView" class="drill-screen" data-drill-group="learning" data-drill-view="weak" hidden>
+    <div class="anatomy-nav"><button class="region-back" type="button" onclick="learningBack()">← 내 학습</button><span class="crumb">내 학습 › 오답·약점</span></div>
+    <div class="section-title"><h3>오답·약점 자동 모음</h3><span>Quiz · Oral · 오늘 복습</span></div>
+    <div id="weakLearningList" class="learning-list"></div>
+  </div>
+
+  <div id="learningMasteryView" class="drill-screen" data-drill-group="learning" data-drill-view="mastery" hidden>
+    <div class="anatomy-nav"><button class="region-back" type="button" onclick="learningBack()">← 내 학습</button><span class="crumb">내 학습 › 부위별 학습지표</span></div>
+    <div class="section-title"><h3>부위별 학습지표</h3><span>앱 내 학습기록 기반</span></div>
+    <div class="note">이 수치는 시험 성적이나 임상 능력 판정이 아니라, 이 앱 안에서 학습한 범위와 Quiz·Oral 기록을 합친 학습 진행 지표입니다.</div>
+    <div id="masteryDashboard"></div>
   </div>
 </section>
 
@@ -1948,7 +1979,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);if(btn.dataset.page==='quiz')showQuizSetup(true);if(btn.dataset.page==='oral')showOralSetup(true,true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);if(btn.dataset.page==='quiz')showQuizSetup(true);if(btn.dataset.page==='oral')showOralSetup(true,true);if(btn.dataset.page==='learning')showLearningRoot(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>{
@@ -2792,6 +2823,52 @@ function learningEntityItem(key,extra=''){
   const [type,id]=parseEntityKey(key),x=searchEntityByKey(type,id);if(!x)return'';
   return '<div class="learning-item"><button class="search-result-main" type="button" onclick="openSearchEntity(\''+type+'\',\''+id+'\')"><b>'+esc(x.title)+'</b><small>'+esc(entityTypeLabels[type]||type)+' · '+esc(id)+(extra?' · '+esc(extra):'')+'</small></button><button class="favorite-toggle '+(isFavoriteEntity(type,id)?'on':'')+'" type="button" onclick="toggleFavoriteEntity(\''+type+'\',\''+id+'\')">'+(isFavoriteEntity(type,id)?'★':'☆')+'</button></div>';
 }
+let selectedLearningSection=null,restoringLearningHistory=false;
+function setLearningView(view){
+  const map={root:'learningRootView',recent:'learningRecentView',favorites:'learningFavoritesView',weak:'learningWeakView',mastery:'learningMasteryView'};
+  if(!map[view])return null;
+  return setDrillView('learning',view);
+}
+function recordLearningHistory(level,mode='push'){
+  if(restoringLearningHistory)return;
+  const state={lysPage:'learning',learningLevel:level};
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
+}
+function showLearningRoot(record=true){
+  selectedLearningSection=null;
+  setLearningView('root');
+  renderLearningDashboard();
+  if(record)recordLearningHistory('root');
+}
+function openLearningSection(section,record=true){
+  const valid=new Set(['recent','favorites','weak','mastery']);
+  if(!valid.has(section))return;
+  selectedLearningSection=section;
+  renderLearningDashboard();
+  setLearningView(section);
+  if(record)recordLearningHistory(section);
+}
+function learningBack(){
+  const state=history.state;
+  if(state?.lysPage==='learning'&&['recent','favorites','weak','mastery'].includes(state.learningLevel)){history.back();return;}
+  showLearningRoot(false);
+}
+window.addEventListener('popstate',event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='learning')return;
+  restoringLearningHistory=true;
+  showPage('learning');
+  renderLearningDashboard();
+  if(['recent','favorites','weak','mastery'].includes(state.learningLevel)){
+    selectedLearningSection=state.learningLevel;
+    setLearningView(state.learningLevel);
+  }else{
+    selectedLearningSection=null;
+    setLearningView('root');
+  }
+  restoringLearningHistory=false;
+});
 function renderLearningDashboard(){
   const root=document.getElementById('masteryDashboard');if(!root)return;
   const state=personalLearningState(),weak=combinedWeakness(),q=quizState(),o=oralState();
@@ -2800,12 +2877,16 @@ function renderLearningDashboard(){
   const setText=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=String(v);};
   setText('learningStudied',studied.size);setText('learningFavoriteCount',state.favorites.length);
   setText('learningWeakCount',weak.length);setText('learningDueCount',dueMuscleIds(q).length);
+  setText('learningRecentMenuCount',(state.recent||[]).length);
+  setText('learningFavoriteMenuCount',(state.favorites||[]).length);
+  setText('learningWeakMenuCount',weak.length);
+  setText('learningMasteryMenuCount',regions.length);
   const recent=document.getElementById('recentLearningList');
-  if(recent)recent.innerHTML=(state.recent||[]).slice(0,10).map(x=>learningEntityItem(x.key)).filter(Boolean).join('')||'<div class="note">아직 최근 본 항목이 없습니다.</div>';
+  if(recent)recent.innerHTML=(state.recent||[]).slice(0,30).map(x=>learningEntityItem(x.key)).filter(Boolean).join('')||'<div class="note">아직 최근 본 항목이 없습니다.</div>';
   const fav=document.getElementById('favoriteLearningList');
-  if(fav)fav.innerHTML=(state.favorites||[]).slice(0,20).map(k=>learningEntityItem(k)).filter(Boolean).join('')||'<div class="note">통합검색 결과의 ☆를 눌러 즐겨찾기에 추가하세요.</div>';
+  if(fav)fav.innerHTML=(state.favorites||[]).slice(0,100).map(k=>learningEntityItem(k)).filter(Boolean).join('')||'<div class="note">통합검색 결과의 ☆를 눌러 즐겨찾기에 추가하세요.</div>';
   const weakEl=document.getElementById('weakLearningList');
-  if(weakEl)weakEl.innerHTML=weak.slice(0,12).map(w=>{
+  if(weakEl)weakEl.innerHTML=weak.map(w=>{
     const m=byId[w.id],reason=[w.quizWrong?'퀴즈 오답 '+w.quizWrong:'',w.oral?'Oral 보완 '+w.oral:'',w.due?'오늘 복습':''].filter(Boolean).join(' · ');
     return '<div class="learning-item"><div><b>'+esc(m.ko)+'</b><small>'+esc(m.region)+' · '+esc(reason||'약점 기록')+'</small></div><div><span class="weak-score">점수 '+w.score+'</span><div class="quiz-actions"><button class="pill" onclick="startQuizForMuscle(\''+w.id+'\')">Quiz</button><button class="pill" onclick="startOralForMuscle(\''+w.id+'\')">Oral</button></div></div></div>';
   }).join('')||'<div class="note">현재 누적된 오답·Oral 약점이 없습니다.</div>';
@@ -3175,6 +3256,7 @@ function activatePage(pageId){
   if(pageId==='ultrasound')showUltrasoundAtlasRegions(false);
   if(pageId==='quiz')showQuizSetup(false);
   if(pageId==='oral')showOralSetup(false,false);
+  if(pageId==='learning')showLearningRoot(false);
   showPage(pageId);
   if(learningFlowContext.muscleId)learningFlowContext.sourcePage=pageId;
   if(pageId==='learning')renderLearningDashboard();
