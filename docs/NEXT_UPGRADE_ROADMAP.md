@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **A2 COMPLETE · A5 CLOSED · A6 CLOSED / USER PROCEED AUTHORIZED · A7 AUTOMATED PASS / PREVIEW DEPLOYED / USER PREVIEW VERIFY PENDING**
+상태: **A2 COMPLETE · A5 CLOSED · A6 CLOSED · A7 CLOSED / USER PROCEED AUTHORIZED · A8 AUTOMATED PASS / PREVIEW DEPLOYED / USER PREVIEW VERIFY PENDING**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -433,9 +433,9 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - [x] **A4. 증상으로 찾기** — 증상군만 → 증상만 → 관련 구조/감별 학습목차 → 선택 상세 독립 화면
 - [x] **A5. 임상 모듈 — CLOSED / USER PROCEED AUTHORIZED** — 10개 모듈 계층화 + Stable ID direct route. 사용자가 2026-09-28 `다음 작업 진행`을 명시하여 A6 진입 승인. 별도 A5 실기기 시각 PASS를 했다고 기록하지 않음
 - [x] **A6. 초음파 — CLOSED / USER PROCEED AUTHORIZED** — 독립 초음파 탭 → 10개 부위/구조 → 131 canonical view → 단일 상세. 사용자가 2026-09-28 `진행해`로 A7 진입 승인. 별도 A6 실기기 시각 PASS로 오기하지 않음
-- [ ] **A7. 퀴즈 — AUTOMATED PASS / USER PREVIEW VERIFY PENDING** — 모드/부위 선택 → 문제 세션 → 결과/오답 독립 화면. 기존 학습기록·오답·복습 로직 보존
-- [ ] **A8. Oral Viva — BLOCKED BY A7 USER VERIFY/PROCEED** — 모드/부위 선택 화면 → 세션 화면 → 결과/약점 화면
-- [ ] **A9. 내 학습** — dashboard 목차 → 최근/즐겨찾기/약점/mastery 개별 화면
+- [x] **A7. 퀴즈 — CLOSED / USER PROCEED AUTHORIZED** — 사용자가 2026-09-28 `다음 작업 진행해`로 A8 진입 승인. 별도 A7 실기기 시각 PASS로 오기하지 않음
+- [ ] **A8. Oral Viva — AUTOMATED PASS / USER PREVIEW VERIFY PENDING** — 모드/부위 선택 → 구술 세션 → 결과/약점 독립 화면. 기존 음성·마이크·채점·즉시교정·약점 저장 보존
+- [ ] **A9. 내 학습 — BLOCKED BY A8 USER VERIFY/PROCEED** — dashboard 목차 → 최근/즐겨찾기/약점/mastery 개별 화면
 - [ ] **A10. 홈/검색** — 검색 결과에서 목적지 상세로 직접 들어가되 같은 navigation shell 사용
 
 ## 완료 Gate
@@ -530,7 +530,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**A7 사용자 Preview 검수 또는 다음 단계 진행 승인 → A8 Oral → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
+**A8 사용자 Preview 검수 또는 다음 단계 진행 승인 → A9 내 학습 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
 
 
 ## A2 회귀 복구 Gate — 2026-09-27
@@ -656,6 +656,26 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - Cloudflare Preview 배포 PASS
 - TinyFish 미사용
 - 사용자 Preview 승인 또는 다음 단계 진행 승인 전 A7 COMPLETE 처리 금지
+
+### v11.50 · A8 Oral Viva Drilldown 3.1 — AUTOMATED PASS / USER VERIFY PENDING
+- 기존 한 화면 Oral을 `setup → session → result` 3개 독립 drill screen으로 분리
+- setup: 부위 / 시험관 수준 / 질문 분야 / 음성 선택
+- session: 현재 질문 / 자유답변 / 마이크 / 질문 다시 듣기 / 채점·교정 / 즉시 교정질문 / 꼬리질문
+- result: 정답·부분정답·보완 필요 요약 + 취약 질문 분야 + 다시 볼 근육
+- 기존 `mskOralProgressV2` 학습기록 구조 보존
+- 기존 friend / colleague / senior / master 시험관 말투와 채점 threshold 보존
+- 기존 SpeechRecognition / TTS / 직접입력 fallback 보존
+- 질문별 grade/score를 세션 메모리에 기록해 결과화면 약점 집계에 사용
+- result는 terminal history replace 처리하여 browser back이 Oral 설정으로 복귀
+- 근육 직접 진입 `startOralForMuscle(m001)`은 흉쇄유돌근 집중 Viva 문맥 유지
+- Global QA / Stage 15~23A static QA PASS
+- Playwright: 첫 문제 의도적 오답 → 즉시 교정질문 → 나머지 정답 → 결과·약점 화면 PASS
+- Playwright: 결과 → browser back → setup PASS
+- Playwright: m001 직접 Viva → fixed muscle context PASS
+- Cloudflare Preview 배포 PASS
+- TinyFish 미사용
+- 사용자 Preview 승인 또는 다음 단계 진행 승인 전 A8 COMPLETE 처리 금지
+- A9는 A8 사용자 확인/진행 승인 전 시작 금지
 
 ### v11.47 · A5 Clinical Direct Route Lock — AUTOMATED PASS / LIVE PREVIEW PASS / USER VERIFY PENDING
 - A5 Runtime E2E 상세 계약 강화: 10개 모듈의 감별/진찰/초음파 첫 상세에서 필수 필드 전수 확인
