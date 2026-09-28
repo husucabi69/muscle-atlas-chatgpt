@@ -282,6 +282,57 @@ try{
   if(ultrasoundViewTotal!==131)fail('A6 canonical ultrasound total = 131',String(ultrasoundViewTotal));
   pass('A6 canonical ultrasound total',String(ultrasoundViewTotal));
 
+  await page.locator('.tab[data-page="quiz"]').click();
+  await page.waitForFunction(()=>!document.querySelector('#quizSetupView')?.hidden,{timeout:5000});
+  if(!await visible('#quizSetupView'))fail('A7 quiz setup visible after tab entry');
+  if(await page.locator('#quizClinicalModuleChooser .clinical-quiz-start').count()!==10)fail('A7 clinical quiz module starter count = 10');
+
+  await page.locator('#quizRegion').selectOption({label:'경추·후두하부'});
+  await page.locator('#quizType').selectOption('origin');
+  await page.locator('#quizDirection').selectOption('forward');
+  await page.locator('#quizSetupView button').filter({hasText:'새 10문제 시작'}).click();
+  await page.waitForFunction(()=>!document.querySelector('#quizSessionView')?.hidden,{timeout:5000});
+  if(!await visible('#quizSessionView'))fail('A7 quiz session visible after start');
+  if(await visible('#quizSetupView'))fail('A7 setup hidden during session');
+  if(await page.locator('#quizArea .quiz-option').count()!==4)fail('A7 quiz question exposes four options');
+
+  const expectedSessionLength=await page.evaluate(()=>quizSession.length);
+  if(expectedSessionLength<1||expectedSessionLength>10)fail('A7 quiz session length valid',String(expectedSessionLength));
+  for(let i=0;i<expectedSessionLength;i++){
+    const options=page.locator('#quizArea .quiz-option');
+    if(await options.count()!==4)fail('A7 question keeps four options','question '+(i+1));
+    await options.first().click();
+    const feedback=(await page.locator('#quizFeedback').textContent()||'').trim();
+    if(!feedback)fail('A7 answer feedback visible','question '+(i+1));
+    const next=page.locator('#quizNext');
+    if(!await next.isVisible())fail('A7 next button visible after answer','question '+(i+1));
+    await next.click();
+    if(i<expectedSessionLength-1){
+      await page.waitForFunction(()=>!document.querySelector('#quizSessionView')?.hidden,{timeout:3000});
+    }
+  }
+  await page.waitForFunction(()=>!document.querySelector('#quizResultView')?.hidden,{timeout:5000});
+  if(!await visible('#quizResultView'))fail('A7 result screen visible after session');
+  if(await visible('#quizSessionView'))fail('A7 session hidden on result screen');
+  const resultText=(await page.locator('#quizResultContent').textContent()||'').trim();
+  if(!resultText.includes('완료'))fail('A7 result includes completion score',resultText);
+  if(!resultText.includes('새 세션 설정'))fail('A7 result exposes new-session action',resultText);
+
+  await page.goBack();
+  await page.waitForFunction(()=>!document.querySelector('#quizSetupView')?.hidden,{timeout:5000});
+  if(!await visible('#quizSetupView'))fail('A7 browser back result to setup');
+
+  await page.locator('#quizClinicalModuleChooser [data-quiz-module="cervical"]').click();
+  await page.waitForFunction(()=>!document.querySelector('#quizSessionView')?.hidden,{timeout:7000});
+  if(!await visible('#quizSessionView'))fail('A7 cervical clinical quiz enters common session');
+  const quizCrumb=(await page.locator('#quizSessionBreadcrumb').textContent()||'').trim();
+  if(!quizCrumb.includes('경추 임상'))fail('A7 clinical quiz session label preserved',quizCrumb);
+  if(await page.locator('#quizArea .quiz-option').count()!==4)fail('A7 clinical quiz exposes four options');
+  await page.goBack();
+  await page.waitForFunction(()=>!document.querySelector('#quizSetupView')?.hidden,{timeout:5000});
+  if(!await visible('#quizSetupView'))fail('A7 browser back clinical session to setup');
+  pass('A7 quiz setup/session/result hierarchy');
+
   const stableSearchCases=[
     {id:'ct082',selector:'#clinical-test-ct082',label:'clinical test Stable ID'},
     {id:'d089',selector:'#diagnosis-concept-d089',label:'diagnosis concept Stable ID'},
@@ -325,10 +376,10 @@ try{
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
-  pass('No runtime errors during anatomy, clinical and ultrasound click sweep');
+  pass('No runtime errors during anatomy, clinical, ultrasound and quiz click sweep');
 
   console.log('\n--- RUNTIME NAVIGATION E2E ---');
-  console.log('PASS | anatomy 14 regions + clinical 10 modules + ultrasound 10 regions/131 views + Stable ID/direct-flow hierarchical click-through');
+  console.log('PASS | anatomy 14 regions + clinical 10 modules + ultrasound 10 regions/131 views + quiz setup/session/result + Stable ID/direct-flow hierarchical click-through');
 }finally{
   await browser.close();
 }
