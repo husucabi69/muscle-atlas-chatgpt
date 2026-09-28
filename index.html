@@ -489,36 +489,53 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 <section id="oral" class="page">
-  <div class="section-title"><h3>오랄 테스트 · Real Viva</h3><span>해부학 → 기능추론 → 촉진 → 임상 → 초음파</span></div>
-  <div class="card">
-    <h3>친구 · 동료 · 선배 · 대가가 실제로 묻는 방식</h3>
-    <p>O/I/F/N만 반복하지 않습니다. 기본 해부학, 설명을 듣고 근육 맞히기, 촉진·MMT, 관련 증상과 감별, 초음파 view까지 섞어서 묻고 답변 직후 시험관 스타일로 교정합니다.</p>
-    <div class="oral-controls">
-      <div><label>부위</label><select id="oralRegion"><option value="all">전체 부위</option></select></div>
-      <div><label>시험관</label><select id="oralLevel" onchange="updateOralVoiceStatus()"><option value="friend">친구 · 편하게 확인</option><option value="colleague" selected>동료 · 실전 체크</option><option value="senior">선배 · 이유까지 추궁</option><option value="master">대가 · 통합 viva</option></select></div>
-      <div><label>질문 분야</label><select id="oralField"><option value="mixed">완전 혼합</option><option value="anatomy">기시·정지·신경</option><option value="function">기능·움직임</option><option value="exam">촉진·MMT</option><option value="clinical">증상·감별</option><option value="ultrasound">초음파 연결</option><option value="comparison">비슷한 근육 비교</option><option value="scenario">임상 시나리오</option><option value="reverse">설명 보고 근육 맞히기</option></select></div>
-      <button class="primary" onclick="clearOralFixed();startOralSession()">10문제 시작</button>
-    </div>
-    <div class="oral-voice-panel">
-      <div>
-        <label for="oralVoiceSelect">질문·피드백 음성</label>
-        <select id="oralVoiceSelect" onchange="saveOralVoicePreference()">
-          <option value="auto">자동 추천 · 자연스러운 한국어 음성 우선</option>
-        </select>
+  <div id="oralSetupView" class="drill-screen" data-drill-group="oral" data-drill-view="setup">
+    <div class="section-title"><h3>오랄 테스트 · Real Viva</h3><span>해부학 → 기능추론 → 촉진 → 임상 → 초음파</span></div>
+    <div class="card">
+      <h3>1단계 · 모드 / 부위 선택</h3>
+      <p>친구·동료·선배·대가의 질문 방식과 질문 분야를 고른 뒤 구술시험을 시작합니다. 기존 채점·즉시 교정·약점 저장 로직은 그대로 유지합니다.</p>
+      <div class="oral-controls">
+        <div><label>부위</label><select id="oralRegion"><option value="all">전체 부위</option></select></div>
+        <div><label>시험관</label><select id="oralLevel" onchange="updateOralVoiceStatus()"><option value="friend">친구 · 편하게 확인</option><option value="colleague" selected>동료 · 실전 체크</option><option value="senior">선배 · 이유까지 추궁</option><option value="master">대가 · 통합 viva</option></select></div>
+        <div><label>질문 분야</label><select id="oralField"><option value="mixed">완전 혼합</option><option value="anatomy">기시·정지·신경</option><option value="function">기능·움직임</option><option value="exam">촉진·MMT</option><option value="clinical">증상·감별</option><option value="ultrasound">초음파 연결</option><option value="comparison">비슷한 근육 비교</option><option value="scenario">임상 시나리오</option><option value="reverse">설명 보고 근육 맞히기</option></select></div>
+        <button class="primary" type="button" onclick="clearOralFixed();startOralSession()">10문제 시작</button>
       </div>
-      <button class="pill" type="button" onclick="previewOralVoice()">음성 미리듣기</button>
-      <div id="oralVoiceStatus" class="oral-voice-status">한국어 음성을 확인하는 중입니다.</div>
+      <div class="oral-voice-panel">
+        <div>
+          <label for="oralVoiceSelect">질문·피드백 음성</label>
+          <select id="oralVoiceSelect" onchange="saveOralVoicePreference()">
+            <option value="auto">자동 추천 · 자연스러운 한국어 음성 우선</option>
+          </select>
+        </div>
+        <button class="pill" type="button" onclick="previewOralVoice()">음성 미리듣기</button>
+        <div id="oralVoiceStatus" class="oral-voice-status">한국어 음성을 확인하는 중입니다.</div>
+      </div>
     </div>
+    <div class="note"><b>음성 사용 안내</b><br>음성인식은 지원되는 기기에서 선택적으로 사용합니다. 환자 이름·차트번호·진료내용 같은 민감정보는 말하지 마세요.</div>
   </div>
-  <div class="quiz-stats">
-    <div class="quiz-stat"><span>이번 문제</span><b id="oralProgress">0/0</b></div>
-    <div class="quiz-stat"><span>정답</span><b id="oralCorrect">0</b></div>
-    <div class="quiz-stat"><span>부분정답</span><b id="oralPartial">0</b></div>
-    <div class="quiz-stat"><span>보완 필요</span><b id="oralWrong">0</b></div>
+
+  <div id="oralSessionView" class="drill-screen" data-drill-group="oral" data-drill-view="session" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="oralBack()">← Oral 설정</button>
+      <span class="crumb" id="oralSessionBreadcrumb">Oral › 세션</span>
+    </div>
+    <div class="note"><b>2단계 · 구술 세션</b><br>현재 질문, 답변 입력, 시험관 피드백과 즉시 교정질문만 표시됩니다.</div>
+    <div class="quiz-stats">
+      <div class="quiz-stat"><span>이번 문제</span><b id="oralProgress">0/0</b></div>
+      <div class="quiz-stat"><span>정답</span><b id="oralCorrect">0</b></div>
+      <div class="quiz-stat"><span>부분정답</span><b id="oralPartial">0</b></div>
+      <div class="quiz-stat"><span>보완 필요</span><b id="oralWrong">0</b></div>
+    </div>
+    <div id="oralArea" class="quiz-card"><div class="oral-question">질문을 준비하는 중입니다.</div></div>
   </div>
-  <div id="oralArea" class="quiz-card">
-    <div class="oral-question">부위와 시험관 수준을 고른 뒤 시작하십시오.</div>
-    <p style="color:var(--muted);line-height:1.8">음성은 브라우저의 SpeechRecognition이 지원되는 경우에만 선택적으로 사용합니다. 정답 채점은 Atlas 안에서 수행하지만, 음성을 글자로 바꾸는 과정은 기기·브라우저 제공자의 음성인식 서비스를 사용할 수 있습니다. 민감한 환자정보는 말하지 마세요.</p>
+
+  <div id="oralResultView" class="drill-screen" data-drill-group="oral" data-drill-view="result" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="oralBack()">← Oral 설정</button>
+      <span class="crumb">Oral › 결과·약점</span>
+    </div>
+    <div class="note"><b>3단계 · 결과 / 약점</b><br>정답·부분정답·보완 필요와 이번 세션에서 취약했던 근육·질문 분야를 따로 봅니다.</div>
+    <div id="oralResultContent"></div>
   </div>
 </section>
 
@@ -1931,7 +1948,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);if(btn.dataset.page==='quiz')showQuizSetup(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);if(btn.dataset.page==='quiz')showQuizSetup(true);if(btn.dataset.page==='oral')showOralSetup(true,true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>{
@@ -3157,6 +3174,7 @@ function activatePage(pageId){
   if(pageId==='clinical')showClinicalModules(false);
   if(pageId==='ultrasound')showUltrasoundAtlasRegions(false);
   if(pageId==='quiz')showQuizSetup(false);
+  if(pageId==='oral')showOralSetup(false,false);
   showPage(pageId);
   if(learningFlowContext.muscleId)learningFlowContext.sourcePage=pageId;
   if(pageId==='learning')renderLearningDashboard();
@@ -3533,7 +3551,82 @@ const oralCoachProfiles={
   probe:['그럼 이제 제가 한 단계 더 묻겠습니다. ','좋습니다. 반대 관점에서 다시 보죠. ','이 구조를 영상과 진찰에서 어떻게 확인합니까? ','그 답이 틀릴 수 있는 상황은 무엇입니까? ']
  }
 };
-let oralSession=[],oralIndex=0,oralCorrect=0,oralPartial=0,oralWrong=0,oralRecognition=null,oralListening=false,oralFixedMuscleId=null;
+let oralSession=[],oralIndex=0,oralCorrect=0,oralPartial=0,oralWrong=0,oralRecognition=null,oralListening=false,oralFixedMuscleId=null,restoringOralHistory=false,oralSessionLabel='';
+function setOralView(view){
+  const map={setup:'oralSetupView',session:'oralSessionView',result:'oralResultView'};
+  if(!map[view])return null;
+  return setDrillView('oral',view);
+}
+function recordOralHistory(level,mode='push'){
+  if(restoringOralHistory)return;
+  const state={lysPage:'oral',oralLevel:level,oralFixedMuscleId:oralFixedMuscleId||null};
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
+}
+function oralSessionDescriptor(){
+  if(oralFixedMuscleId&&byId[oralFixedMuscleId])return byId[oralFixedMuscleId].ko+' 집중 Viva';
+  const region=document.getElementById('oralRegion')?.selectedOptions?.[0]?.text||'전체 부위';
+  const level=document.getElementById('oralLevel')?.selectedOptions?.[0]?.text||'동료';
+  return region+' · '+level;
+}
+function showOralSetup(record=true,clearFixed=false){
+  stopOralSpeech();
+  if(clearFixed)oralFixedMuscleId=null;
+  setOralView('setup');
+  updateOralVoiceStatus();
+  if(record)recordOralHistory('setup');
+}
+function beginOralSession(record=true){
+  oralSessionLabel=oralSessionDescriptor();
+  showPage('oral');
+  setOralView('session');
+  const crumb=document.getElementById('oralSessionBreadcrumb');
+  if(crumb)crumb.textContent='Oral › '+oralSessionLabel;
+  if(record)recordOralHistory('session');
+  renderOralQuestion();
+}
+function renderOralResult(){
+  stopOralSpeech();
+  const host=document.getElementById('oralResultContent');if(!host)return;
+  const graded=oralSession.filter(q=>q.grade);
+  const weakQuestions=graded.filter(q=>q.grade!=='correct');
+  const weakIds=[...new Set(weakQuestions.map(q=>q.muscleId).filter(Boolean))];
+  const weakMuscles=weakIds.map(id=>byId[id]).filter(Boolean);
+  const categoryCounts={};
+  for(const q of weakQuestions)categoryCounts[q.category]=(categoryCounts[q.category]||0)+1;
+  const categoryLabels={anatomy:'해부학',function:'기능',exam:'촉진·MMT',clinical:'임상·감별',ultrasound:'초음파',comparison:'비교',scenario:'시나리오',reverse:'역방향',repair:'즉시교정'};
+  const weakCategories=Object.entries(categoryCounts).sort((a,b)=>b[1]-a[1]);
+  host.innerHTML='<div class="card"><div class="oral-question">완료 · 정답 '+oralCorrect+' / 부분 '+oralPartial+' / 보완 '+oralWrong+'</div>'+
+    '<p style="color:var(--muted);line-height:1.8">'+(weakQuestions.length?'이번 세션에서 다시 볼 항목 '+weakQuestions.length+'개가 있습니다.':'이번 세션은 보완 항목 없이 마쳤습니다.')+'</p></div>'+
+    (weakCategories.length?'<div class="section-title"><h3>취약 질문 분야</h3><span>'+weakCategories.length+'개 분야</span></div><div class="region-list">'+weakCategories.map(([cat,count])=>'<div class="region-muscle oral-weak-category"><b>'+esc(categoryLabels[cat]||cat)+'</b><small>부분정답·보완 필요 '+count+'회</small></div>').join('')+'</div>':'')+
+    (weakMuscles.length?'<div class="section-title"><h3>다시 볼 근육</h3><span>'+weakMuscles.length+'개</span></div><div class="region-list">'+weakMuscles.map(m=>'<button type="button" class="region-muscle oral-weak-muscle" data-oral-weak="'+esc(m.id)+'" onclick="openMuscle(\''+m.id+'\')"><b>'+esc(m.ko)+'</b><small>'+esc(m.en)+' · '+esc(m.id)+'</small></button>').join('')+'</div>':'')+
+    '<div class="quiz-actions"><button class="primary" type="button" onclick="showOralSetup(true,true)">새 Viva 설정</button></div>';
+  setOralView('result');
+  recordOralHistory('result','replace');
+}
+function oralBack(){
+  stopOralSpeech();
+  const state=history.state;
+  if(state?.lysPage==='oral'&&['session','result'].includes(state.oralLevel)){history.back();return;}
+  showOralSetup(false,true);
+}
+window.addEventListener('popstate',event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='oral')return;
+  restoringOralHistory=true;
+  stopOralSpeech();
+  showPage('oral');
+  oralFixedMuscleId=state.oralFixedMuscleId||null;
+  if(state.oralLevel==='session'&&oralSession.length&&oralIndex<oralSession.length){
+    setOralView('session');
+    const crumb=document.getElementById('oralSessionBreadcrumb');
+    if(crumb)crumb.textContent='Oral › '+(oralSessionLabel||oralSessionDescriptor());
+    renderOralQuestion();
+  }else{
+    showOralSetup(false,!state.oralFixedMuscleId);
+  }
+  restoringOralHistory=false;
+});
 function oralState(){try{return JSON.parse(localStorage.getItem(ORAL_KEY))||{history:{},wrong:{}}}catch(e){return{history:{},wrong:{}}}}
 function saveOralState(s){localStorage.setItem(ORAL_KEY,JSON.stringify(s));renderLearningDashboard();}
 function oralWeaknessScores(){
@@ -3719,7 +3812,9 @@ function startOralSession(){
   if(oralFixedMuscleId&&byId[oralFixedMuscleId])pool=[byId[oralFixedMuscleId]];
   const chosen=oralFixedMuscleId?Array.from({length:10},()=>pool[0]):chooseOralSessionMuscles(pool,Math.min(10,pool.length));
   oralSession=chosen.map(m=>makeOralQuestion(m,level,field)).filter(Boolean);
-  oralIndex=0;oralCorrect=0;oralPartial=0;oralWrong=0;renderOralQuestion();
+  if(!oralSession.length){showOralSetup(false,false);return;}
+  oralIndex=0;oralCorrect=0;oralPartial=0;oralWrong=0;
+  beginOralSession(true);
 }
 function startOralForMuscle(id){
   oralFixedMuscleId=id;setLearningFlowContext({muscleId:id,sourcePage:'oral',step:'viva'});cleanupLearningOverlays();activatePage('oral');
@@ -3890,8 +3985,8 @@ function previewOralVoice(){
 function renderOralQuestion(){
   updateOralStats();const area=document.getElementById('oralArea');
   if(oralIndex>=oralSession.length){
-    area.innerHTML='<div class="oral-question">완료 · 정답 '+oralCorrect+' / 부분 '+oralPartial+' / 보완 '+oralWrong+'</div><p style="color:var(--muted)">틀린 항목은 기기에 남습니다. 같은 근육을 다시 묻거나 다른 시험관으로 바꿔 반복할 수 있습니다.</p><div class="quiz-actions"><button class="primary" onclick="clearOralFixed();startOralSession()">새 10문제</button></div>';
-    document.getElementById('oralProgress').textContent=oralSession.length+'/'+oralSession.length;return;
+    document.getElementById('oralProgress').textContent=oralSession.length+'/'+oralSession.length;
+    renderOralResult();return;
   }
   const q=oralSession[oralIndex],m=byId[q.muscleId];
   area.innerHTML='<div style="color:var(--muted);font-size:14px">문제 '+(oralIndex+1)+' / '+oralSession.length+' · '+esc(m.region)+' · '+esc(document.getElementById('oralLevel').selectedOptions[0].text)+' · '+esc(q.category)+'</div>'+
@@ -3919,6 +4014,7 @@ function gradeOralAnswer(){
   const score=details.length?details.reduce((s,x)=>s+x.score,0)/details.length:0;
   const allComplete=details.every(x=>x.complete&&x.score>=threshold);
   let grade=allComplete?'correct':score>=Math.max(.25,threshold*.52)?'partial':'wrong';if(!answer)grade='wrong';
+  q.grade=grade;q.gradeScore=Number(score.toFixed(2));q.missing=details.flatMap(d=>d.missing||[]);
   if(grade==='correct')oralCorrect++;else if(grade==='partial')oralPartial++;else oralWrong++;
   const state=oralState(),key=q.muscleId+':'+q.category+':'+q.fields.join('+');
   state.history[key]={last:Date.now(),grade,score:Number(score.toFixed(2)),level:q.level};
