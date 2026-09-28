@@ -218,7 +218,8 @@ check('A6 ultrasound hierarchy has regions views detail screens',
 check('A6 ultrasound root exposes canonical region chooser',
   index.includes('function renderUltrasoundAtlasRegions()') &&
   index.includes('id="ultrasoundAtlasRegionChooser"') &&
-  index.includes('10개 부위')===false
+  index.includes('data-ultrasound-module="') &&
+  ['shoulder','elbow','wristHand','hipPelvis','kneeThigh','legAnkleFoot','cervical','thoracic','lumbarSacral','abdominalCore'].every(key=>index.includes(key+':{label:'))
 );
 check('A6 ultrasound region opens canonical view-only list',
   index.includes('async function openUltrasoundAtlasRegion(moduleKey,record=true)') &&
