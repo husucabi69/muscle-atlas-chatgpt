@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.09.28-stage23b-realistic-a",
+  "style_lock": {
+    "status": "USER_APPROVED",
+    "approved_on": "2026-09-28",
+    "name": "clinical_photoreal_patient_education_v1",
+    "description": "실제 사람처럼 보이는 고품질 의료·재활 환자교육용 디지털 일러스트. 한 장 안에 1·시작 / 2·끝 두 패널, 움직임 방향, 고정·지지, 피할 보상동작을 명확히 표시.",
+    "required": [
+      "realistic human adult",
+      "same person in start/end",
+      "two-panel start/end",
+      "clean clinical white background",
+      "movement arrows",
+      "support/fixation cue",
+      "common-error caution",
+      "Korean labels",
+      "mobile readable",
+      "A4 printable"
+    ],
+    "forbidden": [
+      "stick figure final",
+      "abstract geometric human final",
+      "chibi",
+      "fantasy style",
+      "unlicensed internet photo",
+      "watermark",
+      "identifiable real patient"
+    ]
+  },
+  "asset_policy": {
+    "final_format": "webp",
+    "source_generation": "OpenAI image generation or explicitly licensed/owned photography",
+    "one_composite_per_profile": true,
+    "fallback": "existing SVG only while realistic asset is pending or fails to load",
+    "production_gate": "All 18 actionable profiles must be approved before SVG fallback may be removed."
+  },
+  "profiles": [
+    {
+      "profile_id": "px001",
+      "title_ko": "목 스트레칭",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "목 스트레칭 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px002",
+      "title_ko": "턱 당기기",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "턱 당기기 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px003",
+      "title_ko": "밴드 로우",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "밴드 로우 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px004",
+      "title_ko": "어깨 외회전",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "어깨 외회전 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px005",
+      "title_ko": "문틀 스트레칭",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "문틀 스트레칭 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px006",
+      "title_ko": "손목 운동",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "손목 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px007",
+      "title_ko": "손가락 운동",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "손가락 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px008",
+      "title_ko": "고관절 외전",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "고관절 외전 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px009",
+      "title_ko": "스쿼트",
+      "status": "STYLE_REFERENCE_APPROVED",
+      "composite_url": null,
+      "alt_text": "스쿼트 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": "사용자가 승인한 스쿼트 샘플의 스타일을 전체 18개 운동의 기준으로 사용. 샘플 자체는 아직 앱 asset으로 저장되지 않음."
+    },
+    {
+      "profile_id": "px010",
+      "title_ko": "브리지",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "브리지 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px011",
+      "title_ko": "뒤꿈치 들기",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "뒤꿈치 들기 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px012",
+      "title_ko": "한발 균형",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "한발 균형 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px013",
+      "title_ko": "족저·발목 스트레칭",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "족저·발목 스트레칭 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px014",
+      "title_ko": "버드독",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "버드독 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px015",
+      "title_ko": "흉추 회전",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "흉추 회전 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px016",
+      "title_ko": "호흡 운동",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "호흡 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px017",
+      "title_ko": "팔꿈치 굽힘",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "팔꿈치 굽힘 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    },
+    {
+      "profile_id": "px018",
+      "title_ko": "데드버그",
+      "status": "PENDING_GENERATION",
+      "composite_url": null,
+      "alt_text": "데드버그 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
+      "review_note": ""
+    }
+  ]
+}
