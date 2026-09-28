@@ -245,6 +245,51 @@ check('A6 preserves canonical ultrasound field contract',
   ['환자 자세','Probe 위치·방향','Landmark','정상 확인','Pitfall / 주의','Stable ID'].every(x=>index.includes(x))
 );
 
+check('A7 quiz hierarchy has setup session result screens',
+  ['setup','session','result'].every(view=>index.includes('data-drill-group="quiz" data-drill-view="'+view+'"'))
+);
+check('A7 quiz setup preserves region type direction controls',
+  ['id="quizRegion"','id="quizType"','id="quizDirection"'].every(x=>index.includes(x)) &&
+  index.includes('id="quizClinicalModuleChooser"')
+);
+check('A7 quiz setup exposes all 10 clinical module starters',
+  ['shoulder','elbow','wristHand','hipPelvis','kneeThigh','legAnkleFoot','cervical','thoracic','lumbarSacral','abdominalCore']
+    .every(key=>index.includes('data-quiz-module="'+key+'"'))
+);
+check('A7 common session state replaces flat quiz rendering',
+  index.includes('function beginQuizSession(') &&
+  index.includes("setQuizView('session')") &&
+  index.includes('function renderQuizResult()') &&
+  index.includes("setQuizView('result')")
+);
+check('A7 result separates score and wrong-muscle review',
+  index.includes('id="quizResultContent"') &&
+  index.includes('quiz-missed-item') &&
+  index.includes('이번 오답')
+);
+check('A7 quiz history uses terminal result replace semantics',
+  index.includes('function recordQuizHistory(') &&
+  index.includes("recordQuizHistory('result','replace')") &&
+  index.includes("state?.lysPage==='quiz'") &&
+  index.includes("['session','result'].includes(state.quizLevel)")
+);
+check('A7 top-level entry resets to quiz setup',
+  index.includes("if(btn.dataset.page==='quiz')showQuizSetup(true)") &&
+  index.includes("if(pageId==='quiz')showQuizSetup(false)")
+);
+check('A7 muscle focus quiz enters common session',
+  index.includes("beginQuizSession('muscle',true)") &&
+  index.includes("setLearningFlowContext({muscleId:id,sourcePage:'quiz',step:'quiz'})")
+);
+check('A7 all clinical module quizzes enter common session',
+  (index.match(/beginQuizSession\('clinical',true\)/g)||[]).length===10,
+  String((index.match(/beginQuizSession\('clinical',true\)/g)||[]).length)
+);
+check('A7 preserves quiz progress storage keys',
+  index.includes("const QUIZ_KEY='mskQuizProgressV2'") &&
+  index.includes("const OLD_QUIZ_KEY='mskQuizProgressV1'")
+);
+
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 const inline=[...index.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>m[1]).join('\n');
