@@ -621,3 +621,17 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - 라이브 Preview 경추 → 진찰법 → Spurling 검사, 경추 → 초음파 → SCM·경장근 횡단면 직접 클릭 PASS
 - 사용자 실기기 Preview 승인 전 A5 COMPLETE 처리 금지
 - A6는 A5 사용자 확인 전 시작 금지
+
+### v11.47 · A5 Clinical Direct Route Lock — AUTOMATED PASS / LIVE PREVIEW PASS / USER VERIFY PENDING
+- A5 Runtime E2E 상세 계약 강화: 10개 모듈의 감별/진찰/초음파 첫 상세에서 필수 필드 전수 확인
+- 감별 상세: 지지 단서 / 반대·제한 단서 / Red flag
+- 진찰 상세: 목적 / 방법 / 양성 기준 / 해석 / 한계·흔한 오류 / Stable ID
+- 초음파 상세: 환자 자세 / Probe 위치·방향 / Landmark / 정상 확인 / Pitfall / Stable ID
+- 통합검색의 clinical_test / diagnosis_concept / ultrasound_view는 관련 근육 proxy를 거치지 않고 Stable ID 자체로 A5 상세에 직접 진입
+- 초기 데이터 로딩 타이밍에도 direct route가 실패하지 않도록 미로드 모듈을 보장 로딩 후 재해석
+- 실제 browser E2E: ct082 / d089 / usv074 검색 직접 진입 PASS
+- 근육 m001 → 임상 흐름 계속 → A5 단일 상세 + muscle_id 문맥 유지 PASS
+- Global QA run 36376511768 SUCCESS
+- Cloudflare Preview 배포 SUCCESS
+- 라이브 Preview에서 ct082 / d089 / usv074 직접 검색·진입 검수 PASS
+- A5는 사용자 실기기 승인 전까지 USER PREVIEW VERIFY PENDING 유지
