@@ -208,6 +208,42 @@ check('Clinical Stable ID routing tolerates pre-load timing',
   index.includes('route=clinicalModuleForStableItem(type,id)')
 );
 
+check('A6 ultrasound top-level page exists',
+  index.includes('data-page="ultrasound"') &&
+  index.includes('<section id="ultrasound" class="page">')
+);
+check('A6 ultrasound hierarchy has regions views detail screens',
+  ['regions','views','detail'].every(view=>index.includes('data-drill-group="ultrasound" data-drill-view="'+view+'"'))
+);
+check('A6 ultrasound root exposes canonical region chooser',
+  index.includes('function renderUltrasoundAtlasRegions()') &&
+  index.includes('id="ultrasoundAtlasRegionChooser"') &&
+  index.includes('10개 부위')===false
+);
+check('A6 ultrasound region opens canonical view-only list',
+  index.includes('async function openUltrasoundAtlasRegion(moduleKey,record=true)') &&
+  index.includes("setUltrasoundAtlasView('views')") &&
+  index.includes('ultrasoundAtlasViewsForModule(moduleKey)')
+);
+check('A6 ultrasound view opens single detail using shared canonical renderer',
+  index.includes('async function openUltrasoundAtlasView(viewId,record=true)') &&
+  index.includes("setUltrasoundAtlasView('detail')") &&
+  index.includes('clinicalUltrasoundDetailHtml(view,moduleKey)')
+);
+check('A6 ultrasound history restores hierarchy',
+  index.includes('function recordUltrasoundAtlasHistory(') &&
+  index.includes('ultrasoundViewId:selectedUltrasoundAtlasViewId') &&
+  index.includes("state.ultrasoundLevel==='detail'") &&
+  index.includes('await openUltrasoundAtlasView(state.ultrasoundViewId,false)')
+);
+check('A6 top-level entry resets to ultrasound root',
+  index.includes("if(pageId==='ultrasound')showUltrasoundAtlasRegions(false)") &&
+  index.includes("if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true)")
+);
+check('A6 preserves canonical ultrasound field contract',
+  ['환자 자세','Probe 위치·방향','Landmark','정상 확인','Pitfall / 주의','Stable ID'].every(x=>index.includes(x))
+);
+
 check('Canonical muscles remain 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 const inline=[...index.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>m[1]).join('\n');
