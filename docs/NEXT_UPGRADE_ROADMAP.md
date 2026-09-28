@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **REGRESSION RECOVERY — A2 v11.14 EXACT FLOW AUTOMATED PASS / USER PREVIEW VERIFY PENDING · A5 BLOCKED**
+상태: **A2 COMPLETE — v11.14 EXACT FLOW AUTOMATED PASS / LIVE PREVIEW PASS / USER DEVICE PREVIEW PASS · A5 NEXT**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -428,10 +428,10 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 ## 적용 순서
 - [x] **A1. 공통 navigation shell / view-state / history contract** — drill screen 공통 전환·viewport reset·history helper
-- [ ] **A2. 해부학 부위 — USER VERIFY PENDING** — root cause 수정 및 14개 부위 browser E2E PASS. 실제 Preview 실기기 확인 후 다시 완료
+- [x] **A2. 해부학 부위 — COMPLETE** — root cause 수정, 14개 부위 × 5탭 browser E2E PASS, Live Preview PASS, 사용자 실기기 Preview 확인 완료
 - [x] **A3. 환자 운동·스트레칭** — 부위만 → 근육만 → 운동목차 → 운동 1개 상세 독립 화면
 - [x] **A4. 증상으로 찾기** — 증상군만 → 증상만 → 관련 구조/감별 학습목차 → 선택 상세 독립 화면
-- [ ] **A5. 임상 모듈** — 부위/모듈 목차 → 검사/감별/초음파 목차 → 상세
+- [ ] **A5. 임상 모듈 — NEXT** — 부위/모듈 목차 → 검사/감별/초음파 목차 → 상세
 - [ ] **A6. 초음파** — 부위/구조 목차 → canonical view 목록 → view 상세
 - [ ] **A7. 퀴즈** — 모드/부위 선택 화면 → 세션 화면 → 결과/오답 화면
 - [ ] **A8. Oral Viva** — 모드/부위 선택 화면 → 세션 화면 → 결과/약점 화면
@@ -591,7 +591,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - [ ] 실제 Preview 사용자 시각 확인
 
 
-### v11.45 v11.14 anatomy contract lock — AUTOMATED PASS / LIVE PREVIEW PASS / USER DEVICE VERIFY PENDING
+### v11.45 v11.14 anatomy contract lock — COMPLETE / USER DEVICE PREVIEW PASS
 - v11.14 기준 SHA: `e6dc0492a4d16d0536e15db3f6162b8ec57ee757`
 - anatomy 계층은 **부위 → 근육 목록 → 근육 상세** 3단계만 독립 화면
 - 근육 클릭 즉시 **기본정보** 활성
@@ -603,4 +603,5 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - Global QA PASS
 - Playwright 390×844 실제 브라우저: 14개 부위 전수 → 근육목록 → 첫 근육 → 각 5개 탭 전수 전환 → 실제 browser back 2단계 검증
 - runtime error 0
-- 최종 닫기 조건: 실제 Preview에서 의장님 시각 확인
+- 사용자 실기기 Preview 확인 완료 — 2026-09-28
+- A2 COMPLETE. 다음 작업선은 A5 임상 모듈.
