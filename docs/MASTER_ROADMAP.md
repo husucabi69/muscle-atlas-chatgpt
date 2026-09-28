@@ -113,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
-- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (**A2 COMPLETE / A5 AUTOMATED+LIVE PREVIEW PASS / USER PREVIEW VERIFY PENDING / A6 BLOCKED**)**
+- 현재 개발: **Stage 23A — Full Hierarchical Navigation 3.1 (A5 CLOSED / USER PROCEED AUTHORIZED · A6 AUTOMATED PASS / USER PREVIEW VERIFY PENDING)**
 - 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
@@ -868,4 +868,20 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - ct082 / d089 / usv074 통합검색 직접 진입 browser E2E PASS
 - m001 근육 임상흐름 → A5 상세 문맥 유지 PASS
 - Global QA + Runtime E2E + Cloudflare Preview + Live Preview PASS
-- 사용자 실기기 승인 전 A5 COMPLETE 금지 / A6 BLOCKED 유지
+- 2026-09-28 사용자 `다음 작업 진행` 지시로 A5 다음 단계 진입 승인. 별도 A5 실기기 시각 PASS로 오기하지 않음
+
+### v11.48 · Stage 23A A6 Ultrasound Drilldown 3.1 — 2026-09-28
+- 독립 top-level 초음파 탭 신설
+- 계층: 10개 부위/구조 → canonical view 목록 → 단일 view 상세
+- canonical ultrasound 131개 source of truth 유지
+- 각 부위에 view 수 + 연결 target structure 수/요약 표시
+- 상세 renderer는 A5 canonical ultrasound detail과 공유하여 중복 구현 방지
+- 기존 v11.14 해부학 근육 상세의 초음파 가로탭은 보존
+- 기존 A5 임상 초음파 경로도 보존
+- browser back: 상세 → view 목록 → 부위/구조
+- Stage 15~23A static QA PASS
+- Playwright Runtime E2E: 10개 부위 전수 / 첫 view 상세 필수필드 / 총 131 canonical view PASS
+- Cloudflare Preview 배포 PASS
+- TinyFish 미사용. 자동 browser 검증은 GitHub Actions Playwright E2E로 고정
+- 사용자 실기기 Preview 승인 전 A6 COMPLETE 금지
+- A7 퀴즈 계층화는 A6 승인 후 진행
