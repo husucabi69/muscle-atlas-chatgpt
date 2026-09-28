@@ -188,6 +188,14 @@ try{
       if(await visible('#clinicalListView'))fail('Clinical list hidden while detail visible',mod.label+' / '+topic);
       const detailText=(await page.locator('#clinicalDetailContent').textContent()||'').trim();
       if(!detailText)fail('Clinical detail content non-empty',mod.label+' / '+topic+' / '+itemId);
+      const requiredByTopic={
+        differential:['지지 단서','반대·제한 단서','Red flag / 안전 경계'],
+        exam:['목적','방법','양성 기준','해석','한계 / 흔한 오류','Stable ID'],
+        ultrasound:['환자 자세','Probe 위치·방향','Landmark','정상 확인','Pitfall / 주의','Stable ID']
+      };
+      for(const required of requiredByTopic[topic]||[]){
+        if(!detailText.includes(required))fail('Clinical detail required field: '+required,mod.label+' / '+topic+' / '+itemId);
+      }
 
       const drill=await page.evaluate(()=>({
         group:document.documentElement.dataset.activeDrillGroup||'',
@@ -211,12 +219,53 @@ try{
     pass('Clinical drill flow',mod.label);
   }
 
+  const stableSearchCases=[
+    {id:'ct082',selector:'#clinical-test-ct082',label:'clinical test Stable ID'},
+    {id:'d089',selector:'#diagnosis-concept-d089',label:'diagnosis concept Stable ID'},
+    {id:'usv074',selector:'#ultrasound-view-usv074',label:'ultrasound view Stable ID'}
+  ];
+  for(const test of stableSearchCases){
+    await page.locator('.tab[data-page="home"]').click();
+    await page.waitForTimeout(80);
+    await page.locator('#searchBox').fill(test.id);
+    await page.waitForFunction(id=>document.querySelector('#searchResults')?.textContent?.includes(id),test.id,{timeout:5000});
+    const hit=page.locator('#searchResults .search-result-main').filter({hasText:test.id}).first();
+    if(await hit.count()!==1)fail('Stable ID search returns one clickable result',test.id);
+    await hit.click();
+    await page.waitForFunction(()=>!document.querySelector('#clinicalDetailView')?.hidden,{timeout:7000});
+    if(!await visible('#clinicalDetailView'))fail('Stable ID search opens A5 clinical detail',test.id);
+    if(await page.locator(test.selector).count()!==1)fail('Stable ID target rendered in clinical detail',test.id);
+    const state=await page.evaluate(()=>({
+      page:document.documentElement.dataset.appPage||'',
+      group:document.documentElement.dataset.activeDrillGroup||'',
+      view:document.documentElement.dataset.activeDrillView||''
+    }));
+    if(state.page!=='clinical'||state.group!=='clinical'||state.view!=='detail')fail('Stable ID direct route lands in clinical detail state',test.id+' / '+JSON.stringify(state));
+    pass('Clinical '+test.label+' direct route',test.id);
+  }
+
+  await page.locator('.tab[data-page="home"]').click();
+  await page.waitForTimeout(80);
+  await page.locator('#searchBox').fill('m001');
+  await page.waitForFunction(()=>document.querySelector('#searchResults')?.textContent?.includes('m001'),{timeout:5000});
+  await page.locator('#searchResults .search-result-main').filter({hasText:'m001'}).first().click();
+  await page.waitForFunction(()=>document.querySelector('#muscleOverlay')?.classList.contains('show'),{timeout:5000});
+  const continueButton=page.locator('#muscleOverlay button').filter({hasText:'임상 흐름 계속'}).first();
+  if(await continueButton.count()!==1)fail('Muscle detail exposes clinical-flow continuation','m001');
+  await continueButton.click();
+  await page.waitForFunction(()=>!document.querySelector('#clinicalDetailView')?.hidden,{timeout:7000});
+  if(!await visible('#clinicalDetailView'))fail('Muscle clinical flow lands in A5 single detail','m001');
+  if(!await visible('#clinicalFlowContext'))fail('Muscle context preserved in A5 clinical detail','m001');
+  const flowText=(await page.locator('#clinicalFlowContext').textContent()||'').trim();
+  if(!flowText.includes('흉쇄유돌근')||!flowText.includes('muscle_id m001'))fail('Clinical flow context keeps source muscle Stable ID',flowText);
+  pass('Muscle-to-clinical A5 direct route','m001');
+
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
   pass('No runtime errors during anatomy and clinical click sweep');
 
   console.log('\n--- RUNTIME NAVIGATION E2E ---');
-  console.log('PASS | anatomy 14 regions + clinical 10 modules hierarchical click-through');
+  console.log('PASS | anatomy 14 regions + clinical 10 modules + Stable ID/direct-flow hierarchical click-through');
 }finally{
   await browser.close();
 }
