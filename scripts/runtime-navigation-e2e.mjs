@@ -148,12 +148,75 @@ try{
     pass('Anatomy drill flow',region.label+' / '+count+' muscles');
   }
 
+  await page.locator('.tab[data-page="clinical"]').click();
+  await page.waitForFunction(()=>!document.querySelector('#clinicalRootView')?.hidden,{timeout:3000});
+  if(!await visible('#clinicalRootView'))fail('Clinical module root visible after tab entry');
+
+  const clinicalModules=await page.locator('#clinicalModuleChooser .clinical-module-choice').evaluateAll(btns=>btns.map(b=>({
+    key:b.dataset.clinicalModule||'',
+    label:(b.querySelector('b')?.textContent||'').trim()
+  })));
+  if(clinicalModules.length!==10)fail('Clinical module chooser count = 10',String(clinicalModules.length));
+  pass('Clinical module buttons captured',String(clinicalModules.length));
+
+  for(const mod of clinicalModules){
+    await page.locator('#clinicalModuleChooser .clinical-module-choice[data-clinical-module="'+mod.key+'"]').click();
+    await page.waitForFunction(()=>!document.querySelector('#clinicalMenuView')?.hidden,{timeout:5000});
+    if(!await visible('#clinicalMenuView'))fail('Clinical module menu visible',mod.label);
+
+    const topicButtons=page.locator('#clinicalModuleMenu .drill-menu-item[data-clinical-topic]');
+    if(await topicButtons.count()!==3)fail('Clinical module has three topic choices',mod.label);
+    const topicKeys=await topicButtons.evaluateAll(btns=>btns.map(b=>b.dataset.clinicalTopic));
+    if(JSON.stringify(topicKeys)!==JSON.stringify(['differential','exam','ultrasound']))fail('Clinical topic order preserved',mod.label+' / '+JSON.stringify(topicKeys));
+
+    for(const topic of topicKeys){
+      await page.locator('#clinicalModuleMenu [data-clinical-topic="'+topic+'"]').click();
+      await page.waitForFunction(()=>!document.querySelector('#clinicalListView')?.hidden,{timeout:5000});
+      if(!await visible('#clinicalListView'))fail('Clinical topic list visible',mod.label+' / '+topic);
+      await page.waitForFunction(([key,t])=>typeof clinicalTopicItems==='function'&&clinicalTopicItems(key,t).length>0,[mod.key,topic],{timeout:10000});
+
+      const expected=await page.evaluate(([key,t])=>clinicalTopicItems(key,t).length,[mod.key,topic]);
+      const items=page.locator('#clinicalItemList .clinical-item');
+      const actual=await items.count();
+      if(actual!==expected)fail('Clinical list count matches module data',mod.label+' / '+topic+' expected='+expected+' actual='+actual);
+      const first=items.first();
+      const itemId=await first.getAttribute('data-clinical-item');
+      const itemTitle=(await first.locator('b').textContent()||'').trim();
+      await first.click();
+      await page.waitForFunction(()=>!document.querySelector('#clinicalDetailView')?.hidden,{timeout:5000});
+      if(!await visible('#clinicalDetailView'))fail('Clinical single-item detail visible',mod.label+' / '+topic+' / '+itemTitle);
+      if(await visible('#clinicalListView'))fail('Clinical list hidden while detail visible',mod.label+' / '+topic);
+      const detailText=(await page.locator('#clinicalDetailContent').textContent()||'').trim();
+      if(!detailText)fail('Clinical detail content non-empty',mod.label+' / '+topic+' / '+itemId);
+
+      const drill=await page.evaluate(()=>({
+        group:document.documentElement.dataset.activeDrillGroup||'',
+        view:document.documentElement.dataset.activeDrillView||'',
+        hidden:document.documentElement.hidden
+      }));
+      if(drill.hidden||drill.group!=='clinical'||drill.view!=='detail')fail('Clinical runtime drill state is detail',JSON.stringify(drill));
+
+      await page.goBack();
+      await page.waitForFunction(()=>!document.querySelector('#clinicalListView')?.hidden,{timeout:5000});
+      if(!await visible('#clinicalListView'))fail('Browser back returns clinical detail to list',mod.label+' / '+topic);
+
+      await page.goBack();
+      await page.waitForFunction(()=>!document.querySelector('#clinicalMenuView')?.hidden,{timeout:5000});
+      if(!await visible('#clinicalMenuView'))fail('Browser back returns clinical list to module menu',mod.label+' / '+topic);
+    }
+
+    await page.goBack();
+    await page.waitForFunction(()=>!document.querySelector('#clinicalRootView')?.hidden,{timeout:5000});
+    if(!await visible('#clinicalRootView'))fail('Browser back returns clinical module menu to root',mod.label);
+    pass('Clinical drill flow',mod.label);
+  }
+
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
-  pass('No runtime errors during full anatomy click sweep');
+  pass('No runtime errors during anatomy and clinical click sweep');
 
   console.log('\n--- RUNTIME NAVIGATION E2E ---');
-  console.log('PASS | all anatomy regions -> muscle list -> first muscle -> back');
+  console.log('PASS | anatomy 14 regions + clinical 10 modules hierarchical click-through');
 }finally{
   await browser.close();
 }
