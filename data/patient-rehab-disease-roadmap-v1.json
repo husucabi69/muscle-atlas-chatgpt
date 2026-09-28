@@ -1,0 +1,211 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.09.28-stage23b-disease-rehab-a",
+  "module_id": "patient_rehab_disease_roadmap_v1",
+  "status": "MANDATORY_ROADMAP",
+  "purpose": "Representative orthopaedic disease-based patient rehabilitation education coverage. Roadmap only; clinical content requires evidence review before publication.",
+  "completion_policy": {
+    "blocks_stage_23c": true,
+    "minimum_anatomy_regions": 10,
+    "required_patient_sections": [
+      "plain_language_overview",
+      "indications_contraindications_red_flags",
+      "stretching",
+      "strengthening",
+      "lifestyle_activity_modification",
+      "common_errors",
+      "return_or_reassessment_criteria",
+      "sources_last_reviewed",
+      "realistic_illustrations",
+      "mobile_and_print"
+    ],
+    "evidence_priority": [
+      "clinical_practice_guideline",
+      "systematic_review",
+      "high_quality_rct"
+    ],
+    "postoperative_separate": true,
+    "no_invented_dose": true
+  },
+  "user_requested_terms": [
+    {
+      "term_ko": "오십견",
+      "normalized_target": "유착성 관절낭염",
+      "status": "NORMALIZED"
+    },
+    {
+      "term_ko": "극상근 파열",
+      "normalized_target": "회전근개 파열 - 극상근 포함",
+      "status": "NORMALIZED"
+    },
+    {
+      "term_ko": "극상근 스트레칭",
+      "normalized_target": "회전근개/극상근 관련 질환 프로그램 내 운동 요소",
+      "status": "KEEP_AS_EXERCISE_REQUEST"
+    },
+    {
+      "term_ko": "극상근 강화 운동",
+      "normalized_target": "회전근개/극상근 관련 질환 프로그램 내 운동 요소",
+      "status": "KEEP_AS_EXERCISE_REQUEST"
+    },
+    {
+      "term_ko": "퇴행성 관절염",
+      "normalized_target": "부위별 골관절염/퇴행성 관절질환",
+      "status": "NORMALIZED_BY_REGION"
+    },
+    {
+      "term_ko": "퇴행성 통증 증후군",
+      "normalized_target": null,
+      "status": "TERMINOLOGY_REVIEW_PENDING"
+    },
+    {
+      "term_ko": "연골 낭종",
+      "normalized_target": null,
+      "status": "TERMINOLOGY_REVIEW_PENDING"
+    }
+  ],
+  "regions": [
+    {
+      "region_id": "shoulder",
+      "label_ko": "어깨·견갑대",
+      "priority_conditions": [
+        "유착성 관절낭염(오십견)",
+        "회전근개 건병증",
+        "회전근개 파열(극상근 포함)",
+        "견봉하 통증 증후군",
+        "석회성 건병증",
+        "상완이두근 장두 건병증",
+        "견관절 퇴행성 관절염"
+      ]
+    },
+    {
+      "region_id": "elbow_forearm",
+      "label_ko": "팔꿈치·전완",
+      "priority_conditions": [
+        "외측 상과통",
+        "내측 상과통",
+        "원위 이두근 건병증",
+        "삼두근 건병증",
+        "주관증후군",
+        "요골터널/PIN 관련 보존적 교육"
+      ]
+    },
+    {
+      "region_id": "wrist_hand",
+      "label_ko": "손목·손",
+      "priority_conditions": [
+        "드퀘르벵 건초염",
+        "손목터널증후군",
+        "TFCC 보존적 관리",
+        "방아쇠수지",
+        "엄지 CMC 관절염",
+        "결절종(ganglion cyst)"
+      ]
+    },
+    {
+      "region_id": "hip_pelvis",
+      "label_ko": "고관절·골반",
+      "priority_conditions": [
+        "대전자통증증후군",
+        "둔근건병증",
+        "고관절 퇴행성 관절염",
+        "FAI 보존적 재활",
+        "내전근 건병증",
+        "근위 햄스트링 건병증"
+      ]
+    },
+    {
+      "region_id": "knee_thigh",
+      "label_ko": "무릎·대퇴",
+      "priority_conditions": [
+        "무릎 퇴행성 관절염",
+        "슬개대퇴통증증후군",
+        "퇴행성 반월상연골 병변 보존적 재활",
+        "슬개건 건병증",
+        "대퇴사두근건 건병증",
+        "거위발 통증"
+      ]
+    },
+    {
+      "region_id": "leg_ankle_foot",
+      "label_ko": "하퇴·발목·발",
+      "priority_conditions": [
+        "외측 발목 염좌",
+        "아킬레스건병증",
+        "족저근막병증",
+        "후경골근건 기능장애/건병증",
+        "비골근건병증",
+        "발·발목 퇴행성 관절질환"
+      ]
+    },
+    {
+      "region_id": "cervical",
+      "label_ko": "경추",
+      "priority_conditions": [
+        "비특이적 경부통",
+        "경추 신경근병증 보존적 재활",
+        "경추성 두통 관련 운동교육"
+      ]
+    },
+    {
+      "region_id": "thoracic_back",
+      "label_ko": "흉추·등·흉곽",
+      "priority_conditions": [
+        "비특이적 흉추통",
+        "견갑흉곽 기능장애",
+        "자세 관련 흉추·등 통증"
+      ]
+    },
+    {
+      "region_id": "lumbar_sacral",
+      "label_ko": "요추·천추",
+      "priority_conditions": [
+        "비특이적 요통",
+        "요추 신경근병증 보존적 재활",
+        "요추관협착증 운동·생활교육",
+        "퇴행성 요추질환"
+      ]
+    },
+    {
+      "region_id": "abdominal_core",
+      "label_ko": "복벽·코어",
+      "priority_conditions": [
+        "만성 비특이적 요통 연계 코어 조절",
+        "호흡-코어 협응 교육",
+        "복벽 질환 운동 금기 경계"
+      ]
+    }
+  ],
+  "patient_navigation": {
+    "primary_path": [
+      "환자교육",
+      "질환별 재활",
+      "해부학 부위",
+      "대표 질환",
+      "재활 프로그램"
+    ],
+    "preserve_existing_muscle_path": true,
+    "home_search_direct_route": true,
+    "clinical_detail_direct_route": true,
+    "print_action": "one_click_a4_pdf"
+  },
+  "per_condition_schema": [
+    "stable_id",
+    "region_id",
+    "name_ko",
+    "name_en",
+    "plain_language_overview",
+    "who_this_is_for",
+    "do_not_exercise_or_seek_care",
+    "stretching_profile_ids",
+    "strength_profile_ids",
+    "lifestyle_activity_modification",
+    "common_errors",
+    "progression_or_phase",
+    "return_or_reassessment_criteria",
+    "evidence_sources",
+    "last_reviewed",
+    "illustration_asset_ids",
+    "print_template_id"
+  ]
+}
