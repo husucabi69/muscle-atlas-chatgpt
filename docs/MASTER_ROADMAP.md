@@ -860,3 +860,12 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 라이브 Preview 경추 진찰/초음파 실제 클릭 SUCCESS
 - 사용자 실기기 Preview 승인 전 A5 COMPLETE 금지
 - A6 초음파 독립 계층화는 BLOCKED
+
+### v11.47 · Stage 23A A5 Clinical Direct Route Lock — 2026-09-28
+- 임상 Stable ID 검색을 muscle proxy 의존 구조에서 직접 A5 detail route로 전환
+- pre-load timing에서도 10개 임상 모듈 보장 로딩 후 Stable ID route 재해석
+- Runtime E2E를 10개 모듈의 상세 필수필드 계약까지 강화
+- ct082 / d089 / usv074 통합검색 직접 진입 browser E2E PASS
+- m001 근육 임상흐름 → A5 상세 문맥 유지 PASS
+- Global QA + Runtime E2E + Cloudflare Preview + Live Preview PASS
+- 사용자 실기기 승인 전 A5 COMPLETE 금지 / A6 BLOCKED 유지
