@@ -546,37 +546,76 @@ button,input{font:inherit} button{cursor:pointer}
 </section>
 
 <section id="quiz" class="page">
-  <div class="section-title"><h3>퀴즈 학습</h3><span>O · I · F · N · Clinical</span></div>
-  <div class="card">
-    <h3>문제은행 학습 모드</h3>
-    <p>Knowledge Core의 근육 데이터에서 문제를 자동 생성합니다. 틀린 근육은 오답은행에 저장되어 다시 복습할 수 있습니다.</p>
-    <div class="quiz-controls">
-      <div><label for="quizRegion">부위</label><select id="quizRegion"><option value="all">전체 부위</option></select></div>
-      <div><label for="quizType">문제 유형</label><select id="quizType">
-        <option value="mixed">종합</option>
-        <option value="origin">Origin · 기시</option>
-        <option value="insertion">Insertion · 정지</option>
-        <option value="function">Function · 기능</option>
-        <option value="nerve">Nerve · 신경</option>
-        <option value="pathology">Clinical · 임상</option>
-      </select></div>
-      <div><label for="quizDirection">문제 방향</label><select id="quizDirection">
-        <option value="mixed">정방향 + 역방향</option>
-        <option value="forward">근육 → 정보</option>
-        <option value="reverse">정보 → 근육</option>
-      </select></div>
-      <button class="primary" onclick="startQuiz('normal')">10문제 시작</button>
+  <div id="quizSetupView" class="drill-screen" data-drill-group="quiz" data-drill-view="setup">
+    <div class="section-title"><h3>퀴즈 학습</h3><span>O · I · F · N · Clinical</span></div>
+    <div class="card">
+      <h3>1단계 · 모드 / 부위 선택</h3>
+      <p>문제은행과 학습기록은 그대로 유지합니다. 학습 범위와 문제 방식을 선택한 뒤 세션을 시작하세요.</p>
+      <div class="quiz-controls">
+        <div><label for="quizRegion">부위</label><select id="quizRegion"><option value="all">전체 부위</option></select></div>
+        <div><label for="quizType">문제 유형</label><select id="quizType">
+          <option value="mixed">종합</option>
+          <option value="origin">Origin · 기시</option>
+          <option value="insertion">Insertion · 정지</option>
+          <option value="function">Function · 기능</option>
+          <option value="nerve">Nerve · 신경</option>
+          <option value="pathology">Clinical · 임상</option>
+        </select></div>
+        <div><label for="quizDirection">문제 방향</label><select id="quizDirection">
+          <option value="mixed">정방향 + 역방향</option>
+          <option value="forward">근육 → 정보</option>
+          <option value="reverse">정보 → 근육</option>
+        </select></div>
+        <button class="primary" type="button" onclick="startQuiz('normal')">새 10문제 시작</button>
+      </div>
+      <div class="quiz-actions">
+        <button class="pill" type="button" onclick="startQuiz('wrong')">오답 10문제 복습</button>
+        <button class="pill" type="button" onclick="startQuiz('due')">오늘 복습</button>
+      </div>
     </div>
-    <div class="quiz-actions"><button class="pill" onclick="startQuiz('wrong')">오답 10문제 복습</button><button class="pill" onclick="startQuiz('due')">오늘 복습</button><button class="pill" onclick="startShoulderClinicalQuiz()">어깨 임상 10문제</button><button class="pill" onclick="startElbowClinicalQuiz()">팔꿈치 임상 10문제</button><button class="pill" onclick="startWristHandClinicalQuiz()">손목·손 임상 10문제</button><button class="pill" onclick="startHipPelvisClinicalQuiz()">고관절 임상 10문제</button><button class="pill" onclick="startKneeThighClinicalQuiz()">무릎·대퇴 임상 10문제</button><button class="pill" onclick="startLegAnkleFootClinicalQuiz()">하퇴·발목·발 임상 10문제</button><button class="pill" onclick="startCervicalClinicalQuiz()">경추 임상 10문제</button><button class="pill" onclick="startThoracicClinicalQuiz()">흉추·등·흉곽 임상 10문제</button><button class="pill" onclick="startLumbarSacralClinicalQuiz()">요추·천추 임상 10문제</button><button class="pill" onclick="startAbdominalCoreClinicalQuiz()">복벽·코어 임상 10문제</button><button class="pill" onclick="resetQuizStats()">학습기록 초기화</button></div>
+
+    <div class="section-title" style="margin-top:18px"><h3>임상 모듈 퀴즈</h3><span>10개 부위</span></div>
+    <div id="quizClinicalModuleChooser" class="quiz-actions">
+      <button class="pill clinical-quiz-start" data-quiz-module="shoulder" onclick="startShoulderClinicalQuiz()">어깨 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="elbow" onclick="startElbowClinicalQuiz()">팔꿈치 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="wristHand" onclick="startWristHandClinicalQuiz()">손목·손 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="hipPelvis" onclick="startHipPelvisClinicalQuiz()">고관절 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="kneeThigh" onclick="startKneeThighClinicalQuiz()">무릎·대퇴 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="legAnkleFoot" onclick="startLegAnkleFootClinicalQuiz()">하퇴·발목·발 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="cervical" onclick="startCervicalClinicalQuiz()">경추 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="thoracic" onclick="startThoracicClinicalQuiz()">흉추·등·흉곽 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="lumbarSacral" onclick="startLumbarSacralClinicalQuiz()">요추·천추 임상 10문제</button>
+      <button class="pill clinical-quiz-start" data-quiz-module="abdominalCore" onclick="startAbdominalCoreClinicalQuiz()">복벽·코어 임상 10문제</button>
+    </div>
+
+    <div class="quiz-stats">
+      <div class="quiz-stat"><span>누적 풀이</span><b id="quizTotal">0</b></div>
+      <div class="quiz-stat"><span>누적 정답률</span><b id="quizRate">0%</b></div>
+      <div class="quiz-stat"><span>오답 근육</span><b id="quizWrong">0</b></div>
+      <div class="quiz-stat"><span>오늘 복습</span><b id="quizDue">0</b></div>
+    </div>
+    <div id="quizSetupMessage" class="note" style="display:none"></div>
+    <div class="quiz-actions"><button class="pill" type="button" onclick="resetQuizStats()">학습기록 초기화</button></div>
   </div>
-  <div class="quiz-stats">
-    <div class="quiz-stat"><span>누적 풀이</span><b id="quizTotal">0</b></div>
-    <div class="quiz-stat"><span>누적 정답률</span><b id="quizRate">0%</b></div>
-    <div class="quiz-stat"><span>오답 근육</span><b id="quizWrong">0</b></div><div class="quiz-stat"><span>오늘 복습</span><b id="quizDue">0</b></div>
+
+  <div id="quizSessionView" class="drill-screen" data-drill-group="quiz" data-drill-view="session" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="quizBack()">← 퀴즈 설정</button>
+      <span class="crumb" id="quizSessionBreadcrumb">퀴즈 › 세션</span>
+    </div>
+    <div class="note"><b>2단계 · 문제 세션</b><br>현재 문제와 즉시 피드백만 표시됩니다.</div>
+    <div id="quizArea" class="quiz-card">
+      <div class="quiz-q">문제를 준비하는 중입니다.</div>
+    </div>
   </div>
-  <div id="quizArea" class="quiz-card">
-    <div class="quiz-q">부위와 유형을 고른 뒤 10문제를 시작하십시오.</div>
-    <p style="color:var(--muted);line-height:1.8;margin:0">틀린 문제는 기기 안에 저장되고, ‘오답 10문제 복습’에서 다시 출제됩니다.</p>
+
+  <div id="quizResultView" class="drill-screen" data-drill-group="quiz" data-drill-view="result" hidden>
+    <div class="anatomy-nav">
+      <button class="region-back" type="button" onclick="quizBack()">← 퀴즈 설정</button>
+      <span class="crumb">퀴즈 › 결과</span>
+    </div>
+    <div class="note"><b>3단계 · 결과 / 오답</b><br>이번 세션 점수와 틀린 근육을 분리해서 확인합니다.</div>
+    <div id="quizResultContent"></div>
   </div>
 </section>
 
@@ -741,18 +780,14 @@ function renderShoulderClinicalModule(){
 async function startShoulderClinicalQuiz(){
   if(!shoulderQuizModule) await loadShoulderClinicalModule();
   const bank=shoulderQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">어깨 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('어깨 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'어깨 임상',
     direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),
     correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('quiz').classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
-  renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 let elbowExamModule=null, elbowUSModule=null, elbowQuizModule=null, elbowDifferentialModule=null, elbowMediaAudit=null;
@@ -826,18 +861,14 @@ function renderElbowClinicalModule(){
 async function startElbowClinicalQuiz(){
   if(!elbowQuizModule) await loadElbowClinicalModule();
   const bank=elbowQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">팔꿈치 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('팔꿈치 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'팔꿈치 임상',
     direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),
     correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('quiz').classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
-  renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 let wristHandExamModule=null, wristHandUSModule=null, wristHandQuizModule=null, wristHandDifferentialModule=null, wristHandMediaAudit=null;
@@ -909,18 +940,14 @@ function renderWristHandClinicalModule(){
 async function startWristHandClinicalQuiz(){
   if(!wristHandQuizModule) await loadWristHandClinicalModule();
   const bank=wristHandQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">손목·손 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('손목·손 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'손목·손 임상',
     direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),
     correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('quiz').classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
-  renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 let hipPelvisExamModule=null, hipPelvisUSModule=null, hipPelvisQuizModule=null, hipPelvisDifferentialModule=null, hipPelvisMediaAudit=null;
@@ -992,18 +1019,14 @@ function renderHipPelvisClinicalModule(){
 async function startHipPelvisClinicalQuiz(){
   if(!hipPelvisQuizModule) await loadHipPelvisClinicalModule();
   const bank=hipPelvisQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">고관절 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('고관절 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'고관절 임상',
     direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),
     correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('quiz').classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
-  renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 
@@ -1078,18 +1101,14 @@ function renderKneeThighClinicalModule(){
 async function startKneeThighClinicalQuiz(){
   if(!kneeThighQuizModule) await loadKneeThighClinicalModule();
   const bank=kneeThighQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">무릎·대퇴 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('무릎·대퇴 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'무릎·대퇴 임상',
     direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),
     correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('quiz').classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
-  renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 
@@ -1160,16 +1179,12 @@ function renderLegAnkleFootClinicalModule(){
 async function startLegAnkleFootClinicalQuiz(){
   if(!legAnkleFootQuizModule)await loadLegAnkleFootClinicalModule();
   const bank=legAnkleFootQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">하퇴·발목·발 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('하퇴·발목·발 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'하퇴·발목·발 임상',direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('quiz').classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
-  renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 
@@ -1240,16 +1255,12 @@ function renderCervicalClinicalModule(){
 async function startCervicalClinicalQuiz(){
   if(!cervicalQuizModule)await loadCervicalClinicalModule();
   const bank=cervicalQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">경추 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('경추 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'경추 임상',direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('quiz').classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
-  renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 
@@ -1320,16 +1331,12 @@ function renderThoracicClinicalModule(){
 async function startThoracicClinicalQuiz(){
   if(!thoracicQuizModule)await loadThoracicClinicalModule();
   const bank=thoracicQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">흉추·등·흉곽 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('흉추·등·흉곽 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'흉추·등·흉곽 임상',direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('quiz').classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page==='quiz'));
-  renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 
@@ -1400,12 +1407,12 @@ function renderLumbarSacralClinicalModule(){
 async function startLumbarSacralClinicalQuiz(){
   if(!lumbarSacralQuizModule)await loadLumbarSacralClinicalModule();
   const bank=lumbarSacralQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">요추·천추 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('요추·천추 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'요추·천추 임상',direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;activatePage('quiz');renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 
@@ -1476,12 +1483,12 @@ function renderAbdominalCoreClinicalModule(){
 async function startAbdominalCoreClinicalQuiz(){
   if(!abdominalCoreQuizModule)await loadAbdominalCoreClinicalModule();
   const bank=abdominalCoreQuizModule?.questions||[];
-  if(!bank.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">복벽·코어 임상 문제은행을 불러오지 못했습니다.</div>';return;}
+  if(!bank.length){showQuizSetupMessage('복벽·코어 임상 문제은행을 불러오지 못했습니다.');return;}
   quizSession=shuffle(bank).slice(0,Math.min(10,bank.length)).map(q=>({
     muscleId:q.related_muscle_id,type:'clinical_module',quizLabel:'복벽·코어 임상',direction:'clinical',stem:q.question,
     options:q.options.map(o=>o.label),correct:q.options.find(o=>o.value===q.correct_value)?.label||''
   }));
-  quizIndex=0;quizScore=0;quizAnswered=false;activatePage('quiz');renderQuiz();
+  beginQuizSession('clinical',true);
 }
 
 let knowledgeCoreData=null,ultrasoundByMuscle={},diagnosesByMuscle={};
@@ -1924,7 +1931,7 @@ if(pwaInstallButton)pwaInstallButton.addEventListener('click',async()=>{
 });
 updatePWADisplayMode();
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.page==='regions')showAnatomyRegions(true);if(btn.dataset.page==='education')showEducationRegions(true);if(btn.dataset.page==='symptoms')showSymptomGroups(true);if(btn.dataset.page==='clinical')showClinicalModules(true);if(btn.dataset.page==='ultrasound')showUltrasoundAtlasRegions(true);if(btn.dataset.page==='quiz')showQuizSetup(true);showPage(btn.dataset.page);if(btn.dataset.page==='learning')renderLearningDashboard();}));
 function showPage(page){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>{
@@ -3149,6 +3156,7 @@ function activatePage(pageId){
   if(pageId==='symptoms')showSymptomGroups(false);
   if(pageId==='clinical')showClinicalModules(false);
   if(pageId==='ultrasound')showUltrasoundAtlasRegions(false);
+  if(pageId==='quiz')showQuizSetup(false);
   showPage(pageId);
   if(learningFlowContext.muscleId)learningFlowContext.sourcePage=pageId;
   if(pageId==='learning')renderLearningDashboard();
@@ -3938,6 +3946,7 @@ function nextOralQuestion(){oralIndex++;renderOralQuestion();}
 const QUIZ_KEY='mskQuizProgressV2';
 const OLD_QUIZ_KEY='mskQuizProgressV1';
 let quizSession=[], quizIndex=0, quizScore=0, quizAnswered=false;
+let selectedQuizMode='normal',quizSessionLabel='',restoringQuizHistory=false;
 const quizFields={
   origin:{label:'Origin · 기시',field:'origin'},
   insertion:{label:'Insertion · 정지',field:'insertion'},
@@ -3945,6 +3954,83 @@ const quizFields={
   nerve:{label:'Nerve · 신경',field:'nerve'},
   pathology:{label:'Clinical · 임상',field:'pathology'}
 };
+function setQuizView(view){
+  const map={setup:'quizSetupView',session:'quizSessionView',result:'quizResultView'};
+  if(!map[view])return null;
+  return setDrillView('quiz',view);
+}
+function recordQuizHistory(level,mode='push'){
+  if(restoringQuizHistory)return;
+  const state={lysPage:'quiz',quizLevel:level,quizMode:selectedQuizMode};
+  if(mode==='replace')replaceAppNavigationState(state);
+  else pushAppNavigationState(state);
+}
+function quizModeLabel(mode=selectedQuizMode){
+  if(mode==='wrong')return'오답 복습';
+  if(mode==='due')return'오늘 복습';
+  if(mode==='clinical')return quizSession[0]?.quizLabel||'임상 모듈';
+  if(mode==='muscle')return quizSession[0]?.quizLabel||'근육 집중';
+  return'새 문제';
+}
+function showQuizSetup(record=true){
+  selectedQuizMode='normal';
+  quizSessionLabel='';
+  setQuizView('setup');
+  const msg=document.getElementById('quizSetupMessage');if(msg)msg.style.display='none';
+  updateQuizStats();
+  if(record)recordQuizHistory('setup');
+}
+function showQuizSetupMessage(message){
+  showPage('quiz');
+  setQuizView('setup');
+  const msg=document.getElementById('quizSetupMessage');
+  if(msg){msg.textContent=message;msg.style.display='block';}
+}
+function beginQuizSession(mode='normal',record=true){
+  selectedQuizMode=mode;
+  quizSessionLabel=quizModeLabel(mode);
+  quizIndex=0;quizScore=0;quizAnswered=false;
+  showPage('quiz');
+  setQuizView('session');
+  const crumb=document.getElementById('quizSessionBreadcrumb');
+  if(crumb)crumb.textContent='퀴즈 › '+quizSessionLabel;
+  if(record)recordQuizHistory('session');
+  renderQuiz();
+}
+function renderQuizResult(){
+  const host=document.getElementById('quizResultContent');if(!host)return;
+  const missedIds=[...new Set(quizSession.filter(q=>q.missed).map(q=>q.muscleId).filter(Boolean))];
+  const missed=missedIds.map(id=>byId[id]).filter(Boolean);
+  const rate=quizSession.length?Math.round(quizScore*100/quizSession.length):0;
+  host.innerHTML='<div class="card"><div class="quiz-q">완료 · '+quizScore+'/'+quizSession.length+' · '+rate+'%</div>'+
+    '<p style="line-height:1.8;color:var(--muted)">'+(missed.length?'이번 오답 '+missed.length+'개 근육을 아래에서 바로 복습할 수 있습니다.':'이번 세션은 전부 맞았습니다.')+'</p></div>'+
+    (missed.length?'<div class="section-title"><h3>이번 오답</h3><span>'+missed.length+'개 근육</span></div><div class="region-list">'+missed.map(m=>'<button type="button" class="region-muscle quiz-missed-item" data-quiz-missed="'+esc(m.id)+'" onclick="openMuscle(\''+m.id+'\')"><b>'+esc(m.ko)+'</b><small>'+esc(m.en)+' · '+esc(m.id)+'</small></button>').join('')+'</div>':'')+
+    '<div class="quiz-actions"><button class="primary" type="button" onclick="showQuizSetup()">새 세션 설정</button><button class="pill" type="button" onclick="startQuiz(\'wrong\')">오답 복습</button><button class="pill" type="button" onclick="startQuiz(\'due\')">오늘 복습</button></div>';
+  setQuizView('result');
+  recordQuizHistory('result','replace');
+  updateQuizStats();
+}
+function quizBack(){
+  const state=history.state;
+  if(state?.lysPage==='quiz'&&['session','result'].includes(state.quizLevel)){history.back();return;}
+  showQuizSetup(false);
+}
+window.addEventListener('popstate',event=>{
+  const state=event.state;
+  if(!state||state.lysPage!=='quiz')return;
+  restoringQuizHistory=true;
+  showPage('quiz');
+  selectedQuizMode=state.quizMode||'normal';
+  if(state.quizLevel==='session'&&quizSession.length&&quizIndex<quizSession.length){
+    setQuizView('session');
+    const crumb=document.getElementById('quizSessionBreadcrumb');
+    if(crumb)crumb.textContent='퀴즈 › '+quizModeLabel(selectedQuizMode);
+    renderQuiz();
+  }else{
+    showQuizSetup(false);
+  }
+  restoringQuizHistory=false;
+});
 function blankQuizState(){return{total:0,correct:0,wrong:{},progress:{}};}
 function quizState(){
   try{
@@ -4024,8 +4110,9 @@ function startQuizForMuscle(id){
     if(q){q.quizLabel=m.ko+' 집중';questions.push(q);}
   }
   if(!questions.length)return;
-  quizSession=questions;quizIndex=0;quizScore=0;quizAnswered=false;
-  setLearningFlowContext({muscleId:id,sourcePage:'quiz',step:'quiz'});activatePage('quiz');renderQuiz();
+  quizSession=questions;
+  setLearningFlowContext({muscleId:id,sourcePage:'quiz',step:'quiz'});
+  beginQuizSession('muscle',true);
 }
 function startQuiz(mode='normal'){
   const region=document.getElementById('quizRegion').value;
@@ -4035,10 +4122,10 @@ function startQuiz(mode='normal'){
   let pool=muscles.filter(m=>region==='all'||m.region===region);
   if(mode==='wrong'){
     const ids=new Set(Object.keys(state.wrong||{}));pool=pool.filter(m=>ids.has(m.id));
-    if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">현재 선택 범위에 저장된 오답이 없습니다.</div>';return;}
+    if(!pool.length){showQuizSetupMessage('현재 선택 범위에 저장된 오답이 없습니다.');return;}
   }else if(mode==='due'){
     const ids=new Set(dueMuscleIds(state));pool=pool.filter(m=>ids.has(m.id));
-    if(!pool.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">오늘 복습할 문제가 없습니다. 새 문제를 학습하면 복습 일정이 만들어집니다.</div>';return;}
+    if(!pool.length){showQuizSetupMessage('오늘 복습할 문제가 없습니다. 새 문제를 학습하면 복습 일정이 만들어집니다.');return;}
   }
   let chosen=mode==='normal'?weightedPick(pool,state,Math.min(10,pool.length)):shuffle(pool).slice(0,Math.min(10,pool.length));
   quizSession=[];
@@ -4048,18 +4135,12 @@ function startQuiz(mode='normal'){
     const q=makeQuestion(m,type,muscles.filter(x=>region==='all'||x.region===region),direction);
     if(q)quizSession.push(q);
   }
-  if(!quizSession.length){document.getElementById('quizArea').innerHTML='<div class="quiz-q">이 조건으로 문제를 만들 수 없습니다.</div>';return;}
-  quizIndex=0;quizScore=0;quizAnswered=false;renderQuiz();
+  if(!quizSession.length){showQuizSetupMessage('이 조건으로 문제를 만들 수 없습니다.');return;}
+  beginQuizSession(mode,true);
 }
 function renderQuiz(){
   const area=document.getElementById('quizArea');
-  if(quizIndex>=quizSession.length){
-    const missed=quizSession.filter(q=>q.missed).map(q=>byId[q.muscleId]?.ko).filter(Boolean);
-    area.innerHTML='<div class="quiz-q">완료 · '+quizScore+'/'+quizSession.length+'</div>'+
-      '<p style="line-height:1.8;color:var(--muted)">'+(missed.length?'이번 오답: '+esc([...new Set(missed)].join(', ')):'이번 세션은 전부 맞았습니다.')+'</p>'+
-      '<div class="quiz-actions"><button class="primary" onclick="startQuiz(\'normal\')">새 10문제</button><button class="pill" onclick="startQuiz(\'wrong\')">오답 복습</button><button class="pill" onclick="startQuiz(\'due\')">오늘 복습</button></div>';
-    updateQuizStats();return;
-  }
+  if(quizIndex>=quizSession.length){renderQuizResult();return;}
   const q=quizSession[quizIndex];quizAnswered=false;
   area.innerHTML='<div style="color:var(--muted);font-size:14px;margin-bottom:8px">문제 '+(quizIndex+1)+' / '+quizSession.length+' · '+esc(q.quizLabel||quizFields[q.type]?.label||'임상')+' · '+(q.direction==='reverse'?'역방향':q.direction==='clinical'?'임상':'정방향')+'</div>'+
     '<div class="quiz-q" style="white-space:pre-wrap">'+esc(q.stem)+'</div>'+
@@ -4091,6 +4172,7 @@ function answerQuiz(i){
 }
 function nextQuiz(){quizIndex++;renderQuiz();}
 document.getElementById('quizRegion').innerHTML='<option value="all">전체 부위</option>'+regions.map(r=>'<option value="'+esc(r)+'">'+esc(r)+'</option>').join('');
+showQuizSetup(false);
 updateQuizStats();
 initOralVoiceEngine();
 renderRegionChooser();
