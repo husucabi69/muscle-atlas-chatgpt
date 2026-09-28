@@ -75,6 +75,11 @@ Effective: 2026-09-27
 
 가능하면 **실제 click 기반 browser/E2E test**를 구축한다. 정적 grep QA만으로 navigation 완료를 선언하지 않는다.
 
+### Browser QA tooling
+- 이 프로젝트의 자동 browser click 검증은 **GitHub Actions Playwright E2E**를 정본으로 사용한다.
+- **TinyFish는 사용하지 않는다.** 채팅 UI에 별도 실행/지갑 카드가 노출되어 사용자 검수 흐름을 방해하기 때문이다.
+- Preview 최종 시각 판정은 사용자의 실제 기기 확인을 기준으로 한다.
+
 ## 5. 작업 시간 단위
 
 사용자가 `진행해`, `다음 작업`, `시작해`라고 지시한 한 작업 묶음은:
