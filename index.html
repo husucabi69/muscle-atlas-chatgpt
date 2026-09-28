@@ -2142,6 +2142,10 @@ async function openClinicalStableDetail(type,id,muscleId=null){
     await ensureClinicalModuleLoaded(key);
     route=clinicalModuleForStableItem(type,id);
   }
+  if(!route){
+    await Promise.all(Object.keys(clinicalFlowModules).map(ensureClinicalModuleLoaded));
+    route=clinicalModuleForStableItem(type,id);
+  }
   if(!route)return false;
   cleanupLearningOverlays();
   showPage('clinical');
@@ -2528,13 +2532,16 @@ function relatedMuscleForEntity(type,id){
   }
   return null;
 }
-function openSearchEntity(type,id){
+async function openSearchEntity(type,id){
   recordRecentEntity(type,id);
   if(type==='muscle'){openMuscle(id);return;}
   if(type==='symptom_pattern'){activatePage('symptoms');openSymptom(id);return;}
   if(type==='region'){
     const r=(knowledgeCoreData?.regions||[]).find(x=>x.region_id===id);if(!r)return;
     activatePage('regions');openRegion(r.name_ko,true);return;
+  }
+  if(['clinical_test','diagnosis_concept','ultrasound_view'].includes(type)){
+    if(await openClinicalStableDetail(type,id,null))return;
   }
   const mid=relatedMuscleForEntity(type,id);
   if(mid){
