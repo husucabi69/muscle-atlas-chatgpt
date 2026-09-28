@@ -406,7 +406,7 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 # Stage 23A — Full Hierarchical Navigation 3.0
 
-상태: **A2 COMPLETE · A5 CLOSED · A6 CLOSED · A7 CLOSED · A8 CLOSED / USER PROCEED AUTHORIZED · A9 AUTOMATED PASS / PREVIEW DEPLOYED / USER PREVIEW VERIFY PENDING**
+상태: **A2 COMPLETE · A5 CLOSED · A6 CLOSED · A7 CLOSED · A8 CLOSED · A9 CLOSED / USER PROCEED AUTHORIZED · A10 AUTOMATED PASS / PREVIEW DEPLOYED / USER PREVIEW VERIFY PENDING**
 
 목표: 앱 전체를 “한 화면 아래로 내용이 계속 붙는 구조”에서 벗어나, 각 선택이 **독립 화면 전환**으로 느껴지는 계층형 UI로 통일한다.
 
@@ -435,8 +435,8 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - [x] **A6. 초음파 — CLOSED / USER PROCEED AUTHORIZED** — 독립 초음파 탭 → 10개 부위/구조 → 131 canonical view → 단일 상세. 사용자가 2026-09-28 `진행해`로 A7 진입 승인. 별도 A6 실기기 시각 PASS로 오기하지 않음
 - [x] **A7. 퀴즈 — CLOSED / USER PROCEED AUTHORIZED** — 사용자가 2026-09-28 `다음 작업 진행해`로 A8 진입 승인. 별도 A7 실기기 시각 PASS로 오기하지 않음
 - [x] **A8. Oral Viva — CLOSED / USER PROCEED AUTHORIZED** — 사용자가 2026-09-28 `다음 작업 진행해`로 A9 진입 승인. 별도 A8 실기기 시각 PASS로 오기하지 않음
-- [ ] **A9. 내 학습 — AUTOMATED PASS / USER PREVIEW VERIFY PENDING** — 내 학습 목차 → 최근 본 항목 / 즐겨찾기 / 오답·약점 / 부위별 학습지표 독립 화면
-- [ ] **A10. 홈/검색 — BLOCKED BY A9 USER VERIFY/PROCEED** — 검색 결과에서 목적지 상세로 직접 들어가되 같은 navigation shell 사용
+- [x] **A9. 내 학습 — CLOSED / USER PROCEED AUTHORIZED** — 사용자가 2026-09-28 `진행해`로 A10 진입 승인. 별도 A9 실기기 시각 PASS로 오기하지 않음
+- [ ] **A10. 홈/검색 — AUTOMATED PASS / USER PREVIEW VERIFY PENDING** — 검색 결과 → 정식 목적지 상세 direct route + 뒤로가기 1회 → 원래 검색결과
 
 ## 완료 Gate
 - 모든 top-level 탭에서 drill-down 단계가 독립 화면처럼 전환
@@ -530,7 +530,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**A9 사용자 Preview 검수 또는 다음 단계 진행 승인 → A10 홈/검색 → Stage 23B → Stage 23C → Stage 24**
+**A10 사용자 Preview 검수 또는 다음 단계 진행 승인 → Stage 23B → Stage 23C → Stage 24**
 
 
 ## A2 회귀 복구 Gate — 2026-09-27
@@ -693,7 +693,27 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - Cloudflare Preview 배포 PASS
 - TinyFish 미사용
 - 사용자 Preview 승인 또는 다음 단계 진행 승인 전 A9 COMPLETE 처리 금지
-- A10은 A9 사용자 확인/진행 승인 전 시작 금지
+- 2026-09-28 사용자 `진행해` 지시로 A9 다음 단계 진입 승인. 별도 A9 실기기 시각 PASS로 오기하지 않음
+
+### v11.52 · A10 Home Search Navigation Lock — AUTOMATED PASS / USER VERIFY PENDING
+- 홈 검색 출발 상태에 검색어 / 항목필터 / 스크롤 위치를 저장
+- 검색 결과 클릭 시 중간 계층 history를 쌓지 않고 정식 상세 목적지 하나만 push
+- 근육 검색 → v11.14 해부학 개별 근육 상세
+- 증상 검색 → 해당 증상 학습목차 화면
+- 진찰검사 검색 → A5 해당 진찰검사 단일 상세
+- 감별개념 검색 → A5 해당 감별군 상세에서 해당 Stable ID 표시
+- 초음파 View 검색 → A6 독립 초음파 단일 상세
+- 해부학 부위 검색 → 해당 부위 근육 목록
+- 별도 상세화면이 없는 건/신경/관절/점액낭/인대/근막은 관련 canonical 근육 상세로 연결
+- browser back 1회로 검색 전 홈으로 복귀하며 검색어와 필터를 그대로 복원
+- 홈의 주요 증상 바로가기 5개도 동일 direct-route contract 사용
+- 기존 Stable ID 검색 순위와 즐겨찾기/최근기록 로직 보존
+- Global QA / Stage 15~23A static QA PASS
+- Playwright 실제 검색 전수: m001 / sx01 / ct082 / d089 / usv074 목적지 + history 1-entry + one-back 복귀 PASS
+- Cloudflare Preview 배포 PASS
+- TinyFish 미사용
+- A10 사용자 Preview 승인 또는 명시적 다음 단계 진행 승인 전 Stage 23A COMPLETE 처리 금지
+- Stage 23B는 A10 사용자 확인/진행 승인 전 시작 금지
 
 ### v11.47 · A5 Clinical Direct Route Lock — AUTOMATED PASS / LIVE PREVIEW PASS / USER VERIFY PENDING
 - A5 Runtime E2E 상세 계약 강화: 10개 모듈의 감별/진찰/초음파 첫 상세에서 필수 필드 전수 확인
