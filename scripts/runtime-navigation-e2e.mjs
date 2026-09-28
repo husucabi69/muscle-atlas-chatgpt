@@ -333,6 +333,75 @@ try{
   if(!await visible('#quizSetupView'))fail('A7 browser back clinical session to setup');
   pass('A7 quiz setup/session/result hierarchy');
 
+  await page.locator('.tab[data-page="oral"]').click();
+  await page.waitForFunction(()=>!document.querySelector('#oralSetupView')?.hidden,{timeout:5000});
+  if(!await visible('#oralSetupView'))fail('A8 Oral setup visible after tab entry');
+  if(await visible('#oralSessionView'))fail('A8 Oral session hidden on setup');
+  if(await page.locator('#oralRegion').count()!==1||await page.locator('#oralLevel').count()!==1||await page.locator('#oralField').count()!==1)fail('A8 Oral setup controls present');
+
+  await page.locator('#oralRegion').selectOption({label:'경추·후두하부'});
+  await page.locator('#oralLevel').selectOption('colleague');
+  await page.locator('#oralField').selectOption('anatomy');
+  await page.locator('#oralSetupView button').filter({hasText:'10문제 시작'}).click();
+  await page.waitForFunction(()=>!document.querySelector('#oralSessionView')?.hidden,{timeout:5000});
+  if(!await visible('#oralSessionView'))fail('A8 Oral session visible after start');
+  if(await visible('#oralSetupView'))fail('A8 Oral setup hidden during session');
+
+  let oralSafety=0;
+  let forcedWrong=false;
+  while(await visible('#oralSessionView')){
+    oralSafety++;
+    if(oralSafety>30)fail('A8 Oral session terminates','loop > 30');
+    const textarea=page.locator('#oralAnswer');
+    if(await textarea.count()!==1)fail('A8 Oral answer box visible','step '+oralSafety);
+    if(!forcedWrong){
+      await textarea.fill('');
+      forcedWrong=true;
+    }else{
+      const canonical=await page.evaluate(()=>oralSession[oralIndex]?.targets?.map(t=>t.expected).filter(Boolean).join(' ; ')||'');
+      if(!canonical)fail('A8 canonical answer available','step '+oralSafety);
+      await textarea.fill(canonical);
+    }
+    await page.locator('#oralArea button').filter({hasText:'채점·교정'}).click();
+    const coach=(await page.locator('#oralCoach').textContent()||'').trim();
+    if(!coach)fail('A8 examiner feedback visible','step '+oralSafety);
+
+    const repair=page.locator('#oralCoach button').filter({hasText:'교정 질문 바로 답하기'});
+    const next=page.locator('#oralCoach button').filter({hasText:'다음 문제'});
+    const follow=page.locator('#oralCoach button').filter({hasText:'꼬리질문 받기'});
+    if(await repair.count())await repair.click();
+    else if(await next.count())await next.click();
+    else if(await follow.count()){
+      // Correct answers expose follow-up plus next; if only follow-up is available, use the global next function.
+      await page.evaluate(()=>nextOralQuestion());
+    } else fail('A8 Oral feedback exposes continuation','step '+oralSafety);
+
+    await page.waitForTimeout(25);
+    if(await visible('#oralResultView'))break;
+  }
+
+  await page.waitForFunction(()=>!document.querySelector('#oralResultView')?.hidden,{timeout:5000});
+  if(!await visible('#oralResultView'))fail('A8 Oral result screen visible after session');
+  if(await visible('#oralSessionView'))fail('A8 Oral session hidden on result');
+  const oralResultText=(await page.locator('#oralResultContent').textContent()||'').trim();
+  if(!oralResultText.includes('완료'))fail('A8 Oral result includes completion summary',oralResultText);
+  if(!oralResultText.includes('취약 질문 분야'))fail('A8 Oral result includes weakness categories',oralResultText);
+  if(!oralResultText.includes('다시 볼 근육'))fail('A8 Oral result includes weak muscles',oralResultText);
+  if(await page.locator('#oralResultContent .oral-weak-muscle').count()<1)fail('A8 Oral result has at least one weak muscle');
+
+  await page.goBack();
+  await page.waitForFunction(()=>!document.querySelector('#oralSetupView')?.hidden,{timeout:5000});
+  if(!await visible('#oralSetupView'))fail('A8 browser back result to setup');
+
+  await page.evaluate(()=>startOralForMuscle('m001'));
+  await page.waitForFunction(()=>!document.querySelector('#oralSessionView')?.hidden,{timeout:5000});
+  const oralCrumb=(await page.locator('#oralSessionBreadcrumb').textContent()||'').trim();
+  if(!oralCrumb.includes('흉쇄유돌근 집중 Viva'))fail('A8 muscle direct Viva preserves fixed muscle context',oralCrumb);
+  if(await page.evaluate(()=>oralFixedMuscleId)!=='m001')fail('A8 fixed muscle Stable ID preserved','m001');
+  await page.goBack();
+  await page.waitForFunction(()=>!document.querySelector('#oralSetupView')?.hidden,{timeout:5000});
+  pass('A8 Oral setup/session/result weakness hierarchy');
+
   const stableSearchCases=[
     {id:'ct082',selector:'#clinical-test-ct082',label:'clinical test Stable ID'},
     {id:'d089',selector:'#diagnosis-concept-d089',label:'diagnosis concept Stable ID'},
@@ -376,10 +445,10 @@ try{
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
-  pass('No runtime errors during anatomy, clinical, ultrasound and quiz click sweep');
+  pass('No runtime errors during anatomy, clinical, ultrasound, quiz and Oral click sweep');
 
   console.log('\n--- RUNTIME NAVIGATION E2E ---');
-  console.log('PASS | anatomy 14 regions + clinical 10 modules + ultrasound 10 regions/131 views + quiz setup/session/result + Stable ID/direct-flow hierarchical click-through');
+  console.log('PASS | anatomy 14 regions + clinical 10 modules + ultrasound 10 regions/131 views + quiz hierarchy + Oral setup/session/result weakness + Stable ID/direct-flow');
 }finally{
   await browser.close();
 }
