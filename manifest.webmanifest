@@ -2,7 +2,7 @@
   "name": "이윤석정형외과 근육",
   "short_name": "이윤석정형외과 근육",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "이윤석정형외과 근육 · v11.14 해부학 기준선 유지 · A5 임상 + A6 초음파 + A7 퀴즈 + A8 Oral Viva 계층형 drilldown · Stage 23A · v11.50",
+  "description": "이윤석정형외과 근육 · v11.14 해부학 기준선 유지 · A5 임상 + A6 초음파 + A7 퀴즈 + A8 Oral + A9 내 학습 계층형 drilldown · Stage 23A · v11.51",
   "start_url": "./?source=pwa",
   "scope": "./",
   "display": "fullscreen",
