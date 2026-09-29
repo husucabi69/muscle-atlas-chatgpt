@@ -18,6 +18,12 @@ check('No pending slot pretends to have an asset URL',
 check('Any APPROVED asset must have WebP URL',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>typeof x.composite_url==='string'&&/\.webp(?:\?|$)/.test(x.composite_url))
 );
+check('px001 realistic neck-stretch asset is connected',
+  manifest.profiles.some(x=>x.profile_id==='px001'&&x.status==='APPROVED'&&x.composite_url==='./assets/patient-exercise-realistic/px001.webp')
+);
+check('px001 keeps mobile-preview / A4-HD-pending gate',
+  manifest.profiles.some(x=>x.profile_id==='px001'&&x.asset_gate==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING')
+);
 check('App loads realistic asset manifest',index.includes("fetch('./data/patient-exercise-realistic-assets-v1.json'"));
 check('App indexes realistic assets',index.includes('exerciseRealisticAssetById=Object.fromEntries'));
 check('Renderer prefers APPROVED realistic asset',index.includes("asset?.status==='APPROVED'&&asset?.composite_url"));
