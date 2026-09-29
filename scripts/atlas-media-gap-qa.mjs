@@ -18,6 +18,12 @@ check('Anatomy reviewed count matches',gaps.anatomy?.reviewed_representative===r
 check('No Gray384 cross-section representative remains',gray384.length===0,gray384.map(x=>x.muscle_id).join(','));
 check('m011 corrected to Gray389',media.muscles?.m011?.anatomy?.[0]?.file==='Gray389 Semispinalis capitis.png',media.muscles?.m011?.anatomy?.[0]?.file||'missing');
 check('m003 corrected to Gray385',media.muscles?.m003?.anatomy?.[0]?.file==='Gray385 - Scalenus medius muscle.png',media.muscles?.m003?.anatomy?.[0]?.file||'missing');
+check('m044 lumbar medial intertransversarii resolved',media.muscles?.m044?.anatomy?.[0]?.file==='Sobo 1909 244.png',media.muscles?.m044?.anatomy?.[0]?.file||'missing');
+check('m045 lumbar lateral intertransversarii resolved',media.muscles?.m045?.anatomy?.[0]?.file==='Sobo 1909 244.png',media.muscles?.m045?.anatomy?.[0]?.file||'missing');
+check('Resolved lumbar gaps removed from source-gap list',
+  !sourceGaps.some(x=>['m044','m045'].includes(x.muscle_id)),
+  sourceGaps.filter(x=>['m044','m045'].includes(x.muscle_id)).map(x=>x.muscle_id).join(',')
+);
 check('Ultrasound total matches global audit',gaps.ultrasound?.canonical_views===globalUS.summary?.ultrasound_views_total,`${gaps.ultrasound?.canonical_views}/${globalUS.summary?.ultrasound_views_total}`);
 check('Ultrasound embedded count matches global audit',gaps.ultrasound?.embedded_actual_ultrasound===globalUS.summary?.embedded_reuse_with_attribution,`${gaps.ultrasound?.embedded_actual_ultrasound}/${globalUS.summary?.embedded_reuse_with_attribution}`);
 check('Ultrasound link-only count matches global audit',gaps.ultrasound?.link_only_actual_ultrasound_reference===globalUS.summary?.link_only_reference_views,`${gaps.ultrasound?.link_only_actual_ultrasound_reference}/${globalUS.summary?.link_only_reference_views}`);
@@ -28,7 +34,7 @@ check('Special-view audit separates accepted anatomy from true re-audit',
   `accepted=${(gaps.anatomy?.accepted_special_views||[]).length}; reaudits=${(gaps.anatomy?.manual_visual_reaudit_candidates||[]).map(x=>x.muscle_id).join(',')}`
 );
 check('Group-level candidates are not falsely promoted',
-  (gaps.anatomy?.candidate_sources_not_promoted||[]).every(x=>['NOT_PROMOTED','RESEARCH_ONLY'].includes(x.decision)),
+  (gaps.anatomy?.candidate_sources_not_promoted||[]).every(x=>['NOT_PROMOTED','RESEARCH_ONLY','REFERENCE_ONLY'].includes(x.decision)),
   (gaps.anatomy?.candidate_sources_not_promoted||[]).map(x=>x.decision).join(',')
 );
 check('Part-specific source-gap candidates remain gaps',
