@@ -11,9 +11,10 @@ This document is the canonical handoff checkpoint for continuing development of 
 - Production branch: `main`
 - Production frozen SHA: `4ba8740ca6655ab1d4bebca84b26e39290c61bf7`
 - **Never change or promote `main` without explicit user approval.**
-- Current handoff baseline HEAD before this handoff commit: `bbf2da806a91a7c49fd2a8d80fab2f3855331b1d`
-- Current Preview app version at that baseline: `v11.61 · Pelvic Floor Representative Views`
-- Current workflow run at handoff preparation: Global QA run `36565952089` was still in progress. The next session must check the final result before starting overlapping work.
+- Latest verified baseline before the current research-queue checkpoint: `13950a56bf531a97eb68cd25f3d051e5e79e5919` — canonical handoff commit, Global QA run `36566509370` PASS.
+- Latest implementation checkpoint before this handoff refresh: `2d4c5f6b8724dc96acb614b78e48f8bb40d3f71b` — remaining anatomy-gap research queue + QA gate.
+- Current Preview app version remains `v11.61 · Pelvic Floor Representative Views`.
+- Global QA run `36567102376` for the research-queue checkpoint was in progress at handoff refresh. The next session must check its final result before overlapping edits.
 
 ## 2. User communication contract
 
@@ -162,6 +163,13 @@ Latest state at the handoff baseline:
 - previously there were 28 gaps and 17 manual re-audit candidates; later work reduced these
 - m056 Puborectalis was most recently updated to `Pelvic Muscles (Female Inferior).png`
 - current baseline HEAD commit message: `QA: update required puborectalis representative asset`
+
+Research order for those 18 is now explicitly stored in `data/atlas-media-gap-audit-v1.json`:
+- **P1:** m120–m122 palmar interossei, m132 articularis genus, m137 adductor magnus hamstring part, m193 scalenus minimus, m197 spinalis cervicis, m205 articularis cubiti
+- **P2:** m025–m028 thoracic deep segmental muscles and m039–m043 lumbar deep segmental muscles
+- **P3:** m171 variable opponens digiti minimi of foot
+- Each queue item has a stop rule so weak/group-level/cross-section substitutes are not promoted just to close the gap.
+- m137 now has a documented public-domain research lead (Gerrish 1902 Fig.356 plus Gray whole-adductor plates) but remains a source gap because the hamstring/ischiocondylar part is not directly separated.
 
 Remaining 18 anatomy source gaps:
 - m025 흉다열근
