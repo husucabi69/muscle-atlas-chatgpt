@@ -60,7 +60,8 @@ jobs:
         run: node scripts/patient-exercise-realistic-assets-qa.mjs
       - name: Run Stage 23B disease rehabilitation roadmap QA
         run: node scripts/patient-rehab-disease-roadmap-qa.mjs
-
+      - name: Run Stage 23B disease rehabilitation content integrity QA
+        run: node scripts/patient-rehab-disease-content-qa.mjs
 
   runtime-navigation-e2e:
     runs-on: ubuntu-latest
