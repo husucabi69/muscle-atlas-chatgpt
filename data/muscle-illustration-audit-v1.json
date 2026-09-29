@@ -233,12 +233,15 @@
       "muscle_id": "m016",
       "name_ko": "경횡돌기간근",
       "name_en": "Intertransversarii cervicis",
-      "status": "no_suitable_public_source",
-      "decision": {
-        "reason": "공개 재사용 자료 중 경추 횡돌기간근을 경추 분절로 직접 라벨링하고 충분한 해상도로 보여 주는 정본을 확인하지 못함.",
-        "evidence": "Commons의 전용 Intertransversarii 도해는 276×113 저해상도이며 경추·흉추·요추 부위를 분리하지 않음.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Sobo 1909 243.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_243.png",
+        "license": "Public domain",
+        "author": "Johannes Sobotta",
+        "view": "lateral deep cervical spine",
+        "focusLabel": "경추 전·후 횡돌기간근",
+        "educationalReason": "Sobotta 원전 Fig.243이 경추 intertransversarii anteriores/posteriores를 직접 다루며, 인접 경추 횡돌기 사이를 잇는 짧은 근복의 전체 위치와 반복되는 분절 배열을 한 화면에서 확인할 수 있음"
       }
     },
     {
@@ -2869,8 +2872,8 @@
     }
   ],
   "progress": {
-    "reviewed": 179,
-    "no_suitable_public_source": 26,
+    "reviewed": 180,
+    "no_suitable_public_source": 25,
     "pending_review": 0,
     "decided": 205,
     "last_batch": "lumbar_intertransversarii_gap_resolution"
