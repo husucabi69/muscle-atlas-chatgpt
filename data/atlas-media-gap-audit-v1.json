@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-g",
+  "audit_version": "2026.09.29-atlas-media-gap-h",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
@@ -172,33 +172,8 @@
       }
     ],
     "remaining_gray384_representatives": [],
-    "manual_visual_reaudit_candidates": [
-      {
-        "muscle_id": "m056",
-        "name_ko": "항문거근-치골직장근",
-        "name_en": "Puborectalis",
-        "view": "sagittal pelvic floor schematic",
-        "file": "(155) Stylized depiction of action of puborectalis sling.png",
-        "status": "RESEARCH_REPLACEMENT_PRIORITY",
-        "reason": "현재 대표 그림이 기능을 설명하는 sagittal schematic 중심이라, 해부학적 전체 형태를 더 직접적으로 보여 주는 puborectalis/levator ani 실해부 또는 고품질 도해 후보 재탐색 필요",
-        "reviewed_on": "2026-09-29",
-        "latest_search_result": "No dedicated reusable puborectalis whole-muscle figure superior to the current functional sling schematic was confirmed. Levator ani whole-group public-domain figures exist but do not isolate puborectalis sufficiently.",
-        "decision": "KEEP_CURRENT_TEMPORARILY_AND_CONTINUE_SEARCH"
-      },
-      {
-        "muscle_id": "m203",
-        "name_ko": "외요도괄약근",
-        "name_en": "External urethral sphincter",
-        "view": "comparative male and female urinary tract",
-        "file": "Anatomytool Male and female urinary tract English.jpg",
-        "status": "RESEARCH_REPLACEMENT_PRIORITY",
-        "reason": "현재 남녀 요로 비교도는 위치 비교에는 좋지만 외요도괄약근 자체의 형태를 더 직접적으로 보여 주는 대표 해부도해 후보 재탐색 필요",
-        "reviewed_on": "2026-09-29",
-        "latest_search_result": "Gray408 provides a public-domain female perineal view and is used for the female external urethral sphincter, but it is sex-specific. The current comparative male/female urinary-tract plate remains more balanced for the general canonical entity.",
-        "decision": "KEEP_CURRENT_TEMPORARILY_AND_CONTINUE_SEARCH"
-      }
-    ],
-    "manual_visual_reaudit_note": "이 목록은 비표준 시야/도식/고립 3D 등을 사용해 한 번 더 사람 눈으로 확인할 후보이며, 부적합 확정 목록은 아니다.",
+    "manual_visual_reaudit_candidates": [],
+    "manual_visual_reaudit_note": "2026-09-29 육안 재검수 후보를 모두 해결함. m056은 더 직접적인 전체 골반저 대표도해로 교체했고, m203은 현 자산 유지가 더 적절함을 확인.",
     "accepted_special_views": [
       {
         "muscle_id": "m036",
@@ -334,6 +309,15 @@
         "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
         "status": "ACCEPTED_SPECIAL_VIEW",
         "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      },
+      {
+        "muscle_id": "m203",
+        "name_ko": "외요도괄약근",
+        "name_en": "External urethral sphincter",
+        "view": "comparative male and female urinary tract",
+        "file": "Anatomytool Male and female urinary tract English.jpg",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "남녀 외요도괄약근이 각각 직접 라벨링되어 막성 요도 주변 위치와 성별 차이를 동시에 보여 주므로 일반 canonical 대표 시야로 유지"
       }
     ],
     "candidate_sources_not_promoted": [
@@ -535,6 +519,30 @@
         "name_ko": "제4배측골간근",
         "asset": "Sobo 1909 285.png",
         "reason": "Sobotta 후면 손 도해에서 Interosseus dorsalis IV 직접 표기 확인"
+      }
+    ],
+    "resolved_manual_visual_reaudits": [
+      {
+        "muscle_id": "m056",
+        "name_ko": "항문거근-치골직장근",
+        "decision": "REPLACED_WITH_BETTER_WHOLE_MUSCLE_VIEW",
+        "old_asset": "(155) Stylized depiction of action of puborectalis sling.png",
+        "new_asset": "Pelvic Muscles (Female Inferior).png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Pelvic_Muscles_(Female_Inferior).png",
+        "license": "CC BY-SA 4.0",
+        "resolution": "기능 중심 sagittal sling 도식 대신 1,500×1,500 하방 골반저 도해로 교체. Puborectalis가 직접 라벨링되고 주변 levator ani subdivisions와의 관계가 명확함.",
+        "reviewed_on": "2026-09-29"
+      },
+      {
+        "muscle_id": "m203",
+        "name_ko": "외요도괄약근",
+        "decision": "KEEP_CURRENT_CONFIRMED",
+        "asset": "Anatomytool Male and female urinary tract English.jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Anatomytool_Male_and_female_urinary_tract_English.jpg",
+        "license": "CC BY 4.0",
+        "resolution": "현재 도해가 남성과 여성의 external urethral sphincter를 각각 직접 라벨링하며 막성 요도와의 관계를 동시에 보여 줌. 검색된 공개대안보다 canonical 일반 대표성이 높아 유지.",
+        "reviewed_on": "2026-09-29",
+        "previous_search_note": "Gray408 provides a public-domain female perineal view and is used for the female external urethral sphincter, but it is sex-specific. The current comparative male/female urinary-tract plate remains more balanced for the general canonical entity."
       }
     ]
   },
@@ -752,7 +760,6 @@
   "priority_next": [
     "18개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
     "손바닥 골간근 m120–m122는 현대 번호 체계가 직접 보이는 자료를 우선 검증",
-    "m056 치골직장근·m203 외요도괄약근은 현재 임시 대표를 유지하면서 더 직접적인 전체 해부도해 탐색",
     "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산 우선 탐색",
     "더 좋은 대표자산 발견 시 Stable ID 유지 + asset slot 교체"
   ]
