@@ -1,29 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-d",
+  "audit_version": "2026.09.29-atlas-media-gap-e",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
     "canonical_muscles": 205,
-    "reviewed_representative": 181,
-    "no_suitable_public_source": 24,
+    "reviewed_representative": 184,
+    "no_suitable_public_source": 21,
     "source_gaps": [
-      {
-        "muscle_id": "m021",
-        "name_ko": "흉장늑근",
-        "name_en": "Iliocostalis thoracis",
-        "reason": "장늑근 전체 도해는 있으나 흉장늑근(iliocostalis thoracis)만의 경계와 주행을 직접 구분하는 재사용 가능 정본을 확인하지 못함.",
-        "evidence": "전체 iliocostalis group 이미지는 thoracis/cervicis/lumborum 경계를 독립 라벨로 분리하지 않음.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
-      {
-        "muscle_id": "m022",
-        "name_ko": "흉최장근",
-        "name_en": "Longissimus thoracis",
-        "reason": "최장근 전체 도해는 있으나 흉최장근(longissimus thoracis)의 흉추부를 독립적으로 식별할 수 있는 재사용 가능 대표도해가 부족함.",
-        "evidence": "공개 도해가 longissimus group 중심이며 thoracic part의 직접 경계 라벨이 불충분함.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
       {
         "muscle_id": "m025",
         "name_ko": "흉다열근",
@@ -54,14 +38,6 @@
         "name_en": "Intertransversarii thoracis",
         "reason": "흉횡돌기간근을 흉추부로 직접 식별하는 고해상도 재사용 가능 정본을 확인하지 못함.",
         "evidence": "전용 Commons intertransversarii 파일은 저해상도이며 지역별 분리가 없음.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
-      {
-        "muscle_id": "m038",
-        "name_ko": "요장늑근",
-        "name_en": "Iliocostalis lumborum",
-        "reason": "장늑근 전체 도해는 있으나 요장늑근(iliocostalis lumborum)만의 근복과 경계를 직접 구분하는 대표 정본이 부족함.",
-        "evidence": "전체 iliocostalis group 도해를 lumbar part 전용 대표시야로 승격하지 않음.",
         "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
       },
       {
@@ -387,18 +363,6 @@
     "candidate_sources_not_promoted": [
       {
         "muscle_ids": [
-          "m021",
-          "m038"
-        ],
-        "candidate": "Iliostalis.png",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Iliostalis.png",
-        "license": "Public domain in US / Gray-derived",
-        "decision": "NOT_PROMOTED",
-        "reason": "iliocostalis 전체 group은 잘 보이지만 thoracis와 lumborum을 개별 canonical muscle로 직접 구분하지 못함"
-      },
-      {
-        "muscle_ids": [
-          "m022",
           "m039"
         ],
         "candidate": "Longissimus.png",
@@ -555,6 +519,30 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Wrist_and_hand_deeper_palmar_dissection-numbers.svg",
         "license": "CC0 1.0",
         "resolution": "깊은 손바닥 해부도에서 제1배측골간근이 번호 5로 직접 지목되어 individual canonical 대표도해 기준 충족"
+      },
+      {
+        "muscle_id": "m021",
+        "name_ko": "흉장늑근",
+        "asset": "Gray389.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray389.png",
+        "license": "Public domain",
+        "resolution": "Gray389 후면 심부 원본에서 iliocostalis dorsi(현대 iliocostalis thoracis)의 전체 주행을 확인할 수 있어 whole-muscle 대표 시야로 승격"
+      },
+      {
+        "muscle_id": "m022",
+        "name_ko": "흉최장근",
+        "asset": "Gray389.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray389.png",
+        "license": "Public domain",
+        "resolution": "Gray389 후면 심부 원본에서 longissimus dorsi(현대 longissimus thoracis)의 긴 종주 주행을 직접 확인할 수 있어 대표 시야로 승격"
+      },
+      {
+        "muscle_id": "m038",
+        "name_ko": "요장늑근",
+        "asset": "Gray389.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray389.png",
+        "license": "Public domain",
+        "resolution": "Gray389 후면 심부 원본에서 iliocostalis lumborum이 직접 표시되어 요장늑근 전체 방향을 확인할 수 있어 대표 시야로 승격"
       }
     ]
   },
@@ -770,7 +758,7 @@
     }
   },
   "priority_next": [
-    "24개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
+    "21개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
     "m056 치골직장근·m203 외요도괄약근은 현재 임시 대표를 유지하면서 더 직접적인 전체 해부도해 탐색",
     "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산 우선 탐색",
     "더 좋은 대표자산 발견 시 Stable ID 유지 + asset slot 교체"
