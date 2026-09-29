@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.29-stage23b-realistic-c",
+  "dataset_version": "2026.09.29-stage23b-realistic-d",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -78,26 +78,41 @@
     {
       "profile_id": "px004",
       "title_ko": "어깨 외회전",
-      "status": "PENDING_GENERATION",
-      "composite_url": null,
+      "status": "APPROVED",
+      "composite_url": "./assets/patient-exercise-realistic/px004.webp",
       "alt_text": "어깨 외회전 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "어깨 외회전 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인.",
+      "generator": "OpenAI image generation",
+      "gen_id": "799949c1-d62a-4910-9a06-8e808f06835c",
+      "integrated_on": "2026-09-29",
+      "preview_resolution": "320x400",
+      "asset_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING"
     },
     {
       "profile_id": "px005",
       "title_ko": "문틀 스트레칭",
-      "status": "PENDING_GENERATION",
-      "composite_url": null,
+      "status": "APPROVED",
+      "composite_url": "./assets/patient-exercise-realistic/px005.webp",
       "alt_text": "문틀 스트레칭 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "문틀 스트레칭 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인.",
+      "generator": "OpenAI image generation",
+      "gen_id": "c60f80e8-16c3-4ced-9ed7-3265e9aaab8e",
+      "integrated_on": "2026-09-29",
+      "preview_resolution": "320x400",
+      "asset_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING"
     },
     {
       "profile_id": "px006",
       "title_ko": "손목 운동",
-      "status": "PENDING_GENERATION",
-      "composite_url": null,
+      "status": "APPROVED",
+      "composite_url": "./assets/patient-exercise-realistic/px006.webp",
       "alt_text": "손목 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "손목 운동 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인.",
+      "generator": "OpenAI image generation",
+      "gen_id": "5b03ec52-fa72-4ca2-86a5-26111bf73b8a",
+      "integrated_on": "2026-09-29",
+      "preview_resolution": "320x400",
+      "asset_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING"
     },
     {
       "profile_id": "px007",
