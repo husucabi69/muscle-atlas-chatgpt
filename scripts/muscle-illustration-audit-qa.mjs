@@ -34,6 +34,11 @@ if(audit.progress){
   check('Progress decided count matches',audit.progress.decided===reviewed.length+sourceGaps.length,`${audit.progress.decided}/${reviewed.length+sourceGaps.length}`);
 }
 
+check('No Gray384 C6 cross-section remains a representative anatomy asset',
+  reviewed.every(row=>!/Gray384/i.test(String(row.representative_asset?.file||'')+' '+String(row.representative_asset?.sourcePage||''))),
+  reviewed.filter(row=>/Gray384/i.test(String(row.representative_asset?.file||'')+' '+String(row.representative_asset?.sourcePage||''))).map(x=>x.muscle_id).join(',')
+);
+
 for(const row of reviewed){
   const asset=row.representative_asset;
   const registry=media.muscles?.[row.muscle_id]?.anatomy?.[0];
@@ -66,11 +71,11 @@ const required={
   m073:'Subscapularis muscle frontal.png',
   m001:'Sternomastoid muscle lateral.png',
   m002:'Scalenus anterior.png',
-  m003:'Gray384 - Scalenus medius muscle.png',
+  m003:'Gray385 - Scalenus medius muscle.png',
   m004:'Scalenus posterior.png',
   m009:'Musculus splenius capitis marked.png',
   m010:'Splenius cervicis muscle back.png',
-  m011:'Gray384 Semispinalis capitis.png',
+  m011:'Gray389 Semispinalis capitis.png',
   m012:'Essentials of physiology, arranged in the form of questions and answers, prepared especially for students of medicine (1899) (14581458379).jpg',
   m013:'1111 Posterior and Side Views of the Neck Deep Posterior.png',
   m014:'Rotatores.png',
