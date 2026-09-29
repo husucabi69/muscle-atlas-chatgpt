@@ -79,6 +79,28 @@ check('Source research ledger records rejected candidates',
   String((gaps.anatomy?.candidate_sources_not_promoted||[]).length)
 );
 
+const researchQueue=gaps.anatomy?.research_priority_queue||[];
+const researchQueueIds=researchQueue.flatMap(x=>x.muscle_ids||[]);
+check('Research priority queue covers every remaining anatomy gap exactly once',
+  researchQueueIds.length===sourceGapIds.length &&
+  new Set(researchQueueIds).size===sourceGapIds.length &&
+  [...new Set(researchQueueIds)].sort().join('|')===sourceGapIds.join('|'),
+  `queue=${researchQueueIds.length}; unique=${new Set(researchQueueIds).size}; gaps=${sourceGapIds.length}`
+);
+check('Research priority queue has explicit stop rules',
+  researchQueue.length>0 && researchQueue.every(x=>typeof x.stop_rule==='string'&&x.stop_rule.length>15),
+  researchQueue.filter(x=>!x.stop_rule||x.stop_rule.length<=15).map(x=>x.label_ko).join(',')
+);
+check('Research priority values valid',
+  researchQueue.every(x=>['P1','P2','P3'].includes(x.priority)),
+  researchQueue.filter(x=>!['P1','P2','P3'].includes(x.priority)).map(x=>x.priority).join(',')
+);
+check('m137 research candidate is retained but not promoted',
+  (gaps.anatomy?.candidate_sources_not_promoted||[]).some(x=>(x.muscle_ids||[]).includes('m137')&&x.decision==='RESEARCH_ONLY') &&
+  sourceGaps.some(x=>x.muscle_id==='m137'),
+  media.muscles?.m137?.anatomy?.[0]?.file||'source-gap retained'
+);
+
 let failed=0;
 for(const x of checks){
   console.log(`${x.pass?'PASS':'FAIL'} | ${x.name}${x.detail?' | '+x.detail:''}`);
