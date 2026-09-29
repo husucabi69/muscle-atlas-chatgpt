@@ -13,7 +13,7 @@ This document is the canonical handoff checkpoint for continuing development of 
 - **Never change or promote `main` without explicit user approval.**
 - Latest verified baseline before the current research-queue checkpoint: `13950a56bf531a97eb68cd25f3d051e5e79e5919` — canonical handoff commit, Global QA run `36566509370` PASS.
 - Latest roadmap-governance checkpoint before this handoff refresh: `af7b6846394e3bef86e4e5b61f7724d59685ec4c` — latest user instruction fixed manual 15-minute target / 20-minute HARD STOP and roadmap-first idea triage.
-- Current Preview app version: `v11.64 · Realistic Exercise First 6`.
+- Current Preview app version: `v11.65 · Exercise A4 Print Guard`.
 - Embedded run/SHA notes are only checkpoints. Because 00:00~08:00 scheduled work can advance the branch, every session must query the live latest HEAD and latest QA/Preview state before editing.
 
 ## 2. User communication contract
@@ -89,11 +89,14 @@ Stage 23B:
 - registry: `data/patient-exercise-realistic-assets-v1.json`
 - current realistic asset status at handoff:
   - px001–px006 = `APPROVED` and connected to in-app WebP assets
-  - px007–px008, px010–px018 = `PENDING_GENERATION`
-  - px009 squat = `STYLE_REFERENCE_APPROVED` only; approved style reference, not yet connected as final app asset
+  - px007 = `CANDIDATE_GENERATED` (latest gen_id `fbf5ab4d-37ca-440d-bb2d-7edccfd92253`), binary materialization + Preview review pending
+  - px008 = `CANDIDATE_GENERATED` (latest gen_id `f3e1b777-ec4c-4018-b702-77f61a0d4cda`), binary materialization + Preview review pending
+  - px009 squat = `CANDIDATE_GENERATED` (latest gen_id `5bc585a2-285b-4fba-922b-9720250cb893`); generated wording includes an over-restrictive knee/toe cue, so content correction is required before approval
+  - px010–px018 = `PENDING_GENERATION`
   - px001–px006 are mobile Preview assets; A4 final high-resolution gate remains pending
+  - v11.65 adds a print-quality guard: while an approved realistic asset is still marked `MOBILE_PREVIEW_APPROVED_A4_HD_PENDING`, screen/mobile uses the realistic WebP but A4 print uses the sharp SVG fallback plus an explanatory note
 - runtime E2E was structurally updated to validate realistic images while retaining hidden SVG fallback; a literal-newline syntax regression was corrected in `dc0d1e763effce157f2605fc3be83bcc509ff3f0`
-- next exact mainline item: **px007 손가락 운동 realistic asset**, then px008, px009 final asset, px010–px018
+- next exact mainline item: **materialize + visually review px007 candidate**, then px008; px009 requires cue correction before materialization/approval; after that px010–px018
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
