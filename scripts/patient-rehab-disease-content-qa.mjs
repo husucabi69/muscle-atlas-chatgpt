@@ -37,13 +37,14 @@ for(const c of rehab.conditions||[]){
   if(!/^2026-\d{2}-\d{2}$/.test(c.last_reviewed||'')) errors.push(`${c.stable_id}:bad_last_reviewed`);
 }
 const dup=[...new Set(ids.filter((x,i)=>ids.indexOf(x)!==i))];
+const regionIds=[...new Set((rehab.conditions||[]).map(x=>x.region_id).filter(Boolean))];
 pass('Disease rehab Stable IDs unique',dup.length===0,dup.join(','));
 pass('Disease rehab content integrity',errors.length===0,errors.slice(0,30).join(','));
 pass('Shoulder seed coverage >= 2',(rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length>=2,String((rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length));
+pass('Multiregion disease rehab coverage >= 6',regionIds.length>=6,`${regionIds.length}: ${regionIds.join(',')}`);
 pass('Exercise profile registry available',profileIds.size>=18,String(profileIds.size));
 pass('Realistic asset slot registry covers actionable profiles',['px001','px002','px003','px004','px005','px006','px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>realisticIds.has(id)));
 
-// Safety guard: no disease module may silently treat postoperative care as the same pathway.
 const postopLeak=(rehab.conditions||[]).filter(c=>/수술\s*후.*(같|동일)|post-?op.*same/i.test(JSON.stringify(c)));
 pass('No postoperative-pathway conflation',postopLeak.length===0,postopLeak.map(x=>x.stable_id).join(','));
 
