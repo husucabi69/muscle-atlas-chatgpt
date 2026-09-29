@@ -47,6 +47,12 @@ check('App loads realistic asset manifest',index.includes("fetch('./data/patient
 check('App indexes realistic assets',index.includes('exerciseRealisticAssetById=Object.fromEntries'));
 check('Renderer prefers APPROVED realistic asset',index.includes("asset?.status==='APPROVED'&&asset?.composite_url"));
 check('Renderer preserves SVG fallback',index.includes('exercise-svg-fallback'));
+check('A4 HD-pending assets use print-safe fallback',
+  index.includes('exercise-realistic-media.a4-hd-pending')&&
+  index.includes('exercise-svg-fallback.a4-hd-pending[hidden]')&&
+  index.includes('exercise-a4-pending-note')&&
+  index.includes("asset?.asset_gate==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING'")
+);
 // Keep this gate semantic rather than matching one exact JS-escaped HTML literal.
 // The renderer source contains escaped quotes because the <img> markup is itself built inside a JS string.
 check('Broken realistic image restores fallback',
