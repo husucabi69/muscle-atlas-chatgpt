@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.29-stage17-aj",
+  "audit_version": "2026.09.29-stage17-ak",
   "status": "COMPLETE",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -49,12 +49,12 @@
       "name_en": "Scalenus medius",
       "status": "reviewed",
       "representative_asset": {
-        "file": "Gray384 - Scalenus medius muscle.png",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray384_-_Scalenus_medius_muscle.png",
+        "file": "Gray385 - Scalenus medius muscle.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray385_-_Scalenus_medius_muscle.png",
         "license": "Public domain",
         "author": "Henry Gray / H. V. Carter",
-        "view": "lateral deep neck",
-        "educationalReason": "중사각근의 넓은 경추 기시와 제1늑골 주행을 전사각근과 구분해 이해하기 좋은 강조 도해"
+        "view": "lateral neck",
+        "educationalReason": "경부 측면에서 중사각근의 경추 횡돌기 기시부터 제1늑골 정지까지 전체 주행을 확인할 수 있어 C6 횡단면 Gray384보다 대표 도해로 적합"
       }
     },
     {
