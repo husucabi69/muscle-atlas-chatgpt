@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.29-stage17-an",
+  "audit_version": "2026.09.29-stage17-al",
   "status": "COMPLETE",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1653,36 +1653,45 @@
       "muscle_id": "m117",
       "name_ko": "제2배측골간근",
       "name_en": "Dorsal interosseous 2 (hand)",
-      "status": "no_suitable_public_source",
-      "decision": {
-        "reason": "손 제2배측골간근의 근복과 번호를 직접 대응시키는 고해상도 재사용 가능 정본을 확인하지 못함.",
-        "evidence": "공개 group 도해는 4개 배측골간근을 함께 보여 주지만 개별 번호 고정 근거가 부족함.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Sobo 1909 285.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_285.png",
+        "license": "Public domain",
+        "author": "Johannes Sobotta",
+        "view": "dorsal hand deep interossei",
+        "focusLabel": "Interosseus dorsalis II",
+        "educationalReason": "Sobotta 후면 손 도해에서 배측골간근 I–IV가 동일한 번호 체계로 직접 표기되어 있으며, 제2배측골간근의 근복을 제2·3 중수골 사이에서 정확히 구분할 수 있음"
       }
     },
     {
       "muscle_id": "m118",
       "name_ko": "제3배측골간근",
       "name_en": "Dorsal interosseous 3 (hand)",
-      "status": "no_suitable_public_source",
-      "decision": {
-        "reason": "손 제3배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
-        "evidence": "부분적으로만 번호가 보이는 단일 plate보다 일관된 현대 ordinal mapping을 우선함.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Sobo 1909 285.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_285.png",
+        "license": "Public domain",
+        "author": "Johannes Sobotta",
+        "view": "dorsal hand deep interossei",
+        "focusLabel": "Interosseus dorsalis III",
+        "educationalReason": "Sobotta 후면 손 도해에서 배측골간근 I–IV가 동일한 번호 체계로 직접 표기되어 있으며, 제3배측골간근의 근복을 제3·4 중수골 사이에서 정확히 구분할 수 있음"
       }
     },
     {
       "muscle_id": "m119",
       "name_ko": "제4배측골간근",
       "name_en": "Dorsal interosseous 4 (hand)",
-      "status": "no_suitable_public_source",
-      "decision": {
-        "reason": "손 제4배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
-        "evidence": "부분 라벨 plate를 canonical ordinal 대표로 고정하지 않음.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Sobo 1909 285.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_285.png",
+        "license": "Public domain",
+        "author": "Johannes Sobotta",
+        "view": "dorsal hand deep interossei",
+        "focusLabel": "Interosseus dorsalis IV",
+        "educationalReason": "Sobotta 후면 손 도해에서 배측골간근 I–IV가 동일한 번호 체계로 직접 표기되어 있으며, 제4배측골간근의 근복을 제4·5 중수골 사이에서 정확히 구분할 수 있음"
       }
     },
     {
@@ -2884,8 +2893,8 @@
     }
   ],
   "progress": {
-    "reviewed": 184,
-    "no_suitable_public_source": 21,
+    "reviewed": 187,
+    "no_suitable_public_source": 18,
     "pending_review": 0,
     "decided": 205,
     "last_batch": "gray389_posterior_erector_spinae_gap_resolution"
