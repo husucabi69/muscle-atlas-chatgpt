@@ -18,6 +18,17 @@ check('No pending slot pretends to have an asset URL',
 check('Any APPROVED asset must have WebP URL',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>typeof x.composite_url==='string'&&/\.webp(?:\?|$)/.test(x.composite_url))
 );
+check('Current realistic Preview batch approved', ['px001','px002','px003'].every(id=>manifest.profiles.some(x=>x.profile_id===id&&x.status==='APPROVED')),
+  manifest.profiles.filter(x=>x.status==='APPROVED').map(x=>x.profile_id).join(',')
+);
+check('Every APPROVED realistic asset exists and is WebP bytes',
+  manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>{
+    const path=String(x.composite_url||'').replace(/^\.\//,'');
+    if(!path||!fs.existsSync(path))return false;
+    const b=fs.readFileSync(path);
+    return b.length>20&&b.subarray(0,4).toString('ascii')==='RIFF'&&b.subarray(8,12).toString('ascii')==='WEBP';
+  })
+);
 check('px001 realistic neck-stretch asset is connected',
   manifest.profiles.some(x=>x.profile_id==='px001'&&x.status==='APPROVED'&&x.composite_url==='./assets/patient-exercise-realistic/px001.webp')
 );
