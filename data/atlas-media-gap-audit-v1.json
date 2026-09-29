@@ -770,7 +770,7 @@
     }
   },
   "priority_next": [
-    "26개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
+    "24개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
     "m056 치골직장근·m203 외요도괄약근은 현재 임시 대표를 유지하면서 더 직접적인 전체 해부도해 탐색",
     "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산 우선 탐색",
     "더 좋은 대표자산 발견 시 Stable ID 유지 + asset slot 교체"
