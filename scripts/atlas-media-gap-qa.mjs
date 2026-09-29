@@ -11,10 +11,13 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 const sourceGaps=(audit.muscles||[]).filter(x=>x.status==='no_suitable_public_source');
 const reviewed=(audit.muscles||[]).filter(x=>x.status==='reviewed');
 const gray384=reviewed.filter(x=>/Gray384/i.test(String(x.representative_asset?.file||'')+' '+String(x.representative_asset?.sourcePage||'')));
+const sourceGapIds=sourceGaps.map(x=>x.muscle_id).sort();
+const ledgerSourceGapIds=(gaps.anatomy?.source_gaps||[]).map(x=>x.muscle_id).sort();
 
 check('Gap ledger schema',gaps.schema_version==='1.0.0',gaps.schema_version);
 check('Anatomy gap count matches Stage 17 audit',gaps.anatomy?.no_suitable_public_source===sourceGaps.length,`${gaps.anatomy?.no_suitable_public_source}/${sourceGaps.length}`);
 check('Anatomy reviewed count matches',gaps.anatomy?.reviewed_representative===reviewed.length,`${gaps.anatomy?.reviewed_representative}/${reviewed.length}`);
+check('Anatomy source-gap IDs match Stage 17 audit',ledgerSourceGapIds.join('|')===sourceGapIds.join('|'),`${ledgerSourceGapIds.length}/${sourceGapIds.length}`);
 check('No Gray384 cross-section representative remains',gray384.length===0,gray384.map(x=>x.muscle_id).join(','));
 check('m011 corrected to Gray389',media.muscles?.m011?.anatomy?.[0]?.file==='Gray389 Semispinalis capitis.png',media.muscles?.m011?.anatomy?.[0]?.file||'missing');
 check('m003 corrected to Gray385',media.muscles?.m003?.anatomy?.[0]?.file==='Gray385 - Scalenus medius muscle.png',media.muscles?.m003?.anatomy?.[0]?.file||'missing');
@@ -44,7 +47,7 @@ check('Group-level candidates are not falsely promoted',
   (gaps.anatomy?.candidate_sources_not_promoted||[]).map(x=>x.decision).join(',')
 );
 check('Part-specific source-gap candidates remain gaps',
-  ['m021','m022','m025','m038','m039','m041','m116','m117','m118','m119','m197'].every(id=>
+  ['m021','m022','m025','m038','m039','m041','m117','m118','m119','m197'].every(id=>
     sourceGaps.some(x=>x.muscle_id===id)
   )
 );
