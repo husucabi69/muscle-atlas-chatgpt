@@ -22,6 +22,20 @@ check('Ultrasound total matches global audit',gaps.ultrasound?.canonical_views==
 check('Ultrasound embedded count matches global audit',gaps.ultrasound?.embedded_actual_ultrasound===globalUS.summary?.embedded_reuse_with_attribution,`${gaps.ultrasound?.embedded_actual_ultrasound}/${globalUS.summary?.embedded_reuse_with_attribution}`);
 check('Ultrasound link-only count matches global audit',gaps.ultrasound?.link_only_actual_ultrasound_reference===globalUS.summary?.link_only_reference_views,`${gaps.ultrasound?.link_only_actual_ultrasound_reference}/${globalUS.summary?.link_only_reference_views}`);
 check('Ultrasound canonical source missing is zero',gaps.ultrasound?.canonical_source_missing===0,String(gaps.ultrasound?.canonical_source_missing));
+check('Special-view audit separates accepted anatomy from true re-audit',
+  (gaps.anatomy?.accepted_special_views||[]).length===15 &&
+  (gaps.anatomy?.manual_visual_reaudit_candidates||[]).map(x=>x.muscle_id).sort().join('|')==='m056|m203',
+  `accepted=${(gaps.anatomy?.accepted_special_views||[]).length}; reaudits=${(gaps.anatomy?.manual_visual_reaudit_candidates||[]).map(x=>x.muscle_id).join(',')}`
+);
+check('Group-level candidates are not falsely promoted',
+  (gaps.anatomy?.candidate_sources_not_promoted||[]).every(x=>['NOT_PROMOTED','RESEARCH_ONLY'].includes(x.decision)),
+  (gaps.anatomy?.candidate_sources_not_promoted||[]).map(x=>x.decision).join(',')
+);
+check('Part-specific source-gap candidates remain gaps',
+  ['m021','m022','m025','m038','m039','m041','m116','m117','m118','m119','m197'].every(id=>
+    sourceGaps.some(x=>x.muscle_id===id)
+  )
+);
 
 let failed=0;
 for(const x of checks){
