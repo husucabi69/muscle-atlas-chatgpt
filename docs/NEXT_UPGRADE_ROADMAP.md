@@ -472,6 +472,12 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - 인터넷 무단 사진·워터마크·초상권 불명 자료 사용 금지
 - 기존 SVG는 **migration fallback**으로만 유지하며 최종품으로 사용하지 않음
 
+실사형 asset lifecycle:
+- `PENDING_GENERATION → CANDIDATE_GENERATED → APPROVED` 순서를 지킨다.
+- `gen_id`만 있고 저장소 WebP가 없는 후보는 완료가 아니다. 같은 후보를 매시간 다시 생성하지 말고 **binary materialization + Preview review**가 다음 작업이다.
+- 후보에 환자교육 정확성 문제가 있으면 `approval_blockers`를 남기고 교정 전에는 절대 `APPROVED`로 올리지 않는다.
+- 모바일 Preview 저해상도 자산은 `MOBILE_PREVIEW_APPROVED_A4_HD_PENDING`으로 표시하고, 고해상도 승인 전 A4 인쇄에서는 선명한 SVG fallback을 사용한다.
+- A4용 고해상도 asset이 검수되면 같은 Stable ID/slot을 유지한 채 asset만 승격·교체한다.
 
 현재 Stage 19의 운동 그림은 **기능 검증용 개념형 SVG**이며 최종 환자교육 품질로 보지 않는다.
 
