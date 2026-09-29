@@ -33,7 +33,8 @@ try{
         alt:realisticImg?.getAttribute('alt')||'',
         naturalWidth:realisticImg?.naturalWidth||0,
         naturalHeight:realisticImg?.naturalHeight||0,
-        width:realisticImg?Math.round(realisticImg.getBoundingClientRect().width):0,\n        height:realisticImg?Math.round(realisticImg.getBoundingClientRect().height):0
+        width:realisticImg?Math.round(realisticImg.getBoundingClientRect().width):0,
+        height:realisticImg?Math.round(realisticImg.getBoundingClientRect().height):0
       };
       const phases=[...host.querySelectorAll('.exercise-phase')];
       const svgs=[...host.querySelectorAll('.exercise-phase svg')];
@@ -58,7 +59,8 @@ try{
       if(!/\.webp(?:\?|$)/.test(result.realistic.src))fail(id+' realistic WebP source',result.realistic.src);
       if(!result.realistic.alt)fail(id+' realistic alt text');
       if(result.realistic.naturalWidth<1||result.realistic.naturalHeight<1)fail(id+' realistic asset loads',JSON.stringify(result.realistic));
-      if(result.realistic.width<250)fail(id+' mobile realistic image readable width',String(result.realistic.width));\n      if(result.realistic.height<=result.realistic.width)fail(id+' realistic portrait ratio preserved',JSON.stringify(result.realistic));
+      if(result.realistic.width<250)fail(id+' mobile realistic image readable width',String(result.realistic.width));
+      if(result.realistic.height<=result.realistic.width)fail(id+' realistic portrait ratio preserved',JSON.stringify(result.realistic));
     }else if(result.widths.some(x=>x<250)){
       fail(id+' mobile SVG readable width',JSON.stringify(result.widths));
     }
