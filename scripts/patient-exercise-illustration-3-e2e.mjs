@@ -13,7 +13,7 @@ try{
   if(ids.length!==18)fail('18 actionable profiles available',String(ids.length));
 
   for(const id of ids){
-    const result=await page.evaluate(profileId=>{
+    const result=await page.evaluate(async profileId=>{
       const p=exerciseProfileById[profileId];
       const spec=exerciseIllustrationById[profileId];
       if(!p||!spec)return{error:'missing profile'};
@@ -25,6 +25,16 @@ try{
       host.innerHTML=exerciseIllustration(p);
       document.body.appendChild(host);
       const figure=host.querySelector('.exercise-figure');
+      const realisticImg=host.querySelector('.exercise-realistic-media img');
+      if(realisticImg){try{await realisticImg.decode();}catch{}}
+      const realistic={
+        present:Boolean(realisticImg),
+        src:realisticImg?.getAttribute('src')||'',
+        alt:realisticImg?.getAttribute('alt')||'',
+        naturalWidth:realisticImg?.naturalWidth||0,
+        naturalHeight:realisticImg?.naturalHeight||0,
+        width:realisticImg?Math.round(realisticImg.getBoundingClientRect().width):0
+      };
       const phases=[...host.querySelectorAll('.exercise-phase')];
       const svgs=[...host.querySelectorAll('.exercise-phase svg')];
       const viewBoxes=svgs.map(x=>x.getAttribute('viewBox'));
@@ -37,14 +47,21 @@ try{
       const keyText=host.querySelector('.exercise-visual-key')?.textContent||'';
       const phaseMarkup=phases.map(x=>x.querySelector('svg')?.innerHTML||'');
       host.remove();
-      return{viewBoxes,labels,widths,overflow,cols,cueText,keyText,phaseMarkup};
+      return{realistic,viewBoxes,labels,widths,overflow,cols,cueText,keyText,phaseMarkup};
     },id);
     if(result.error)fail(id+' profile render',result.error);
-    if(result.viewBoxes.length!==2||!result.viewBoxes.every(x=>x==='0 0 240 180'))fail(id+' two 240x180 SVG phases',JSON.stringify(result.viewBoxes));
-    if(result.labels.join('|')!=='1 · 시작|2 · 끝')fail(id+' phase labels',result.labels.join('|'));
-    if(result.phaseMarkup[0]===result.phaseMarkup[1])fail(id+' start/end differ');
-    if(result.phaseMarkup.some(x=>!x||x.length<250||/(NaN|undefined)/.test(x)))fail(id+' valid SVG markup');
-    if(result.widths.some(x=>x<250))fail(id+' mobile SVG readable width',JSON.stringify(result.widths));
+    if(result.viewBoxes.length!==2||!result.viewBoxes.every(x=>x==='0 0 240 180'))fail(id+' two 240x180 SVG fallback phases',JSON.stringify(result.viewBoxes));
+    if(result.labels.join('|')!=='1 · 시작|2 · 끝')fail(id+' fallback phase labels',result.labels.join('|'));
+    if(result.phaseMarkup[0]===result.phaseMarkup[1])fail(id+' fallback start/end differ');
+    if(result.phaseMarkup.some(x=>!x||x.length<250||/(NaN|undefined)/.test(x)))fail(id+' valid SVG fallback markup');
+    if(result.realistic.present){
+      if(!/\.webp(?:\?|$)/.test(result.realistic.src))fail(id+' realistic WebP source',result.realistic.src);
+      if(!result.realistic.alt)fail(id+' realistic alt text');
+      if(result.realistic.naturalWidth<1||result.realistic.naturalHeight<1)fail(id+' realistic asset loads',JSON.stringify(result.realistic));
+      if(result.realistic.width<250)fail(id+' mobile realistic image readable width',String(result.realistic.width));
+    }else if(result.widths.some(x=>x<250)){
+      fail(id+' mobile SVG readable width',JSON.stringify(result.widths));
+    }
     if(result.overflow>1)fail(id+' no horizontal clipping',String(result.overflow));
     if(!result.cols||result.cols.trim().split(' ').length!==1)fail(id+' mobile start/end stack to one column',result.cols);
     for(const cue of ['움직임','고정·지지','흔한 실수','중단 기준'])if(!result.cueText.includes(cue))fail(id+' cue '+cue);
@@ -78,7 +95,7 @@ try{
   pass('Stage 23B A4 print geometry');
 
   console.log('\n--- STAGE 23B PATIENT EXERCISE RUNTIME E2E ---');
-  console.log('PASS | 18/18 profiles render start/end on 390px mobile + A4 print geometry');
+  console.log('PASS | 18/18 profiles render realistic image or SVG fallback on 390px mobile + A4 print geometry');
 }finally{
   await browser.close();
 }
