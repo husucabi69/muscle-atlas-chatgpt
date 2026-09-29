@@ -1,21 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-d",
+  "audit_version": "2026.09.29-atlas-media-gap-b",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
     "canonical_muscles": 205,
-    "reviewed_representative": 179,
-    "no_suitable_public_source": 26,
+    "reviewed_representative": 180,
+    "no_suitable_public_source": 25,
     "source_gaps": [
-      {
-        "muscle_id": "m016",
-        "name_ko": "경횡돌기간근",
-        "name_en": "Intertransversarii cervicis",
-        "reason": "공개 재사용 자료 중 경추 횡돌기간근을 경추 분절로 직접 라벨링하고 충분한 해상도로 보여 주는 정본을 확인하지 못함.",
-        "evidence": "Commons의 전용 Intertransversarii 도해는 276×113 저해상도이며 경추·흉추·요추 부위를 분리하지 않음.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
       {
         "muscle_id": "m021",
         "name_ko": "흉장늑근",
@@ -479,16 +471,6 @@
       },
       {
         "muscle_ids": [
-          "m016"
-        ],
-        "candidate": "Sobo 1909 243.png",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_243.png",
-        "license": "Public domain",
-        "decision": "RESEARCH_ONLY",
-        "reason": "경추 횡돌기간근 전체 위치는 고해상도로 잘 보이지만 현재 공개 plate 자체에 anterior/posterior cervical intertransversarii 직접 문자 라벨이 없어 m016 canonical 대표자산으로 즉시 승격하지 않음"
-      },
-      {
-        "muscle_ids": [
           "m132"
         ],
         "candidate": "Grob et al. 2017 Articularis genus Fig.1",
@@ -516,6 +498,24 @@
         "license": "Commercial/proprietary educational media — reuse not established",
         "decision": "REFERENCE_ONLY",
         "reason": "발 소지대립근 자체를 확인하는 현대 교육자료는 있으나 공개 재사용 권한이 확인되지 않아 canonical fixed asset으로 승격하지 않음"
+      },
+      {
+        "muscle_ids": [
+          "m116",
+          "m117",
+          "m118",
+          "m119",
+          "m120",
+          "m121",
+          "m122"
+        ],
+        "candidate": "OpenStax 1121 intrinsic-hand DIL/PIL + Testut 1911 Fig.306 ordinal map",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:1121_Intrinsic_Muscles_of_the_Hand_DIL.png",
+        "secondarySourcePage": "https://commons.wikimedia.org/wiki/File:1121_Intrinsic_Muscles_of_the_Hand_PIL.png",
+        "ordinalEvidencePage": "https://commons.wikimedia.org/wiki/File:Testut%27s_Treatise_on_Human_Anatomy_(1911)_-_Vol_1_-_Fig_306.png",
+        "license": "CC BY-SA 4.0 (OpenStax derivatives) / Public domain (Testut ordinal map)",
+        "decision": "RESEARCH_ONLY",
+        "reason": "DIL/PIL은 근복 전체를 잘 보여주지만 각 제1~4 배측·제1~3 수장 골간근의 번호를 그림 자체에서 개별적으로 명확히 고정하기 어렵다. Testut Fig.306은 번호 대응은 명확하지만 주로 부착부 도해라 whole-muscle 대표도해 기준을 단독으로 충족하지 못함. 향후 번호별 강조/라벨이 가능한 재사용 자산을 우선 탐색."
       }
     ],
     "resolved_gap_promotions": [
@@ -534,6 +534,14 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_244.png",
         "license": "Public domain",
         "resolution": "Sobotta Fig.244에서 Intertransversarii laterales가 직접 라벨링되어 part-specific 대표도해 기준 충족"
+      },
+      {
+        "muscle_id": "m016",
+        "name_ko": "경횡돌기간근",
+        "asset": "Sobo 1909 243.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_243.png",
+        "license": "Public domain",
+        "resolution": "Sobotta 원전에서 Fig.243이 cervical intertransversarii anteriores/posteriores를 직접 설명하며, 경추 횡돌기 사이의 분절성 근복 전체 위치를 확인할 수 있어 대표도해 기준 충족"
       }
     ]
   },
