@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.29-stage17-al",
+  "version": "2026.09.29-stage17-am",
   "updated": "2026-09-29",
   "note": "Curated anatomy/ultrasound registry. Lumbar medial/lateral intertransversarii gaps resolved with directly labeled public-domain Sobotta Fig. 244; representative whole-muscle view policy retained.",
   "muscles": {
@@ -2740,13 +2740,19 @@
       ]
     },
     "m116": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "손 제1배측골간근을 현대 번호 체계로 독립 고정할 수 있는 일관된 공개 정본 세트를 확보하지 못해 단일 역사 도해를 대표로 승격하지 않음.",
-        "evidence": "고해상도 Braus 도해에 일부 역사적 interosseus 표기가 있으나 1–4 전체를 동일 기준으로 검증하기 어려움.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "First dorsal interosseous — deep palmar labelled view",
+          "file": "Wrist and hand deeper palmar dissection-numbers.svg",
+          "author": "Wilfredor",
+          "license": "CC0 1.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Wrist_and_hand_deeper_palmar_dissection-numbers.svg",
+          "representative": true,
+          "view": "deep palmar hand",
+          "focusLabel": "5 · 제1배측골간근",
+          "educationalReason": "제1·2 중수골 사이의 제1배측골간근을 번호 5로 직접 표시한 깊은 손바닥 대표 시야"
+        }
+      ]
     },
     "m117": {
       "anatomyDecision": {
