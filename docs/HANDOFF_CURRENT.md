@@ -12,9 +12,9 @@ This document is the canonical handoff checkpoint for continuing development of 
 - Production frozen SHA: `4ba8740ca6655ab1d4bebca84b26e39290c61bf7`
 - **Never change or promote `main` without explicit user approval.**
 - Latest verified baseline before the current research-queue checkpoint: `13950a56bf531a97eb68cd25f3d051e5e79e5919` — canonical handoff commit, Global QA run `36566509370` PASS.
-- Latest implementation checkpoint before this handoff refresh: `2d4c5f6b8724dc96acb614b78e48f8bb40d3f71b` — remaining anatomy-gap research queue + QA gate.
+- Latest roadmap-governance checkpoint before this handoff refresh: `af7b6846394e3bef86e4e5b61f7724d59685ec4c` — latest user instruction fixed manual 15-minute target / 20-minute HARD STOP and roadmap-first idea triage.
 - Current Preview app version remains `v11.61 · Pelvic Floor Representative Views`.
-- Global QA run `36567102376` for the research-queue checkpoint was in progress at handoff refresh. The next session must check its final result before overlapping edits.
+- Embedded run/SHA notes are only checkpoints. Because 00:00~08:00 scheduled work can advance the branch, every session must query the live latest HEAD and latest QA/Preview state before editing.
 
 ## 2. User communication contract
 
@@ -29,8 +29,9 @@ Technical SHA / workflow / file names come after the easy explanation.
 
 Manual chat work:
 - target 15 minutes
-- hard ceiling 18 minutes
-- if CI is still running, stop at a safe checkpoint and let the next turn check the result
+- at 18 minutes, start wrap-up only; do not start a new feature/asset/structural change
+- **hard ceiling 20 minutes**
+- at 20 minutes, HARD STOP even if CI/Cloudflare is still running; save a safe checkpoint and let the next turn check the result
 
 Scheduled overnight work:
 - every day **00:00 through 08:00 KST, every hour**
@@ -49,6 +50,12 @@ Order:
 `root cause → structural fix → focused regression → needed full regression → Preview verify`
 
 Do not use TinyFish. Browser QA source of truth is GitHub Actions Playwright plus actual user-device Preview checks.
+
+Roadmap governance:
+- New ideas never preempt the current Active Stage merely because they are attractive.
+- First preserve them in the Idea Register, assess importance/dependency, then place them in roadmap order.
+- Only regression, patient-safety/data-loss risk, Production contamination, or a current release blocker may jump the queue.
+- Representative anatomy, actual ultrasound, muscle rehab, and disease rehab remain evergreen Stable-ID/registry/asset-slot content that can be added or replaced later without redesigning the app.
 
 ## 4. Anatomy UX contract — LOCKED
 
@@ -222,17 +229,25 @@ At the start of every new session:
 1. fetch exact latest `preview/development` HEAD
 2. check latest Global QA / runtime / Cloudflare status
 3. compare with this handoff because overnight scheduled work may have changed the branch
-4. do not repeat completed work
+4. read the current Active Stage and next incomplete item in MASTER/NEXT roadmap
+5. do not repeat completed work or let a new idea silently reorder the roadmap
 
-Immediate quality-track work:
-1. continue the **18 remaining anatomy source gaps**, prioritizing clear whole-muscle reusable representative views
-2. when a candidate is uncertain, keep the gap rather than force a weak image
-3. keep `atlas-media-gap-audit-v1.json` synchronized
-4. run focused anatomy/media QA and needed global regression
+For the **first manual session after the 00:00~08:00 hourly scheduled runs**, the above live-state check is mandatory before any edit.
 
-Then continue the main Stage 23B line:
-1. generate/connect realistic patient-exercise illustrations
-2. mobile + A4 visual QA
+Main development line — follow this order:
+1. **Stage 23B realistic patient-exercise illustrations** — complete/connect the 18 approved realistic two-panel assets and mobile/A4 QA
+2. **Stage 23B-Disease Rehab** — representative disease-based patient rehabilitation education
+3. **Stage 23C** — integrated real-device / offline / visual gate
+4. **Stage 24** — Google Play Production release only after explicit user approval
+
+Evergreen media/content refresh — preserve and continue, but **do not preempt the main line** unless it becomes a regression/safety/release blocker:
+- 18 remaining anatomy source gaps
+- better representative anatomy replacements
+- reusable actual-ultrasound image/video promotion from the 126 link-only references
+- future user-requested muscle-specific exercises and disease-rehab additions
+- keep Stable IDs and registry/asset slots so additions/replacements do not require navigation redesign
+- when an anatomy candidate is uncertain, keep the explicit gap rather than force a weak image
+- keep relevant audit ledgers synchronized and run focused QA when refresh work is actually performed
 3. build Stage 23B-Disease Rehab
 4. Stage 23C real-device integrated gate
 5. only after explicit user approval, Stage 24 Production promotion
