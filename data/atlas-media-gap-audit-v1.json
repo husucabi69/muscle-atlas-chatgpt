@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-e",
+  "audit_version": "2026.09.29-atlas-media-gap-f",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
     "canonical_muscles": 205,
-    "reviewed_representative": 184,
-    "no_suitable_public_source": 21,
+    "reviewed_representative": 187,
+    "no_suitable_public_source": 18,
     "source_gaps": [
       {
         "muscle_id": "m025",
@@ -78,30 +78,6 @@
         "name_en": "Interspinales lumborum",
         "reason": "Interspinales 일반 자료는 있으나 요극간근을 요추부로 직접 분리해 보여 주는 고품질 재사용 정본을 확인하지 못함.",
         "evidence": "group-level 도해를 lumbar-specific 대표로 고정하지 않음.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
-      {
-        "muscle_id": "m117",
-        "name_ko": "제2배측골간근",
-        "name_en": "Dorsal interosseous 2 (hand)",
-        "reason": "손 제2배측골간근의 근복과 번호를 직접 대응시키는 고해상도 재사용 가능 정본을 확인하지 못함.",
-        "evidence": "공개 group 도해는 4개 배측골간근을 함께 보여 주지만 개별 번호 고정 근거가 부족함.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
-      {
-        "muscle_id": "m118",
-        "name_ko": "제3배측골간근",
-        "name_en": "Dorsal interosseous 3 (hand)",
-        "reason": "손 제3배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
-        "evidence": "부분적으로만 번호가 보이는 단일 plate보다 일관된 현대 ordinal mapping을 우선함.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
-      {
-        "muscle_id": "m119",
-        "name_ko": "제4배측골간근",
-        "name_en": "Dorsal interosseous 4 (hand)",
-        "reason": "손 제4배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
-        "evidence": "부분 라벨 plate를 canonical ordinal 대표로 고정하지 않음.",
         "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
       },
       {
@@ -544,6 +520,26 @@
         "license": "Public domain",
         "resolution": "Gray389 후면 심부 원본에서 iliocostalis lumborum이 직접 표시되어 요장늑근 전체 방향을 확인할 수 있어 대표 시야로 승격"
       }
+    ],
+    "promotions_this_audit": [
+      {
+        "muscle_id": "m117",
+        "name_ko": "제2배측골간근",
+        "asset": "Sobo 1909 285.png",
+        "reason": "Sobotta 후면 손 도해에서 Interosseus dorsalis II 직접 표기 확인"
+      },
+      {
+        "muscle_id": "m118",
+        "name_ko": "제3배측골간근",
+        "asset": "Sobo 1909 285.png",
+        "reason": "Sobotta 후면 손 도해에서 Interosseus dorsalis III 직접 표기 확인"
+      },
+      {
+        "muscle_id": "m119",
+        "name_ko": "제4배측골간근",
+        "asset": "Sobo 1909 285.png",
+        "reason": "Sobotta 후면 손 도해에서 Interosseus dorsalis IV 직접 표기 확인"
+      }
     ]
   },
   "ultrasound": {
@@ -758,7 +754,8 @@
     }
   },
   "priority_next": [
-    "21개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
+    "18개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
+    "손바닥 골간근 m120–m122는 현대 번호 체계가 직접 보이는 자료를 우선 검증",
     "m056 치골직장근·m203 외요도괄약근은 현재 임시 대표를 유지하면서 더 직접적인 전체 해부도해 탐색",
     "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산 우선 탐색",
     "더 좋은 대표자산 발견 시 Stable ID 유지 + asset slot 교체"
