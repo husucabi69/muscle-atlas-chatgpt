@@ -9,11 +9,13 @@ const pass=(name,ok,detail='')=>{
 };
 
 const rehab=json('data/patient-rehab-disease-content-v1.json');
+const coverage=json('data/patient-rehab-disease-coverage-v1.json');
 const exercise=json('data/patient-exercise-library-v1.json');
 const realistic=json('data/patient-exercise-realistic-assets-v1.json');
 
 pass('Disease rehab schema v1',rehab.schema_version==='1.0.0',rehab.schema_version);
-pass('Preview-only dataset',rehab.status==='PREVIEW_DEVELOPMENT',rehab.status);
+pass('Disease rehab coverage schema v1',coverage.schema_version==='1.0.0',coverage.schema_version);
+pass('Preview-only dataset',rehab.status==='PREVIEW_DEVELOPMENT'&&coverage.status==='PREVIEW_DEVELOPMENT',`${rehab.status}/${coverage.status}`);
 pass('Patient-safety policy',rehab.content_policy?.postoperative_separate===true && rehab.content_policy?.no_invented_dose===true && rehab.content_policy?.red_flags_before_exercise===true);
 
 const sourceIds=new Set(Object.keys(rehab.sources||{}));
@@ -37,11 +39,28 @@ for(const c of rehab.conditions||[]){
   if(!/^2026-\d{2}-\d{2}$/.test(c.last_reviewed||'')) errors.push(`${c.stable_id}:bad_last_reviewed`);
 }
 const dup=[...new Set(ids.filter((x,i)=>ids.indexOf(x)!==i))];
+const conditionIdSet=new Set(ids);
 const regionIds=[...new Set((rehab.conditions||[]).map(x=>x.region_id).filter(Boolean))];
 pass('Disease rehab Stable IDs unique',dup.length===0,dup.join(','));
 pass('Disease rehab content integrity',errors.length===0,errors.slice(0,30).join(','));
 pass('Shoulder seed coverage >= 2',(rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length>=2,String((rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length));
 pass('Multiregion disease rehab coverage >= 6',regionIds.length>=6,`${regionIds.length}: ${regionIds.join(',')}`);
+
+const matrix=coverage.regions||[];
+const matrixIds=matrix.map(x=>x.region_id);
+const matrixDup=[...new Set(matrixIds.filter((x,i)=>matrixIds.indexOf(x)!==i))];
+const matrixErrors=[];
+for(const r of matrix){
+  if(!['SEEDED','PENDING'].includes(r.status)) matrixErrors.push(`${r.region_id}:bad_status`);
+  if(r.status==='SEEDED'&&(!Array.isArray(r.condition_ids)||!r.condition_ids.length)) matrixErrors.push(`${r.region_id}:seeded_without_condition`);
+  for(const cid of r.condition_ids||[]) if(!conditionIdSet.has(cid)) matrixErrors.push(`${r.region_id}:unknown_condition:${cid}`);
+  if(!String(r.next_priority||'').trim()) matrixErrors.push(`${r.region_id}:missing_next_priority`);
+}
+pass('Coverage matrix has >= 10 target regions',matrix.length>=Number(coverage.minimum_region_gate||10),`${matrix.length}/${coverage.minimum_region_gate}`);
+pass('Coverage matrix region IDs unique',matrixDup.length===0,matrixDup.join(','));
+pass('Coverage matrix references valid',matrixErrors.length===0,matrixErrors.join(','));
+pass('Coverage matrix seeded count matches content regions',matrix.filter(x=>x.status==='SEEDED').length===regionIds.length,`${matrix.filter(x=>x.status==='SEEDED').length}/${regionIds.length}`);
+
 pass('Exercise profile registry available',profileIds.size>=18,String(profileIds.size));
 pass('Realistic asset slot registry covers actionable profiles',['px001','px002','px003','px004','px005','px006','px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>realisticIds.has(id)));
 
