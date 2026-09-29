@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.29-stage17-al",
+  "version": "2026.09.29-stage17-am",
   "updated": "2026-09-29",
   "note": "Curated anatomy/ultrasound registry. Gray389 original public-domain posterior deep-back plate now fills iliocostalis thoracis, longissimus thoracis and iliocostalis lumborum representative slots with classical-to-modern focus labels.",
   "muscles": {
@@ -2217,14 +2217,14 @@
     "m056": {
       "anatomy": [
         {
-          "title": "Puborectalis — sagittal sling representative view",
-          "file": "(155) Stylized depiction of action of puborectalis sling.png",
-          "author": "Tepi / Lesion at English Wikipedia",
-          "license": "CC BY-SA 3.0 / GFDL 1.2+",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:(155)_Stylized_depiction_of_action_of_puborectalis_sling.png",
+          "title": "Puborectalis — labelled inferior pelvic floor representative view",
+          "file": "Pelvic Muscles (Female Inferior).png",
+          "author": "BruceBlaus",
+          "license": "CC BY-SA 4.0",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pelvic_Muscles_(Female_Inferior).png",
           "representative": true,
-          "view": "sagittal pelvic floor schematic",
-          "educationalReason": "A로 표시된 치골직장근이 치골에서 직장 뒤를 감싸 U자형 sling을 이루며 anorectal angle을 형성하는 관계를 단독 구조 수준으로 명확히 확인"
+          "view": "inferior female pelvic floor",
+          "educationalReason": "하방에서 본 여성 골반저 전체에서 치골직장근이 직접 라벨링되어 치골 앞쪽에서 직장 주위를 감싸는 위치와 치골미골근·장골미골근과의 관계를 한눈에 확인"
         }
       ]
     },
