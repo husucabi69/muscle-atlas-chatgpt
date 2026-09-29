@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-h",
+  "audit_version": "2026.09.29-atlas-media-gap-i",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
@@ -441,6 +441,19 @@
         "license": "Public domain",
         "decision": "NOT_PROMOTED",
         "reason": "palmar interossei 1·2·3 번호 대응은 명확하지만 주로 뼈의 muscular attachment를 보여 주는 도해여서, 근육 전체 근복과 주행을 보여 주는 대표도해 기준에는 부족함."
+      },
+      {
+        "muscle_ids": [
+          "m137"
+        ],
+        "candidate": "Gerrish 1902 Fig.356 + Gray adductor whole-muscle plates",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gerrish%27s_Text-book_of_Anatomy_(1902)_-_Fig._356.png",
+        "secondarySourcePage": "https://commons.wikimedia.org/wiki/File:TheAdductorsOfThigh.jpg",
+        "license": "Public domain",
+        "decision": "RESEARCH_ONLY",
+        "reason": "대내전근 전체 형태·부착영역을 보여 주는 공개 정본은 확보했지만 hamstring/ischiocondylar part를 adductor part와 직접 분리 라벨링하지 않아 m137 단독 대표도해로는 아직 승격하지 않음.",
+        "reviewedOn": "2026-09-29",
+        "nextCheck": "ischiocondylar/hamstring part가 직접 라벨된 공개 재사용 whole-muscle 또는 명확한 부착부 도해 탐색"
       }
     ],
     "resolved_gap_promotions": [
@@ -543,6 +556,98 @@
         "resolution": "현재 도해가 남성과 여성의 external urethral sphincter를 각각 직접 라벨링하며 막성 요도와의 관계를 동시에 보여 줌. 검색된 공개대안보다 canonical 일반 대표성이 높아 유지.",
         "reviewed_on": "2026-09-29",
         "previous_search_note": null
+      }
+    ],
+    "research_priority_queue": [
+      {
+        "priority": "P1",
+        "muscle_ids": [
+          "m120",
+          "m121",
+          "m122"
+        ],
+        "label_ko": "제1–3 수장골간근",
+        "why_now": "Dixon 1912 Fig.053에서 1·2·3 번호 대응까지는 확인됐으므로, 같은 번호 체계로 근복 전체를 직접 보여 주는 자료만 찾으면 해결 가능성이 높음.",
+        "stop_rule": "번호만 있고 근복 전체가 보이지 않으면 대표도해로 승격하지 않음."
+      },
+      {
+        "priority": "P1",
+        "muscle_ids": [
+          "m132"
+        ],
+        "label_ko": "무릎관절근",
+        "why_now": "현대 사체 해부 reference는 확보됐고 오래된 공개도메인 atlas의 articularis genu/subcrureus 후보도 있으므로 독립 Commons asset 고정 여부를 우선 확인.",
+        "stop_rule": "중간광근만 보이는 그림이나 단순 기시부 표시만으로 대체하지 않음."
+      },
+      {
+        "priority": "P1",
+        "muscle_ids": [
+          "m137"
+        ],
+        "label_ko": "대내전근-햄스트링부",
+        "why_now": "대내전근 전체 공개도메인 자료는 충분하므로 hamstring/ischiocondylar part를 직접 분리한 정본만 추가 확인.",
+        "stop_rule": "대내전근 전체 그림에서 부분 경계를 추정해 임의 승격하지 않음."
+      },
+      {
+        "priority": "P1",
+        "muscle_ids": [
+          "m193"
+        ],
+        "label_ko": "최소사각근",
+        "why_now": "Toldt Fig.520에서 직접 표기된 후보가 있으므로 독립 고해상도 Commons asset 또는 동일 내용을 가진 재사용 가능 판본을 우선 탐색.",
+        "stop_rule": "전·중·후사각근만 보이는 일반 scalenes 그림을 minimus로 대체하지 않음."
+      },
+      {
+        "priority": "P1",
+        "muscle_ids": [
+          "m197"
+        ],
+        "label_ko": "경극근",
+        "why_now": "역사적 deep-back atlas에서 spinalis cervicis 명칭은 확인됐으므로 독립 figure/고해상도 reusable asset 고정 여부를 확인.",
+        "stop_rule": "semispinalis cervicis나 spinalis group 전체를 경극근 단독 대표로 오인하지 않음."
+      },
+      {
+        "priority": "P1",
+        "muscle_ids": [
+          "m205"
+        ],
+        "label_ko": "주관절근(articularis cubiti/subanconeus)",
+        "why_now": "현대 사체 해부 reference는 확보됐으나 재사용 제약이 있어 공개 재사용 human representative asset을 우선 탐색.",
+        "stop_rule": "주근(anconeus)이나 삼두근 그림을 주관절근으로 대체하지 않음."
+      },
+      {
+        "priority": "P2",
+        "muscle_ids": [
+          "m025",
+          "m026",
+          "m027",
+          "m028"
+        ],
+        "label_ko": "흉추 심부 분절근",
+        "why_now": "group-level 자료는 있으나 thoracic part-specific 경계가 부족함. 직접 라벨된 역사 해부판을 묶어서 탐색.",
+        "stop_rule": "whole-chain만 보이는 multifidus/rotatores/interspinales/intertransversarii 이미지는 part-specific 대표로 승격하지 않음."
+      },
+      {
+        "priority": "P2",
+        "muscle_ids": [
+          "m039",
+          "m040",
+          "m041",
+          "m042",
+          "m043"
+        ],
+        "label_ko": "요추 심부 분절근",
+        "why_now": "group-level 자료는 있으나 lumbar part-specific 경계 또는 변이 문제가 남음. 직접 라벨·분절 구분 자료를 우선.",
+        "stop_rule": "해부학적 변이가 큰 구조를 일반 erector-spinae 그림으로 임의 고정하지 않음."
+      },
+      {
+        "priority": "P3",
+        "muscle_ids": [
+          "m171"
+        ],
+        "label_ko": "발 소지대립근(가변)",
+        "why_now": "가변 구조이고 현대 자료는 proprietary 위주라 공개 대표자산 확보 가능성이 낮음.",
+        "stop_rule": "손의 opponens digiti minimi 자료를 발 구조에 사용하지 않음."
       }
     ]
   },
@@ -758,9 +863,10 @@
     }
   },
   "priority_next": [
-    "18개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
-    "손바닥 골간근 m120–m122는 현대 번호 체계가 직접 보이는 자료를 우선 검증",
-    "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산 우선 탐색",
+    "P1 9개 근육(m120–m122, m132, m137, m193, m197, m205)을 먼저 탐색하고 직접 라벨·whole-muscle·재사용 가능 조건을 모두 만족할 때만 승격",
+    "P2 흉추/요추 심부 분절근은 group-level 그림을 억지로 part-specific 대표로 쓰지 않음",
+    "P3 m171은 가변 구조이므로 신뢰도 높은 공개 재사용 정본이 없으면 source-gap 유지",
+    "126개 ultrasound link-only view는 명시적 재사용 가능 direct image/video 자산을 병행 탐색",
     "더 좋은 대표자산 발견 시 Stable ID 유지 + asset slot 교체"
   ]
 }
