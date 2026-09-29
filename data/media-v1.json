@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.29-stage17-an",
+  "version": "2026.09.29-stage17-al",
   "updated": "2026-09-29",
   "note": "Curated anatomy/ultrasound registry. Gray389 original public-domain posterior deep-back plate now fills iliocostalis thoracis, longissimus thoracis and iliocostalis lumborum representative slots with classical-to-modern focus labels.",
   "muscles": {
@@ -2773,31 +2773,49 @@
       ]
     },
     "m117": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "손 제2배측골간근의 근복과 번호를 직접 대응시키는 고해상도 재사용 가능 정본을 확인하지 못함.",
-        "evidence": "공개 group 도해는 4개 배측골간근을 함께 보여 주지만 개별 번호 고정 근거가 부족함.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Second dorsal interosseous — directly labelled dorsal hand view",
+          "file": "Sobo 1909 285.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_285.png",
+          "representative": true,
+          "view": "dorsal hand deep interossei",
+          "focusLabel": "Interosseus dorsalis II",
+          "educationalReason": "Sobotta의 고해상도 후면 손 도해에서 제2배측골간근이 II로 직접 표기되어 제2·3 중수골 사이 근복을 명확히 확인"
+        }
+      ]
     },
     "m118": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "손 제3배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
-        "evidence": "부분적으로만 번호가 보이는 단일 plate보다 일관된 현대 ordinal mapping을 우선함.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Third dorsal interosseous — directly labelled dorsal hand view",
+          "file": "Sobo 1909 285.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_285.png",
+          "representative": true,
+          "view": "dorsal hand deep interossei",
+          "focusLabel": "Interosseus dorsalis III",
+          "educationalReason": "Sobotta의 고해상도 후면 손 도해에서 제3배측골간근이 III로 직접 표기되어 제3·4 중수골 사이 근복을 명확히 확인"
+        }
+      ]
     },
     "m119": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "손 제4배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
-        "evidence": "부분 라벨 plate를 canonical ordinal 대표로 고정하지 않음.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Fourth dorsal interosseous — directly labelled dorsal hand view",
+          "file": "Sobo 1909 285.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_285.png",
+          "representative": true,
+          "view": "dorsal hand deep interossei",
+          "focusLabel": "Interosseus dorsalis IV",
+          "educationalReason": "Sobotta의 고해상도 후면 손 도해에서 제4배측골간근이 IV로 직접 표기되어 제4·5 중수골 사이 근복을 명확히 확인"
+        }
+      ]
     },
     "m120": {
       "anatomyDecision": {
