@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.29-stage23b-realistic-b",
+  "dataset_version": "2026.09.29-stage23b-realistic-c",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -52,18 +52,28 @@
     {
       "profile_id": "px002",
       "title_ko": "턱 당기기",
-      "status": "PENDING_GENERATION",
-      "composite_url": null,
+      "status": "APPROVED",
+      "composite_url": "./assets/patient-exercise-realistic/px002.webp",
       "alt_text": "턱 당기기 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "턱 당기기 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인.",
+      "generator": "OpenAI image generation",
+      "gen_id": "09a328e1-8eca-4702-8d5d-4357983a7ee9",
+      "integrated_on": "2026-09-29",
+      "preview_resolution": "640x800",
+      "asset_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING"
     },
     {
       "profile_id": "px003",
       "title_ko": "밴드 로우",
-      "status": "PENDING_GENERATION",
-      "composite_url": null,
+      "status": "APPROVED",
+      "composite_url": "./assets/patient-exercise-realistic/px003.webp",
       "alt_text": "밴드 로우 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "밴드 로우 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인.",
+      "generator": "OpenAI image generation",
+      "gen_id": "fa2403c7-9db3-4884-98c7-fdd3e0acb443",
+      "integrated_on": "2026-09-29",
+      "preview_resolution": "640x800",
+      "asset_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING"
     },
     {
       "profile_id": "px004",
