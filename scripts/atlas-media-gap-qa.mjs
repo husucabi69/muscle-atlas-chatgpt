@@ -37,10 +37,18 @@ check('Ultrasound total matches global audit',gaps.ultrasound?.canonical_views==
 check('Ultrasound embedded count matches global audit',gaps.ultrasound?.embedded_actual_ultrasound===globalUS.summary?.embedded_reuse_with_attribution,`${gaps.ultrasound?.embedded_actual_ultrasound}/${globalUS.summary?.embedded_reuse_with_attribution}`);
 check('Ultrasound link-only count matches global audit',gaps.ultrasound?.link_only_actual_ultrasound_reference===globalUS.summary?.link_only_reference_views,`${gaps.ultrasound?.link_only_actual_ultrasound_reference}/${globalUS.summary?.link_only_reference_views}`);
 check('Ultrasound canonical source missing is zero',gaps.ultrasound?.canonical_source_missing===0,String(gaps.ultrasound?.canonical_source_missing));
-check('Special-view audit separates accepted anatomy from true re-audit',
-  (gaps.anatomy?.accepted_special_views||[]).length===15 &&
-  (gaps.anatomy?.manual_visual_reaudit_candidates||[]).map(x=>x.muscle_id).sort().join('|')==='m056|m203',
+check('Special-view audit resolved final manual re-audits',
+  (gaps.anatomy?.accepted_special_views||[]).length===16 &&
+  (gaps.anatomy?.manual_visual_reaudit_candidates||[]).length===0,
   `accepted=${(gaps.anatomy?.accepted_special_views||[]).length}; reaudits=${(gaps.anatomy?.manual_visual_reaudit_candidates||[]).map(x=>x.muscle_id).join(',')}`
+);
+check('m056 puborectalis upgraded to labelled whole-pelvic-floor view',
+  media.muscles?.m056?.anatomy?.[0]?.file==='Pelvic Muscles (Female Inferior).png',
+  media.muscles?.m056?.anatomy?.[0]?.file||'missing'
+);
+check('m203 external urethral sphincter confirmed on comparative labelled view',
+  media.muscles?.m203?.anatomy?.[0]?.file==='Anatomytool Male and female urinary tract English.jpg',
+  media.muscles?.m203?.anatomy?.[0]?.file||'missing'
 );
 check('Group-level candidates are not falsely promoted',
   (gaps.anatomy?.candidate_sources_not_promoted||[]).every(x=>['NOT_PROMOTED','RESEARCH_ONLY','REFERENCE_ONLY'].includes(x.decision)),
@@ -62,11 +70,9 @@ check('Remaining part-specific source-gap candidates remain gaps',
     sourceGaps.some(x=>x.muscle_id===id)
   )
 );
-check('True re-audit rows retain current asset only temporarily',
-  (gaps.anatomy?.manual_visual_reaudit_candidates||[]).every(x=>
-    x.decision==='KEEP_CURRENT_TEMPORARILY_AND_CONTINUE_SEARCH' &&
-    x.reviewed_on==='2026-09-29'
-  )
+check('Manual visual re-audits are explicitly resolved',
+  (gaps.anatomy?.manual_visual_reaudit_candidates||[]).length===0 &&
+  ['m056','m203'].every(id=>(gaps.anatomy?.resolved_manual_visual_reaudits||[]).some(x=>x.muscle_id===id && x.reviewed_on==='2026-09-29'))
 );
 check('Source research ledger records rejected candidates',
   (gaps.anatomy?.candidate_sources_not_promoted||[]).length>=7,
