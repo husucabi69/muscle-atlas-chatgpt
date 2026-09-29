@@ -42,6 +42,10 @@
 | VID-003 | 영상 출처·채널·언어·duration·last_verified·embed 가능 여부·교육목적을 metadata로 관리하고 broken-link audit | High | VID-001/002 | **Stage 23B QA** |
 | VID-004 | 영어 영상에 한국어 접근성 레이어 추가: YouTube 한국어 자막 우선 + 앱내 한국어 핵심해설/타임스탬프 | High | VID-001/002 | **Stage 23B Media UX** |
 | VID-005 | CC BY/Public Domain/명시적 허가 영상에 한해 한국어 번역자막 및 선택적 TTS 더빙 지원 | Medium | license/permission audit | **Stage 23B Media UX** |
+| ARCH-001 | 대표 해부도해·실제 초음파·근육별 운동·질환별 재활을 코드 재설계 없이 계속 추가·교체할 수 있는 Stable ID + registry + asset slot 확장 계약 유지 | Release blocker | 기존 Stable ID/registry | **EVERGREEN ARCHITECTURE / MUST PRESERVE** |
+| EDU-008 | 사용자가 특정 근육 운동·스트레칭 추가를 요청하면 기존 근육별 환자교육 registry에 source/last-reviewed/asset slot을 붙여 확장 가능하게 유지 | High | ARCH-001 | **ONGOING / NON-PREEMPTIVE** |
+| MED-001 | 대표 해부도해와 실제 초음파 이미지·영상은 더 좋은 공개·검증 자료가 생길 때 지속 교체하되 현재 Active Stage를 중단시키지 않는 별도 refresh track으로 운영 | High | ARCH-001 + license audit | **ONGOING MEDIA REFRESH** |
+| OPS-001 | 00:00~08:00 매 정시 자동개발 이후 오전 첫 수동 개발은 최신 HEAD·야간 commit·QA/Preview·Active Stage를 먼저 대조하고 중복 없이 재개 | Release blocker | automation checkpoint | **OPERATING RULE** |
 
 아이디어 상태는 NEXT / queued / deferred / implemented / superseded 중 하나로 남긴다. superseded도 삭제하지 않고 대체 아이디어와 이유를 기록한다.
 
@@ -469,8 +473,6 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - 기존 SVG는 **migration fallback**으로만 유지하며 최종품으로 사용하지 않음
 
 
-상태: **QUEUED — Stage 23A 구조 고정 후 시작**
-
 현재 Stage 19의 운동 그림은 **기능 검증용 개념형 SVG**이며 최종 환자교육 품질로 보지 않는다.
 
 목표:
@@ -562,6 +564,21 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 
 ---
 
+## Evergreen Content Extension Contract — 계속 업데이트되는 앱 구조
+
+이 앱은 “한 번 완성하고 끝나는 앱”이 아니라 장기간 계속 갱신하는 정본으로 운영한다.
+
+- **대표 해부도해**: 근육 Stable ID는 그대로 두고 representative anatomy asset slot만 더 좋은 검증 자산으로 교체한다.
+- **실제 초음파**: canonical ultrasound view ID는 유지하고 actual B-mode image/video slot을 추가·교체한다. 생성형 B-mode는 금지한다.
+- **근육별 재활**: 기존 환자교육 → 부위 → 근육 → 운동 경로를 유지하며 운동 profile을 registry에 계속 추가할 수 있어야 한다.
+- **질환별 재활**: 환자교육 → 질환별 재활 → 부위 → 질환 → 프로그램 구조에서 질환과 운동을 계속 추가할 수 있어야 한다.
+- 모든 새 콘텐츠는 가능한 경우 source, license, last-reviewed, asset/status, 관련 Stable ID를 가진다.
+- 새 항목 추가 때문에 navigation 구조나 기존 Stable ID를 다시 설계하지 않는다.
+- 사용자가 개발 중 새 아이디어를 제안하면 Idea Register에 먼저 저장하고 중요도·의존성을 평가한 뒤 로드맵 순서에 배치한다.
+- 회귀버그·환자안전·데이터손실·Production 오염·release blocker가 아닌 한, 새 아이디어가 현재 Active Stage를 가로채지 않는다.
+
+---
+
 # Stage 23C — Integrated Real Device & Visual Gate
 
 상태: **QUEUED — Stage 23A + 23B 후 최종 실행**
@@ -601,15 +618,20 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 # 지속 운영 트랙 — Evidence & Media Refresh
 
 - 최신 CPG / systematic review / high-quality RCT 반영
-- 공개·검증 초음파 source 지속 탐색
+- 대표 해부도해는 더 좋은 whole-muscle / course / origin-insertion 시야가 확보되면 Stable ID를 유지한 채 asset slot 교체
+- 공개·검증 실제 초음파 image/video source 지속 탐색
 - 기존 source보다 교육성이 명확히 좋을 때만 canonical 승격
 - 링크 단절 / license 변경 감시
+- 근육별 운동·스트레칭과 질환별 재활은 registry에 계속 추가 가능하게 유지
 - 근육 O/I/F/N 수정은 Stable ID 유지
 - 실제 환자/EMR/PHI를 Atlas에 넣지 않음
+- 이 Refresh 트랙은 **비선점(non-preemptive)** 운영이 원칙이다. 회귀·안전·release blocker가 아니면 현재 Active Stage보다 먼저 끼워 넣지 않는다.
 
 # 현재 바로 시작할 순서
 
 **Stage 23B 실사형 운동 일러스트 18종 제작/검수 → Stage 23B-Disease Rehab 대표 질환별 환자 재활교육 → Stage 23C → Stage 24**
+
+대표도해 미확보 항목 재탐색, 초음파 direct-embed 후보 탐색, 신규 근육/질환 콘텐츠 제안은 모두 위 주 개발선과 별도의 **Evergreen Refresh backlog**로 보존하며 주 개발선을 중단시키지 않는다.
 
 
 ## A2 회귀 복구 Gate — 2026-09-27
