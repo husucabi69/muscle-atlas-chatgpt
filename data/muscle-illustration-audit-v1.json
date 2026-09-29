@@ -1,12 +1,13 @@
 {
-  "audit_version": "2026.09.27-stage17-ai",
+  "audit_version": "2026.09.29-stage17-aj",
   "status": "COMPLETE",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
     "reject_as_representative": [
       "view where the target muscle is poorly exposed",
       "view chosen only because an image exists",
-      "cropped or layered view that obscures the main course without a specific educational reason"
+      "cropped or layered view that obscures the main course without a specific educational reason",
+      "axial/transverse/cross-section image when a whole-muscle longitudinal representative view is available"
     ],
     "max_primary_assets": 1,
     "secondary_assets": "Only when a second view adds distinct educational value.",
@@ -160,12 +161,12 @@
       "name_en": "Semispinalis capitis",
       "status": "reviewed",
       "representative_asset": {
-        "file": "Gray384 Semispinalis capitis.png",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray384_Semispinalis_capitis.png",
+        "file": "Gray389 Semispinalis capitis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray389_Semispinalis_capitis.png",
         "license": "Public domain",
         "author": "Henry Gray / H. V. Carter",
-        "view": "posterior deep",
-        "educationalReason": "두반극근이 후경부 심부에서 후두골로 올라가는 넓은 종주성 근복을 주변 심부근과 함께 확인"
+        "view": "posterior deep back",
+        "educationalReason": "후면 심부 도해에서 두반극근이 상부 흉추·하부 경추에서 후두골까지 길게 올라가는 전체 근복과 종주성 주행을 한눈에 확인할 수 있어 C6 횡단면 Gray384보다 대표 도해로 적합"
       }
     },
     {
