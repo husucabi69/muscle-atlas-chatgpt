@@ -1,0 +1,51 @@
+import fs from 'node:fs';
+
+const read=p=>fs.readFileSync(p,'utf8');
+const json=p=>JSON.parse(read(p));
+const failures=[];
+const pass=(name,ok,detail='')=>{
+  console.log(`${ok?'PASS':'FAIL'} | ${name}${detail?' | '+detail:''}`);
+  if(!ok) failures.push({name,detail});
+};
+
+const rehab=json('data/patient-rehab-disease-content-v1.json');
+const exercise=json('data/patient-exercise-library-v1.json');
+const realistic=json('data/patient-exercise-realistic-assets-v1.json');
+
+pass('Disease rehab schema v1',rehab.schema_version==='1.0.0',rehab.schema_version);
+pass('Preview-only dataset',rehab.status==='PREVIEW_DEVELOPMENT',rehab.status);
+pass('Patient-safety policy',rehab.content_policy?.postoperative_separate===true && rehab.content_policy?.no_invented_dose===true && rehab.content_policy?.red_flags_before_exercise===true);
+
+const sourceIds=new Set(Object.keys(rehab.sources||{}));
+const profileIds=new Set((exercise.profiles||[]).map(x=>x.profile_id));
+const realisticIds=new Set((realistic.profiles||[]).map(x=>x.profile_id));
+const ids=[];
+const errors=[];
+const requiredText=['stable_id','region_id','name_ko','name_en','plain_language_overview','who_this_is_for','progression_or_phase','last_reviewed','print_template_id'];
+const requiredArrays=['do_not_exercise_or_seek_care','lifestyle_activity_modification','common_errors','return_or_reassessment_criteria','evidence_source_ids','illustration_asset_ids'];
+for(const c of rehab.conditions||[]){
+  ids.push(c.stable_id);
+  for(const k of requiredText) if(!String(c[k]||'').trim()) errors.push(`${c.stable_id}:missing_${k}`);
+  for(const k of requiredArrays) if(!Array.isArray(c[k])||!c[k].length) errors.push(`${c.stable_id}:missing_${k}`);
+  for(const block of ['stretching','strengthening']){
+    const b=c[block];
+    if(!b||!String(b.principle||'').trim()) errors.push(`${c.stable_id}:${block}:principle`);
+    for(const pid of b?.profile_ids||[]) if(!profileIds.has(pid)) errors.push(`${c.stable_id}:${block}:bad_profile:${pid}`);
+    for(const aid of b?.asset_slots||[]) if(!String(aid||'').startsWith('rehab_asset_')) errors.push(`${c.stable_id}:${block}:bad_asset_slot:${aid}`);
+  }
+  for(const sid of c.evidence_source_ids||[]) if(!sourceIds.has(sid)) errors.push(`${c.stable_id}:bad_source:${sid}`);
+  if(!/^2026-\d{2}-\d{2}$/.test(c.last_reviewed||'')) errors.push(`${c.stable_id}:bad_last_reviewed`);
+}
+const dup=[...new Set(ids.filter((x,i)=>ids.indexOf(x)!==i))];
+pass('Disease rehab Stable IDs unique',dup.length===0,dup.join(','));
+pass('Disease rehab content integrity',errors.length===0,errors.slice(0,30).join(','));
+pass('Shoulder seed coverage >= 2',(rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length>=2,String((rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length));
+pass('Exercise profile registry available',profileIds.size>=18,String(profileIds.size));
+pass('Realistic asset slot registry covers actionable profiles',['px001','px002','px003','px004','px005','px006','px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>realisticIds.has(id)));
+
+// Safety guard: no disease module may silently treat postoperative care as the same pathway.
+const postopLeak=(rehab.conditions||[]).filter(c=>/수술\s*후.*(같|동일)|post-?op.*same/i.test(JSON.stringify(c)));
+pass('No postoperative-pathway conflation',postopLeak.length===0,postopLeak.map(x=>x.stable_id).join(','));
+
+console.log(`\nStage 23B Disease Rehab content QA: ${failures.length?'FAIL':'PASS'}`);
+if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1);}
