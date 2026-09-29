@@ -1,7 +1,7 @@
 {
-  "version": "2026.09.27-stage17-ai",
-  "updated": "2026-09-27",
-  "note": "Curated anatomy/ultrasound registry. Stage 17 final audit complete: representative anatomy assets are fixed only when part-specific identity and reuse terms are sufficiently clear; source gaps are explicitly documented and suppress unreviewed auto-search images.",
+  "version": "2026.09.29-stage17-aj",
+  "updated": "2026-09-29",
+  "note": "Curated anatomy/ultrasound registry. Semispinalis capitis representative corrected from Gray384 C6 cross-section to Gray389 posterior whole-course view; Stage 17 source gaps remain explicitly documented.",
   "muscles": {
     "m060": {
       "anatomy": [
@@ -703,14 +703,14 @@
     "m011": {
       "anatomy": [
         {
-          "title": "Semispinalis capitis — highlighted posterior deep view",
-          "file": "Gray384 Semispinalis capitis.png",
+          "title": "Semispinalis capitis — posterior whole-course representative view",
+          "file": "Gray389 Semispinalis capitis.png",
           "author": "Henry Gray / H. V. Carter",
           "license": "Public domain",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray384_Semispinalis_capitis.png",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray389_Semispinalis_capitis.png",
           "representative": true,
-          "view": "posterior deep",
-          "educationalReason": "두반극근이 후경부 심부에서 후두골로 올라가는 넓은 종주성 근복을 주변 심부근과 함께 확인"
+          "view": "posterior deep back",
+          "educationalReason": "후면에서 두반극근의 후두골까지 이어지는 전체 근복과 세로 주행을 보여 주는 대표 시야. 기존 Gray384 C6 횡단면은 대표 도해에서 제외."
         }
       ]
     },
