@@ -20,6 +20,9 @@ check('m011 corrected to Gray389',media.muscles?.m011?.anatomy?.[0]?.file==='Gra
 check('m003 corrected to Gray385',media.muscles?.m003?.anatomy?.[0]?.file==='Gray385 - Scalenus medius muscle.png',media.muscles?.m003?.anatomy?.[0]?.file||'missing');
 check('m016 cervical intertransversarii promoted',media.muscles?.m016?.anatomy?.[0]?.file==='Sobo 1909 243.png',media.muscles?.m016?.anatomy?.[0]?.file||'missing');
 check('m016 removed from active source gaps',!(gaps.anatomy?.source_gaps||[]).some(x=>x.muscle_id==='m016'));
+check('m116 first dorsal interosseous promoted',media.muscles?.m116?.anatomy?.[0]?.file==='Wrist and hand deeper palmar dissection-numbers.svg',media.muscles?.m116?.anatomy?.[0]?.file||'missing');
+check('m116 removed from active source gaps',!(gaps.anatomy?.source_gaps||[]).some(x=>x.muscle_id==='m116'));
+
 
 check('m044 lumbar medial intertransversarii resolved',media.muscles?.m044?.anatomy?.[0]?.file==='Sobo 1909 244.png',media.muscles?.m044?.anatomy?.[0]?.file||'missing');
 check('m045 lumbar lateral intertransversarii resolved',media.muscles?.m045?.anatomy?.[0]?.file==='Sobo 1909 244.png',media.muscles?.m045?.anatomy?.[0]?.file||'missing');
