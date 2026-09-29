@@ -4,15 +4,20 @@ const manifest=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-asset
 const index=fs.readFileSync('index.html','utf8');
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
+const allowedStatuses=new Set(['PENDING_GENERATION','STYLE_REFERENCE_APPROVED','CANDIDATE_GENERATED','APPROVED']);
 
 check('Realistic asset manifest schema',manifest.schema_version==='1.0.0',manifest.schema_version);
 check('User-approved style lock',manifest.style_lock?.status==='USER_APPROVED',manifest.style_lock?.status||'missing');
 check('18 actionable realistic asset slots',manifest.profiles?.length===18,String(manifest.profiles?.length||0));
 check('Unique profile slots',new Set(manifest.profiles.map(x=>x.profile_id)).size===18);
-check('Only px009 is approved style reference before asset generation',
-  manifest.profiles.filter(x=>x.status==='STYLE_REFERENCE_APPROVED').map(x=>x.profile_id).join(',')==='px009'
+check('Every slot uses a known lifecycle status',manifest.profiles.every(x=>allowedStatuses.has(x.status)),manifest.profiles.filter(x=>!allowedStatuses.has(x.status)).map(x=>`${x.profile_id}:${x.status}`).join(','));
+check('No stale style-reference status remains after candidate generation',
+  manifest.profiles.filter(x=>x.status==='STYLE_REFERENCE_APPROVED').every(x=>x.profile_id==='px009')
 );
-check('No pending slot pretends to have an asset URL',
+check('Generated candidates retain generator provenance and no asset URL',
+  manifest.profiles.filter(x=>x.status==='CANDIDATE_GENERATED').every(x=>x.generator==='OpenAI image generation'&&typeof x.gen_id==='string'&&x.gen_id.length>10&&!x.composite_url)
+);
+check('Pending/reference/candidate slots never pretend to have an asset URL',
   manifest.profiles.filter(x=>x.status!=='APPROVED').every(x=>!x.composite_url)
 );
 check('Any APPROVED asset must have WebP URL',
