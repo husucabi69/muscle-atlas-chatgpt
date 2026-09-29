@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.29-stage17-al",
+  "audit_version": "2026.09.29-stage17-am",
   "status": "COMPLETE",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -784,12 +784,12 @@
       "name_en": "Puborectalis",
       "status": "reviewed",
       "representative_asset": {
-        "file": "(155) Stylized depiction of action of puborectalis sling.png",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:(155)_Stylized_depiction_of_action_of_puborectalis_sling.png",
-        "license": "CC BY-SA 3.0 / GFDL 1.2+",
-        "author": "Tepi / Lesion at English Wikipedia",
-        "view": "sagittal pelvic floor schematic",
-        "educationalReason": "A로 표시된 치골직장근이 치골에서 직장 뒤를 감싸 U자형 sling을 이루며 anorectal angle을 형성하는 관계를 단독 구조 수준으로 명확히 확인"
+        "file": "Pelvic Muscles (Female Inferior).png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Pelvic_Muscles_(Female_Inferior).png",
+        "license": "CC BY-SA 4.0",
+        "author": "BruceBlaus",
+        "view": "inferior female pelvic floor",
+        "educationalReason": "하방 골반저 시야에서 Puborectalis muscle이 직접 표기되어 치골 전방 기점, 직장 주위 sling 위치, 치골미골근·장골미골근과의 상대관계를 한 화면에서 확인"
       }
     },
     {
