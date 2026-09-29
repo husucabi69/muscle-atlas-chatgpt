@@ -116,6 +116,8 @@ const required={
   m124:'Gluteus medius muscle01.png',
   m125:'Gluteus minimus muscle01.png',
   m126:'Tensor fasciae latae.png',
+  m044:'Sobo 1909 244.png',
+  m045:'Sobo 1909 244.png',
   m046:'Quadratuslumborum.png',
   m047:'Psoas major.gif',
   m048:'Musculus psoas minor.png',
