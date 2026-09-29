@@ -1,5 +1,5 @@
 {
-  "audit_version": "2026.09.29-stage17-al",
+  "audit_version": "2026.09.29-stage17-am",
   "status": "COMPLETE",
   "policy": {
     "representative_view_goal": "Show the muscle in the view that best explains belly, course, origin/insertion relationship and key bony landmarks.",
@@ -1629,12 +1629,15 @@
       "muscle_id": "m116",
       "name_ko": "제1배측골간근",
       "name_en": "Dorsal interosseous 1 (hand)",
-      "status": "no_suitable_public_source",
-      "decision": {
-        "reason": "손 제1배측골간근을 현대 번호 체계로 독립 고정할 수 있는 일관된 공개 정본 세트를 확보하지 못해 단일 역사 도해를 대표로 승격하지 않음.",
-        "evidence": "고해상도 Braus 도해에 일부 역사적 interosseus 표기가 있으나 1–4 전체를 동일 기준으로 검증하기 어려움.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      "status": "reviewed",
+      "representative_asset": {
+        "file": "Wrist and hand deeper palmar dissection-numbers.svg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Wrist_and_hand_deeper_palmar_dissection-numbers.svg",
+        "license": "CC0 1.0",
+        "author": "Wilfredor",
+        "view": "deep palmar hand",
+        "focusLabel": "5 · 제1배측골간근",
+        "educationalReason": "깊은 손바닥 해부도에서 제1배측골간근이 번호 5로 직접 지목되어 있으며, 제1·2 중수골 사이의 근복과 주변 무지구·심부수장 구조 관계를 함께 확인할 수 있음"
       }
     },
     {
@@ -2872,8 +2875,8 @@
     }
   ],
   "progress": {
-    "reviewed": 180,
-    "no_suitable_public_source": 25,
+    "reviewed": 181,
+    "no_suitable_public_source": 24,
     "pending_review": 0,
     "decided": 205,
     "last_batch": "lumbar_intertransversarii_gap_resolution"
