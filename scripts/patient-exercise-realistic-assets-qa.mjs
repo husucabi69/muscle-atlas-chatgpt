@@ -20,6 +20,12 @@ check('Generated candidates retain generator provenance and no asset URL',
 check('Pending/reference/candidate slots never pretend to have an asset URL',
   manifest.profiles.filter(x=>x.status!=='APPROVED').every(x=>!x.composite_url)
 );
+check('Approval blockers prevent premature realistic asset approval',
+  manifest.profiles.every(x=>!(Array.isArray(x.approval_blockers)&&x.approval_blockers.length)||x.status!=='APPROVED')
+);
+check('px009 squat safety blocker is explicit until corrected',
+  manifest.profiles.some(x=>x.profile_id==='px009'&&x.status==='CANDIDATE_GENERATED'&&Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='SQUAT_KNEE_TOE_ABSOLUTE_CUE'))
+);
 check('Any APPROVED asset must have WebP URL',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>typeof x.composite_url==='string'&&/\.webp(?:\?|$)/.test(x.composite_url))
 );
