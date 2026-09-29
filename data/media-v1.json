@@ -1,7 +1,7 @@
 {
-  "version": "2026.09.29-stage17-ak",
+  "version": "2026.09.29-stage17-al",
   "updated": "2026-09-29",
-  "note": "Curated anatomy/ultrasound registry. Semispinalis capitis representative corrected from Gray384 C6 cross-section to Gray389 posterior whole-course view; Stage 17 source gaps remain explicitly documented.",
+  "note": "Curated anatomy/ultrasound registry. Lumbar medial/lateral intertransversarii gaps resolved with directly labeled public-domain Sobotta Fig. 244; representative whole-muscle view policy retained.",
   "muscles": {
     "m060": {
       "anatomy": [
@@ -2704,22 +2704,34 @@
       }
     },
     "m044": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "요내측 횡돌기간근(intertransversarii mediales lumborum)을 외측군과 분리하여 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
-        "evidence": "일반 intertransversarii 도해는 해상도가 낮고 mediales/laterales 구분이 없음.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Lumbar medial intertransversarii — posterior representative view",
+          "file": "Sobo 1909 244.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_244.png",
+          "representative": true,
+          "view": "posterior lumbar deep",
+          "focusLabel": "Intertransversarii mediales · 내측군",
+          "educationalReason": "내측군이 유두돌기·부돌기 사이에 직접 라벨링되어 외측군과 구분되는 고해상도 전체 시야"
+        }
+      ]
     },
     "m045": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "요외측 횡돌기간근(intertransversarii laterales lumborum)을 내측군과 분리하여 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
-        "evidence": "일반 intertransversarii 도해는 해상도가 낮고 mediales/laterales 구분이 없음.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Lumbar lateral intertransversarii — posterior representative view",
+          "file": "Sobo 1909 244.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_244.png",
+          "representative": true,
+          "view": "posterior lumbar deep",
+          "focusLabel": "Intertransversarii laterales · 외측군",
+          "educationalReason": "외측군이 인접 횡돌기 사이에 직접 라벨링되어 내측군과 구분되는 고해상도 전체 시야"
+        }
+      ]
     },
     "m116": {
       "anatomyDecision": {
