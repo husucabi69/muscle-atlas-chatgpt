@@ -183,7 +183,7 @@ const required={
   m034:'Innermost intercostal muscles lateral.png',
   m035:'Physiology and biochemistry in modern medicine (1918) (14758349676).jpg',
   m036:'Transversus thoracis.png',
-  m056:'(155) Stylized depiction of action of puborectalis sling.png',
+  m056:'Pelvic Muscles (Female Inferior).png',
   m057:'1115 Muscles of the Pelvic Floor.jpg',
   m058:'1115 Muscles of the Pelvic Floor.jpg',
   m059:'Gray404.png',
