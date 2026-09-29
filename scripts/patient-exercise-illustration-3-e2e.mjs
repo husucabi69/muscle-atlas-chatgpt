@@ -73,7 +73,7 @@ try{
 
   await page.emulateMedia({media:'print'});
   const print=await page.evaluate(()=>{
-    const p=exerciseProfileById.px009;
+    const p=exerciseProfileById.px001;
     const host=document.createElement('div');
     host.id='educationDetail';
     host.style.width='180mm';
@@ -82,11 +82,17 @@ try{
     document.body.classList.add('printing-education');
     const figure=host.querySelector('.exercise-figure');
     const phase=host.querySelector('.exercise-phase');
+    const realistic=host.querySelector('.exercise-realistic-media');
+    const fallback=host.querySelector('.exercise-svg-fallback');
+    const note=host.querySelector('.exercise-a4-pending-note');
     const out={
       breakInside:getComputedStyle(figure).breakInside,
       figureBackground:getComputedStyle(figure).backgroundColor,
       phaseBackground:getComputedStyle(phase).backgroundColor,
-      overflow:figure.scrollWidth-figure.clientWidth
+      overflow:figure.scrollWidth-figure.clientWidth,
+      realisticDisplay:realistic?getComputedStyle(realistic).display:'',
+      fallbackDisplay:fallback?getComputedStyle(fallback).display:'',
+      noteDisplay:note?getComputedStyle(note).display:''
     };
     document.body.classList.remove('printing-education');
     host.remove();
@@ -94,10 +100,13 @@ try{
   });
   if(print.breakInside!=='avoid')fail('Stage 23B A4 break-inside avoid',print.breakInside);
   if(print.overflow>1)fail('Stage 23B A4 no clipping',String(print.overflow));
-  pass('Stage 23B A4 print geometry');
+  if(print.realisticDisplay!=='none')fail('Stage 23B A4 hides mobile-preview realistic asset',print.realisticDisplay);
+  if(print.fallbackDisplay==='none'||!print.fallbackDisplay)fail('Stage 23B A4 shows sharp fallback while HD pending',print.fallbackDisplay);
+  if(print.noteDisplay==='none'||!print.noteDisplay)fail('Stage 23B A4 explains HD pending fallback',print.noteDisplay);
+  pass('Stage 23B A4 print geometry and HD-pending fallback');
 
   console.log('\n--- STAGE 23B PATIENT EXERCISE RUNTIME E2E ---');
-  console.log('PASS | 18/18 profiles render realistic image or SVG fallback on 390px mobile + A4 print geometry');
+  console.log('PASS | 18/18 profiles render realistic image or SVG fallback on 390px mobile + A4 HD-pending print fallback');
 }finally{
   await browser.close();
 }
