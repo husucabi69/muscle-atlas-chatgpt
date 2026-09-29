@@ -51,8 +51,14 @@ check('New Gray389 erector-spinae gaps resolved',
   ['m021','m022','m038'].every(id=>media.muscles?.[id]?.anatomy?.[0]?.file==='Gray389.png'),
   ['m021','m022','m038'].filter(id=>sourceGaps.some(x=>x.muscle_id===id)||media.muscles?.[id]?.anatomy?.[0]?.file!=='Gray389.png').join(',')
 );
+check('Dorsal interossei II-IV resolved with directly labelled Sobotta plate',
+  ['m117','m118','m119'].every(id=>
+    !sourceGaps.some(x=>x.muscle_id===id) &&
+    media.muscles?.[id]?.anatomy?.[0]?.file==='Sobo 1909 285.png'
+  )
+);
 check('Remaining part-specific source-gap candidates remain gaps',
-  ['m025','m039','m041','m117','m118','m119','m197'].every(id=>
+  ['m025','m039','m041','m120','m121','m122','m197'].every(id=>
     sourceGaps.some(x=>x.muscle_id===id)
   )
 );
