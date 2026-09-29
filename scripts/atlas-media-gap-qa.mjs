@@ -1,0 +1,33 @@
+import fs from 'node:fs';
+
+const audit=JSON.parse(fs.readFileSync('data/muscle-illustration-audit-v1.json','utf8'));
+const media=JSON.parse(fs.readFileSync('data/media-v1.json','utf8'));
+const gaps=JSON.parse(fs.readFileSync('data/atlas-media-gap-audit-v1.json','utf8'));
+const globalUS=JSON.parse(fs.readFileSync('data/media-license-global-audit-v1.json','utf8'));
+
+const checks=[];
+const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
+
+const sourceGaps=(audit.muscles||[]).filter(x=>x.status==='no_suitable_public_source');
+const reviewed=(audit.muscles||[]).filter(x=>x.status==='reviewed');
+const gray384=reviewed.filter(x=>/Gray384/i.test(String(x.representative_asset?.file||'')+' '+String(x.representative_asset?.sourcePage||'')));
+
+check('Gap ledger schema',gaps.schema_version==='1.0.0',gaps.schema_version);
+check('Anatomy gap count matches Stage 17 audit',gaps.anatomy?.no_suitable_public_source===sourceGaps.length,`${gaps.anatomy?.no_suitable_public_source}/${sourceGaps.length}`);
+check('Anatomy reviewed count matches',gaps.anatomy?.reviewed_representative===reviewed.length,`${gaps.anatomy?.reviewed_representative}/${reviewed.length}`);
+check('No Gray384 cross-section representative remains',gray384.length===0,gray384.map(x=>x.muscle_id).join(','));
+check('m011 corrected to Gray389',media.muscles?.m011?.anatomy?.[0]?.file==='Gray389 Semispinalis capitis.png',media.muscles?.m011?.anatomy?.[0]?.file||'missing');
+check('m003 corrected to Gray385',media.muscles?.m003?.anatomy?.[0]?.file==='Gray385 - Scalenus medius muscle.png',media.muscles?.m003?.anatomy?.[0]?.file||'missing');
+check('Ultrasound total matches global audit',gaps.ultrasound?.canonical_views===globalUS.summary?.ultrasound_views_total,`${gaps.ultrasound?.canonical_views}/${globalUS.summary?.ultrasound_views_total}`);
+check('Ultrasound embedded count matches global audit',gaps.ultrasound?.embedded_actual_ultrasound===globalUS.summary?.embedded_reuse_with_attribution,`${gaps.ultrasound?.embedded_actual_ultrasound}/${globalUS.summary?.embedded_reuse_with_attribution}`);
+check('Ultrasound link-only count matches global audit',gaps.ultrasound?.link_only_actual_ultrasound_reference===globalUS.summary?.link_only_reference_views,`${gaps.ultrasound?.link_only_actual_ultrasound_reference}/${globalUS.summary?.link_only_reference_views}`);
+check('Ultrasound canonical source missing is zero',gaps.ultrasound?.canonical_source_missing===0,String(gaps.ultrasound?.canonical_source_missing));
+
+let failed=0;
+for(const x of checks){
+  console.log(`${x.pass?'PASS':'FAIL'} | ${x.name}${x.detail?' | '+x.detail:''}`);
+  if(!x.pass)failed++;
+}
+console.log('\n--- ATLAS MEDIA GAP QA ---');
+console.log(`PASS=${checks.length-failed} FAIL=${failed}`);
+if(failed)process.exit(1);
