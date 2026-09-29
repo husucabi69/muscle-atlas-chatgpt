@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-f",
+  "audit_version": "2026.09.29-atlas-media-gap-g",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
@@ -360,19 +360,6 @@
       },
       {
         "muscle_ids": [
-          "m116",
-          "m117",
-          "m118",
-          "m119"
-        ],
-        "candidate": "Sobo 1909 285.png",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_285.png",
-        "license": "Public domain",
-        "decision": "NOT_PROMOTED",
-        "reason": "배측골간근군 전체 고해상도 도해는 확보했지만 제1~4 근육 각각을 별도 canonical 대표자산으로 확정할 직접 구분 표지가 부족함"
-      },
-      {
-        "muscle_ids": [
           "m197"
         ],
         "candidate": "Historical public-domain deep-back plates",
@@ -433,9 +420,6 @@
       },
       {
         "muscle_ids": [
-          "m117",
-          "m118",
-          "m119",
           "m120",
           "m121",
           "m122"
@@ -446,7 +430,7 @@
         "ordinalEvidencePage": "https://commons.wikimedia.org/wiki/File:Testut%27s_Treatise_on_Human_Anatomy_(1911)_-_Vol_1_-_Fig_306.png",
         "license": "CC BY-SA 4.0 (OpenStax derivatives) / Public domain (Testut ordinal map)",
         "decision": "RESEARCH_ONLY",
-        "reason": "m116은 CC0 deep-palmar labelled view로 해결. 남은 m117~m122는 DIL/PIL에서 근복 전체는 보이지만 각 번호를 그림 자체에서 개별적으로 명확히 고정하기 어렵고, Testut Fig.306은 번호 대응은 명확하나 whole-muscle 도해가 아니어서 추가 탐색 유지."
+        "reason": "배측골간근 m117~m119는 Sobotta Sobo 1909 285의 직접 II–IV 라벨로 해결됨. 손바닥골간근 m120~m122는 PIL에서 근육군 전체는 보이지만 개별 1–3이 그림 자체에 직접 분리 라벨되지 않아 추가 탐색 유지."
       },
       {
         "muscle_ids": [
@@ -461,6 +445,18 @@
           "Sobo 1909 255.png",
           "Sobo 1909 256.png"
         ]
+      },
+      {
+        "muscle_ids": [
+          "m120",
+          "m121",
+          "m122"
+        ],
+        "candidate": "Dixon 1912 Fig.053 palmar interossei attachment map",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Dixon%27s_Manual_of_human_osteology_(1912)_-_Fig_053.png",
+        "license": "Public domain",
+        "decision": "NOT_PROMOTED",
+        "reason": "palmar interossei 1·2·3 번호 대응은 명확하지만 주로 뼈의 muscular attachment를 보여 주는 도해여서, 근육 전체 근복과 주행을 보여 주는 대표도해 기준에는 부족함."
       }
     ],
     "resolved_gap_promotions": [
