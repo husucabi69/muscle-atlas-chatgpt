@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-c",
+  "audit_version": "2026.09.29-atlas-media-gap-d",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
@@ -507,6 +507,20 @@
         "license": "CC BY-SA 4.0 (OpenStax derivatives) / Public domain (Testut ordinal map)",
         "decision": "RESEARCH_ONLY",
         "reason": "m116은 CC0 deep-palmar labelled view로 해결. 남은 m117~m122는 DIL/PIL에서 근복 전체는 보이지만 각 번호를 그림 자체에서 개별적으로 명확히 고정하기 어렵고, Testut Fig.306은 번호 대응은 명확하나 whole-muscle 도해가 아니어서 추가 탐색 유지."
+      },
+      {
+        "muscle_ids": [
+          "m193"
+        ],
+        "candidate": "Toldt 1903 Fig. 520 — scalene muscles with anomalous scalenus minimus/scalenus pleuralis",
+        "sourcePage": "https://upload.wikimedia.org/wikipedia/commons/4/4f/An_atlas_of_human_anatomy_for_students_and_physicians_%28IA_atlasofhumananat34told%29.pdf",
+        "license": "Public-domain historical atlas source; standalone reusable image file not yet fixed",
+        "decision": "RESEARCH_ONLY",
+        "reason": "Toldt Fig.520은 scalenus minimus/scalenus pleuralis를 직접 표시해 해부학적 후보로 우수하지만, 앱 대표도해로 바로 고정할 독립 고해상도 Commons image asset을 아직 확인하지 못함. 검색상 후보였던 Sobo 1909 255/256은 실제 확인 결과 일반 목 근육 전면/측면도라 minimus 단독 대표로 부적합.",
+        "rejected_false_leads": [
+          "Sobo 1909 255.png",
+          "Sobo 1909 256.png"
+        ]
       }
     ],
     "resolved_gap_promotions": [
