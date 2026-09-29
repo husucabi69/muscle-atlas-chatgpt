@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-c",
+  "audit_version": "2026.09.29-atlas-media-gap-d",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
     "canonical_muscles": 205,
-    "reviewed_representative": 177,
-    "no_suitable_public_source": 28,
+    "reviewed_representative": 179,
+    "no_suitable_public_source": 26,
     "source_gaps": [
       {
         "muscle_id": "m016",
@@ -110,22 +110,6 @@
         "name_en": "Interspinales lumborum",
         "reason": "Interspinales 일반 자료는 있으나 요극간근을 요추부로 직접 분리해 보여 주는 고품질 재사용 정본을 확인하지 못함.",
         "evidence": "group-level 도해를 lumbar-specific 대표로 고정하지 않음.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
-      {
-        "muscle_id": "m044",
-        "name_ko": "요내측 횡돌기간근",
-        "name_en": "Intertransversarii mediales lumborum",
-        "reason": "요내측 횡돌기간근(intertransversarii mediales lumborum)을 외측군과 분리하여 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
-        "evidence": "일반 intertransversarii 도해는 해상도가 낮고 mediales/laterales 구분이 없음.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
-      {
-        "muscle_id": "m045",
-        "name_ko": "요외측 횡돌기간근",
-        "name_en": "Intertransversarii laterales lumborum",
-        "reason": "요외측 횡돌기간근(intertransversarii laterales lumborum)을 내측군과 분리하여 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
-        "evidence": "일반 intertransversarii 도해는 해상도가 낮고 mediales/laterales 구분이 없음.",
         "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
       },
       {
@@ -492,6 +476,64 @@
         "license": "Public domain",
         "decision": "NOT_PROMOTED",
         "reason": "여성 외요도괄약근에는 유용하지만 female-only라 남녀 일반 canonical entity의 대표도해로 단독 승격하지 않음"
+      },
+      {
+        "muscle_ids": [
+          "m016"
+        ],
+        "candidate": "Sobo 1909 243.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_243.png",
+        "license": "Public domain",
+        "decision": "RESEARCH_ONLY",
+        "reason": "경추 횡돌기간근 전체 위치는 고해상도로 잘 보이지만 현재 공개 plate 자체에 anterior/posterior cervical intertransversarii 직접 문자 라벨이 없어 m016 canonical 대표자산으로 즉시 승격하지 않음"
+      },
+      {
+        "muscle_ids": [
+          "m132"
+        ],
+        "candidate": "Grob et al. 2017 Articularis genus Fig.1",
+        "sourcePage": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6133144/",
+        "license": "CC BY-NC-ND 4.0",
+        "decision": "REFERENCE_ONLY",
+        "reason": "사체 해부에서 articularis genus 층을 직접 보여 주는 우수한 자료지만 비영리·변형금지 라이선스라 병원 앱 고정 대표자산으로 재사용하지 않고 연구 reference로만 보존"
+      },
+      {
+        "muscle_ids": [
+          "m205"
+        ],
+        "candidate": "Benes et al. 2024 Articularis cubiti Fig.1",
+        "sourcePage": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10734650/",
+        "license": "CC BY-NC-ND 4.0",
+        "decision": "REFERENCE_ONLY",
+        "reason": "현대 사체 해부에서 articularis cubiti를 직접 확인할 수 있으나 비영리·변형금지 조건 때문에 병원 앱 대표자산으로 직접 재배포하지 않고 reference-only로 보존"
+      },
+      {
+        "muscle_ids": [
+          "m171"
+        ],
+        "candidate": "Anatomy.app / Kenhub opponens digiti minimi of foot",
+        "sourcePage": "https://anatomy.app/encyclopedia/opponens-digiti-minimi-of-foot",
+        "license": "Commercial/proprietary educational media — reuse not established",
+        "decision": "REFERENCE_ONLY",
+        "reason": "발 소지대립근 자체를 확인하는 현대 교육자료는 있으나 공개 재사용 권한이 확인되지 않아 canonical fixed asset으로 승격하지 않음"
+      }
+    ],
+    "resolved_gap_promotions": [
+      {
+        "muscle_id": "m044",
+        "name_ko": "요내측 횡돌기간근",
+        "asset": "Sobo 1909 244.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_244.png",
+        "license": "Public domain",
+        "resolution": "Sobotta Fig.244에서 Intertransversarii mediales가 직접 라벨링되어 part-specific 대표도해 기준 충족"
+      },
+      {
+        "muscle_id": "m045",
+        "name_ko": "요외측 횡돌기간근",
+        "asset": "Sobo 1909 244.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_244.png",
+        "license": "Public domain",
+        "resolution": "Sobotta Fig.244에서 Intertransversarii laterales가 직접 라벨링되어 part-specific 대표도해 기준 충족"
       }
     ]
   },
@@ -707,9 +749,9 @@
     }
   },
   "priority_next": [
-    "m056 치골직장근과 m203 외요도괄약근 대표 해부도해 재탐색",
-    "28개 anatomy source-gap 중 part-specific 직접 라벨/경계가 있는 whole-muscle 공개자료 우선 재탐색",
-    "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산을 우선 탐색",
+    "26개 anatomy source-gap 중 직접 라벨/명확한 경계가 있는 재사용 가능 whole-muscle 자료 우선 재탐색",
+    "m056 치골직장근·m203 외요도괄약근은 현재 임시 대표를 유지하면서 더 직접적인 전체 해부도해 탐색",
+    "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산 우선 탐색",
     "더 좋은 대표자산 발견 시 Stable ID 유지 + asset slot 교체"
   ]
 }
