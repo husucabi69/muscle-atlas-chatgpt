@@ -18,8 +18,11 @@ check('No pending slot pretends to have an asset URL',
 check('Any APPROVED asset must have WebP URL',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>typeof x.composite_url==='string'&&/\.webp(?:\?|$)/.test(x.composite_url))
 );
-check('Current realistic Preview batch approved', ['px001','px002','px003'].every(id=>manifest.profiles.some(x=>x.profile_id===id&&x.status==='APPROVED')),
+check('First six realistic Preview assets approved', ['px001','px002','px003','px004','px005','px006'].every(id=>manifest.profiles.some(x=>x.profile_id===id&&x.status==='APPROVED')),
   manifest.profiles.filter(x=>x.status==='APPROVED').map(x=>x.profile_id).join(',')
+);
+check('Every APPROVED asset keeps A4 HD pending gate',
+  manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>x.asset_gate==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING')
 );
 check('Every APPROVED realistic asset exists and is WebP bytes',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>{
