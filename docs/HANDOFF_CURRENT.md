@@ -13,7 +13,7 @@ This document is the canonical handoff checkpoint for continuing development of 
 - **Never change or promote `main` without explicit user approval.**
 - Latest verified baseline before the current research-queue checkpoint: `13950a56bf531a97eb68cd25f3d051e5e79e5919` — canonical handoff commit, Global QA run `36566509370` PASS.
 - Latest roadmap-governance checkpoint before this handoff refresh: `af7b6846394e3bef86e4e5b61f7724d59685ec4c` — latest user instruction fixed manual 15-minute target / 20-minute HARD STOP and roadmap-first idea triage.
-- Current Preview app version remains `v11.61 · Pelvic Floor Representative Views`.
+- Current Preview app version: `v11.64 · Realistic Exercise First 6`.
 - Embedded run/SHA notes are only checkpoints. Because 00:00~08:00 scheduled work can advance the branch, every session must query the live latest HEAD and latest QA/Preview state before editing.
 
 ## 2. User communication contract
@@ -88,9 +88,12 @@ Stage 23B:
 - white clinical background, Korean labels, mobile-readable, A4 printable
 - registry: `data/patient-exercise-realistic-assets-v1.json`
 - current realistic asset status at handoff:
-  - px009 squat = `STYLE_REFERENCE_APPROVED` only
-  - px001–008, px010–018 = `PENDING_GENERATION`
-  - no realistic composite URL is yet connected in the registry
+  - px001–px006 = `APPROVED` and connected to in-app WebP assets
+  - px007–px008, px010–px018 = `PENDING_GENERATION`
+  - px009 squat = `STYLE_REFERENCE_APPROVED` only; approved style reference, not yet connected as final app asset
+  - px001–px006 are mobile Preview assets; A4 final high-resolution gate remains pending
+- runtime E2E was structurally updated to validate realistic images while retaining hidden SVG fallback; a literal-newline syntax regression was corrected in `dc0d1e763effce157f2605fc3be83bcc509ff3f0`
+- next exact mainline item: **px007 손가락 운동 realistic asset**, then px008, px009 final asset, px010–px018
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
