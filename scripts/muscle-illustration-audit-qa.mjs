@@ -159,6 +159,7 @@ const required={
   m113:'Sobo 1909 288.png',
   m114:'Sobo 1909 288.png',
   m115:'Sobo 1909 288.png',
+  m116:'Wrist and hand deeper palmar dissection-numbers.svg',
   m163:'Gray444.png',
   m164:'Gray444.png',
   m165:'Gray444.png',
