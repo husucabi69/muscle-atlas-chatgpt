@@ -36,6 +36,16 @@ check('Part-specific source-gap candidates remain gaps',
     sourceGaps.some(x=>x.muscle_id===id)
   )
 );
+check('True re-audit rows retain current asset only temporarily',
+  (gaps.anatomy?.manual_visual_reaudit_candidates||[]).every(x=>
+    x.decision==='KEEP_CURRENT_TEMPORARILY_AND_CONTINUE_SEARCH' &&
+    x.reviewed_on==='2026-09-29'
+  )
+);
+check('Source research ledger records rejected candidates',
+  (gaps.anatomy?.candidate_sources_not_promoted||[]).length>=7,
+  String((gaps.anatomy?.candidate_sources_not_promoted||[]).length)
+);
 
 let failed=0;
 for(const x of checks){
