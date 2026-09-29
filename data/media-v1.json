@@ -1,7 +1,7 @@
 {
-  "version": "2026.09.29-stage17-am",
+  "version": "2026.09.29-stage17-an",
   "updated": "2026-09-29",
-  "note": "Curated anatomy/ultrasound registry. Lumbar medial/lateral intertransversarii gaps resolved with directly labeled public-domain Sobotta Fig. 244; representative whole-muscle view policy retained.",
+  "note": "Curated anatomy/ultrasound registry. Gray389 original public-domain posterior deep-back plate now fills iliocostalis thoracis, longissimus thoracis and iliocostalis lumborum representative slots with classical-to-modern focus labels.",
   "muscles": {
     "m060": {
       "anatomy": [
@@ -2602,22 +2602,34 @@
       ]
     },
     "m021": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "장늑근 전체 도해는 있으나 흉장늑근(iliocostalis thoracis)만의 경계와 주행을 직접 구분하는 재사용 가능 정본을 확인하지 못함.",
-        "evidence": "전체 iliocostalis group 이미지는 thoracis/cervicis/lumborum 경계를 독립 라벨로 분리하지 않음.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Iliocostalis thoracis — posterior whole-course representative view",
+          "file": "Gray389.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray389.png",
+          "representative": true,
+          "view": "posterior deep back",
+          "focusLabel": "Iliocostalis dorsi · modern iliocostalis thoracis",
+          "educationalReason": "후면 심부 시야에서 늑골을 따라 이어지는 흉부 장늑근의 전체 방향을 고전 Gray 라벨과 함께 확인"
+        }
+      ]
     },
     "m022": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "최장근 전체 도해는 있으나 흉최장근(longissimus thoracis)의 흉추부를 독립적으로 식별할 수 있는 재사용 가능 대표도해가 부족함.",
-        "evidence": "공개 도해가 longissimus group 중심이며 thoracic part의 직접 경계 라벨이 불충분함.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Longissimus thoracis — posterior whole-course representative view",
+          "file": "Gray389.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray389.png",
+          "representative": true,
+          "view": "posterior deep back",
+          "focusLabel": "Longissimus dorsi · modern longissimus thoracis",
+          "educationalReason": "후면 심부 시야에서 흉최장근의 긴 세로 주행과 척추·늑골 관계를 전체적으로 확인"
+        }
+      ]
     },
     "m025": {
       "anatomyDecision": {
@@ -2656,13 +2668,19 @@
       }
     },
     "m038": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "장늑근 전체 도해는 있으나 요장늑근(iliocostalis lumborum)만의 근복과 경계를 직접 구분하는 대표 정본이 부족함.",
-        "evidence": "전체 iliocostalis group 도해를 lumbar part 전용 대표시야로 승격하지 않음.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Iliocostalis lumborum — posterior whole-course representative view",
+          "file": "Gray389.png",
+          "author": "Henry Vandyke Carter / Gray's Anatomy",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray389.png",
+          "representative": true,
+          "view": "posterior deep back",
+          "focusLabel": "Iliocostalis lumborum",
+          "educationalReason": "후면 심부 시야에서 요장늑근의 장골능·천골 부근에서 하부 늑골로 이어지는 전체 주행을 확인"
+        }
+      ]
     },
     "m039": {
       "anatomyDecision": {
