@@ -1,0 +1,612 @@
+{
+  "schema_version": "1.0.0",
+  "audit_version": "2026.09.29-atlas-media-gap-a",
+  "audited_on": "2026-09-29",
+  "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
+  "anatomy": {
+    "canonical_muscles": 205,
+    "reviewed_representative": 177,
+    "no_suitable_public_source": 28,
+    "source_gaps": [
+      {
+        "muscle_id": "m016",
+        "name_ko": "경횡돌기간근",
+        "name_en": "Intertransversarii cervicis",
+        "reason": "공개 재사용 자료 중 경추 횡돌기간근을 경추 분절로 직접 라벨링하고 충분한 해상도로 보여 주는 정본을 확인하지 못함.",
+        "evidence": "Commons의 전용 Intertransversarii 도해는 276×113 저해상도이며 경추·흉추·요추 부위를 분리하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m021",
+        "name_ko": "흉장늑근",
+        "name_en": "Iliocostalis thoracis",
+        "reason": "장늑근 전체 도해는 있으나 흉장늑근(iliocostalis thoracis)만의 경계와 주행을 직접 구분하는 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "전체 iliocostalis group 이미지는 thoracis/cervicis/lumborum 경계를 독립 라벨로 분리하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m022",
+        "name_ko": "흉최장근",
+        "name_en": "Longissimus thoracis",
+        "reason": "최장근 전체 도해는 있으나 흉최장근(longissimus thoracis)의 흉추부를 독립적으로 식별할 수 있는 재사용 가능 대표도해가 부족함.",
+        "evidence": "공개 도해가 longissimus group 중심이며 thoracic part의 직접 경계 라벨이 불충분함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m025",
+        "name_ko": "흉다열근",
+        "name_en": "Multifidus thoracis",
+        "reason": "다열근 전체 연속 구조를 보여 주는 공개도해는 있으나 흉다열근을 thoracic part로 직접 분리·라벨링한 대표 정본을 확인하지 못함.",
+        "evidence": "whole-spine multifidus view만으로 흉추부를 canonical muscle 단위로 고정하기에는 part-specific 근거가 부족함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m026",
+        "name_ko": "흉회선근",
+        "name_en": "Rotatores thoracis",
+        "reason": "Rotatores 전체 후면 고해상도 공개도해는 있으나 흉회선근만을 별도 part로 직접 표시하는 정본이 없어 대표도해로 고정하지 않음.",
+        "evidence": "Anatomography Rotatores.png는 전체 rotatores chain을 보여 주지만 thoracic subset의 독립 라벨/경계가 없음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m027",
+        "name_ko": "흉극간근",
+        "name_en": "Interspinales thoracis",
+        "reason": "Interspinales 일반 도해는 있으나 흉극간근을 흉추부로 분리하여 직접 식별할 수 있는 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "공개 자료가 interspinales group 또는 다른 부위 중심임.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m028",
+        "name_ko": "흉횡돌기간근",
+        "name_en": "Intertransversarii thoracis",
+        "reason": "흉횡돌기간근을 흉추부로 직접 식별하는 고해상도 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "전용 Commons intertransversarii 파일은 저해상도이며 지역별 분리가 없음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m038",
+        "name_ko": "요장늑근",
+        "name_en": "Iliocostalis lumborum",
+        "reason": "장늑근 전체 도해는 있으나 요장늑근(iliocostalis lumborum)만의 근복과 경계를 직접 구분하는 대표 정본이 부족함.",
+        "evidence": "전체 iliocostalis group 도해를 lumbar part 전용 대표시야로 승격하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m039",
+        "name_ko": "요최장근",
+        "name_en": "Longissimus thoracis - lumbar fascicles",
+        "reason": "Longissimus thoracis의 lumbar fascicles를 별도 구조로 직접 표시하는 공개 재사용 대표도해를 확인하지 못함.",
+        "evidence": "전체 longissimus/erector-spinae 도해에서는 lumbar fascicles의 독립 경계가 불명확함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m040",
+        "name_ko": "요극근",
+        "name_en": "Spinalis (lumbar portion, variable)",
+        "reason": "요극근은 해부학적으로 변이가 크고 lumbar spinalis portion을 안정적으로 분리해 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
+        "evidence": "전체 spinalis 또는 erector-spinae 그림을 가변성 높은 lumbar portion의 정본으로 사용하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m041",
+        "name_ko": "요다열근",
+        "name_en": "Multifidus lumborum",
+        "reason": "다열근 전체 도해는 있으나 요다열근을 lumborum part로 직접 분리·라벨링한 공개 정본을 확인하지 못함.",
+        "evidence": "whole-spine multifidus view는 지역 교육용 참고가 가능하지만 canonical 대표도해 기준에는 부족함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m042",
+        "name_ko": "요회선근",
+        "name_en": "Rotatores lumborum",
+        "reason": "Rotatores 전체 후면도는 있으나 요회선근만을 lumbar subset으로 직접 라벨링한 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "Rotatores.png는 전체 chain을 표시하며 lumbar part의 독립 경계가 없음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m043",
+        "name_ko": "요극간근",
+        "name_en": "Interspinales lumborum",
+        "reason": "Interspinales 일반 자료는 있으나 요극간근을 요추부로 직접 분리해 보여 주는 고품질 재사용 정본을 확인하지 못함.",
+        "evidence": "group-level 도해를 lumbar-specific 대표로 고정하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m044",
+        "name_ko": "요내측 횡돌기간근",
+        "name_en": "Intertransversarii mediales lumborum",
+        "reason": "요내측 횡돌기간근(intertransversarii mediales lumborum)을 외측군과 분리하여 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
+        "evidence": "일반 intertransversarii 도해는 해상도가 낮고 mediales/laterales 구분이 없음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m045",
+        "name_ko": "요외측 횡돌기간근",
+        "name_en": "Intertransversarii laterales lumborum",
+        "reason": "요외측 횡돌기간근(intertransversarii laterales lumborum)을 내측군과 분리하여 직접 라벨링한 공개 대표 정본을 확인하지 못함.",
+        "evidence": "일반 intertransversarii 도해는 해상도가 낮고 mediales/laterales 구분이 없음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m116",
+        "name_ko": "제1배측골간근",
+        "name_en": "Dorsal interosseous 1 (hand)",
+        "reason": "손 제1배측골간근을 현대 번호 체계로 독립 고정할 수 있는 일관된 공개 정본 세트를 확보하지 못해 단일 역사 도해를 대표로 승격하지 않음.",
+        "evidence": "고해상도 Braus 도해에 일부 역사적 interosseus 표기가 있으나 1–4 전체를 동일 기준으로 검증하기 어려움.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m117",
+        "name_ko": "제2배측골간근",
+        "name_en": "Dorsal interosseous 2 (hand)",
+        "reason": "손 제2배측골간근의 근복과 번호를 직접 대응시키는 고해상도 재사용 가능 정본을 확인하지 못함.",
+        "evidence": "공개 group 도해는 4개 배측골간근을 함께 보여 주지만 개별 번호 고정 근거가 부족함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m118",
+        "name_ko": "제3배측골간근",
+        "name_en": "Dorsal interosseous 3 (hand)",
+        "reason": "손 제3배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
+        "evidence": "부분적으로만 번호가 보이는 단일 plate보다 일관된 현대 ordinal mapping을 우선함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m119",
+        "name_ko": "제4배측골간근",
+        "name_en": "Dorsal interosseous 4 (hand)",
+        "reason": "손 제4배측골간근에 역사적 직접 표기가 있는 자료는 있으나 현대 1–4 전체를 동일한 번호 체계로 검증할 수 없어 개별 대표 승격을 보류함.",
+        "evidence": "부분 라벨 plate를 canonical ordinal 대표로 고정하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m120",
+        "name_ko": "제1수장골간근",
+        "name_en": "Palmar interosseous 1 (hand)",
+        "reason": "손 제1수장골간근의 현대 번호와 근복을 직접 대응시키는 공개 정본을 확인하지 못함.",
+        "evidence": "역사적 internus 표기는 존재하지만 현대 palmar interosseous 1–3 체계와의 일대일 고정 근거가 불충분함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m121",
+        "name_ko": "제2수장골간근",
+        "name_en": "Palmar interosseous 2 (hand)",
+        "reason": "손 제2수장골간근의 현대 번호와 근복을 직접 대응시키는 공개 정본을 확인하지 못함.",
+        "evidence": "역사적 internus 번호를 현대 canonical numbering으로 자동 치환하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m122",
+        "name_ko": "제3수장골간근",
+        "name_en": "Palmar interosseous 3 (hand)",
+        "reason": "손 제3수장골간근의 현대 번호와 근복을 직접 대응시키는 공개 정본을 확인하지 못함.",
+        "evidence": "역사적 internus 번호를 현대 canonical numbering으로 자동 치환하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m132",
+        "name_ko": "무릎관절근",
+        "name_en": "Articularis genus",
+        "reason": "무릎관절근(articularis genus)을 중간광근과 분리하여 근복 전체를 직접 보여 주는 재사용 가능 대표도해를 확인하지 못함.",
+        "evidence": "vastus intermedius 중심 자료를 articularis genus 단독 대표로 대체하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m137",
+        "name_ko": "대내전근-햄스트링부",
+        "name_en": "Adductor magnus, hamstring part",
+        "reason": "대내전근 햄스트링부를 내전부와 분리해 직접 라벨링하고 근복-정지 관계를 보여 주는 공개 대표 정본을 확인하지 못함.",
+        "evidence": "adductor magnus 전체/부착부 도해는 있으나 hamstring part 독립 경계가 불충분함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m171",
+        "name_ko": "소지대립근",
+        "name_en": "Opponens digiti minimi (foot, variable)",
+        "reason": "발 소지대립근은 가변적 구조이며 해당 발 근육을 독립적으로 확인할 수 있는 신뢰도 높은 공개 재사용 정본을 확인하지 못함.",
+        "evidence": "검색되는 opponens digiti minimi 자료의 대부분은 손 근육이며 발 구조를 대표하지 않음.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m193",
+        "name_ko": "최소사각근",
+        "name_en": "Scalenus minimus",
+        "reason": "최소사각근(scalenus minimus)은 변이가 크고 독립 근복을 안정적으로 보여 주는 공개 재사용 대표 정본을 확인하지 못함.",
+        "evidence": "일반 scalenes 도해에서 최소사각근을 별도 구조로 확정할 근거가 부족함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m197",
+        "name_ko": "경극근",
+        "name_en": "Spinalis cervicis",
+        "reason": "경극근(spinalis cervicis)을 다른 spinalis/semispinalis 구조와 분리해 직접 라벨링한 고품질 공개 대표 정본을 확인하지 못함.",
+        "evidence": "기존 공개도해는 erector-spinae group 중심이라 cervical part의 독립 식별이 부족함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      },
+      {
+        "muscle_id": "m205",
+        "name_ko": "주관절근",
+        "name_en": "Articularis cubiti (subanconeus)",
+        "reason": "주관절근(articularis cubiti/subanconeus)을 주근·상완삼두근과 분리해 근복을 직접 보여 주는 재사용 가능 대표 정본을 확인하지 못함.",
+        "evidence": "공개 검색에서 standalone human representative view를 확보하지 못함.",
+        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
+      }
+    ],
+    "confirmed_cross_section_representative_errors_fixed_this_audit": [
+      {
+        "muscle_id": "m011",
+        "name_ko": "두반극근",
+        "old_asset": "Gray384 Semispinalis capitis.png",
+        "old_problem": "Gray384 원판은 C6 경부 횡단면인데 audit metadata가 posterior deep으로 잘못 분류",
+        "new_asset": "Gray389 Semispinalis capitis.png",
+        "new_view": "posterior deep back"
+      },
+      {
+        "muscle_id": "m003",
+        "name_ko": "중사각근",
+        "old_asset": "Gray384 - Scalenus medius muscle.png",
+        "old_problem": "Gray384 원판은 C6 경부 횡단면으로 근육 전체 주행 대표도해에 부적합",
+        "new_asset": "Gray385 - Scalenus medius muscle.png",
+        "new_view": "lateral neck"
+      }
+    ],
+    "remaining_gray384_representatives": [],
+    "manual_visual_reaudit_candidates": [
+      {
+        "muscle_id": "m036",
+        "name_ko": "흉횡근",
+        "name_en": "Transversus thoracis",
+        "view": "internal anterior thoracic wall",
+        "file": "Transversus thoracis.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m037",
+        "name_ko": "횡격막",
+        "name_en": "Diaphragm",
+        "view": "inferior abdominal view",
+        "file": "Diaphragma.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m049",
+        "name_ko": "장골근",
+        "name_en": "Iliacus",
+        "view": "isolated 3D anterior pelvis",
+        "file": "Iliacus muscle01.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m056",
+        "name_ko": "항문거근-치골직장근",
+        "name_en": "Puborectalis",
+        "view": "sagittal pelvic floor schematic",
+        "file": "(155) Stylized depiction of action of puborectalis sling.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m057",
+        "name_ko": "항문거근-치골미골근",
+        "name_en": "Pubococcygeus",
+        "view": "superior pelvic diaphragm",
+        "file": "1115 Muscles of the Pelvic Floor.jpg",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m058",
+        "name_ko": "항문거근-장골미골근",
+        "name_en": "Iliococcygeus",
+        "view": "superior pelvic diaphragm",
+        "file": "1115 Muscles of the Pelvic Floor.jpg",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m059",
+        "name_ko": "미골근",
+        "name_en": "Coccygeus (ischiococcygeus)",
+        "view": "internal pelvic wall",
+        "file": "Gray404.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m066",
+        "name_ko": "쇄골하근",
+        "name_en": "Subclavius",
+        "view": "anterior superior thorax",
+        "file": "Subclavius muscle frontal.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m124",
+        "name_ko": "중둔근",
+        "name_en": "Gluteus medius",
+        "view": "isolated 3D lateral-oblique hip",
+        "file": "Gluteus medius muscle01.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m125",
+        "name_ko": "소둔근",
+        "name_en": "Gluteus minimus",
+        "view": "isolated 3D deep lateral hip",
+        "file": "Gluteus minimus muscle01.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m191",
+        "name_ko": "갑상설골근",
+        "name_en": "Thyrohyoid",
+        "view": "anterior-lateral superior infrahyoid neck",
+        "file": "Gray — musculus thyrohyoideus.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m198",
+        "name_ko": "외항문괄약근",
+        "name_en": "External anal sphincter",
+        "view": "inferior male perineum",
+        "file": "1116 Muscle of the Male Perineum.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m199",
+        "name_ko": "구해면체근",
+        "name_en": "Bulbospongiosus",
+        "view": "inferior male perineum",
+        "file": "Bulbospongiosus-Male.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m200",
+        "name_ko": "좌골해면체근",
+        "name_en": "Ischiocavernosus",
+        "view": "inferior male perineum",
+        "file": "Ischiocavernosus-male.png",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m201",
+        "name_ko": "천회음횡근",
+        "name_en": "Superficial transverse perineal",
+        "view": "inferior male perineum",
+        "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m202",
+        "name_ko": "심회음횡근",
+        "name_en": "Deep transverse perineal",
+        "view": "inferior male deep perineum",
+        "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      },
+      {
+        "muscle_id": "m203",
+        "name_ko": "외요도괄약근",
+        "name_en": "External urethral sphincter",
+        "view": "comparative male and female urinary tract",
+        "file": "Anatomytool Male and female urinary tract English.jpg",
+        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+      }
+    ],
+    "manual_visual_reaudit_note": "이 목록은 비표준 시야/도식/고립 3D 등을 사용해 한 번 더 사람 눈으로 확인할 후보이며, 부적합 확정 목록은 아니다."
+  },
+  "ultrasound": {
+    "canonical_views": 131,
+    "canonical_source_missing": 0,
+    "embedded_actual_ultrasound": 5,
+    "link_only_actual_ultrasound_reference": 126,
+    "interpretation": "131개 canonical view 모두 실제 초음파 source는 확보되어 있다. 다만 앱 안에 직접 고정·표시 가능한 재사용 자산은 5개뿐이고 126개는 라이선스/안정성 때문에 원문 링크 reference-only다.",
+    "modules": {
+      "shoulder": {
+        "total": 9,
+        "embedded_actual_ultrasound_ids": [
+          "usv001",
+          "usv002",
+          "usv003",
+          "usv007",
+          "usv008"
+        ],
+        "link_only_reference_ids": [
+          "usv004",
+          "usv005",
+          "usv006",
+          "usv009"
+        ],
+        "unverified_ids": []
+      },
+      "elbow": {
+        "total": 8,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv010",
+          "usv011",
+          "usv012",
+          "usv013",
+          "usv014",
+          "usv015",
+          "usv016",
+          "usv017"
+        ],
+        "unverified_ids": []
+      },
+      "wrist-hand": {
+        "total": 12,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv018",
+          "usv019",
+          "usv020",
+          "usv021",
+          "usv022",
+          "usv023",
+          "usv024",
+          "usv025",
+          "usv026",
+          "usv027",
+          "usv028",
+          "usv029"
+        ],
+        "unverified_ids": []
+      },
+      "hip-pelvis": {
+        "total": 12,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv030",
+          "usv031",
+          "usv032",
+          "usv033",
+          "usv034",
+          "usv035",
+          "usv036",
+          "usv037",
+          "usv038",
+          "usv039",
+          "usv040",
+          "usv041"
+        ],
+        "unverified_ids": []
+      },
+      "knee-thigh": {
+        "total": 14,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv042",
+          "usv043",
+          "usv044",
+          "usv045",
+          "usv046",
+          "usv047",
+          "usv048",
+          "usv049",
+          "usv050",
+          "usv051",
+          "usv052",
+          "usv053",
+          "usv054",
+          "usv055"
+        ],
+        "unverified_ids": []
+      },
+      "leg-ankle-foot": {
+        "total": 18,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv056",
+          "usv057",
+          "usv058",
+          "usv059",
+          "usv060",
+          "usv061",
+          "usv062",
+          "usv063",
+          "usv064",
+          "usv065",
+          "usv066",
+          "usv067",
+          "usv068",
+          "usv069",
+          "usv070",
+          "usv071",
+          "usv072",
+          "usv073"
+        ],
+        "unverified_ids": []
+      },
+      "cervical": {
+        "total": 14,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv074",
+          "usv075",
+          "usv076",
+          "usv077",
+          "usv078",
+          "usv079",
+          "usv080",
+          "usv081",
+          "usv082",
+          "usv083",
+          "usv084",
+          "usv085",
+          "usv086",
+          "usv087"
+        ],
+        "unverified_ids": []
+      },
+      "thoracic-back-chestwall": {
+        "total": 14,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv088",
+          "usv089",
+          "usv090",
+          "usv091",
+          "usv092",
+          "usv093",
+          "usv094",
+          "usv095",
+          "usv096",
+          "usv097",
+          "usv098",
+          "usv099",
+          "usv100",
+          "usv101"
+        ],
+        "unverified_ids": []
+      },
+      "lumbar-sacral": {
+        "total": 15,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv102",
+          "usv103",
+          "usv104",
+          "usv105",
+          "usv106",
+          "usv107",
+          "usv108",
+          "usv109",
+          "usv110",
+          "usv111",
+          "usv112",
+          "usv113",
+          "usv114",
+          "usv115",
+          "usv116"
+        ],
+        "unverified_ids": []
+      },
+      "abdominal-core": {
+        "total": 15,
+        "embedded_actual_ultrasound_ids": [],
+        "link_only_reference_ids": [
+          "usv117",
+          "usv118",
+          "usv119",
+          "usv120",
+          "usv121",
+          "usv122",
+          "usv123",
+          "usv124",
+          "usv125",
+          "usv126",
+          "usv127",
+          "usv128",
+          "usv129",
+          "usv130",
+          "usv131"
+        ],
+        "unverified_ids": []
+      }
+    }
+  },
+  "priority_next": [
+    "28개 anatomy source-gap에서 whole-muscle 대표 시야 우선 재탐색",
+    "manual_visual_reaudit_candidates 실제 이미지 육안 재검수",
+    "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산을 우선 탐색",
+    "더 좋은 대표자산 발견 시 Stable ID 유지 + asset slot 교체"
+  ]
+}
