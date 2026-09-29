@@ -2587,13 +2587,19 @@
       ]
     },
     "m016": {
-      "anatomyDecision": {
-        "status": "no_suitable_public_source",
-        "reason": "공개 재사용 자료 중 경추 횡돌기간근을 경추 분절로 직접 라벨링하고 충분한 해상도로 보여 주는 정본을 확인하지 못함.",
-        "evidence": "Commons의 전용 Intertransversarii 도해는 276×113 저해상도이며 경추·흉추·요추 부위를 분리하지 않음.",
-        "reviewedOn": "2026-09-27",
-        "revisitTrigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      }
+      "anatomy": [
+        {
+          "title": "Cervical intertransversarii — whole segmental course",
+          "file": "Sobo 1909 243.png",
+          "author": "Johannes Sobotta",
+          "license": "Public domain",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_243.png",
+          "representative": true,
+          "view": "lateral deep cervical spine",
+          "focusLabel": "경추 전·후 횡돌기간근",
+          "educationalReason": "경추 횡돌기 사이에 분절별로 반복되는 전·후 횡돌기간근을 전체적으로 확인하는 대표 시야"
+        }
+      ]
     },
     "m021": {
       "anatomyDecision": {
