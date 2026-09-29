@@ -1,8 +1,8 @@
 (function(scope){
   const release=Object.freeze({
-    buildVersion:'2026.09.28-stage23.19',
-    displayVersion:'v11.54 · Realistic Exercise Asset Pipeline',
-    cacheKey:'20260928-stage23-19'
+    buildVersion:'2026.09.29-stage23.20',
+    displayVersion:'v11.55 · Anatomy Representative View Audit',
+    cacheKey:'20260929-stage23-20'
   });
   scope.LYS_APP_RELEASE=release;
 })(typeof self!=='undefined'?self:window);
