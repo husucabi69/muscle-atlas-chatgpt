@@ -77,6 +77,8 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - 중요도는 Release blocker / High / Medium / Later로 분류한다.
 - UX 기반 구조 → 콘텐츠 품질 → 실기기 통합 QA → Production 순서를 기본 원칙으로 한다.
 - 자동 QA PASS만으로 사용자 시각검수나 실기기 검수를 대체하지 않는다.
+- 새 아이디어가 좋아 보여도 현재 Active Stage를 임의로 선점하지 않는다. 회귀버그·환자안전·데이터손실·Production 오염·release blocker만 예외적으로 즉시 선행할 수 있다.
+- 대표 해부도해·실제 초음파·근육별 운동·질환별 재활은 Stable ID + registry + asset slot 구조로 계속 추가·교체 가능하게 유지한다.
 
 현재 사용자 아이디어 정본:
 - 모든 탭을 목차 → 하위목록 → 상세 → 심화 독립 화면 drill-down 방식으로 통일
@@ -86,6 +88,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - 각 해부학 영역의 대표 정형외과 질환을 질환별 재활교육 모듈로 구축하고 스트레칭·강화·생활습관·red flag·인쇄를 제공
 - 환자가 앱을 직접 설치한 뒤 `부위 → 질환 → 재활` 경로로 쉽게 찾을 수 있게 하고 홈 검색/임상상세와 연결
 - 앱 실행/재개 자동 업데이트 + 홈 pull-to-refresh 업데이트는 v11.37에서 구현 완료
+- 장기 운영 정본: 대표 해부도해·실제 초음파·근육별 재활·질환별 재활은 계속 추가/교체되는 Evergreen 콘텐츠이며, 새 요청은 Idea Register에 보존 후 로드맵 우선순위에 따라 구현
 
 ---
 ## 개발 운영
@@ -97,6 +100,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - 전체 개발이 완료되고 더 이상 개발할 항목이 없다고 확인된 뒤, 의장님의 명시적 `Production 승격` 승인 시에만 `preview/development`를 main으로 승격한다.
 - main은 설치형 학습 앱의 stable Production release다. GitHub Pages는 fallback으로 유지한다.
 - 다음 개발 세션은 위 표에서 가장 앞의 미완료 단계부터 재개한다.
+- 오전 첫 수동 개발은 00:00~08:00 매 정시 예약작업의 최신 HEAD·commit·QA/Cloudflare·체크포인트를 먼저 대조한 뒤, 이미 끝난 작업을 반복하지 않고 최신 Active Stage의 다음 미완료 항목부터 시작한다.
 - 일정 변경 시 이유와 새 목표일을 ROADMAP에 기록하며, 완료 기준 자체는 낮추지 않는다.
 
 ## 현재 단계
@@ -109,7 +113,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 15 Reliable Auto-Update Engine: DEV COMPLETE / automated QA PASS
 - 사용자 실사용 피드백 반영: 계층형 화면 전환 → 근육 대표도해 → 사람 같은 Oral 음성 순으로 우선순위 재정렬
 - Stage 16 Hierarchical Navigation 2.0: DEV COMPLETE / automated QA PASS
-- Stage 17 Muscle Illustration Quality Audit: PREVIEW COMPLETE — Production main 114/205 reviewed, 91 pending; `preview/development` 205/205 final decisions = 177 fixed representative views + 28 documented source gaps, pending 0; Production promotion deferred
+- Stage 17 Muscle Illustration Quality Audit: PREVIEW COMPLETE — Production main 114/205 reviewed, 91 pending; `preview/development` 205/205 final decisions = 187 fixed representative views + 18 documented source gaps, pending 0; manual visual re-audit candidates 0; Production promotion deferred
 - Cloudflare Preview/Production infrastructure: ACTIVE — GitHub integration verified; `preview/development` is the long-lived development line; repeated visual approval occurs in Preview; Production remains frozen until final explicit promotion
 - Stage 18 Oral Viva Human Voice 3.0: IN PROGRESS — local voice + contextual viva complete; provider-neutral same-origin high-quality TTS adapter/contract prepared but disabled by default pending provider/privacy/real-device approval
 - Stage 19 Patient Exercise Illustration 2.0: DEV COMPLETE / automated QA PASS — 19/19 profile audit; 18 actionable two-phase education diagrams + px099 evidence boundary; final Preview visual check remains release gate
@@ -770,7 +774,7 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 움직임 방향·고정/지지·피할 보상동작을 시각적으로 포함
 - 기존 SVG는 realistic asset 완성 전 임시 fallback
 - realistic asset manifest: `data/patient-exercise-realistic-assets-v1.json`
-- 작업 운영: 기본 15분 / 최대 18분, 초과 전 반드시 checkpoint 보고
+- 수동 작업 운영: 기본 15분 / 18분부터 마무리 모드 / **20분 HARD STOP**, CI·배포 진행 중이어도 안전 checkpoint 후 즉시 보고
 
 - Stage 19 개념형 SVG는 final quality 아님
 - 18 actionable profile 전수 고품질 재도해
