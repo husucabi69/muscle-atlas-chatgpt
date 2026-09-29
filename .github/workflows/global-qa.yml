@@ -36,6 +36,8 @@ jobs:
         run: node scripts/hierarchical-navigation-qa.mjs
       - name: Run Stage 17 muscle illustration audit QA
         run: node scripts/muscle-illustration-audit-qa.mjs
+      - name: Run Atlas media gap QA
+        run: node scripts/atlas-media-gap-qa.mjs
       - name: Run Stage 18 Oral Human Voice QA
         run: node scripts/oral-human-voice-qa.mjs
       - name: Run Stage 19 patient exercise illustration QA
