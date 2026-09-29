@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-b",
+  "audit_version": "2026.09.29-atlas-media-gap-c",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
@@ -260,7 +260,10 @@
         "view": "sagittal pelvic floor schematic",
         "file": "(155) Stylized depiction of action of puborectalis sling.png",
         "status": "RESEARCH_REPLACEMENT_PRIORITY",
-        "reason": "현재 대표 그림이 기능을 설명하는 sagittal schematic 중심이라, 해부학적 전체 형태를 더 직접적으로 보여 주는 puborectalis/levator ani 실해부 또는 고품질 도해 후보 재탐색 필요"
+        "reason": "현재 대표 그림이 기능을 설명하는 sagittal schematic 중심이라, 해부학적 전체 형태를 더 직접적으로 보여 주는 puborectalis/levator ani 실해부 또는 고품질 도해 후보 재탐색 필요",
+        "reviewed_on": "2026-09-29",
+        "latest_search_result": "No dedicated reusable puborectalis whole-muscle figure superior to the current functional sling schematic was confirmed. Levator ani whole-group public-domain figures exist but do not isolate puborectalis sufficiently.",
+        "decision": "KEEP_CURRENT_TEMPORARILY_AND_CONTINUE_SEARCH"
       },
       {
         "muscle_id": "m203",
@@ -269,7 +272,10 @@
         "view": "comparative male and female urinary tract",
         "file": "Anatomytool Male and female urinary tract English.jpg",
         "status": "RESEARCH_REPLACEMENT_PRIORITY",
-        "reason": "현재 남녀 요로 비교도는 위치 비교에는 좋지만 외요도괄약근 자체의 형태를 더 직접적으로 보여 주는 대표 해부도해 후보 재탐색 필요"
+        "reason": "현재 남녀 요로 비교도는 위치 비교에는 좋지만 외요도괄약근 자체의 형태를 더 직접적으로 보여 주는 대표 해부도해 후보 재탐색 필요",
+        "reviewed_on": "2026-09-29",
+        "latest_search_result": "Gray408 provides a public-domain female perineal view and is used for the female external urethral sphincter, but it is sex-specific. The current comparative male/female urinary-tract plate remains more balanced for the general canonical entity.",
+        "decision": "KEEP_CURRENT_TEMPORARILY_AND_CONTINUE_SEARCH"
       }
     ],
     "manual_visual_reaudit_note": "이 목록은 비표준 시야/도식/고립 3D 등을 사용해 한 번 더 사람 눈으로 확인할 후보이며, 부적합 확정 목록은 아니다.",
@@ -466,6 +472,26 @@
         "license": "Public domain historical atlas",
         "decision": "RESEARCH_ONLY",
         "reason": "spinalis cervicis 명칭은 확인되지만 앱 대표자산으로 바로 쓸 수 있는 독립 고해상도 figure를 아직 고정하지 못함"
+      },
+      {
+        "muscle_ids": [
+          "m056"
+        ],
+        "candidate": "Levator ani.png / Gray408 family",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Levator_ani.png",
+        "license": "Public domain",
+        "decision": "NOT_PROMOTED",
+        "reason": "levator ani 전체는 잘 보이지만 puborectalis를 독립 구조로 충분히 분리하지 못해 m056 canonical 대표자산 기준 미달"
+      },
+      {
+        "muscle_ids": [
+          "m203"
+        ],
+        "candidate": "Gray408.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gray408.png",
+        "license": "Public domain",
+        "decision": "NOT_PROMOTED",
+        "reason": "여성 외요도괄약근에는 유용하지만 female-only라 남녀 일반 canonical entity의 대표도해로 단독 승격하지 않음"
       }
     ]
   },
