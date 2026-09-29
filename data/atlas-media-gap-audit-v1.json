@@ -542,7 +542,7 @@
         "license": "CC BY 4.0",
         "resolution": "현재 도해가 남성과 여성의 external urethral sphincter를 각각 직접 라벨링하며 막성 요도와의 관계를 동시에 보여 줌. 검색된 공개대안보다 canonical 일반 대표성이 높아 유지.",
         "reviewed_on": "2026-09-29",
-        "previous_search_note": "Gray408 provides a public-domain female perineal view and is used for the female external urethral sphincter, but it is sex-specific. The current comparative male/female urinary-tract plate remains more balanced for the general canonical entity."
+        "previous_search_note": null
       }
     ]
   },
