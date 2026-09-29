@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-b",
+  "audit_version": "2026.09.29-atlas-media-gap-c",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
     "canonical_muscles": 205,
-    "reviewed_representative": 180,
-    "no_suitable_public_source": 25,
+    "reviewed_representative": 181,
+    "no_suitable_public_source": 24,
     "source_gaps": [
       {
         "muscle_id": "m021",
@@ -102,14 +102,6 @@
         "name_en": "Interspinales lumborum",
         "reason": "Interspinales 일반 자료는 있으나 요극간근을 요추부로 직접 분리해 보여 주는 고품질 재사용 정본을 확인하지 못함.",
         "evidence": "group-level 도해를 lumbar-specific 대표로 고정하지 않음.",
-        "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
-      },
-      {
-        "muscle_id": "m116",
-        "name_ko": "제1배측골간근",
-        "name_en": "Dorsal interosseous 1 (hand)",
-        "reason": "손 제1배측골간근을 현대 번호 체계로 독립 고정할 수 있는 일관된 공개 정본 세트를 확보하지 못해 단일 역사 도해를 대표로 승격하지 않음.",
-        "evidence": "고해상도 Braus 도해에 일부 역사적 interosseus 표기가 있으나 1–4 전체를 동일 기준으로 검증하기 어려움.",
         "revisit_trigger": "직접 라벨 또는 명확한 part-specific 경계를 가진 재사용 가능 고해상도 정본이 확보될 때 재검토"
       },
       {
@@ -501,7 +493,6 @@
       },
       {
         "muscle_ids": [
-          "m116",
           "m117",
           "m118",
           "m119",
@@ -515,7 +506,7 @@
         "ordinalEvidencePage": "https://commons.wikimedia.org/wiki/File:Testut%27s_Treatise_on_Human_Anatomy_(1911)_-_Vol_1_-_Fig_306.png",
         "license": "CC BY-SA 4.0 (OpenStax derivatives) / Public domain (Testut ordinal map)",
         "decision": "RESEARCH_ONLY",
-        "reason": "DIL/PIL은 근복 전체를 잘 보여주지만 각 제1~4 배측·제1~3 수장 골간근의 번호를 그림 자체에서 개별적으로 명확히 고정하기 어렵다. Testut Fig.306은 번호 대응은 명확하지만 주로 부착부 도해라 whole-muscle 대표도해 기준을 단독으로 충족하지 못함. 향후 번호별 강조/라벨이 가능한 재사용 자산을 우선 탐색."
+        "reason": "m116은 CC0 deep-palmar labelled view로 해결. 남은 m117~m122는 DIL/PIL에서 근복 전체는 보이지만 각 번호를 그림 자체에서 개별적으로 명확히 고정하기 어렵고, Testut Fig.306은 번호 대응은 명확하나 whole-muscle 도해가 아니어서 추가 탐색 유지."
       }
     ],
     "resolved_gap_promotions": [
@@ -542,6 +533,14 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_243.png",
         "license": "Public domain",
         "resolution": "Sobotta 원전에서 Fig.243이 cervical intertransversarii anteriores/posteriores를 직접 설명하며, 경추 횡돌기 사이의 분절성 근복 전체 위치를 확인할 수 있어 대표도해 기준 충족"
+      },
+      {
+        "muscle_id": "m116",
+        "name_ko": "제1배측골간근",
+        "asset": "Wrist and hand deeper palmar dissection-numbers.svg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Wrist_and_hand_deeper_palmar_dissection-numbers.svg",
+        "license": "CC0 1.0",
+        "resolution": "깊은 손바닥 해부도에서 제1배측골간근이 번호 5로 직접 지목되어 individual canonical 대표도해 기준 충족"
       }
     ]
   },
