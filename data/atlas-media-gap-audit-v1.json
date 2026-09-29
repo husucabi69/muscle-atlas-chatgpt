@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "audit_version": "2026.09.29-atlas-media-gap-a",
+  "audit_version": "2026.09.29-atlas-media-gap-b",
   "audited_on": "2026-09-29",
   "scope": "Representative anatomy and actual-ultrasound visual gaps for the current preview/development line.",
   "anatomy": {
@@ -254,132 +254,13 @@
     "remaining_gray384_representatives": [],
     "manual_visual_reaudit_candidates": [
       {
-        "muscle_id": "m036",
-        "name_ko": "흉횡근",
-        "name_en": "Transversus thoracis",
-        "view": "internal anterior thoracic wall",
-        "file": "Transversus thoracis.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m037",
-        "name_ko": "횡격막",
-        "name_en": "Diaphragm",
-        "view": "inferior abdominal view",
-        "file": "Diaphragma.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m049",
-        "name_ko": "장골근",
-        "name_en": "Iliacus",
-        "view": "isolated 3D anterior pelvis",
-        "file": "Iliacus muscle01.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
         "muscle_id": "m056",
         "name_ko": "항문거근-치골직장근",
         "name_en": "Puborectalis",
         "view": "sagittal pelvic floor schematic",
         "file": "(155) Stylized depiction of action of puborectalis sling.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m057",
-        "name_ko": "항문거근-치골미골근",
-        "name_en": "Pubococcygeus",
-        "view": "superior pelvic diaphragm",
-        "file": "1115 Muscles of the Pelvic Floor.jpg",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m058",
-        "name_ko": "항문거근-장골미골근",
-        "name_en": "Iliococcygeus",
-        "view": "superior pelvic diaphragm",
-        "file": "1115 Muscles of the Pelvic Floor.jpg",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m059",
-        "name_ko": "미골근",
-        "name_en": "Coccygeus (ischiococcygeus)",
-        "view": "internal pelvic wall",
-        "file": "Gray404.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m066",
-        "name_ko": "쇄골하근",
-        "name_en": "Subclavius",
-        "view": "anterior superior thorax",
-        "file": "Subclavius muscle frontal.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m124",
-        "name_ko": "중둔근",
-        "name_en": "Gluteus medius",
-        "view": "isolated 3D lateral-oblique hip",
-        "file": "Gluteus medius muscle01.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m125",
-        "name_ko": "소둔근",
-        "name_en": "Gluteus minimus",
-        "view": "isolated 3D deep lateral hip",
-        "file": "Gluteus minimus muscle01.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m191",
-        "name_ko": "갑상설골근",
-        "name_en": "Thyrohyoid",
-        "view": "anterior-lateral superior infrahyoid neck",
-        "file": "Gray — musculus thyrohyoideus.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m198",
-        "name_ko": "외항문괄약근",
-        "name_en": "External anal sphincter",
-        "view": "inferior male perineum",
-        "file": "1116 Muscle of the Male Perineum.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m199",
-        "name_ko": "구해면체근",
-        "name_en": "Bulbospongiosus",
-        "view": "inferior male perineum",
-        "file": "Bulbospongiosus-Male.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m200",
-        "name_ko": "좌골해면체근",
-        "name_en": "Ischiocavernosus",
-        "view": "inferior male perineum",
-        "file": "Ischiocavernosus-male.png",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m201",
-        "name_ko": "천회음횡근",
-        "name_en": "Superficial transverse perineal",
-        "view": "inferior male perineum",
-        "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
-      },
-      {
-        "muscle_id": "m202",
-        "name_ko": "심회음횡근",
-        "name_en": "Deep transverse perineal",
-        "view": "inferior male deep perineum",
-        "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+        "status": "RESEARCH_REPLACEMENT_PRIORITY",
+        "reason": "현재 대표 그림이 기능을 설명하는 sagittal schematic 중심이라, 해부학적 전체 형태를 더 직접적으로 보여 주는 puborectalis/levator ani 실해부 또는 고품질 도해 후보 재탐색 필요"
       },
       {
         "muscle_id": "m203",
@@ -387,10 +268,206 @@
         "name_en": "External urethral sphincter",
         "view": "comparative male and female urinary tract",
         "file": "Anatomytool Male and female urinary tract English.jpg",
-        "status": "MANUAL_VISUAL_REAUDIT_CANDIDATE_NOT_CONFIRMED_BAD"
+        "status": "RESEARCH_REPLACEMENT_PRIORITY",
+        "reason": "현재 남녀 요로 비교도는 위치 비교에는 좋지만 외요도괄약근 자체의 형태를 더 직접적으로 보여 주는 대표 해부도해 후보 재탐색 필요"
       }
     ],
-    "manual_visual_reaudit_note": "이 목록은 비표준 시야/도식/고립 3D 등을 사용해 한 번 더 사람 눈으로 확인할 후보이며, 부적합 확정 목록은 아니다."
+    "manual_visual_reaudit_note": "이 목록은 비표준 시야/도식/고립 3D 등을 사용해 한 번 더 사람 눈으로 확인할 후보이며, 부적합 확정 목록은 아니다.",
+    "accepted_special_views": [
+      {
+        "muscle_id": "m036",
+        "name_ko": "흉횡근",
+        "name_en": "Transversus thoracis",
+        "view": "internal anterior thoracic wall",
+        "file": "Transversus thoracis.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "특수 시야이지만 대상 근육의 전체 형태와 주행을 설명하는 데 적절"
+      },
+      {
+        "muscle_id": "m037",
+        "name_ko": "횡격막",
+        "name_en": "Diaphragm",
+        "view": "inferior abdominal view",
+        "file": "Diaphragma.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "횡격막은 복강측 하방 시야가 양측 돔·중심건·요추각을 한 화면에서 보여 주므로 대표 시야로 적절"
+      },
+      {
+        "muscle_id": "m049",
+        "name_ko": "장골근",
+        "name_en": "Iliacus",
+        "view": "isolated 3D anterior pelvis",
+        "file": "Iliacus muscle01.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "isolated 3D이지만 근육 전체 경계와 기시-정지 방향을 가림 없이 보여 주어 대표성이 높음"
+      },
+      {
+        "muscle_id": "m057",
+        "name_ko": "항문거근-치골미골근",
+        "name_en": "Pubococcygeus",
+        "view": "superior pelvic diaphragm",
+        "file": "1115 Muscles of the Pelvic Floor.jpg",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      },
+      {
+        "muscle_id": "m058",
+        "name_ko": "항문거근-장골미골근",
+        "name_en": "Iliococcygeus",
+        "view": "superior pelvic diaphragm",
+        "file": "1115 Muscles of the Pelvic Floor.jpg",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      },
+      {
+        "muscle_id": "m059",
+        "name_ko": "미골근",
+        "name_en": "Coccygeus (ischiococcygeus)",
+        "view": "internal pelvic wall",
+        "file": "Gray404.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      },
+      {
+        "muscle_id": "m066",
+        "name_ko": "쇄골하근",
+        "name_en": "Subclavius",
+        "view": "anterior superior thorax",
+        "file": "Subclavius muscle frontal.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "특수 시야이지만 대상 근육의 전체 형태와 주행을 설명하는 데 적절"
+      },
+      {
+        "muscle_id": "m124",
+        "name_ko": "중둔근",
+        "name_en": "Gluteus medius",
+        "view": "isolated 3D lateral-oblique hip",
+        "file": "Gluteus medius muscle01.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "isolated 3D이지만 근육 전체 경계와 기시-정지 방향을 가림 없이 보여 주어 대표성이 높음"
+      },
+      {
+        "muscle_id": "m125",
+        "name_ko": "소둔근",
+        "name_en": "Gluteus minimus",
+        "view": "isolated 3D deep lateral hip",
+        "file": "Gluteus minimus muscle01.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "isolated 3D이지만 근육 전체 경계와 기시-정지 방향을 가림 없이 보여 주어 대표성이 높음"
+      },
+      {
+        "muscle_id": "m191",
+        "name_ko": "갑상설골근",
+        "name_en": "Thyrohyoid",
+        "view": "anterior-lateral superior infrahyoid neck",
+        "file": "Gray — musculus thyrohyoideus.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "특수 시야이지만 대상 근육의 전체 형태와 주행을 설명하는 데 적절"
+      },
+      {
+        "muscle_id": "m198",
+        "name_ko": "외항문괄약근",
+        "name_en": "External anal sphincter",
+        "view": "inferior male perineum",
+        "file": "1116 Muscle of the Male Perineum.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      },
+      {
+        "muscle_id": "m199",
+        "name_ko": "구해면체근",
+        "name_en": "Bulbospongiosus",
+        "view": "inferior male perineum",
+        "file": "Bulbospongiosus-Male.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      },
+      {
+        "muscle_id": "m200",
+        "name_ko": "좌골해면체근",
+        "name_en": "Ischiocavernosus",
+        "view": "inferior male perineum",
+        "file": "Ischiocavernosus-male.png",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      },
+      {
+        "muscle_id": "m201",
+        "name_ko": "천회음횡근",
+        "name_en": "Superficial transverse perineal",
+        "view": "inferior male perineum",
+        "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      },
+      {
+        "muscle_id": "m202",
+        "name_ko": "심회음횡근",
+        "name_en": "Deep transverse perineal",
+        "view": "inferior male deep perineum",
+        "file": "An atlas of human anatomy for students and physicians (1903) (14596813859).jpg",
+        "status": "ACCEPTED_SPECIAL_VIEW",
+        "acceptance_reason": "골반저·회음부 근육은 상면/하면/내부 시야가 전체 주행과 인접 구조를 보여 주는 해부학적으로 적절한 대표 시야"
+      }
+    ],
+    "candidate_sources_not_promoted": [
+      {
+        "muscle_ids": [
+          "m021",
+          "m038"
+        ],
+        "candidate": "Iliostalis.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Iliostalis.png",
+        "license": "Public domain in US / Gray-derived",
+        "decision": "NOT_PROMOTED",
+        "reason": "iliocostalis 전체 group은 잘 보이지만 thoracis와 lumborum을 개별 canonical muscle로 직접 구분하지 못함"
+      },
+      {
+        "muscle_ids": [
+          "m022",
+          "m039"
+        ],
+        "candidate": "Longissimus.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Longissimus.png",
+        "license": "Public domain in US / Gray-derived",
+        "decision": "NOT_PROMOTED",
+        "reason": "longissimus 전체 group은 잘 보이지만 thoracis 및 lumbar fascicles를 개별 canonical muscle로 직접 분리하지 못함"
+      },
+      {
+        "muscle_ids": [
+          "m025",
+          "m041"
+        ],
+        "candidate": "Multifidi.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Multifidi.png",
+        "license": "Public domain",
+        "decision": "NOT_PROMOTED",
+        "reason": "multifidus chain 전체는 잘 보이지만 thoracic/lumbar part를 독립 라벨 또는 명확한 경계로 구분하지 못함"
+      },
+      {
+        "muscle_ids": [
+          "m116",
+          "m117",
+          "m118",
+          "m119"
+        ],
+        "candidate": "Sobo 1909 285.png",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sobo_1909_285.png",
+        "license": "Public domain",
+        "decision": "NOT_PROMOTED",
+        "reason": "배측골간근군 전체 고해상도 도해는 확보했지만 제1~4 근육 각각을 별도 canonical 대표자산으로 확정할 직접 구분 표지가 부족함"
+      },
+      {
+        "muscle_ids": [
+          "m197"
+        ],
+        "candidate": "Historical public-domain deep-back plates",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Explanation_of_the_Anatomical_atlas_of_the_human_body_in_natural_size_(92_plates)_of_M.J._Weber_(IA_0234612.nlm.nih.gov).pdf",
+        "license": "Public domain historical atlas",
+        "decision": "RESEARCH_ONLY",
+        "reason": "spinalis cervicis 명칭은 확인되지만 앱 대표자산으로 바로 쓸 수 있는 독립 고해상도 figure를 아직 고정하지 못함"
+      }
+    ]
   },
   "ultrasound": {
     "canonical_views": 131,
@@ -604,8 +681,8 @@
     }
   },
   "priority_next": [
-    "28개 anatomy source-gap에서 whole-muscle 대표 시야 우선 재탐색",
-    "manual_visual_reaudit_candidates 실제 이미지 육안 재검수",
+    "m056 치골직장근과 m203 외요도괄약근 대표 해부도해 재탐색",
+    "28개 anatomy source-gap 중 part-specific 직접 라벨/경계가 있는 whole-muscle 공개자료 우선 재탐색",
     "126개 ultrasound link-only view 중 명시적 재사용 가능 direct image/video 자산을 우선 탐색",
     "더 좋은 대표자산 발견 시 Stable ID 유지 + asset slot 교체"
   ]
