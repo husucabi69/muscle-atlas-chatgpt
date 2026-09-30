@@ -44,8 +44,14 @@ check('Any APPROVED asset must have WebP URL',
 check('First six realistic Preview assets approved', ['px001','px002','px003','px004','px005','px006'].every(id=>manifest.profiles.some(x=>x.profile_id===id&&x.status==='APPROVED')),
   manifest.profiles.filter(x=>x.status==='APPROVED').map(x=>x.profile_id).join(',')
 );
-check('Every APPROVED asset keeps A4 HD pending gate',
-  manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>x.asset_gate==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING')
+check('Every APPROVED asset has recognized print-quality gate',
+  manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>['MOBILE_PREVIEW_APPROVED_A4_HD_PENDING','A4_HD_APPROVED'].includes(x.asset_gate))
+);
+check('A4-HD approved assets meet minimum stored resolution',
+  manifest.profiles.filter(x=>x.status==='APPROVED'&&x.asset_gate==='A4_HD_APPROVED').every(x=>{
+    const m=String(x.preview_resolution||'').match(/^(\d+)x(\d+)$/);
+    return Boolean(m)&&Number(m[1])>=1240&&Number(m[2])>=1754;
+  })
 );
 check('Every APPROVED realistic asset exists and is WebP bytes',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>{
