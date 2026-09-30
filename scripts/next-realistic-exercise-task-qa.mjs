@@ -7,9 +7,9 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 
 const next=getNextMainlineTask(manifest);
 check('Current next realistic task resolves',Boolean(next),JSON.stringify(next));
-check('Current next task is px007',next?.profile_id==='px007',JSON.stringify(next));
-check('px007 requires regeneration from locked brief',next?.action==='REGENERATE_FROM_LOCKED_BRIEF',next?.action||'');
-check('px007 carries hand intrinsic blocker',next?.blocker_codes?.includes('HAND_INTRINSIC_MOTION_MISMATCH'),(next?.blocker_codes||[]).join(','));
+check('Current next task is px001 after safety demotion',next?.profile_id==='px001',JSON.stringify(next));
+check('px001 requires regeneration from locked brief',next?.action==='REGENERATE_FROM_LOCKED_BRIEF',next?.action||'');
+check('px001 carries unsupported fixed-dosage blocker',next?.blocker_codes?.includes('UNSUPPORTED_FIXED_DOSAGE_TEXT'),(next?.blocker_codes||[]).join(','));
 
 const p8=manifest.profiles.find(x=>x.profile_id==='px008');
 const p9=manifest.profiles.find(x=>x.profile_id==='px009');
