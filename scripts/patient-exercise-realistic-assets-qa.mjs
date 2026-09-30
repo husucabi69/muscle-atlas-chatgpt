@@ -59,15 +59,13 @@ check('px001 corrected realistic asset is approved after three-part review',(()=
     Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
     ['clinical_content','visual_pose','embedded_text'].every(k=>x.candidate_review?.[k]==='PASS');
 })());
-check('px006 remains blocked until dosage text and binary are corrected',
-  ['px006'].every(id=>{
-    const x=manifest.profiles.find(p=>p.profile_id===id);
-    const codes=Array.isArray(x?.approval_blockers)?x.approval_blockers.map(b=>b.code):[];
-    return x&&x.status==='CANDIDATE_GENERATED'&&!x.composite_url&&
-      x.asset_gate==='BINARY_REPLACEMENT_AND_CONTENT_CORRECTION_PENDING'&&
-      codes.includes('UNSUPPORTED_FIXED_DOSAGE_TEXT')&&codes.includes('BROKEN_CANDIDATE_BINARY');
-  })
-);
+check('px006 repaired candidate passed three-part review and awaits canonical ingest',(()=>{
+  const x=manifest.profiles.find(p=>p.profile_id==='px006');
+  return x&&x.status==='CANDIDATE_GENERATED'&&!x.composite_url&&
+    x.asset_gate==='CANDIDATE_REVIEW_PASSED_INGEST_PENDING'&&
+    Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
+    ['clinical_content','visual_pose','embedded_text'].every(k=>x.candidate_review?.[k]==='PASS');
+})());
 check('Demoted first-six candidate binaries are preserved for review',
   ['px001','px002','px003','px004','px005','px006'].every(id=>{
     const x=manifest.profiles.find(p=>p.profile_id===id);
