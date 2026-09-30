@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "px007",
+  "title_ko": "손가락 벌림",
+  "status": "CANDIDATE_GENERATED",
+  "generated_on": "2026-10-01",
+  "generator": "OpenAI image generation",
+  "gen_id": "8c940201-f1c0-4440-832d-83972f8efbb8",
+  "source_contract": "data/patient-exercise-realistic-assets-v1.json#px007.generation_brief",
+  "source_head": "ddb2294c7363901c420c80bd1483b35b522a1c29",
+  "candidate_binary_state": "CONVERSATION_GENERATED_NOT_YET_REPOSITORY_MATERIALIZED",
+  "review": {
+    "clinical_content": "PASS",
+    "visual_pose": "PASS",
+    "embedded_text": "PASS",
+    "reviewed_on": "2026-10-01",
+    "note": "정본의 무저항 손가락 벌림과 일치. 전완/손목 테이블 지지, 손목 중립, 손가락 벌림 방향, 주먹쥐기·손목 보상 오류를 구분. 반복횟수·세트·저항량 숫자 없음."
+  },
+  "approval_gate": "REPOSITORY_WEBP_MATERIALIZATION_AND_MOBILE_A4_PREVIEW_PENDING",
+  "forbidden_next_actions": [
+    "Do not mark APPROVED before repository WebP exists.",
+    "Do not reuse rejected fist-clenching candidate fbf5ab4d-37ca-440d-bb2d-7edccfd92253.",
+    "Do not change production/main."
+  ]
+}
