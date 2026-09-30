@@ -2,8 +2,7 @@ import fs from 'node:fs';
 import {registerCandidate} from './register-realistic-candidate.mjs';
 
 const manifest=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-assets-v1.json','utf8'));
-const clone=structuredClone(manifest);
-const p7=clone.profiles.find(x=>x.profile_id==='px007');
+
 let blockedApproved=false;
 try{
   const approvedClone=structuredClone(manifest);
@@ -12,29 +11,72 @@ try{
 
 let badPathRejected=false;
 try{
-  registerCandidate(structuredClone(manifest),'px007','assets/patient-exercise-realistic/px006.webp',{gen_id:'test'});
+  const x=structuredClone(manifest);
+  const p=x.profiles.find(v=>v.profile_id==='px007');
+  p.asset_gate='PREVIEW_REVIEW_PENDING';
+  p.binary_handoff={state:'MATERIALIZED_PENDING_REVIEW'};
+  registerCandidate(x,'px007','assets/patient-exercise-realistic/px006.webp',{gen_id:p.gen_id});
 }catch(e){badPathRejected=String(e.message).includes('canonical path');}
 
-const tmp=structuredClone(manifest);
-const target=tmp.profiles.find(x=>x.profile_id==='px007');
-target.status='PENDING_GENERATION';
-let result=null,error=null;
+const fixtureCheckpoint='tmp-px006-binary-handoff-checkpoint.json';
+fs.writeFileSync(fixtureCheckpoint,JSON.stringify({
+  profile_id:'px006',
+  gen_id:'qa-fixture',
+  candidate_review:{clinical_content:'PASS',visual_pose:'PASS',embedded_text:'PASS'}
+}));
+
+let wrongGenRejected=false;
 try{
-  // px006 is a known-valid fixture; temporarily give the test profile the matching ID/path contract.
-  const fixture=structuredClone(tmp);
-  const testProfile=fixture.profiles.find(x=>x.profile_id==='px006');
-  testProfile.status='PENDING_GENERATION';
-  testProfile.composite_url=null;
-  result=registerCandidate(fixture,'px006','assets/patient-exercise-realistic/px006.webp',{gen_id:'qa-fixture',generated_on:'2026-09-30'});
-}catch(e){error=e.message;}
+  const x=structuredClone(manifest);
+  const p=x.profiles.find(v=>v.profile_id==='px006');
+  p.status='CANDIDATE_GENERATED';
+  p.composite_url=null;
+  p.gen_id='qa-fixture';
+  p.candidate_checkpoint_path=fixtureCheckpoint;
+  p.asset_gate='BINARY_HANDOFF_BLOCKED';
+  p.binary_handoff={state:'BLOCKED'};
+  registerCandidate(x,'px006','assets/patient-exercise-realistic/px006.webp',{gen_id:'wrong-gen'});
+}catch(e){wrongGenRejected=String(e.message).includes('gen_id mismatch');}
+
+let blockedResult=null,blockedError=null;
+try{
+  const x=structuredClone(manifest);
+  const p=x.profiles.find(v=>v.profile_id==='px006');
+  p.status='CANDIDATE_GENERATED';
+  p.composite_url=null;
+  p.gen_id='qa-fixture';
+  p.candidate_checkpoint_path=fixtureCheckpoint;
+  p.asset_gate='BINARY_HANDOFF_BLOCKED';
+  p.binary_handoff={state:'BLOCKED'};
+  p.candidate_review={clinical_content:'PASS',visual_pose:'PASS',embedded_text:'PASS',reviewed_on:'2026-10-01'};
+  blockedResult=registerCandidate(x,'px006','assets/patient-exercise-realistic/px006.webp',{gen_id:'qa-fixture',generated_on:'2026-10-01'});
+}catch(e){blockedError=e.message;}
+
+let normalResult=null,normalError=null;
+try{
+  const x=structuredClone(manifest);
+  const p=x.profiles.find(v=>v.profile_id==='px006');
+  p.status='PENDING_GENERATION';
+  p.composite_url=null;
+  p.asset_gate='GENERATE_FROM_LOCKED_BRIEF';
+  p.binary_handoff=null;
+  p.candidate_checkpoint_path=null;
+  normalResult=registerCandidate(x,'px006','assets/patient-exercise-realistic/px006.webp',{gen_id:'normal-fixture',generated_on:'2026-10-01'});
+}catch(e){normalError=e.message;}
+
+fs.unlinkSync(fixtureCheckpoint);
 
 const checks=[
   ['approved asset cannot be overwritten',blockedApproved],
   ['wrong canonical asset path is rejected',badPathRejected],
-  ['known-valid WebP can be registered',Boolean(result),error||''],
-  ['registration leaves asset off-screen',result?.profile?.composite_url===null],
-  ['registration requires three-part review',result?.profile?.asset_gate==='PREVIEW_REVIEW_PENDING'],
-  ['registration records binary integrity PASS',result?.profile?.binary_integrity?.result==='PASS']
+  ['blocked handoff rejects wrong gen_id',wrongGenRejected],
+  ['exact blocked handoff can materialize known-valid WebP',Boolean(blockedResult),blockedError||''],
+  ['exact handoff verifies checkpoint identity',blockedResult?.checkpoint_verified===true],
+  ['exact handoff records materialized-pending-review state',blockedResult?.profile?.binary_handoff?.state==='MATERIALIZED_PENDING_REVIEW'],
+  ['pre-materialization review is preserved for audit',blockedResult?.profile?.pre_materialization_review?.clinical_content==='PASS'],
+  ['repository binary must be re-reviewed before display',blockedResult?.profile?.candidate_review?.clinical_content==='PENDING'&&blockedResult?.profile?.composite_url===null],
+  ['normal valid WebP can still be registered',Boolean(normalResult),normalError||''],
+  ['normal registration records binary integrity PASS',normalResult?.profile?.binary_integrity?.result==='PASS']
 ];
 let failed=0;
 for(const [name,pass,detail=''] of checks){
