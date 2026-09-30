@@ -46,9 +46,13 @@ check('Approval blockers prevent premature realistic asset approval',
 check('px009 squat safety blocker is explicit until corrected',
   manifest.profiles.some(x=>x.profile_id==='px009'&&x.status==='CANDIDATE_GENERATED'&&Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='SQUAT_KNEE_TOE_ABSOLUTE_CUE'))
 );
-check('px007 hand-motion mismatch blocker is explicit until regenerated',
-  manifest.profiles.some(x=>x.profile_id==='px007'&&x.status==='CANDIDATE_GENERATED'&&Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='HAND_INTRINSIC_MOTION_MISMATCH'))
-);
+check('px007 invalid fist candidate is retired and preserved only in audit history',(()=>{
+  const x=manifest.profiles.find(p=>p.profile_id==='px007');
+  return x&&x.status==='PENDING_GENERATION'&&
+    Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
+    Array.isArray(x.rejected_candidates)&&
+    x.rejected_candidates.some(c=>c.reason_code==='HAND_INTRINSIC_MOTION_MISMATCH');
+})());
 check('px007 regeneration brief locks finger-spread motion and forbids fist substitution',(()=>{
   const x=manifest.profiles.find(p=>p.profile_id==='px007');
   const b=x?.generation_brief||{};
