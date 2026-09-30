@@ -27,9 +27,9 @@ check('Candidate binary with three-part PASS maps to ingest',
 );
 const syntheticBlocked={...p9,status:'CANDIDATE_GENERATED',approval_blockers:[{code:'SYNTHETIC_BLOCK'}]};
 check('Blocked candidate maps to regeneration',classifyProfile(syntheticBlocked).action==='REGENERATE_FROM_LOCKED_BRIEF');
-check('px008 unrecoverable prior candidate is reset to new generation',classifyProfile(p8).action==='GENERATE_FROM_LOCKED_BRIEF');
-check('px009 unsafe/unrecoverable prior candidate is reset to corrected generation',classifyProfile(p9).action==='GENERATE_FROM_LOCKED_BRIEF');
-check('Pending profile with brief maps to generation',classifyProfile(p10).action==='GENERATE_FROM_LOCKED_BRIEF');
+check('px008 reviewed overnight candidate waits for exact binary handoff',classifyProfile(p8).action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW');
+check('px009 corrected overnight candidate waits for exact binary handoff',classifyProfile(p9).action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW');
+check('px010 reviewed overnight candidate waits for exact binary handoff',classifyProfile(p10).action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW');
 
 const after7={...manifest,profiles:manifest.profiles.map(x=>x.profile_id==='px007'?{
   ...x,status:'APPROVED',asset_gate:'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING',
