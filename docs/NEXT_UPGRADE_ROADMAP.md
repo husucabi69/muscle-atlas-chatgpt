@@ -482,6 +482,15 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - **고해상도만으로 A4 승인하지 않는다.** A4용 asset은 최소 1240×1754px 조건과 별도의 명시적 시각검수를 모두 통과해야 `A4_HD_APPROVED`로 승격한다.
 - A4용 고해상도 asset이 검수되면 같은 Stable ID/slot을 유지한 채 asset만 승격·교체한다.
 
+현재 content-safety checkpoint — 2026-09-30:
+- px001–px006의 기존 실사형 WebP는 **스타일 기준은 유지하되 콘텐츠 승인은 취소**했다.
+- 이유: 원 레지스트리/CPG가 단일값으로 확정하지 않은 유지시간·반복횟수·세트 등의 고정 숫자가 이미지 안에 포함되어 있음.
+- 기존 WebP 파일은 `candidate_asset_path`로 보존하지만 `composite_url=null`로 두어 앱 화면에서는 SVG fallback을 사용한다.
+- px001–px006에는 `UNSUPPORTED_FIXED_DOSAGE_TEXT` blocker와 교정용 `generation_brief`를 부여했다.
+- px007의 `HAND_INTRINSIC_MOTION_MISMATCH`, px009의 `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker도 유지한다.
+- manifest-derived selector의 현재 첫 작업은 **px001 / REGENERATE_FROM_LOCKED_BRIEF**다.
+- blocker가 있는 후보가 runtime에서 실사 이미지로 노출되면 E2E FAIL 처리한다.
+
 현재 Stage 19의 운동 그림은 **기능 검증용 개념형 SVG**이며 최종 환자교육 품질로 보지 않는다.
 
 목표:
