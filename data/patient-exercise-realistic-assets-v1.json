@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-px007-pending-new-generation",
+  "dataset_version": "2026.09.30-stage23b-px008-px009-recovery-closed",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -312,15 +312,13 @@
     {
       "profile_id": "px008",
       "title_ko": "고관절 외전",
-      "status": "CANDIDATE_GENERATED",
+      "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "옆으로 누운 고관절 외전 운동의 시작 자세, 다리 들어 올리기, 복귀와 골반 보상 오류를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
       "review_note": "2026-09-30 자동개발에서 후보를 재생성·개선. 시작→들어올리기→천천히 내리기, 중둔근 해부학 표지, 골반 수직/몸통 정렬, 골반 뒤넘어감 및 발끝 과도한 외회전 오류를 명확히 분리. 임의 반복횟수·세트는 넣지 않음. repository binary materialization 및 Preview 검수 전이므로 APPROVED 아님.",
       "generator": "OpenAI image generation",
-      "gen_id": "f3e1b777-ec4c-4018-b702-77f61a0d4cda",
-      "candidate_generated_on": "2026-09-30",
-      "supersedes_candidate_gen_id": "039eacbe-cf1a-43d6-bb9f-de61a9fdaf8a",
-      "asset_gate": "BINARY_MATERIALIZATION_AND_PREVIEW_REVIEW_PENDING",
+      "supersedes_candidate_gen_id": "f3e1b777-ec4c-4018-b702-77f61a0d4cda",
+      "asset_gate": "GENERATE_FROM_LOCKED_BRIEF",
       "generation_brief": {
         "view": "side_lying_or_supported_standing",
         "start": "골반과 몸통을 안정적으로 정렬하고 운동 다리를 중립에 둔 시작 자세.",
@@ -333,32 +331,39 @@
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
       "candidate_review": {
-        "clinical_content": "PENDING",
-        "visual_pose": "PENDING",
-        "embedded_text": "PENDING",
-        "reviewed_on": null,
-        "note": "후보 provenance만 존재. 실제 binary 확보 후 시각·내용 검수 필요."
+        "clinical_content": "PENDING_NEW_CANDIDATE",
+        "visual_pose": "PENDING_NEW_CANDIDATE",
+        "embedded_text": "PENDING_NEW_CANDIDATE",
+        "reviewed_on": "2026-09-30",
+        "note": "기존 binary 미복구 후보 폐기. 새 후보 생성 후 3중 검수."
+      },
+      "rejected_candidates": [
+        {
+          "gen_id": "f3e1b777-ec4c-4018-b702-77f61a0d4cda",
+          "rejected_on": "2026-09-30",
+          "reason_code": "UNRECOVERABLE_CANDIDATE_BINARY",
+          "note": "기존 후보는 gen_id 기록만 있고 conversation/library/GitHub Actions artifact에서 실제 binary를 복구하지 못함. locked brief로 새 생성 필요."
+        }
+      ],
+      "approval_blockers": [],
+      "binary_recovery": {
+        "checked_on": "2026-09-30",
+        "conversation_and_library": "NOT_FOUND",
+        "github_actions_artifacts": "NOT_FOUND",
+        "result": "REGENERATE_FROM_LOCKED_BRIEF"
       }
     },
     {
       "profile_id": "px009",
       "title_ko": "스쿼트",
-      "status": "CANDIDATE_GENERATED",
+      "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "스쿼트 시작 자세, 내려가기, 올라오기와 무릎·척추 정렬 및 흔한 보상 오류를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
       "review_note": "사용자 승인 style reference를 유지하면서 2026-09-30 자동개발에서 최종 후보를 생성. 시작→내려가기→올라오기, 척추 중립, 무릎-발끝 정렬, 무릎 안쪽 붕괴와 과도한 몸통 굽힘 등 오류를 구분. 단, 생성 이미지 문구 중 '무릎이 발끝보다 앞으로 지나가지 않기'는 보편적 절대 금기로 오해될 수 있어 임상적으로 부정확하므로 앱 asset 승인 전 교정 필요. repository binary materialization 및 Preview 검수 전이므로 APPROVED 아님.",
       "generator": "OpenAI image generation",
-      "gen_id": "5bc585a2-285b-4fba-922b-9720250cb893",
-      "candidate_generated_on": "2026-09-30",
-      "supersedes_candidate_gen_id": "73f0c36b-7784-42e1-ae1d-0e3a5fdfc885",
-      "asset_gate": "CONTENT_CORRECTION_THEN_BINARY_MATERIALIZATION_AND_PREVIEW_REVIEW_PENDING",
-      "approval_blockers": [
-        {
-          "code": "SQUAT_KNEE_TOE_ABSOLUTE_CUE",
-          "severity": "PATIENT_EDUCATION_ACCURACY",
-          "note": "'무릎이 발끝보다 앞으로 지나가지 않기'를 보편적 절대 금기처럼 표현하지 말 것. 무릎-발끝 정렬, 통증/부하 허용 범위, 환자별 깊이 조절을 우선한다."
-        }
-      ],
+      "supersedes_candidate_gen_id": "5bc585a2-285b-4fba-922b-9720250cb893",
+      "asset_gate": "GENERATE_CORRECTED_SQUAT_FROM_LOCKED_BRIEF",
+      "approval_blockers": [],
       "generation_brief": {
         "view": "side_or_slight_oblique",
         "start": "발을 편안한 간격으로 두고 발바닥 전체가 바닥에 닿은 선 자세.",
@@ -371,11 +376,25 @@
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
       "candidate_review": {
-        "clinical_content": "FAIL",
-        "visual_pose": "PENDING",
-        "embedded_text": "FAIL",
+        "clinical_content": "PENDING_NEW_CANDIDATE",
+        "visual_pose": "PENDING_NEW_CANDIDATE",
+        "embedded_text": "PENDING_NEW_CANDIDATE",
         "reviewed_on": "2026-09-30",
-        "note": "무릎-발끝 관계를 보편적 절대금기로 표현한 문구 교정 필요."
+        "note": "기존 안전성 문제 후보 폐기. 교정된 스쿼트 기준으로 새 후보 생성 후 3중 검수."
+      },
+      "rejected_candidates": [
+        {
+          "gen_id": "5bc585a2-285b-4fba-922b-9720250cb893",
+          "rejected_on": "2026-09-30",
+          "reason_code": "UNRECOVERABLE_BINARY_AND_UNSAFE_KNEE_TOE_CUE",
+          "note": "기존 후보는 실제 binary를 알려진 저장소에서 복구할 수 없고, 무릎-발끝 절대금기 문구도 있어 재사용 금지. 교정된 locked brief로 새 생성 필요."
+        }
+      ],
+      "binary_recovery": {
+        "checked_on": "2026-09-30",
+        "conversation_and_library": "NOT_FOUND",
+        "github_actions_artifacts": "NOT_FOUND",
+        "result": "REGENERATE_FROM_LOCKED_BRIEF"
       }
     },
     {
