@@ -488,9 +488,10 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - 이유: 원 레지스트리/CPG가 단일값으로 확정하지 않은 유지시간·반복횟수·세트 등의 고정 숫자가 이미지 안에 포함되어 있음.
 - 기존 WebP 파일은 `candidate_asset_path`로 보존하지만 `composite_url=null`로 두어 앱 화면에서는 SVG fallback을 사용한다.
 - px001–px006에는 `UNSUPPORTED_FIXED_DOSAGE_TEXT` blocker와 교정용 `generation_brief`를 부여했다.
-- px007의 `HAND_INTRINSIC_MOTION_MISMATCH`, px009의 `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker도 유지한다.
+- px007의 잘못된 주먹쥐기 후보와 px009의 무릎-발끝 절대금기 후보는 재사용 금지 audit 기록으로 보존하고, 현재 작업 상태는 교정된 locked brief 기반 새 생성으로 정규화한다.
 - px001은 2026-09-30 고정 숫자 제거 → 3중 검수 → canonical ingest까지 완료해 mobile Preview `APPROVED`로 복귀했다.
 - px001–px006은 2026-09-30 안전 문구 교정·파일 무결성 복구·3중 검수·canonical ingest까지 완료해 mobile Preview `APPROVED` 상태다.
+- px007은 새 손가락 벌림 그림 생성 대기이며, px008·px009의 과거 gen_id-only 후보는 알려진 저장소에서 binary 복구 불가를 확인해 폐기/감사기록으로 이동했다. px008 고관절 외전과 px009 교정 스쿼트는 fresh generation 대상으로 정리됐다.
 - manifest-derived selector의 현재 첫 작업은 **px007 / GENERATE_FROM_LOCKED_BRIEF**다. 기존 주먹쥐기 후보는 폐기됐으며 새 손가락 벌림 후보를 만들어야 한다.
 - blocker가 있는 후보가 runtime에서 실사 이미지로 노출되면 E2E FAIL 처리한다.
 - 2026-09-30 asset 안전장치 강화:
