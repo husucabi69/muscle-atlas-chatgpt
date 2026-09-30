@@ -96,8 +96,11 @@ Stage 23B:
   - px001–px006 are mobile Preview assets; A4 final high-resolution gate remains pending
   - v11.65 adds a print-quality guard: while an approved realistic asset is still marked `MOBILE_PREVIEW_APPROVED_A4_HD_PENDING`, screen/mobile uses the realistic WebP but A4 print uses the sharp SVG fallback plus an explanatory note
 - runtime E2E was structurally updated to validate realistic images while retaining hidden SVG fallback; a literal-newline syntax regression was corrected in `dc0d1e763effce157f2605fc3be83bcc509ff3f0`
-- px010–px018 now all have locked `generation_brief` fields (pose, motion, support, common error, and no-invented-dosage policy) for the next generation runs.
-- next exact mainline item: **materialize + visually review px007 candidate**, then px008; px009 requires cue correction before materialization/approval; after that generate px010–px018 from their locked briefs
+- px007–px018 now all have locked `generation_brief` fields (pose, motion, support, common error, and no-invented-dosage policy).
+- px007 current candidate has a `HAND_INTRINSIC_MOTION_MISMATCH` blocker because the generated fist-closing sequence does not adequately represent the intended intrinsic-hand function; regenerate before approval.
+- px008 candidate remains eligible for binary materialization + Preview review.
+- px009 retains the `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; regenerate/correct before approval.
+- next exact mainline item: **regenerate px007 from the locked brief**, then materialize/review px008, correct/regenerate px009, then generate px010–px018 from their locked briefs
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
