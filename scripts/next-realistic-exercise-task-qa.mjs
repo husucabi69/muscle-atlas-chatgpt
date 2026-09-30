@@ -15,16 +15,20 @@ const p8=manifest.profiles.find(x=>x.profile_id==='px008');
 const p9=manifest.profiles.find(x=>x.profile_id==='px009');
 const p10=manifest.profiles.find(x=>x.profile_id==='px010');
 
+const syntheticCandidate={...p8,status:'CANDIDATE_GENERATED',approval_blockers:[],candidate_asset_path:null};
 check('Clean candidate without binary maps to binary acquisition/review',
-  classifyProfile({...p8,approval_blockers:[],candidate_asset_path:null}).action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW'
+  classifyProfile(syntheticCandidate).action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW'
 );
 check('Candidate binary with pending review maps to Preview review',
-  classifyProfile({...p8,approval_blockers:[],candidate_asset_path:'./assets/patient-exercise-realistic/px008.webp',candidate_review:{clinical_content:'PASS',visual_pose:'PENDING',embedded_text:'PASS'}}).action==='PREVIEW_REVIEW_CANDIDATE'
+  classifyProfile({...syntheticCandidate,candidate_asset_path:'./assets/patient-exercise-realistic/px008.webp',candidate_review:{clinical_content:'PASS',visual_pose:'PENDING',embedded_text:'PASS'}}).action==='PREVIEW_REVIEW_CANDIDATE'
 );
 check('Candidate binary with three-part PASS maps to ingest',
-  classifyProfile({...p8,approval_blockers:[],candidate_asset_path:'./assets/patient-exercise-realistic/px008.webp',candidate_review:{clinical_content:'PASS',visual_pose:'PASS',embedded_text:'PASS'}}).action==='INGEST_REVIEWED_CANDIDATE'
+  classifyProfile({...syntheticCandidate,candidate_asset_path:'./assets/patient-exercise-realistic/px008.webp',candidate_review:{clinical_content:'PASS',visual_pose:'PASS',embedded_text:'PASS'}}).action==='INGEST_REVIEWED_CANDIDATE'
 );
-check('Blocked candidate maps to regeneration',classifyProfile(p9).action==='REGENERATE_FROM_LOCKED_BRIEF');
+const syntheticBlocked={...p9,status:'CANDIDATE_GENERATED',approval_blockers:[{code:'SYNTHETIC_BLOCK'}]};
+check('Blocked candidate maps to regeneration',classifyProfile(syntheticBlocked).action==='REGENERATE_FROM_LOCKED_BRIEF');
+check('px008 unrecoverable prior candidate is reset to new generation',classifyProfile(p8).action==='GENERATE_FROM_LOCKED_BRIEF');
+check('px009 unsafe/unrecoverable prior candidate is reset to corrected generation',classifyProfile(p9).action==='GENERATE_FROM_LOCKED_BRIEF');
 check('Pending profile with brief maps to generation',classifyProfile(p10).action==='GENERATE_FROM_LOCKED_BRIEF');
 
 const allApproved={...manifest,profiles:manifest.profiles.map(x=>({...x,status:'APPROVED',asset_gate:'A4_HD_APPROVED',approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/'+x.profile_id+'.webp'}))};
