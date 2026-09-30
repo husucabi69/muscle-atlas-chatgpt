@@ -111,7 +111,14 @@ Stage 23B:
   - compiles the locked style + pose/motion/support/common-error brief + unresolved blocker instructions into one reproducible generation prompt
   - px007 and px009 blocker language is automatically carried into regeneration instructions
   - CI coverage: `scripts/realistic-generation-prompt-qa.mjs`
-- next exact mainline item: **regenerate px007 using the canonical prompt builder**. If an approved candidate file is obtained, ingest it through the new pipeline; then materialize/review px008, correct/regenerate px009, then generate px010–px018 from their locked briefs
+- manifest-derived task selector now exists: `scripts/next-realistic-exercise-task.mjs`
+  - it reads the existing manifest as the only source of truth and derives the next action instead of maintaining a duplicate queue
+  - blocked candidates → `REGENERATE_FROM_LOCKED_BRIEF`
+  - clean generated candidates → `MATERIALIZE_AND_PREVIEW_REVIEW`
+  - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
+  - A4-HD upgrades are deferred until the mobile realistic set is complete
+  - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
+- next exact mainline item: **run the manifest-derived selector; current expected result is px007 / REGENERATE_FROM_LOCKED_BRIEF**. Regenerate px007 using the canonical prompt builder; then ingest/review it, continue px008, correct/regenerate px009, then px010–px018.
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
