@@ -1,0 +1,28 @@
+{
+  "profile_id": "px008",
+  "title_ko": "고관절 외전",
+  "checkpoint_version": "2026-10-01-01",
+  "status": "CANDIDATE_GENERATED",
+  "source_of_truth": "data/patient-exercise-realistic-assets-v1.json#generation_brief",
+  "candidate": {
+    "generator": "OpenAI image generation",
+    "gen_id": "685daf50-8620-4930-9c3d-ac26f655ece3",
+    "generated_on": "2026-10-01",
+    "binary_repository_status": "PENDING_MATERIALIZATION",
+    "repository_asset_path": null
+  },
+  "review": {
+    "clinical_content": "PASS",
+    "visual_pose": "PASS",
+    "embedded_text": "PASS",
+    "reviewed_on": "2026-10-01",
+    "notes": [
+      "옆으로 누운 시작-고관절 외전-천천히 복귀의 흐름이 locked brief와 일치한다.",
+      "골반 뒤넘어감, 몸통 뒤젖힘, 발끝 과도한 외회전을 별도 오류로 구분한다.",
+      "반복횟수, 세트, 각도 같은 임의 숫자 처방이 없다.",
+      "실제 WebP가 repository에 저장되고 Preview 모바일/A4 검수가 끝나기 전 APPROVED 승격 금지."
+    ]
+  },
+  "next_gate": "MATERIALIZE_WEBP_THEN_PREVIEW_MOBILE_A4",
+  "production_allowed": false
+}
