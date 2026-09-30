@@ -18,7 +18,11 @@ const p7=buildGenerationPrompt(manifest,'px007');
 const p9=buildGenerationPrompt(manifest,'px009');
 check('px001 approved prompt no longer carries resolved dosage blocker',!p1.includes('UNSUPPORTED_FIXED_DOSAGE_TEXT')&&p1.includes('시간·횟수·세트·각도 숫자 임의 생성 금지'));
 check('px007 prompt locks exact finger-abduction motion and rejects fist closure',p7.includes('손가락만 부드럽게 벌린')&&p7.includes('주먹쥐기')&&p7.includes('손목 중립'));
-check('px009 prompt carries knee-toe absolute-cue blocker',p9.includes('SQUAT_KNEE_TOE_ABSOLUTE_CUE')&&p9.includes('절대 금기'));
+check('px009 prompt forbids knee-toe absolute prohibition without relying on retired blocker code',
+  !p9.includes('SQUAT_KNEE_TOE_ABSOLUTE_CUE')&&
+  p9.includes('무릎이 발끝보다 앞으로 나가면 안 된다')&&
+  p9.includes('금지')
+);
 
 let failed=0;
 for(const x of checks){
