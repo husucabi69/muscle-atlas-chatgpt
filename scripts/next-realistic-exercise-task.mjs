@@ -22,7 +22,15 @@ export function classifyProfile(profile){
         blocker_codes:blockers.map(x=>x.code||'UNKNOWN')
       };
     }
-    return{action:'MATERIALIZE_AND_PREVIEW_REVIEW',blocking:true};
+    if(!profile.candidate_asset_path){
+      return{action:'OBTAIN_BINARY_AND_PREVIEW_REVIEW',blocking:true};
+    }
+    const review=profile.candidate_review||{};
+    const reviewPassed=['clinical_content','visual_pose','embedded_text'].every(k=>review[k]==='PASS');
+    if(!reviewPassed){
+      return{action:'PREVIEW_REVIEW_CANDIDATE',blocking:true};
+    }
+    return{action:'INGEST_REVIEWED_CANDIDATE',blocking:true};
   }
   if(profile.status==='PENDING_GENERATION'){
     if(!profile.generation_brief){
