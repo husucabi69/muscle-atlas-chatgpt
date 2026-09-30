@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026-09-30-stage23b-materialized-px005",
+  "dataset_version": "2026.09.30-stage23b-px006-binary-repair-pending",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -238,18 +238,23 @@
       "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "손목 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": "손목 운동 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음.",
+      "review_note": "손목 운동 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음. 2026-09-30 기존 저장소 WebP 손상 확인. 원본 PNG에서 숫자를 제거한 정상 교정본은 준비했으나 저장소 교체 전이므로 앱 노출 금지 유지.",
       "generator": "OpenAI image generation",
       "gen_id": "5b03ec52-fa72-4ca2-86a5-26111bf73b8a",
       "integrated_on": "2026-09-29",
       "preview_resolution": "320x400",
-      "asset_gate": "CONTENT_CORRECTION_THEN_PREVIEW_REVIEW_PENDING",
+      "asset_gate": "BINARY_REPLACEMENT_AND_CONTENT_CORRECTION_PENDING",
       "candidate_asset_path": "./assets/patient-exercise-realistic/px006.webp",
       "approval_blockers": [
         {
           "code": "UNSUPPORTED_FIXED_DOSAGE_TEXT",
           "severity": "PATIENT_EDUCATION_ACCURACY",
           "note": "현재 실사형 후보 이미지에 원 레지스트리/CPG가 단일값으로 확정하지 않은 시간·횟수·세트 등 고정 숫자가 포함되어 있어 교정 재생성 후 승인해야 함."
+        },
+        {
+          "code": "BROKEN_CANDIDATE_BINARY",
+          "severity": "ASSET_INTEGRITY",
+          "note": "저장소의 기존 px006 WebP가 표준 디코더에서 NOT_ENOUGH_DATA로 열리지 않음. 원본 생성 이미지에서 정상 WebP를 다시 만든 뒤 검수·승인해야 함."
         }
       ],
       "generation_brief": {
