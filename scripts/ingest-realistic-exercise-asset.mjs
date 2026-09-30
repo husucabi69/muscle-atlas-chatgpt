@@ -45,6 +45,10 @@ export function validateCandidate(profile,{genId}={}){
   }
   if(!profile.gen_id)fail(profile.profile_id+' is missing generator provenance.');
   if(genId&&profile.gen_id!==genId)fail(profile.profile_id+' gen_id mismatch.');
+  const review=profile.candidate_review||{};
+  const required=['clinical_content','visual_pose','embedded_text'];
+  const missing=required.filter(k=>review[k]!=='PASS');
+  if(missing.length)fail(profile.profile_id+' candidate review gate incomplete: '+missing.map(k=>k+'='+(review[k]||'MISSING')).join(', '));
   return true;
 }
 
