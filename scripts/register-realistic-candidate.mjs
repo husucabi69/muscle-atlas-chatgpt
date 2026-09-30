@@ -65,6 +65,7 @@ export function registerCandidate(manifest,profileId,assetPath,meta={}){
     width:info.width,
     height:info.height,
     format:'WEBP',
+    sha256:info.sha256,
     result:'PASS'
   };
   if(checkpoint){
