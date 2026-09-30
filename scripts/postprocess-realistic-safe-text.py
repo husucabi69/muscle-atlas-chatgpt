@@ -1,5 +1,7 @@
 from pathlib import Path
 import argparse
+import subprocess
+import tempfile
 from PIL import Image, ImageDraw, ImageFont
 
 SAFE_COPY={
@@ -82,7 +84,17 @@ def main():
     if not source.exists():
         raise SystemExit(f"{profile} source asset missing")
 
-    img=Image.open(source).convert("RGB")
+    try:
+        img=Image.open(source).convert("RGB")
+    except OSError:
+        # Some earlier mobile-preview WebP candidates are valid in browsers
+        # but use a bitstream Pillow/libwebp cannot decode directly.
+        # Normalize through the reference libwebp decoder instead of
+        # regenerating or silently replacing the illustration.
+        with tempfile.TemporaryDirectory() as td:
+            png=Path(td)/f"{profile}.png"
+            subprocess.run(["dwebp",str(source),"-o",str(png)],check=True)
+            img=Image.open(png).convert("RGB")
     w,h=img.size
     if w<320 or h<400 or h<=w:
         raise SystemExit(f"unexpected candidate dimensions: {w}x{h}")
