@@ -33,14 +33,19 @@ for(const id of ['px008','px009','px010']){
   check(id+' forbids invented fixed numbers',x?.must_not_show?.some(v=>v.includes('숫자')));
   check(id+' has mobile review gate',x?.review_gate?.some(v=>v.includes('모바일')));
 }
+const r7=requests.requests?.find(r=>r.profile_id==='px007');
+check('px007 render request is ready to generate',r7?.status==='READY_TO_GENERATE',r7?.status||'');
 const r8=requests.requests?.find(r=>r.profile_id==='px008');
+check('px008 render request is ready to generate',r8?.status==='READY_TO_GENERATE',r8?.status||'');
 check('px008 locks pelvis/trunk control',r8?.review_gate?.some(v=>v.includes('골반'))&&r8?.must_not_show?.some(v=>v.includes('몸통')));
 const r9=requests.requests?.find(r=>r.profile_id==='px009');
+check('px009 corrected render request is ready to generate',r9?.status==='READY_TO_GENERATE_CORRECTED',r9?.status||'');
 check('px009 forbids knee-toe absolute prohibition',
   r9?.must_not_show?.some(v=>v.includes('발끝보다 앞으로')&&v.includes('절대금기'))&&
   r9?.patient_copy?.some(v=>v.includes('무조건 금지하지 않습니다'))
 );
 const r10=requests.requests?.find(r=>r.profile_id==='px010');
+check('px010 render request is ready to generate',r10?.status==='READY_TO_GENERATE',r10?.status||'');
 check('px010 locks glute-driven bridge without lumbar overextension',
   r10?.exact_motion?.end?.includes('엉덩이')&&r10?.must_not_show?.some(v=>v.includes('허리'))
 );
