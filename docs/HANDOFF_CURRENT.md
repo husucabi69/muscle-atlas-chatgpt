@@ -101,8 +101,8 @@ Stage 23B:
 - px008 candidate remains eligible for binary materialization + Preview review.
 - px009 retains the `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; regenerate/correct before approval.
 - materialization pipeline now exists: `scripts/ingest-realistic-exercise-asset.mjs`
-  - accepts only reviewed `CANDIDATE_GENERATED` profiles
-  - rejects unresolved `approval_blockers`, gen_id mismatch, non-WebP, undersized or non-portrait assets
+  - accepts only `CANDIDATE_GENERATED` profiles with **three-part candidate review PASS**: `clinical_content / visual_pose / embedded_text`
+  - rejects unresolved `approval_blockers`, incomplete/failed candidate review, gen_id mismatch, non-WebP, undersized or non-portrait assets
   - writes `assets/patient-exercise-realistic/pxNNN.webp`
   - updates the manifest to `APPROVED` with stored resolution and A4 quality gate
   - high resolution alone does **not** grant A4 approval; `A4_HD_APPROVED` requires an explicit visual-review flag and minimum 1240x1754 dimensions
