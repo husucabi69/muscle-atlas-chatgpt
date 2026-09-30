@@ -16,7 +16,7 @@ for(const id of ['px001','px002','px003','px004','px005','px006','px007','px008'
 const p1=buildGenerationPrompt(manifest,'px001');
 const p7=buildGenerationPrompt(manifest,'px007');
 const p9=buildGenerationPrompt(manifest,'px009');
-check('px001 prompt carries fixed-dosage correction blocker',p1.includes('UNSUPPORTED_FIXED_DOSAGE_TEXT')&&p1.includes('고정 숫자'));
+check('px001 approved prompt no longer carries resolved dosage blocker',!p1.includes('UNSUPPORTED_FIXED_DOSAGE_TEXT')&&p1.includes('시간·횟수·세트·각도 숫자 임의 생성 금지'));
 check('px007 prompt carries intrinsic-hand mismatch blocker',p7.includes('HAND_INTRINSIC_MOTION_MISMATCH')&&p7.includes('손 내재근'));
 check('px009 prompt carries knee-toe absolute-cue blocker',p9.includes('SQUAT_KNEE_TOE_ABSOLUTE_CUE')&&p9.includes('절대 금기'));
 
