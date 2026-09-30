@@ -13,7 +13,7 @@ This document is the canonical handoff checkpoint for continuing development of 
 - **Never change or promote `main` without explicit user approval.**
 - Latest verified baseline before the current research-queue checkpoint: `13950a56bf531a97eb68cd25f3d051e5e79e5919` — canonical handoff commit, Global QA run `36566509370` PASS.
 - Latest roadmap-governance checkpoint before this handoff refresh: `af7b6846394e3bef86e4e5b61f7724d59685ec4c` — latest user instruction fixed manual 15-minute target / 20-minute HARD STOP and roadmap-first idea triage.
-- Current Preview app version: `v11.65 · Exercise A4 Print Guard`.
+- Current Preview app version: `v11.66 · Exercise Content Safety Review`.
 - Embedded run/SHA notes are only checkpoints. Because 00:00~08:00 scheduled work can advance the branch, every session must query the live latest HEAD and latest QA/Preview state before editing.
 
 ## 2. User communication contract
@@ -88,12 +88,12 @@ Stage 23B:
 - white clinical background, Korean labels, mobile-readable, A4 printable
 - registry: `data/patient-exercise-realistic-assets-v1.json`
 - current realistic asset status at handoff:
-  - px001–px006 = `APPROVED` and connected to in-app WebP assets
-  - px007 = `CANDIDATE_GENERATED` (latest gen_id `fbf5ab4d-37ca-440d-bb2d-7edccfd92253`), binary materialization + Preview review pending
-  - px008 = `CANDIDATE_GENERATED` (latest gen_id `f3e1b777-ec4c-4018-b702-77f61a0d4cda`), binary materialization + Preview review pending
-  - px009 squat = `CANDIDATE_GENERATED` (latest gen_id `5bc585a2-285b-4fba-922b-9720250cb893`); generated wording includes an over-restrictive knee/toe cue, so content correction is required before approval
+  - px001–px006 = `CANDIDATE_GENERATED` with `UNSUPPORTED_FIXED_DOSAGE_TEXT` blocker. Existing WebP binaries are preserved as `candidate_asset_path`, but `composite_url=null`, so the app uses SVG fallback until corrected regeneration/review.
+  - px007 = `CANDIDATE_GENERATED` with `HAND_INTRINSIC_MOTION_MISMATCH` blocker; regenerate before approval.
+  - px008 = `CANDIDATE_GENERATED`; candidate provenance exists but binary materialization + Preview review is still pending.
+  - px009 squat = `CANDIDATE_GENERATED` with `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; correct/regenerate before approval.
   - px010–px018 = `PENDING_GENERATION`
-  - px001–px006 are mobile Preview assets; A4 final high-resolution gate remains pending
+  - px001–px018 all now have locked generation briefs; fixed time/repetition/set/angle numbers must not be invented unless supported by the source registry.
   - v11.65 adds a print-quality guard: while an approved realistic asset is still marked `MOBILE_PREVIEW_APPROVED_A4_HD_PENDING`, screen/mobile uses the realistic WebP but A4 print uses the sharp SVG fallback plus an explanatory note
 - runtime E2E was structurally updated to validate realistic images while retaining hidden SVG fallback; a literal-newline syntax regression was corrected in `dc0d1e763effce157f2605fc3be83bcc509ff3f0`
 - px007–px018 now all have locked `generation_brief` fields (pose, motion, support, common error, and no-invented-dosage policy).
@@ -118,7 +118,7 @@ Stage 23B:
   - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
-- next exact mainline item: **run the manifest-derived selector; current expected result is px007 / REGENERATE_FROM_LOCKED_BRIEF**. Regenerate px007 using the canonical prompt builder; then ingest/review it, continue px008, correct/regenerate px009, then px010–px018.
+- next exact mainline item: **run the manifest-derived selector; current expected result is px001 / REGENERATE_FROM_LOCKED_BRIEF** because the previously connected first six images contain unsupported fixed dosage text. Correct px001 first, then px002–px006, then px007, px008, px009, and px010–px018.
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
