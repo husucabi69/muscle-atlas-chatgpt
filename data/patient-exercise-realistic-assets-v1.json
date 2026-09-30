@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-realistic-e",
+  "dataset_version": "2026.09.30-stage23b-realistic-f",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -223,7 +223,18 @@
       "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "족저·발목 스트레칭 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "",
+      "generation_brief": {
+        "view": "side_seated_or_supported_standing",
+        "start": "앉거나 벽을 짚고 종아리와 발바닥이 편안한 중립 자세.",
+        "end": "발목 배굴 또는 발가락을 부드럽게 젖혀 종아리·족저를 신장한 자세.",
+        "motion": "발목/발가락이 신장 방향으로 움직이는 화살표를 작게 표시.",
+        "support": "발 또는 벽/의자 지지점을 분명히 보여 균형을 확보.",
+        "common_error": "통증 부위를 세게 누르거나 끝범위를 억지로 당기는 모습을 오류 표시.",
+        "text_policy": "반복횟수·초 단위 유지시간을 임의 생성하지 말 것. 파열 의심 상황을 정상 운동처럼 표현하지 말 것."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
     },
     {
       "profile_id": "px014",
@@ -231,7 +242,18 @@
       "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "버드독 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "",
+      "generation_brief": {
+        "view": "side_quadruped",
+        "start": "네발기기, 손은 어깨 아래·무릎은 골반 아래, 허리 중립.",
+        "end": "몸통과 골반을 유지하며 반대쪽 팔과 다리를 천천히 뻗은 버드독 자세.",
+        "motion": "반대쪽 팔과 다리가 멀어지는 방향을 화살표로 표시.",
+        "support": "지지 손·무릎과 몸통 중립을 분명히 표현.",
+        "common_error": "허리 처짐·골반 회전·고개 과신전을 오류 표시로 분리.",
+        "text_policy": "임의 반복횟수·세트 금지. 신경학적 red flag 환자가 운동을 계속하는 그림 금지."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
     },
     {
       "profile_id": "px015",
@@ -239,7 +261,18 @@
       "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "흉추 회전 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "",
+      "generation_brief": {
+        "view": "front_seated",
+        "start": "골반을 안정시켜 편안히 앉고 몸통이 정면을 향한 자세.",
+        "end": "골반·요추 보상을 최소화하며 흉곽을 천천히 회전한 자세.",
+        "motion": "흉곽 회전 방향을 곡선 화살표로 표시.",
+        "support": "의자와 골반 고정을 분명히 보이게 함.",
+        "common_error": "허리/골반 전체가 같이 돌아가는 보상을 오류 표시.",
+        "text_policy": "임의 각도·반복횟수 금지. 날카로운 흉통·호흡곤란을 참고 운동하는 메시지 금지."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
     },
     {
       "profile_id": "px016",
