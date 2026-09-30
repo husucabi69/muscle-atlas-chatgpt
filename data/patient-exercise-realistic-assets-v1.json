@@ -231,7 +231,7 @@
         "motion": "발목/발가락이 신장 방향으로 움직이는 화살표를 작게 표시.",
         "support": "발 또는 벽/의자 지지점을 분명히 보여 균형을 확보.",
         "common_error": "통증 부위를 세게 누르거나 끝범위를 억지로 당기는 모습을 오류 표시.",
-        "text_policy": "반복횟수·초 단위 유지시간을 임의 생성하지 말 것. 파열 의심 상황을 정상 운동처럼 표현하지 말 것."
+        "text_policy": "반복횟수·초 단위 유지시간 임의 생성 금지. 파열 의심 상황을 정상 운동처럼 표현하지 말 것."
       },
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
