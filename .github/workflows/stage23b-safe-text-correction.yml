@@ -1,0 +1,75 @@
+name: Stage 23B safe-text correction
+
+on:
+  push:
+    branches:
+      - preview/development
+    paths:
+      - ops/stage23b-safe-text-correction.trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stage23b-safe-text-correction
+  cancel-in-progress: false
+
+jobs:
+  correct:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: preview/development
+
+      - name: Read correction request
+        id: req
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=ops/stage23b-safe-text-correction.trigger
+          PROFILE="$(sed -n 's/^profile=//p' "$FILE" | tail -1)"
+          [[ "$PROFILE" =~ ^px00[2-6]$ ]]
+          echo "profile=$PROFILE" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image tooling
+        run: |
+          python -m pip install --disable-pip-version-check pillow
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+
+      - name: Replace unsafe generated text
+        run: python scripts/postprocess-realistic-safe-text.py --profile "${{ steps.req.outputs.profile }}"
+
+      - name: Verify corrected WebP
+        run: |
+          PROFILE="${{ steps.req.outputs.profile }}" python - <<'PY'
+          import os
+          from pathlib import Path
+          from PIL import Image
+          p=Path("assets/patient-exercise-realistic")/(os.environ["PROFILE"]+".webp")
+          im=Image.open(p)
+          assert im.format=="WEBP", im.format
+          w,h=im.size
+          assert w>=320 and h>=400 and h>w, im.size
+          assert p.stat().st_size>4096, p.stat().st_size
+          print("SAFE_TEXT_WEBP_PASS",os.environ["PROFILE"],im.size,p.stat().st_size)
+          PY
+
+      - name: Commit corrected candidate to Preview
+        run: |
+          PROFILE="${{ steps.req.outputs.profile }}"
+          git config user.name "muscle-atlas-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "assets/patient-exercise-realistic/$PROFILE.webp"
+          if git diff --cached --quiet; then
+            echo "No binary change detected"
+            exit 1
+          fi
+          git commit -m "Stage 23B: materialize corrected $PROFILE mobile candidate"
+          git push origin HEAD:preview/development
