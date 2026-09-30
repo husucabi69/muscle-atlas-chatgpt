@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.01-stage23b-reviewed-candidates-binary-handoff",
+  "dataset_version": "2026.10.01-stage23b-binary-handoff-state-normalized",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -454,16 +454,17 @@
       "candidate_review": {
         "clinical_content": "PASS",
         "visual_pose": "PASS",
-        "embedded_text": "PASS_WITH_GATE",
+        "embedded_text": "PENDING",
         "reviewed_on": "2026-10-01",
-        "note": "야간 예약작업 교정 후보. 구조/자세는 PASS. 실제 binary 회수 후 embedded text를 소스 파일에서 다시 확인해야 최종 PASS 가능."
+        "note": "야간 예약작업 교정 후보. 구조/자세는 PASS. 실제 binary 회수 후 embedded text를 소스 파일에서 다시 확인해야 최종 PASS 가능. 실제 binary가 회수되면 embedded text를 다시 확인해 PASS로 승격한다."
       },
       "binary_handoff": {
         "state": "BLOCKED",
         "checked_on": "2026-10-01",
         "reason": "Generated candidate was reviewed in scheduled development, but the actual image binary is not materialized in the repository.",
         "next_action": "Recover the exact generated binary if available; do not regenerate this profile merely to create a file."
-      }
+      },
+      "generator": "OpenAI image generation"
     },
     {
       "profile_id": "px011",
@@ -501,7 +502,8 @@
         "checked_on": "2026-10-01",
         "reason": "Generated candidate was reviewed in scheduled development, but the actual image binary is not materialized in the repository.",
         "next_action": "Recover the exact generated binary if available; do not regenerate this profile merely to create a file."
-      }
+      },
+      "generator": "OpenAI image generation"
     },
     {
       "profile_id": "px012",
