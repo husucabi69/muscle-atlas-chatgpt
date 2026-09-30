@@ -20,7 +20,7 @@ check('Generated candidates retain generator provenance and no asset URL',
 check('px007-px018 have locked generation briefs',
   ['px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>{
     const x=manifest.profiles.find(p=>p.profile_id===id);
-    return x&&x.status==='PENDING_GENERATION'&&x.generation_brief&&x.generation_brief_reviewed_on==='2026-09-30'&&typeof x.generation_brief.text_policy==='string';
+    return x&&['PENDING_GENERATION','CANDIDATE_GENERATED'].includes(x.status)&&x.generation_brief&&x.generation_brief_reviewed_on==='2026-09-30'&&typeof x.generation_brief.text_policy==='string';
   })
 );
 check('Generation briefs prohibit invented dosage',
