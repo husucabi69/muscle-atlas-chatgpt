@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-px007-exact-motion-lock",
+  "dataset_version": "2026.09.30-stage23b-px007-pending-new-generation",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -274,15 +274,13 @@
     {
       "profile_id": "px007",
       "title_ko": "손가락 운동",
-      "status": "CANDIDATE_GENERATED",
+      "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "손가락 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": "2026-09-30 자동개발에서 후보를 추가 개선. 손가락 완전 펴기→천천히 주먹쥐기→천천히 펴기, 중립 손목과 흔한 손목 보상 오류를 명확히 표시하고 임의 반복횟수·세트는 넣지 않음. repository binary materialization 전이므로 APPROVED로 승격하지 않음. 2026-09-30 대표 동작을 손가락 벌림으로 단일화. 기존 주먹쥐기 후보는 승인 금지.",
+      "review_note": "2026-09-30 자동개발에서 후보를 추가 개선. 손가락 완전 펴기→천천히 주먹쥐기→천천히 펴기, 중립 손목과 흔한 손목 보상 오류를 명확히 표시하고 임의 반복횟수·세트는 넣지 않음. repository binary materialization 전이므로 APPROVED로 승격하지 않음. 2026-09-30 대표 동작을 손가락 벌림으로 단일화. 기존 주먹쥐기 후보는 승인 금지. 2026-09-30 기존 후보를 폐기 기록으로 이동하고 상태를 새 후보 생성 대기로 정규화.",
       "generator": "OpenAI image generation",
-      "gen_id": "fbf5ab4d-37ca-440d-bb2d-7edccfd92253",
-      "candidate_generated_on": "2026-09-30",
-      "supersedes_candidate_gen_id": "cd27f050-e418-4cfe-9fe2-99e64629337b",
-      "asset_gate": "REGENERATE_EXACT_FINGER_ABDUCTION_THEN_PREVIEW_REVIEW",
+      "supersedes_candidate_gen_id": "fbf5ab4d-37ca-440d-bb2d-7edccfd92253",
+      "asset_gate": "GENERATE_EXACT_FINGER_ABDUCTION_FROM_LOCKED_BRIEF",
       "generation_brief": {
         "view": "closeup_hand",
         "start": "전완과 손목을 테이블에 편안히 지지하고, 손가락을 자연스럽게 펴서 서로 가깝게 모은 자세.",
@@ -294,20 +292,22 @@
       },
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
-      "approval_blockers": [
-        {
-          "code": "HAND_INTRINSIC_MOTION_MISMATCH",
-          "severity": "PATIENT_EDUCATION_ACCURACY",
-          "note": "기존 후보는 주먹쥐기 중심이라 목표 기능과 불일치. 새 후보는 '손가락 모음 → 손가락 벌림'을 명확히 보여주고 손목 중립·전완 지지를 유지해야 하며 주먹쥐기를 포함하지 않는다."
-        }
-      ],
+      "approval_blockers": [],
       "candidate_review": {
-        "clinical_content": "FAIL",
-        "visual_pose": "FAIL",
-        "embedded_text": "PENDING",
+        "clinical_content": "PENDING_NEW_CANDIDATE",
+        "visual_pose": "PENDING_NEW_CANDIDATE",
+        "embedded_text": "PENDING_NEW_CANDIDATE",
         "reviewed_on": "2026-09-30",
-        "note": "기존 후보는 폐기 대상. 새 대표 그림은 무저항 손가락 벌림 한 동작으로 재생성·재검수."
-      }
+        "note": "기존 주먹쥐기 후보 폐기. 새 손가락 벌림 후보 생성 후 3중 검수 필요."
+      },
+      "rejected_candidates": [
+        {
+          "gen_id": "fbf5ab4d-37ca-440d-bb2d-7edccfd92253",
+          "rejected_on": "2026-09-30",
+          "reason_code": "HAND_INTRINSIC_MOTION_MISMATCH",
+          "note": "주먹쥐기 중심 동작이라 손 내재근 대표 기능(손가락 벌림)과 불일치. 재사용 금지."
+        }
+      ]
     },
     {
       "profile_id": "px008",
