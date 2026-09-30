@@ -1,13 +1,33 @@
 import fs from 'node:fs';
 
+function canonicalMotionFromBrief(brief){
+  if(!brief)return null;
+  return{
+    view:brief.view,
+    start:brief.start,
+    end:brief.end,
+    arrows:brief.motion,
+    fixed_points:brief.support
+  };
+}
+
 export function buildRenderRequest(manifest,curated,profileId){
   const profile=manifest.profiles?.find(x=>x.profile_id===profileId);
   if(!profile)throw new Error('Unknown profile: '+profileId);
-  const special=curated.requests?.find(x=>x.profile_id===profileId);
-  if(special)return{...special,source:'CURATED_OVERRIDE'};
   const b=profile.generation_brief;
   if(!b)throw new Error(profileId+' has no locked generation_brief');
   if(manifest.style_lock?.status!=='USER_APPROVED')throw new Error('User-approved style lock missing');
+
+  const canonicalMotion=canonicalMotionFromBrief(b);
+  const special=curated.requests?.find(x=>x.profile_id===profileId);
+  if(special){
+    return{
+      ...special,
+      exact_motion:canonicalMotion,
+      source:'CURATED_OVERRIDE_WITH_LOCKED_MOTION'
+    };
+  }
+
   return{
     profile_id:profile.profile_id,
     title_ko:profile.title_ko,
@@ -20,13 +40,7 @@ export function buildRenderRequest(manifest,curated,profileId){
       required:manifest.style_lock.required,
       forbidden:manifest.style_lock.forbidden
     },
-    exact_motion:{
-      view:b.view,
-      start:b.start,
-      end:b.end,
-      arrows:b.motion,
-      fixed_points:b.support
-    },
+    exact_motion:canonicalMotion,
     must_not_show:[
       b.common_error,
       b.text_policy
