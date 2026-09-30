@@ -17,6 +17,17 @@ check('No stale style-reference status remains after candidate generation',
 check('Generated candidates retain generator provenance and no asset URL',
   manifest.profiles.filter(x=>x.status==='CANDIDATE_GENERATED').every(x=>x.generator==='OpenAI image generation'&&typeof x.gen_id==='string'&&x.gen_id.length>10&&!x.composite_url)
 );
+check('Every generated candidate has three-part review state',
+  manifest.profiles.filter(x=>x.status==='CANDIDATE_GENERATED').every(x=>{
+    const r=x.candidate_review||{};
+    return ['PENDING','PASS','FAIL'].includes(r.clinical_content)&&
+      ['PENDING','PASS','FAIL'].includes(r.visual_pose)&&
+      ['PENDING','PASS','FAIL'].includes(r.embedded_text);
+  })
+);
+check('No candidate with FAIL review may be approved',
+  manifest.profiles.every(x=>x.status!=='APPROVED'||!Object.values(x.candidate_review||{}).includes('FAIL'))
+);
 check('px001-px018 have locked generation briefs',
   ['px001','px002','px003','px004','px005','px006','px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>{
     const x=manifest.profiles.find(p=>p.profile_id===id);
