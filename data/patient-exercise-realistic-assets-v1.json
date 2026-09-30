@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-realistic-g",
+  "dataset_version": "2026.09.30-stage23b-realistic-h",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -125,7 +125,25 @@
       "gen_id": "fbf5ab4d-37ca-440d-bb2d-7edccfd92253",
       "candidate_generated_on": "2026-09-30",
       "supersedes_candidate_gen_id": "cd27f050-e418-4cfe-9fe2-99e64629337b",
-      "asset_gate": "BINARY_MATERIALIZATION_AND_PREVIEW_REVIEW_PENDING"
+      "asset_gate": "CONTENT_CORRECTION_THEN_BINARY_MATERIALIZATION_AND_PREVIEW_REVIEW_PENDING",
+      "generation_brief": {
+        "view": "closeup_hand",
+        "start": "전완과 손목을 편안히 지지하고 손가락 힘을 뺀 중립 자세.",
+        "end": "손목 중립을 유지한 채 손가락 벌림·모음 또는 MCP 굴곡/IP 신전 같은 손 내재근 기능을 명확히 보여주는 자세.",
+        "motion": "손가락이 벌어지거나 intrinsic-plus 방향으로 움직이는 작은 화살표.",
+        "support": "전완과 손목 지지, 손목 중립을 분명히 표현.",
+        "common_error": "손목을 꺾어 보상하거나 통증을 참고 강하게 벌리기, 단순 주먹쥐기로 운동 목적을 대체하는 모습을 오류로 구분.",
+        "text_policy": "임의 반복횟수·세트·저항량 금지. 수술·건 손상 후 임의 저항 사용 메시지 금지."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
+      "approval_blockers": [
+        {
+          "code": "HAND_INTRINSIC_MOTION_MISMATCH",
+          "severity": "PATIENT_EDUCATION_ACCURACY",
+          "note": "현재 후보의 '펴기→주먹쥐기' 중심 동작은 px007의 손 내재근 표적 기능(벌림·모음 또는 MCP 굴곡/IP 신전)을 충분히 반영하지 못하므로 재생성 후 검수할 것."
+        }
+      ]
     },
     {
       "profile_id": "px008",
@@ -138,7 +156,18 @@
       "gen_id": "f3e1b777-ec4c-4018-b702-77f61a0d4cda",
       "candidate_generated_on": "2026-09-30",
       "supersedes_candidate_gen_id": "039eacbe-cf1a-43d6-bb9f-de61a9fdaf8a",
-      "asset_gate": "BINARY_MATERIALIZATION_AND_PREVIEW_REVIEW_PENDING"
+      "asset_gate": "BINARY_MATERIALIZATION_AND_PREVIEW_REVIEW_PENDING",
+      "generation_brief": {
+        "view": "side_lying_or_supported_standing",
+        "start": "골반과 몸통을 안정적으로 정렬하고 운동 다리를 중립에 둔 시작 자세.",
+        "end": "골반을 유지한 채 운동 다리를 옆으로 천천히 들어 고관절 외전을 표현.",
+        "motion": "다리가 몸통에서 옆으로 멀어지는 방향 화살표.",
+        "support": "골반 수평/수직 정렬과 안전한 지지면 또는 지지물을 명확히 표현.",
+        "common_error": "골반 뒤넘어감·골반 끌어올림·몸통 기울임·발끝 과도한 외회전을 오류 표시.",
+        "text_policy": "임의 반복횟수·세트·각도 금지. 통증을 지속 악화시키는 압박 자세를 정상 진행으로 표현하지 말 것."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
     },
     {
       "profile_id": "px009",
@@ -158,7 +187,18 @@
           "severity": "PATIENT_EDUCATION_ACCURACY",
           "note": "'무릎이 발끝보다 앞으로 지나가지 않기'를 보편적 절대 금기처럼 표현하지 말 것. 무릎-발끝 정렬, 통증/부하 허용 범위, 환자별 깊이 조절을 우선한다."
         }
-      ]
+      ],
+      "generation_brief": {
+        "view": "side_or_slight_oblique",
+        "start": "발을 편안한 간격으로 두고 발바닥 전체가 바닥에 닿은 선 자세.",
+        "end": "고관절과 무릎을 함께 굽혀 통증 허용 범위까지 앉은 자세. 무릎은 발의 진행 방향을 따르고 뒤꿈치는 바닥 유지.",
+        "motion": "골반이 아래·뒤로 이동하고 다시 올라오는 방향을 단순 화살표로 표시.",
+        "support": "발바닥 전체 지지, 무릎-발끝 방향 정렬, 척추의 편안한 중립을 명확히 표현.",
+        "common_error": "무릎 안쪽 붕괴·뒤꿈치 들림·과도한 몸통 붕괴를 오류 표시. 무릎이 발끝보다 앞으로 나가는 것 자체를 절대 금기로 표시하지 않음.",
+        "text_policy": "임의 반복횟수·세트·깊이 각도 금지. '무릎이 발끝보다 앞으로 나가면 안 된다' 같은 보편적 절대금기 문구 금지."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
     },
     {
       "profile_id": "px010",
