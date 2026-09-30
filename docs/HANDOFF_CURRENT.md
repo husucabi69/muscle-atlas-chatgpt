@@ -100,7 +100,13 @@ Stage 23B:
 - px007 current candidate has a `HAND_INTRINSIC_MOTION_MISMATCH` blocker because the generated fist-closing sequence does not adequately represent the intended intrinsic-hand function; regenerate before approval.
 - px008 candidate remains eligible for binary materialization + Preview review.
 - px009 retains the `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; regenerate/correct before approval.
-- next exact mainline item: **regenerate px007 from the locked brief**, then materialize/review px008, correct/regenerate px009, then generate px010–px018 from their locked briefs
+- materialization pipeline now exists: `scripts/ingest-realistic-exercise-asset.mjs`
+  - accepts only reviewed `CANDIDATE_GENERATED` profiles
+  - rejects unresolved `approval_blockers`, gen_id mismatch, non-WebP, undersized or non-portrait assets
+  - writes `assets/patient-exercise-realistic/pxNNN.webp`
+  - updates the manifest to `APPROVED` with stored resolution and A4 quality gate
+  - CI coverage: `scripts/realistic-asset-ingest-qa.mjs`
+- next exact mainline item: **regenerate px007 from the locked brief**. If an approved candidate file is obtained, ingest it through the new pipeline; then materialize/review px008, correct/regenerate px009, then generate px010–px018 from their locked briefs
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
