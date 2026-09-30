@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "updated_on": "2026-09-30",
+  "purpose": "실사형 환자 운동 그림을 만들 때 임상 동작과 사용자 승인 스타일을 정확히 보존하기 위한 제작 지시서.",
+  "requests": [
+    {
+      "profile_id": "px007",
+      "title_ko": "손가락 운동",
+      "status": "READY_TO_GENERATE",
+      "output_path": "assets/patient-exercise-realistic/px007.webp",
+      "style": {
+        "format": "세로형 의료·재활 환자교육 포스터",
+        "panels": [
+          "1 · 시작",
+          "2 · 끝"
+        ],
+        "same_person": true,
+        "same_clothing": true,
+        "same_camera": true,
+        "background": "흰색 임상교육 배경",
+        "look": "실제 성인 환자를 닮은 자연스러운 고품질 디지털 일러스트",
+        "mobile_first": true,
+        "a4_expandable": true
+      },
+      "exact_motion": {
+        "view": "손과 전완이 잘 보이는 근접 시점",
+        "start": "전완과 손목을 테이블에 편안히 지지하고 손가락을 자연스럽게 펴서 서로 가깝게 모은다.",
+        "end": "손목과 전완은 그대로 둔 채 손가락만 부드럽게 벌린다.",
+        "arrows": "손가락 사이가 서로 멀어지는 짧은 화살표만 사용한다.",
+        "fixed_points": "전완과 손목은 테이블에 지지하고 손목 중립을 유지한다."
+      },
+      "must_not_show": [
+        "주먹쥐기",
+        "손목을 꺾는 보상",
+        "손가락을 강하게 비트는 모습",
+        "고무밴드·퍼티 등 임의 저항",
+        "반복횟수·세트·저항량 숫자",
+        "수술·건 손상 후 임의 저항을 권하는 문구"
+      ],
+      "patient_copy": [
+        "손목과 전완은 편안히 지지합니다.",
+        "손가락만 부드럽게 벌립니다.",
+        "손목을 꺾거나 주먹을 쥐지 않습니다.",
+        "통증이 증가하거나 감각저하·붓기가 생기면 중단합니다."
+      ],
+      "review_gate": [
+        "시작 자세가 손가락 모음으로 보이는가",
+        "끝 자세가 손가락 벌림으로 보이는가",
+        "손목 중립과 전완 지지가 유지되는가",
+        "주먹쥐기 동작이 없는가",
+        "근거 없는 고정 숫자가 없는가",
+        "모바일 화면에서 시작/끝이 한눈에 구분되는가"
+      ],
+      "source_truth": [
+        "data/patient-exercise-library-v1.json#px007",
+        "data/patient-exercise-illustration-v2.json#px007",
+        "data/patient-exercise-realistic-assets-v1.json#px007"
+      ]
+    }
+  ]
+}
