@@ -1,3 +1,15 @@
+## 2026-10-01 morning manual checkpoint — binary handoff safety
+
+- px001–px006 remain approved mobile Preview realistic assets.
+- px007–px011 are reviewed candidates whose actual generated image binaries are not available in the repository; they stay `CANDIDATE_GENERATED / BINARY_HANDOFF_BLOCKED` and off the patient screen.
+- exact recovery order starts at px007. Do not regenerate px007–px011 merely to create files.
+- recovered binaries must pass profile ID + exact gen_id + checkpoint identity + WebP integrity + SHA-256 verification through `scripts/materialize-reviewed-realistic-binary.mjs`, then the repository file must be re-reviewed for clinical content, visual pose, and embedded text before ingest.
+- mobile runtime and A4 print tests explicitly keep `BINARY_HANDOFF_BLOCKED` candidates on the safe SVG fallback.
+- px012–px018 remain `PENDING_GENERATION`; their locked briefs now have automated patient-safety checks. Do not generate them while the earlier binary handoff remains blocked.
+- Global QA is PASS on the current workline through the new handoff safety checks; runtime-navigation E2E may still be running at the manual hard-stop and must be checked first next session if not complete.
+- Production/main remains frozen.
+- exact next task: recover/materialize px007 gen_id `8c940201-f1c0-4440-832d-83972f8efbb8` if that exact binary becomes accessible. If not accessible, preserve the blocker and continue only independent Stage 23B QA/registry/mobile/A4/print work.
+
 # Muscle Atlas Current Handoff
 
 Updated: 2026-09-29 KST
