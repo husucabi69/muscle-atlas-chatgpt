@@ -59,8 +59,8 @@ check('px001 corrected realistic asset is approved after three-part review',(()=
     Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
     ['clinical_content','visual_pose','embedded_text'].every(k=>x.candidate_review?.[k]==='PASS');
 })());
-check('px004-px006 remain blocked until dosage text correction',
-  ['px004','px005','px006'].every(id=>{
+check('px006 remains blocked until dosage text and binary are corrected',
+  ['px006'].every(id=>{
     const x=manifest.profiles.find(p=>p.profile_id===id);
     return x&&x.status==='CANDIDATE_GENERATED'&&!x.composite_url&&x.asset_gate==='CONTENT_CORRECTION_THEN_PREVIEW_REVIEW_PENDING'&&
       Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='UNSUPPORTED_FIXED_DOSAGE_TEXT');
