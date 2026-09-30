@@ -58,6 +58,8 @@ jobs:
         run: node scripts/patient-exercise-illustration-3-qa.mjs
       - name: Run Stage 23B realistic exercise asset pipeline QA
         run: node scripts/patient-exercise-realistic-assets-qa.mjs
+      - name: Run Stage 23B realistic WebP binary integrity QA
+        run: node scripts/realistic-webp-integrity-qa.mjs
       - name: Run Stage 23B realistic asset ingest QA
         run: node scripts/realistic-asset-ingest-qa.mjs
       - name: Run Stage 23B realistic generation prompt QA
