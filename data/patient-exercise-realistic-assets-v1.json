@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026-09-30-stage23b-materialized-px006",
+  "dataset_version": "2026.09.30-stage23b-px007-exact-motion-lock",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -277,20 +277,20 @@
       "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "손가락 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": "2026-09-30 자동개발에서 후보를 추가 개선. 손가락 완전 펴기→천천히 주먹쥐기→천천히 펴기, 중립 손목과 흔한 손목 보상 오류를 명확히 표시하고 임의 반복횟수·세트는 넣지 않음. repository binary materialization 전이므로 APPROVED로 승격하지 않음.",
+      "review_note": "2026-09-30 자동개발에서 후보를 추가 개선. 손가락 완전 펴기→천천히 주먹쥐기→천천히 펴기, 중립 손목과 흔한 손목 보상 오류를 명확히 표시하고 임의 반복횟수·세트는 넣지 않음. repository binary materialization 전이므로 APPROVED로 승격하지 않음. 2026-09-30 대표 동작을 손가락 벌림으로 단일화. 기존 주먹쥐기 후보는 승인 금지.",
       "generator": "OpenAI image generation",
       "gen_id": "fbf5ab4d-37ca-440d-bb2d-7edccfd92253",
       "candidate_generated_on": "2026-09-30",
       "supersedes_candidate_gen_id": "cd27f050-e418-4cfe-9fe2-99e64629337b",
-      "asset_gate": "CONTENT_CORRECTION_THEN_BINARY_MATERIALIZATION_AND_PREVIEW_REVIEW_PENDING",
+      "asset_gate": "REGENERATE_EXACT_FINGER_ABDUCTION_THEN_PREVIEW_REVIEW",
       "generation_brief": {
         "view": "closeup_hand",
-        "start": "전완과 손목을 편안히 지지하고 손가락 힘을 뺀 중립 자세.",
-        "end": "손목 중립을 유지한 채 손가락 벌림·모음 또는 MCP 굴곡/IP 신전 같은 손 내재근 기능을 명확히 보여주는 자세.",
-        "motion": "손가락이 벌어지거나 intrinsic-plus 방향으로 움직이는 작은 화살표.",
-        "support": "전완과 손목 지지, 손목 중립을 분명히 표현.",
-        "common_error": "손목을 꺾어 보상하거나 통증을 참고 강하게 벌리기, 단순 주먹쥐기로 운동 목적을 대체하는 모습을 오류로 구분.",
-        "text_policy": "임의 반복횟수·세트·저항량 금지. 수술·건 손상 후 임의 저항 사용 메시지 금지."
+        "start": "전완과 손목을 테이블에 편안히 지지하고, 손가락을 자연스럽게 펴서 서로 가깝게 모은 자세.",
+        "end": "손목과 전완 위치는 그대로 유지하면서 손가락만 부드럽게 벌린 자세. 손가락은 주먹처럼 굽히지 않는다.",
+        "motion": "손가락들이 서로 멀어지는 짧은 화살표를 각 손가락 사이에 표시. 손목 이동 화살표는 금지.",
+        "support": "전완과 손목은 테이블에 편안히 지지하고 손목 중립을 명확히 표현.",
+        "common_error": "주먹쥐기로 바꾸기, 손목을 꺾어 보상하기, 통증을 참고 강하게 벌리기, 수술·건 손상 후 임의 저항 사용.",
+        "text_policy": "반복횟수·세트·저항량 숫자 임의 생성 금지. 대표 그림은 무저항 손가락 벌림만 표현하고, 고무밴드·퍼티는 개별 상태 확인 후 별도 교육으로 다룬다."
       },
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
@@ -298,7 +298,7 @@
         {
           "code": "HAND_INTRINSIC_MOTION_MISMATCH",
           "severity": "PATIENT_EDUCATION_ACCURACY",
-          "note": "현재 후보의 '펴기→주먹쥐기' 중심 동작은 px007의 손 내재근 표적 기능(벌림·모음 또는 MCP 굴곡/IP 신전)을 충분히 반영하지 못하므로 재생성 후 검수할 것."
+          "note": "기존 후보는 주먹쥐기 중심이라 목표 기능과 불일치. 새 후보는 '손가락 모음 → 손가락 벌림'을 명확히 보여주고 손목 중립·전완 지지를 유지해야 하며 주먹쥐기를 포함하지 않는다."
         }
       ],
       "candidate_review": {
@@ -306,7 +306,7 @@
         "visual_pose": "FAIL",
         "embedded_text": "PENDING",
         "reviewed_on": "2026-09-30",
-        "note": "현재 후보의 주먹쥐기 중심 동작이 손 내재근 목표 기능과 불일치."
+        "note": "기존 후보는 폐기 대상. 새 대표 그림은 무저항 손가락 벌림 한 동작으로 재생성·재검수."
       }
     },
     {
