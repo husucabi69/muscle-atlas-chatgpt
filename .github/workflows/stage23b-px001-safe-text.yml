@@ -1,0 +1,62 @@
+name: Stage 23B px001 safe-text materialization
+
+on:
+  push:
+    branches:
+      - preview/development
+    paths:
+      - ops/stage23b-px001-safe-text.trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stage23b-px001-safe-text
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: preview/development
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image tooling
+        run: |
+          python -m pip install --disable-pip-version-check pillow
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+
+      - name: Correct px001 embedded patient text
+        run: python scripts/postprocess-px001-safe-text.py
+
+      - name: Verify corrected WebP
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          p=Path("assets/patient-exercise-realistic/px001.webp")
+          im=Image.open(p)
+          assert im.format=="WEBP", im.format
+          assert im.size==(320,400), im.size
+          assert p.stat().st_size>4096, p.stat().st_size
+          print("PX001_CORRECTED_WEBP_PASS",im.size,p.stat().st_size)
+          PY
+
+      - name: Commit corrected candidate to Preview
+        run: |
+          if git diff --quiet -- assets/patient-exercise-realistic/px001.webp; then
+            echo "No binary change detected"
+            exit 1
+          fi
+          git config user.name "muscle-atlas-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/patient-exercise-realistic/px001.webp
+          git commit -m "Stage 23B: materialize corrected px001 mobile candidate"
+          git push origin HEAD:preview/development
