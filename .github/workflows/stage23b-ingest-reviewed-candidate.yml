@@ -1,0 +1,77 @@
+name: Stage 23B ingest reviewed realistic candidate
+
+on:
+  push:
+    branches:
+      - preview/development
+    paths:
+      - ops/stage23b-ingest-reviewed-candidate.trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stage23b-ingest-reviewed-candidate
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: preview/development
+
+      - name: Read ingest request
+        id: req
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=ops/stage23b-ingest-reviewed-candidate.trigger
+          PROFILE="$(sed -n 's/^profile=//p' "$FILE" | tail -1)"
+          GEN_ID="$(sed -n 's/^gen_id=//p' "$FILE" | tail -1)"
+          DATE="$(sed -n 's/^date=//p' "$FILE" | tail -1)"
+          [[ "$PROFILE" =~ ^px[0-9]{3}$ ]]
+          [[ -n "$GEN_ID" ]]
+          [[ "$DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+          echo "profile=$PROFILE" >> "$GITHUB_OUTPUT"
+          echo "gen_id=$GEN_ID" >> "$GITHUB_OUTPUT"
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Ingest reviewed candidate
+        run: |
+          node scripts/ingest-realistic-exercise-asset.mjs \
+            --profile "${{ steps.req.outputs.profile }}" \
+            --source "assets/patient-exercise-realistic/${{ steps.req.outputs.profile }}.webp" \
+            --gen-id "${{ steps.req.outputs.gen_id }}" \
+            --date "${{ steps.req.outputs.date }}"
+
+      - name: Verify manifest approval
+        run: |
+          PROFILE="${{ steps.req.outputs.profile }}" node - <<'NODE'
+          const fs=require('fs');
+          const m=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-assets-v1.json','utf8'));
+          const p=m.profiles.find(x=>x.profile_id===process.env.PROFILE);
+          if(!p)throw new Error('profile missing');
+          if(p.status!=='APPROVED')throw new Error('not approved');
+          if(!p.composite_url?.endsWith(process.env.PROFILE+'.webp'))throw new Error('asset URL missing');
+          if(p.asset_gate!=='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING')throw new Error('unexpected asset gate');
+          console.log('REVIEWED_CANDIDATE_INGEST_PASS',p.profile_id,p.preview_resolution,p.asset_gate);
+          NODE
+
+      - name: Commit approved candidate to Preview
+        run: |
+          git config user.name "muscle-atlas-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/patient-exercise-realistic-assets-v1.json "assets/patient-exercise-realistic/${{ steps.req.outputs.profile }}.webp"
+          if git diff --cached --quiet; then
+            echo "No ingest changes detected"
+            exit 1
+          fi
+          git commit -m "Stage 23B: approve ${{ steps.req.outputs.profile }} reviewed realistic asset"
+          git push origin HEAD:preview/development
