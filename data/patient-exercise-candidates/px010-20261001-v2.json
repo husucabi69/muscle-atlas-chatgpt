@@ -1,0 +1,26 @@
+{
+  "stable_id": "px010",
+  "stage": "23B",
+  "candidate_kind": "realistic_patient_exercise",
+  "exercise": "bridge",
+  "generated_at_kst": "2026-10-01",
+  "gen_id": "fcf6cc70-ea55-4285-ad2b-c61981ce219c",
+  "supersedes_candidate_gen_id": "3446296d-1e03-4371-a729-b511f25b9841",
+  "review": {
+    "clinical_content": "PASS",
+    "visual_pose": "PASS",
+    "embedded_text": "PASS_WITH_GATE",
+    "overall": "CANDIDATE_PASS_NOT_APPROVED"
+  },
+  "structural_fix_verified": [
+    "supine bridge start position",
+    "pelvis lift driven by gluteal/posterior-chain effort",
+    "feet remain supported",
+    "knees follow comfortable forward direction",
+    "no rigid shoulder-to-knee straight-line target",
+    "uses tolerant cue: trunk-pelvis-thigh connect naturally within comfortable range",
+    "no arbitrary repetitions, sets, hold time, or height prescription"
+  ],
+  "safety_gate": "Do not mark APPROVED until canonical WebP materialization, ingest QA, mobile Preview QA, and A4 print QA pass.",
+  "next_action": "Materialize this reviewed candidate if binary handoff is available; otherwise continue independently with px011 heel raise without regenerating px010."
+}
