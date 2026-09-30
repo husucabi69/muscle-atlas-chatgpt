@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {inspectWebP} from './inspect-realistic-webp.mjs';
 
-function checkpointIdentity(checkpointPath){
+export function checkpointIdentity(checkpointPath){
   if(!checkpointPath||!fs.existsSync(checkpointPath))throw new Error('Checkpoint missing: '+String(checkpointPath||''));
   const raw=fs.readFileSync(checkpointPath,'utf8');
   if(path.extname(checkpointPath).toLowerCase()==='.json'){
