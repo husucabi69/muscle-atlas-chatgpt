@@ -88,7 +88,6 @@ Stage 23B:
 - white clinical background, Korean labels, mobile-readable, A4 printable
 - registry: `data/patient-exercise-realistic-assets-v1.json`
 - current realistic asset status at handoff:
-  - px001–px005 = `APPROVED` mobile Preview assets after fixed-number removal, three-part review, and canonical ingest. A4-HD remains pending.
   - px001–px006 = `APPROVED` mobile Preview assets. px006 corrupt WebP was rebuilt from the original image, fixed numeric dose text removed, three-part review passed, and canonical ingest completed. A4-HD remains pending.
   - px007 = `PENDING_GENERATION`. The old fist-closing candidate is explicitly rejected and preserved only in audit history. New representative motion is locked to **fingers together → finger abduction/spread**, wrist/forearm supported, no fist closure and no arbitrary resistance.
   - px008 = `CANDIDATE_GENERATED`; candidate provenance exists but binary materialization + Preview review is still pending.
@@ -98,7 +97,7 @@ Stage 23B:
   - v11.65 adds a print-quality guard: while an approved realistic asset is still marked `MOBILE_PREVIEW_APPROVED_A4_HD_PENDING`, screen/mobile uses the realistic WebP but A4 print uses the sharp SVG fallback plus an explanatory note
 - runtime E2E was structurally updated to validate realistic images while retaining hidden SVG fallback; a literal-newline syntax regression was corrected in `dc0d1e763effce157f2605fc3be83bcc509ff3f0`
 - px007–px018 now all have locked `generation_brief` fields (pose, motion, support, common error, and no-invented-dosage policy).
-- px007 current candidate has a `HAND_INTRINSIC_MOTION_MISMATCH` blocker because the generated fist-closing sequence does not adequately represent the intended intrinsic-hand function; regenerate before approval.
+- px007 old fist-closing candidate is rejected and retained only in audit history. Current state is `PENDING_GENERATION`; the next image must show fingers together → finger abduction/spread with wrist neutral and no arbitrary resistance.
 - px008 candidate remains eligible for binary materialization + Preview review.
 - px009 retains the `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; regenerate/correct before approval.
 - materialization pipeline now exists: `scripts/ingest-realistic-exercise-asset.mjs`
@@ -122,6 +121,11 @@ Stage 23B:
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
 - next exact mainline item: **px007 / GENERATE_FROM_LOCKED_BRIEF** using the locked fingers-together → finger-spread motion. Old fist-closing candidate is rejected and must not be reused. Then three-part review → ingest, followed by px008, px009, and px010–px018.
+- Stage 23B realistic asset handoff is now safer:
+  - strict WebP structure/integrity inspector rejects truncated or malformed files before approval
+  - candidate registration helper only moves a valid binary into Preview review state
+  - canonical render requests for px007–px010 are stored in `data/patient-exercise-render-requests-v1.json`
+  - px008 hip abduction, px009 squat safety correction, and px010 bridge specs are ready for the next image-production sequence
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
