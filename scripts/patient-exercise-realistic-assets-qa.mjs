@@ -17,6 +17,15 @@ check('No stale style-reference status remains after candidate generation',
 check('Generated candidates retain generator provenance and no asset URL',
   manifest.profiles.filter(x=>x.status==='CANDIDATE_GENERATED').every(x=>x.generator==='OpenAI image generation'&&typeof x.gen_id==='string'&&x.gen_id.length>10&&!x.composite_url)
 );
+check('px010-px012 have locked generation briefs',
+  ['px010','px011','px012'].every(id=>{
+    const x=manifest.profiles.find(p=>p.profile_id===id);
+    return x&&x.status==='PENDING_GENERATION'&&x.generation_brief&&x.generation_brief_reviewed_on==='2026-09-30'&&typeof x.generation_brief.text_policy==='string';
+  })
+);
+check('Generation briefs prohibit invented dosage',
+  ['px010','px011','px012'].every(id=>String(manifest.profiles.find(p=>p.profile_id===id)?.generation_brief?.text_policy||'').includes('금지'))
+);
 check('Pending/reference/candidate slots never pretend to have an asset URL',
   manifest.profiles.filter(x=>x.status!=='APPROVED').every(x=>!x.composite_url)
 );
