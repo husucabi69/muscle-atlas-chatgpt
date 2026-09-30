@@ -76,7 +76,9 @@ const checks=[
   ['pre-materialization review is preserved for audit',blockedResult?.profile?.pre_materialization_review?.clinical_content==='PASS'],
   ['repository binary must be re-reviewed before display',blockedResult?.profile?.candidate_review?.clinical_content==='PENDING'&&blockedResult?.profile?.composite_url===null],
   ['normal valid WebP can still be registered',Boolean(normalResult),normalError||''],
-  ['normal registration records binary integrity PASS',normalResult?.profile?.binary_integrity?.result==='PASS']
+  ['normal registration records binary integrity PASS',normalResult?.profile?.binary_integrity?.result==='PASS'],
+  ['blocked handoff stores SHA-256 fingerprint',/^[0-9a-f]{64}$/.test(blockedResult?.profile?.binary_integrity?.sha256||'')],
+  ['normal registration stores SHA-256 fingerprint',/^[0-9a-f]{64}$/.test(normalResult?.profile?.binary_integrity?.sha256||'')]
 ];
 let failed=0;
 for(const [name,pass,detail=''] of checks){
