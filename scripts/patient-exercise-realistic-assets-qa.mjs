@@ -17,14 +17,14 @@ check('No stale style-reference status remains after candidate generation',
 check('Generated candidates retain generator provenance and no asset URL',
   manifest.profiles.filter(x=>x.status==='CANDIDATE_GENERATED').every(x=>x.generator==='OpenAI image generation'&&typeof x.gen_id==='string'&&x.gen_id.length>10&&!x.composite_url)
 );
-check('px010-px018 have locked generation briefs',
-  ['px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>{
+check('px007-px018 have locked generation briefs',
+  ['px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>{
     const x=manifest.profiles.find(p=>p.profile_id===id);
     return x&&x.status==='PENDING_GENERATION'&&x.generation_brief&&x.generation_brief_reviewed_on==='2026-09-30'&&typeof x.generation_brief.text_policy==='string';
   })
 );
 check('Generation briefs prohibit invented dosage',
-  ['px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>String(manifest.profiles.find(p=>p.profile_id===id)?.generation_brief?.text_policy||'').includes('금지'))
+  ['px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>String(manifest.profiles.find(p=>p.profile_id===id)?.generation_brief?.text_policy||'').includes('금지'))
 );
 check('Pending/reference/candidate slots never pretend to have an asset URL',
   manifest.profiles.filter(x=>x.status!=='APPROVED').every(x=>!x.composite_url)
@@ -34,6 +34,9 @@ check('Approval blockers prevent premature realistic asset approval',
 );
 check('px009 squat safety blocker is explicit until corrected',
   manifest.profiles.some(x=>x.profile_id==='px009'&&x.status==='CANDIDATE_GENERATED'&&Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='SQUAT_KNEE_TOE_ABSOLUTE_CUE'))
+);
+check('px007 hand-motion mismatch blocker is explicit until regenerated',
+  manifest.profiles.some(x=>x.profile_id==='px007'&&x.status==='CANDIDATE_GENERATED'&&Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='HAND_INTRINSIC_MOTION_MISMATCH'))
 );
 check('Any APPROVED asset must have WebP URL',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>typeof x.composite_url==='string'&&/\.webp(?:\?|$)/.test(x.composite_url))
