@@ -20,7 +20,9 @@ Current reviewed-binary handoff queue (2026-10-01):
 5. px011 뒤꿈치 들기 — exact gen_id `f24f0f85-1d0e-4a91-a71d-a15c6255431a`.
 
 Use `node scripts/list-realistic-binary-handoff-queue.mjs` to print the live queue.
-When an exact binary becomes available, use the candidate registration path only after its gen_id/checkpoint matches. The repository file must then be visually re-reviewed before canonical ingest.
+When an exact binary becomes available, use:
+`node scripts/materialize-reviewed-realistic-binary.mjs pxNNN /path/to/exact.webp <exact-gen_id>`
+This command verifies the blocked profile, exact gen_id, checkpoint identity, WebP structure, and SHA-256 before canonical placement/registration. The repository file must then be visually re-reviewed before canonical ingest.
 
 If the exact px007 binary cannot be accessed in the current execution environment:
 - keep the blocker,
