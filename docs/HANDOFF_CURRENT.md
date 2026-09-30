@@ -105,6 +105,7 @@ Stage 23B:
   - rejects unresolved `approval_blockers`, gen_id mismatch, non-WebP, undersized or non-portrait assets
   - writes `assets/patient-exercise-realistic/pxNNN.webp`
   - updates the manifest to `APPROVED` with stored resolution and A4 quality gate
+  - high resolution alone does **not** grant A4 approval; `A4_HD_APPROVED` requires an explicit visual-review flag and minimum 1240x1754 dimensions
   - CI coverage: `scripts/realistic-asset-ingest-qa.mjs`
 - canonical prompt builder now exists: `scripts/build-realistic-exercise-prompt.mjs`
   - compiles the locked style + pose/motion/support/common-error brief + unresolved blocker instructions into one reproducible generation prompt
