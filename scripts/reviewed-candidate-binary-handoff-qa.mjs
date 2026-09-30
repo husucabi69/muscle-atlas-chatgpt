@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import {getNextMainlineTask} from './next-realistic-exercise-task.mjs';
+import {checkpointIdentity} from './register-realistic-candidate.mjs';
 
 const manifest=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-assets-v1.json','utf8'));
 const requests=JSON.parse(fs.readFileSync('data/patient-exercise-render-requests-v1.json','utf8'));
@@ -15,7 +16,15 @@ check('At least one reviewed candidate is waiting for binary handoff',blocked.le
 for(const p of blocked){
   check(p.profile_id+' uses binary-handoff gate',p.asset_gate==='BINARY_HANDOFF_BLOCKED',p.asset_gate||'');
   check(p.profile_id+' has checkpoint path',typeof p.candidate_checkpoint_path==='string'&&p.candidate_checkpoint_path.length>0,p.candidate_checkpoint_path||'');
-  check(p.profile_id+' checkpoint exists',typeof p.candidate_checkpoint_path==='string'&&fs.existsSync(p.candidate_checkpoint_path),p.candidate_checkpoint_path||'');
+  const checkpointExists=typeof p.candidate_checkpoint_path==='string'&&fs.existsSync(p.candidate_checkpoint_path);
+  check(p.profile_id+' checkpoint exists',checkpointExists,p.candidate_checkpoint_path||'');
+  if(checkpointExists){
+    let identity=null,error=null;
+    try{identity=checkpointIdentity(p.candidate_checkpoint_path);}catch(e){error=e.message;}
+    check(p.profile_id+' checkpoint is readable',Boolean(identity),error||'');
+    check(p.profile_id+' checkpoint keeps same profile ID',identity?.profile_id===p.profile_id,identity?.profile_id||'');
+    check(p.profile_id+' checkpoint keeps same exact gen_id',identity?.gen_id===p.gen_id,identity?.gen_id||'');
+  }
   check(p.profile_id+' records blocked handoff state',p.binary_handoff?.state==='BLOCKED',p.binary_handoff?.state||'');
   check(p.profile_id+' keeps app asset off-screen',p.composite_url===null,String(p.composite_url));
   check(p.profile_id+' has no content blocker that would force regeneration',
