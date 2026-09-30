@@ -114,7 +114,9 @@ Stage 23B:
 - manifest-derived task selector now exists: `scripts/next-realistic-exercise-task.mjs`
   - it reads the existing manifest as the only source of truth and derives the next action instead of maintaining a duplicate queue
   - blocked candidates → `REGENERATE_FROM_LOCKED_BRIEF`
-  - clean generated candidates → `MATERIALIZE_AND_PREVIEW_REVIEW`
+  - clean candidate with no stored binary → `OBTAIN_BINARY_AND_PREVIEW_REVIEW`
+  - stored candidate binary with review pending → `PREVIEW_REVIEW_CANDIDATE`
+  - stored candidate binary with clinical/pose/text review all PASS → `INGEST_REVIEWED_CANDIDATE`
   - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
