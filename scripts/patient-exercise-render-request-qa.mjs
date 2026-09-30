@@ -9,7 +9,7 @@ check('render request schema is 1.0.0',requests.schema_version==='1.0.0',request
 const r=requests.requests?.find(x=>x.profile_id==='px007');
 const p=manifest.profiles?.find(x=>x.profile_id==='px007');
 check('px007 render request exists',Boolean(r));
-check('px007 current state is clean generation pending',p?.status==='PENDING_GENERATION',p?.status||'');
+check('px007 current state is reviewed candidate waiting for binary',p?.status==='CANDIDATE_GENERATED'&&p?.asset_gate==='BINARY_HANDOFF_BLOCKED',`${p?.status||''}/${p?.asset_gate||''}`);
 check('px007 request output path is canonical',r?.output_path==='assets/patient-exercise-realistic/px007.webp',r?.output_path||'');
 check('px007 start pose is fingers together',r?.exact_motion?.start?.includes('모은다'));
 check('px007 end pose is finger spread',r?.exact_motion?.end?.includes('벌린다'));
@@ -34,18 +34,18 @@ for(const id of ['px008','px009','px010']){
   check(id+' has mobile review gate',x?.review_gate?.some(v=>v.includes('모바일')));
 }
 const r7=requests.requests?.find(r=>r.profile_id==='px007');
-check('px007 render request is ready to generate',r7?.status==='READY_TO_GENERATE',r7?.status||'');
+check('px007 render request is blocked on exact binary handoff',r7?.status==='REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED',r7?.status||'');
 const r8=requests.requests?.find(r=>r.profile_id==='px008');
-check('px008 render request is ready to generate',r8?.status==='READY_TO_GENERATE',r8?.status||'');
+check('px008 render request is blocked on exact binary handoff',r8?.status==='REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED',r8?.status||'');
 check('px008 locks pelvis/trunk control',r8?.review_gate?.some(v=>v.includes('골반'))&&r8?.must_not_show?.some(v=>v.includes('몸통')));
 const r9=requests.requests?.find(r=>r.profile_id==='px009');
-check('px009 corrected render request is ready to generate',r9?.status==='READY_TO_GENERATE_CORRECTED',r9?.status||'');
+check('px009 corrected render request is blocked on exact binary handoff',r9?.status==='REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED',r9?.status||'');
 check('px009 forbids knee-toe absolute prohibition',
   r9?.must_not_show?.some(v=>v.includes('발끝보다 앞으로')&&v.includes('절대금기'))&&
   r9?.patient_copy?.some(v=>v.includes('무조건 금지하지 않습니다'))
 );
 const r10=requests.requests?.find(r=>r.profile_id==='px010');
-check('px010 render request is ready to generate',r10?.status==='READY_TO_GENERATE',r10?.status||'');
+check('px010 render request is blocked on exact binary handoff',r10?.status==='REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED',r10?.status||'');
 check('px010 locks glute-driven bridge without lumbar overextension',
   r10?.exact_motion?.end?.includes('엉덩이')&&r10?.must_not_show?.some(v=>v.includes('허리'))
 );
