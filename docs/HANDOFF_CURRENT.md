@@ -120,7 +120,8 @@ Stage 23B:
   - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
-- next exact mainline item: **px007 / GENERATE_FROM_LOCKED_BRIEF** using the locked fingers-together → finger-spread motion. Old fist-closing candidate is rejected and must not be reused. Then three-part review → ingest, followed by px008, px009, and px010–px018.
+- overnight 2026-10-01 scheduled work produced reviewed candidates for px007–px011, but their actual binaries were not repository-materialized. The manifest now records them as `CANDIDATE_GENERATED / BINARY_HANDOFF_BLOCKED` so they must not be regenerated merely to create a file.
+- next exact mainline item: **px007 / OBTAIN_BINARY_AND_PREVIEW_REVIEW**. Recover/materialize gen_id `8c940201-f1c0-4440-832d-83972f8efbb8`; if the exact binary is unavailable, keep the blocker and do independent Stage 23B work instead of generating px012+ candidates.
 - Stage 23B realistic asset handoff is now safer:
   - strict WebP structure/integrity inspector rejects truncated or malformed files before approval
   - candidate registration helper only moves a valid binary into Preview review state
