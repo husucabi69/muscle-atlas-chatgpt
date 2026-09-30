@@ -88,7 +88,7 @@ Stage 23B:
 - white clinical background, Korean labels, mobile-readable, A4 printable
 - registry: `data/patient-exercise-realistic-assets-v1.json`
 - current realistic asset status at handoff:
-  - px001 = corrected `CANDIDATE_GENERATED`; repository WebP was postprocessed without changing the approved pose panels, fixed numeric dosage text was removed, and `clinical_content / visual_pose / embedded_text` are all `PASS`. It remains off-screen until canonical ingest. px002–px006 still carry `UNSUPPORTED_FIXED_DOSAGE_TEXT` blockers.
+  - px001 = `APPROVED` mobile Preview asset. Fixed numeric dosage text was removed, three-part review passed, and canonical ingest completed on 2026-09-30. A4-HD remains pending. px002–px006 still carry `UNSUPPORTED_FIXED_DOSAGE_TEXT` blockers.
   - px007 = `CANDIDATE_GENERATED` with `HAND_INTRINSIC_MOTION_MISMATCH` blocker; regenerate before approval.
   - px008 = `CANDIDATE_GENERATED`; candidate provenance exists but binary materialization + Preview review is still pending.
   - px009 squat = `CANDIDATE_GENERATED` with `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; correct/regenerate before approval.
@@ -120,7 +120,7 @@ Stage 23B:
   - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
-- next exact mainline item: **px001 / INGEST_REVIEWED_CANDIDATE** through `scripts/ingest-realistic-exercise-asset.mjs`; after ingest + runtime QA, continue px002–px006 correction, then px007, px008, px009, and px010–px018.
+- next exact mainline item: **px002 / REGENERATE_FROM_LOCKED_BRIEF** using the same safe-text correction/review/ingest pipeline; then px003–px006, px007, px008, px009, and px010–px018.
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
