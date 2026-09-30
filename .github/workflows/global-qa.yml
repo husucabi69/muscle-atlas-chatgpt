@@ -70,6 +70,8 @@ jobs:
         run: node scripts/patient-exercise-render-request-qa.mjs
       - name: Run Stage 23B render-request builder QA
         run: node scripts/build-patient-exercise-render-request-qa.mjs
+      - name: Run Stage 23B pending render-brief safety QA
+        run: node scripts/pending-realistic-render-brief-qa.mjs
       - name: Run Stage 23B realistic next-task QA
         run: node scripts/next-realistic-exercise-task-qa.mjs
       - name: Run Stage 23B reviewed candidate binary-handoff QA
