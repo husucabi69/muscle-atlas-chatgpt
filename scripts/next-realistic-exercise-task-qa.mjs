@@ -8,8 +8,8 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 const next=getNextMainlineTask(manifest);
 check('Current next realistic task resolves',Boolean(next),JSON.stringify(next));
 check('Current next task is px007 after px001-px006 approval',next?.profile_id==='px007',JSON.stringify(next));
-check('px007 requires regeneration from locked brief',next?.action==='REGENERATE_FROM_LOCKED_BRIEF',next?.action||'');
-check('px007 carries hand-motion mismatch blocker',next?.blocker_codes?.includes('HAND_INTRINSIC_MOTION_MISMATCH'),(next?.blocker_codes||[]).join(','));
+check('px007 requires new generation from locked brief',next?.action==='GENERATE_FROM_LOCKED_BRIEF',next?.action||'');
+check('px007 rejected fist candidate no longer acts as current blocker',Array.isArray(next?.blocker_codes)&&next.blocker_codes.length===0,(next?.blocker_codes||[]).join(','));
 
 const p8=manifest.profiles.find(x=>x.profile_id==='px008');
 const p9=manifest.profiles.find(x=>x.profile_id==='px009');
