@@ -129,6 +129,39 @@ try{
   if(print.noteDisplay==='none'||!print.noteDisplay)fail('Stage 23B A4 explains HD pending fallback',print.noteDisplay);
   pass('Stage 23B A4 print geometry and HD-pending fallback');
 
+  const blockedPrint=await page.evaluate(()=>{
+    const p=exerciseProfileById.px007;
+    const asset=exerciseRealisticAssetById.px007;
+    const host=document.createElement('div');
+    host.id='educationDetail';
+    host.style.width='180mm';
+    host.innerHTML=exerciseIllustration(p);
+    document.body.appendChild(host);
+    document.body.classList.add('printing-education');
+    const figure=host.querySelector('.exercise-figure');
+    const realistic=host.querySelector('.exercise-realistic-media');
+    const fallback=host.querySelector('.exercise-svg-fallback');
+    const out={
+      gate:asset?.asset_gate||'',
+      status:asset?.status||'',
+      overflow:figure?figure.scrollWidth-figure.clientWidth:999,
+      realisticPresent:Boolean(realistic),
+      realisticDisplay:realistic?getComputedStyle(realistic).display:'',
+      fallbackPresent:Boolean(fallback),
+      fallbackDisplay:fallback?getComputedStyle(fallback).display:''
+    };
+    document.body.classList.remove('printing-education');
+    host.remove();
+    return out;
+  });
+  if(blockedPrint.gate==='BINARY_HANDOFF_BLOCKED'){
+    if(blockedPrint.status!=='CANDIDATE_GENERATED')fail('Stage 23B A4 blocked candidate status',blockedPrint.status);
+    if(blockedPrint.realisticPresent&&blockedPrint.realisticDisplay!=='none')fail('Stage 23B A4 blocked candidate must hide realistic media',blockedPrint.realisticDisplay);
+    if(!blockedPrint.fallbackPresent||blockedPrint.fallbackDisplay==='none')fail('Stage 23B A4 blocked candidate must show SVG fallback',blockedPrint.fallbackDisplay);
+    if(blockedPrint.overflow>1)fail('Stage 23B A4 blocked candidate no clipping',String(blockedPrint.overflow));
+    pass('Stage 23B A4 binary-handoff candidate uses safe fallback','px007');
+  }
+
   console.log('\n--- STAGE 23B PATIENT EXERCISE RUNTIME E2E ---');
   console.log('PASS | blocked and binary-handoff candidates stay off-screen; 18/18 profiles render safe fallback/approved realistic media + A4 print guard');
 }finally{
