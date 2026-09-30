@@ -22,7 +22,9 @@ check('Approval blocker stops materialization',throws(()=>validateCandidate({...
 check('Pending slot cannot skip candidate review',throws(()=>validateCandidate({...candidate,status:'PENDING_GENERATION'}),/CANDIDATE_GENERATED/));
 check('Generator provenance mismatch is rejected',throws(()=>validateCandidate(candidate,{genId:'wrong-id'}),/mismatch/));
 check('Mobile asset stays A4-HD pending',approvalGateForDimensions({width:640,height:800})==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING');
-check('A4-HD asset may clear print fallback gate',approvalGateForDimensions({width:1240,height:1754})==='A4_HD_APPROVED');
+check('Large asset stays A4-HD pending until visual review',approvalGateForDimensions({width:1240,height:1754})==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING');
+check('Explicit A4 visual review may clear print fallback gate',approvalGateForDimensions({width:1240,height:1754},{a4Reviewed:true})==='A4_HD_APPROVED');
+check('A4 approval rejects undersized asset',throws(()=>approvalGateForDimensions({width:640,height:800},{a4Reviewed:true}),/requires at least/));
 
 const approved=buildApprovedProfile(candidate,{dims:{width:640,height:800},integratedOn:'2026-09-30',assetUrl:'./assets/patient-exercise-realistic/px777.webp'});
 check('Approved profile records repository asset URL',approved.status==='APPROVED'&&approved.composite_url.endsWith('px777.webp'));
