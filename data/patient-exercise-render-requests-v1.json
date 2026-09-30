@@ -60,7 +60,7 @@
     {
       "profile_id": "px008",
       "title_ko": "고관절 외전",
-      "status": "READY_FOR_BINARY_OR_REGENERATION",
+      "status": "READY_TO_GENERATE",
       "output_path": "assets/patient-exercise-realistic/px008.webp",
       "style": {
         "format": "세로형 의료·재활 환자교육 포스터",
@@ -113,7 +113,7 @@
     {
       "profile_id": "px009",
       "title_ko": "스쿼트",
-      "status": "REQUIRES_CONTENT_CORRECTION_BEFORE_APPROVAL",
+      "status": "READY_TO_GENERATE_CORRECTED",
       "output_path": "assets/patient-exercise-realistic/px009.webp",
       "style": {
         "format": "세로형 의료·재활 환자교육 포스터",
