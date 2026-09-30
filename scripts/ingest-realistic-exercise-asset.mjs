@@ -57,15 +57,16 @@ export function validateAssetBytes(buffer){
   return dims;
 }
 
-export function approvalGateForDimensions(dims){
-  return dims.width>=A4_HD_MIN.width&&dims.height>=A4_HD_MIN.height
-    ?'A4_HD_APPROVED'
-    :'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING';
+export function approvalGateForDimensions(dims,{a4Reviewed=false}={}){
+  if(a4Reviewed&&(dims.width<A4_HD_MIN.width||dims.height<A4_HD_MIN.height)){
+    fail(`A4 visual approval requires at least ${A4_HD_MIN.width}x${A4_HD_MIN.height}; got ${dims.width}x${dims.height}.`);
+  }
+  return a4Reviewed?'A4_HD_APPROVED':'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING';
 }
 
-export function buildApprovedProfile(profile,{dims,integratedOn,assetUrl}){
+export function buildApprovedProfile(profile,{dims,integratedOn,assetUrl,a4Reviewed=false}){
   validateCandidate(profile);
-  const gate=approvalGateForDimensions(dims);
+  const gate=approvalGateForDimensions(dims,{a4Reviewed});
   return{
     ...profile,
     status:'APPROVED',
@@ -89,7 +90,7 @@ function parseArgs(argv){
   return out;
 }
 
-export function ingestCandidate({profileId,source,genId,integratedOn=new Date().toISOString().slice(0,10),manifestPath=MANIFEST_PATH,assetDir=ASSET_DIR}){
+export function ingestCandidate({profileId,source,genId,integratedOn=new Date().toISOString().slice(0,10),manifestPath=MANIFEST_PATH,assetDir=ASSET_DIR,a4Reviewed=false}){
   if(!profileId||!/^px\d{3}$/.test(profileId))fail('Use --profile pxNNN.');
   if(!source)fail('Use --source /path/to/candidate.webp.');
   const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
@@ -103,7 +104,7 @@ export function ingestCandidate({profileId,source,genId,integratedOn=new Date().
   const target=path.join(assetDir,profileId+'.webp');
   fs.writeFileSync(target,buffer);
   const assetUrl='./'+target.replaceAll('\\','/');
-  manifest.profiles[index]=buildApprovedProfile(profile,{dims,integratedOn,assetUrl});
+  manifest.profiles[index]=buildApprovedProfile(profile,{dims,integratedOn,assetUrl,a4Reviewed});
   manifest.dataset_version=`${integratedOn}-stage23b-materialized-${profileId}`;
   fs.writeFileSync(manifestPath,JSON.stringify(manifest,null,2)+'\n');
   return{profileId,target,dims,asset_gate:manifest.profiles[index].asset_gate,gen_id:profile.gen_id};
@@ -112,7 +113,7 @@ export function ingestCandidate({profileId,source,genId,integratedOn=new Date().
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   const a=parseArgs(process.argv.slice(2));
   try{
-    const result=ingestCandidate({profileId:a.profile,source:a.source,genId:a['gen-id'],integratedOn:a.date});
+    const result=ingestCandidate({profileId:a.profile,source:a.source,genId:a['gen-id'],integratedOn:a.date,a4Reviewed:a['a4-reviewed']==='yes'});
     console.log(JSON.stringify(result,null,2));
   }catch(error){
     console.error('INGEST FAIL | '+error.message);
