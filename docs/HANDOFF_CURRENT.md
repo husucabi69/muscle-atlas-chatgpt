@@ -121,7 +121,13 @@ Stage 23B:
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
 - overnight 2026-10-01 scheduled work produced reviewed candidates for px007–px011, but their actual binaries were not repository-materialized. The manifest now records them as `CANDIDATE_GENERATED / BINARY_HANDOFF_BLOCKED` so they must not be regenerated merely to create a file.
-- next exact mainline item: **px007 / OBTAIN_BINARY_AND_PREVIEW_REVIEW**. Recover/materialize gen_id `8c940201-f1c0-4440-832d-83972f8efbb8`; if the exact binary is unavailable, keep the blocker and do independent Stage 23B work instead of generating px012+ candidates.
+- next exact mainline item: **px007 / OBTAIN_BINARY_AND_PREVIEW_REVIEW**. Recover/materialize exact gen_id `8c940201-f1c0-4440-832d-83972f8efbb8`, verify checkpoint identity + WebP integrity + SHA-256, then re-review the repository file. If the exact binary is unavailable, keep the blocker and continue independent Stage 23B work instead of generating px012+ candidates.
+- 2026-10-01 morning manual hardening after overnight review:
+  - latest overnight px007–px011 reviewed candidates remain off-screen until exact binaries are recovered
+  - binary registration now verifies profile ID + exact gen_id + checkpoint identity before accepting a recovered file
+  - strict WebP inspection now records SHA-256 in addition to byte size and dimensions
+  - runtime E2E explicitly rejects any `BINARY_HANDOFF_BLOCKED` candidate that becomes visible
+  - `scripts/list-realistic-binary-handoff-queue.mjs` prints the live recovery order and exact gen_ids
 - Stage 23B realistic asset handoff is now safer:
   - strict WebP structure/integrity inspector rejects truncated or malformed files before approval
   - candidate registration helper only moves a valid binary into Preview review state
