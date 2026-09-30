@@ -26,6 +26,25 @@ check('px007 request matches manifest locked brief',
   p?.generation_brief?.common_error?.includes('주먹쥐기')
 );
 
+for(const id of ['px008','px009','px010']){
+  const x=requests.requests?.find(r=>r.profile_id===id);
+  check(id+' render request exists',Boolean(x));
+  check(id+' output path is canonical',x?.output_path==='assets/patient-exercise-realistic/'+id+'.webp',x?.output_path||'');
+  check(id+' forbids invented fixed numbers',x?.must_not_show?.some(v=>v.includes('숫자')));
+  check(id+' has mobile review gate',x?.review_gate?.some(v=>v.includes('모바일')));
+}
+const r8=requests.requests?.find(r=>r.profile_id==='px008');
+check('px008 locks pelvis/trunk control',r8?.review_gate?.some(v=>v.includes('골반'))&&r8?.must_not_show?.some(v=>v.includes('몸통')));
+const r9=requests.requests?.find(r=>r.profile_id==='px009');
+check('px009 forbids knee-toe absolute prohibition',
+  r9?.must_not_show?.some(v=>v.includes('발끝보다 앞으로')&&v.includes('절대금기'))&&
+  r9?.patient_copy?.some(v=>v.includes('무조건 금지하지 않습니다'))
+);
+const r10=requests.requests?.find(r=>r.profile_id==='px010');
+check('px010 locks glute-driven bridge without lumbar overextension',
+  r10?.exact_motion?.end?.includes('엉덩이')&&r10?.must_not_show?.some(v=>v.includes('허리'))
+);
+
 let failed=0;
 for(const x of checks){
   console.log(`${x.pass?'PASS':'FAIL'} | ${x.name}${x.detail?' | '+x.detail:''}`);
