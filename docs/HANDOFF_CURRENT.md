@@ -90,16 +90,16 @@ Stage 23B:
 - current realistic asset status at handoff:
   - px001–px006 = `APPROVED` mobile Preview assets. px006 corrupt WebP was rebuilt from the original image, fixed numeric dose text removed, three-part review passed, and canonical ingest completed. A4-HD remains pending.
   - px007 = `PENDING_GENERATION`. The old fist-closing candidate is explicitly rejected and preserved only in audit history. New representative motion is locked to **fingers together → finger abduction/spread**, wrist/forearm supported, no fist closure and no arbitrary resistance.
-  - px008 = `CANDIDATE_GENERATED`; candidate provenance exists but binary materialization + Preview review is still pending.
-  - px009 squat = `CANDIDATE_GENERATED` with `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; correct/regenerate before approval.
+  - px008 = `PENDING_GENERATION`. Old gen_id-only candidate could not be recovered from conversation/library or GitHub Actions artifacts and is preserved only in rejected-candidate audit history. New hip-abduction render request is ready.
+  - px009 squat = `PENDING_GENERATION`. Old candidate is retired because its binary is unrecoverable and its knee-toe absolute-prohibition cue was unsafe. Corrected squat render request is ready and explicitly forbids that absolute cue.
   - px010–px018 = `PENDING_GENERATION`
   - px001–px018 all now have locked generation briefs; fixed time/repetition/set/angle numbers must not be invented unless supported by the source registry.
   - v11.65 adds a print-quality guard: while an approved realistic asset is still marked `MOBILE_PREVIEW_APPROVED_A4_HD_PENDING`, screen/mobile uses the realistic WebP but A4 print uses the sharp SVG fallback plus an explanatory note
 - runtime E2E was structurally updated to validate realistic images while retaining hidden SVG fallback; a literal-newline syntax regression was corrected in `dc0d1e763effce157f2605fc3be83bcc509ff3f0`
 - px007–px018 now all have locked `generation_brief` fields (pose, motion, support, common error, and no-invented-dosage policy).
 - px007 old fist-closing candidate is rejected and retained only in audit history. Current state is `PENDING_GENERATION`; the next image must show fingers together → finger abduction/spread with wrist neutral and no arbitrary resistance.
-- px008 candidate remains eligible for binary materialization + Preview review.
-- px009 retains the `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; regenerate/correct before approval.
+- px008 old candidate recovery is closed: no reusable binary exists in known storage, so the correct next action after px007 is fresh generation from the locked brief.
+- px009 old candidate is retired; the corrected locked brief/render request forbids the knee-toe absolute cue before any new approval.
 - materialization pipeline now exists: `scripts/ingest-realistic-exercise-asset.mjs`
   - accepts only `CANDIDATE_GENERATED` profiles with **three-part candidate review PASS**: `clinical_content / visual_pose / embedded_text`
   - rejects unresolved `approval_blockers`, incomplete/failed candidate review, gen_id mismatch, non-WebP, undersized or non-portrait assets
