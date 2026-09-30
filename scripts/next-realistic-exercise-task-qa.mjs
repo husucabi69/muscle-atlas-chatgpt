@@ -8,8 +8,8 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 const next=getNextMainlineTask(manifest);
 check('Current next realistic task resolves',Boolean(next),JSON.stringify(next));
 check('Current next task is px005 after px001-px004 approval',next?.profile_id==='px005',JSON.stringify(next));
-check('px005 requires regeneration from locked brief',next?.action==='REGENERATE_FROM_LOCKED_BRIEF',next?.action||'');
-check('px005 carries unsupported fixed-dosage blocker',next?.blocker_codes?.includes('UNSUPPORTED_FIXED_DOSAGE_TEXT'),(next?.blocker_codes||[]).join(','));
+check('px005 reviewed candidate requires canonical ingest',next?.action==='INGEST_REVIEWED_CANDIDATE',next?.action||'');
+check('px005 has no unresolved blocker after correction',Array.isArray(next?.blocker_codes)&&next.blocker_codes.length===0,(next?.blocker_codes||[]).join(','));
 
 const p8=manifest.profiles.find(x=>x.profile_id==='px008');
 const p9=manifest.profiles.find(x=>x.profile_id==='px009');
