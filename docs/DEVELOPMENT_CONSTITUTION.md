@@ -151,6 +151,18 @@ Effective: 2026-09-27
 
 도구 실행 중에도 논리적 경계마다 진행상태를 전달한다.
 
+## 6A. Stage 23B 생성 이미지 바이너리 인계 규칙
+
+- 실사형 운동 이미지는 **생성(gen_id 확보)만으로 완료가 아니다.**
+- 생성한 후보를 계속 사용할 의도가 있으면 가능한 같은 작업 회차 안에서 실제 image binary를 파일로 확보하고, WebP 무결성 검사 후 canonical asset slot에 materialize한다.
+- 실제 파일을 저장소로 옮기지 못했지만 후보가 임상내용·자세·내장문구 검수를 통과했다면 해당 profile은 `CANDIDATE_GENERATED / BINARY_HANDOFF_BLOCKED`로 기록한다.
+- `BINARY_HANDOFF_BLOCKED` 후보는 **재생성하지 않는다.** exact gen_id/checkpoint의 binary 회수를 먼저 시도한다.
+- 한 profile이 `BINARY_HANDOFF_BLOCKED`인 동안 다음 profile의 새 이미지를 계속 생성해 gen_id-only 후보를 쌓는 것을 금지한다.
+- binary handoff가 현재 실행환경에서 불가능하면 이미지 생성은 멈추고, 같은 Stage 23B 안의 코드·QA·registry·mobile/A4 print·문서·회귀검사처럼 독립 가능한 작업으로 전환한다.
+- repository WebP가 없으면 `APPROVED` 승격 금지. 실제 binary integrity PASS + 임상내용/자세/내장문구 3중 검수 + canonical ingest를 모두 통과해야 한다.
+- rejected candidate와 reviewed-but-unmaterialized candidate를 혼동하지 않는다. rejected candidate는 재사용 금지 감사기록이고, reviewed candidate는 exact binary 회수 대상이다.
+- 이 규칙은 수동 작업과 예약 자동개발 모두에 동일하게 적용한다.
+
 ## 7. 완료 정의
 
 `DONE`은 아래를 모두 만족해야 한다.
