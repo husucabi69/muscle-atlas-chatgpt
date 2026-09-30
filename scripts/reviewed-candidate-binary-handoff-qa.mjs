@@ -31,6 +31,18 @@ for(const p of blocked){
     Array.isArray(p.approval_blockers)&&p.approval_blockers.length===0,
     JSON.stringify(p.approval_blockers||[])
   );
+  check(p.profile_id+' pre-binary clinical review passed',p.candidate_review?.clinical_content==='PASS',p.candidate_review?.clinical_content||'');
+  check(p.profile_id+' pre-binary visual-pose review passed',p.candidate_review?.visual_pose==='PASS',p.candidate_review?.visual_pose||'');
+  check(p.profile_id+' embedded-text review is PASS or explicitly pending binary recheck',
+    ['PASS','PENDING'].includes(p.candidate_review?.embedded_text),
+    p.candidate_review?.embedded_text||''
+  );
+  if(p.candidate_review?.embedded_text==='PENDING'){
+    check(p.profile_id+' pending embedded text explicitly waits for recovered binary',
+      /binary|파일|회수/i.test(p.candidate_review?.note||''),
+      p.candidate_review?.note||''
+    );
+  }
   const request=requests.requests?.find(x=>x.profile_id===p.profile_id);
   if(request){
     check(p.profile_id+' render request does not ask for regeneration',
