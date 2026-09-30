@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-px008-px009-recovery-closed",
+  "dataset_version": "2026.10.01-stage23b-reviewed-candidates-binary-handoff",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -274,13 +274,13 @@
     {
       "profile_id": "px007",
       "title_ko": "손가락 운동",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "손가락 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
       "review_note": "2026-09-30 자동개발에서 후보를 추가 개선. 손가락 완전 펴기→천천히 주먹쥐기→천천히 펴기, 중립 손목과 흔한 손목 보상 오류를 명확히 표시하고 임의 반복횟수·세트는 넣지 않음. repository binary materialization 전이므로 APPROVED로 승격하지 않음. 2026-09-30 대표 동작을 손가락 벌림으로 단일화. 기존 주먹쥐기 후보는 승인 금지. 2026-09-30 기존 후보를 폐기 기록으로 이동하고 상태를 새 후보 생성 대기로 정규화.",
       "generator": "OpenAI image generation",
       "supersedes_candidate_gen_id": "fbf5ab4d-37ca-440d-bb2d-7edccfd92253",
-      "asset_gate": "GENERATE_EXACT_FINGER_ABDUCTION_FROM_LOCKED_BRIEF",
+      "asset_gate": "BINARY_HANDOFF_BLOCKED",
       "generation_brief": {
         "view": "closeup_hand",
         "start": "전완과 손목을 테이블에 편안히 지지하고, 손가락을 자연스럽게 펴서 서로 가깝게 모은 자세.",
@@ -294,11 +294,11 @@
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
       "approval_blockers": [],
       "candidate_review": {
-        "clinical_content": "PENDING_NEW_CANDIDATE",
-        "visual_pose": "PENDING_NEW_CANDIDATE",
-        "embedded_text": "PENDING_NEW_CANDIDATE",
-        "reviewed_on": "2026-09-30",
-        "note": "기존 주먹쥐기 후보 폐기. 새 손가락 벌림 후보 생성 후 3중 검수 필요."
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "embedded_text": "PASS",
+        "reviewed_on": "2026-10-01",
+        "note": "야간 예약작업 검수 PASS. 손가락 모음→벌림, 전완/손목 지지, 손목 중립, 주먹쥐기·손목 보상 오류 구분, 임의 숫자 없음."
       },
       "rejected_candidates": [
         {
@@ -307,18 +307,28 @@
           "reason_code": "HAND_INTRINSIC_MOTION_MISMATCH",
           "note": "주먹쥐기 중심 동작이라 손 내재근 대표 기능(손가락 벌림)과 불일치. 재사용 금지."
         }
-      ]
+      ],
+      "gen_id": "8c940201-f1c0-4440-832d-83972f8efbb8",
+      "candidate_generated_on": "2026-10-01",
+      "candidate_checkpoint_path": "data/patient-exercise-candidates/px007-20261001.json",
+      "candidate_asset_path": null,
+      "binary_handoff": {
+        "state": "BLOCKED",
+        "checked_on": "2026-10-01",
+        "reason": "Generated candidate was reviewed in scheduled development, but the actual image binary is not materialized in the repository.",
+        "next_action": "Recover the exact generated binary if available; do not regenerate this profile merely to create a file."
+      }
     },
     {
       "profile_id": "px008",
       "title_ko": "고관절 외전",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "옆으로 누운 고관절 외전 운동의 시작 자세, 다리 들어 올리기, 복귀와 골반 보상 오류를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
       "review_note": "2026-09-30 자동개발에서 후보를 재생성·개선. 시작→들어올리기→천천히 내리기, 중둔근 해부학 표지, 골반 수직/몸통 정렬, 골반 뒤넘어감 및 발끝 과도한 외회전 오류를 명확히 분리. 임의 반복횟수·세트는 넣지 않음. repository binary materialization 및 Preview 검수 전이므로 APPROVED 아님.",
       "generator": "OpenAI image generation",
       "supersedes_candidate_gen_id": "f3e1b777-ec4c-4018-b702-77f61a0d4cda",
-      "asset_gate": "GENERATE_FROM_LOCKED_BRIEF",
+      "asset_gate": "BINARY_HANDOFF_BLOCKED",
       "generation_brief": {
         "view": "side_lying_or_supported_standing",
         "start": "골반과 몸통을 안정적으로 정렬하고 운동 다리를 중립에 둔 시작 자세.",
@@ -331,11 +341,11 @@
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
       "candidate_review": {
-        "clinical_content": "PENDING_NEW_CANDIDATE",
-        "visual_pose": "PENDING_NEW_CANDIDATE",
-        "embedded_text": "PENDING_NEW_CANDIDATE",
-        "reviewed_on": "2026-09-30",
-        "note": "기존 binary 미복구 후보 폐기. 새 후보 생성 후 3중 검수."
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "embedded_text": "PASS",
+        "reviewed_on": "2026-10-01",
+        "note": "야간 예약작업 검수 PASS. 고관절 외전, 골반/몸통 정렬, 발끝 과도한 외회전 오류 구분, 임의 숫자 없음."
       },
       "rejected_candidates": [
         {
@@ -351,18 +361,28 @@
         "conversation_and_library": "NOT_FOUND",
         "github_actions_artifacts": "NOT_FOUND",
         "result": "REGENERATE_FROM_LOCKED_BRIEF"
+      },
+      "gen_id": "685daf50-8620-4930-9c3d-ac26f655ece3",
+      "candidate_generated_on": "2026-10-01",
+      "candidate_checkpoint_path": "data/patient-exercise-candidates/px008.json",
+      "candidate_asset_path": null,
+      "binary_handoff": {
+        "state": "BLOCKED",
+        "checked_on": "2026-10-01",
+        "reason": "Generated candidate was reviewed in scheduled development, but the actual image binary is not materialized in the repository.",
+        "next_action": "Recover the exact generated binary if available; do not regenerate this profile merely to create a file."
       }
     },
     {
       "profile_id": "px009",
       "title_ko": "스쿼트",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "스쿼트 시작 자세, 내려가기, 올라오기와 무릎·척추 정렬 및 흔한 보상 오류를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
       "review_note": "사용자 승인 style reference를 유지하면서 2026-09-30 자동개발에서 최종 후보를 생성. 시작→내려가기→올라오기, 척추 중립, 무릎-발끝 정렬, 무릎 안쪽 붕괴와 과도한 몸통 굽힘 등 오류를 구분. 단, 생성 이미지 문구 중 '무릎이 발끝보다 앞으로 지나가지 않기'는 보편적 절대 금기로 오해될 수 있어 임상적으로 부정확하므로 앱 asset 승인 전 교정 필요. repository binary materialization 및 Preview 검수 전이므로 APPROVED 아님.",
       "generator": "OpenAI image generation",
       "supersedes_candidate_gen_id": "5bc585a2-285b-4fba-922b-9720250cb893",
-      "asset_gate": "GENERATE_CORRECTED_SQUAT_FROM_LOCKED_BRIEF",
+      "asset_gate": "BINARY_HANDOFF_BLOCKED",
       "approval_blockers": [],
       "generation_brief": {
         "view": "side_or_slight_oblique",
@@ -376,11 +396,11 @@
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
       "candidate_review": {
-        "clinical_content": "PENDING_NEW_CANDIDATE",
-        "visual_pose": "PENDING_NEW_CANDIDATE",
-        "embedded_text": "PENDING_NEW_CANDIDATE",
-        "reviewed_on": "2026-09-30",
-        "note": "기존 안전성 문제 후보 폐기. 교정된 스쿼트 기준으로 새 후보 생성 후 3중 검수."
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "embedded_text": "PASS",
+        "reviewed_on": "2026-10-01",
+        "note": "야간 예약작업 교정 후보 검수 PASS. 무릎-발끝 절대금기 문구 제거, 무릎-발 방향 정렬과 뒤꿈치 지지, 임의 숫자 없음."
       },
       "rejected_candidates": [
         {
@@ -395,12 +415,22 @@
         "conversation_and_library": "NOT_FOUND",
         "github_actions_artifacts": "NOT_FOUND",
         "result": "REGENERATE_FROM_LOCKED_BRIEF"
+      },
+      "gen_id": "36ee6b3a-234e-4f79-8fac-0a38e37f8e15",
+      "candidate_generated_on": "2026-10-01",
+      "candidate_checkpoint_path": "docs/qa/stage23b-px009-candidate-20261001.md",
+      "candidate_asset_path": null,
+      "binary_handoff": {
+        "state": "BLOCKED",
+        "checked_on": "2026-10-01",
+        "reason": "Generated candidate was reviewed in scheduled development, but the actual image binary is not materialized in the repository.",
+        "next_action": "Recover the exact generated binary if available; do not regenerate this profile merely to create a file."
       }
     },
     {
       "profile_id": "px010",
       "title_ko": "브리지",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "브리지 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
       "review_note": "",
@@ -414,12 +444,31 @@
         "text_policy": "시작/끝·방향·지지·흔한 실수만. 임의 반복횟수·세트·가동범위 숫자 금지."
       },
       "generation_brief_reviewed_on": "2026-09-30",
-      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
+      "gen_id": "fcf6cc70-ea55-4285-ad2b-c61981ce219c",
+      "candidate_generated_on": "2026-10-01",
+      "candidate_checkpoint_path": "data/patient-exercise-candidates/px010-20261001-v2.json",
+      "candidate_asset_path": null,
+      "asset_gate": "BINARY_HANDOFF_BLOCKED",
+      "approval_blockers": [],
+      "candidate_review": {
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "embedded_text": "PASS_WITH_GATE",
+        "reviewed_on": "2026-10-01",
+        "note": "야간 예약작업 교정 후보. 구조/자세는 PASS. 실제 binary 회수 후 embedded text를 소스 파일에서 다시 확인해야 최종 PASS 가능."
+      },
+      "binary_handoff": {
+        "state": "BLOCKED",
+        "checked_on": "2026-10-01",
+        "reason": "Generated candidate was reviewed in scheduled development, but the actual image binary is not materialized in the repository.",
+        "next_action": "Recover the exact generated binary if available; do not regenerate this profile merely to create a file."
+      }
     },
     {
       "profile_id": "px011",
       "title_ko": "뒤꿈치 들기",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "뒤꿈치 들기 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
       "review_note": "",
@@ -433,7 +482,26 @@
         "text_policy": "CPG에 없는 임의 반복횟수·세트 숫자 금지. 급성 파열 의심 상황에 시행하는 그림 금지."
       },
       "generation_brief_reviewed_on": "2026-09-30",
-      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
+      "gen_id": "f24f0f85-1d0e-4a91-a71d-a15c6255431a",
+      "candidate_generated_on": "2026-10-01",
+      "candidate_checkpoint_path": "data/candidates/px011-f24f0f85-1d0e-4a91-a71d-a15c6255431a.json",
+      "candidate_asset_path": null,
+      "asset_gate": "BINARY_HANDOFF_BLOCKED",
+      "approval_blockers": [],
+      "candidate_review": {
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "embedded_text": "PASS",
+        "reviewed_on": "2026-10-01",
+        "note": "야간 예약작업 검수 PASS. 선 자세 뒤꿈치 들기, 지지물/발목 정렬, 반동·과도한 무릎굽힘·발 기울임 오류 구분, 임의 숫자 없음."
+      },
+      "binary_handoff": {
+        "state": "BLOCKED",
+        "checked_on": "2026-10-01",
+        "reason": "Generated candidate was reviewed in scheduled development, but the actual image binary is not materialized in the repository.",
+        "next_action": "Recover the exact generated binary if available; do not regenerate this profile merely to create a file."
+      }
     },
     {
       "profile_id": "px012",
