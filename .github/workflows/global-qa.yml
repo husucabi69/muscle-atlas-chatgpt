@@ -62,6 +62,8 @@ jobs:
         run: node scripts/realistic-asset-ingest-qa.mjs
       - name: Run Stage 23B realistic generation prompt QA
         run: node scripts/realistic-generation-prompt-qa.mjs
+      - name: Run Stage 23B patient exercise render-request QA
+        run: node scripts/patient-exercise-render-request-qa.mjs
       - name: Run Stage 23B realistic next-task QA
         run: node scripts/next-realistic-exercise-task-qa.mjs
       - name: Run Stage 23B disease rehabilitation roadmap QA
