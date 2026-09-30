@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 
 function fail(message){throw new Error(message);}
 function u24le(buf,offset){return buf[offset]|(buf[offset+1]<<8)|(buf[offset+2]<<16);}
@@ -43,7 +44,8 @@ export function inspectWebP(file){
   if(offset!==b.length)fail('CHUNK_ALIGNMENT_MISMATCH');
   if(!width||!height)fail('DIMENSIONS_NOT_FOUND');
   if(width<100||height<100)fail('DIMENSIONS_IMPLAUSIBLE '+width+'x'+height);
-  return{file,bytes:b.length,width,height,primaryChunk};
+  const sha256=crypto.createHash('sha256').update(b).digest('hex');
+  return{file,bytes:b.length,width,height,primaryChunk,sha256};
 }
 
 if(process.argv[1]&&process.argv[1].endsWith('inspect-realistic-webp.mjs')){
