@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-px006-reviewed-candidate",
+  "dataset_version": "2026-09-30-stage23b-materialized-px006",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -235,15 +235,15 @@
     {
       "profile_id": "px006",
       "title_ko": "손목 운동",
-      "status": "CANDIDATE_GENERATED",
-      "composite_url": null,
+      "status": "APPROVED",
+      "composite_url": "./assets/patient-exercise-realistic/px006.webp",
       "alt_text": "손목 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": "손목 운동 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음. 2026-09-30 기존 저장소 WebP 손상 확인. 원본 PNG에서 숫자를 제거한 정상 교정본은 준비했으나 저장소 교체 전이므로 앱 노출 금지 유지. 2026-09-30 정상 WebP 교체 및 3중 검수 PASS; 앱 연결 승인 대기.",
+      "review_note": "손목 운동 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음. 2026-09-30 기존 저장소 WebP 손상 확인. 원본 PNG에서 숫자를 제거한 정상 교정본은 준비했으나 저장소 교체 전이므로 앱 노출 금지 유지. 2026-09-30 정상 WebP 교체 및 3중 검수 PASS; 앱 연결 승인 대기. Repository WebP materialized for mobile Preview; A4-HD replacement remains pending.",
       "generator": "OpenAI image generation",
       "gen_id": "5b03ec52-fa72-4ca2-86a5-26111bf73b8a",
-      "integrated_on": "2026-09-29",
+      "integrated_on": "2026-09-30",
       "preview_resolution": "320x400",
-      "asset_gate": "CANDIDATE_REVIEW_PASSED_INGEST_PENDING",
+      "asset_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING",
       "candidate_asset_path": "./assets/patient-exercise-realistic/px006.webp",
       "approval_blockers": [],
       "generation_brief": {
