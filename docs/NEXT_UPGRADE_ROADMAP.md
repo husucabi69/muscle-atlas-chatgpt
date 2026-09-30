@@ -491,8 +491,14 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - px007의 `HAND_INTRINSIC_MOTION_MISMATCH`, px009의 `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker도 유지한다.
 - px001은 2026-09-30 고정 숫자 제거 → 3중 검수 → canonical ingest까지 완료해 mobile Preview `APPROVED`로 복귀했다.
 - px001–px006은 2026-09-30 안전 문구 교정·파일 무결성 복구·3중 검수·canonical ingest까지 완료해 mobile Preview `APPROVED` 상태다.
-- manifest-derived selector의 현재 첫 작업은 **px007 / REGENERATE_FROM_LOCKED_BRIEF**다.
+- manifest-derived selector의 현재 첫 작업은 **px007 / GENERATE_FROM_LOCKED_BRIEF**다. 기존 주먹쥐기 후보는 폐기됐으며 새 손가락 벌림 후보를 만들어야 한다.
 - blocker가 있는 후보가 runtime에서 실사 이미지로 노출되면 E2E FAIL 처리한다.
+- 2026-09-30 asset 안전장치 강화:
+  - `scripts/inspect-realistic-webp.mjs`가 RIFF/WebP 구조, 선언 파일크기, chunk truncation, 실제 해상도를 검사한다.
+  - `scripts/realistic-webp-integrity-qa.mjs`가 승인된 실사형 WebP 전부를 검사한다.
+  - `scripts/register-realistic-candidate.mjs`가 새 후보 파일을 정상 WebP로 확인한 뒤에만 3중 검수 대기 상태로 등록한다.
+  - px007~px010 canonical render request는 `data/patient-exercise-render-requests-v1.json`에 준비되어 있다.
+  - px009는 “무릎이 발끝보다 앞으로 나가면 안 된다”는 절대금기 문구를 금지한 상태로만 제작·승인한다.
 
 현재 Stage 19의 운동 그림은 **기능 검증용 개념형 SVG**이며 최종 환자교육 품질로 보지 않는다.
 
