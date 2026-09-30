@@ -16,6 +16,7 @@ try{
     const result=await page.evaluate(async profileId=>{
       const p=exerciseProfileById[profileId];
       const spec=exerciseIllustrationById[profileId];
+      const asset=exerciseRealisticAssetById?.[profileId]||null;
       if(!p||!spec)return{error:'missing profile'};
       const host=document.createElement('div');
       host.id='stage23b-e2e-host';
@@ -48,9 +49,14 @@ try{
       const keyText=host.querySelector('.exercise-visual-key')?.textContent||'';
       const phaseMarkup=phases.map(x=>x.querySelector('svg')?.innerHTML||'');
       host.remove();
-      return{realistic,viewBoxes,labels,widths,overflow,cols,cueText,keyText,phaseMarkup};
+      return{
+        realistic,viewBoxes,labels,widths,overflow,cols,cueText,keyText,phaseMarkup,
+        assetStatus:asset?.status||'',
+        blockerCodes:Array.isArray(asset?.approval_blockers)?asset.approval_blockers.map(x=>x.code||'UNKNOWN'):[]
+      };
     },id);
     if(result.error)fail(id+' profile render',result.error);
+    if(result.blockerCodes.length&&result.realistic.present)fail(id+' blocked realistic candidate must not render',result.blockerCodes.join(','));
     if(result.viewBoxes.length!==2||!result.viewBoxes.every(x=>x==='0 0 240 180'))fail(id+' two 240x180 SVG fallback phases',JSON.stringify(result.viewBoxes));
     if(result.labels.join('|')!=='1 · 시작|2 · 끝')fail(id+' fallback phase labels',result.labels.join('|'));
     if(result.phaseMarkup[0]===result.phaseMarkup[1])fail(id+' fallback start/end differ');
@@ -74,6 +80,14 @@ try{
   await page.emulateMedia({media:'print'});
   const print=await page.evaluate(()=>{
     const p=exerciseProfileById.px001;
+    const original=exerciseRealisticAssetById.px001;
+    exerciseRealisticAssetById.px001={
+      ...original,
+      status:'APPROVED',
+      composite_url:original?.candidate_asset_path||'./assets/patient-exercise-realistic/px001.webp',
+      approval_blockers:[],
+      asset_gate:'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING'
+    };
     const host=document.createElement('div');
     host.id='educationDetail';
     host.style.width='180mm';
@@ -96,6 +110,7 @@ try{
     };
     document.body.classList.remove('printing-education');
     host.remove();
+    exerciseRealisticAssetById.px001=original;
     return out;
   });
   if(print.breakInside!=='avoid')fail('Stage 23B A4 break-inside avoid',print.breakInside);
@@ -106,7 +121,7 @@ try{
   pass('Stage 23B A4 print geometry and HD-pending fallback');
 
   console.log('\n--- STAGE 23B PATIENT EXERCISE RUNTIME E2E ---');
-  console.log('PASS | 18/18 profiles render realistic image or SVG fallback on 390px mobile + A4 HD-pending print fallback');
+  console.log('PASS | blocked candidates stay off-screen; 18/18 profiles render safe fallback/approved realistic media + A4 print guard');
 }finally{
   await browser.close();
 }
