@@ -17,14 +17,14 @@ check('No stale style-reference status remains after candidate generation',
 check('Generated candidates retain generator provenance and no asset URL',
   manifest.profiles.filter(x=>x.status==='CANDIDATE_GENERATED').every(x=>x.generator==='OpenAI image generation'&&typeof x.gen_id==='string'&&x.gen_id.length>10&&!x.composite_url)
 );
-check('px007-px018 have locked generation briefs',
-  ['px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>{
+check('px001-px018 have locked generation briefs',
+  ['px001','px002','px003','px004','px005','px006','px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>{
     const x=manifest.profiles.find(p=>p.profile_id===id);
     return x&&['PENDING_GENERATION','CANDIDATE_GENERATED'].includes(x.status)&&x.generation_brief&&x.generation_brief_reviewed_on==='2026-09-30'&&typeof x.generation_brief.text_policy==='string';
   })
 );
 check('Generation briefs prohibit invented dosage',
-  ['px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>String(manifest.profiles.find(p=>p.profile_id===id)?.generation_brief?.text_policy||'').includes('금지'))
+  ['px001','px002','px003','px004','px005','px006','px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>String(manifest.profiles.find(p=>p.profile_id===id)?.generation_brief?.text_policy||'').includes('금지'))
 );
 check('Pending/reference/candidate slots never pretend to have an asset URL',
   manifest.profiles.filter(x=>x.status!=='APPROVED').every(x=>!x.composite_url)
@@ -41,8 +41,21 @@ check('px007 hand-motion mismatch blocker is explicit until regenerated',
 check('Any APPROVED asset must have WebP URL',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>typeof x.composite_url==='string'&&/\.webp(?:\?|$)/.test(x.composite_url))
 );
-check('First six realistic Preview assets approved', ['px001','px002','px003','px004','px005','px006'].every(id=>manifest.profiles.some(x=>x.profile_id===id&&x.status==='APPROVED')),
-  manifest.profiles.filter(x=>x.status==='APPROVED').map(x=>x.profile_id).join(',')
+check('First six unsafe fixed-dose assets are demoted from app approval',
+  ['px001','px002','px003','px004','px005','px006'].every(id=>{
+    const x=manifest.profiles.find(p=>p.profile_id===id);
+    return x&&x.status==='CANDIDATE_GENERATED'&&!x.composite_url&&x.asset_gate==='CONTENT_CORRECTION_THEN_PREVIEW_REVIEW_PENDING'&&
+      Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='UNSUPPORTED_FIXED_DOSAGE_TEXT');
+  })
+);
+check('Demoted first-six candidate binaries are preserved for review',
+  ['px001','px002','px003','px004','px005','px006'].every(id=>{
+    const x=manifest.profiles.find(p=>p.profile_id===id);
+    const path=String(x?.candidate_asset_path||'').replace(/^\.\//,'');
+    if(!path||!fs.existsSync(path))return false;
+    const b=fs.readFileSync(path);
+    return b.length>20&&b.subarray(0,4).toString('ascii')==='RIFF'&&b.subarray(8,12).toString('ascii')==='WEBP';
+  })
 );
 check('Every APPROVED asset has recognized print-quality gate',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>['MOBILE_PREVIEW_APPROVED_A4_HD_PENDING','A4_HD_APPROVED'].includes(x.asset_gate))
@@ -61,11 +74,8 @@ check('Every APPROVED realistic asset exists and is WebP bytes',
     return b.length>20&&b.subarray(0,4).toString('ascii')==='RIFF'&&b.subarray(8,12).toString('ascii')==='WEBP';
   })
 );
-check('px001 realistic neck-stretch asset is connected',
-  manifest.profiles.some(x=>x.profile_id==='px001'&&x.status==='APPROVED'&&x.composite_url==='./assets/patient-exercise-realistic/px001.webp')
-);
-check('px001 keeps mobile-preview / A4-HD-pending gate',
-  manifest.profiles.some(x=>x.profile_id==='px001'&&x.asset_gate==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING')
+check('px001 is blocked from renderer until corrected',
+  manifest.profiles.some(x=>x.profile_id==='px001'&&x.status==='CANDIDATE_GENERATED'&&!x.composite_url&&x.candidate_asset_path==='./assets/patient-exercise-realistic/px001.webp')
 );
 check('App loads realistic asset manifest',index.includes("fetch('./data/patient-exercise-realistic-assets-v1.json'"));
 check('App indexes realistic assets',index.includes('exerciseRealisticAssetById=Object.fromEntries'));
