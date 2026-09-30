@@ -45,7 +45,7 @@ check('Approval blockers prevent premature realistic asset approval',
 );
 check('px009 unsafe squat candidate is retired and corrected brief forbids the absolute cue',(()=>{
   const x=manifest.profiles.find(p=>p.profile_id==='px009');
-  return x&&x.status==='PENDING_GENERATION'&&
+  return x&&x.status==='CANDIDATE_GENERATED'&&x.asset_gate==='BINARY_HANDOFF_BLOCKED'&&
     Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
     Array.isArray(x.rejected_candidates)&&
     x.rejected_candidates.some(c=>c.reason_code==='UNRECOVERABLE_BINARY_AND_UNSAFE_KNEE_TOE_CUE')&&
@@ -54,7 +54,7 @@ check('px009 unsafe squat candidate is retired and corrected brief forbids the a
 })());
 check('px007 invalid fist candidate is retired and preserved only in audit history',(()=>{
   const x=manifest.profiles.find(p=>p.profile_id==='px007');
-  return x&&x.status==='PENDING_GENERATION'&&
+  return x&&x.status==='CANDIDATE_GENERATED'&&x.asset_gate==='BINARY_HANDOFF_BLOCKED'&&
     Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
     Array.isArray(x.rejected_candidates)&&
     x.rejected_candidates.some(c=>c.reason_code==='HAND_INTRINSIC_MOTION_MISMATCH');
