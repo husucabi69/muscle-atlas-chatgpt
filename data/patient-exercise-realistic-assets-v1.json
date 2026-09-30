@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-px001-reviewed-candidate",
+  "dataset_version": "2026-09-30-stage23b-materialized-px001",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -39,15 +39,15 @@
     {
       "profile_id": "px001",
       "title_ko": "목 스트레칭",
-      "status": "CANDIDATE_GENERATED",
-      "composite_url": null,
+      "status": "APPROVED",
+      "composite_url": "./assets/patient-exercise-realistic/px001.webp",
       "alt_text": "목 스트레칭 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": "사용자 승인 실사형 환자교육 스타일. 앱 1차 통합 완료. 모바일 우선 미리보기 자산이며 A4 인쇄용 고해상도 승격 검수는 후속 배치에서 진행. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음. 2026-09-30 교정 후보 3중 검수 PASS; canonical ingest 대기.",
+      "review_note": "사용자 승인 실사형 환자교육 스타일. 앱 1차 통합 완료. 모바일 우선 미리보기 자산이며 A4 인쇄용 고해상도 승격 검수는 후속 배치에서 진행. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음. 2026-09-30 교정 후보 3중 검수 PASS; canonical ingest 대기. Repository WebP materialized for mobile Preview; A4-HD replacement remains pending.",
       "generator": "OpenAI image generation",
       "gen_id": "2f027bea-a9a2-469c-a75f-909fc6874c9b",
-      "integrated_on": "2026-09-29",
+      "integrated_on": "2026-09-30",
       "preview_resolution": "320x400",
-      "asset_gate": "CANDIDATE_REVIEW_PASSED_INGEST_PENDING",
+      "asset_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING",
       "candidate_asset_path": "./assets/patient-exercise-realistic/px001.webp",
       "approval_blockers": [],
       "generation_brief": {
