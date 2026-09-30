@@ -15,7 +15,15 @@ const p8=manifest.profiles.find(x=>x.profile_id==='px008');
 const p9=manifest.profiles.find(x=>x.profile_id==='px009');
 const p10=manifest.profiles.find(x=>x.profile_id==='px010');
 
-check('Clean generated candidate maps to materialization/review',classifyProfile({...p8,approval_blockers:[]}).action==='MATERIALIZE_AND_PREVIEW_REVIEW');
+check('Clean candidate without binary maps to binary acquisition/review',
+  classifyProfile({...p8,approval_blockers:[],candidate_asset_path:null}).action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW'
+);
+check('Candidate binary with pending review maps to Preview review',
+  classifyProfile({...p8,approval_blockers:[],candidate_asset_path:'./assets/patient-exercise-realistic/px008.webp',candidate_review:{clinical_content:'PASS',visual_pose:'PENDING',embedded_text:'PASS'}}).action==='PREVIEW_REVIEW_CANDIDATE'
+);
+check('Candidate binary with three-part PASS maps to ingest',
+  classifyProfile({...p8,approval_blockers:[],candidate_asset_path:'./assets/patient-exercise-realistic/px008.webp',candidate_review:{clinical_content:'PASS',visual_pose:'PASS',embedded_text:'PASS'}}).action==='INGEST_REVIEWED_CANDIDATE'
+);
 check('Blocked candidate maps to regeneration',classifyProfile(p9).action==='REGENERATE_FROM_LOCKED_BRIEF');
 check('Pending profile with brief maps to generation',classifyProfile(p10).action==='GENERATE_FROM_LOCKED_BRIEF');
 
