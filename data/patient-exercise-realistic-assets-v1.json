@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-realistic-review-gate",
+  "dataset_version": "2026.09.30-stage23b-px001-reviewed-candidate",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -42,20 +42,14 @@
       "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "목 스트레칭 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": "사용자 승인 실사형 환자교육 스타일. 앱 1차 통합 완료. 모바일 우선 미리보기 자산이며 A4 인쇄용 고해상도 승격 검수는 후속 배치에서 진행. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음.",
+      "review_note": "사용자 승인 실사형 환자교육 스타일. 앱 1차 통합 완료. 모바일 우선 미리보기 자산이며 A4 인쇄용 고해상도 승격 검수는 후속 배치에서 진행. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음. 2026-09-30 교정 후보 3중 검수 PASS; canonical ingest 대기.",
       "generator": "OpenAI image generation",
       "gen_id": "2f027bea-a9a2-469c-a75f-909fc6874c9b",
       "integrated_on": "2026-09-29",
       "preview_resolution": "320x400",
-      "asset_gate": "CONTENT_CORRECTION_THEN_PREVIEW_REVIEW_PENDING",
+      "asset_gate": "CANDIDATE_REVIEW_PASSED_INGEST_PENDING",
       "candidate_asset_path": "./assets/patient-exercise-realistic/px001.webp",
-      "approval_blockers": [
-        {
-          "code": "UNSUPPORTED_FIXED_DOSAGE_TEXT",
-          "severity": "PATIENT_EDUCATION_ACCURACY",
-          "note": "현재 실사형 후보 이미지에 원 레지스트리/CPG가 단일값으로 확정하지 않은 시간·횟수·세트 등 고정 숫자가 포함되어 있어 교정 재생성 후 승인해야 함."
-        }
-      ],
+      "approval_blockers": [],
       "generation_brief": {
         "view": "front",
         "start": "편안히 앉거나 서서 어깨 힘을 빼고 목을 중립으로 둔 자세.",
@@ -68,11 +62,18 @@
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
       "candidate_review": {
-        "clinical_content": "FAIL",
-        "visual_pose": "PENDING",
-        "embedded_text": "FAIL",
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "embedded_text": "PASS",
         "reviewed_on": "2026-09-30",
-        "note": "원 레지스트리보다 구체적인 고정 시간/횟수/세트 문구가 그림에 포함되어 교정 필요."
+        "note": "교정된 앱 저장소 WebP 직접 검수. 고정 시간·횟수·세트 제거, 손은 가볍게 얹고 당기지 않기/통증 없는 범위/red flag 문구 확인."
+      },
+      "postprocess": {
+        "method": "lower_embedded_text_replacement_only",
+        "source_candidate_gen_id": "2f027bea-a9a2-469c-a75f-909fc6874c9b",
+        "processed_on": "2026-09-30",
+        "pose_pixels_changed": false,
+        "note": "사용자 승인 실사형 시작/끝 자세는 유지하고 하단 생성 텍스트 영역만 정본 문구로 교체."
       }
     },
     {
