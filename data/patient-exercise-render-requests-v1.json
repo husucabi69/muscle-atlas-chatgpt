@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "updated_on": "2026-09-30",
+  "updated_on": "2026-10-01",
   "purpose": "실사형 환자 운동 그림을 만들 때 임상 동작과 사용자 승인 스타일을 정확히 보존하기 위한 제작 지시서.",
   "requests": [
     {
       "profile_id": "px007",
       "title_ko": "손가락 운동",
-      "status": "READY_TO_GENERATE",
+      "status": "REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED",
       "output_path": "assets/patient-exercise-realistic/px007.webp",
       "style": {
         "format": "세로형 의료·재활 환자교육 포스터",
@@ -55,12 +55,14 @@
         "data/patient-exercise-library-v1.json#px007",
         "data/patient-exercise-illustration-v2.json#px007",
         "data/patient-exercise-realistic-assets-v1.json#px007"
-      ]
+      ],
+      "gen_id": "8c940201-f1c0-4440-832d-83972f8efbb8",
+      "checkpoint_path": "data/patient-exercise-candidates/px007-20261001.json"
     },
     {
       "profile_id": "px008",
       "title_ko": "고관절 외전",
-      "status": "READY_TO_GENERATE",
+      "status": "REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED",
       "output_path": "assets/patient-exercise-realistic/px008.webp",
       "style": {
         "format": "세로형 의료·재활 환자교육 포스터",
@@ -108,12 +110,14 @@
         "data/patient-exercise-library-v1.json#px008",
         "data/patient-exercise-illustration-v2.json#px008",
         "data/patient-exercise-realistic-assets-v1.json#px008"
-      ]
+      ],
+      "gen_id": "685daf50-8620-4930-9c3d-ac26f655ece3",
+      "checkpoint_path": "data/patient-exercise-candidates/px008.json"
     },
     {
       "profile_id": "px009",
       "title_ko": "스쿼트",
-      "status": "READY_TO_GENERATE_CORRECTED",
+      "status": "REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED",
       "output_path": "assets/patient-exercise-realistic/px009.webp",
       "style": {
         "format": "세로형 의료·재활 환자교육 포스터",
@@ -161,12 +165,14 @@
         "data/patient-exercise-library-v1.json#px009",
         "data/patient-exercise-illustration-v2.json#px009",
         "data/patient-exercise-realistic-assets-v1.json#px009"
-      ]
+      ],
+      "gen_id": "36ee6b3a-234e-4f79-8fac-0a38e37f8e15",
+      "checkpoint_path": "docs/qa/stage23b-px009-candidate-20261001.md"
     },
     {
       "profile_id": "px010",
       "title_ko": "브리지",
-      "status": "READY_TO_GENERATE",
+      "status": "REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED",
       "output_path": "assets/patient-exercise-realistic/px010.webp",
       "style": {
         "format": "세로형 의료·재활 환자교육 포스터",
@@ -213,7 +219,9 @@
         "data/patient-exercise-library-v1.json#px010",
         "data/patient-exercise-illustration-v2.json#px010",
         "data/patient-exercise-realistic-assets-v1.json#px010"
-      ]
+      ],
+      "gen_id": "fcf6cc70-ea55-4285-ad2b-c61981ce219c",
+      "checkpoint_path": "data/patient-exercise-candidates/px010-20261001-v2.json"
     }
   ]
 }
