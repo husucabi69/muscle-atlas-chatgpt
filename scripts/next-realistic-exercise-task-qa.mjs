@@ -8,8 +8,8 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 const next=getNextMainlineTask(manifest);
 check('Current next realistic task resolves',Boolean(next),JSON.stringify(next));
 check('Current next task is px007 after px001-px006 approval',next?.profile_id==='px007',JSON.stringify(next));
-check('px007 requires new generation from locked brief',next?.action==='GENERATE_FROM_LOCKED_BRIEF',next?.action||'');
-check('px007 rejected fist candidate no longer acts as current blocker',Array.isArray(next?.blocker_codes)&&next.blocker_codes.length===0,(next?.blocker_codes||[]).join(','));
+check('px007 reviewed candidate requires binary handoff',next?.action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW',next?.action||'');
+check('px007 reviewed candidate carries no content blocker',Array.isArray(next?.blocker_codes)&&next.blocker_codes.length===0,(next?.blocker_codes||[]).join(','));
 
 const p8=manifest.profiles.find(x=>x.profile_id==='px008');
 const p9=manifest.profiles.find(x=>x.profile_id==='px009');
@@ -36,21 +36,21 @@ const after7={...manifest,profiles:manifest.profiles.map(x=>x.profile_id==='px00
   approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/px007.webp'
 }:x)};
 const nextAfter7=getNextMainlineTask(after7);
-check('After px007 approval, px008 is next',nextAfter7?.profile_id==='px008'&&nextAfter7?.action==='GENERATE_FROM_LOCKED_BRIEF',JSON.stringify(nextAfter7));
+check('After px007 approval, px008 binary handoff is next',nextAfter7?.profile_id==='px008'&&nextAfter7?.action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW',JSON.stringify(nextAfter7));
 
 const after8={...after7,profiles:after7.profiles.map(x=>x.profile_id==='px008'?{
   ...x,status:'APPROVED',asset_gate:'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING',
   approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/px008.webp'
 }:x)};
 const nextAfter8=getNextMainlineTask(after8);
-check('After px008 approval, corrected px009 is next',nextAfter8?.profile_id==='px009'&&nextAfter8?.action==='GENERATE_FROM_LOCKED_BRIEF',JSON.stringify(nextAfter8));
+check('After px008 approval, corrected px009 binary handoff is next',nextAfter8?.profile_id==='px009'&&nextAfter8?.action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW',JSON.stringify(nextAfter8));
 
 const after9={...after8,profiles:after8.profiles.map(x=>x.profile_id==='px009'?{
   ...x,status:'APPROVED',asset_gate:'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING',
   approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/px009.webp'
 }:x)};
 const nextAfter9=getNextMainlineTask(after9);
-check('After px009 approval, px010 bridge is next',nextAfter9?.profile_id==='px010'&&nextAfter9?.action==='GENERATE_FROM_LOCKED_BRIEF',JSON.stringify(nextAfter9));
+check('After px009 approval, px010 bridge binary handoff is next',nextAfter9?.profile_id==='px010'&&nextAfter9?.action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW',JSON.stringify(nextAfter9));
 
 const allApproved={...manifest,profiles:manifest.profiles.map(x=>({...x,status:'APPROVED',asset_gate:'A4_HD_APPROVED',approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/'+x.profile_id+'.webp'}))};
 check('All approved returns no pending task',getNextMainlineTask(allApproved)===null);
