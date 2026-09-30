@@ -490,8 +490,8 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - px001–px006에는 `UNSUPPORTED_FIXED_DOSAGE_TEXT` blocker와 교정용 `generation_brief`를 부여했다.
 - px007의 `HAND_INTRINSIC_MOTION_MISMATCH`, px009의 `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker도 유지한다.
 - px001은 2026-09-30 고정 숫자 제거 → 3중 검수 → canonical ingest까지 완료해 mobile Preview `APPROVED`로 복귀했다.
-- px001–px004는 2026-09-30 고정 숫자 제거 → 3중 검수 → canonical ingest까지 완료해 mobile Preview `APPROVED` 상태다.
-- manifest-derived selector의 현재 첫 작업은 **px005 / REGENERATE_FROM_LOCKED_BRIEF**다.
+- px001–px005는 2026-09-30 고정 숫자 제거 → 3중 검수 → canonical ingest까지 완료해 mobile Preview `APPROVED` 상태다.
+- manifest-derived selector의 현재 첫 작업은 **px006 / REGENERATE_FROM_LOCKED_BRIEF**다.
 - blocker가 있는 후보가 runtime에서 실사 이미지로 노출되면 E2E FAIL 처리한다.
 
 현재 Stage 19의 운동 그림은 **기능 검증용 개념형 SVG**이며 최종 환자교육 품질로 보지 않는다.
