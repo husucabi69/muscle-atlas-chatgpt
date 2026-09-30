@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026-09-30-stage23b-materialized-px004",
+  "dataset_version": "2026.09.30-stage23b-px005-reviewed-candidate",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -199,20 +199,14 @@
       "status": "CANDIDATE_GENERATED",
       "composite_url": null,
       "alt_text": "문틀 스트레칭 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": "문틀 스트레칭 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음.",
+      "review_note": "문틀 스트레칭 실사형 환자교육 자산 1차 앱 통합 완료. 모바일 우선 Preview 자산이며 A4 최종 인쇄 검수는 전체 18종 배치에서 재확인. 스타일은 사용자 승인 기준을 유지하되, 고정 용량 문구는 근거 일치 전 승인하지 않음. 2026-09-30 교정 후보 3중 검수 PASS; 앱 연결 승인 절차 대기.",
       "generator": "OpenAI image generation",
       "gen_id": "c60f80e8-16c3-4ced-9ed7-3265e9aaab8e",
       "integrated_on": "2026-09-29",
       "preview_resolution": "320x400",
-      "asset_gate": "CONTENT_CORRECTION_THEN_PREVIEW_REVIEW_PENDING",
+      "asset_gate": "CANDIDATE_REVIEW_PASSED_INGEST_PENDING",
       "candidate_asset_path": "./assets/patient-exercise-realistic/px005.webp",
-      "approval_blockers": [
-        {
-          "code": "UNSUPPORTED_FIXED_DOSAGE_TEXT",
-          "severity": "PATIENT_EDUCATION_ACCURACY",
-          "note": "현재 실사형 후보 이미지에 원 레지스트리/CPG가 단일값으로 확정하지 않은 시간·횟수·세트 등 고정 숫자가 포함되어 있어 교정 재생성 후 승인해야 함."
-        }
-      ],
+      "approval_blockers": [],
       "generation_brief": {
         "view": "front_or_slight_oblique",
         "start": "문틀에 전완을 가볍게 대고 어깨를 내린 편안한 선 자세.",
@@ -225,11 +219,17 @@
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
       "candidate_review": {
-        "clinical_content": "FAIL",
-        "visual_pose": "PENDING",
-        "embedded_text": "FAIL",
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "embedded_text": "PASS",
         "reviewed_on": "2026-09-30",
-        "note": "원 레지스트리보다 구체적인 고정 시간/횟수/세트 문구가 그림에 포함되어 교정 필요."
+        "note": "교정된 문틀 스트레칭 WebP 직접 검수. 고정 시간·횟수 제거, 전완 지지/허리 과신전 방지/가슴 앞 부드러운 신장/어깨 통증·저림 시 중단 문구 확인."
+      },
+      "postprocess": {
+        "method": "safe_text_corrected_candidate",
+        "source_candidate_gen_id": "c60f80e8-16c3-4ced-9ed7-3265e9aaab8e",
+        "processed_on": "2026-09-30",
+        "note": "사용자 승인 실사형 자세는 유지하고 하단의 근거 없는 고정 숫자만 안전 문구로 교체."
       }
     },
     {
