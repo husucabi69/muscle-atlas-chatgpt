@@ -88,7 +88,8 @@ Stage 23B:
 - white clinical background, Korean labels, mobile-readable, A4 printable
 - registry: `data/patient-exercise-realistic-assets-v1.json`
 - current realistic asset status at handoff:
-  - px001 = `APPROVED` mobile Preview asset. Fixed numeric dosage text was removed, three-part review passed, and canonical ingest completed on 2026-09-30. A4-HD remains pending. px002 = `APPROVED` mobile Preview asset after fixed-number removal, three-part review, and canonical ingest. px003–px006 still carry `UNSUPPORTED_FIXED_DOSAGE_TEXT` blockers.
+  - px001–px005 = `APPROVED` mobile Preview assets after fixed-number removal, three-part review, and canonical ingest. A4-HD remains pending.
+  - px006 = blocked and off-screen. Its old repository WebP is truncated/corrupt (`NOT_ENOUGH_DATA`), so it needs binary replacement from the original generated image plus the already-defined no-fixed-dose text correction before review/approval.
   - px007 = `CANDIDATE_GENERATED` with `HAND_INTRINSIC_MOTION_MISMATCH` blocker; regenerate before approval.
   - px008 = `CANDIDATE_GENERATED`; candidate provenance exists but binary materialization + Preview review is still pending.
   - px009 squat = `CANDIDATE_GENERATED` with `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; correct/regenerate before approval.
@@ -120,7 +121,7 @@ Stage 23B:
   - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
-- next exact mainline item: **px006 / REGENERATE_FROM_LOCKED_BRIEF** using the same safe-text correction/review/approval path; then px007, px008, px009, and px010–px018.
+- next exact mainline item: **px006 binary replacement from the original generated image → three-part review → canonical ingest**. Do not retry decoding the broken repository WebP. Then continue px007, px008, px009, and px010–px018.
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
