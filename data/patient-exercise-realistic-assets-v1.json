@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-realistic-f",
+  "dataset_version": "2026.09.30-stage23b-realistic-g",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -280,7 +280,18 @@
       "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "호흡 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "",
+      "generation_brief": {
+        "view": "front_seated",
+        "start": "어깨 힘을 빼고 편안히 앉거나 반좌위에서 호흡 준비 자세.",
+        "end": "들이쉴 때 아랫가슴과 복부가 부드럽게 넓어지는 상태를 같은 사람의 같은 시점으로 표현.",
+        "motion": "하부 흉곽과 복부가 바깥으로 넓어지는 양방향 화살표.",
+        "support": "목·어깨 이완과 편안한 몸통 지지를 분명히 보인다.",
+        "common_error": "어깨를 으쓱해 들숨하거나 숨을 오래 참는 모습을 오류 표시.",
+        "text_policy": "호흡 횟수·초 단위 유지시간 임의 생성 금지. 흉통·심한 호흡곤란·어지럼을 참고 계속하는 메시지 금지."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
     },
     {
       "profile_id": "px017",
@@ -288,7 +299,18 @@
       "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "팔꿈치 굽힘 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "",
+      "generation_brief": {
+        "view": "front_or_slight_oblique",
+        "start": "팔꿈치를 몸통 옆에 두고 상완을 안정적으로 고정한 편안한 시작 자세.",
+        "end": "상완 위치를 유지한 채 팔꿈치를 천천히 굽힌 자세. 손목은 중립.",
+        "motion": "전완이 팔꿈치 굴곡 방향으로 올라가는 화살표.",
+        "support": "상완과 몸통 고정을 분명히 표현해 어깨 반동을 줄임.",
+        "common_error": "어깨 들썩임·몸통 반동·손목 과도한 굴곡을 오류 표시.",
+        "text_policy": "덤벨 무게·반복횟수·세트 임의 생성 금지. 급성 건 손상·수술 후 상태를 일반 운동처럼 표현하지 말 것."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
     },
     {
       "profile_id": "px018",
@@ -296,7 +318,18 @@
       "status": "PENDING_GENERATION",
       "composite_url": null,
       "alt_text": "데드버그 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
-      "review_note": ""
+      "review_note": "",
+      "generation_brief": {
+        "view": "side_supine",
+        "start": "바로 누워 고관절·무릎을 굽히고 복벽 긴장과 정상 호흡을 유지하는 시작 자세.",
+        "end": "허리·골반을 안정적으로 유지하며 반대 팔과 다리를 천천히 멀리 뻗은 데드버그 변형.",
+        "motion": "반대 팔과 다리가 서로 멀어지는 방향 화살표.",
+        "support": "등·골반의 바닥 지지와 허리 중립을 명확히 표현.",
+        "common_error": "허리가 크게 뜨기, 숨 참기, 골반이 돌아가는 보상을 오류 표시.",
+        "text_policy": "임의 반복횟수·세트·각도 금지. 진행성 근력저하·회음부 감각/배뇨 이상은 운동 지속이 아니라 진료 우선으로 표현."
+      },
+      "generation_brief_reviewed_on": "2026-09-30",
+      "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json"
     }
   ]
 }
