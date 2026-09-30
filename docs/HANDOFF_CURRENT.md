@@ -28,10 +28,10 @@ Every progress/final report must be:
 Technical SHA / workflow / file names come after the easy explanation.
 
 Manual chat work:
-- target 15 minutes
-- at 18 minutes, start wrap-up only; do not start a new feature/asset/structural change
-- **hard ceiling 20 minutes**
-- at 20 minutes, HARD STOP even if CI/Cloudflare is still running; save a safe checkpoint and let the next turn check the result
+- target 20 minutes
+- at 23 minutes, start wrap-up only; do not start a new feature/asset/structural change
+- **hard ceiling 25 minutes**
+- at 25 minutes, HARD STOP even if CI/Cloudflare is still running; save a safe checkpoint and let the next turn check the result
 
 Scheduled overnight work:
 - every day **00:00 through 08:00 KST, every hour**
