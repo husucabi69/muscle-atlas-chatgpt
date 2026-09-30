@@ -1,17 +1,28 @@
 # Stage 23B realistic exercise candidate checkpoints
 
-This directory stores recoverable candidate metadata before a generated image binary is materialized into the repository.
+This directory stores candidate provenance/review metadata before a generated image binary is materialized into the repository.
 
 Rules:
 - The canonical movement contract remains `data/patient-exercise-realistic-assets-v1.json` (`generation_brief`).
 - A sidecar with `CANDIDATE_GENERATED` is **not** approval and must not populate `composite_url`.
-- Promotion requires repository WebP materialization, three-axis review (`clinical_content`, `visual_pose`, `embedded_text`), mobile Preview, and A4/print review.
+- A reviewed candidate with no repository binary uses `BINARY_HANDOFF_BLOCKED`; do not regenerate it merely to create a file.
+- Promotion requires the exact reviewed binary to be materialized as the canonical WebP, strict WebP integrity validation, repository-file three-axis review (`clinical_content`, `visual_pose`, `embedded_text`), mobile Preview, and the A4/print gate.
+- Binary handoff must match **profile ID + exact gen_id + checkpoint identity**. A mismatched file must be rejected.
+- Once a WebP is materialized, record byte size, dimensions, and **SHA-256** in `binary_integrity` so the exact binary remains auditable.
 - Rejected `gen_id` values in the canonical registry must never be revived.
 - Production/main remains frozen until explicit user approval.
 
-Current queue after px007 candidate checkpoint:
-1. Materialize/review px007 when binary transfer is available.
-2. Generate px008 from its locked hip-abduction brief; do not reuse rejected `f3e1b777-ec4c-4018-b702-77f61a0d4cda`.
-3. Generate corrected px009 squat; never use an absolute knee-behind-toes rule and do not invent dose/depth numbers.
-4. Generate px010 bridge from canonical `side_supine` brief; curated render text must not override canonical view/start/end/motion/support.
-5. Continue px011→px018 in Stable-ID order.
+Current reviewed-binary handoff queue (2026-10-01):
+1. px007 손가락 벌림 — recover/materialize exact gen_id `8c940201-f1c0-4440-832d-83972f8efbb8`.
+2. px008 고관절 외전 — exact gen_id `685daf50-8620-4930-9c3d-ac26f655ece3`.
+3. px009 교정 스쿼트 — exact gen_id `36ee6b3a-234e-4f79-8fac-0a38e37f8e15`; knee-toe absolute-prohibition cue remains forbidden.
+4. px010 브리지 — exact gen_id `fcf6cc70-ea55-4285-ad2b-c61981ce219c`; repository binary must be rechecked for embedded text.
+5. px011 뒤꿈치 들기 — exact gen_id `f24f0f85-1d0e-4a91-a71d-a15c6255431a`.
+
+Use `node scripts/list-realistic-binary-handoff-queue.mjs` to print the live queue.
+When an exact binary becomes available, use the candidate registration path only after its gen_id/checkpoint matches. The repository file must then be visually re-reviewed before canonical ingest.
+
+If the exact px007 binary cannot be accessed in the current execution environment:
+- keep the blocker,
+- do **not** create additional gen_id-only image candidates,
+- continue independent Stage 23B QA/registry/mobile/A4/print/handoff work instead.
