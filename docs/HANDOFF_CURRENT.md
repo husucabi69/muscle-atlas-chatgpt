@@ -90,7 +90,7 @@ Stage 23B:
 - current realistic asset status at handoff:
   - px001–px005 = `APPROVED` mobile Preview assets after fixed-number removal, three-part review, and canonical ingest. A4-HD remains pending.
   - px001–px006 = `APPROVED` mobile Preview assets. px006 corrupt WebP was rebuilt from the original image, fixed numeric dose text removed, three-part review passed, and canonical ingest completed. A4-HD remains pending.
-  - px007 = `CANDIDATE_GENERATED` with `HAND_INTRINSIC_MOTION_MISMATCH` blocker. Representative motion is now locked to **fingers together → finger abduction/spread**, wrist/forearm supported, no fist closure and no arbitrary resistance. Regenerate before approval.
+  - px007 = `PENDING_GENERATION`. The old fist-closing candidate is explicitly rejected and preserved only in audit history. New representative motion is locked to **fingers together → finger abduction/spread**, wrist/forearm supported, no fist closure and no arbitrary resistance.
   - px008 = `CANDIDATE_GENERATED`; candidate provenance exists but binary materialization + Preview review is still pending.
   - px009 squat = `CANDIDATE_GENERATED` with `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; correct/regenerate before approval.
   - px010–px018 = `PENDING_GENERATION`
@@ -121,7 +121,7 @@ Stage 23B:
   - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
-- next exact mainline item: **px007 / REGENERATE_FROM_LOCKED_BRIEF** using the newly locked fingers-together → finger-spread motion. Do not use the old fist-closing candidate. Then three-part review → ingest, followed by px008, px009, and px010–px018.
+- next exact mainline item: **px007 / GENERATE_FROM_LOCKED_BRIEF** using the locked fingers-together → finger-spread motion. Old fist-closing candidate is rejected and must not be reused. Then three-part review → ingest, followed by px008, px009, and px010–px018.
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
