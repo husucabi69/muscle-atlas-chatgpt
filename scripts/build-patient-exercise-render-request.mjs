@@ -24,7 +24,7 @@ export function buildRenderRequest(manifest,curated,profileId){
     return{
       ...special,
       exact_motion:canonicalMotion,
-      source:'CURATED_OVERRIDE_WITH_LOCKED_MOTION'
+      source:'CURATED_OVERRIDE'
     };
   }
 
@@ -41,10 +41,7 @@ export function buildRenderRequest(manifest,curated,profileId){
       forbidden:manifest.style_lock.forbidden
     },
     exact_motion:canonicalMotion,
-    must_not_show:[
-      b.common_error,
-      b.text_policy
-    ].filter(Boolean),
+    must_not_show:[b.common_error,b.text_policy].filter(Boolean),
     review_gate:[
       '시작 자세와 끝 자세가 명확히 구분되는가',
       '움직임 방향이 generation brief와 일치하는가',
