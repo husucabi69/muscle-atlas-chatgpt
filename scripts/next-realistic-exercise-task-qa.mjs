@@ -31,6 +31,27 @@ check('px008 unrecoverable prior candidate is reset to new generation',classifyP
 check('px009 unsafe/unrecoverable prior candidate is reset to corrected generation',classifyProfile(p9).action==='GENERATE_FROM_LOCKED_BRIEF');
 check('Pending profile with brief maps to generation',classifyProfile(p10).action==='GENERATE_FROM_LOCKED_BRIEF');
 
+const after7={...manifest,profiles:manifest.profiles.map(x=>x.profile_id==='px007'?{
+  ...x,status:'APPROVED',asset_gate:'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING',
+  approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/px007.webp'
+}:x)};
+const nextAfter7=getNextMainlineTask(after7);
+check('After px007 approval, px008 is next',nextAfter7?.profile_id==='px008'&&nextAfter7?.action==='GENERATE_FROM_LOCKED_BRIEF',JSON.stringify(nextAfter7));
+
+const after8={...after7,profiles:after7.profiles.map(x=>x.profile_id==='px008'?{
+  ...x,status:'APPROVED',asset_gate:'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING',
+  approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/px008.webp'
+}:x)};
+const nextAfter8=getNextMainlineTask(after8);
+check('After px008 approval, corrected px009 is next',nextAfter8?.profile_id==='px009'&&nextAfter8?.action==='GENERATE_FROM_LOCKED_BRIEF',JSON.stringify(nextAfter8));
+
+const after9={...after8,profiles:after8.profiles.map(x=>x.profile_id==='px009'?{
+  ...x,status:'APPROVED',asset_gate:'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING',
+  approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/px009.webp'
+}:x)};
+const nextAfter9=getNextMainlineTask(after9);
+check('After px009 approval, px010 bridge is next',nextAfter9?.profile_id==='px010'&&nextAfter9?.action==='GENERATE_FROM_LOCKED_BRIEF',JSON.stringify(nextAfter9));
+
 const allApproved={...manifest,profiles:manifest.profiles.map(x=>({...x,status:'APPROVED',asset_gate:'A4_HD_APPROVED',approval_blockers:[],composite_url:'./assets/patient-exercise-realistic/'+x.profile_id+'.webp'}))};
 check('All approved returns no pending task',getNextMainlineTask(allApproved)===null);
 
