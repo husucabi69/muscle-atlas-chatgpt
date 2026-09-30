@@ -59,10 +59,10 @@ check('px001 corrected realistic asset is approved after three-part review',(()=
     Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
     ['clinical_content','visual_pose','embedded_text'].every(k=>x.candidate_review?.[k]==='PASS');
 })());
-check('px006 repaired candidate passed three-part review and awaits canonical ingest',(()=>{
+check('px006 repaired realistic asset is approved after three-part review',(()=>{
   const x=manifest.profiles.find(p=>p.profile_id==='px006');
-  return x&&x.status==='CANDIDATE_GENERATED'&&!x.composite_url&&
-    x.asset_gate==='CANDIDATE_REVIEW_PASSED_INGEST_PENDING'&&
+  return x&&x.status==='APPROVED'&&x.composite_url==='./assets/patient-exercise-realistic/px006.webp'&&
+    x.asset_gate==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING'&&
     Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
     ['clinical_content','visual_pose','embedded_text'].every(k=>x.candidate_review?.[k]==='PASS');
 })());
