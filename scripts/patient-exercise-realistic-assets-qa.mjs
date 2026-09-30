@@ -49,6 +49,15 @@ check('px009 squat safety blocker is explicit until corrected',
 check('px007 hand-motion mismatch blocker is explicit until regenerated',
   manifest.profiles.some(x=>x.profile_id==='px007'&&x.status==='CANDIDATE_GENERATED'&&Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='HAND_INTRINSIC_MOTION_MISMATCH'))
 );
+check('px007 regeneration brief locks finger-spread motion and forbids fist substitution',(()=>{
+  const x=manifest.profiles.find(p=>p.profile_id==='px007');
+  const b=x?.generation_brief||{};
+  return typeof b.start==='string'&&b.start.includes('모은')&&
+    typeof b.end==='string'&&b.end.includes('벌린')&&b.end.includes('주먹')&&
+    typeof b.common_error==='string'&&b.common_error.includes('주먹쥐기')&&
+    typeof b.text_policy==='string'&&b.text_policy.includes('무저항');
+})());
+
 check('Any APPROVED asset must have WebP URL',
   manifest.profiles.filter(x=>x.status==='APPROVED').every(x=>typeof x.composite_url==='string'&&/\.webp(?:\?|$)/.test(x.composite_url))
 );
