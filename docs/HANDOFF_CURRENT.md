@@ -106,7 +106,11 @@ Stage 23B:
   - writes `assets/patient-exercise-realistic/pxNNN.webp`
   - updates the manifest to `APPROVED` with stored resolution and A4 quality gate
   - CI coverage: `scripts/realistic-asset-ingest-qa.mjs`
-- next exact mainline item: **regenerate px007 from the locked brief**. If an approved candidate file is obtained, ingest it through the new pipeline; then materialize/review px008, correct/regenerate px009, then generate px010–px018 from their locked briefs
+- canonical prompt builder now exists: `scripts/build-realistic-exercise-prompt.mjs`
+  - compiles the locked style + pose/motion/support/common-error brief + unresolved blocker instructions into one reproducible generation prompt
+  - px007 and px009 blocker language is automatically carried into regeneration instructions
+  - CI coverage: `scripts/realistic-generation-prompt-qa.mjs`
+- next exact mainline item: **regenerate px007 using the canonical prompt builder**. If an approved candidate file is obtained, ingest it through the new pipeline; then materialize/review px008, correct/regenerate px009, then generate px010–px018 from their locked briefs
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
