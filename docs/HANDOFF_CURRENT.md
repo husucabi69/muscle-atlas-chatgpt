@@ -89,7 +89,7 @@ Stage 23B:
 - registry: `data/patient-exercise-realistic-assets-v1.json`
 - current realistic asset status at handoff:
   - px001–px005 = `APPROVED` mobile Preview assets after fixed-number removal, three-part review, and canonical ingest. A4-HD remains pending.
-  - px006 = repaired candidate. The corrupt WebP was replaced from the original generated image, fixed numeric dose text removed, and clinical/pose/text review are all PASS. It remains off-screen until canonical ingest.
+  - px001–px006 = `APPROVED` mobile Preview assets. px006 corrupt WebP was rebuilt from the original image, fixed numeric dose text removed, three-part review passed, and canonical ingest completed. A4-HD remains pending.
   - px007 = `CANDIDATE_GENERATED` with `HAND_INTRINSIC_MOTION_MISMATCH` blocker; regenerate before approval.
   - px008 = `CANDIDATE_GENERATED`; candidate provenance exists but binary materialization + Preview review is still pending.
   - px009 squat = `CANDIDATE_GENERATED` with `SQUAT_KNEE_TOE_ABSOLUTE_CUE` blocker; correct/regenerate before approval.
@@ -121,7 +121,7 @@ Stage 23B:
   - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
-- next exact mainline item: **px006 / INGEST_REVIEWED_CANDIDATE**; after approval, continue px007, px008, px009, and px010–px018.
+- next exact mainline item: **px007 / REGENERATE_FROM_LOCKED_BRIEF**. The current fist-closing candidate does not match intrinsic-hand function, so regenerate the motion itself before approval. Then continue px008, px009, and px010–px018.
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
