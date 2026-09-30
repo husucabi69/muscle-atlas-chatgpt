@@ -62,8 +62,10 @@ check('px001 corrected realistic asset is approved after three-part review',(()=
 check('px006 remains blocked until dosage text and binary are corrected',
   ['px006'].every(id=>{
     const x=manifest.profiles.find(p=>p.profile_id===id);
-    return x&&x.status==='CANDIDATE_GENERATED'&&!x.composite_url&&x.asset_gate==='CONTENT_CORRECTION_THEN_PREVIEW_REVIEW_PENDING'&&
-      Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='UNSUPPORTED_FIXED_DOSAGE_TEXT');
+    const codes=Array.isArray(x?.approval_blockers)?x.approval_blockers.map(b=>b.code):[];
+    return x&&x.status==='CANDIDATE_GENERATED'&&!x.composite_url&&
+      x.asset_gate==='BINARY_REPLACEMENT_AND_CONTENT_CORRECTION_PENDING'&&
+      codes.includes('UNSUPPORTED_FIXED_DOSAGE_TEXT')&&codes.includes('BROKEN_CANDIDATE_BINARY');
   })
 );
 check('Demoted first-six candidate binaries are preserved for review',
