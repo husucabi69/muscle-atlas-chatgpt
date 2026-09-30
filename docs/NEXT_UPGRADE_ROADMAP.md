@@ -492,7 +492,8 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - px001은 2026-09-30 고정 숫자 제거 → 3중 검수 → canonical ingest까지 완료해 mobile Preview `APPROVED`로 복귀했다.
 - px001–px006은 2026-09-30 안전 문구 교정·파일 무결성 복구·3중 검수·canonical ingest까지 완료해 mobile Preview `APPROVED` 상태다.
 - px007은 새 손가락 벌림 그림 생성 대기이며, px008·px009의 과거 gen_id-only 후보는 알려진 저장소에서 binary 복구 불가를 확인해 폐기/감사기록으로 이동했다. px008 고관절 외전과 px009 교정 스쿼트는 fresh generation 대상으로 정리됐다.
-- manifest-derived selector의 현재 첫 작업은 **px007 / GENERATE_FROM_LOCKED_BRIEF**다. 기존 주먹쥐기 후보는 폐기됐으며 새 손가락 벌림 후보를 만들어야 한다.
+- 2026-10-01 야간 예약작업에서 px007–px011의 교정 후보가 생성·검수됐지만 실제 image binary는 저장소에 materialize되지 않았다. 따라서 해당 후보는 재생성 대상이 아니라 `BINARY_HANDOFF_BLOCKED` 후보로 관리한다.
+- manifest-derived selector의 현재 첫 작업은 **px007 / OBTAIN_BINARY_AND_PREVIEW_REVIEW**다. exact binary를 회수하지 못하면 px012+ 새 그림 생성을 계속하지 말고 같은 Stage 23B의 독립 QA/구조 작업으로 전환한다.
 - blocker가 있는 후보가 runtime에서 실사 이미지로 노출되면 E2E FAIL 처리한다.
 - 2026-09-30 asset 안전장치 강화:
   - `scripts/inspect-realistic-webp.mjs`가 RIFF/WebP 구조, 선언 파일크기, chunk truncation, 실제 해상도를 검사한다.
