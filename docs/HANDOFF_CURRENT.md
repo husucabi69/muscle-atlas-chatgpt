@@ -128,6 +128,7 @@ Stage 23B:
   - strict WebP inspection now records SHA-256 in addition to byte size and dimensions
   - runtime E2E explicitly rejects any `BINARY_HANDOFF_BLOCKED` candidate that becomes visible
   - `scripts/list-realistic-binary-handoff-queue.mjs` prints the live recovery order and exact gen_ids
+  - `scripts/materialize-reviewed-realistic-binary.mjs` performs exact gen_id/checkpoint/WebP/SHA-256 verification and canonical registration when a reviewed binary becomes available
 - Stage 23B realistic asset handoff is now safer:
   - strict WebP structure/integrity inspector rejects truncated or malformed files before approval
   - candidate registration helper only moves a valid binary into Preview review state
