@@ -120,7 +120,7 @@ Stage 23B:
   - pending profiles with locked briefs → `GENERATE_FROM_LOCKED_BRIEF`
   - A4-HD upgrades are deferred until the mobile realistic set is complete
   - CI coverage: `scripts/next-realistic-exercise-task-qa.mjs`
-- next exact mainline item: **px003 / INGEST_REVIEWED_CANDIDATE**; after approval, continue px004–px006, then px007, px008, px009, and px010–px018.
+- next exact mainline item: **px004 / REGENERATE_FROM_LOCKED_BRIEF** using the same safe-text correction/review/approval path; then px005–px006, px007, px008, px009, and px010–px018.
 - existing SVG remains migration fallback only, not final
 
 ## 6. Mandatory disease rehabilitation stage
