@@ -43,9 +43,15 @@ check('Pending/reference/candidate slots never pretend to have an asset URL',
 check('Approval blockers prevent premature realistic asset approval',
   manifest.profiles.every(x=>!(Array.isArray(x.approval_blockers)&&x.approval_blockers.length)||x.status!=='APPROVED')
 );
-check('px009 squat safety blocker is explicit until corrected',
-  manifest.profiles.some(x=>x.profile_id==='px009'&&x.status==='CANDIDATE_GENERATED'&&Array.isArray(x.approval_blockers)&&x.approval_blockers.some(b=>b.code==='SQUAT_KNEE_TOE_ABSOLUTE_CUE'))
-);
+check('px009 unsafe squat candidate is retired and corrected brief forbids the absolute cue',(()=>{
+  const x=manifest.profiles.find(p=>p.profile_id==='px009');
+  return x&&x.status==='PENDING_GENERATION'&&
+    Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
+    Array.isArray(x.rejected_candidates)&&
+    x.rejected_candidates.some(c=>c.reason_code==='UNRECOVERABLE_BINARY_AND_UNSAFE_KNEE_TOE_CUE')&&
+    String(x.generation_brief?.text_policy||'').includes('무릎이 발끝보다 앞으로 나가면 안 된다')&&
+    String(x.generation_brief?.text_policy||'').includes('금지');
+})());
 check('px007 invalid fist candidate is retired and preserved only in audit history',(()=>{
   const x=manifest.profiles.find(p=>p.profile_id==='px007');
   return x&&x.status==='PENDING_GENERATION'&&
