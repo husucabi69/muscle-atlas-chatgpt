@@ -8,8 +8,9 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 const next=getNextMainlineTask(manifest);
 check('Current next realistic task resolves',Boolean(next),JSON.stringify(next));
 check('Current next task is px007 after px001-px006 approval',next?.profile_id==='px007',JSON.stringify(next));
-check('px007 reviewed candidate requires binary handoff',next?.action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW',next?.action||'');
-check('px007 reviewed candidate carries no content blocker',Array.isArray(next?.blocker_codes)&&next.blocker_codes.length===0,(next?.blocker_codes||[]).join(','));
+check('px007 documented binary loss requires locked-brief regeneration',next?.action==='REGENERATE_FROM_LOCKED_BRIEF',next?.action||'');
+check('px007 regeneration carries no content blocker',Array.isArray(next?.blocker_codes)&&next.blocker_codes.length===0,(next?.blocker_codes||[]).join(','));
+check('px007 profile classifies as regeneration after binary loss',classifyProfile(manifest.profiles.find(x=>x.profile_id==='px007')).action==='REGENERATE_FROM_LOCKED_BRIEF');
 
 const p8=manifest.profiles.find(x=>x.profile_id==='px008');
 const p9=manifest.profiles.find(x=>x.profile_id==='px009');
