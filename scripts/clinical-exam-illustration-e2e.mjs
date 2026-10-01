@@ -9,11 +9,12 @@ const pass=(name,detail='')=>console.log('PASS | '+name+(detail?' | '+detail:'')
 try{
   await page.goto(base,{waitUntil:'networkidle',timeout:30000});
   await page.waitForFunction(()=>
-    clinicalExamIllustrationRegistryData?.coverage?.customized===49 &&
+    clinicalExamIllustrationRegistryData?.coverage?.customized===64 &&
     shoulderExamModule?.clinical_tests?.length===11 &&
     elbowExamModule?.clinical_tests?.length===10 &&
     wristHandExamModule?.clinical_tests?.length===14 &&
-    hipPelvisExamModule?.clinical_tests?.length===14,
+    hipPelvisExamModule?.clinical_tests?.length===14 &&
+    kneeThighExamModule?.clinical_tests?.length===15,
     {timeout:12000}
   );
 
@@ -21,12 +22,14 @@ try{
     {moduleKey:'shoulder',ids:shoulderExamModule.clinical_tests.map(x=>x.clinical_test_id)},
     {moduleKey:'elbow',ids:elbowExamModule.clinical_tests.map(x=>x.clinical_test_id)},
     {moduleKey:'wristHand',ids:wristHandExamModule.clinical_tests.map(x=>x.clinical_test_id)},
-    {moduleKey:'hipPelvis',ids:hipPelvisExamModule.clinical_tests.map(x=>x.clinical_test_id)}
+    {moduleKey:'hipPelvis',ids:hipPelvisExamModule.clinical_tests.map(x=>x.clinical_test_id)},
+    {moduleKey:'kneeThigh',ids:kneeThighExamModule.clinical_tests.map(x=>x.clinical_test_id)}
   ]);
   if(batches[0].ids.length!==11)fail('shoulder exam ids',String(batches[0].ids.length));
   if(batches[1].ids.length!==10)fail('elbow exam ids',String(batches[1].ids.length));
   if(batches[2].ids.length!==14)fail('wrist-hand exam ids',String(batches[2].ids.length));
   if(batches[3].ids.length!==14)fail('hip-pelvis exam ids',String(batches[3].ids.length));
+  if(batches[4].ids.length!==15)fail('knee-thigh exam ids',String(batches[4].ids.length));
 
   for(const batch of batches){
     for(const id of batch.ids){
@@ -57,12 +60,12 @@ try{
       if(!result.text.includes(label))fail(id+' detail label '+label);
     }
     if(result.overflow>2)fail(id+' mobile horizontal overflow',String(result.overflow));
-    const label=batch.moduleKey==='shoulder'?'Shoulder':batch.moduleKey==='elbow'?'Elbow':batch.moduleKey==='wristHand'?'Wrist-hand':'Hip-pelvis';
+    const label=batch.moduleKey==='shoulder'?'Shoulder':batch.moduleKey==='elbow'?'Elbow':batch.moduleKey==='wristHand'?'Wrist-hand':batch.moduleKey==='hipPelvis'?'Hip-pelvis':'Knee-thigh';
     pass(label+' custom clinical exam illustration',id);
     }
   }
   console.log('\n--- CLINICAL EXAM ILLUSTRATION E2E ---');
-  pass('49/49 shoulder + elbow + wrist-hand + hip-pelvis tests use Stable-ID custom teaching schematics');
+  pass('64/64 shoulder + elbow + wrist-hand + hip-pelvis + knee-thigh tests use Stable-ID custom teaching schematics');
 }finally{
   await browser.close();
 }
