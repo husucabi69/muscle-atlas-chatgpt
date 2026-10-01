@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.01-stage23b-binary-handoff-state-normalized",
+  "dataset_version": "2026.10.01-stage23b-display-fidelity-gate",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -33,7 +33,15 @@
     "source_generation": "OpenAI image generation or explicitly licensed/owned photography",
     "one_composite_per_profile": true,
     "fallback": "existing SVG only while realistic asset is pending or fails to load",
-    "production_gate": "All 18 actionable profiles must be approved before SVG fallback may be removed."
+    "production_gate": "All 18 actionable profiles must be approved before SVG fallback may be removed.",
+    "display_fidelity": {
+      "no_upscale": true,
+      "desktop_max_css_px": 720,
+      "viewport_max_height": "72vh",
+      "a4_hd_minimum_px": "1240x1754",
+      "low_resolution_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING",
+      "rule": "Approved raster assets may be scaled down but never enlarged beyond intrinsic pixel width. Low-resolution mobile-preview assets must not be used for A4 printing."
+    }
   },
   "profiles": [
     {
