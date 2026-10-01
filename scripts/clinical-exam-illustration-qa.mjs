@@ -1,0 +1,56 @@
+import fs from 'node:fs';
+
+const read=p=>fs.readFileSync(p,'utf8');
+const json=p=>JSON.parse(read(p));
+const registry=json('data/clinical-exam-illustration-presets-v1.json');
+const shoulder=json('data/examination-shoulder-v1.json');
+const index=read('index.html');
+const sw=read('sw.js');
+
+const checks=[];
+const check=(name,pass,detail='')=>{
+  checks.push({name,pass:Boolean(pass),detail});
+  console.log((pass?'PASS':'FAIL')+' | '+name+(detail?' | '+detail:''));
+};
+
+const tests=shoulder.clinical_tests||[];
+const presets=registry.presets||{};
+const ids=tests.map(x=>x.clinical_test_id);
+const customIds=Object.keys(presets).sort();
+
+check('Shoulder canonical examination count',tests.length===11,String(tests.length));
+check('Custom illustration registry covers all shoulder tests',
+  customIds.length===11&&ids.every(id=>presets[id]),customIds.join(', '));
+check('Registry coverage metadata matches 11/148',
+  registry.coverage?.customized===11&&registry.coverage?.total_canonical_tests===148,
+  JSON.stringify(registry.coverage||{}));
+
+for(const test of tests){
+  const p=presets[test.clinical_test_id];
+  check(test.clinical_test_id+' custom precision',p?.precision==='custom',p?.precision||'missing');
+  check(test.clinical_test_id+' stable id matches',p?.clinical_test_id===test.clinical_test_id,p?.clinical_test_id||'missing');
+  check(test.clinical_test_id+' start/action pose',
+    Array.isArray(p?.start?.shoulder)&&Array.isArray(p?.start?.elbow)&&Array.isArray(p?.start?.wrist)&&
+    Array.isArray(p?.action?.shoulder)&&Array.isArray(p?.action?.elbow)&&Array.isArray(p?.action?.wrist));
+  check(test.clinical_test_id+' examiner teaching text',
+    String(p?.examiner_position||'').length>=20&&String(p?.hand_force||'').length>=20&&String(p?.common_error||'').length>=20);
+  check(test.clinical_test_id+' positive marker',
+    Number.isFinite(p?.positive?.x)&&Number.isFinite(p?.positive?.y)&&String(p?.positive?.label||'').length>0);
+  check(test.clinical_test_id+' motion cue',
+    Array.isArray(p?.arrows)&&p.arrows.length>=1);
+}
+
+check('App loads clinical exam illustration registry',
+  index.includes("fetch('./data/clinical-exam-illustration-presets-v1.json',{cache:'no-cache'})"));
+check('App renders Stable-ID custom exam illustration',
+  index.includes('data-exam-illustration="custom"')&&index.includes('function clinicalExamPresetFigure(test,preset)'));
+check('App displays examiner position and force direction',
+  index.includes('검사자 위치 · 손 위치')&&index.includes('<b>힘의 방향:</b>'));
+check('App keeps generic fallback for remaining tests',
+  index.includes('data-exam-illustration="generic"')&&index.includes('검사별 고정밀 도해 교체 대기'));
+check('Service worker precaches illustration registry',
+  sw.includes("'./data/clinical-exam-illustration-presets-v1.json'"));
+
+const failed=checks.filter(x=>!x.pass);
+console.log('\nClinical exam illustration QA: '+(checks.length-failed.length)+'/'+checks.length+' PASS');
+if(failed.length)process.exit(1);
