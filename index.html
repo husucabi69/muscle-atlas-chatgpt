@@ -3606,8 +3606,9 @@ function exerciseIllustration(p){
     '<div class="exercise-visual-key" aria-label="그림 기호 설명"><span>→ 움직임 방향</span><span>◎ 고정·지지</span><span>× 피할 보상</span></div></div>';
   const a4Pending=asset?.asset_gate==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING';
   const qualityClass=a4Pending?' a4-hd-pending':'';
+  const badgeText=a4Pending?'실사형 환자교육 일러스트 · 모바일 미리보기':'실사형 환자교육 일러스트';
   const realistic=(asset?.status==='APPROVED'&&asset?.composite_url)?
-    '<div class="exercise-realistic-badge'+qualityClass+'">실사형 환자교육 일러스트</div>'+
+    '<div class="exercise-realistic-badge'+qualityClass+'">'+badgeText+'</div>'+
     '<div class="exercise-realistic-media'+qualityClass+'"><img src="'+esc(asset.composite_url)+'" alt="'+esc(alt)+'" loading="lazy" decoding="async" onerror="this.parentElement.style.display=\'none\';this.parentElement.nextElementSibling.hidden=false"></div>'+
     '<div class="exercise-svg-fallback'+qualityClass+'" hidden>'+fallback.replace(/^<div class="exercise-svg-fallback">|<\/div>$/g,'')+'</div>'+
     (a4Pending?'<div class="exercise-a4-pending-note">인쇄본은 고해상도 실사형 자산 승인 전까지 선명한 도해를 사용합니다.</div>':''):
