@@ -56,6 +56,8 @@ jobs:
         run: node scripts/hierarchical-navigation-3-qa.mjs
       - name: Run Stage 23B patient exercise illustration 3.0 QA
         run: node scripts/patient-exercise-illustration-3-qa.mjs
+      - name: Run specialist case quiz and differential detail QA
+        run: node scripts/specialist-quiz-differential-detail-qa.mjs
       - name: Run Stage 23B realistic exercise asset pipeline QA
         run: node scripts/patient-exercise-realistic-assets-qa.mjs
       - name: Run Stage 23B realistic WebP binary integrity QA
