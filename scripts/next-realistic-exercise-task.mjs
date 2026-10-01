@@ -32,6 +32,12 @@ export function classifyProfile(profile){
     }
     return{action:'INGEST_REVIEWED_CANDIDATE',blocking:true};
   }
+  if(profile.status==='PENDING_REGENERATION'){
+    if(!profile.generation_brief){
+      return{action:'LOCK_GENERATION_BRIEF',blocking:true};
+    }
+    return{action:'REGENERATE_FROM_LOCKED_BRIEF',blocking:true};
+  }
   if(profile.status==='PENDING_GENERATION'){
     if(!profile.generation_brief){
       return{action:'LOCK_GENERATION_BRIEF',blocking:true};
