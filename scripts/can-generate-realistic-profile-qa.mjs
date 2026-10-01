@@ -1,0 +1,36 @@
+import fs from 'node:fs';
+import {canGenerateRealisticProfile} from './can-generate-realistic-profile.mjs';
+
+const manifest=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-assets-v1.json','utf8'));
+const checks=[];
+const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
+
+const p12=canGenerateRealisticProfile(manifest,'px012');
+check('px012 generation is blocked while px007 binary handoff is blocked',
+  p12.allowed===false&&p12.reason==='EARLIER_BINARY_HANDOFF_BLOCKED'&&p12.blocking_profile_id==='px007',
+  JSON.stringify(p12)
+);
+
+const cleared={...manifest,profiles:manifest.profiles.map(p=>{
+  if(['px007','px008','px009','px010','px011'].includes(p.profile_id)){
+    return{...p,status:'APPROVED',asset_gate:'MOBILE_PREVIEW_APPROVED_A4_HD_PENDING',binary_handoff:null,composite_url:'./assets/patient-exercise-realistic/'+p.profile_id+'.webp'};
+  }
+  return p;
+})};
+const cleared12=canGenerateRealisticProfile(cleared,'px012');
+check('px012 becomes generatable only after earlier handoffs are cleared',
+  cleared12.allowed===true&&cleared12.reason==='READY',
+  JSON.stringify(cleared12)
+);
+check('approved profile cannot be regenerated',
+  canGenerateRealisticProfile(manifest,'px001').reason==='TARGET_NOT_PENDING_GENERATION'
+);
+
+let failed=0;
+for(const x of checks){
+  console.log(`${x.pass?'PASS':'FAIL'} | ${x.name}${x.detail?' | '+x.detail:''}`);
+  if(!x.pass)failed++;
+}
+console.log('\n--- REALISTIC GENERATION PERMISSION QA ---');
+console.log(`PASS=${checks.length-failed} FAIL=${failed}`);
+if(failed)process.exit(1);
