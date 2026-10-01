@@ -27,8 +27,8 @@
 
 ### 다음 정본 로드맵
 새 기능 개발은 `docs/NEXT_UPGRADE_ROADMAP.md`를 따른다.
-현재 release 전 필수 순서는 **Stage 23A Full Hierarchical Navigation 3.0 → Stage 23B Patient Exercise Illustration 3.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**다.
-Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 그 구조가 고정된 뒤 통합해 재작업을 줄인다.
+현재 release 전 필수 순서는 **Stage 23A Full Hierarchical Navigation 3.0 → Stage 23B Patient Exercise Illustration/Clinical Content → Stage 23B-Disease Rehab → Stage 23B-Anatomy IP Pilot → Stage 23B-3D Anatomy Pilot → Stage 23B-Motion Animation Pilot → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**다.
+Stage 23A 기반 UX 위에서 현재 Stage 23B 콘텐츠/진찰도해를 계속 진행하고, 자체 2D 해부학 도해·3D 회전 뷰어·근육 작용 애니메이션의 mandatory pilot을 Stage 23C 전에 완료한다. 상세 계약은 `docs/ANATOMY_IP_3D_MOTION_CONTRACT.md`를 따른다.
 
 ## 완료의 정의
 한 부위는 아래 8개 층이 모두 연결되어야 COMPLETE로 처리한다.
@@ -84,11 +84,17 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - 모든 탭을 목차 → 하위목록 → 상세 → 심화 독립 화면 drill-down 방식으로 통일
 - 같은 화면 아래쪽에 하위 콘텐츠가 생겨 스크롤로 찾는 패턴 제거
 - 각 단계에 뒤로가기 / 상위목차 / breadcrumb 제공
-- 환자 운동·스트레칭의 개념형 SVG를 전문 환자교육 수준 일러스트로 전면 고도화\n- 실사형 환자교육 그림은 작은 원본을 PC 전체폭으로 확대하지 않으며 source-pixel no-upscale + 데스크톱 표시 상한을 기본 UI 계약으로 유지
+- 환자 운동·스트레칭의 개념형 SVG를 전문 환자교육 수준 일러스트로 전면 고도화
+- 320×400 mobile-preview 실사형 환자교육 그림은 PC 목표 400 CSS px, 원본 대비 최대 1.25× soft-upscale; 고해상도는 desktop 720px cap; low-res A4 사용 금지
 - 각 해부학 영역의 대표 정형외과 질환을 질환별 재활교육 모듈로 구축하고 스트레칭·강화·생활습관·red flag·인쇄를 제공
 - 환자가 앱을 직접 설치한 뒤 `부위 → 질환 → 재활` 경로로 쉽게 찾을 수 있게 하고 홈 검색/임상상세와 연결
 - 앱 실행/재개 자동 업데이트 + 홈 pull-to-refresh 업데이트는 v11.37에서 구현 완료
-- 장기 운영 정본: 대표 해부도해·실제 초음파·근육별 재활·질환별 재활은 계속 추가/교체되는 Evergreen 콘텐츠이며, 새 요청은 Idea Register에 보존 후 로드맵 우선순위에 따라 구현
+- **ANATOMY-IP-001:** 교과서급 자체 2D 해부학 근육도해를 독립 창작자산으로 제작한다. 첫 파일럿은 경추–견갑대, 첫 mandatory muscle은 두판상근.
+- **ANATOMY-3D-001:** rotate/zoom/layer/transparency/highlight를 지원하는 3D 해부학 뷰어를 반드시 개발한다.
+- **MOTION-ANIM-001:** 근육 작용 애니메이션을 반드시 개발한다. 첫 mandatory animation은 두판상근의 양측 신전 및 일측 동측회전·측굴.
+- 위 3개 파일럿은 **Stage 23C 전 필수 구현**이며 아이디어 backlog로 되돌리거나 무기한 연기하지 않는다.
+- 자체 해부학 자산은 Stable ID + provenance/license registry로 관리하고 특정 교과서 도판의 tracing/near-copy를 금지한다.
+- 장기 운영 정본: 자체 해부도해·3D·motion·실제 초음파·근육별 재활·질환별 재활은 계속 추가/교체되는 Evergreen 콘텐츠이며, 새 요청은 Idea Register에 보존 후 로드맵 우선순위에 따라 구현
 
 ---
 ## 개발 운영
@@ -120,7 +126,7 @@ Stage 23A가 기반 UX이므로 먼저 닫고, 운동 일러스트 고도화는 
 - Stage 20 Ultrasound Atlas 2.0: DEV COMPLETE / automated QA PASS — 131/131 probe guidance + landmarks + pitfall taxonomy; 5 reusable actual-ultrasound assets embedded, 9 permissive candidates held until stable direct asset URL, 117 reference-only; 55/55 source URLs healthy, broken 0; generated B-mode prohibited
 - Stage 21 Clinical Learning Flow 2.0: IN PROGRESS — symptom→anatomy→differential→exam→ultrasound→fixed-muscle quiz→viva→education common flow implemented across all 10 clinical modules with ultrasound-first module routing and region fallback
 - 현재 개발: **Stage 23B — Patient Exercise Illustration 3.0 (REALISTIC STYLE USER APPROVED / ASSET PIPELINE IN PROGRESS)**
-- 다음: **Stage 23B Patient Exercise Illustration 3.0 → Stage 23B-Disease Rehab Patient Rehabilitation Education 1.0 → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
+- 다음 필수선: **Stage 23B current workline → Stage 23B-Disease Rehab → Stage 23B-Anatomy IP Pilot → Stage 23B-3D Anatomy Pilot → Stage 23B-Motion Animation Pilot → Stage 23C Integrated Real Device & Visual Gate → Stage 24 Google Play Production Release**
 
 > 아래 v7.x~v9.x의 “다음” 문구는 당시 시점의 개발 이력이다. 현재 정본 순서는 위 상태표와 `NEXT_UPGRADE_ROADMAP.md`가 우선한다.
 
