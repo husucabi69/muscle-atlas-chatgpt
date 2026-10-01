@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.10.01-board-exam-sources-v1",
+  "policy": {
+    "label": "정형외과 전문의 시험 학습자료",
+    "rule": "공식 공개자료만 직접 연결한다. 실제 전문의 시험 기출문항 원문은 공식 공개가 확인된 경우에만 앱에 수록하고, 비공식·유료 문제를 무단 복제하지 않는다.",
+    "generated_questions": "앱 자동출제 문제는 실제 기출 복제가 아니라 공식 출제범위·참고문헌과 앱의 임상 지식베이스를 이용한 독자 제작 문항이다."
+  },
+  "sources": [
+    {
+      "id": "koa_2026_oral_scope",
+      "title_ko": "2026년도 제69차 전문의 자격시험 2차 구술평가 대상 범위",
+      "organization": "대한정형외과학회",
+      "url": "https://www.koa.or.kr/bbs/?code=s_notice&mode=view&number=18485&page=4",
+      "kind": "official_scope",
+      "public_question_text": false
+    },
+    {
+      "id": "koa_2026_reference",
+      "title_ko": "2026년도 제69차 전문의 자격시험 참고 문헌 자료 안내",
+      "organization": "대한정형외과학회",
+      "url": "https://www.koa.or.kr/bbs/?code=s_notice&mode=view&number=17981",
+      "kind": "official_reference",
+      "public_question_text": false
+    },
+    {
+      "id": "koa_2026_plan",
+      "title_ko": "2026년도 제69차 전문의 자격시험 시행계획",
+      "organization": "대한정형외과학회",
+      "url": "https://new.koa.or.kr/bbs/?code=s_notice&mode=view&number=18370&page=1",
+      "kind": "official_plan",
+      "public_question_text": false
+    },
+    {
+      "id": "koa_2016_resident_exam",
+      "title_ko": "제37차 전공의 평가시험 문제 공개",
+      "organization": "대한정형외과학회",
+      "url": "https://www.koa.or.kr/bbs/?code=s_notice&mode=view&number=5003&page=13",
+      "kind": "official_public_resident_questions",
+      "public_question_text": true,
+      "note": "전문의 자격시험 기출이 아니라 전공의 평가시험 공개 문제다. 원문은 학회 페이지에서 열람하고 앱은 링크만 제공한다."
+    }
+  ],
+  "search_result_note": "2026-10-01 공식 학회 공개 페이지를 확인했으며, 현재 확인된 공식 공개자료 중 전문의 자격시험 실제 기출문항 원문 세트는 확인되지 않았다. 공개 범위·참고문헌·시행계획은 연결하고, 공개 전공의 평가시험 문제는 별도 표시한다."
+}
