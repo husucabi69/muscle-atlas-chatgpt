@@ -2285,7 +2285,7 @@ function clinicalExamDetailHtml(test,moduleKey){
     '<div class="clinical-exam-section"><h4>검사의 목적</h4><p>'+esc(test.interpretation_note||'해당 구조와 증상 재현을 임상 문맥에서 평가합니다.')+'</p>'+(targets.length?'<div class="clinical-exam-links">'+targets.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div>':'')+'</div>'+
     '<div class="clinical-exam-section"><h4>검사 전 확인</h4><p>'+esc(clinicalExamTeachingNote(test))+'</p></div>'+
     '<div class="clinical-exam-section"><h4>환자 시작 자세</h4><p>'+esc(test.setup||'')+'</p></div>'+
-    '<div class="clinical-exam-section"><h4>검사자 동작 · 시행 순서</h4><p>'+esc(test.maneuver||'')+'</p></div>'+
+    '<div class="clinical-exam-section"><h4>방법 · 검사자 동작 · 시행 순서</h4><p>'+esc(test.maneuver||'')+'</p></div>'+
     '<div class="clinical-exam-section"><h4>양성 기준</h4><p>'+esc(test.positive_definition||'')+'</p></div>'+
     '<div class="clinical-exam-section"><h4>임상 해석</h4><p>'+esc(test.interpretation_note||'')+'</p></div>'+
     '<div class="clinical-exam-section"><h4>한계 / 흔한 오류</h4><p>'+esc(test.limitation||'단일 검사만으로 확정하지 않는다.')+'</p></div>'+
