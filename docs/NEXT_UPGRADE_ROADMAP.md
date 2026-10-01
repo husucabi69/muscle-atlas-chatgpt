@@ -87,6 +87,13 @@
 - **현재 EXAM-001 배치의 자연스러운 체크포인트 뒤**, Stage 23B-Disease Rehab 및 Stage 23C로 넘어가기 전 1~2개의 짧은 경량 작업으로 삽입한다.
 - Stage 23C의 실기기 검증은 이 baseline의 URL/PWA/visual QA를 최종 재확인하는 release gate로 사용한다.
 
+### 저작권 등록·증빙 LOCK — 2026-10-02
+- 저작권 등록은 개발 종료 후 생각하는 부가업무가 아니라 자체 IP 제작 workflow에 포함한다.
+- AI-only raw output은 등록 전략의 핵심 자산으로 보지 않는다. 인간의 해부학 교정·구도·레이어·라벨·overlay·편집·가필을 남겨 등록 가능한 인간 창작기여를 증빙한다.
+- 첫 등록 실행 시점은 **경추–견갑대 ANATOMY-IP 파일럿 사용자 승인 직후**로 고정한다.
+- 등록 전 한국저작권위원회에 작품 분류와 생성형 AI 활용 기재방법을 확인한다.
+- 상세 정본: `docs/COPYRIGHT_REGISTRATION_STRATEGY.md`
+
 ## Anatomy IP / 3D / Motion — 정식 개발 트랙 LOCK / 2026-10-01
 
 상태: **LOCKED / MUST DEVELOP / CANONICAL WORKLINE**  
@@ -225,6 +232,7 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 | VID-005 | CC BY/Public Domain/명시적 허가 영상에 한해 한국어 번역자막 및 선택적 TTS 더빙 지원 | Medium | license/permission audit | **Stage 23B Media UX** |
 | ARCH-001 | 대표 해부도해·실제 초음파·근육별 운동·질환별 재활을 코드 재설계 없이 계속 추가·교체할 수 있는 Stable ID + registry + asset slot 확장 계약 유지 | Release blocker | 기존 Stable ID/registry | **EVERGREEN ARCHITECTURE / MUST PRESERVE** |
 | ANATOMY-IP-001 | 교과서급 자체 2D 근육도해를 독립 창작 자산으로 제작하고 대표도해 slot을 자체 IP로 전환 | Strategic / Mandatory | ARCH-001 + anatomy Stable ID | **LOCKED / MUST DEVELOP · Stage 23B-Anatomy IP Pilot before Stage 23C** |
+| IP-REG-001 | 자체 2D/실사형 검사·운동/3D/Motion/앱 코드의 인간 창작기여 증빙과 한국저작권위원회 등록 실행 | Strategic / Legal | ANATOMY-IP + realistic asset pipeline | **LOCKED · evidence now / first filing after Anatomy IP pilot** |
 | ANATOMY-3D-001 | 회전·줌·레이어/투명도·근육 highlight를 지원하는 3D 해부학 뷰어 | Strategic / Mandatory | ANATOMY-IP-001 + model provenance | **LOCKED / MUST DEVELOP · Stage 23B-3D Pilot before Stage 23C** |
 | MOTION-ANIM-001 | 근육 작용을 실제 관절 움직임으로 보여주는 기능 애니메이션; 첫 파일럿 두판상근 | Strategic / Mandatory | ANATOMY-IP-001 + ANATOMY-3D-001 + canonical Function | **LOCKED / MUST DEVELOP · Stage 23B-Motion Pilot before Stage 23C** |
 | EDU-008 | 사용자가 특정 근육 운동·스트레칭 추가를 요청하면 기존 근육별 환자교육 registry에 source/last-reviewed/asset slot을 붙여 확장 가능하게 유지 | High | ARCH-001 | **ONGOING / NON-PREEMPTIVE** |
@@ -865,7 +873,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**EXAM-001 검사별 맞춤도해 148/148 진행 → 경량 Deployment Safety Gate → Stage 23B 실사형 운동 일러스트 잔여 제작/검수 → Stage 23B-Disease Rehab → Stage 23B-Anatomy IP Pilot → Stage 23B-3D Anatomy Pilot → Stage 23B-Motion Animation Pilot → Stage 23C → Stage 24**
+**EXAM-001 검사별 맞춤도해 148/148 진행 → 경량 Deployment Safety Gate → Stage 23B 실사형 운동 일러스트 잔여 제작/검수 → Stage 23B-Disease Rehab → Stage 23B-Anatomy IP Pilot + IP-REG Filing 1 → Stage 23B-3D Anatomy Pilot → Stage 23B-Motion Animation Pilot → Stage 23C → Stage 24**
 
 대표도해 미확보 항목 재탐색, 초음파 direct-embed 후보 탐색, 신규 근육/질환 콘텐츠 제안은 모두 위 주 개발선과 별도의 **Evergreen Refresh backlog**로 보존하며 주 개발선을 중단시키지 않는다.
 
