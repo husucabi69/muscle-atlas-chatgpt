@@ -3,10 +3,14 @@
   "updated_at": "2026-10-01",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 11,
+    "customized": 21,
     "total_canonical_tests": 148,
-    "module": "shoulder",
-    "status": "BATCH_1_COMPLETE"
+    "modules": [
+      "shoulder",
+      "elbow"
+    ],
+    "status": "BATCH_2_COMPLETE",
+    "next_module": "wrist-hand"
   },
   "presets": {
     "ct001": {
@@ -678,6 +682,652 @@
       "examiner_position": "한 손으로 팔꿈치를 90° 위치에 지지하고 다른 손으로 원위 전완을 잡는다.",
       "hand_force": "상완 위치를 유지하면서 전완을 움직여 어깨 내회전을 만든다.",
       "common_error": "팔꿈치를 아래로 떨어뜨리거나 몸통 회전으로 움직임을 대신하지 않게 한다."
+    },
+    "ct012": {
+      "clinical_test_id": "ct012",
+      "precision": "custom",
+      "view": "front",
+      "title": "Cozen · 전완 회내 + 손목 신전/요측편위 유지에 굴곡 방향 저항",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          142,
+          105
+        ],
+        "wrist": [
+          184,
+          108
+        ],
+        "hand_label": "회내 · 신전"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          142,
+          105
+        ],
+        "wrist": [
+          184,
+          98
+        ],
+        "hand_label": "신전 유지"
+      },
+      "examiner_hands": [
+        {
+          "x": 184,
+          "y": 98,
+          "label": "손등/중수"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 184,
+          "y1": 78,
+          "x2": 184,
+          "y2": 113,
+          "label": "굴곡 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 142,
+        "y": 105,
+        "label": "외측상과 통증"
+      },
+      "examiner_position": "환자 앞 또는 측면에서 팔꿈치를 안정시키고 다른 손으로 손등/중수부에 저항을 준다.",
+      "hand_force": "환자는 손목 신전과 요측편위를 유지하고, 검사자는 손목 굴곡 방향으로 저항한다.",
+      "common_error": "팔꿈치·어깨 움직임으로 저항을 버티게 두지 말고, 통증 위치가 외측상과인지 요골터널 쪽인지 구분한다."
+    },
+    "ct013": {
+      "clinical_test_id": "ct013",
+      "precision": "custom",
+      "view": "front",
+      "title": "Mill · 팔꿈치 신전 + 전완 회내 + 손목 굴곡으로 공통신근군 신장",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          154,
+          100
+        ],
+        "wrist": [
+          202,
+          106
+        ],
+        "hand_label": "회내"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          172,
+          93
+        ],
+        "wrist": [
+          210,
+          126
+        ],
+        "hand_label": "손목 굴곡"
+      },
+      "examiner_hands": [
+        {
+          "x": 171,
+          "y": 93,
+          "label": "팔꿈치 신전"
+        },
+        {
+          "x": 207,
+          "y": 122,
+          "label": "손목 굴곡"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 205,
+          "cy": 110,
+          "r": 22,
+          "start_angle": -40,
+          "end_angle": 65,
+          "label": "굴곡"
+        },
+        {
+          "x1": 158,
+          "y1": 105,
+          "x2": 180,
+          "y2": 94,
+          "label": "신전"
+        }
+      ],
+      "positive": {
+        "x": 154,
+        "y": 99,
+        "label": "외측상과 통증"
+      },
+      "examiner_position": "한 손은 팔꿈치/상완을 안정시키고 다른 손은 전완·손목을 조절한다.",
+      "hand_force": "팔꿈치를 펴고 전완을 회내한 뒤 손목을 굴곡시켜 손목신전근군을 수동으로 신장한다.",
+      "common_error": "강한 끝범위 스트레칭으로 새로운 통증을 만들지 말고, 익숙한 외측상과 통증 재현 여부를 기록한다."
+    },
+    "ct014": {
+      "clinical_test_id": "ct014",
+      "precision": "custom",
+      "view": "front",
+      "title": "Maudsley · 중지 신전에 국소 저항",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          160,
+          96
+        ],
+        "wrist": [
+          204,
+          100
+        ],
+        "hand_label": "중지 신전"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          160,
+          96
+        ],
+        "wrist": [
+          204,
+          100
+        ],
+        "hand_label": "중지 ↑"
+      },
+      "examiner_hands": [
+        {
+          "x": 213,
+          "y": 92,
+          "label": "중지"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 213,
+          "y1": 76,
+          "x2": 213,
+          "y2": 104,
+          "label": "중지 굴곡 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 163,
+        "y": 96,
+        "label": "외측상과/요골터널 통증"
+      },
+      "examiner_position": "손목·전완을 안정시키고 중지 원위부에만 국소 저항을 준다.",
+      "hand_force": "환자는 중지 신전을 유지하고 검사자는 중지를 굴곡시키는 방향으로 저항한다.",
+      "common_error": "손목 전체 신전으로 검사를 대체하지 말고, 통증 위치를 외측상과와 더 원위의 요골터널로 나눠 기록한다."
+    },
+    "ct015": {
+      "clinical_test_id": "ct015",
+      "precision": "custom",
+      "view": "front",
+      "title": "저항성 손목굴곡·회내 · 내측 굴곡-회내군 부하",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          156,
+          100
+        ],
+        "wrist": [
+          202,
+          105
+        ],
+        "hand_label": "회외 시작"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          156,
+          100
+        ],
+        "wrist": [
+          199,
+          120
+        ],
+        "hand_label": "굴곡 + 회내"
+      },
+      "examiner_hands": [
+        {
+          "x": 198,
+          "y": 114,
+          "label": "손바닥/전완"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 198,
+          "cy": 105,
+          "r": 24,
+          "start_angle": -35,
+          "end_angle": 70,
+          "label": "굴곡·회내 저항"
+        }
+      ],
+      "positive": {
+        "x": 154,
+        "y": 101,
+        "label": "내측상과 통증"
+      },
+      "examiner_position": "팔꿈치를 안정시키고 다른 손으로 손바닥·원위 전완에 반대 방향 저항을 준다.",
+      "hand_force": "환자는 손목 굴곡과 전완 회내를 시도하고 검사자는 손목 신전·회외 방향으로 저항한다.",
+      "common_error": "척골신경 분포 저림이나 valgus 통증이 섞이는지 확인해 단순 내측상과 건병증으로만 해석하지 않는다."
+    },
+    "ct016": {
+      "clinical_test_id": "ct016",
+      "precision": "custom",
+      "view": "front",
+      "title": "주관 Tinel · 척골신경 고랑을 가볍게 타진",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          145,
+          112
+        ],
+        "wrist": [
+          178,
+          145
+        ],
+        "hand_label": "팔꿈치 굴곡"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          145,
+          112
+        ],
+        "wrist": [
+          178,
+          145
+        ],
+        "hand_label": "가볍게 타진"
+      },
+      "examiner_hands": [
+        {
+          "x": 142,
+          "y": 111,
+          "label": "척골신경 고랑"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 142,
+          "y1": 82,
+          "x2": 142,
+          "y2": 107,
+          "label": "가벼운 타진"
+        }
+      ],
+      "positive": {
+        "x": 180,
+        "y": 145,
+        "label": "4–5지 저림/전기감"
+      },
+      "examiner_position": "환자의 팔꿈치 내측에서 내측상과 후방의 척골신경 고랑을 정확히 찾는다.",
+      "hand_force": "신경 위를 세게 누르지 말고 손끝으로 가볍게 반복 타진해 익숙한 척측 증상이 퍼지는지 본다.",
+      "common_error": "국소 압통만으로 양성이라 하지 말고, 제4–5지/척측 손으로 퍼지는 익숙한 감각 증상인지 확인한다."
+    },
+    "ct017": {
+      "clinical_test_id": "ct017",
+      "precision": "custom",
+      "view": "front",
+      "title": "주관 압박-굴곡 · 팔꿈치 굴곡 유지 + 주관 국소 압박",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          139,
+          116
+        ],
+        "wrist": [
+          112,
+          147
+        ],
+        "hand_label": "깊은 굴곡"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          139,
+          116
+        ],
+        "wrist": [
+          112,
+          147
+        ],
+        "hand_label": "굴곡 유지"
+      },
+      "examiner_hands": [
+        {
+          "x": 136,
+          "y": 112,
+          "label": "주관 압박"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 136,
+          "y1": 84,
+          "x2": 136,
+          "y2": 107,
+          "label": "지속 압박"
+        }
+      ],
+      "positive": {
+        "x": 112,
+        "y": 147,
+        "label": "척골신경 분포 저림"
+      },
+      "examiner_position": "팔꿈치를 굴곡시킨 상태에서 내측상과 후방 주관 부위에 손가락 압박을 위치시킨다.",
+      "hand_force": "척골신경에 과도하지 않은 지속 압박을 가하면서 팔꿈치 굴곡을 유지해 증상 재현을 본다.",
+      "common_error": "압박 강도와 유지시간을 과도하게 늘리지 말고, 단순 불편감과 익숙한 척골신경 증상을 구분한다."
+    },
+    "ct018": {
+      "clinical_test_id": "ct018",
+      "precision": "custom",
+      "view": "front",
+      "title": "Distal biceps Hook · 90° 굴곡/능동 회외에서 건 아래로 검지 hook",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          139,
+          118
+        ],
+        "wrist": [
+          176,
+          111
+        ],
+        "hand_label": "회외"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          139,
+          118
+        ],
+        "wrist": [
+          176,
+          111
+        ],
+        "hand_label": "건 hook"
+      },
+      "examiner_hands": [
+        {
+          "x": 146,
+          "y": 109,
+          "label": "검지 hook"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 160,
+          "y1": 102,
+          "x2": 147,
+          "y2": 111,
+          "label": "외측→건 아래"
+        }
+      ],
+      "positive": {
+        "x": 146,
+        "y": 110,
+        "label": "건을 걸 수 없음"
+      },
+      "examiner_position": "환자의 팔꿈치 외측에서 원위 이두건을 촉지하고 검지를 건의 외측에서 안쪽으로 넣는다.",
+      "hand_force": "환자가 전완을 능동 회외해 건을 팽팽하게 만든 상태에서 검지로 cord-like tendon 아래를 건다.",
+      "common_error": "lacertus fibrosus를 건 자체로 착각하지 말고, 부분파열에서는 hook 가능 여부만으로 결론내리지 않는다."
+    },
+    "ct019": {
+      "clinical_test_id": "ct019",
+      "precision": "custom",
+      "view": "front",
+      "title": "Biceps Squeeze · 상완이두근 근복 압박 후 수동 회외 반응 관찰",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          145,
+          120
+        ],
+        "wrist": [
+          178,
+          150
+        ],
+        "hand_label": "전완 이완"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          145,
+          120
+        ],
+        "wrist": [
+          178,
+          142
+        ],
+        "hand_label": "회외 반응"
+      },
+      "examiner_hands": [
+        {
+          "x": 118,
+          "y": 88,
+          "label": "이두근 근복 압박"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 101,
+          "y1": 88,
+          "x2": 118,
+          "y2": 88,
+          "label": "squeeze"
+        },
+        {
+          "x1": 135,
+          "y1": 88,
+          "x2": 118,
+          "y2": 88,
+          "label": "squeeze"
+        },
+        {
+          "kind": "arc",
+          "cx": 178,
+          "cy": 145,
+          "r": 18,
+          "start_angle": 100,
+          "end_angle": 10,
+          "label": "회외"
+        }
+      ],
+      "positive": {
+        "x": 178,
+        "y": 145,
+        "label": "회외 반응 없음"
+      },
+      "examiner_position": "상완이두근 근복 양측을 손으로 감싸고 전완이 자유롭게 회전하도록 둔다.",
+      "hand_force": "근복을 압박해 정상이라면 원위 건을 통해 전완 회외가 유발되는지 관찰한다.",
+      "common_error": "환자가 스스로 회외하도록 지시하지 말고, 통증·긴장으로 전완이 고정되지 않게 한다."
+    },
+    "ct020": {
+      "clinical_test_id": "ct020",
+      "precision": "custom",
+      "view": "front",
+      "title": "Moving Valgus Stress · 일정 valgus torque 유지하며 120°→70° 신전",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          132,
+          126
+        ],
+        "wrist": [
+          101,
+          156
+        ],
+        "hand_label": "깊은 굴곡"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          155,
+          103
+        ],
+        "wrist": [
+          194,
+          120
+        ],
+        "hand_label": "빠른 신전"
+      },
+      "examiner_hands": [
+        {
+          "x": 132,
+          "y": 125,
+          "label": "팔꿈치 안정"
+        },
+        {
+          "x": 191,
+          "y": 119,
+          "label": "원위 전완"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 180,
+          "y1": 133,
+          "x2": 195,
+          "y2": 105,
+          "label": "valgus torque"
+        },
+        {
+          "kind": "arc",
+          "cx": 132,
+          "cy": 124,
+          "r": 55,
+          "start_angle": 120,
+          "end_angle": 15,
+          "label": "120°→70° 신전"
+        }
+      ],
+      "positive": {
+        "x": 133,
+        "y": 124,
+        "label": "내측 UCL 통증"
+      },
+      "examiner_position": "어깨를 외전·외회전시킨 상태에서 한 손은 팔꿈치를 안정시키고 다른 손은 원위 전완을 잡는다.",
+      "hand_force": "일정한 valgus torque를 유지하면서 팔꿈치를 깊은 굴곡에서 약 70°까지 비교적 빠르게 신전한다.",
+      "common_error": "통증 때문에 valgus 힘을 과도하게 키우지 말고, 내측 건병증·척골신경 증상과 UCL 통증 위치를 구분한다."
+    },
+    "ct021": {
+      "clinical_test_id": "ct021",
+      "precision": "custom",
+      "view": "side",
+      "title": "저항성 팔꿈치 신전 · 삼두근/원위 삼두건 기능 확인",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          139,
+          121
+        ],
+        "wrist": [
+          174,
+          151
+        ],
+        "hand_label": "굴곡 시작"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          164,
+          101
+        ],
+        "wrist": [
+          207,
+          100
+        ],
+        "hand_label": "신전"
+      },
+      "examiner_hands": [
+        {
+          "x": 199,
+          "y": 101,
+          "label": "원위 전완"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 199,
+          "y1": 83,
+          "x2": 185,
+          "y2": 113,
+          "label": "굴곡 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 139,
+        "y": 121,
+        "label": "주두 통증/약화"
+      },
+      "examiner_position": "환자의 상완을 안정시키고 원위 전완에 팔꿈치 굴곡 방향 저항을 건다.",
+      "hand_force": "환자는 팔꿈치를 펴려 하고 검사자는 굴곡 방향으로 저항해 신전력과 주두 부착부 통증을 평가한다.",
+      "common_error": "통증 억제, C7/요골신경계 약화, 실제 삼두건 파열을 구분하고 palpable gap·초음파 소견을 함께 본다."
     }
   }
 }
