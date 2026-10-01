@@ -125,6 +125,10 @@ button,input{font:inherit} button{cursor:pointer}
 .oral-question{font-size:24px;line-height:1.55;font-weight:800;margin:10px 0 16px}
 .oral-coach{margin-top:14px;border:1px solid var(--line);border-radius:14px;padding:15px;line-height:1.75;background:#fff}
 .oral-coach.good{border-color:#7bc7b7;background:#f3fffc}.oral-coach.partial{border-color:#e6c66a;background:#fffdf2}.oral-coach.bad{border-color:#efaaa5;background:#fff7f6}
+.board-exam-panel{border:1px solid #9fb7d8;border-radius:16px;background:#f7faff;padding:16px;margin:14px 0}.board-exam-panel h4{margin:0 0 7px;font-size:19px}.board-exam-grid{display:grid;grid-template-columns:minmax(150px,.5fr) auto;gap:10px;align-items:end;margin-top:12px}.board-exam-grid select{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:#fff}.board-source-list{display:grid;gap:6px;margin-top:10px}.board-source-list a{font-size:13px;line-height:1.45}.board-source-note{font-size:12px;color:var(--muted);line-height:1.55;margin-top:8px}
+.diagnosis-candidate{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.diagnosis-candidate>summary{list-style:none;cursor:pointer;padding:16px;display:flex;justify-content:space-between;gap:12px;align-items:center}.diagnosis-candidate>summary::-webkit-details-marker{display:none}.diagnosis-candidate>summary:after{content:'상세 ›';font-size:12px;color:var(--muted);white-space:nowrap}.diagnosis-candidate[open]>summary:after{content:'접기 ∧'}.diagnosis-candidate-title b{display:block;font-size:18px}.diagnosis-candidate-title small{display:block;color:var(--muted);margin-top:4px}.diagnosis-candidate-body{padding:0 14px 14px}.diagnosis-textbook{border-top:1px solid var(--line);margin-top:10px;padding-top:10px}.diagnosis-textbook h4{margin:14px 0 5px;font-size:15px}.diagnosis-textbook p{margin:0;line-height:1.72}.diagnosis-related{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.diagnosis-related span{border:1px solid var(--line);border-radius:999px;padding:4px 8px;font-size:12px;background:#fafafa}
+@media(max-width:700px){.board-exam-grid{grid-template-columns:1fr}.diagnosis-candidate>summary{padding:14px}}
+
 .evidence-badge{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:12px;font-weight:750;margin-left:6px}
 .exercise-card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:10px 0}
 .exercise-card h4{margin:0 0 8px;font-size:19px}.exercise-card ol{margin:8px 0 8px 22px;padding:0;line-height:1.75}.exercise-card p{line-height:1.75}
@@ -139,7 +143,7 @@ button,input{font:inherit} button{cursor:pointer}
 .clinical-flow-context{border:1px solid #b8d2ff;background:#f6f9ff;border-radius:16px;padding:14px;margin:12px 0 18px}.clinical-flow-title{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:9px}.clinical-flow-title b{font-size:16px}.clinical-flow-bar{display:flex;flex-wrap:wrap;gap:7px}.clinical-flow-step{border:1px solid #cbd5e1;background:#fff;border-radius:999px;padding:8px 11px;font-weight:750;cursor:pointer}.clinical-flow-step.active{border-color:#2563eb;background:#eff6ff;color:#1d4ed8}.clinical-flow-step:disabled{opacity:.45;cursor:not-allowed}.clinical-flow-muscle-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:stretch}.clinical-flow-muscle-row+.clinical-flow-muscle-row{margin-top:8px}.clinical-flow-focus{outline:3px solid rgba(37,99,235,.22);outline-offset:6px;border-radius:14px}@media(max-width:520px){.clinical-flow-muscle-row{grid-template-columns:1fr}.clinical-flow-step{padding:8px 10px;font-size:13px}}.clinical-flow-disclaimer,.clinical-flow-stable{margin-top:8px;color:var(--muted);font-size:13px;line-height:1.55}.clinical-redflag{border:1px solid #efc3bd;background:#fff8f7;border-radius:14px;padding:12px 14px;line-height:1.65;margin:10px 0}.clinical-flow-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:10px;margin-top:10px}.clinical-flow-panel{border:1px solid #dbe5f2;background:#fff;border-radius:13px;padding:11px;display:grid;gap:7px}.clinical-clue,.clinical-mini-link,.clinical-entity-links button{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 10px;text-align:left}.clinical-clue strong,.clinical-clue span{display:block}.clinical-clue span{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}.clinical-support b{color:#067647}.clinical-oppose b{color:#b54708}.clinical-mini-link small,.clinical-entity-links small{color:var(--muted)}.clinical-entity-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;align-items:center}.clinical-entity-links>b{width:100%;font-size:13px}.clinical-entity-links button{padding:7px 9px;font-size:12px}.clinical-flow-muscle-row .clinical-flow-bar{grid-column:1/-1}@media(max-width:700px){.clinical-flow-grid{grid-template-columns:1fr}}.search-controls{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:9px}.search-controls select{border:1px solid var(--line);border-radius:14px;background:#fff;padding:0 12px;font-size:14px}.search-hint{font-size:12px;color:var(--muted);margin-top:7px;line-height:1.5}.search-result-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:stretch}.search-result-card+.search-result-card{margin-top:8px}.search-result-main{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;text-align:left}.search-result-main b,.search-result-main small{display:block}.search-result-main small{color:var(--muted);margin-top:4px;line-height:1.45}.favorite-toggle{border:1px solid var(--line);background:#fff;border-radius:12px;padding:0 12px;font-size:20px;min-width:48px}.favorite-toggle.on{background:#fff8db;border-color:#e5c85c}.learning-local{border:1px solid #b7dfd8;background:#f3fbf9;border-radius:16px;padding:14px;line-height:1.7;margin-bottom:14px}.learning-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.learning-panel{border:1px solid var(--line);border-radius:16px;background:#fff;padding:14px}.learning-panel h4{margin:0 0 10px;font-size:18px}.learning-list{display:grid;gap:8px}.learning-item{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.learning-item b,.learning-item small{display:block}.learning-item small{color:var(--muted);margin-top:4px;line-height:1.4}.mastery-row{display:grid;grid-template-columns:minmax(0,1fr) 76px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}.mastery-row:last-child{border-bottom:0}.mastery-bar{height:8px;background:#eef2f6;border-radius:999px;overflow:hidden;margin-top:6px}.mastery-fill{height:100%;background:currentColor;border-radius:999px}.mastery-score{text-align:right;font-weight:800}.learning-actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.learning-import{display:inline-flex;align-items:center}.learning-import input{display:none}.weak-score{font-size:12px;font-weight:800;border:1px solid var(--line);border-radius:999px;padding:4px 7px}.entity-type-badge{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:999px;padding:3px 6px;margin-right:5px;color:var(--muted)}@media(max-width:700px){.search-controls,.learning-grid{grid-template-columns:1fr}.search-controls select{padding:12px}.learning-item{grid-template-columns:1fr}.favorite-toggle{min-height:42px}}.device-qa{border:1px solid #c9d7ef;background:#f8fbff;border-radius:16px;padding:13px 14px;margin:0 0 14px}.device-qa summary{cursor:pointer;font-weight:850;font-size:16px}.device-qa-summary{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.device-qa-chip{border:1px solid var(--line);border-radius:999px;padding:5px 8px;background:#fff;font-size:12px}.device-qa-chip.pass{border-color:#8bcbb9;background:#f0fbf7}.device-qa-chip.fail{border-color:#e3a59b;background:#fff6f4}.device-qa-chip.pending{border-color:#d7c78b;background:#fffbed}.device-qa-results{display:grid;gap:7px;margin-top:10px}.device-qa-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:8px;align-items:start;border:1px solid var(--line);border-radius:12px;background:#fff;padding:9px 10px}.device-qa-row .status{font-weight:850;font-size:12px;padding:0}.device-qa-row .status.pass{color:#087a55}.device-qa-row .status.fail{color:#b42318}.device-qa-row .status.observe{color:#9a6700}.device-qa-row b,.device-qa-row small{display:block}.device-qa-row small{color:var(--muted);margin-top:3px;line-height:1.45}.device-manual{display:grid;gap:8px;margin-top:12px}.device-manual-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px}.device-manual-row small{display:block;color:var(--muted);margin-top:3px;line-height:1.45}.device-manual-actions{display:flex;gap:5px}.device-manual-actions button{padding:7px 9px;border-radius:9px;border:1px solid var(--line);background:#fff}.device-manual-actions button.active-pass{background:#ecfdf3;border-color:#75cda9}.device-manual-actions button.active-fail{background:#fff1f0;border-color:#e49a92}.share-status{font-size:12px;color:var(--muted);margin-top:6px}.device-wrap-safe{overflow-wrap:anywhere;word-break:break-word}button,select,input,textarea{min-height:44px}.page,.card,.note,.box,.pathbox,.exercise-card,.clinical-flow-context{min-width:0}.page img,.page svg{max-width:100%}@media(max-width:360px){.page{padding-left:8px;padding-right:8px}.card,.note,.region-block,.exercise-card{padding-left:11px;padding-right:11px}.tabs{gap:5px}.tab{padding-left:10px;padding-right:10px}.device-qa-row{grid-template-columns:1fr}.device-manual-row{grid-template-columns:1fr}}@media(orientation:landscape) and (max-height:560px){.header{position:static}.page{padding-top:12px}.modal{min-height:100dvh}.hero{padding-top:10px}}
 .clinician-note{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:14px 0;color:#475467}.clinician-note summary{cursor:pointer;font-weight:750}
 .us-probe-guide{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:#f8fafc}.us-probe-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}.us-probe-head b{font-size:15px}.us-probe-badge{font-size:11px;border:1px solid #98a2b3;border-radius:999px;padding:3px 7px;white-space:nowrap}.us-probe-grid{display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center}.us-probe-grid svg{width:100%;height:auto;display:block}.us-probe-meta{font-size:13px;line-height:1.55}.us-probe-meta div+div{margin-top:5px}.us-probe-warning{margin-top:8px;font-size:12px;line-height:1.5;color:var(--muted)}.us-pitfall-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.us-pitfall-tag{font-size:11px;border:1px solid #cbd5e1;border-radius:999px;padding:3px 7px;background:#fff;color:#475467}@media(max-width:520px){.us-probe-grid{grid-template-columns:1fr}.us-probe-grid svg{max-width:180px;margin:auto}}
-.exercise-realistic-media{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;width:max-content;max-width:100%;margin:0 auto 10px}.exercise-realistic-media img{display:block;width:auto;max-width:calc(100vw - 48px);height:auto;max-height:72vh;object-fit:contain;background:#fff;margin:0 auto}@media(min-width:769px){.exercise-realistic-media img{max-width:720px}}.exercise-realistic-badge{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:4px 8px;margin:0 0 8px;font-size:11px;color:var(--muted);background:#fff}.exercise-svg-fallback[hidden]{display:none!important}.exercise-a4-pending-note{display:none}
+.exercise-realistic-media{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;width:max-content;max-width:100%;margin:0 auto 10px}.exercise-realistic-media img{display:block;width:auto;max-width:calc(100vw - 48px);height:auto;max-height:72vh;object-fit:contain;background:#fff;margin:0 auto}.exercise-realistic-media.a4-hd-pending img{width:min(400px,calc(100vw - 48px));max-width:min(400px,calc(100vw - 48px))}@media(min-width:769px){.exercise-realistic-media:not(.a4-hd-pending) img{max-width:720px}}.exercise-realistic-badge{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:4px 8px;margin:0 0 8px;font-size:11px;color:var(--muted);background:#fff}.exercise-svg-fallback[hidden]{display:none!important}.exercise-a4-pending-note{display:none}
 .exercise-figure{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:12px;margin:10px 0 12px}.exercise-sequence{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exercise-phase{border:1px solid var(--line);border-radius:12px;background:#fff;padding:9px}.exercise-phase b{display:block;font-size:14px;margin-bottom:4px}.exercise-phase svg{width:100%;height:auto;display:block;margin:auto;aspect-ratio:4/3}.exercise-phase p{font-size:12px;line-height:1.5;color:var(--muted);margin:6px 0 0}.exercise-visual-key{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px;font-size:11px;color:var(--muted)}.exercise-visual-key span{border:1px solid var(--line);border-radius:999px;padding:4px 7px;background:#fff}.exercise-cues{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.exercise-cue{border-left:3px solid #667085;padding:7px 9px;background:#fff;border-radius:7px;font-size:13px;line-height:1.5}.exercise-caption{text-align:center;color:#667085;font-size:13px;margin-top:8px}.exercise-log{margin-top:12px;border-top:1px dashed #98a2b3;padding-top:8px;font-size:13px;word-spacing:8px}.region-print-muscles{font-size:13px;color:#475467;line-height:1.6;margin:6px 0 10px}
 .patient-step-label{display:inline-block;font-weight:800;margin-bottom:4px}.patient-caution{border-left:4px solid #d92d20;background:#fff8f7;padding:10px 12px;border-radius:8px;line-height:1.65;margin-top:10px}
 .print-only{display:none}
@@ -638,6 +642,17 @@ button,input{font:inherit} button{cursor:pointer}
       <button class="pill clinical-quiz-start" data-quiz-module="thoracic" onclick="startThoracicClinicalQuiz()">흉추·등·흉곽 임상 10문제</button>
       <button class="pill clinical-quiz-start" data-quiz-module="lumbarSacral" onclick="startLumbarSacralClinicalQuiz()">요추·천추 임상 10문제</button>
       <button class="pill clinical-quiz-start" data-quiz-module="abdominalCore" onclick="startAbdominalCoreClinicalQuiz()">복벽·코어 임상 10문제</button>
+    </div>
+
+    <div class="board-exam-panel">
+      <h4>전문의 Case 자동출제</h4>
+      <div>단순 O/I/F/N 암기형과 답이 너무 뻔한 문항은 제외하고, 같은 증상군 안의 가까운 감별진단을 보기로 묶어 임상 추론형 증례를 자동 생성합니다. <b id="boardCaseCount">임상 데이터 준비 중</b></div>
+      <div class="board-exam-grid">
+        <div><label for="boardQuestionCount">문제 수</label><select id="boardQuestionCount"><option value="20">20문제</option><option value="40" selected>40문제</option><option value="80">80문제</option><option value="120">120문제</option></select></div>
+        <button class="primary" type="button" onclick="startSpecialistBoardQuiz()">전문의 임상 Case 시작</button>
+      </div>
+      <div id="boardExamSources" class="board-source-list"></div>
+      <div class="board-source-note">자동출제 문항은 실제 기출 복제가 아니라 앱의 검수된 감별진단 데이터와 공식 출제범위·참고문헌을 바탕으로 만든 독자 문항입니다. 실제 기출 원문은 공식 공개가 확인된 자료만 연결합니다.</div>
     </div>
 
     <div class="quiz-stats">
@@ -2143,18 +2158,42 @@ async function openClinicalTopic(topic,record=true){
   setClinicalView('list');
   if(record)recordClinicalHistory('list');
 }
+function clinicalDiagnosisTextbookHtml(d,candidate,group,dxMap){
+  const t=d?.textbook_detail||{};
+  const related=(group.candidates||[]).map(c=>dxMap[c.diagnosis_concept_id]).filter(x=>x&&x.diagnosis_concept_id!==d?.diagnosis_concept_id).slice(0,6);
+  const rows=[
+    ['핵심 개념',t.summary],
+    ['병태생리',t.pathophysiology],
+    ['병력에서 볼 점',t.history],
+    ['진찰',t.exam],
+    ['영상·검사',t.imaging],
+    ['치료 원칙',t.management],
+    ['Red flag',t.red_flags],
+    ['시험·진료 함정',t.pitfalls]
+  ].filter(([,v])=>v);
+  let html='<div class="diagnosis-textbook">';
+  if(rows.length){
+    html+=rows.map(([k,v])=>'<h4>'+esc(k)+'</h4><p>'+esc(v)+'</p>').join('');
+  }else{
+    html+='<h4>현재 감별에서 지지하는 소견</h4><p>'+esc((candidate.look_for||[]).join(' · ')||'이 진단의 임상 문맥을 함께 확인합니다.')+'</p>'+
+      '<h4>단독 확정에 부족한 소견</h4><p>'+esc((candidate.not_diagnostic_alone||[]).join(' · ')||'단일 검사나 영상만으로 확정하지 않습니다.')+'</p>'+
+      '<h4>상세 지식 확장 상태</h4><p>이 진단은 현재 핵심 감별정보가 연결되어 있으며, 교과서급 병태생리·진찰·영상·치료 항목은 순차 확장 중입니다.</p>';
+  }
+  if(related.length)html+='<h4>같이 비교할 감별</h4><div class="diagnosis-related">'+related.map(x=>'<span>'+esc(x.name_ko||x.diagnosis_concept_id)+'</span>').join('')+'</div>';
+  return html+'</div>';
+}
 function clinicalDifferentialDetailHtml(group,moduleKey){
   const data=clinicalModuleData(moduleKey),diff=data.differential||{},dxMap=Object.fromEntries((diff.diagnosis_concepts||[]).map(d=>[d.diagnosis_concept_id,d]));
   const sx=symptomById?.[group.symptom_id];
   let html='<div class="anatomy-detail-head"><h2>'+esc(group.title_ko||'감별진단')+'</h2><div class="sub">'+esc(sx?.title||group.symptom_id||'증상 기반 감별')+'</div><div class="tagrow"><span class="tag">'+esc(group.differential_group_id||'')+'</span></div></div>';
   if(diff.safety_rule)html+='<div class="clinical-redflag"><b>Red flag / 안전 경계</b><br>'+esc(diff.safety_rule)+'</div>';
-  html+='<div class="section-title"><h3>감별 후보</h3><span>후보 지식 · 확정진단 아님</span></div><div class="grid2">';
+  html+='<div class="section-title"><h3>감별 후보</h3><span>후보를 눌러 상세설명</span></div><div class="grid2">';
   html+=(group.candidates||[]).map(candidate=>{
     const d=dxMap[candidate.diagnosis_concept_id]||{};
-    return '<div class="card" id="diagnosis-concept-'+esc(candidate.diagnosis_concept_id)+'"><h3>'+esc(d.name_ko||candidate.diagnosis_concept_id)+'</h3><p><b>'+esc(d.name_en||'')+'</b></p>'+
+    return '<details class="diagnosis-candidate" id="diagnosis-concept-'+esc(candidate.diagnosis_concept_id)+'"><summary><span class="diagnosis-candidate-title"><b>'+esc(d.name_ko||candidate.diagnosis_concept_id)+'</b><small>'+esc(d.name_en||'')+' · '+esc(candidate.diagnosis_concept_id)+'</small></span></summary><div class="diagnosis-candidate-body">'+
       '<div class="note clinical-support"><b>지지 단서</b><br>'+esc((candidate.look_for||[]).join(' · ')||'—')+'</div>'+
-      '<div class="note clinical-oppose"><b>반대·제한 단서</b><br>'+esc((candidate.not_diagnostic_alone||[]).join(' · ')||'—')+'</div>'+
-      '<small style="color:var(--muted)">Stable ID · '+esc(candidate.diagnosis_concept_id)+'</small></div>';
+      '<div class="note clinical-oppose"><b>단독 확정에 부족한 소견</b><br>'+esc((candidate.not_diagnostic_alone||[]).join(' · ')||'—')+'</div>'+
+      clinicalDiagnosisTextbookHtml(d,candidate,group,dxMap)+'</div></details>';
   }).join('');
   return html+'</div>';
 }
@@ -2213,6 +2252,67 @@ function clinicalBack(fallbackLevel){
 }
 function startClinicalModuleQuiz(key){
   const fn=clinicalQuizStarters[key];if(fn)fn();
+}
+
+let boardExamSourceData=null;
+async function loadBoardExamSources(){
+  try{
+    const r=await fetch('./data/board-exam-sources-v1.json',{cache:'no-cache'});
+    if(!r.ok)throw new Error('board source registry unavailable');
+    boardExamSourceData=await r.json();
+    renderBoardExamSources();
+  }catch(e){console.warn('Board exam source registry fallback',e);}
+}
+function renderBoardExamSources(){
+  const host=document.getElementById('boardExamSources');if(!host)return;
+  const sources=boardExamSourceData?.sources||[];
+  host.innerHTML=sources.map(x=>'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.organization)+' · '+esc(x.title_ko)+(x.public_question_text?' · 공식 공개문제':'')+'</a>').join('');
+}
+function boardCaseQuestionPool(){
+  const out=[];
+  for(const [moduleKey,meta] of Object.entries(clinicalFlowModules)){
+    const diff=clinicalModuleData(moduleKey).differential;if(!diff)continue;
+    const dxMap=Object.fromEntries((diff.diagnosis_concepts||[]).map(d=>[d.diagnosis_concept_id,d]));
+    for(const group of (diff.differential_groups||[])){
+      const groupIds=(group.candidates||[]).map(c=>c.diagnosis_concept_id);
+      for(const candidate of (group.candidates||[])){
+        const d=dxMap[candidate.diagnosis_concept_id];if(!d)continue;
+        const support=(candidate.look_for||[]).filter(Boolean);
+        if(!support.length)continue;
+        const local=groupIds.filter(id=>id!==candidate.diagnosis_concept_id).map(id=>dxMap[id]?.name_ko).filter(Boolean);
+        const broader=(diff.diagnosis_concepts||[]).filter(x=>x.diagnosis_concept_id!==candidate.diagnosis_concept_id&&!groupIds.includes(x.diagnosis_concept_id)).map(x=>x.name_ko).filter(Boolean);
+        const distractors=[...new Set([...shuffle(local),...shuffle(broader)])].slice(0,3);
+        if(distractors.length<3)continue;
+        const correct=d.name_ko||candidate.diagnosis_concept_id;
+        const clues=shuffle(support).slice(0,Math.min(3,support.length));
+        const caution=(candidate.not_diagnostic_alone||[])[0];
+        const stem='임상 증례 · '+meta.label+'\n주호소: '+(group.title_ko||'근골격계 증상')+'.\n핵심 소견: '+clues.join(' · ')+(caution?'\n주의: '+caution+'만으로는 확정할 수 없다.':'')+'\n이 임상 조합에서 가장 우선적으로 고려할 감별진단은?';
+        out.push({
+          quizId:'board-'+moduleKey+'-'+(group.differential_group_id||'dg')+'-'+candidate.diagnosis_concept_id,
+          muscleId:null,type:'board_case',quizLabel:'전문의 Case',direction:'clinical',stem,
+          options:shuffle([correct,...distractors]),correct,
+          relatedDiagnosisId:candidate.diagnosis_concept_id,
+          rationale:'정답을 지지하는 핵심 소견: '+support.join(' · ')+'. '+((candidate.not_diagnostic_alone||[]).length?'단독 확정 금지: '+candidate.not_diagnostic_alone.join(' · ')+'. ':'')+'실제 진료에서는 red flag와 경쟁 감별을 함께 확인한다.',
+          sourceLabel:'앱 임상 감별지식 기반 독자 생성 문항'
+        });
+      }
+    }
+  }
+  return out;
+}
+function refreshBoardCaseCount(){
+  const el=document.getElementById('boardCaseCount');if(!el)return;
+  const n=boardCaseQuestionPool().length;
+  el.textContent=n?n+'개 증례 pool':'임상 데이터 준비 중';
+}
+async function startSpecialistBoardQuiz(){
+  await Promise.all(Object.keys(clinicalFlowModules).map(ensureClinicalModuleLoaded));
+  const pool=boardCaseQuestionPool();
+  if(!pool.length){showQuizSetupMessage('전문의 Case 문제 pool을 불러오지 못했습니다.');return;}
+  const requested=Number(document.getElementById('boardQuestionCount')?.value||40);
+  const count=Math.min(requested,pool.length);
+  quizSession=shuffle(pool).slice(0,count);
+  beginQuizSession('board',true);
 }
 function clinicalModuleForStableItem(type,id){
   const topic=type==='clinical_test'?'exam':type==='ultrasound_view'?'ultrasound':type==='diagnosis_concept'?'differential':'';
@@ -4373,6 +4473,7 @@ function quizModeLabel(mode=selectedQuizMode){
   if(mode==='wrong')return'오답 복습';
   if(mode==='due')return'오늘 복습';
   if(mode==='clinical')return quizSession[0]?.quizLabel||'임상 모듈';
+  if(mode==='board')return '전문의 Case 자동출제';
   if(mode==='muscle')return quizSession[0]?.quizLabel||'근육 집중';
   return'새 문제';
 }
@@ -4546,11 +4647,12 @@ function renderQuiz(){
   const area=document.getElementById('quizArea');
   if(quizIndex>=quizSession.length){renderQuizResult();return;}
   const q=quizSession[quizIndex];quizAnswered=false;
+  const relatedAction=q.muscleId?'<button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">해당 근육 보기</button>':q.relatedDiagnosisId?'<button class="pill" onclick="openClinicalStableDetail(\'diagnosis_concept\',\''+q.relatedDiagnosisId+'\')">감별 상세 보기</button>':'';
   area.innerHTML='<div style="color:var(--muted);font-size:14px;margin-bottom:8px">문제 '+(quizIndex+1)+' / '+quizSession.length+' · '+esc(q.quizLabel||quizFields[q.type]?.label||'임상')+' · '+(q.direction==='reverse'?'역방향':q.direction==='clinical'?'임상':'정방향')+'</div>'+
     '<div class="quiz-q" style="white-space:pre-wrap">'+esc(q.stem)+'</div>'+
     '<div class="quiz-options">'+q.options.map((o,i)=>'<button class="quiz-option" onclick="answerQuiz('+i+')">'+esc(o)+'</button>').join('')+'</div>'+
     '<div id="quizFeedback" class="quiz-feedback"></div>'+
-    '<div class="quiz-actions"><button id="quizNext" class="primary" style="display:none" onclick="nextQuiz()">다음 문제</button><button class="pill" onclick="openMuscle(\''+q.muscleId+'\')">해당 근육 보기</button></div>';
+    '<div class="quiz-actions"><button id="quizNext" class="primary" style="display:none" onclick="nextQuiz()">다음 문제</button>'+relatedAction+'</div>';
 }
 function answerQuiz(i){
   if(quizAnswered)return;quizAnswered=true;
@@ -4558,20 +4660,26 @@ function answerQuiz(i){
   const buttons=[...document.querySelectorAll('#quizArea .quiz-option')];
   buttons.forEach((b,idx)=>{b.disabled=true;if(q.options[idx]===q.correct)b.classList.add('good');else if(idx===i)b.classList.add('bad');});
   const s=quizState();s.total=(s.total||0)+1;s.progress=s.progress||{};
-  const p=s.progress[q.muscleId]||{seen:0,correct:0,streak:0,nextDue:0,last:0};
-  p.seen++;p.last=Date.now();
-  if(ok){
-    s.correct=(s.correct||0)+1;quizScore++;p.correct++;p.streak=(p.streak||0)+1;
-    const days=[0,1,3,7,14,30,60][Math.min(p.streak,6)];
-    p.nextDue=Date.now()+days*86400000;
-    if(s.wrong?.[q.muscleId]){s.wrong[q.muscleId]--;if(s.wrong[q.muscleId]<=0)delete s.wrong[q.muscleId];}
-  }else{
-    q.missed=true;p.streak=0;p.nextDue=Date.now();
-    s.wrong=s.wrong||{};s.wrong[q.muscleId]=(s.wrong[q.muscleId]||0)+1;
+  if(ok){s.correct=(s.correct||0)+1;quizScore++;}else q.missed=true;
+  if(q.muscleId){
+    const p=s.progress[q.muscleId]||{seen:0,correct:0,streak:0,nextDue:0,last:0};
+    p.seen++;p.last=Date.now();
+    if(ok){
+      p.correct++;p.streak=(p.streak||0)+1;
+      const days=[0,1,3,7,14,30,60][Math.min(p.streak,6)];
+      p.nextDue=Date.now()+days*86400000;
+      if(s.wrong?.[q.muscleId]){s.wrong[q.muscleId]--;if(s.wrong[q.muscleId]<=0)delete s.wrong[q.muscleId];}
+    }else{
+      p.streak=0;p.nextDue=Date.now();
+      s.wrong=s.wrong||{};s.wrong[q.muscleId]=(s.wrong[q.muscleId]||0)+1;
+    }
+    s.progress[q.muscleId]=p;
   }
-  s.progress[q.muscleId]=p;saveQuizState(s);
+  saveQuizState(s);
   const fb=document.getElementById('quizFeedback');fb.classList.add('show');
-  fb.innerHTML=(ok?'<b>정답입니다.</b>':'<b>정답:</b> '+esc(q.correct))+'<br><span style="color:var(--muted)">정답 여부에 따라 이 근육의 다음 복습 시점이 자동 조정됩니다.</span>';
+  fb.innerHTML=(ok?'<b>정답입니다.</b>':'<b>정답:</b> '+esc(q.correct))+
+    (q.rationale?'<br><br><b>해설</b><br>'+esc(q.rationale):'')+
+    (q.sourceLabel?'<br><span style="color:var(--muted)">출처 성격: '+esc(q.sourceLabel)+'</span>':q.muscleId?'<br><span style="color:var(--muted)">정답 여부에 따라 이 근육의 다음 복습 시점이 자동 조정됩니다.</span>':'');
   document.getElementById('quizNext').style.display='inline-block';
 }
 function nextQuiz(){quizIndex++;renderQuiz();}
@@ -4587,7 +4695,8 @@ Promise.all([
   loadShoulderClinicalModule(),loadElbowClinicalModule(),loadWristHandClinicalModule(),loadHipPelvisClinicalModule(),
   loadKneeThighClinicalModule(),loadLegAnkleFootClinicalModule(),loadCervicalClinicalModule(),loadThoracicClinicalModule(),
   loadLumbarSacralClinicalModule(),loadAbdominalCoreClinicalModule()
-]).then(()=>{renderClinicalModuleChooser();renderUltrasoundAtlasRegions();});
+]).then(()=>{renderClinicalModuleChooser();renderUltrasoundAtlasRegions();refreshBoardCaseCount();});
+loadBoardExamSources();
 renderClinicalModuleChooser();
 renderUltrasoundAtlasRegions();
 setTimeout(()=>{if(activeClinicalFlowMuscleId&&document.getElementById('clinical')?.classList.contains('active'))renderClinicalFlowContext(activeClinicalFlowMuscleId,activeClinicalFlowStep);},500);
