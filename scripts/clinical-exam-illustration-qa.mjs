@@ -8,6 +8,7 @@ const elbow=json('data/examination-elbow-v1.json');
 const wristHand=json('data/examination-wrist-hand-v1.json');
 const hipPelvis=json('data/examination-hip-pelvis-v1.json');
 const kneeThigh=json('data/examination-knee-thigh-v1.json');
+const legAnkleFoot=json('data/examination-leg-ankle-foot-v1.json');
 const index=read('index.html');
 const sw=read('sw.js');
 
@@ -22,7 +23,8 @@ const elbowTests=elbow.clinical_tests||[];
 const wristHandTests=wristHand.clinical_tests||[];
 const hipPelvisTests=hipPelvis.clinical_tests||[];
 const kneeThighTests=kneeThigh.clinical_tests||[];
-const tests=[...shoulderTests,...elbowTests,...wristHandTests,...hipPelvisTests,...kneeThighTests];
+const legAnkleFootTests=legAnkleFoot.clinical_tests||[];
+const tests=[...shoulderTests,...elbowTests,...wristHandTests,...hipPelvisTests,...kneeThighTests,...legAnkleFootTests];
 const presets=registry.presets||{};
 const ids=tests.map(x=>x.clinical_test_id);
 const customIds=Object.keys(presets).sort();
@@ -32,12 +34,13 @@ check('Elbow canonical examination count',elbowTests.length===10,String(elbowTes
 check('Wrist-hand canonical examination count',wristHandTests.length===14,String(wristHandTests.length));
 check('Hip-pelvis canonical examination count',hipPelvisTests.length===14,String(hipPelvisTests.length));
 check('Knee-thigh canonical examination count',kneeThighTests.length===15,String(kneeThighTests.length));
-check('Custom illustration registry covers shoulder + elbow + wrist-hand + hip-pelvis + knee-thigh',
-  customIds.length===64&&ids.every(id=>presets[id]),customIds.join(', '));
-check('Registry coverage metadata matches 64/148',
-  registry.coverage?.customized===64&&registry.coverage?.total_canonical_tests===148&&
+check('Leg-ankle-foot canonical examination count',legAnkleFootTests.length===17,String(legAnkleFootTests.length));
+check('Custom illustration registry covers shoulder + elbow + wrist-hand + hip-pelvis + knee-thigh + leg-ankle-foot',
+  customIds.length===81&&ids.every(id=>presets[id]),customIds.join(', '));
+check('Registry coverage metadata matches 81/148',
+  registry.coverage?.customized===81&&registry.coverage?.total_canonical_tests===148&&
   Array.isArray(registry.coverage?.modules)&&
-  ['shoulder','elbow','wrist-hand','hip-pelvis','knee-thigh'].every(x=>registry.coverage.modules.includes(x)),
+  ['shoulder','elbow','wrist-hand','hip-pelvis','knee-thigh','leg-ankle-foot'].every(x=>registry.coverage.modules.includes(x)),
   JSON.stringify(registry.coverage||{}));
 
 for(const test of tests){
