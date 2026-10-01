@@ -196,6 +196,22 @@ try{
       for(const required of requiredByTopic[topic]||[]){
         if(!detailText.includes(required))fail('Clinical detail required field: '+required,mod.label+' / '+topic+' / '+itemId);
       }
+      if(topic==='exam'){
+        if(await page.locator('#clinicalDetailContent .clinical-exam-visual svg').count()!==1){
+          fail('Clinical exam detail includes one maneuver illustration',mod.label+' / '+itemId);
+        }
+        const stepCards=await page.locator('#clinicalDetailContent .clinical-exam-step').count();
+        if(stepCards!==3)fail('Clinical exam illustration has start/action/positive steps',mod.label+' / '+itemId+' / '+stepCards);
+      }
+      if(topic==='differential'){
+        const candidates=page.locator('#clinicalDetailContent .diagnosis-candidate');
+        if(await candidates.count()<1)fail('Clinical differential exposes clickable candidate details',mod.label+' / '+itemId);
+        const firstCandidate=candidates.first();
+        await firstCandidate.locator('summary').click();
+        if(!await firstCandidate.evaluate(el=>el.open))fail('Clinical differential candidate expands on click',mod.label+' / '+itemId);
+        const expandedText=(await firstCandidate.textContent()||'').trim();
+        if(!expandedText.includes('지지 단서')||!expandedText.includes('반대·제한 단서'))fail('Expanded differential retains reasoning clues',mod.label+' / '+itemId);
+      }
 
       const drill=await page.evaluate(()=>({
         group:document.documentElement.dataset.activeDrillGroup||'',
