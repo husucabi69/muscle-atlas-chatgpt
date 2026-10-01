@@ -60,6 +60,8 @@ jobs:
         run: node scripts/patient-exercise-realistic-assets-qa.mjs
       - name: Run Stage 23B realistic WebP binary integrity QA
         run: node scripts/realistic-webp-integrity-qa.mjs
+      - name: Run Stage 23B realistic display fidelity QA
+        run: node scripts/realistic-display-fidelity-qa.mjs
       - name: Run Stage 23B realistic candidate registration QA
         run: node scripts/register-realistic-candidate-qa.mjs
       - name: Run Stage 23B realistic asset ingest QA
