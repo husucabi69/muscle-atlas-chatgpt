@@ -26,7 +26,7 @@ This document is the canonical handoff checkpoint for continuing development of 
 - **Never change or promote `main` without explicit user approval.**
 - Latest verified baseline before the current research-queue checkpoint: `13950a56bf531a97eb68cd25f3d051e5e79e5919` — canonical handoff commit, Global QA run `36566509370` PASS.
 - Latest roadmap-governance checkpoint before this handoff refresh: `af7b6846394e3bef86e4e5b61f7724d59685ec4c` — latest user instruction fixed manual 15-minute target / 20-minute HARD STOP and roadmap-first idea triage.
-- Current Preview app version: `v11.66 · Exercise Content Safety Review`.
+- Current Preview app version is read from `app-version.js`; live sessions must re-check it because scheduled development can advance the version.
 - Embedded run/SHA notes are only checkpoints. Because 00:00~08:00 scheduled work can advance the branch, every session must query the live latest HEAD and latest QA/Preview state before editing.
 
 ## 2. User communication contract
@@ -102,10 +102,11 @@ Stage 23B:
 - registry: `data/patient-exercise-realistic-assets-v1.json`
 - current realistic asset status at handoff:
   - px001–px006 = `APPROVED` mobile Preview assets. px006 corrupt WebP was rebuilt from the original image, fixed numeric dose text removed, three-part review passed, and canonical ingest completed. A4-HD remains pending.
-  - px007 = `PENDING_GENERATION`. The old fist-closing candidate is explicitly rejected and preserved only in audit history. New representative motion is locked to **fingers together → finger abduction/spread**, wrist/forearm supported, no fist closure and no arbitrary resistance.
-  - px008 = `PENDING_GENERATION`. Old gen_id-only candidate could not be recovered from conversation/library or GitHub Actions artifacts and is preserved only in rejected-candidate audit history. New hip-abduction render request is ready.
-  - px009 squat = `PENDING_GENERATION`. Old candidate is retired because its binary is unrecoverable and its knee-toe absolute-prohibition cue was unsafe. Corrected squat render request is ready and explicitly forbids that absolute cue.
-  - px010–px018 = `PENDING_GENERATION`
+  - px007–px011 = `CANDIDATE_GENERATED / BINARY_HANDOFF_BLOCKED`. Their current candidate pose/content reviews were completed in scheduled development, but the exact generated image binaries were not materialized to the repository. They remain off the patient screen and must not be regenerated merely to create files.
+  - px007 exact reviewed candidate = fingers together → finger abduction/spread, wrist neutral/forearm supported, no fist closure or arbitrary resistance.
+  - px009 exact reviewed candidate = corrected squat with knee-foot direction alignment; the unsafe “knee must never pass toes” absolute cue is removed.
+  - px012–px018 = `PENDING_GENERATION`, but generation is blocked by px007 binary handoff until earlier reviewed binaries are resolved.
+  - canonical binary handoff queue is stable-ID ordered: px007 → px008 → px009 → px010 → px011.
   - px001–px018 all now have locked generation briefs; fixed time/repetition/set/angle numbers must not be invented unless supported by the source registry.
   - v11.65 adds a print-quality guard: while an approved realistic asset is still marked `MOBILE_PREVIEW_APPROVED_A4_HD_PENDING`, screen/mobile uses the realistic WebP but A4 print uses the sharp SVG fallback plus an explanatory note
 - runtime E2E was structurally updated to validate realistic images while retaining hidden SVG fallback; a literal-newline syntax regression was corrected in `dc0d1e763effce157f2605fc3be83bcc509ff3f0`
