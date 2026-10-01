@@ -155,6 +155,14 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 - 경추 d088–d099 12개는 1차본 완료. 나머지 9개 영역도 동일 스키마로 확장한다.
 - “지지 단서”와 “반대·제한 단서”는 항상 남기고, 단일 검사나 영상소견을 확진처럼 표현하지 않는다.
 
+### C2. 실사형 교육 일러스트 공통 스타일 LOCK — 2026-10-02
+- **환자교육용 스트레칭·강화운동과 Physical Examination 둘 다** 최종 자산은 실제 사람처럼 보이는 실사형 의료교육 일러스트를 사용한다.
+- 환자교육 운동은 문틀 스트레칭·경추 스트레칭 등 현재 승인 실사형 스타일을 기준으로 한다.
+- Physical Examination도 별도의 단순 막대/개념형 최종그림으로 끝내지 않고, **실사형 환자 + 실사형 검사자 + 손 위치/힘 방향/양성소견 overlay** 구조로 최종 승격한다.
+- 현재 EXAM-001의 Stable-ID 도해는 자세·손 위치·힘 방향을 전수 구조화하는 baseline이며, 이를 최종 실사형 완성품이라고 표시하지 않는다.
+- 최종 Physical Examination illustration은 모바일/PC에서 실제 강의자료로 바로 쓸 수 있는 품질을 목표로 한다.
+- 상세 정본: `docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md`
+
 ### D. 진찰검사 상세 + 일러스트
 - **2026-10-01 Batch 1 완료:** 어깨 canonical 11개(ct001–ct011)를 Stable ID 맞춤 도해로 교체했다. Jobe/Full can의 엄지 방향, painful arc 능동 거상, ER lag 지지 해제, lift-off 후면, belly-press 팔꿈치 보상, bear-hug 저항, Speed/Yergason 저항 방향, Neer 견갑 고정, Hawkins-Kennedy 90/90 내회전을 개별 preset으로 분리했다.
 - 검사별 preset은 `data/clinical-exam-illustration-presets-v1.json`에서 관리하며, 각 항목에 환자 자세 좌표, 검사자 손 위치, 힘/움직임 방향, 양성 marker, 흔한 시행 오류를 Stable ID로 연결한다.
@@ -204,6 +212,7 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 | UPD-002 | 홈 최상단에서 아래로 당겨 업데이트 확인/재로드 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | UPD-003 | Cloudflare commit-hash Preview 설치 시 영구 고정되는 문제 방지: 설치 차단 + 안정 branch alias 이동 + 실기기 update E2E | Release blocker | Stage 15 + Cloudflare Preview | **PATCHED / Stage 23C USER E2E REQUIRED** |
 | EXAM-001 | 148개 진찰검사 전부 교과서급 상세 설명 + 시작/시행/양성 일러스트 + 구조·감별 연결 | Release blocker | A5 clinical stable IDs | **IN PROGRESS · shoulder 11/11 + elbow 10/10 + wrist-hand 14/14 + hip-pelvis 14/14 + knee-thigh 15/15 + leg-ankle-foot 17/17 custom · 81/148 total / next cervical** |
+| EXAM-REAL-001 | Physical Examination 148개를 실사형 환자·검사자 일러스트 + 손 위치/힘 방향/양성 overlay로 최종 승격 | Release blocker / visual quality | EXAM-001 baseline + realistic asset pipeline | **LOCKED / MUST DEVELOP · Stage 23B→23C before Production** |
 | DIFF-001 | 10개 임상영역 감별후보 전부 클릭형 교과서급 상세 설명 | Release blocker | A5 differential stable IDs | **IN PROGRESS · cervical 12 COMPLETE / 9 regions pending** |
 | QUIZ-BOARD-001 | 전문의 수준 임상 Case 자동출제: 쉬운 O/I/F/N 제외, 가까운 감별 distractor, 20/40/80/120 세션 | High | 10 clinical differential modules | **IMPLEMENTED BASELINE / CONTENT EXPANSION ONGOING** |
 | QUIZ-BOARD-002 | 실제 전문의 기출은 공식 공개원문만 연결하고 공식 범위·참고문헌 registry 유지 | High | source/license audit | **IMPLEMENTED POLICY / ONGOING SOURCE CHECK** |
