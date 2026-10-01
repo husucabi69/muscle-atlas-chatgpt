@@ -7,7 +7,7 @@ export function canGenerateRealisticProfile(manifest,profileId){
   const index=ordered.findIndex(p=>p.profile_id===profileId);
   if(index<0)return{allowed:false,reason:'UNKNOWN_PROFILE'};
   const target=ordered[index];
-  if(target.status!=='PENDING_GENERATION'){
+  if(!['PENDING_GENERATION','PENDING_REGENERATION'].includes(target.status)){
     return{allowed:false,reason:'TARGET_NOT_PENDING_GENERATION',status:target.status};
   }
   const earlier=ordered.slice(0,index);
@@ -20,7 +20,7 @@ export function canGenerateRealisticProfile(manifest,profileId){
       blocking_gen_id:blocker.gen_id||null
     };
   }
-  return{allowed:true,reason:'READY'};
+  return{allowed:true,reason:target.status==='PENDING_REGENERATION'?'READY_REGENERATION':'READY'};
 }
 
 if(process.argv[1]&&process.argv[1].endsWith('can-generate-realistic-profile.mjs')){
