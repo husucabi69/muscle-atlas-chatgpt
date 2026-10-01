@@ -5,9 +5,14 @@ const manifest=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-asset
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 
+const p7=canGenerateRealisticProfile(manifest,'px007');
+check('px007 regeneration is allowed after documented binary loss',
+  p7.allowed===true&&p7.reason==='READY_REGENERATION',
+  JSON.stringify(p7)
+);
 const p12=canGenerateRealisticProfile(manifest,'px012');
-check('px012 generation is blocked while px007 binary handoff is blocked',
-  p12.allowed===false&&p12.reason==='EARLIER_BINARY_HANDOFF_BLOCKED'&&p12.blocking_profile_id==='px007',
+check('px012 generation stays blocked behind earliest unresolved binary handoff',
+  p12.allowed===false&&p12.reason==='EARLIER_BINARY_HANDOFF_BLOCKED'&&p12.blocking_profile_id==='px008',
   JSON.stringify(p12)
 );
 
