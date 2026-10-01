@@ -53,9 +53,10 @@ for(const p of blocked){
   }
 }
 
+check('Earliest remaining binary-handoff candidate is px008',blocked[0]?.profile_id==='px008',blocked[0]?.profile_id||'');
 const next=getNextMainlineTask(manifest);
-check('Next task targets earliest binary-handoff candidate',
-  next?.profile_id===blocked[0]?.profile_id&&next?.action==='OBTAIN_BINARY_AND_PREVIEW_REVIEW',
+check('px007 regeneration correctly precedes later binary-handoff queue',
+  next?.profile_id==='px007'&&next?.action==='REGENERATE_FROM_LOCKED_BRIEF',
   JSON.stringify(next)
 );
 
