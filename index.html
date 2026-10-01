@@ -2347,7 +2347,7 @@ async function openClinicalStableDetail(type,id,muscleId=null,record=true){
   await openClinicalTopic(route.topic,record);
   await openClinicalItem(route.itemId,record);
   if(muscleId)renderClinicalFlowContext(muscleId,route.topic);
-  if(route.focusId)setTimeout(()=>document.getElementById('diagnosis-concept-'+route.focusId)?.scrollIntoView({behavior:'smooth',block:'center'}),80);
+  if(route.focusId)setTimeout(()=>{const el=document.getElementById('diagnosis-concept-'+route.focusId);if(el){if('open' in el)el.open=true;el.scrollIntoView({behavior:'smooth',block:'center'});}},80);
   return true;
 }
 window.addEventListener('popstate',async event=>{
