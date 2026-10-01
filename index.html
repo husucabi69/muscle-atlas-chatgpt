@@ -2318,6 +2318,34 @@ function clinicalExamPoseMarkup(pose,view='front',accent='#475467'){
       '<text x="80" y="220" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='supine'?'앙와위':body==='side-lying'?'측와위':body==='seated'?'좌위':view==='back'?'후면':'기립')+'</text>'+
       '</g>';
   }
+  const cervical=Array.isArray(pose.head)&&Array.isArray(pose.neck);
+  if(cervical){
+    const head=pose.head,neck=pose.neck,body=pose.body||view||'seated';
+    const shoulderL=pose.shoulder_l||[55,104],shoulderR=pose.shoulder_r||[105,104];
+    const armL=pose.arm_l||null,armR=pose.arm_r||null;
+    let base='';
+    if(body==='supine'){
+      base='<path d="M32 110 L116 110" stroke="#c5ccd6" stroke-width="10" stroke-linecap="round"/>'+
+        '<path d="M52 109 Q80 96 108 109 L104 156 Q80 166 56 156 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>';
+    }else{
+      base='<path d="M48 104 Q80 88 112 104 L108 165 Q80 176 52 165 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>'+
+        '<line x1="80" y1="165" x2="80" y2="205" stroke="#c5ccd6" stroke-width="9" stroke-linecap="round"/>';
+    }
+    const armMarkup=(arm,sh)=>{
+      if(!arm||!Array.isArray(arm.elbow)||!Array.isArray(arm.wrist))return'';
+      return '<line x1="'+sh[0]+'" y1="'+sh[1]+'" x2="'+arm.elbow[0]+'" y2="'+arm.elbow[1]+'" stroke="#98a2b3" stroke-width="7" stroke-linecap="round"/>'+
+        '<line x1="'+arm.elbow[0]+'" y1="'+arm.elbow[1]+'" x2="'+arm.wrist[0]+'" y2="'+arm.wrist[1]+'" stroke="#98a2b3" stroke-width="6" stroke-linecap="round"/>'+
+        '<ellipse cx="'+arm.wrist[0]+'" cy="'+arm.wrist[1]+'" rx="7" ry="4" fill="#fff" stroke="#98a2b3" stroke-width="2"/>';
+    };
+    return '<g>'+base+
+      '<line x1="'+neck[0]+'" y1="'+neck[1]+'" x2="'+head[0]+'" y2="'+head[1]+'" stroke="'+accent+'" stroke-width="8" stroke-linecap="round"/>'+
+      '<circle cx="'+head[0]+'" cy="'+head[1]+'" r="19" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+      '<line x1="'+shoulderL[0]+'" y1="'+shoulderL[1]+'" x2="'+shoulderR[0]+'" y2="'+shoulderR[1]+'" stroke="#98a2b3" stroke-width="7" stroke-linecap="round"/>'+
+      armMarkup(armL,shoulderL)+armMarkup(armR,shoulderR)+
+      (pose.head_label?'<text x="'+(head[0]+24)+'" y="'+(head[1]-10)+'" font-size="11" font-weight="700" fill="#344054">'+esc(pose.head_label)+'</text>':'')+
+      '<text x="80" y="220" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='supine'?'앙와위':body==='standing'?'기립':'좌위')+'</text>'+
+      '</g>';
+  }
   const sh=pose.shoulder||[104,82],el=pose.elbow||[135,120],wr=pose.wrist||[155,160];
   const back=view==='back';
   const side=view==='side';
