@@ -493,7 +493,10 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
 - px001–px006은 2026-09-30 안전 문구 교정·파일 무결성 복구·3중 검수·canonical ingest까지 완료해 mobile Preview `APPROVED` 상태다.
 - px007은 새 손가락 벌림 그림 생성 대기이며, px008·px009의 과거 gen_id-only 후보는 알려진 저장소에서 binary 복구 불가를 확인해 폐기/감사기록으로 이동했다. px008 고관절 외전과 px009 교정 스쿼트는 fresh generation 대상으로 정리됐다.
 - 2026-10-01 야간 예약작업에서 px007–px011의 교정 후보가 생성·검수됐지만 실제 image binary는 저장소에 materialize되지 않았다. 따라서 해당 후보는 재생성 대상이 아니라 `BINARY_HANDOFF_BLOCKED` 후보로 관리한다.
-- manifest-derived selector의 현재 첫 작업은 **px007 / OBTAIN_BINARY_AND_PREVIEW_REVIEW**다. exact binary를 회수하지 못하면 px012+ 새 그림 생성을 계속하지 말고 같은 Stage 23B의 독립 QA/구조 작업으로 전환한다.
+- px007 exact binary recovery를 재확인한 결과 checkpoint 자체가 `CONVERSATION_GENERATED_NOT_YET_REPOSITORY_MATERIALIZED`였고, manifest에 candidate path/receipt가 없으며 canonical repository WebP도 존재하지 않아 **기존 gen_id의 정확한 binary는 복구 불가로 확정**했다.
+- px007의 기존 gen_id `8c940201-f1c0-4440-832d-83972f8efbb8`, checkpoint, 3중 검수 기록은 `lost_candidate_history`와 binary-loss audit에 보존했다. 새 후보에 기존 검수를 승계하지 않는다.
+- manifest-derived selector의 현재 첫 작업은 **px007 / REGENERATE_FROM_LOCKED_BRIEF**다. 새 생성은 반드시 새 gen_id → repository WebP materialization → 새 clinical_content / visual_pose / embedded_text 3중 검수 순서를 거친다.
+- px008~px011은 여전히 exact binary handoff 대기 상태이며, px012+는 이 앞선 blocker를 건너뛰지 않는다.
 - blocker가 있는 후보가 runtime에서 실사 이미지로 노출되면 E2E FAIL 처리한다.
 - 2026-09-30 asset 안전장치 강화:
   - `scripts/inspect-realistic-webp.mjs`가 RIFF/WebP 구조, 선언 파일크기, chunk truncation, 실제 해상도를 검사한다.
