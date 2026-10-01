@@ -157,8 +157,8 @@ try{
   pass('Stage 23B A4 print geometry and HD-pending fallback');
 
   const blockedPrint=await page.evaluate(()=>{
-    const p=exerciseProfileById.px007;
-    const asset=exerciseRealisticAssetById.px007;
+    const p=exerciseProfileById.px008;
+    const asset=exerciseRealisticAssetById.px008;
     const host=document.createElement('div');
     host.id='educationDetail';
     host.style.width='180mm';
@@ -186,7 +186,7 @@ try{
     if(blockedPrint.realisticPresent&&blockedPrint.realisticDisplay!=='none')fail('Stage 23B A4 blocked candidate must hide realistic media',blockedPrint.realisticDisplay);
     if(!blockedPrint.fallbackPresent||blockedPrint.fallbackDisplay==='none')fail('Stage 23B A4 blocked candidate must show SVG fallback',blockedPrint.fallbackDisplay);
     if(blockedPrint.overflow>1)fail('Stage 23B A4 blocked candidate no clipping',String(blockedPrint.overflow));
-    pass('Stage 23B A4 binary-handoff candidate uses safe fallback','px007');
+    pass('Stage 23B A4 binary-handoff candidate uses safe fallback','px008');
   }
 
 
