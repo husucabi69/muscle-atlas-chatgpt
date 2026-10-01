@@ -4,7 +4,7 @@ const manifest=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-asset
 const index=fs.readFileSync('index.html','utf8');
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
-const allowedStatuses=new Set(['PENDING_GENERATION','STYLE_REFERENCE_APPROVED','CANDIDATE_GENERATED','APPROVED']);
+const allowedStatuses=new Set(['PENDING_GENERATION','PENDING_REGENERATION','STYLE_REFERENCE_APPROVED','CANDIDATE_GENERATED','APPROVED']);
 
 check('Realistic asset manifest schema',manifest.schema_version==='1.0.0',manifest.schema_version);
 check('User-approved style lock',manifest.style_lock?.status==='USER_APPROVED',manifest.style_lock?.status||'missing');
@@ -31,7 +31,7 @@ check('No candidate with FAIL review may be approved',
 check('px001-px018 have locked generation briefs',
   ['px001','px002','px003','px004','px005','px006','px007','px008','px009','px010','px011','px012','px013','px014','px015','px016','px017','px018'].every(id=>{
     const x=manifest.profiles.find(p=>p.profile_id===id);
-    return x&&['PENDING_GENERATION','CANDIDATE_GENERATED','APPROVED'].includes(x.status)&&x.generation_brief&&x.generation_brief_reviewed_on==='2026-09-30'&&typeof x.generation_brief.text_policy==='string';
+    return x&&['PENDING_GENERATION','PENDING_REGENERATION','CANDIDATE_GENERATED','APPROVED'].includes(x.status)&&x.generation_brief&&x.generation_brief_reviewed_on==='2026-09-30'&&typeof x.generation_brief.text_policy==='string';
   })
 );
 check('Generation briefs prohibit invented dosage',
@@ -52,12 +52,15 @@ check('px009 unsafe squat candidate is retired and corrected brief forbids the a
     String(x.generation_brief?.text_policy||'').includes('무릎이 발끝보다 앞으로 나가면 안 된다')&&
     String(x.generation_brief?.text_policy||'').includes('금지');
 })());
-check('px007 invalid fist candidate is retired and preserved only in audit history',(()=>{
+check('px007 invalid fist candidate is retired and binary-loss provenance is preserved',(()=>{
   const x=manifest.profiles.find(p=>p.profile_id==='px007');
-  return x&&x.status==='CANDIDATE_GENERATED'&&x.asset_gate==='BINARY_HANDOFF_BLOCKED'&&
+  return x&&x.status==='PENDING_REGENERATION'&&x.asset_gate==='BINARY_LOSS_CONFIRMED_REGENERATION_ALLOWED'&&
     Array.isArray(x.approval_blockers)&&x.approval_blockers.length===0&&
     Array.isArray(x.rejected_candidates)&&
-    x.rejected_candidates.some(c=>c.reason_code==='HAND_INTRINSIC_MOTION_MISMATCH');
+    x.rejected_candidates.some(c=>c.reason_code==='HAND_INTRINSIC_MOTION_MISMATCH')&&
+    Array.isArray(x.lost_candidate_history)&&
+    x.lost_candidate_history.some(c=>c.gen_id==='8c940201-f1c0-4440-832d-83972f8efbb8'&&c.resolution==='EXACT_BINARY_UNRECOVERABLE')&&
+    x.gen_id===null&&x.candidate_review===null;
 })());
 check('px007 regeneration brief locks finger-spread motion and forbids fist substitution',(()=>{
   const x=manifest.profiles.find(p=>p.profile_id==='px007');
