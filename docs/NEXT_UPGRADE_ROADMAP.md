@@ -18,6 +18,48 @@
 8. **Preview 우선** — 자동 QA → Preview 실제화면 검수 → 사용자 승인 후에만 다음 release gate로 이동한다.
 9. **Production 동결** — 명시적 Production 승격 승인 전에는 main을 변경하지 않는다.
 
+## 2026-10-01 사용자 실기기 피드백 · 개발정본 LOCK
+
+아래 항목은 **아이디어 메모가 아니라 구현 계약**이다. 후속 개발에서 임의 삭제·축소·우회하지 않는다. 현재 Active Stage의 선후관계는 유지하되, 아래 항목을 완료 Gate에 반영한다.
+
+### A. 환자 운동·스트레칭 실사 이미지 표시 품질
+- 320×400px mobile-preview 이미지는 PC에서 너무 크게 확대해 흐려지지 않게 하고, 반대로 원본 320px 고정으로 지나치게 작게 보이지도 않게 한다.
+- 현재 저해상도 Preview의 데스크톱 목표 폭은 **400 CSS px**, 원본 대비 최대 **1.25× soft-upscale**로 고정한다.
+- 모바일에서는 viewport에 맞춰 자동 축소한다.
+- 고해상도 승인 이미지가 들어오면 데스크톱 최대 720px / 72vh 상한을 적용한다.
+- 320×400 저해상도 자산은 A4 인쇄에 사용하지 않고, A4-HD 승인 전까지 선명한 fallback을 사용한다.
+- 표시 크기 변경은 반드시 실제 PC와 모바일 Preview에서 사용자 시각검수를 거친다.
+
+### B. 정형외과 전문의 수준 Quiz
+- 전문의 Case 모드에서는 O/I/F/N 단순 암기형과 답이 지나치게 뻔한 문항을 제외한다.
+- 실제 진료형 **임상 증례 문제를 다수** 포함하고, 같은 증상군/감별군의 가까운 진단을 distractor로 사용한다.
+- 자동출제 세션은 최소 20 / 40 / 80 / 120문제를 지원하고, 충분한 임상 데이터가 쌓이면 pool을 계속 확장한다.
+- 정답 후 단순 정오만 표시하지 않고 지지 소견, 반대·제한 소견, red flag, 다음 임상 판단 포인트를 해설한다.
+- 실제 전문의 시험 기출은 **공식 공개가 확인된 원문만** 연결한다. 비공식 복원문제·유료 문제은행을 무단 복제해 “실제 기출”로 표시하지 않는다.
+- 공식 전문의 시험 출제범위·참고문헌·시행계획은 source registry로 유지한다.
+
+### C. 감별진단 상세
+- 감별 후보 각각은 클릭 가능한 독립 상세 패널로 제공한다.
+- 모든 10개 임상영역의 diagnosis concept에 대해 최종적으로 **정의 / 병태생리 / 병력 / 진찰 / 검사·영상 / 치료원칙 / red flag / 흔한 함정 / 가까운 감별**을 교과서급으로 제공한다.
+- 경추 d088–d099 12개는 1차본 완료. 나머지 9개 영역도 동일 스키마로 확장한다.
+- “지지 단서”와 “반대·제한 단서”는 항상 남기고, 단일 검사나 영상소견을 확진처럼 표현하지 않는다.
+
+### D. 진찰검사 상세 + 일러스트
+- **148개 canonical clinical test 전부**를 단순 한두 줄 설명으로 끝내지 않는다.
+- 각 검사는 목적, 환자 시작자세, 검사자 위치·손 위치/힘 방향, 시행 순서, 양성 기준, 해석, 한계·거짓양성/흔한 오류, 연결 구조, 연결 감별진단을 제공한다.
+- 각 검사 상세에는 **시작자세 → 시행 → 양성 판단**을 이해할 수 있는 교육용 일러스트를 제공한다.
+- 현재 1차 구현의 공통 개념도는 임시 baseline이며, 실제 관절 위치·검사자 손 위치·힘 방향을 정확히 보여주는 **검사별 고정밀 도해**로 순차 교체한다.
+- 환자에게 위험한 강한 provocation을 그림이 과장하지 않도록 하고, red flag/safety 검사에서는 “검사 반복”보다 적절한 영상·전원 판단을 우선 표현한다.
+
+### E. 설치 앱 업데이트 채널
+- Cloudflare의 commit-hash 배포주소(예: `97babaac.muscle-atlas-chatgpt.pages.dev`)는 **고정 시각검수본**이며 앱 설치 주소로 사용하지 않는다.
+- 개발 중 설치 PWA의 정본 주소는 **`https://preview-development.muscle-atlas-chatgpt.pages.dev`** 로 고정한다.
+- commit-hash 주소에서는 설치 버튼을 막고 “최신 Preview 앱 열기”로 안정 branch alias로 이동시킨다.
+- commit-hash 주소의 service worker가 자기 자신을 “최신”이라고 오판하지 않도록 해당 origin에서는 자동업데이트 엔진을 시작하지 않는다.
+- 기존에 commit-hash 주소에서 설치한 PWA는 origin 자체가 고정되어 새 코드를 받을 수 없으므로 **1회 삭제 후 안정 Preview 주소에서 재설치**가 필요하다.
+- Stage 23C에서는 PC/Android 설치 앱에서 branch alias 기준으로 `old version → 새 commit → 업데이트 확인 → controllerchange → 최신 버전 표시` 실제 E2E를 필수 검증한다.
+- Production `main`은 사용자 명시 승인 전까지 계속 동결하며, Preview와 Production 버전이 다를 수 있음을 UI/보고에서 구분한다.
+
 ### Idea Register — 2026-09-27
 
 | ID | 아이디어 | 중요도 | 선행조건 | 상태 / 배치 |
@@ -36,6 +78,12 @@
 | EDU-007 | 대표 질환 교육은 최신 CPG·systematic review·고품질 RCT를 우선 근거로 하며 수술 후 프로토콜·급성 손상·red flag는 일반 보존적 재활과 분리 | Release blocker | EDU-003 | **Stage 23B-Disease Rehab QA / MUST IMPLEMENT** |
 | UPD-001 | 앱 실행/재개/포커스 시 자동 업데이트 확인 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | UPD-002 | 홈 최상단에서 아래로 당겨 업데이트 확인/재로드 | High | Stage 15 | **IMPLEMENTED v11.37** |
+| UPD-003 | Cloudflare commit-hash Preview 설치 시 영구 고정되는 문제 방지: 설치 차단 + 안정 branch alias 이동 + 실기기 update E2E | Release blocker | Stage 15 + Cloudflare Preview | **PATCHED / Stage 23C USER E2E REQUIRED** |
+| EXAM-001 | 148개 진찰검사 전부 교과서급 상세 설명 + 시작/시행/양성 일러스트 + 구조·감별 연결 | Release blocker | A5 clinical stable IDs | **IN PROGRESS / BASELINE RENDERER IMPLEMENTED** |
+| DIFF-001 | 10개 임상영역 감별후보 전부 클릭형 교과서급 상세 설명 | Release blocker | A5 differential stable IDs | **IN PROGRESS · cervical 12 COMPLETE / 9 regions pending** |
+| QUIZ-BOARD-001 | 전문의 수준 임상 Case 자동출제: 쉬운 O/I/F/N 제외, 가까운 감별 distractor, 20/40/80/120 세션 | High | 10 clinical differential modules | **IMPLEMENTED BASELINE / CONTENT EXPANSION ONGOING** |
+| QUIZ-BOARD-002 | 실제 전문의 기출은 공식 공개원문만 연결하고 공식 범위·참고문헌 registry 유지 | High | source/license audit | **IMPLEMENTED POLICY / ONGOING SOURCE CHECK** |
+| IMG-DISPLAY-001 | 320×400 Preview 실사 이미지는 PC 400px·최대 1.25×, 고해상도는 720px cap, A4 low-res 금지 | High | Stage 23B realistic asset pipeline | **IMPLEMENTED / USER VISUAL VERIFY PENDING** |
 | QA-001 | 실제 Android에서 offline cold start / mic / TTS / 큰글자 / 회전 / print-share 확인 | Release blocker | Stage 23A + 23B | **Stage 23C** |
 | VID-001 | 초음파 상세에 최고품질 검수 YouTube 영상 링크/임베드 추가 | High | Stage 23A navigation shell | **Stage 23B/Media layer** |
 | VID-002 | 환자교육 운동·스트레칭에 고품질 YouTube 환자교육 영상 링크/임베드 추가 | High | Stage 23A + exercise profile mapping | **Stage 23B** |
@@ -86,7 +134,7 @@
 
 # Stage 15 — Reliable Auto-Update Engine
 
-상태: **DEV COMPLETE / AUTOMATED QA PASS — 2026-09-25**  
+상태: **REGRESSION PATCHED 2026-10-01 — stable Preview install origin contract added / USER REINSTALL + REAL DEVICE E2E PENDING**  
 실제 Android 설치 앱의 end-to-end 확인은 Stage 23 Real Device Gate에서 최종 수행한다.
 
 - [x] 단일 APP_BUILD_VERSION
