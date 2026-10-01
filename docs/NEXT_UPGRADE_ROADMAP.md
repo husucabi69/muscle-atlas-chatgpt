@@ -87,6 +87,48 @@
 - **현재 EXAM-001 배치의 자연스러운 체크포인트 뒤**, Stage 23B-Disease Rehab 및 Stage 23C로 넘어가기 전 1~2개의 짧은 경량 작업으로 삽입한다.
 - Stage 23C의 실기기 검증은 이 baseline의 URL/PWA/visual QA를 최종 재확인하는 release gate로 사용한다.
 
+## Anatomy IP / 3D / Motion — 정식 개발 트랙 LOCK / 2026-10-01
+
+상태: **LOCKED / MUST DEVELOP / CANONICAL WORKLINE**  
+상세 계약: `docs/ANATOMY_IP_3D_MOTION_CONTRACT.md`
+
+이 트랙은 아이디어 메모가 아니다. **Stage 23C 이전 mandatory pilot**으로 정식 편입하며, 파일럿 완료 후에도 자체 해부학 자산을 205 canonical muscles로 점진 확장한다.
+
+### ANATOMY-IP-001 — 자체 해부학 2D 도해
+- 교과서급 구조 정확도 + Muscle Atlas 고유 표현으로 자체 제작한다.
+- 특정 교과서 도판의 복제·트레이싱·near-copy를 금지한다.
+- 첫 파일럿은 **경추–견갑대**, 첫 mandatory muscle은 **두판상근(Splenius capitis)**.
+- 대표 whole-muscle view, origin/insertion/course, 주변 뼈 관계, label on/off를 제공한다.
+- SVG 또는 고해상도 원본을 canonical asset으로 보존한다.
+- 파일럿 필수근육: 두판상근 / 견갑거근 / 승모근 / 흉쇄유돌근 / 사각근군 / 후두하근군.
+
+### ANATOMY-3D-001 — 3D 해부학 뷰어
+- 경추–견갑대 파일럿.
+- rotate / zoom / reset / muscle on-off / bone on-off / layer transparency / selected muscle highlight 필수.
+- glTF/GLB + WebGL 계열의 정적 PWA 친화 구조를 우선한다.
+- 외부 model 사용 시 license/provenance audit를 반드시 통과한다.
+- 서버 DB 도입 없이 현재 Cloudflare static architecture 안에서 먼저 구현한다.
+
+### MOTION-ANIM-001 — 근육 작용 애니메이션
+- 첫 mandatory animation은 **두판상근**.
+- bilateral contraction → cervical extension.
+- unilateral contraction → ipsilateral rotation + ipsilateral lateral flexion.
+- neutral → contraction → end, motion arrow, muscle highlight, replay를 제공한다.
+- canonical Function 데이터와 animation 방향의 불일치가 있으면 QA FAIL한다.
+
+### 저작권·자산 원칙
+- 해부학적 사실 자체가 아니라 **독립적으로 제작한 시각적 표현**을 자체 자산으로 축적한다.
+- asset registry에 Stable ID / 제작일 / 제작방식 / 검수상태 / provenance / license note를 기록한다.
+- 자체 도해가 기존 외부 대표도해보다 교육적으로 우수하고 QA를 통과하면 동일 Stable ID slot에서 자체 asset으로 교체한다.
+
+### 필수 선후관계
+현재 EXAM-001을 중단하지 않는다.
+
+**EXAM-001 계속 → 경량 Deployment Safety Gate → Stage 23B 잔여 실사 운동그림 → Stage 23B-Disease Rehab → ANATOMY-IP-001 → ANATOMY-3D-001 → MOTION-ANIM-001 → Stage 23C → Stage 24**
+
+ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구현**한다.  
+파일럿 후 전체 근육·부위 확장은 own-asset evergreen track으로 계속 진행하며 무기한 deferred 상태로 두지 않는다.
+
 ## 2026-10-01 사용자 실기기 피드백 · 개발정본 LOCK
 
 아래 항목은 **아이디어 메모가 아니라 구현 계약**이다. 후속 개발에서 임의 삭제·축소·우회하지 않는다. 현재 Active Stage의 선후관계는 유지하되, 아래 항목을 완료 Gate에 반영한다.
@@ -168,6 +210,9 @@
 | VID-004 | 영어 영상에 한국어 접근성 레이어 추가: YouTube 한국어 자막 우선 + 앱내 한국어 핵심해설/타임스탬프 | High | VID-001/002 | **Stage 23B Media UX** |
 | VID-005 | CC BY/Public Domain/명시적 허가 영상에 한해 한국어 번역자막 및 선택적 TTS 더빙 지원 | Medium | license/permission audit | **Stage 23B Media UX** |
 | ARCH-001 | 대표 해부도해·실제 초음파·근육별 운동·질환별 재활을 코드 재설계 없이 계속 추가·교체할 수 있는 Stable ID + registry + asset slot 확장 계약 유지 | Release blocker | 기존 Stable ID/registry | **EVERGREEN ARCHITECTURE / MUST PRESERVE** |
+| ANATOMY-IP-001 | 교과서급 자체 2D 근육도해를 독립 창작 자산으로 제작하고 대표도해 slot을 자체 IP로 전환 | Strategic / Mandatory | ARCH-001 + anatomy Stable ID | **LOCKED / MUST DEVELOP · Stage 23B-Anatomy IP Pilot before Stage 23C** |
+| ANATOMY-3D-001 | 회전·줌·레이어/투명도·근육 highlight를 지원하는 3D 해부학 뷰어 | Strategic / Mandatory | ANATOMY-IP-001 + model provenance | **LOCKED / MUST DEVELOP · Stage 23B-3D Pilot before Stage 23C** |
+| MOTION-ANIM-001 | 근육 작용을 실제 관절 움직임으로 보여주는 기능 애니메이션; 첫 파일럿 두판상근 | Strategic / Mandatory | ANATOMY-IP-001 + ANATOMY-3D-001 + canonical Function | **LOCKED / MUST DEVELOP · Stage 23B-Motion Pilot before Stage 23C** |
 | EDU-008 | 사용자가 특정 근육 운동·스트레칭 추가를 요청하면 기존 근육별 환자교육 registry에 source/last-reviewed/asset slot을 붙여 확장 가능하게 유지 | High | ARCH-001 | **ONGOING / NON-PREEMPTIVE** |
 | MED-001 | 대표 해부도해와 실제 초음파 이미지·영상은 더 좋은 공개·검증 자료가 생길 때 지속 교체하되 현재 Active Stage를 중단시키지 않는 별도 refresh track으로 운영 | High | ARCH-001 + license audit | **ONGOING MEDIA REFRESH** |
 | OPS-001 | 00:00~08:00 매 정시 자동개발 이후 오전 첫 수동 개발은 최신 HEAD·야간 commit·QA/Preview·Active Stage를 먼저 대조하고 중복 없이 재개 | Release blocker | automation checkpoint | **OPERATING RULE** |
@@ -806,7 +851,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**Stage 23B 실사형 운동 일러스트 18종 제작/검수 → Stage 23B-Disease Rehab 대표 질환별 환자 재활교육 → Stage 23C → Stage 24**
+**EXAM-001 검사별 맞춤도해 148/148 진행 → 경량 Deployment Safety Gate → Stage 23B 실사형 운동 일러스트 잔여 제작/검수 → Stage 23B-Disease Rehab → Stage 23B-Anatomy IP Pilot → Stage 23B-3D Anatomy Pilot → Stage 23B-Motion Animation Pilot → Stage 23C → Stage 24**
 
 대표도해 미확보 항목 재탐색, 초음파 direct-embed 후보 탐색, 신규 근육/질환 콘텐츠 제안은 모두 위 주 개발선과 별도의 **Evergreen Refresh backlog**로 보존하며 주 개발선을 중단시키지 않는다.
 
