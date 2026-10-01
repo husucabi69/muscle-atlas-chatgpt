@@ -1,0 +1,683 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-01",
+  "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
+  "coverage": {
+    "customized": 11,
+    "total_canonical_tests": 148,
+    "module": "shoulder",
+    "status": "BATCH_1_COMPLETE"
+  },
+  "presets": {
+    "ct001": {
+      "clinical_test_id": "ct001",
+      "precision": "custom",
+      "view": "front",
+      "title": "Jobe / Empty Can · 견갑면 거상 + 엄지 아래 + 하방 저항",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          166,
+          78
+        ],
+        "wrist": [
+          214,
+          72
+        ],
+        "hand_label": "엄지 ↓"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          166,
+          78
+        ],
+        "wrist": [
+          214,
+          72
+        ],
+        "hand_label": "엄지 ↓"
+      },
+      "examiner_hands": [
+        {
+          "x": 193,
+          "y": 66,
+          "label": "원위 상완"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 193,
+          "y1": 42,
+          "x2": 193,
+          "y2": 88,
+          "label": "하방 저항"
+        }
+      ],
+      "positive": {
+        "x": 111,
+        "y": 83,
+        "label": "통증/약화"
+      },
+      "examiner_position": "환자의 앞 또는 약간 측면에서 원위 상완에 하방 저항을 건다.",
+      "hand_force": "원위 상완을 아래로 누르고, 환자는 견갑면 거상 위치를 유지한다.",
+      "common_error": "순수 측면 90° 외전으로 바꾸거나 몸통을 기울여 보상하게 두지 않는다."
+    },
+    "ct002": {
+      "clinical_test_id": "ct002",
+      "precision": "custom",
+      "view": "front",
+      "title": "Painful Arc · 능동 측방 거상 중 통증 범위 관찰",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          127,
+          137
+        ],
+        "wrist": [
+          142,
+          188
+        ],
+        "hand_label": "팔 내림"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          166,
+          82
+        ],
+        "wrist": [
+          214,
+          82
+        ],
+        "hand_label": "거상"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 105,
+          "cy": 82,
+          "r": 78,
+          "start_angle": 70,
+          "end_angle": -8,
+          "label": "능동 거상"
+        }
+      ],
+      "positive": {
+        "x": 155,
+        "y": 82,
+        "label": "중간 범위 통증"
+      },
+      "examiner_position": "정면 또는 측면에서 견갑과 몸통 보상을 관찰한다.",
+      "hand_force": "외부 저항 없이 환자가 스스로 팔을 올리고 내리게 한다.",
+      "common_error": "통증이 난다는 이유만으로 특정 회전근개·점액낭 병변을 확정하지 않는다."
+    },
+    "ct003": {
+      "clinical_test_id": "ct003",
+      "precision": "custom",
+      "view": "front",
+      "title": "Full Can · 견갑면 거상 + 엄지 위 + 하방 저항",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          166,
+          78
+        ],
+        "wrist": [
+          214,
+          72
+        ],
+        "hand_label": "엄지 ↑"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          166,
+          78
+        ],
+        "wrist": [
+          214,
+          72
+        ],
+        "hand_label": "엄지 ↑"
+      },
+      "examiner_hands": [
+        {
+          "x": 193,
+          "y": 66,
+          "label": "원위 상완"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 193,
+          "y1": 42,
+          "x2": 193,
+          "y2": 88,
+          "label": "하방 저항"
+        }
+      ],
+      "positive": {
+        "x": 111,
+        "y": 83,
+        "label": "통증/약화"
+      },
+      "examiner_position": "환자 전방에서 원위 상완에 동일한 하방 저항을 준다.",
+      "hand_force": "엄지가 위를 향한 견갑면 거상 위치를 유지하게 하며 아래로 누른다.",
+      "common_error": "Jobe와 다른 엄지 방향을 명확히 구분하고 좌우 저항 강도를 비슷하게 한다."
+    },
+    "ct004": {
+      "clinical_test_id": "ct004",
+      "precision": "custom",
+      "view": "front",
+      "title": "External Rotation Lag · 외회전 위치를 만들어 준 뒤 지지 해제",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          111,
+          132
+        ],
+        "wrist": [
+          164,
+          135
+        ],
+        "hand_label": "외회전"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          111,
+          132
+        ],
+        "wrist": [
+          164,
+          135
+        ],
+        "hand_label": "지지 해제"
+      },
+      "examiner_hands": [
+        {
+          "x": 159,
+          "y": 135,
+          "label": "손목 지지"
+        },
+        {
+          "x": 111,
+          "y": 130,
+          "label": "팔꿈치"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 163,
+          "y1": 136,
+          "x2": 177,
+          "y2": 151,
+          "label": "지지 해제"
+        }
+      ],
+      "positive": {
+        "x": 148,
+        "y": 151,
+        "label": "내회전 방향 lag"
+      },
+      "examiner_position": "팔꿈치를 몸통 가까이 안정시키고 손목/전완을 지지해 외회전 위치를 만든다.",
+      "hand_force": "최종 외회전 위치에서 지지를 서서히 풀어 환자가 위치를 유지하는지 본다.",
+      "common_error": "통증 때문에 움직임을 멈춘 것과 실제 lag를 구분하고 갑자기 손을 놓지 않는다."
+    },
+    "ct005": {
+      "clinical_test_id": "ct005",
+      "precision": "custom",
+      "view": "back",
+      "title": "Lift-off · 손등을 허리 뒤에 두고 등에서 떼기",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          136,
+          118
+        ],
+        "wrist": [
+          111,
+          151
+        ],
+        "hand_label": "손등=허리"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          136,
+          118
+        ],
+        "wrist": [
+          138,
+          150
+        ],
+        "hand_label": "뒤로 떼기"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 112,
+          "y1": 150,
+          "x2": 148,
+          "y2": 150,
+          "label": "posterior lift-off"
+        }
+      ],
+      "positive": {
+        "x": 129,
+        "y": 149,
+        "label": "못 떼거나 약화"
+      },
+      "examiner_position": "환자 뒤에서 손등과 허리 사이 움직임을 관찰한다.",
+      "hand_force": "처음에는 외부 저항 없이 손을 허리에서 뒤로 떼게 하고 필요 시 좌우를 비교한다.",
+      "common_error": "어깨 통증·관절 구축 때문에 손이 등 뒤로 가지 않는 환자에게 억지로 강요하지 않는다."
+    },
+    "ct006": {
+      "clinical_test_id": "ct006",
+      "precision": "custom",
+      "view": "front",
+      "title": "Belly-press · 손바닥으로 복부 누르며 팔꿈치 전방 유지",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          146,
+          116
+        ],
+        "wrist": [
+          112,
+          126
+        ],
+        "hand_label": "손바닥=복부"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          150,
+          111
+        ],
+        "wrist": [
+          112,
+          126
+        ],
+        "hand_label": "복부 압박"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 125,
+          "y1": 126,
+          "x2": 108,
+          "y2": 126,
+          "label": "복부로 압박"
+        }
+      ],
+      "positive": {
+        "x": 149,
+        "y": 126,
+        "label": "팔꿈치가 뒤로 빠짐"
+      },
+      "examiner_position": "환자 정면에서 손바닥 압박과 팔꿈치 위치를 동시에 본다.",
+      "hand_force": "환자는 복부를 누르면서 팔꿈치를 전방에 유지한다.",
+      "common_error": "손목 굴곡으로 힘을 대신 내는 보상과 팔꿈치 후방 이동을 놓치지 않는다."
+    },
+    "ct007": {
+      "clinical_test_id": "ct007",
+      "precision": "custom",
+      "view": "front",
+      "title": "Bear-hug · 검사 손을 반대 어깨에 두고 떼려는 힘에 저항",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          153,
+          107
+        ],
+        "wrist": [
+          92,
+          66
+        ],
+        "hand_label": "반대 어깨"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          153,
+          107
+        ],
+        "wrist": [
+          92,
+          66
+        ],
+        "hand_label": "유지"
+      },
+      "examiner_hands": [
+        {
+          "x": 92,
+          "y": 66,
+          "label": "손목/손"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 91,
+          "y1": 66,
+          "x2": 122,
+          "y2": 49,
+          "label": "손을 떼는 힘"
+        }
+      ],
+      "positive": {
+        "x": 111,
+        "y": 83,
+        "label": "유지 실패/약화"
+      },
+      "examiner_position": "환자 앞에서 검사 손목 또는 손을 잡고 반대 어깨에서 떼는 방향으로 힘을 준다.",
+      "hand_force": "환자는 손을 반대 어깨에 붙여 둔 채 내회전 힘으로 유지한다.",
+      "common_error": "통증 자체와 실제 내회전 약화를 구분하고 팔꿈치·몸통 보상을 관찰한다."
+    },
+    "ct008": {
+      "clinical_test_id": "ct008",
+      "precision": "custom",
+      "view": "front",
+      "title": "Speed · 팔꿈치 편 상태·전완 회외·전방 거상에 하방 저항",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          148,
+          72
+        ],
+        "wrist": [
+          194,
+          68
+        ],
+        "hand_label": "손바닥 ↑"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          148,
+          72
+        ],
+        "wrist": [
+          194,
+          68
+        ],
+        "hand_label": "전방 거상 유지"
+      },
+      "examiner_hands": [
+        {
+          "x": 184,
+          "y": 69,
+          "label": "원위 전완"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 184,
+          "y1": 44,
+          "x2": 184,
+          "y2": 92,
+          "label": "하방 저항"
+        }
+      ],
+      "positive": {
+        "x": 111,
+        "y": 83,
+        "label": "이두구 통증"
+      },
+      "examiner_position": "환자 앞에서 원위 전완에 하방 저항을 주고 전방 어깨 통증 위치를 확인한다.",
+      "hand_force": "팔꿈치를 편 채 전완 회외를 유지하고 어깨 전방 거상에 저항한다.",
+      "common_error": "광범위한 어깨 통증을 모두 이두장두 병변으로 해석하지 않고 통증 위치를 구체적으로 기록한다."
+    },
+    "ct009": {
+      "clinical_test_id": "ct009",
+      "precision": "custom",
+      "view": "front",
+      "title": "Yergason · 팔꿈치 90°에서 회외 + 외회전 시도에 저항",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          112,
+          132
+        ],
+        "wrist": [
+          151,
+          129
+        ],
+        "hand_label": "회내 시작"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          112,
+          132
+        ],
+        "wrist": [
+          151,
+          115
+        ],
+        "hand_label": "회외 + 외회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 150,
+          "y": 123,
+          "label": "원위 전완"
+        },
+        {
+          "x": 112,
+          "y": 131,
+          "label": "팔꿈치 안정"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 149,
+          "cy": 125,
+          "r": 21,
+          "start_angle": 120,
+          "end_angle": 20,
+          "label": "회외 저항"
+        }
+      ],
+      "positive": {
+        "x": 111,
+        "y": 83,
+        "label": "이두구 통증/불안정감"
+      },
+      "examiner_position": "팔꿈치를 몸통에 가깝게 안정시키고 반대 손으로 원위 전완의 회외를 저항한다.",
+      "hand_force": "환자는 전완 회외와 어깨 외회전을 시도하고 검사자는 반대 방향으로 저항한다.",
+      "common_error": "팔꿈치가 몸통에서 벌어지거나 어깨가 들리는 보상을 허용하지 않는다."
+    },
+    "ct010": {
+      "clinical_test_id": "ct010",
+      "precision": "custom",
+      "view": "side",
+      "title": "Neer · 견갑 고정 + 내회전 상태에서 수동 전방 거상",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          122,
+          135
+        ],
+        "wrist": [
+          136,
+          184
+        ],
+        "hand_label": "팔 내림"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          106,
+          38
+        ],
+        "wrist": [
+          104,
+          12
+        ],
+        "hand_label": "수동 거상"
+      },
+      "examiner_hands": [
+        {
+          "x": 98,
+          "y": 82,
+          "label": "견갑 고정"
+        },
+        {
+          "x": 108,
+          "y": 34,
+          "label": "팔 유도"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 104,
+          "cy": 82,
+          "r": 72,
+          "start_angle": 70,
+          "end_angle": -88,
+          "label": "수동 전방 거상"
+        }
+      ],
+      "positive": {
+        "x": 112,
+        "y": 80,
+        "label": "전외측/견봉하 통증"
+      },
+      "examiner_position": "한 손은 견갑을 안정시키고 다른 손은 팔을 잡아 수동으로 전방 거상한다.",
+      "hand_force": "내회전된 팔을 통증 반응을 보며 최종 거상 범위 쪽으로 천천히 유도한다.",
+      "common_error": "견갑을 과도하게 강하게 고정하거나 통증을 억지로 끝범위까지 밀지 않는다."
+    },
+    "ct011": {
+      "clinical_test_id": "ct011",
+      "precision": "custom",
+      "view": "front",
+      "title": "Hawkins-Kennedy · 어깨/팔꿈치 90° 굴곡 후 수동 내회전",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          157,
+          82
+        ],
+        "wrist": [
+          158,
+          132
+        ],
+        "hand_label": "90/90"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          157,
+          82
+        ],
+        "wrist": [
+          137,
+          126
+        ],
+        "hand_label": "내회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 157,
+          "y": 82,
+          "label": "팔꿈치 지지"
+        },
+        {
+          "x": 141,
+          "y": 126,
+          "label": "손목/전완"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 156,
+          "cy": 82,
+          "r": 48,
+          "start_angle": 82,
+          "end_angle": 120,
+          "label": "수동 내회전"
+        }
+      ],
+      "positive": {
+        "x": 111,
+        "y": 83,
+        "label": "전외측/견봉하 통증"
+      },
+      "examiner_position": "한 손으로 팔꿈치를 90° 위치에 지지하고 다른 손으로 원위 전완을 잡는다.",
+      "hand_force": "상완 위치를 유지하면서 전완을 움직여 어깨 내회전을 만든다.",
+      "common_error": "팔꿈치를 아래로 떨어뜨리거나 몸통 회전으로 움직임을 대신하지 않게 한다."
+    }
+  }
+}
