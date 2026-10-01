@@ -18,6 +18,7 @@ const CORE=[
   './data/regions-v1.json',
   './data/schema/msk-knowledge-schema-v1.json',
   './data/examination-shoulder-v1.json',
+  './data/clinical-exam-illustration-presets-v1.json',
   './data/ultrasound-shoulder-v1.json',
   './data/quiz-shoulder-v1.json',
   './data/differential-shoulder-v1.json',
