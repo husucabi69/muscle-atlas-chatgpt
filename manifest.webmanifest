@@ -2,7 +2,7 @@
   "name": "이윤석정형외과 근육",
   "short_name": "이윤석정형외과 근육",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "이윤석정형외과 근육 · Stage 23B active · stable Preview update channel + detailed clinical exams + specialist case quiz · v11.79",
+  "description": "이윤석정형외과 근육 · Stage 23B active · stable Preview PWA channel + detailed illustrated clinical exams + specialist case quiz · v11.80",
   "start_url": "./?source=pwa",
   "scope": "./",
   "display": "fullscreen",
