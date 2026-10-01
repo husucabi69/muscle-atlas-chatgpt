@@ -9,7 +9,7 @@ check('render request schema is 1.0.0',requests.schema_version==='1.0.0',request
 const r=requests.requests?.find(x=>x.profile_id==='px007');
 const p=manifest.profiles?.find(x=>x.profile_id==='px007');
 check('px007 render request exists',Boolean(r));
-check('px007 current state is reviewed candidate waiting for binary',p?.status==='CANDIDATE_GENERATED'&&p?.asset_gate==='BINARY_HANDOFF_BLOCKED',`${p?.status||''}/${p?.asset_gate||''}`);
+check('px007 current state is regeneration-ready after binary loss',p?.status==='PENDING_REGENERATION'&&p?.asset_gate==='BINARY_LOSS_CONFIRMED_REGENERATION_ALLOWED',`${p?.status||''}/${p?.asset_gate||''}`);
 check('px007 request output path is canonical',r?.output_path==='assets/patient-exercise-realistic/px007.webp',r?.output_path||'');
 check('px007 start pose is fingers together',r?.exact_motion?.start?.includes('모은다'));
 check('px007 end pose is finger spread',r?.exact_motion?.end?.includes('벌린다'));
@@ -34,7 +34,7 @@ for(const id of ['px008','px009','px010']){
   check(id+' has mobile review gate',x?.review_gate?.some(v=>v.includes('모바일')));
 }
 const r7=requests.requests?.find(r=>r.profile_id==='px007');
-check('px007 render request is blocked on exact binary handoff',r7?.status==='REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED',r7?.status||'');
+check('px007 render request is explicitly unlocked for regeneration after loss audit',r7?.status==='READY_TO_REGENERATE_AFTER_BINARY_LOSS'&&r7?.lost_gen_id==='8c940201-f1c0-4440-832d-83972f8efbb8',r7?.status||'');
 const r8=requests.requests?.find(r=>r.profile_id==='px008');
 check('px008 render request is blocked on exact binary handoff',r8?.status==='REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED',r8?.status||'');
 check('px008 locks pelvis/trunk control',r8?.review_gate?.some(v=>v.includes('골반'))&&r8?.must_not_show?.some(v=>v.includes('몸통')));
