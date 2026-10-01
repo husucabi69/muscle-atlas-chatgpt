@@ -121,7 +121,7 @@ jobs:
           exit 1
       - name: Run anatomy click-through runtime E2E
         run: node scripts/runtime-navigation-e2e.mjs
-      - name: Run shoulder clinical exam illustration runtime E2E
+      - name: Run custom clinical exam illustration runtime E2E
         run: node scripts/clinical-exam-illustration-e2e.mjs
       - name: Run Stage 23B patient exercise illustration runtime E2E
         run: node scripts/patient-exercise-illustration-3-e2e.mjs
