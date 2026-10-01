@@ -1,0 +1,81 @@
+name: Stage 23B materialize chunked reviewed binary
+
+on:
+  push:
+    branches:
+      - preview/development
+    paths:
+      - ops/stage23b-binary-handoff.trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stage23b-materialize-chunked-binary
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: preview/development
+
+      - name: Read exact binary handoff request
+        id: req
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=ops/stage23b-binary-handoff.trigger
+          PROFILE="$(sed -n 's/^profile=//p' "$FILE" | tail -1)"
+          GEN_ID="$(sed -n 's/^gen_id=//p' "$FILE" | tail -1)"
+          SHA256="$(sed -n 's/^sha256=//p' "$FILE" | tail -1)"
+          BYTES="$(sed -n 's/^bytes=//p' "$FILE" | tail -1)"
+          CHUNK_DIR="$(sed -n 's/^chunk_dir=//p' "$FILE" | tail -1)"
+          [[ "$PROFILE" =~ ^px[0-9]{3}$ ]]
+          [[ -n "$GEN_ID" ]]
+          [[ "$SHA256" =~ ^[0-9a-f]{64}$ ]]
+          [[ "$BYTES" =~ ^[0-9]+$ ]]
+          [[ "$CHUNK_DIR" =~ ^ops/stage23b-binary-handoff/px[0-9]{3}$ ]]
+          echo "profile=$PROFILE" >> "$GITHUB_OUTPUT"
+          echo "gen_id=$GEN_ID" >> "$GITHUB_OUTPUT"
+          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
+          echo "bytes=$BYTES" >> "$GITHUB_OUTPUT"
+          echo "chunk_dir=$CHUNK_DIR" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Reconstruct, verify and materialize exact reviewed WebP
+        run: |
+          node scripts/materialize-reviewed-realistic-binary-chunks.mjs \
+            "${{ steps.req.outputs.profile }}" \
+            "${{ steps.req.outputs.chunk_dir }}" \
+            "${{ steps.req.outputs.gen_id }}" \
+            "${{ steps.req.outputs.sha256 }}" \
+            "${{ steps.req.outputs.bytes }}"
+
+      - name: Run focused Stage 23B binary QA
+        run: |
+          node scripts/realistic-webp-integrity-qa.mjs
+          node scripts/materialize-reviewed-realistic-binary-qa.mjs
+          node scripts/patient-exercise-realistic-assets-qa.mjs
+
+      - name: Commit materialized candidate and remove transport chunks
+        shell: bash
+        run: |
+          set -euo pipefail
+          PROFILE="${{ steps.req.outputs.profile }}"
+          CHUNK_DIR="${{ steps.req.outputs.chunk_dir }}"
+          git config user.name "muscle-atlas-bot"
+          git config user.email "actions@users.noreply.github.com"
+          rm -rf "$CHUNK_DIR"
+          rm -f ops/stage23b-binary-handoff.trigger
+          git add -A "$CHUNK_DIR" ops/stage23b-binary-handoff.trigger \
+            "assets/patient-exercise-realistic/${PROFILE}.webp" \
+            data/patient-exercise-realistic-assets-v1.json
+          git commit -m "Stage 23B: materialize ${PROFILE} reviewed binary"
+          git push origin HEAD:preview/development
