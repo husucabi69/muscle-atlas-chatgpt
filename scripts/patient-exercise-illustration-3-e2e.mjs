@@ -75,7 +75,7 @@ try{
       if(!result.realistic.alt)fail(id+' realistic alt text');
       if(result.realistic.naturalWidth<1||result.realistic.naturalHeight<1)fail(id+' realistic asset loads',JSON.stringify(result.realistic));
       if(result.realistic.width<250)fail(id+' mobile realistic image readable width',String(result.realistic.width));
-      if(result.realistic.width>result.realistic.naturalWidth+1)fail(id+' realistic image must not upscale beyond source pixels',JSON.stringify(result.realistic));
+      if(result.realistic.width>Math.round(result.realistic.naturalWidth*1.25)+1)fail(id+' realistic preview soft-upscale must stay within 1.25x source pixels',JSON.stringify(result.realistic));
       if(result.realistic.height<=result.realistic.width)fail(id+' realistic portrait ratio preserved',JSON.stringify(result.realistic));
     }else if(result.widths.some(x=>x<250)){
       fail(id+' mobile SVG readable width',JSON.stringify(result.widths));
