@@ -18,6 +18,75 @@
 8. **Preview 우선** — 자동 QA → Preview 실제화면 검수 → 사용자 승인 후에만 다음 release gate로 이동한다.
 9. **Production 동결** — 명시적 Production 승격 승인 전에는 main을 변경하지 않는다.
 
+## Deployment Safety Baseline — QPU 경량 통합 / 2026-10-01
+
+상태: **QUEUED / NON-PREEMPTIVE — Stage 23B 콘텐츠 개발을 중단하지 않고 다음 자연스러운 배치 경계에서 경량 구현**
+
+목적:
+- H3Y Ledger의 복잡한 DB migration/recovery 체계를 복제하지 않고, 정적 의료교육 PWA인 Muscle Atlas의 실제 위험에 맞는 상위 배포 Gate를 둔다.
+- 기존 `preview/development`, `main` Production freeze, Global QA, Cloudflare Pages Preview, PWA/Service Worker QA, Runtime E2E를 재사용한다.
+- 새 workflow를 여러 개 늘리지 않고 **기존 Global QA + 1개의 경량 deploy-safety preflight/gate**를 목표로 한다.
+
+정본 branch 계약:
+- `main` = Production.
+- `preview/development` = 유일한 장기 개발 정본.
+- Production 승격은 사용자(의장) 명시 승인 전까지 금지한다.
+- Cloudflare commit-hash URL은 exact deployment 검증용 immutable Preview이며, 설치 PWA 주소로 사용하지 않는다.
+- 설치/사용자 검수용 개발 주소는 `https://preview-development.muscle-atlas-chatgpt.pages.dev`로 유지한다.
+
+현재 확인된 기준점:
+- `preview/development` HEAD: `be207b0c530504653f64dd3f9ff801e3917b0824`
+- `main` HEAD: `4ba8740ca6655ab1d4bebca84b26e39290c61bf7`
+- preview HEAD의 GitHub checks: Global QA PASS / Runtime Navigation E2E PASS / Cloudflare Pages PASS.
+- Cloudflare check가 preview HEAD `be207b0...`에 exact deployment `https://7260d23b.muscle-atlas-chatgpt.pages.dev`와 branch alias를 연결하고 있음.
+- stable Preview와 exact deployment는 현재 `v11.83`; Cloudflare Production과 GitHub Pages fallback은 모두 `v11.10`으로 서로 일치하며 Preview와의 차이는 의도된 Production freeze다.
+
+경량 상위 Gate 목표 흐름:
+`Preflight → 수정 → Global QA → exact SHA Preview → URL/PWA smoke → 실기기 visual QA → 사용자 승인 → Production`
+
+필수 경량 항목:
+1. **PASS** — main=Production / preview-development=개발 정본 문서 계약.
+2. **PARTIAL** — Cloudflare Pages project read-only preflight. GitHub Cloudflare check로 project/deploy 연결은 확인 가능하나, Dashboard의 production branch/build settings를 자동 read-only 검증하는 단일 gate는 아직 없음.
+3. **PASS (evidence exists) / PARTIAL (gate missing)** — 실제 Cloudflare deployment가 GitHub commit SHA에 연결되는 증거는 Cloudflare GitHub check에 존재하나, 상위 gate가 이를 자동 비교해 fail-close하지는 않음.
+4. **PARTIAL** — stable branch Preview URL smoke는 실제 브라우저/수동 검증 중이나, exact immutable URL + stable alias를 같은 SHA 기준으로 자동 smoke하는 상위 gate는 없음.
+5. **PASS** — manifest/service-worker/cache/auto-update 정적 QA와 real-device/offline QA가 이미 Global QA에 포함됨.
+6. **PARTIAL** — Cloudflare Production과 GitHub Pages fallback drift는 현재 버전 비교상 일치하지만 자동 drift 검사 없음.
+7. **PARTIAL** — 모바일/PC visual QA는 Runtime E2E + 사용자 실기기 Preview 확인 원칙이 있으나 배포 gate의 명시적 checklist artifact로 묶여 있지 않음.
+8. **PARTIAL** — 사용자 승인 없이는 main 승격 금지라는 강한 문서 규칙은 있으나 GitHub server-side ruleset은 현재 확인된 rulesets 목록 기준 비어 있으며, classic branch protection은 integration 권한상 read-only 확인 불가. 따라서 기술적 promotion guard는 강화 필요.
+
+구현 원칙:
+- Stage 23B 콘텐츠 작업을 중단하는 인프라 대공사 금지.
+- 기존 `.github/workflows/global-qa.yml`을 중심으로 재사용.
+- 가능하면 새 workflow 0개, 최대 1개의 경량 promotion/preflight entry만 허용.
+- exact SHA 검증은 Cloudflare GitHub check의 `head_sha` + immutable Preview URL 증거를 우선 활용하고, 필요 시 Cloudflare build-time commit metadata를 추가한다.
+- Production promotion은 `preview/development`의 승인된 exact SHA가 Global QA/E2E/Cloudflare Preview smoke를 모두 통과하고 사용자 승인 표식이 있을 때만 진행한다.
+- GitHub Pages는 fallback으로 유지하되 Cloudflare Production과 version/build drift를 검사한다.
+
+명시적 NOT NEEDED:
+- D1 migration/recovery
+- R2 evidence restore
+- 금융 transaction rollback
+- broker capability gate
+- 서버 DB snapshot/restore orchestration
+- 현재 정적 PWA에 존재하지 않는 사용자계정/환자데이터용 복구 체계
+
+강화 Profile 전환 조건:
+- 서버 DB 도입
+- 로그인/사용자계정 도입
+- 환자데이터/PHI 저장
+- 서버측 쓰기 API 또는 동기화 데이터 도입
+위 조건 중 하나라도 생기면 본 경량 baseline을 재검토하고 강화 Profile로 승격한다.
+
+예상 작업 회차:
+- **1회차:** deploy-safety preflight 스크립트 + exact SHA/Cloudflare check/URL smoke 계약 + 기존 Global QA 연결.
+- **2회차:** Production promotion guard 및 Cloudflare↔GitHub Pages drift check 정리 + 문서/실기기 checklist 통합.
+- Cloudflare Dashboard 설정 변경이 필요한 경우에만 별도 외부계정 확인 1회가 추가될 수 있다.
+
+삽입 위치:
+- 현재 Stage 23B 임상검사/콘텐츠 배치를 멈추지 않는다.
+- **현재 EXAM-001 배치의 자연스러운 체크포인트 뒤**, Stage 23B-Disease Rehab 및 Stage 23C로 넘어가기 전 1~2개의 짧은 경량 작업으로 삽입한다.
+- Stage 23C의 실기기 검증은 이 baseline의 URL/PWA/visual QA를 최종 재확인하는 release gate로 사용한다.
+
 ## 2026-10-01 사용자 실기기 피드백 · 개발정본 LOCK
 
 아래 항목은 **아이디어 메모가 아니라 구현 계약**이다. 후속 개발에서 임의 삭제·축소·우회하지 않는다. 현재 Active Stage의 선후관계는 유지하되, 아래 항목을 완료 Gate에 반영한다.
