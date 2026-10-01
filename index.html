@@ -2192,7 +2192,7 @@ function clinicalDifferentialDetailHtml(group,moduleKey){
     const d=dxMap[candidate.diagnosis_concept_id]||{};
     return '<details class="diagnosis-candidate" id="diagnosis-concept-'+esc(candidate.diagnosis_concept_id)+'"><summary><span class="diagnosis-candidate-title"><b>'+esc(d.name_ko||candidate.diagnosis_concept_id)+'</b><small>'+esc(d.name_en||'')+' · '+esc(candidate.diagnosis_concept_id)+'</small></span></summary><div class="diagnosis-candidate-body">'+
       '<div class="note clinical-support"><b>지지 단서</b><br>'+esc((candidate.look_for||[]).join(' · ')||'—')+'</div>'+
-      '<div class="note clinical-oppose"><b>단독 확정에 부족한 소견</b><br>'+esc((candidate.not_diagnostic_alone||[]).join(' · ')||'—')+'</div>'+
+      '<div class="note clinical-oppose"><b>반대·제한 단서 · 단독 확정에 부족</b><br>'+esc((candidate.not_diagnostic_alone||[]).join(' · ')||'—')+'</div>'+
       clinicalDiagnosisTextbookHtml(d,candidate,group,dxMap)+'</div></details>';
   }).join('');
   return html+'</div>';
