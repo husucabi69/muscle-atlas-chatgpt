@@ -3,7 +3,7 @@
   "updated_at": "2026-10-02",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 81,
+    "customized": 98,
     "total_canonical_tests": 148,
     "modules": [
       "shoulder",
@@ -11,10 +11,11 @@
       "wrist-hand",
       "hip-pelvis",
       "knee-thigh",
-      "leg-ankle-foot"
+      "leg-ankle-foot",
+      "cervical"
     ],
-    "status": "BATCH_6_COMPLETE",
-    "next_module": "cervical"
+    "status": "BATCH_7_COMPLETE",
+    "next_module": "thoracic"
   },
   "presets": {
     "ct001": {
@@ -5439,6 +5440,1103 @@
       "examiner_position": "급성 외상에서 먼저 체중부하 가능 여부와 적용 제외 상황을 확인한 뒤 표준 골성 압통 부위를 촉진한다.",
       "hand_force": "후방 malleolar edge/tip와 navicular, base of 5th metatarsal 등 rule의 표준 지점을 확인하고 4-step weight-bearing을 평가한다.",
       "common_error": "Ottawa rule을 골절 확정검사로 사용하지 않고, 적용 제외 상황이나 고위험 임상소견이 있으면 별도 판단을 우선한다."
+    },
+    "ct082": {
+      "clinical_test_id": "ct082",
+      "precision": "custom",
+      "view": "front",
+      "title": "Spurling · 증상측 회전·측굴/신전 + 안전한 축성 압박",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          93,
+          54
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "증상측 회전·측굴"
+      },
+      "examiner_hands": [
+        {
+          "x": 93,
+          "y": 31,
+          "label": "두정부"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 93,
+          "y1": 12,
+          "x2": 93,
+          "y2": 34,
+          "label": "축성 압박"
+        }
+      ],
+      "positive": {
+        "x": 108,
+        "y": 106,
+        "label": "익숙한 팔 방사통/저림"
+      },
+      "examiner_position": "환자 뒤 또는 측면에서 머리와 경추를 안정적으로 지지하고 증상측 자세를 만든다.",
+      "hand_force": "증상측 회전·측굴/신전 후 두정부에서 매우 점진적인 축성 압박을 가하고 평소 팔 증상 재현 여부를 확인한다.",
+      "common_error": "목의 국소 통증만으로 양성 처리하지 않고, 심한 신경학적 결손·외상·DCM 의심에서는 과도한 압박을 피한다."
+    },
+    "ct083": {
+      "clinical_test_id": "ct083",
+      "precision": "custom",
+      "view": "side",
+      "title": "Cervical distraction · 머리 지지 후 부드러운 축성 견인",
+      "start": {
+        "body": "supine",
+        "head": [
+          49,
+          88
+        ],
+        "neck": [
+          73,
+          100
+        ],
+        "head_label": "중립"
+      },
+      "action": {
+        "body": "supine",
+        "head": [
+          39,
+          84
+        ],
+        "neck": [
+          69,
+          100
+        ],
+        "head_label": "부드러운 견인"
+      },
+      "examiner_hands": [
+        {
+          "x": 40,
+          "y": 75,
+          "label": "후두/턱 지지"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 50,
+          "y1": 84,
+          "x2": 27,
+          "y2": 78,
+          "label": "축성 견인"
+        }
+      ],
+      "positive": {
+        "x": 105,
+        "y": 106,
+        "label": "팔 방사통 감소"
+      },
+      "examiner_position": "앙와위 또는 좌위에서 후두와 턱을 안정적으로 지지해 경추를 중립에 가깝게 둔다.",
+      "hand_force": "머리를 몸통에서 멀어지는 방향으로 부드럽게 견인하며 평소 상지 방사통이 감소하는지 본다.",
+      "common_error": "급격한 traction이나 큰 힘을 사용하지 않고, 증상 감소만으로 특정 신경근 level을 확정하지 않는다."
+    },
+    "ct084": {
+      "clinical_test_id": "ct084",
+      "precision": "custom",
+      "view": "front",
+      "title": "ULNT1 · 견갑 안정 + 어깨 외전·회외·손목신전·외회전·팔꿈치신전",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_r": {
+          "elbow": [
+            135,
+            108
+          ],
+          "wrist": [
+            162,
+            132
+          ]
+        },
+        "head_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          72,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_r": {
+          "elbow": [
+            154,
+            92
+          ],
+          "wrist": [
+            202,
+            84
+          ]
+        },
+        "head_label": "구조 감별 측굴"
+      },
+      "examiner_hands": [
+        {
+          "x": 153,
+          "y": 92,
+          "label": "팔꿈치/상완"
+        },
+        {
+          "x": 198,
+          "y": 84,
+          "label": "손목/손"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 166,
+          "y1": 92,
+          "x2": 203,
+          "y2": 84,
+          "label": "팔꿈치 신전·손목 신전"
+        },
+        {
+          "x1": 80,
+          "y1": 44,
+          "x2": 68,
+          "y2": 52,
+          "label": "경추 측굴"
+        }
+      ],
+      "positive": {
+        "x": 177,
+        "y": 88,
+        "label": "익숙한 상지 증상 + 구조감별"
+      },
+      "examiner_position": "견갑이 올라가지 않게 안정시키고 상완·전완·손목을 순차적으로 지지한다.",
+      "hand_force": "정해진 순서로 neural load를 단계적으로 증가시키고, 증상이 재현되면 경추 측굴로 structural differentiation을 확인한다.",
+      "common_error": "순서를 급하게 진행하거나 단순 hamstring-like stretch sensation을 양성으로 보지 않고 익숙한 증상과 구조감별을 확인한다."
+    },
+    "ct085": {
+      "clinical_test_id": "ct085",
+      "precision": "custom",
+      "view": "front",
+      "title": "Shoulder abduction relief · 증상측 손을 머리 위에 올려 증상 완화 확인",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_r": {
+          "elbow": [
+            136,
+            119
+          ],
+          "wrist": [
+            162,
+            145
+          ]
+        },
+        "head_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_r": {
+          "elbow": [
+            124,
+            63
+          ],
+          "wrist": [
+            93,
+            43
+          ]
+        },
+        "head_label": "손 머리 위"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 105,
+          "cy": 105,
+          "r": 60,
+          "start_angle": 45,
+          "end_angle": -75,
+          "label": "어깨 외전"
+        }
+      ],
+      "positive": {
+        "x": 119,
+        "y": 90,
+        "label": "팔 방사통 감소"
+      },
+      "examiner_position": "환자 정면 또는 측면에서 스스로 손을 머리 위에 올리게 하며 목·어깨 보상을 관찰한다.",
+      "hand_force": "외부 힘을 주지 않고 환자가 편안한 범위에서 증상측 손을 머리 위에 올리게 한다.",
+      "common_error": "어깨 통증이 줄었다는 이유로 radiculopathy를 확정하지 않고 팔의 방사통 감소인지 분리해 확인한다."
+    },
+    "ct086": {
+      "clinical_test_id": "ct086",
+      "precision": "custom",
+      "view": "front",
+      "title": "Cervical rotation ROM · 중립 좌위에서 좌우 회전범위와 증상 비교",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          94,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "회전"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 60,
+          "r": 28,
+          "start_angle": 190,
+          "end_angle": 350,
+          "label": "좌↔우 회전"
+        }
+      ],
+      "positive": {
+        "x": 93,
+        "y": 58,
+        "label": "비대칭/제한·증상 재현"
+      },
+      "examiner_position": "환자 정면에서 몸통과 어깨가 따라 돌지 않도록 관찰하며 머리 회전만 평가한다.",
+      "hand_force": "외부 압박 없이 능동 회전을 먼저 보고 필요하면 안전한 범위의 수동 ROM을 비교한다.",
+      "common_error": "연령·퇴행성 변화·통증 영향을 무시하고 60°라는 숫자 하나만으로 radiculopathy를 판단하지 않는다."
+    },
+    "ct087": {
+      "clinical_test_id": "ct087",
+      "precision": "custom",
+      "view": "front",
+      "title": "C5–T1 motor-sensory-reflex screen · 분절별 근력·감각·반사 좌우비교",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_l": {
+          "elbow": [
+            45,
+            125
+          ],
+          "wrist": [
+            32,
+            154
+          ]
+        },
+        "arm_r": {
+          "elbow": [
+            115,
+            125
+          ],
+          "wrist": [
+            128,
+            154
+          ]
+        },
+        "head_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_l": {
+          "elbow": [
+            45,
+            116
+          ],
+          "wrist": [
+            30,
+            142
+          ]
+        },
+        "arm_r": {
+          "elbow": [
+            115,
+            116
+          ],
+          "wrist": [
+            130,
+            142
+          ]
+        },
+        "head_label": "분절별 검사"
+      },
+      "examiner_hands": [
+        {
+          "x": 128,
+          "y": 142,
+          "label": "근력/감각/반사"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 142,
+          "y1": 126,
+          "x2": 130,
+          "y2": 141,
+          "label": "분절별 비교"
+        }
+      ],
+      "positive": {
+        "x": 128,
+        "y": 142,
+        "label": "일관된 분절성 이상"
+      },
+      "examiner_position": "양측 상지를 노출하고 C5–T1 myotome, dermatome, deep tendon reflex를 같은 조건에서 비교한다.",
+      "hand_force": "근력은 표준 저항 방향으로, 감각은 좌우 비교, 반사는 적절한 건을 동일 강도로 자극한다.",
+      "common_error": "한 개 myotome·dermatome 소견으로 level을 확정하지 않고 peripheral nerve와 cord 소견을 함께 감별한다."
+    },
+    "ct088": {
+      "clinical_test_id": "ct088",
+      "precision": "custom",
+      "view": "front",
+      "title": "Hoffmann · 중지 말단을 빠르게 굴곡-방출 후 엄지/검지 반응 관찰",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_r": {
+          "elbow": [
+            120,
+            120
+          ],
+          "wrist": [
+            145,
+            138
+          ]
+        },
+        "head_label": "손 이완"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_r": {
+          "elbow": [
+            120,
+            120
+          ],
+          "wrist": [
+            145,
+            138
+          ]
+        },
+        "head_label": "Hoffmann"
+      },
+      "examiner_hands": [
+        {
+          "x": 146,
+          "y": 138,
+          "label": "중지 말단"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 146,
+          "y1": 122,
+          "x2": 146,
+          "y2": 140,
+          "label": "빠른 flick/release"
+        }
+      ],
+      "positive": {
+        "x": 153,
+        "y": 136,
+        "label": "엄지/검지 비자발 반응"
+      },
+      "examiner_position": "손을 충분히 이완시키고 중지를 지지해 말단을 빠르게 굴곡했다가 놓을 수 있게 한다.",
+      "hand_force": "중지 말단에 짧고 빠른 flick을 주고 엄지·검지의 비자발적 굴곡/내전 반응을 관찰한다.",
+      "common_error": "한 번의 애매한 반응을 양성으로 보지 않고 정상인에서도 나타날 수 있어 전체 myelopathy 소견과 통합한다."
+    },
+    "ct089": {
+      "clinical_test_id": "ct089",
+      "precision": "custom",
+      "view": "front",
+      "title": "Babinski·clonus · plantar response와 ankle clonus로 UMN sign 선별",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          156,
+          109
+        ],
+        "ankle": [
+          196,
+          112
+        ],
+        "foot": [
+          215,
+          116
+        ],
+        "toe": [
+          227,
+          116
+        ],
+        "foot_label": "하지 이완"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          156,
+          109
+        ],
+        "ankle": [
+          196,
+          112
+        ],
+        "foot": [
+          215,
+          108
+        ],
+        "toe": [
+          227,
+          102
+        ],
+        "foot_label": "plantar/clonus"
+      },
+      "examiner_hands": [
+        {
+          "x": 218,
+          "y": 116,
+          "label": "족저/발목"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 226,
+          "y1": 122,
+          "x2": 213,
+          "y2": 112,
+          "label": "plantar 자극"
+        },
+        {
+          "x1": 199,
+          "y1": 128,
+          "x2": 199,
+          "y2": 109,
+          "label": "빠른 배굴"
+        }
+      ],
+      "positive": {
+        "x": 220,
+        "y": 106,
+        "label": "extensor plantar / 병적 clonus"
+      },
+      "examiner_position": "앙와위에서 하지가 이완되도록 하고 족저반응과 발목 clonus를 표준 방법으로 시행한다.",
+      "hand_force": "족저 외측을 적절히 자극하고 clonus는 발목을 빠르게 배굴한 뒤 지속적 반복수축을 관찰한다.",
+      "common_error": "음성 결과로 DCM을 배제하지 않고, 과도한 자극으로 withdrawal response를 Babinski로 오해하지 않는다."
+    },
+    "ct090": {
+      "clinical_test_id": "ct090",
+      "precision": "custom",
+      "view": "front",
+      "title": "Tandem gait · 일자보행 중 균형·경직·보폭 이상 관찰",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          204
+        ],
+        "foot": [
+          104,
+          207
+        ],
+        "toe": [
+          117,
+          207
+        ],
+        "foot_label": "일반 기립"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          106,
+          160
+        ],
+        "ankle": [
+          106,
+          204
+        ],
+        "foot": [
+          118,
+          207
+        ],
+        "toe": [
+          131,
+          207
+        ],
+        "foot_label": "heel-to-toe"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 117,
+          "y1": 205,
+          "x2": 142,
+          "y2": 205,
+          "label": "일자보행"
+        }
+      ],
+      "positive": {
+        "x": 108,
+        "y": 160,
+        "label": "새로운 불안정/경직/실패"
+      },
+      "examiner_position": "낙상을 예방할 수 있는 위치에서 일반 보행과 tandem gait를 모두 관찰한다.",
+      "hand_force": "외부 저항 없이 heel-to-toe 보행을 시행하게 하고 필요하면 즉시 지지할 준비를 한다.",
+      "common_error": "전정질환·말초신경병증·하지 관절문제 등 다른 원인을 배제하지 않고 gait failure만으로 DCM을 확정하지 않는다."
+    },
+    "ct091": {
+      "clinical_test_id": "ct091",
+      "precision": "custom",
+      "view": "front",
+      "title": "10-second grip-release · 양손 빠른 쥐기-펴기의 속도·리듬·release 관찰",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_l": {
+          "elbow": [
+            50,
+            125
+          ],
+          "wrist": [
+            37,
+            149
+          ]
+        },
+        "arm_r": {
+          "elbow": [
+            110,
+            125
+          ],
+          "wrist": [
+            123,
+            149
+          ]
+        },
+        "head_label": "손 앞에"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "arm_l": {
+          "elbow": [
+            50,
+            125
+          ],
+          "wrist": [
+            37,
+            149
+          ]
+        },
+        "arm_r": {
+          "elbow": [
+            110,
+            125
+          ],
+          "wrist": [
+            123,
+            149
+          ]
+        },
+        "head_label": "쥐기↔펴기"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 123,
+          "cy": 149,
+          "r": 16,
+          "start_angle": 20,
+          "end_angle": 300,
+          "label": "10초 반복"
+        }
+      ],
+      "positive": {
+        "x": 123,
+        "y": 149,
+        "label": "느림/불규칙/release 장애"
+      },
+      "examiner_position": "양손이 잘 보이도록 팔을 편안히 두고 좌우를 번갈아 또는 동시에 비교한다.",
+      "hand_force": "외부 저항 없이 10초 동안 가능한 한 빠르게 쥐었다 펴게 하며 횟수·리듬·완전한 손가락 펴짐을 본다.",
+      "common_error": "관절염·손목/수지 통증·말초신경병증 영향과 DCM dexterity 저하를 구분한다."
+    },
+    "ct092": {
+      "clinical_test_id": "ct092",
+      "precision": "custom",
+      "view": "front",
+      "title": "Cervical flexion-rotation · 상부 경추를 굴곡 고정 후 좌우 회전 비교",
+      "start": {
+        "body": "supine",
+        "head": [
+          49,
+          88
+        ],
+        "neck": [
+          73,
+          100
+        ],
+        "head_label": "상부 경추 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "head": [
+          45,
+          79
+        ],
+        "neck": [
+          73,
+          100
+        ],
+        "head_label": "굴곡 유지 + 회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 45,
+          "y": 79,
+          "label": "머리 지지"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 49,
+          "cy": 88,
+          "r": 24,
+          "start_angle": 190,
+          "end_angle": 335,
+          "label": "좌↔우 회전"
+        }
+      ],
+      "positive": {
+        "x": 50,
+        "y": 87,
+        "label": "비대칭/제한 + 익숙한 두통"
+      },
+      "examiner_position": "앙와위에서 머리를 양손으로 지지해 상부 경추를 충분히 굴곡시키고 하부 경추 움직임을 줄인다.",
+      "hand_force": "굴곡을 유지한 상태에서 좌우 회전을 천천히 비교하며 ROM과 익숙한 후두-두부 증상을 확인한다.",
+      "common_error": "편두통·긴장형두통 red flag 평가를 생략하고 이 검사 하나만으로 cervicogenic headache를 확정하지 않는다."
+    },
+    "ct093": {
+      "clinical_test_id": "ct093",
+      "precision": "custom",
+      "view": "back",
+      "title": "Greater occipital nerve · 상항선/C2 수준 주행 촉진으로 익숙한 후두통 재현",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "후면"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "GON 촉진"
+      },
+      "examiner_hands": [
+        {
+          "x": 70,
+          "y": 72,
+          "label": "GON 주행"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 70,
+          "y1": 47,
+          "x2": 70,
+          "y2": 68,
+          "label": "부드러운 촉진"
+        }
+      ],
+      "positive": {
+        "x": 69,
+        "y": 72,
+        "label": "후두부 방사통/이질통"
+      },
+      "examiner_position": "환자 뒤에서 상항선과 C2 수준의 greater occipital nerve 주행을 해부학적으로 찾는다.",
+      "hand_force": "신경 주행을 과도하게 누르지 않고 부드럽게 촉진해 익숙한 후두부 방사통이나 allodynia가 재현되는지 본다.",
+      "common_error": "승모근·후두하근 trigger point 압통과 신경통을 혼동하지 않고 진단기준 전체를 함께 본다."
+    },
+    "ct094": {
+      "clinical_test_id": "ct094",
+      "precision": "custom",
+      "view": "front",
+      "title": "Extension-rotation · 안전한 신전+회전에서 편측 후경부 통증 재현",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          94,
+          51
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "신전+회전"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 62,
+          "r": 27,
+          "start_angle": 180,
+          "end_angle": 330,
+          "label": "신전·회전"
+        }
+      ],
+      "positive": {
+        "x": 84,
+        "y": 87,
+        "label": "편측 국소 후경부 통증"
+      },
+      "examiner_position": "좌위에서 몸통과 어깨를 고정한 채 환자가 안전한 범위에서 경추 신전과 회전을 결합하도록 관찰한다.",
+      "hand_force": "기본은 능동 동작으로 시행하고 필요할 때만 매우 가벼운 수동 보조를 사용한다.",
+      "common_error": "상지 방사통이 재현되면 facet pain으로 단순 해석하지 말고 Spurling/radiculopathy 문맥과 구분한다."
+    },
+    "ct095": {
+      "clinical_test_id": "ct095",
+      "precision": "custom",
+      "view": "side",
+      "title": "CCFT · 앙와위 저강도 nod로 deep neck flexor motor control 확인",
+      "start": {
+        "body": "supine",
+        "head": [
+          49,
+          88
+        ],
+        "neck": [
+          73,
+          100
+        ],
+        "head_label": "중립"
+      },
+      "action": {
+        "body": "supine",
+        "head": [
+          47,
+          92
+        ],
+        "neck": [
+          73,
+          100
+        ],
+        "head_label": "작은 nod"
+      },
+      "examiner_hands": [
+        {
+          "x": 73,
+          "y": 104,
+          "label": "pressure biofeedback"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 50,
+          "cy": 88,
+          "r": 14,
+          "start_angle": -75,
+          "end_angle": -120,
+          "label": "작은 굴곡"
+        }
+      ],
+      "positive": {
+        "x": 68,
+        "y": 99,
+        "label": "deep flexor 저하/SCM 보상"
+      },
+      "examiner_position": "앙와위에서 목 뒤에 pressure biofeedback 또는 시각적 cue를 두고 SCM이 잘 보이게 한다.",
+      "hand_force": "큰 목 굴곡이 아니라 고개를 작게 끄덕이는 craniocervical flexion을 단계적으로 유지하게 한다.",
+      "common_error": "턱을 강하게 당기거나 머리를 들어 올리는 동작을 허용하지 않고 이 검사를 병리 진단검사로 사용하지 않는다."
+    },
+    "ct096": {
+      "clinical_test_id": "ct096",
+      "precision": "custom",
+      "view": "side",
+      "title": "Neck flexor endurance · chin tuck 유지하며 머리를 가볍게 들어 지구력 평가",
+      "start": {
+        "body": "supine",
+        "head": [
+          49,
+          88
+        ],
+        "neck": [
+          73,
+          100
+        ],
+        "head_label": "chin tuck"
+      },
+      "action": {
+        "body": "supine",
+        "head": [
+          44,
+          80
+        ],
+        "neck": [
+          72,
+          99
+        ],
+        "head_label": "머리 살짝 들기"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 48,
+          "y1": 88,
+          "x2": 43,
+          "y2": 76,
+          "label": "가벼운 head lift"
+        }
+      ],
+      "positive": {
+        "x": 65,
+        "y": 97,
+        "label": "조기 피로/SCM 보상"
+      },
+      "examiner_position": "앙와위에서 chin tuck을 먼저 만들고 머리와 목의 정렬을 측면에서 관찰한다.",
+      "hand_force": "외부 저항 없이 머리를 검사대에서 조금 들어 유지하게 하며 시간, 통증, SCM 보상을 기록한다.",
+      "common_error": "턱을 내밀거나 큰 경추 굴곡으로 보상하는 자세를 허용하지 않고 통증·동기 영향을 고려한다."
+    },
+    "ct097": {
+      "clinical_test_id": "ct097",
+      "precision": "custom",
+      "view": "back",
+      "title": "Cervical extensor layer activation · 저강도 신전/회전 중 후경부 층별 활성·통증 비교",
+      "start": {
+        "body": "seated",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "중립 후면"
+      },
+      "action": {
+        "body": "seated",
+        "head": [
+          88,
+          53
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "저강도 신전·회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 72,
+          "y": 90,
+          "label": "후경부 근육층 촉진"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 61,
+          "r": 24,
+          "start_angle": 190,
+          "end_angle": 315,
+          "label": "저강도 신전·회전"
+        }
+      ],
+      "positive": {
+        "x": 72,
+        "y": 90,
+        "label": "비대칭/조기 피로/익숙한 통증"
+      },
+      "examiner_position": "복와위 또는 좌위에서 splenius-semispinalis-multifidus 층을 양측으로 촉지할 수 있게 위치한다.",
+      "hand_force": "환자에게 낮은 강도의 경추 신전·회전을 시행하게 하고 검사자는 근육층 활성과 통증을 비교한다.",
+      "common_error": "촉진이나 초음파 thickness 차이만으로 통증 원인을 확정하지 않고 기능평가로만 해석한다."
+    },
+    "ct098": {
+      "clinical_test_id": "ct098",
+      "precision": "custom",
+      "view": "front",
+      "title": "Integrated cervical red-flag screen · 중대한 병리 단서가 있으면 도발보다 추가평가 우선",
+      "start": {
+        "body": "standing",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "문진+신경학적 선별"
+      },
+      "action": {
+        "body": "standing",
+        "head": [
+          80,
+          58
+        ],
+        "neck": [
+          80,
+          91
+        ],
+        "head_label": "red flag gate"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 111,
+          "y1": 86,
+          "x2": 137,
+          "y2": 86,
+          "label": "영상/응급·전문의 평가"
+        }
+      ],
+      "positive": {
+        "x": 91,
+        "y": 91,
+        "label": "진행성 신경결손/보행·손기능 악화/전신증상"
+      },
+      "examiner_position": "외상, 감염/암 위험, DCM 증상, 진행성 신경학적 결손, 혈관성 증상을 문진과 기본 신경학적 진찰로 선별한다.",
+      "hand_force": "red flag가 있으면 강한 provocation을 추가하지 않고 필요한 영상·응급평가·전문의 의뢰로 경로를 전환한다.",
+      "common_error": "비특이적 증상 하나만으로 중증질환을 확정하지 않되, 진행성 결손이나 급성 신경혈관 소견을 단순 기계적 목통증으로 처리하지 않는다."
     }
   }
 }
