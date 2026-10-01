@@ -75,6 +75,7 @@ try{
       if(!result.realistic.alt)fail(id+' realistic alt text');
       if(result.realistic.naturalWidth<1||result.realistic.naturalHeight<1)fail(id+' realistic asset loads',JSON.stringify(result.realistic));
       if(result.realistic.width<250)fail(id+' mobile realistic image readable width',String(result.realistic.width));
+      if(result.realistic.width>result.realistic.naturalWidth+1)fail(id+' realistic image must not upscale beyond source pixels',JSON.stringify(result.realistic));
       if(result.realistic.height<=result.realistic.width)fail(id+' realistic portrait ratio preserved',JSON.stringify(result.realistic));
     }else if(result.widths.some(x=>x<250)){
       fail(id+' mobile SVG readable width',JSON.stringify(result.widths));
@@ -85,6 +86,32 @@ try{
     for(const key of ['움직임 방향','고정·지지','피할 보상'])if(!result.keyText.includes(key))fail(id+' visual key '+key);
     pass('Stage 23B mobile illustration',id);
   }
+
+  await page.setViewportSize({width:1440,height:1000});
+  const desktopFidelity=await page.evaluate(async()=>{
+    const p=exerciseProfileById.px001;
+    const host=document.createElement('div');
+    host.style.width='100%';
+    host.innerHTML=exerciseIllustration(p);
+    document.body.appendChild(host);
+    const img=host.querySelector('.exercise-realistic-media img');
+    if(img){try{await img.decode();}catch{}}
+    const media=host.querySelector('.exercise-realistic-media');
+    const out={
+      present:Boolean(img),
+      naturalWidth:img?.naturalWidth||0,
+      naturalHeight:img?.naturalHeight||0,
+      renderedWidth:img?Math.round(img.getBoundingClientRect().width):0,
+      renderedHeight:img?Math.round(img.getBoundingClientRect().height):0,
+      mediaWidth:media?Math.round(media.getBoundingClientRect().width):0
+    };
+    host.remove();
+    return out;
+  });
+  if(!desktopFidelity.present)fail('Stage 23B desktop fidelity approved image present');
+  if(desktopFidelity.renderedWidth>desktopFidelity.naturalWidth+1)fail('Stage 23B desktop no source upscaling',JSON.stringify(desktopFidelity));
+  if(desktopFidelity.renderedWidth>720)fail('Stage 23B desktop illustration cap 720px',JSON.stringify(desktopFidelity));
+  pass('Stage 23B desktop illustration source-pixel fidelity',JSON.stringify(desktopFidelity));
 
   await page.emulateMedia({media:'print'});
   const print=await page.evaluate(()=>{
