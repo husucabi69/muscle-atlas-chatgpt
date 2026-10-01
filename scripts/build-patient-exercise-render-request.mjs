@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {canGenerateRealisticProfile} from './can-generate-realistic-profile.mjs';
 
 function canonicalMotionFromBrief(brief){
   if(!brief)return null;
@@ -11,6 +12,35 @@ function canonicalMotionFromBrief(brief){
   };
 }
 
+function renderAvailability(manifest,profile){
+  if(profile.status==='CANDIDATE_GENERATED'&&
+     (profile.asset_gate==='BINARY_HANDOFF_BLOCKED'||profile.binary_handoff?.state==='BLOCKED')){
+    return{
+      status:'REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED',
+      generation_permission:{
+        allowed:false,
+        reason:'EXISTING_BINARY_HANDOFF_BLOCKED',
+        blocking_profile_id:profile.profile_id,
+        blocking_gen_id:profile.gen_id||null
+      }
+    };
+  }
+  if(profile.status==='PENDING_GENERATION'){
+    const permission=canGenerateRealisticProfile(manifest,profile.profile_id);
+    return{
+      status:permission.allowed?'READY_TO_GENERATE':'BLOCKED_BEHIND_EARLIER_BINARY_HANDOFF',
+      generation_permission:permission
+    };
+  }
+  if(profile.status==='APPROVED'){
+    return{status:'APPROVED',generation_permission:{allowed:false,reason:'ALREADY_APPROVED'}};
+  }
+  return{
+    status:'NOT_READY',
+    generation_permission:{allowed:false,reason:'PROFILE_NOT_GENERATABLE',profile_status:profile.status}
+  };
+}
+
 export function buildRenderRequest(manifest,curated,profileId){
   const profile=manifest.profiles?.find(x=>x.profile_id===profileId);
   if(!profile)throw new Error('Unknown profile: '+profileId);
@@ -19,10 +49,13 @@ export function buildRenderRequest(manifest,curated,profileId){
   if(manifest.style_lock?.status!=='USER_APPROVED')throw new Error('User-approved style lock missing');
 
   const canonicalMotion=canonicalMotionFromBrief(b);
+  const availability=renderAvailability(manifest,profile);
   const special=curated.requests?.find(x=>x.profile_id===profileId);
   if(special){
     return{
       ...special,
+      status:availability.status,
+      generation_permission:availability.generation_permission,
       exact_motion:canonicalMotion,
       source:'CURATED_OVERRIDE'
     };
@@ -31,7 +64,8 @@ export function buildRenderRequest(manifest,curated,profileId){
   return{
     profile_id:profile.profile_id,
     title_ko:profile.title_ko,
-    status:'READY_TO_GENERATE',
+    status:availability.status,
+    generation_permission:availability.generation_permission,
     output_path:'assets/patient-exercise-realistic/'+profile.profile_id+'.webp',
     source:'MANIFEST_GENERATION_BRIEF',
     style:{
