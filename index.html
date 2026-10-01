@@ -2229,6 +2229,22 @@ function clinicalDifferentialDetailHtml(group,moduleKey){
   }).join('');
   return html+'</div>';
 }
+let clinicalExamIllustrationRegistryData=null;
+async function loadClinicalExamIllustrationRegistry(){
+  try{
+    const r=await fetch('./data/clinical-exam-illustration-presets-v1.json',{cache:'no-cache'});
+    if(!r.ok)throw new Error('clinical exam illustration registry unavailable');
+    clinicalExamIllustrationRegistryData=await r.json();
+    return true;
+  }catch(e){
+    console.warn('Clinical exam illustration registry fallback',e);
+    clinicalExamIllustrationRegistryData={presets:{}};
+    return false;
+  }
+}
+function clinicalExamIllustrationPreset(test){
+  return clinicalExamIllustrationRegistryData?.presets?.[test?.clinical_test_id]||null;
+}
 function clinicalExamTeachingNote(test){
   const key=((test.category||'')+' '+(test.name_ko||'')+' '+(test.name_en||'')).toLowerCase();
   if(/radicul|nerve|neurolog|myelopath|tarsal|occipital|cluneal|ulnar|median/.test(key))return '익숙한 증상의 재현 여부와 신경학적 분포를 함께 기록하고, 단일 provocation sign만으로 병변 level을 확정하지 않습니다.';
@@ -2253,7 +2269,66 @@ function clinicalExamMotionVisual(test){
   if(/촉진|palpat|압통/.test(text))return{kind:'palpation',label:'촉진 / 압통'};
   return{kind:'observe',label:'유발·관찰'};
 }
+function clinicalExamArcPath(arrow){
+  const cx=Number(arrow.cx)||0,cy=Number(arrow.cy)||0,r=Number(arrow.r)||20;
+  const sa=(Number(arrow.start_angle)||0)*Math.PI/180,ea=(Number(arrow.end_angle)||0)*Math.PI/180;
+  const x1=cx+r*Math.cos(sa),y1=cy+r*Math.sin(sa),x2=cx+r*Math.cos(ea),y2=cy+r*Math.sin(ea);
+  const large=Math.abs((Number(arrow.end_angle)||0)-(Number(arrow.start_angle)||0))>180?1:0;
+  const sweep=(Number(arrow.end_angle)||0)>(Number(arrow.start_angle)||0)?1:0;
+  return 'M '+x1.toFixed(1)+' '+y1.toFixed(1)+' A '+r+' '+r+' 0 '+large+' '+sweep+' '+x2.toFixed(1)+' '+y2.toFixed(1);
+}
+function clinicalExamPoseMarkup(pose,view='front',accent='#475467'){
+  if(!pose)return'';
+  const sh=pose.shoulder||[104,82],el=pose.elbow||[135,120],wr=pose.wrist||[155,160];
+  const back=view==='back';
+  const side=view==='side';
+  const torso=side
+    ?'<path d="M74 62 Q92 57 104 70 L100 164 Q88 174 75 164 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>'
+    :'<path d="M56 68 Q80 54 104 68 L111 160 Q80 176 49 160 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>';
+  return '<g>'+
+    '<circle cx="80" cy="39" r="18" fill="#fff" stroke="#98a2b3" stroke-width="3"/>'+
+    torso+
+    (back?'<path d="M62 86 Q80 100 99 86" fill="none" stroke="#c5ccd6" stroke-width="2"/>':'')+
+    '<line x1="'+sh[0]+'" y1="'+sh[1]+'" x2="'+el[0]+'" y2="'+el[1]+'" stroke="'+accent+'" stroke-width="8" stroke-linecap="round"/>'+
+    '<line x1="'+el[0]+'" y1="'+el[1]+'" x2="'+wr[0]+'" y2="'+wr[1]+'" stroke="'+accent+'" stroke-width="7" stroke-linecap="round"/>'+
+    '<circle cx="'+sh[0]+'" cy="'+sh[1]+'" r="6" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+    '<circle cx="'+el[0]+'" cy="'+el[1]+'" r="5" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+    '<ellipse cx="'+wr[0]+'" cy="'+wr[1]+'" rx="8" ry="5" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+    (pose.hand_label?'<text x="'+(wr[0]+6)+'" y="'+(wr[1]-10)+'" font-size="11" font-weight="700" fill="#344054">'+esc(pose.hand_label)+'</text>':'')+
+    '<text x="80" y="195" text-anchor="middle" font-size="11" fill="#667085">'+esc(view==='back'?'후면':view==='side'?'측면':'정면')+'</text>'+
+    '</g>';
+}
+function clinicalExamPresetFigure(test,preset){
+  const startPose=clinicalExamPoseMarkup(preset.start,preset.view,'#475467');
+  const actionPose=clinicalExamPoseMarkup(preset.action||preset.start,preset.view,'#344054');
+  const hands=(preset.examiner_hands||[]).map(h=>
+    '<g><ellipse cx="'+h.x+'" cy="'+h.y+'" rx="12" ry="7" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="'+h.x+'" y="'+(h.y-11)+'" text-anchor="middle" font-size="10" fill="#1d4ed8">'+esc(h.label||'검사자 손')+'</text></g>'
+  ).join('');
+  const arrows=(preset.arrows||[]).map(a=>{
+    const line=a.kind==='arc'
+      ?'<path d="'+clinicalExamArcPath(a)+'" fill="none" stroke="#2563eb" stroke-width="4" marker-end="url(#examArrowCustom)"/>'
+      :'<line x1="'+a.x1+'" y1="'+a.y1+'" x2="'+a.x2+'" y2="'+a.y2+'" stroke="#2563eb" stroke-width="4" marker-end="url(#examArrowCustom)"/>';
+    return line+(a.label?'<text x="'+(a.label_x??((a.x1||a.cx||120)+4))+'" y="'+(a.label_y??((a.y1||a.cy||70)-8))+'" font-size="10" font-weight="700" fill="#1d4ed8">'+esc(a.label)+'</text>':'');
+  }).join('');
+  const p=preset.positive||{x:110,y:82,label:'양성 소견'};
+  const positivePose=clinicalExamPoseMarkup(preset.action||preset.start,preset.view,'#667085');
+  return '<svg viewBox="0 0 720 270" role="img" aria-label="'+esc(test.name_ko+' 검사별 시행 도해')+'">'+
+    '<defs><marker id="examArrowCustom" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker></defs>'+
+    '<rect x="10" y="12" width="224" height="246" rx="16" fill="#fff" stroke="#d0d5dd"/><rect x="248" y="12" width="224" height="246" rx="16" fill="#fff" stroke="#d0d5dd"/><rect x="486" y="12" width="224" height="246" rx="16" fill="#fff" stroke="#d0d5dd"/>'+
+    '<text x="28" y="39" font-size="17" font-weight="700" fill="#18212b">1 · 시작 자세</text><text x="266" y="39" font-size="17" font-weight="700" fill="#18212b">2 · 검사자 동작</text><text x="504" y="39" font-size="17" font-weight="700" fill="#18212b">3 · 양성 판단</text>'+
+    '<g transform="translate(18,36)">'+startPose+'</g>'+
+    '<g transform="translate(256,36)">'+actionPose+hands+arrows+'</g>'+
+    '<g transform="translate(494,36)">'+positivePose+'<circle cx="'+p.x+'" cy="'+p.y+'" r="18" fill="rgba(220,38,38,.12)" stroke="#dc2626" stroke-width="3"/><text x="104" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#b42318">'+esc(p.label||'양성 소견')+'</text></g>'+
+    '</svg>';
+}
 function clinicalExamIllustrationHtml(test,moduleKey){
+  const preset=clinicalExamIllustrationPreset(test);
+  if(preset){
+    const figure=clinicalExamPresetFigure(test,preset);
+    return '<div class="clinical-exam-visual" data-exam-illustration="custom" data-clinical-test-id="'+esc(test.clinical_test_id)+'"><div class="clinical-exam-visual-head"><b>검사별 시행 도해</b><span>Stable ID 맞춤 · 시작자세/검사자 손/힘 방향</span></div>'+figure+
+      '<div class="clinical-exam-steps"><div class="clinical-exam-step"><b>1. 준비</b><span>'+esc(test.setup||'환자 자세를 준비합니다.')+'</span></div><div class="clinical-exam-step"><b>2. 시행</b><span>'+esc(test.maneuver||'검사 동작을 시행합니다.')+'</span></div><div class="clinical-exam-step"><b>3. 양성 판단</b><span>'+esc(test.positive_definition||'평소 증상 재현과 객관적 변화를 기록합니다.')+'</span></div></div>'+
+      '<div class="note"><b>도해 핵심</b><br>'+esc(preset.title||test.name_ko)+'</div></div>';
+  }
   const r=clinicalExamRegionVisual(moduleKey),m=clinicalExamMotionVisual(test);
   const action=m.kind==='traction'
     ?'<line x1="'+r.x+'" y1="'+(r.y-5)+'" x2="'+r.x+'" y2="'+(r.y-34)+'" stroke="#2563eb" stroke-width="5" marker-end="url(#examArrow)"/><line x1="'+r.x+'" y1="'+(r.y+5)+'" x2="'+r.x+'" y2="'+(r.y+34)+'" stroke="#2563eb" stroke-width="5" marker-end="url(#examArrow)"/>'
@@ -2268,10 +2343,11 @@ function clinicalExamIllustrationHtml(test,moduleKey){
     '<g transform="translate(28,4)"><circle cx="120" cy="54" r="18" fill="none" stroke="#475467" stroke-width="3"/><path d="M120 72 L120 156 M82 102 L158 102 M120 156 L92 230 M120 156 L148 230" fill="none" stroke="#475467" stroke-width="5" stroke-linecap="round"/><circle cx="'+r.x+'" cy="'+r.y+'" r="17" fill="rgba(220,38,38,.14)" stroke="#dc2626" stroke-width="3"/><text x="120" y="252" text-anchor="middle" font-size="14" fill="#667085">'+esc(r.label)+'</text></g>'+
     '<g transform="translate(265,4)"><circle cx="120" cy="54" r="18" fill="none" stroke="#475467" stroke-width="3"/><path d="M120 72 L120 156 M82 102 L158 102 M120 156 L92 230 M120 156 L148 230" fill="none" stroke="#475467" stroke-width="5" stroke-linecap="round"/><circle cx="'+r.x+'" cy="'+r.y+'" r="17" fill="rgba(37,99,235,.10)" stroke="#2563eb" stroke-width="3"/>'+action+'<text x="120" y="252" text-anchor="middle" font-size="14" fill="#667085">'+esc(m.label)+'</text></g>'+
     '<g transform="translate(505,0)"><circle cx="96" cy="108" r="42" fill="#f6f9ff" stroke="#9fb7d8" stroke-width="3"/><path d="M76 108 L91 124 L119 88" fill="none" stroke="#087a55" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><text x="96" y="178" text-anchor="middle" font-size="14" fill="#344054">평소 증상과 같은가?</text><text x="96" y="201" text-anchor="middle" font-size="14" fill="#344054">좌우 차이·통증·약화</text><text x="96" y="224" text-anchor="middle" font-size="14" fill="#344054">단독 확진은 금지</text></g></svg>';
-  return '<div class="clinical-exam-visual"><div class="clinical-exam-visual-head"><b>검사 시행 도해</b><span>교육용 개념도 · 정확한 자세는 아래 절차를 우선</span></div>'+figure+
+  return '<div class="clinical-exam-visual" data-exam-illustration="generic"><div class="clinical-exam-visual-head"><b>검사 시행 도해</b><span>공통 개념도 · 검사별 고정밀 도해 교체 대기</span></div>'+figure+
     '<div class="clinical-exam-steps"><div class="clinical-exam-step"><b>1. 준비</b><span>'+esc(test.setup||'환자 자세를 준비합니다.')+'</span></div><div class="clinical-exam-step"><b>2. 시행</b><span>'+esc(test.maneuver||'검사 동작을 시행합니다.')+'</span></div><div class="clinical-exam-step"><b>3. 양성 판단</b><span>'+esc(test.positive_definition||'평소 증상 재현과 객관적 변화를 기록합니다.')+'</span></div></div></div>';
 }
 function clinicalExamDetailHtml(test,moduleKey){
+  const preset=clinicalExamIllustrationPreset(test);
   const targets=(test.target_structure_ids||[]).map(sid=>clinicalEntityLabel(sid)+' ('+sid+')').filter(Boolean);
   const relatedDx=(test.related_diagnosis_concept_ids||[]).map(id=>{
     for(const key of Object.keys(clinicalFlowModules)){
@@ -2280,15 +2356,16 @@ function clinicalExamDetailHtml(test,moduleKey){
     }
     return id;
   });
-  return '<div class="anatomy-detail-head" id="clinical-test-'+esc(test.clinical_test_id)+'"><h2>'+esc(test.name_ko)+'</h2><div class="sub">'+esc(test.name_en||'')+'</div><div class="tagrow"><span class="tag">'+esc(test.clinical_test_id)+'</span><span class="tag">'+esc(test.category||'임상 진찰')+'</span></div></div>'+
+  return '<div class="anatomy-detail-head" id="clinical-test-'+esc(test.clinical_test_id)+'"><h2>'+esc(test.name_ko)+'</h2><div class="sub">'+esc(test.name_en||'')+'</div><div class="tagrow"><span class="tag">'+esc(test.clinical_test_id)+'</span><span class="tag">'+esc(test.category||'임상 진찰')+'</span>'+(preset?'<span class="tag">검사별 도해</span>':'<span class="tag">공통 도해</span>')+'</div></div>'+
     '<div class="card">'+clinicalExamIllustrationHtml(test,moduleKey)+
     '<div class="clinical-exam-section"><h4>검사의 목적</h4><p>'+esc(test.interpretation_note||'해당 구조와 증상 재현을 임상 문맥에서 평가합니다.')+'</p>'+(targets.length?'<div class="clinical-exam-links">'+targets.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div>':'')+'</div>'+
     '<div class="clinical-exam-section"><h4>검사 전 확인</h4><p>'+esc(clinicalExamTeachingNote(test))+'</p></div>'+
     '<div class="clinical-exam-section"><h4>환자 시작 자세</h4><p>'+esc(test.setup||'')+'</p></div>'+
-    '<div class="clinical-exam-section"><h4>방법 · 검사자 동작 · 시행 순서</h4><p>'+esc(test.maneuver||'')+'</p></div>'+
+    (preset?'<div class="clinical-exam-section"><h4>검사자 위치 · 손 위치</h4><p>'+esc(preset.examiner_position||'')+'</p></div>':'')+
+    '<div class="clinical-exam-section"><h4>방법 · 검사자 동작 · 시행 순서</h4><p>'+esc(test.maneuver||'')+'</p>'+(preset?.hand_force?'<p style="margin-top:8px"><b>힘의 방향:</b> '+esc(preset.hand_force)+'</p>':'')+'</div>'+
     '<div class="clinical-exam-section"><h4>양성 기준</h4><p>'+esc(test.positive_definition||'')+'</p></div>'+
     '<div class="clinical-exam-section"><h4>임상 해석</h4><p>'+esc(test.interpretation_note||'')+'</p></div>'+
-    '<div class="clinical-exam-section"><h4>한계 / 흔한 오류</h4><p>'+esc(test.limitation||'단일 검사만으로 확정하지 않는다.')+'</p></div>'+
+    '<div class="clinical-exam-section"><h4>한계 / 흔한 오류</h4><p>'+esc(test.limitation||'단일 검사만으로 확정하지 않는다.')+'</p>'+(preset?.common_error?'<p style="margin-top:8px"><b>시행 오류:</b> '+esc(preset.common_error)+'</p>':'')+'</div>'+
     (relatedDx.length?'<div class="clinical-exam-section"><h4>연결 감별진단</h4><div class="clinical-exam-links">'+relatedDx.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div></div>':'')+
     '<small style="color:var(--muted)">Stable ID · '+esc(test.clinical_test_id)+'</small></div>';
 }
@@ -4777,6 +4854,7 @@ renderSymptomGroupChooser();
 hydrateKnowledgeCore();
 loadPatientExerciseLibrary();
 Promise.all([
+  loadClinicalExamIllustrationRegistry(),
   loadShoulderClinicalModule(),loadElbowClinicalModule(),loadWristHandClinicalModule(),loadHipPelvisClinicalModule(),
   loadKneeThighClinicalModule(),loadLegAnkleFootClinicalModule(),loadCervicalClinicalModule(),loadThoracicClinicalModule(),
   loadLumbarSacralClinicalModule(),loadAbdominalCoreClinicalModule()
