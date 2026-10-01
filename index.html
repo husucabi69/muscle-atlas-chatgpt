@@ -2303,13 +2303,18 @@ function clinicalExamPoseMarkup(pose,view='front',accent='#475467'){
         '<line x1="70" y1="110" x2="64" y2="172" stroke="#c5ccd6" stroke-width="7" stroke-linecap="round"/>'+
         '<line x1="64" y1="172" x2="64" y2="207" stroke="#c5ccd6" stroke-width="6" stroke-linecap="round"/>';
     }
+    const foot=Array.isArray(pose.foot)?pose.foot:null,toe=Array.isArray(pose.toe)?pose.toe:null;
     return '<g>'+base+
       '<line x1="'+hip[0]+'" y1="'+hip[1]+'" x2="'+knee[0]+'" y2="'+knee[1]+'" stroke="'+accent+'" stroke-width="9" stroke-linecap="round"/>'+
       '<line x1="'+knee[0]+'" y1="'+knee[1]+'" x2="'+ankle[0]+'" y2="'+ankle[1]+'" stroke="'+accent+'" stroke-width="8" stroke-linecap="round"/>'+
+      (foot?'<line x1="'+ankle[0]+'" y1="'+ankle[1]+'" x2="'+foot[0]+'" y2="'+foot[1]+'" stroke="'+accent+'" stroke-width="7" stroke-linecap="round"/>':'')+
+      (foot&&toe?'<line x1="'+foot[0]+'" y1="'+foot[1]+'" x2="'+toe[0]+'" y2="'+toe[1]+'" stroke="'+accent+'" stroke-width="5" stroke-linecap="round"/>':'')+
       '<circle cx="'+hip[0]+'" cy="'+hip[1]+'" r="7" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
       '<circle cx="'+knee[0]+'" cy="'+knee[1]+'" r="6" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
       '<ellipse cx="'+ankle[0]+'" cy="'+ankle[1]+'" rx="9" ry="5" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
-      (pose.foot_label?'<text x="'+(ankle[0]+7)+'" y="'+(ankle[1]-10)+'" font-size="11" font-weight="700" fill="#344054">'+esc(pose.foot_label)+'</text>':'')+
+      (foot?'<ellipse cx="'+foot[0]+'" cy="'+foot[1]+'" rx="8" ry="4" fill="#fff" stroke="'+accent+'" stroke-width="2"/>':'')+
+      (toe?'<circle cx="'+toe[0]+'" cy="'+toe[1]+'" r="4" fill="#fff" stroke="'+accent+'" stroke-width="2"/>':'')+
+      (pose.foot_label?'<text x="'+((foot||ankle)[0]+7)+'" y="'+((foot||ankle)[1]-10)+'" font-size="11" font-weight="700" fill="#344054">'+esc(pose.foot_label)+'</text>':'')+
       '<text x="80" y="220" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='supine'?'앙와위':body==='side-lying'?'측와위':body==='seated'?'좌위':view==='back'?'후면':'기립')+'</text>'+
       '</g>';
   }
