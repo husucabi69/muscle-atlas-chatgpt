@@ -7,7 +7,7 @@ const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 
 check('binary handoff queue is not empty',q.length>0,String(q.length));
-check('queue starts at px007',q[0]?.profile_id==='px007',q[0]?.profile_id||'');
+check('queue starts at px008 after px007 loss resolution',q[0]?.profile_id==='px008',q[0]?.profile_id||'');
 check('queue is stable-ID ordered',q.every((x,i)=>i===0||q[i-1].profile_id.localeCompare(x.profile_id)<0),q.map(x=>x.profile_id).join(','));
 check('every queue item has exact gen_id',q.every(x=>typeof x.gen_id==='string'&&x.gen_id.length>20));
 check('every queue item has checkpoint',q.every(x=>typeof x.checkpoint_path==='string'&&x.checkpoint_path.length>0));
