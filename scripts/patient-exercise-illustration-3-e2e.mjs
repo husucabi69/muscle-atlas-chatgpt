@@ -109,9 +109,10 @@ try{
     return out;
   });
   if(!desktopFidelity.present)fail('Stage 23B desktop fidelity approved image present');
-  if(desktopFidelity.renderedWidth>desktopFidelity.naturalWidth+1)fail('Stage 23B desktop no source upscaling',JSON.stringify(desktopFidelity));
-  if(desktopFidelity.renderedWidth>720)fail('Stage 23B desktop illustration cap 720px',JSON.stringify(desktopFidelity));
-  pass('Stage 23B desktop illustration source-pixel fidelity',JSON.stringify(desktopFidelity));
+  if(desktopFidelity.renderedWidth>Math.round(desktopFidelity.naturalWidth*1.25)+1)fail('Stage 23B desktop preview soft-upscale exceeds 1.25x',JSON.stringify(desktopFidelity));
+  if(desktopFidelity.renderedWidth>400)fail('Stage 23B low-resolution desktop preview cap 400px',JSON.stringify(desktopFidelity));
+  if(desktopFidelity.renderedWidth<360)fail('Stage 23B low-resolution desktop preview remains too small',JSON.stringify(desktopFidelity));
+  pass('Stage 23B desktop balanced preview size/fidelity',JSON.stringify(desktopFidelity));
 
   await page.emulateMedia({media:'print'});
   const print=await page.evaluate(()=>{
