@@ -25,10 +25,11 @@ function renderAvailability(manifest,profile){
       }
     };
   }
-  if(profile.status==='PENDING_GENERATION'){
+  if(['PENDING_GENERATION','PENDING_REGENERATION'].includes(profile.status)){
     const permission=canGenerateRealisticProfile(manifest,profile.profile_id);
+    const readyStatus=profile.status==='PENDING_REGENERATION'?'READY_TO_REGENERATE':'READY_TO_GENERATE';
     return{
-      status:permission.allowed?'READY_TO_GENERATE':'BLOCKED_BEHIND_EARLIER_BINARY_HANDOFF',
+      status:permission.allowed?readyStatus:'BLOCKED_BEHIND_EARLIER_BINARY_HANDOFF',
       generation_permission:permission
     };
   }
