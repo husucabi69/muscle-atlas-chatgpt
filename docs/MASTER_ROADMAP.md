@@ -92,6 +92,9 @@ Stage 23A 기반 UX 위에서 현재 Stage 23B 콘텐츠/진찰도해를 계속 
 - **ANATOMY-IP-001:** 교과서급 자체 2D 해부학 근육도해를 독립 창작자산으로 제작한다. 첫 파일럿은 경추–견갑대, 첫 mandatory muscle은 두판상근.
 - **ANATOMY-3D-001:** rotate/zoom/layer/transparency/highlight를 지원하는 3D 해부학 뷰어를 반드시 개발한다.
 - **MOTION-ANIM-001:** 근육 작용 애니메이션을 반드시 개발한다. 첫 mandatory animation은 두판상근의 양측 신전 및 일측 동측회전·측굴.
+- **REALISTIC-EDU-STYLE:** 환자교육 스트레칭·강화운동과 Physical Examination 모두 최종 자산은 실제 사람처럼 보이는 실사형 의료교육 일러스트를 사용한다.
+- Physical Examination은 **실사형 환자 + 실사형 검사자 + 손 위치/힘 방향/양성소견 overlay**를 정본 스타일로 하며, 현재 개념형 Stable-ID 도해는 구조 baseline으로만 취급한다.
+- 상세 스타일 계약은 `docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md`를 따른다.
 - 위 3개 파일럿은 **Stage 23C 전 필수 구현**이며 아이디어 backlog로 되돌리거나 무기한 연기하지 않는다.
 - 자체 해부학 자산은 Stable ID + provenance/license registry로 관리하고 특정 교과서 도판의 tracing/near-copy를 금지한다.
 - 장기 운영 정본: 자체 해부도해·3D·motion·실제 초음파·근육별 재활·질환별 재활은 계속 추가/교체되는 Evergreen 콘텐츠이며, 새 요청은 Idea Register에 보존 후 로드맵 우선순위에 따라 구현
