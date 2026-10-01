@@ -3,14 +3,15 @@
   "updated_at": "2026-10-01",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 21,
+    "customized": 35,
     "total_canonical_tests": 148,
     "modules": [
       "shoulder",
-      "elbow"
+      "elbow",
+      "wrist-hand"
     ],
-    "status": "BATCH_2_COMPLETE",
-    "next_module": "wrist-hand"
+    "status": "BATCH_3_COMPLETE",
+    "next_module": "hip-pelvis"
   },
   "presets": {
     "ct001": {
@@ -1328,6 +1329,868 @@
       "examiner_position": "환자의 상완을 안정시키고 원위 전완에 팔꿈치 굴곡 방향 저항을 건다.",
       "hand_force": "환자는 팔꿈치를 펴려 하고 검사자는 굴곡 방향으로 저항해 신전력과 주두 부착부 통증을 평가한다.",
       "common_error": "통증 억제, C7/요골신경계 약화, 실제 삼두건 파열을 구분하고 palpable gap·초음파 소견을 함께 본다."
+    },
+    "ct022": {
+      "clinical_test_id": "ct022",
+      "precision": "custom",
+      "view": "front",
+      "title": "True Finkelstein · 엄지를 잡고 수동 척측편위로 제1 신전구획 신장",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          102
+        ],
+        "wrist": [
+          205,
+          104
+        ],
+        "hand_label": "엄지 바깥"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          102
+        ],
+        "wrist": [
+          198,
+          122
+        ],
+        "hand_label": "척측편위"
+      },
+      "examiner_hands": [
+        {
+          "x": 210,
+          "y": 103,
+          "label": "엄지/손"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 204,
+          "cy": 106,
+          "r": 24,
+          "start_angle": -15,
+          "end_angle": 75,
+          "label": "수동 척측편위"
+        }
+      ],
+      "positive": {
+        "x": 198,
+        "y": 110,
+        "label": "요골경상 통증"
+      },
+      "examiner_position": "환자 옆 또는 앞에서 전완을 안정시키고 엄지와 손을 부드럽게 잡는다.",
+      "hand_force": "엄지를 주먹 안에 넣지 않은 상태에서 검사자가 수동으로 손목을 척측편위시켜 제1 신전구획을 긴장시킨다.",
+      "common_error": "엄지를 주먹 안에 넣고 환자 스스로 척측편위하게 하는 Eichhoff와 혼동하지 않는다."
+    },
+    "ct023": {
+      "clinical_test_id": "ct023",
+      "precision": "custom",
+      "view": "front",
+      "title": "WHAT · 손목 과굴곡 + 엄지 외전에 저항",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          102
+        ],
+        "wrist": [
+          200,
+          122
+        ],
+        "hand_label": "손목 과굴곡"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          102
+        ],
+        "wrist": [
+          200,
+          122
+        ],
+        "hand_label": "엄지 외전"
+      },
+      "examiner_hands": [
+        {
+          "x": 215,
+          "y": 112,
+          "label": "엄지 저항"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 215,
+          "y1": 90,
+          "x2": 215,
+          "y2": 119,
+          "label": "외전 반대 저항"
+        }
+      ],
+      "positive": {
+        "x": 198,
+        "y": 111,
+        "label": "제1 신전구획 통증"
+      },
+      "examiner_position": "전완을 안정시키고 엄지에 외전 반대방향 저항을 줄 수 있도록 손을 위치시킨다.",
+      "hand_force": "손목 과굴곡을 유지한 채 환자가 엄지를 외전하면 검사자는 반대 방향으로 저항한다.",
+      "common_error": "손목 자세가 풀리거나 엄지 신전 동작으로 바뀌지 않도록 한다."
+    },
+    "ct024": {
+      "clinical_test_id": "ct024",
+      "precision": "custom",
+      "view": "front",
+      "title": "Phalen · 양 손목 최대 굴곡, 손등 맞댄 자세 유지",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          150,
+          110
+        ],
+        "wrist": [
+          185,
+          132
+        ],
+        "hand_label": "손등 맞댐"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          150,
+          110
+        ],
+        "wrist": [
+          185,
+          138
+        ],
+        "hand_label": "손목 굴곡 유지"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 184,
+          "cy": 126,
+          "r": 20,
+          "start_angle": -70,
+          "end_angle": 65,
+          "label": "손목 굴곡"
+        }
+      ],
+      "positive": {
+        "x": 202,
+        "y": 142,
+        "label": "정중신경 분포 저림"
+      },
+      "examiner_position": "환자 앞에서 양측 손목 굴곡과 증상 분포를 관찰한다.",
+      "hand_force": "외부 압박 없이 손등을 서로 맞대고 손목 굴곡 자세를 유지하게 한다.",
+      "common_error": "손끝 저림의 분포를 확인하지 않고 손목 통증만으로 양성으로 기록하지 않는다."
+    },
+    "ct025": {
+      "clinical_test_id": "ct025",
+      "precision": "custom",
+      "view": "front",
+      "title": "손목터널 Tinel · 정중신경 경로를 가볍게 타진",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "손바닥 위"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "가벼운 타진"
+      },
+      "examiner_hands": [
+        {
+          "x": 203,
+          "y": 108,
+          "label": "손목터널"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 203,
+          "y1": 82,
+          "x2": 203,
+          "y2": 103,
+          "label": "가벼운 타진"
+        }
+      ],
+      "positive": {
+        "x": 218,
+        "y": 118,
+        "label": "정중신경 분포 저림"
+      },
+      "examiner_position": "손바닥쪽 손목 주름 근처 정중신경 경로를 확인하고 손끝을 위치시킨다.",
+      "hand_force": "세게 누르지 않고 손목터널 위를 가볍게 반복 타진한다.",
+      "common_error": "국소 압통만을 양성으로 보지 말고 엄지~요측 약지 쪽의 익숙한 전기감/저림인지 확인한다."
+    },
+    "ct026": {
+      "clinical_test_id": "ct026",
+      "precision": "custom",
+      "view": "front",
+      "title": "Durkan · 손목터널 직접 압박",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "손목 중립"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "직접 압박"
+      },
+      "examiner_hands": [
+        {
+          "x": 203,
+          "y": 108,
+          "label": "양 엄지 압박"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 203,
+          "y1": 82,
+          "x2": 203,
+          "y2": 104,
+          "label": "수직 압박"
+        }
+      ],
+      "positive": {
+        "x": 219,
+        "y": 119,
+        "label": "정중신경 분포 감각증상"
+      },
+      "examiner_position": "손목을 중립에 가깝게 두고 손목터널 바로 위에 엄지 또는 손가락 압박을 위치시킨다.",
+      "hand_force": "과도하지 않은 일정 압박을 손목터널 위에 가하고 익숙한 정중신경 분포 증상 재현을 본다.",
+      "common_error": "손바닥 전체를 넓게 눌러 국소 통증만 유발하거나 압박 강도를 지나치게 높이지 않는다."
+    },
+    "ct027": {
+      "clinical_test_id": "ct027",
+      "precision": "custom",
+      "view": "front",
+      "title": "Guyon관 Tinel · 두상골-유구골 사이 척골신경 타진",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "척측 손목"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "Guyon관 타진"
+      },
+      "examiner_hands": [
+        {
+          "x": 210,
+          "y": 113,
+          "label": "Guyon관"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 210,
+          "y1": 87,
+          "x2": 210,
+          "y2": 108,
+          "label": "가벼운 타진"
+        }
+      ],
+      "positive": {
+        "x": 220,
+        "y": 128,
+        "label": "4–5지/척측 손바닥 저림"
+      },
+      "examiner_position": "두상골과 유구골 갈고리 사이 Guyon관 위치를 촉지한다.",
+      "hand_force": "Guyon관의 척골신경 위를 가볍게 반복 타진한다.",
+      "common_error": "주관 증후군과 혼동하지 않도록 dorsal ulnar cutaneous 감각 및 팔꿈치 수준 소견을 함께 본다."
+    },
+    "ct028": {
+      "clinical_test_id": "ct028",
+      "precision": "custom",
+      "view": "front",
+      "title": "Froment · 종이를 엄지-검지 사이에 끼우고 당김",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "엄지 내전 pinch"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "종이 유지"
+      },
+      "examiner_hands": [
+        {
+          "x": 221,
+          "y": 106,
+          "label": "종이 당김"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 221,
+          "y1": 106,
+          "x2": 244,
+          "y2": 106,
+          "label": "종이 당김"
+        }
+      ],
+      "positive": {
+        "x": 220,
+        "y": 100,
+        "label": "엄지 IP 굴곡 보상"
+      },
+      "examiner_position": "종이 또는 얇은 카드를 환자의 엄지와 검지 사이에 끼우고 바깥으로 당긴다.",
+      "hand_force": "환자는 엄지 내전으로 종이를 유지하고, 검사자는 일정하게 종이를 당긴다.",
+      "common_error": "엄지 IP 굴곡 보상 자체를 놓치지 말고 단순 pinch 약화만 기록하지 않는다."
+    },
+    "ct029": {
+      "clinical_test_id": "ct029",
+      "precision": "custom",
+      "view": "front",
+      "title": "Wartenberg · 손가락 모으기에서 소지 지속 외전 관찰",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "손가락 모음"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "소지 내전 시도"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 220,
+          "y1": 111,
+          "x2": 233,
+          "y2": 118,
+          "label": "소지 외전 잔존"
+        }
+      ],
+      "positive": {
+        "x": 229,
+        "y": 117,
+        "label": "소지 지속 외전"
+      },
+      "examiner_position": "환자 손을 정면에서 보고 손가락을 편안히 모으게 한다.",
+      "hand_force": "외부 저항 없이 소지를 다른 손가락 쪽으로 능동 내전시키게 하고 유지 여부를 본다.",
+      "common_error": "단순 해부학적 소지 자세 변이와 골간근 약화에 의한 지속 외전을 구분한다."
+    },
+    "ct030": {
+      "clinical_test_id": "ct030",
+      "precision": "custom",
+      "view": "front",
+      "title": "척측 fovea · 척골경상-두상골 사이 연부조직 국소 압박",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "척측 손목 노출"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "fovea 촉진"
+      },
+      "examiner_hands": [
+        {
+          "x": 210,
+          "y": 113,
+          "label": "fovea"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 210,
+          "y1": 88,
+          "x2": 210,
+          "y2": 109,
+          "label": "국소 압박"
+        }
+      ],
+      "positive": {
+        "x": 210,
+        "y": 113,
+        "label": "익숙한 척측 통증"
+      },
+      "examiner_position": "척골경상돌기와 FCU·두상골 사이의 연부조직 fovea를 정확히 찾는다.",
+      "hand_force": "깊지 않은 국소 압박으로 반대측과 비교하며 익숙한 통증 재현을 본다.",
+      "common_error": "광범위한 척측 손목 압통을 모두 TFCC 파열로 해석하지 않는다."
+    },
+    "ct031": {
+      "clinical_test_id": "ct031",
+      "precision": "custom",
+      "view": "front",
+      "title": "DRUJ Ballottement · 요골 고정 후 척골두 전후 translation 비교",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "DRUJ 중립"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "척골두 전후 이동"
+      },
+      "examiner_hands": [
+        {
+          "x": 199,
+          "y": 107,
+          "label": "요골 고정"
+        },
+        {
+          "x": 210,
+          "y": 107,
+          "label": "척골두"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 210,
+          "y1": 94,
+          "x2": 210,
+          "y2": 121,
+          "label": "dorsal↔volar"
+        }
+      ],
+      "positive": {
+        "x": 208,
+        "y": 107,
+        "label": "통증/과도한 이동"
+      },
+      "examiner_position": "한 손으로 원위 요골을 고정하고 다른 손으로 척골두를 잡는다.",
+      "hand_force": "척골두를 전후방으로 부드럽게 이동시키며 중립·회내·회외에서 대측과 비교한다.",
+      "common_error": "정상적인 생리적 translation을 불안정성으로 과해석하지 말고 end-point와 통증을 함께 기록한다."
+    },
+    "ct032": {
+      "clinical_test_id": "ct032",
+      "precision": "custom",
+      "view": "front",
+      "title": "ECU Synergy · 최대 회외/손목 중립에서 ECU 협응 부하",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          148,
+          116
+        ],
+        "wrist": [
+          187,
+          118
+        ],
+        "hand_label": "최대 회외"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          148,
+          116
+        ],
+        "wrist": [
+          193,
+          111
+        ],
+        "hand_label": "ECU 긴장"
+      },
+      "examiner_hands": [
+        {
+          "x": 209,
+          "y": 107,
+          "label": "수지 저항"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 210,
+          "y1": 107,
+          "x2": 223,
+          "y2": 98,
+          "label": "요측 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 198,
+        "y": 112,
+        "label": "ECU 주행 통증"
+      },
+      "examiner_position": "팔꿈치 90° 굴곡, 전완 최대 회외, 손목 중립을 유지시키고 수지에 저항을 건다.",
+      "hand_force": "수지의 요측 방향 힘을 유도해 ECU의 synergy tension을 만들고 척측-배측 통증을 확인한다.",
+      "common_error": "FCU/TFCC 통증과 ECU 주행 통증을 섞지 말고 동적 초음파와 함께 해석한다."
+    },
+    "ct033": {
+      "clinical_test_id": "ct033",
+      "precision": "custom",
+      "view": "front",
+      "title": "Thumb CMC Grind · 제1 중수골 축성 압박 + 회전",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "제1 중수골 잡기"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "압박 + 회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 218,
+          "y": 103,
+          "label": "제1 중수골"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 235,
+          "y1": 103,
+          "x2": 218,
+          "y2": 103,
+          "label": "축성 압박"
+        },
+        {
+          "kind": "arc",
+          "cx": 218,
+          "cy": 103,
+          "r": 16,
+          "start_angle": 30,
+          "end_angle": 260,
+          "label": "회전"
+        }
+      ],
+      "positive": {
+        "x": 216,
+        "y": 105,
+        "label": "엄지 기저부 통증/염발음"
+      },
+      "examiner_position": "한 손으로 trapezium 부위를 안정시키고 다른 손으로 제1 중수골을 잡는다.",
+      "hand_force": "제1 중수골을 관절면 쪽으로 축성 압박하면서 부드럽게 회전시킨다.",
+      "common_error": "과도한 압박으로 정상 관절에서도 통증을 만들지 말고 음성이라고 CMC OA를 배제하지 않는다."
+    },
+    "ct034": {
+      "clinical_test_id": "ct034",
+      "precision": "custom",
+      "view": "front",
+      "title": "Thumb CMC Pressure-shear · 관절면 방향 압박 + 전단",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "CMC 안정화"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "압박·전단"
+      },
+      "examiner_hands": [
+        {
+          "x": 218,
+          "y": 103,
+          "label": "제1 중수골 기저"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 234,
+          "y1": 103,
+          "x2": 218,
+          "y2": 103,
+          "label": "압박"
+        },
+        {
+          "x1": 218,
+          "y1": 91,
+          "x2": 218,
+          "y2": 113,
+          "label": "전단"
+        }
+      ],
+      "positive": {
+        "x": 216,
+        "y": 105,
+        "label": "익숙한 기저부 통증"
+      },
+      "examiner_position": "제1 중수골 기저부와 CMC 관절면을 안정적으로 지지한다.",
+      "hand_force": "관절면에 맞춘 압박과 전단을 부드럽게 가해 환자의 익숙한 엄지 기저부 통증을 확인한다.",
+      "common_error": "grind와 동일한 회전검사로 시행하지 말고, 단일 연구 성능을 절대적 확진 기준으로 사용하지 않는다."
+    },
+    "ct035": {
+      "clinical_test_id": "ct035",
+      "precision": "custom",
+      "view": "front",
+      "title": "Watson Scaphoid Shift · 주상골 결절 압박 유지하며 척측→요측 이동",
+      "start": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          205,
+          108
+        ],
+        "hand_label": "척측편위·약간 신전"
+      },
+      "action": {
+        "shoulder": [
+          104,
+          82
+        ],
+        "elbow": [
+          158,
+          104
+        ],
+        "wrist": [
+          198,
+          119
+        ],
+        "hand_label": "요측편위·굴곡"
+      },
+      "examiner_hands": [
+        {
+          "x": 205,
+          "y": 111,
+          "label": "주상골 결절"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 204,
+          "cy": 108,
+          "r": 24,
+          "start_angle": -35,
+          "end_angle": 95,
+          "label": "척측→요측"
+        },
+        {
+          "x1": 205,
+          "y1": 86,
+          "x2": 205,
+          "y2": 107,
+          "label": "주상골 압박"
+        }
+      ],
+      "positive": {
+        "x": 204,
+        "y": 109,
+        "label": "통증성 clunk/비정상 이동"
+      },
+      "examiner_position": "엄지로 주상골 결절을 촉지해 압박하고 다른 손으로 중수골을 잡아 손목 움직임을 유도한다.",
+      "hand_force": "주상골 압박을 유지하면서 손목을 척측편위·약간 신전에서 요측편위·굴곡으로 이동시킨다.",
+      "common_error": "무통성 click이나 정상 laxity를 병적 clunk로 과해석하지 말고 반대측과 비교한다."
     }
   }
 }
