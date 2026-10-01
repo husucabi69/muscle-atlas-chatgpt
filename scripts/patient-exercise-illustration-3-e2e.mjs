@@ -162,6 +162,56 @@ try{
     pass('Stage 23B A4 binary-handoff candidate uses safe fallback','px007');
   }
 
+
+  const printAll=await page.evaluate(profileIds=>{
+    const results=[];
+    document.body.classList.add('printing-education');
+    for(const profileId of profileIds){
+      const p=exerciseProfileById[profileId];
+      const asset=exerciseRealisticAssetById?.[profileId]||null;
+      const host=document.createElement('div');
+      host.id='educationDetail';
+      host.style.width='180mm';
+      host.innerHTML=exerciseIllustration(p);
+      document.body.appendChild(host);
+      const figure=host.querySelector('.exercise-figure');
+      const realistic=host.querySelector('.exercise-realistic-media');
+      const fallback=host.querySelector('.exercise-svg-fallback');
+      const note=host.querySelector('.exercise-a4-pending-note');
+      results.push({
+        profileId,
+        status:asset?.status||'',
+        gate:asset?.asset_gate||'',
+        overflow:figure?figure.scrollWidth-figure.clientWidth:999,
+        breakInside:figure?getComputedStyle(figure).breakInside:'',
+        realisticPresent:Boolean(realistic),
+        realisticDisplay:realistic?getComputedStyle(realistic).display:'',
+        fallbackPresent:Boolean(fallback),
+        fallbackDisplay:fallback?getComputedStyle(fallback).display:'',
+        notePresent:Boolean(note),
+        noteDisplay:note?getComputedStyle(note).display:''
+      });
+      host.remove();
+    }
+    document.body.classList.remove('printing-education');
+    return results;
+  },ids);
+
+  if(printAll.length!==18)fail('Stage 23B A4 all actionable profiles checked',String(printAll.length));
+  for(const x of printAll){
+    if(x.overflow>1)fail(x.profileId+' A4 no clipping',String(x.overflow));
+    if(x.breakInside!=='avoid')fail(x.profileId+' A4 break-inside avoid',x.breakInside);
+    if(!x.fallbackPresent||x.fallbackDisplay==='none')fail(x.profileId+' A4 safe fallback visible',x.fallbackDisplay);
+    if(x.gate==='MOBILE_PREVIEW_APPROVED_A4_HD_PENDING'){
+      if(!x.realisticPresent)fail(x.profileId+' approved mobile realistic media exists before A4 fallback');
+      if(x.realisticDisplay!=='none')fail(x.profileId+' A4 hides mobile-preview realistic media',x.realisticDisplay);
+      if(!x.notePresent||x.noteDisplay==='none')fail(x.profileId+' A4 explains HD-pending fallback',x.noteDisplay);
+    }else{
+      if(x.realisticPresent&&x.realisticDisplay!=='none')fail(x.profileId+' non-approved A4 must not show realistic media',x.realisticDisplay);
+    }
+    pass('Stage 23B A4 profile safety',x.profileId);
+  }
+  pass('Stage 23B A4 all 18 actionable profiles safe');
   console.log('\n--- STAGE 23B PATIENT EXERCISE RUNTIME E2E ---');
   console.log('PASS | blocked and binary-handoff candidates stay off-screen; 18/18 profiles render safe fallback/approved realistic media + A4 print guard');
 }finally{
