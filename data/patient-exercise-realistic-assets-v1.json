@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.01-stage23b-display-fidelity-gate",
+  "dataset_version": "2026.10.01-stage23b-px007-regeneration-recovery",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -282,13 +282,13 @@
     {
       "profile_id": "px007",
       "title_ko": "손가락 운동",
-      "status": "CANDIDATE_GENERATED",
+      "status": "PENDING_REGENERATION",
       "composite_url": null,
       "alt_text": "손가락 운동 시작 자세와 끝 자세를 실제 사람처럼 표현한 환자교육용 실사형 일러스트",
       "review_note": "2026-09-30 자동개발에서 후보를 추가 개선. 손가락 완전 펴기→천천히 주먹쥐기→천천히 펴기, 중립 손목과 흔한 손목 보상 오류를 명확히 표시하고 임의 반복횟수·세트는 넣지 않음. repository binary materialization 전이므로 APPROVED로 승격하지 않음. 2026-09-30 대표 동작을 손가락 벌림으로 단일화. 기존 주먹쥐기 후보는 승인 금지. 2026-09-30 기존 후보를 폐기 기록으로 이동하고 상태를 새 후보 생성 대기로 정규화.",
       "generator": "OpenAI image generation",
       "supersedes_candidate_gen_id": "fbf5ab4d-37ca-440d-bb2d-7edccfd92253",
-      "asset_gate": "BINARY_HANDOFF_BLOCKED",
+      "asset_gate": "BINARY_LOSS_CONFIRMED_REGENERATION_ALLOWED",
       "generation_brief": {
         "view": "closeup_hand",
         "start": "전완과 손목을 테이블에 편안히 지지하고, 손가락을 자연스럽게 펴서 서로 가깝게 모은 자세.",
@@ -301,13 +301,7 @@
       "generation_brief_reviewed_on": "2026-09-30",
       "generation_brief_source": "data/patient-exercise-illustration-v2.json + patient-exercise-library-v1.json",
       "approval_blockers": [],
-      "candidate_review": {
-        "clinical_content": "PASS",
-        "visual_pose": "PASS",
-        "embedded_text": "PASS",
-        "reviewed_on": "2026-10-01",
-        "note": "야간 예약작업 검수 PASS. 손가락 모음→벌림, 전완/손목 지지, 손목 중립, 주먹쥐기·손목 보상 오류 구분, 임의 숫자 없음."
-      },
+      "candidate_review": null,
       "rejected_candidates": [
         {
           "gen_id": "fbf5ab4d-37ca-440d-bb2d-7edccfd92253",
@@ -316,15 +310,44 @@
           "note": "주먹쥐기 중심 동작이라 손 내재근 대표 기능(손가락 벌림)과 불일치. 재사용 금지."
         }
       ],
-      "gen_id": "8c940201-f1c0-4440-832d-83972f8efbb8",
+      "gen_id": null,
       "candidate_generated_on": "2026-10-01",
-      "candidate_checkpoint_path": "data/patient-exercise-candidates/px007-20261001.json",
+      "candidate_checkpoint_path": null,
       "candidate_asset_path": null,
       "binary_handoff": {
-        "state": "BLOCKED",
-        "checked_on": "2026-10-01",
-        "reason": "Generated candidate was reviewed in scheduled development, but the actual image binary is not materialized in the repository.",
-        "next_action": "Recover the exact generated binary if available; do not regenerate this profile merely to create a file."
+        "state": "UNRECOVERABLE_RESOLVED",
+        "resolved_on": "2026-10-01"
+      },
+      "lost_candidate_history": [
+        {
+          "gen_id": "8c940201-f1c0-4440-832d-83972f8efbb8",
+          "checkpoint_path": "data/patient-exercise-candidates/px007-20261001.json",
+          "candidate_review": {
+            "clinical_content": "PASS",
+            "visual_pose": "PASS",
+            "embedded_text": "PASS",
+            "reviewed_on": "2026-10-01",
+            "note": "야간 예약작업 검수 PASS. 손가락 모음→벌림, 전완/손목 지지, 손목 중립, 주먹쥐기·손목 보상 오류 구분, 임의 숫자 없음."
+          },
+          "resolved_on": "2026-10-01",
+          "resolution": "EXACT_BINARY_UNRECOVERABLE",
+          "audit_path": "docs/qa/stage23b-px007-binary-loss-20261001.md",
+          "evidence": [
+            "checkpoint records conversation-generated candidate not repository-materialized",
+            "candidate_asset_path is null",
+            "binary_receipt is absent",
+            "canonical repository px007 WebP is absent"
+          ]
+        }
+      ],
+      "recovery": {
+        "state": "EXACT_BINARY_UNRECOVERABLE",
+        "resolved_on": "2026-10-01",
+        "prior_gen_id": "8c940201-f1c0-4440-832d-83972f8efbb8",
+        "prior_checkpoint_path": "data/patient-exercise-candidates/px007-20261001.json",
+        "audit_path": "docs/qa/stage23b-px007-binary-loss-20261001.md",
+        "next_action": "REGENERATE_FROM_LOCKED_BRIEF",
+        "rule": "New generation must receive a new gen_id and fresh three-axis review before ingest."
       }
     },
     {
