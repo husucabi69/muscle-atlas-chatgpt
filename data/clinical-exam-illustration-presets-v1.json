@@ -1,18 +1,19 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-01",
+  "updated_at": "2026-10-02",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 49,
+    "customized": 64,
     "total_canonical_tests": 148,
     "modules": [
       "shoulder",
       "elbow",
       "wrist-hand",
-      "hip-pelvis"
+      "hip-pelvis",
+      "knee-thigh"
     ],
-    "status": "BATCH_4_COMPLETE",
-    "next_module": "knee-thigh"
+    "status": "BATCH_5_COMPLETE",
+    "next_module": "leg-ankle-foot"
   },
   "presets": {
     "ct001": {
@@ -3084,6 +3085,942 @@
       "examiner_position": "앙와위에서 한 손으로 대퇴를 충분히 굴곡된 상태로 지지하고 다른 손은 원위 하퇴를 잡는다.",
       "hand_force": "고관절 굴곡을 유지하면서 무릎을 비교적 빠르게 펴 근위 햄스트링을 신장한다.",
       "common_error": "급성 손상/견열 의심 환자에서 강하게 반복하지 말고, 익숙한 기시부 통증 재현 여부만 확인한다."
+    },
+    "ct050": {
+      "clinical_test_id": "ct050",
+      "precision": "custom",
+      "view": "front",
+      "title": "스쿼트 통증유발 · 전방 무릎 부하에서 통증 위치/동작 질 관찰",
+      "start": {
+        "body": "standing",
+        "hip": [
+          84,
+          108
+        ],
+        "knee": [
+          84,
+          158
+        ],
+        "ankle": [
+          84,
+          205
+        ],
+        "foot_label": "기립"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          88,
+          124
+        ],
+        "knee": [
+          118,
+          161
+        ],
+        "ankle": [
+          96,
+          205
+        ],
+        "foot_label": "스쿼트"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 100,
+          "y1": 122,
+          "x2": 116,
+          "y2": 158,
+          "label": "굴곡 부하"
+        }
+      ],
+      "positive": {
+        "x": 117,
+        "y": 160,
+        "label": "슬개주위/후방 통증"
+      },
+      "examiner_position": "환자의 정면과 측면에서 무릎 궤적, 몸통 보상, 좌우 체중분배와 통증 위치를 함께 관찰한다.",
+      "hand_force": "외부 저항은 주지 않고 환자가 안전한 범위에서 양발 스쿼트를 시행하도록 하며 통증이 심해지면 즉시 중단한다.",
+      "common_error": "동적 valgus나 무릎이 발끝 앞으로 나오는 모습 하나만으로 병적이라고 단정하지 않고 통증 재현과 기능을 함께 기록한다."
+    },
+    "ct051": {
+      "clinical_test_id": "ct051",
+      "precision": "custom",
+      "view": "front",
+      "title": "스텝다운 · 단하지 부하에서 슬개대퇴 통증과 동작 질 관찰",
+      "start": {
+        "body": "standing",
+        "hip": [
+          90,
+          110
+        ],
+        "knee": [
+          90,
+          157
+        ],
+        "ankle": [
+          90,
+          204
+        ],
+        "foot_label": "스텝 위"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          122
+        ],
+        "knee": [
+          120,
+          157
+        ],
+        "ankle": [
+          94,
+          204
+        ],
+        "foot_label": "한발 스텝다운"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 130,
+          "y1": 119,
+          "x2": 130,
+          "y2": 172,
+          "label": "하강"
+        }
+      ],
+      "positive": {
+        "x": 119,
+        "y": 157,
+        "label": "전방/슬개주위 통증"
+      },
+      "examiner_position": "낮은 스텝 옆에서 낙상을 방지하며 골반, 무릎, 발 정렬과 통증 재현을 동시에 관찰한다.",
+      "hand_force": "외부 저항 없이 천천히 스텝다운 또는 계단 동작을 시행하게 하며 필요하면 난간 지지를 허용한다.",
+      "common_error": "무릎 안쪽 이동만으로 특정 병변을 확정하지 않고 균형장애, 고관절 약화, 발 정렬과 통증 위치를 분리해 기록한다."
+    },
+    "ct052": {
+      "clinical_test_id": "ct052",
+      "precision": "custom",
+      "view": "supine",
+      "title": "슬개골 tilt·mobility · 대퇴사두근 이완 상태에서 glide/tilt 비교",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          107
+        ],
+        "ankle": [
+          198,
+          107
+        ],
+        "foot_label": "무릎 이완"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          107
+        ],
+        "ankle": [
+          198,
+          107
+        ],
+        "foot_label": "슬개골 glide"
+      },
+      "examiner_hands": [
+        {
+          "x": 157,
+          "y": 107,
+          "label": "슬개골 양측"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 143,
+          "y1": 107,
+          "x2": 171,
+          "y2": 107,
+          "label": "내↔외측 glide"
+        }
+      ],
+      "positive": {
+        "x": 157,
+        "y": 107,
+        "label": "제한/과이동/통증"
+      },
+      "examiner_position": "앙와위에서 대퇴사두근을 충분히 이완시키고 양 엄지와 손가락으로 슬개골 가장자리를 안정적으로 잡는다.",
+      "hand_force": "슬개골을 내외측으로 부드럽게 이동시키고 tilt를 비교하며 반대측과 이동량과 통증을 비교한다.",
+      "common_error": "근육이 긴장된 상태에서 억지로 밀거나 이동성 차이만으로 patellofemoral 원인을 확정하지 않는다."
+    },
+    "ct053": {
+      "clinical_test_id": "ct053",
+      "precision": "custom",
+      "view": "supine",
+      "title": "슬개골 apprehension · 약간 굴곡에서 외측 translation 시 불안/방어 관찰",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          155,
+          112
+        ],
+        "ankle": [
+          195,
+          120
+        ],
+        "foot_label": "약간 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          155,
+          112
+        ],
+        "ankle": [
+          195,
+          120
+        ],
+        "foot_label": "외측 이동"
+      },
+      "examiner_hands": [
+        {
+          "x": 154,
+          "y": 111,
+          "label": "슬개골 내측연"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 150,
+          "y1": 111,
+          "x2": 170,
+          "y2": 111,
+          "label": "조심스런 외측 이동"
+        }
+      ],
+      "positive": {
+        "x": 160,
+        "y": 111,
+        "label": "불안감/방어 반응"
+      },
+      "examiner_position": "무릎을 약간 굴곡한 앙와위에서 대퇴사두근 이완을 확인하고 슬개골 내측연에 손을 둔다.",
+      "hand_force": "슬개골을 외측으로 매우 천천히 이동시키며 환자의 불안감과 방어 반응을 관찰하고 즉시 멈출 준비를 한다.",
+      "common_error": "급성 탈구 직후에 과도한 외측 도발을 반복하거나 단순 통증만으로 불안정성을 확정하지 않는다."
+    },
+    "ct054": {
+      "clinical_test_id": "ct054",
+      "precision": "custom",
+      "view": "supine",
+      "title": "SLR / extensor lag · 무릎 완전신전 유지한 하지직거상",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          108
+        ],
+        "ankle": [
+          199,
+          108
+        ],
+        "foot_label": "무릎 신전"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          154,
+          91
+        ],
+        "ankle": [
+          195,
+          76
+        ],
+        "foot_label": "SLR"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 184,
+          "y1": 108,
+          "x2": 184,
+          "y2": 78,
+          "label": "하지직거상"
+        }
+      ],
+      "positive": {
+        "x": 156,
+        "y": 100,
+        "label": "신전지연/SLR 불가"
+      },
+      "examiner_position": "환자의 측면에서 슬개골·대퇴사두근 수축과 무릎 신전 유지 여부를 보며 다리 전체를 관찰한다.",
+      "hand_force": "외부 저항 없이 무릎을 완전히 편 채 다리를 들어 올리게 하고 무릎이 처지는지 확인한다.",
+      "common_error": "통증 억제나 관절삼출로 인한 일시적 lag를 건 또는 슬개건 파열과 동일하게 해석하지 않는다."
+    },
+    "ct055": {
+      "clinical_test_id": "ct055",
+      "precision": "custom",
+      "view": "seated",
+      "title": "저항성 무릎 신전 · 대퇴사두근-건-슬개건 연속체 부하",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot_label": "중간 굴곡"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          151,
+          98
+        ],
+        "ankle": [
+          194,
+          98
+        ],
+        "foot_label": "신전"
+      },
+      "examiner_hands": [
+        {
+          "x": 190,
+          "y": 99,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 190,
+          "y1": 80,
+          "x2": 181,
+          "y2": 110,
+          "label": "굴곡 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 148,
+        "y": 100,
+        "label": "전방 통증/약화"
+      },
+      "examiner_position": "앉은 자세에서 대퇴를 안정시키고 원위 하퇴 앞쪽에 손을 두어 저항 방향을 일정하게 유지한다.",
+      "hand_force": "환자가 무릎을 펴려는 힘에 굴곡 방향 저항을 점진적으로 가하며 좌우 힘과 통증 위치를 비교한다.",
+      "common_error": "통증 때문에 힘을 못 쓰는 상태와 실제 신전기전 약화를 구분하고 최대저항을 갑자기 가하지 않는다."
+    },
+    "ct056": {
+      "clinical_test_id": "ct056",
+      "precision": "custom",
+      "view": "supine",
+      "title": "슬개건 촉진·부하 · 하극부터 경골조면까지 국소 통증 확인",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          112
+        ],
+        "ankle": [
+          198,
+          120
+        ],
+        "foot_label": "약간 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          112
+        ],
+        "ankle": [
+          198,
+          120
+        ],
+        "foot_label": "슬개건 촉진"
+      },
+      "examiner_hands": [
+        {
+          "x": 160,
+          "y": 119,
+          "label": "슬개건"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 160,
+          "y1": 92,
+          "x2": 160,
+          "y2": 116,
+          "label": "국소 압박"
+        }
+      ],
+      "positive": {
+        "x": 160,
+        "y": 119,
+        "label": "익숙한 국소 통증"
+      },
+      "examiner_position": "슬개골 하극과 경골조면 사이 슬개건 주행을 따라 근위·중간·원위부를 순서대로 촉진한다.",
+      "hand_force": "과도하지 않은 국소 압박 후 필요 시 안전한 기능부하에서 같은 통증이 재현되는지 확인한다.",
+      "common_error": "압통이나 초음파 두께 증가만으로 건병증을 확정하지 않고 Hoffa fat pad나 관절내 통증과 구분한다."
+    },
+    "ct057": {
+      "clinical_test_id": "ct057",
+      "precision": "custom",
+      "view": "supine",
+      "title": "대퇴사두건 촉진·연속성 · 슬개골 상극 위 결손/통증 확인",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          113
+        ],
+        "ankle": [
+          198,
+          120
+        ],
+        "foot_label": "약간 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          113
+        ],
+        "ankle": [
+          198,
+          120
+        ],
+        "foot_label": "상극 촉진"
+      },
+      "examiner_hands": [
+        {
+          "x": 153,
+          "y": 103,
+          "label": "대퇴사두건"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 153,
+          "y1": 78,
+          "x2": 153,
+          "y2": 100,
+          "label": "연속성 촉진"
+        }
+      ],
+      "positive": {
+        "x": 153,
+        "y": 103,
+        "label": "결손/통증/신전 이상"
+      },
+      "examiner_position": "슬개골 상극 바로 위에서 원위 대퇴사두건을 횡·종방향으로 촉진하고 양측을 비교한다.",
+      "hand_force": "건 연속성을 따라 부드럽게 압박하며 동시에 능동 무릎 신전 또는 quadriceps setting을 확인한다.",
+      "common_error": "부종이 심한 급성 손상에서 촉진만으로 파열을 배제하지 말고 의심되면 초음파나 MRI와 연결한다."
+    },
+    "ct058": {
+      "clinical_test_id": "ct058",
+      "precision": "custom",
+      "view": "supine",
+      "title": "30° valgus stress · 대퇴 고정 + 원위 하퇴 외반력",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          116
+        ],
+        "ankle": [
+          198,
+          126
+        ],
+        "foot_label": "20–30° 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          116
+        ],
+        "ankle": [
+          188,
+          137
+        ],
+        "foot_label": "외반 스트레스"
+      },
+      "examiner_hands": [
+        {
+          "x": 157,
+          "y": 116,
+          "label": "외측 무릎 고정"
+        },
+        {
+          "x": 191,
+          "y": 135,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 196,
+          "y1": 127,
+          "x2": 184,
+          "y2": 139,
+          "label": "valgus"
+        }
+      ],
+      "positive": {
+        "x": 153,
+        "y": 116,
+        "label": "내측 통증/medial opening"
+      },
+      "examiner_position": "한 손으로 무릎 외측을 지지하고 다른 손으로 발목 또는 원위 하퇴를 잡아 대퇴가 회전하지 않게 한다.",
+      "hand_force": "약 20–30° 굴곡에서 원위 하퇴를 외측으로 유도해 점진적 valgus force를 가하고 end-point를 반대측과 비교한다.",
+      "common_error": "통증이 심한 급성 손상에서 과도한 힘을 주거나 느슨함 하나로 손상 등급을 확정하지 않는다."
+    },
+    "ct059": {
+      "clinical_test_id": "ct059",
+      "precision": "custom",
+      "view": "supine",
+      "title": "0° valgus stress · 완전신전에서 광범위 내측 안정성 확인",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          158,
+          108
+        ],
+        "ankle": [
+          199,
+          108
+        ],
+        "foot_label": "완전신전"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          158,
+          108
+        ],
+        "ankle": [
+          190,
+          121
+        ],
+        "foot_label": "외반 스트레스"
+      },
+      "examiner_hands": [
+        {
+          "x": 158,
+          "y": 108,
+          "label": "외측 무릎 고정"
+        },
+        {
+          "x": 191,
+          "y": 120,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 198,
+          "y1": 109,
+          "x2": 188,
+          "y2": 124,
+          "label": "valgus"
+        }
+      ],
+      "positive": {
+        "x": 154,
+        "y": 108,
+        "label": "신전에서도 medial opening"
+      },
+      "examiner_position": "무릎을 가능한 중립 신전으로 두고 한 손은 외측 무릎, 다른 손은 발목/원위 하퇴를 잡는다.",
+      "hand_force": "완전신전 상태에서 점진적 valgus force를 주며 느슨함과 단단한 end-point 존재를 확인한다.",
+      "common_error": "신전에서 이완이 있으면 MCL 단독손상으로 단순화하지 않고 관절낭·십자인대 등 광범위 손상을 고려한다."
+    },
+    "ct060": {
+      "clinical_test_id": "ct060",
+      "precision": "custom",
+      "view": "supine",
+      "title": "30° varus stress · 대퇴 고정 + 원위 하퇴 내반력",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          116
+        ],
+        "ankle": [
+          198,
+          126
+        ],
+        "foot_label": "20–30° 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          157,
+          116
+        ],
+        "ankle": [
+          208,
+          137
+        ],
+        "foot_label": "내반 스트레스"
+      },
+      "examiner_hands": [
+        {
+          "x": 157,
+          "y": 116,
+          "label": "내측 무릎 고정"
+        },
+        {
+          "x": 205,
+          "y": 135,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 195,
+          "y1": 127,
+          "x2": 211,
+          "y2": 139,
+          "label": "varus"
+        }
+      ],
+      "positive": {
+        "x": 162,
+        "y": 116,
+        "label": "외측 통증/lateral opening"
+      },
+      "examiner_position": "한 손으로 무릎 내측을 지지하고 다른 손으로 원위 하퇴를 잡아 대퇴 회전과 골반 보상을 막는다.",
+      "hand_force": "약 20–30° 굴곡에서 원위 하퇴를 안쪽으로 유도해 점진적 varus force를 가하고 반대측과 비교한다.",
+      "common_error": "외측 통증만으로 LCL 파열을 확정하거나 posterolateral corner 전체를 이 검사 하나로 평가하지 않는다."
+    },
+    "ct061": {
+      "clinical_test_id": "ct061",
+      "precision": "custom",
+      "view": "seated",
+      "title": "거위발 촉진 + 저항성 굴곡/내회전 · 전내측 경골 통증 확인",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot_label": "굴곡"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          146,
+          101
+        ],
+        "ankle": [
+          160,
+          150
+        ],
+        "foot_label": "굴곡·내회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 139,
+          "y": 122,
+          "label": "거위발 부착부"
+        },
+        {
+          "x": 158,
+          "y": 149,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 158,
+          "y1": 134,
+          "x2": 164,
+          "y2": 156,
+          "label": "반대 저항"
+        }
+      ],
+      "positive": {
+        "x": 139,
+        "y": 122,
+        "label": "전내측 국소 통증"
+      },
+      "examiner_position": "내측 관절선보다 원위의 전내측 경골에서 거위발 부착부를 촉지하고 다른 손으로 원위 하퇴를 잡는다.",
+      "hand_force": "환자가 무릎 굴곡과 약한 내회전을 시도하면 검사자는 반대 방향으로 가벼운 저항을 준다.",
+      "common_error": "MCL이나 내측 관절선 통증과 위치를 혼동하지 않고 촉진만으로 점액낭염 또는 건병증을 확정하지 않는다."
+    },
+    "ct062": {
+      "clinical_test_id": "ct062",
+      "precision": "custom",
+      "view": "side",
+      "title": "원위 햄스트링 저항성 굴곡 · 내/외측 힘줄 통증과 힘 비교",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot_label": "무릎 굴곡"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          140,
+          116
+        ],
+        "ankle": [
+          130,
+          159
+        ],
+        "foot_label": "굴곡 유지"
+      },
+      "examiner_hands": [
+        {
+          "x": 132,
+          "y": 158,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 132,
+          "y1": 175,
+          "x2": 132,
+          "y2": 150,
+          "label": "신전 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 141,
+        "y": 120,
+        "label": "원위 햄스트링 통증/약화"
+      },
+      "examiner_position": "앉거나 엎드린 자세에서 대퇴를 안정시키고 원위 하퇴를 잡아 굴곡 저항을 일정하게 가한다.",
+      "hand_force": "환자가 무릎 굴곡을 유지하도록 하고 필요 시 경골 내·외회전을 조절해 내측과 외측 힘줄 반응을 비교한다.",
+      "common_error": "근위 햄스트링 통증이나 요추 방사통을 원위 힘줄 통증으로 오인하지 않고 통증 위치를 정확히 기록한다."
+    },
+    "ct063": {
+      "clinical_test_id": "ct063",
+      "precision": "custom",
+      "view": "side",
+      "title": "ITB 외측 대퇴과 부하·촉진 · 반복 굴곡신전에서 외측 통증 확인",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot_label": "굴곡"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          151,
+          99
+        ],
+        "ankle": [
+          192,
+          99
+        ],
+        "foot_label": "반복 굴곡·신전"
+      },
+      "examiner_hands": [
+        {
+          "x": 150,
+          "y": 110,
+          "label": "외측 대퇴과"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 145,
+          "cy": 109,
+          "r": 42,
+          "start_angle": 90,
+          "end_angle": 5,
+          "label": "반복 굴곡·신전"
+        }
+      ],
+      "positive": {
+        "x": 150,
+        "y": 110,
+        "label": "국소 외측 통증"
+      },
+      "examiner_position": "외측 대퇴과와 원위 장경인대 주행을 확인하고 반복 동작 중 통증 부위를 손끝으로 확인한다.",
+      "hand_force": "강한 압박보다 증상 유발 활동 또는 반복 굴곡·신전과 국소 촉진을 조합해 익숙한 통증이 재현되는지 본다.",
+      "common_error": "외측 반월상연골, LCL, 대퇴이두건, 근위 경비관절 통증을 ITB 증후군으로 단정하지 않는다."
+    },
+    "ct064": {
+      "clinical_test_id": "ct064",
+      "precision": "custom",
+      "view": "back",
+      "title": "Foucher sign · 후내측 무릎 낭성 팽륜의 굴곡/신전 긴장도 변화",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          205
+        ],
+        "foot_label": "신전"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          116,
+          160
+        ],
+        "ankle": [
+          95,
+          205
+        ],
+        "foot_label": "굴곡"
+      },
+      "examiner_hands": [
+        {
+          "x": 100,
+          "y": 158,
+          "label": "후내측 팽륜"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 92,
+          "cy": 158,
+          "r": 34,
+          "start_angle": 90,
+          "end_angle": 25,
+          "label": "굴곡 시 연화"
+        }
+      ],
+      "positive": {
+        "x": 99,
+        "y": 158,
+        "label": "신전에서 긴장·굴곡에서 연화"
+      },
+      "examiner_position": "환자 뒤에서 후내측 무릎 팽륜을 관찰하고 필요 시 엎드린 자세에서도 종괴의 경계와 긴장도를 촉진한다.",
+      "hand_force": "외부 스트레스를 주지 않고 무릎 굴곡과 신전에 따라 종괴가 단단해지거나 부드러워지는지 비교한다.",
+      "common_error": "비전형적 종괴나 종아리 부종을 단순 Baker cyst로 보지 말고 혈관성 병변과 DVT 가능성이 있으면 혈관 평가를 우선한다."
     }
   }
 }
