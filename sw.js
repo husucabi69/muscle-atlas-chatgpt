@@ -72,7 +72,8 @@ const CORE=[
   './data/quiz-abdominal-core-v1.json',
   './data/differential-abdominal-core-v1.json',
   './data/media-audit-abdominal-core-v1.json',
-  './data/global-qa-stage11-v1.json'
+  './data/global-qa-stage11-v1.json',
+  './data/board-exam-sources-v1.json'
 ];
 
 async function putIfUsable(cacheName,request,response){
