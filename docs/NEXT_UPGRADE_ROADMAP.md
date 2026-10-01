@@ -502,6 +502,13 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
   - px007~px010 canonical render request는 `data/patient-exercise-render-requests-v1.json`에 준비되어 있다.
   - px009는 “무릎이 발끝보다 앞으로 나가면 안 된다”는 절대금기 문구를 금지한 상태로만 제작·승인한다.
 
+### 표시 품질 checkpoint — 2026-10-01
+- 사용자 PC·앱 실화면 피드백에서 320×400급 mobile-preview WebP가 CSS `width:100%`로 큰 화면에서 과대 확대되어 흐릿하게 보이는 문제가 확인됐다.
+- 실사형 환자교육 이미지는 **원본 픽셀보다 확대하지 않는다(no-upscale)**. 작은 원본은 PC에서도 원본 크기 중심 표시, 화면이 더 작을 때만 축소한다.
+- 향후 고해상도 자산은 데스크톱 화면에서 과도하게 커지지 않도록 720px 표시 상한과 72vh 높이 상한을 둔다.
+- Stage 23B browser E2E에 `renderedWidth <= naturalWidth` 및 desktop 720px cap 회귀검사를 추가한다.
+- 이 수정은 현재 Active Stage 23B의 시각 품질 결함 수정으로 처리하며, px007 binary handoff → px012+ 제작 순서를 바꾸지 않는다.
+
 현재 Stage 19의 운동 그림은 **기능 검증용 개념형 SVG**이며 최종 환자교육 품질로 보지 않는다.
 
 목표:
