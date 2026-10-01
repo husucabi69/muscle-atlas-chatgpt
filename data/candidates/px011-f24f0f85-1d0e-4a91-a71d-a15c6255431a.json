@@ -21,6 +21,18 @@
     "note": "독립 px011 컨텍스트로 재생성. 선 자세, 의자 지지, 뒤꿈치 상승, 발목 정렬, 반동/과도한 무릎 굽힘/발 기울임/몸통 흔들림 오류가 구분됨. 임의 반복횟수·세트·각도 숫자 없음. 급성 파열 상황을 정상 운동으로 제시하지 않음."
   },
   "approval_gate": "CANDIDATE_REVIEW_PASS_BINARY_MATERIALIZATION_REQUIRED",
-  "binary_status": "NOT_YET_MATERIALIZED_TO_REPOSITORY",
-  "next_action": "Materialize exact generated binary as WebP, validate integrity/resolution, ingest through canonical script, then mobile/A4 Preview review. Do not regenerate this candidate merely because binary handoff is pending."
+  "binary_status": "BINARY_HANDOFF_BLOCKED",
+  "binary_recovery": {
+    "checked_on": "2026-10-02",
+    "runtime_file": "/mnt/data/뒤꿈치_들기_운동_가이드.png",
+    "runtime_png_resolution": "1536x1024",
+    "converted_webp_runtime_file": "/mnt/data/px011.webp",
+    "converted_webp_resolution": "1536x1024",
+    "converted_webp_bytes": 191546,
+    "converted_webp_sha256": "1dff1e43f64046ceffb95cca800fdb804b1f491ab0e51ec053c1a708cc947557",
+    "integrity": "PASS_RIFF_WEBP_AND_PIL_REOPEN",
+    "repository_materialization": "BLOCKED_CONNECTOR_CANNOT_UPLOAD_LOCAL_BINARY_FILE_DIRECTLY",
+    "note": "실제 생성 PNG를 런타임에서 회수했고 WebP 변환·무결성 검증까지 완료했다. 그러나 현재 GitHub connector는 로컬 binary 파일을 직접 canonical path로 업로드하는 file parameter를 제공하지 않아 repository materialization은 완료하지 못했다. 이 상태에서는 px012 신규 이미지 생성 금지."
+  },
+  "next_action": "Do not regenerate px011 and do not generate px012 while this blocker remains. In a binary-upload-capable session, materialize the verified px011 WebP to assets/patient-exercise-realistic/px011.webp, then run canonical ingest and mobile/A4 Preview review."
 }
