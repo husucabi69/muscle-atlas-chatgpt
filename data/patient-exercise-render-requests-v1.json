@@ -6,7 +6,7 @@
     {
       "profile_id": "px007",
       "title_ko": "손가락 운동",
-      "status": "REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED",
+      "status": "READY_TO_REGENERATE_AFTER_BINARY_LOSS",
       "output_path": "assets/patient-exercise-realistic/px007.webp",
       "style": {
         "format": "세로형 의료·재활 환자교육 포스터",
@@ -56,8 +56,9 @@
         "data/patient-exercise-illustration-v2.json#px007",
         "data/patient-exercise-realistic-assets-v1.json#px007"
       ],
-      "gen_id": "8c940201-f1c0-4440-832d-83972f8efbb8",
-      "checkpoint_path": "data/patient-exercise-candidates/px007-20261001.json"
+      "lost_gen_id": "8c940201-f1c0-4440-832d-83972f8efbb8",
+      "lost_checkpoint_path": "data/patient-exercise-candidates/px007-20261001.json",
+      "binary_loss_audit": "docs/qa/stage23b-px007-binary-loss-20261001.md"
     },
     {
       "profile_id": "px008",
