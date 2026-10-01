@@ -37,6 +37,17 @@ check('Cervical textbook detail covers core sections',
 check('Differential candidate cards are clickable details',index.includes('class="diagnosis-candidate"')&&index.includes('후보를 눌러 상세설명'));
 check('Focused diagnosis auto-opens detail',index.includes("if('open' in el)el.open=true"));
 
+check('Clinical exam detail has educational illustration renderer',
+  index.includes('function clinicalExamIllustrationHtml(test,moduleKey)')&&
+  index.includes('검사 시행 도해')&&index.includes('교육용 개념도')
+);
+check('Clinical exam detail separates setup, examiner maneuver, positive criteria, interpretation and limitations',
+  ['검사 전 확인','환자 시작 자세','검사자 동작 · 시행 순서','양성 기준','임상 해석','한계 / 흔한 오류'].every(x=>index.includes(x))
+);
+check('Clinical exam detail links target structures and differential concepts',
+  index.includes('related_diagnosis_concept_ids')&&index.includes('연결 감별진단')
+);
+
 check('Official source registry policy exists',sources.policy?.rule?.includes('공식 공개자료만'));
 check('Official 2026 oral scope linked',sources.sources?.some(x=>x.id==='koa_2026_oral_scope'&&x.kind==='official_scope'));
 check('Official 2026 reference bibliography linked',sources.sources?.some(x=>x.id==='koa_2026_reference'&&x.kind==='official_reference'));
