@@ -88,6 +88,8 @@ jobs:
         run: node scripts/list-realistic-binary-handoff-queue-qa.mjs
       - name: Run Stage 23B reviewed binary materialization QA
         run: node scripts/materialize-reviewed-realistic-binary-qa.mjs
+      - name: Run Stage 23B chunk-safe binary handoff QA
+        run: node scripts/materialize-reviewed-realistic-binary-chunks-qa.mjs
       - name: Run Stage 23B binary-loss recovery QA
         run: node scripts/resolve-unrecoverable-realistic-binary-qa.mjs
       - name: Run Stage 23B disease rehabilitation roadmap QA
