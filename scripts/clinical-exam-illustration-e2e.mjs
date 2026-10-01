@@ -9,17 +9,23 @@ const pass=(name,detail='')=>console.log('PASS | '+name+(detail?' | '+detail:'')
 try{
   await page.goto(base,{waitUntil:'networkidle',timeout:30000});
   await page.waitForFunction(()=>
-    clinicalExamIllustrationRegistryData?.coverage?.customized===11 &&
-    shoulderExamModule?.clinical_tests?.length===11,
+    clinicalExamIllustrationRegistryData?.coverage?.customized===21 &&
+    shoulderExamModule?.clinical_tests?.length===11 &&
+    elbowExamModule?.clinical_tests?.length===10,
     {timeout:12000}
   );
 
-  const ids=await page.evaluate(()=>shoulderExamModule.clinical_tests.map(x=>x.clinical_test_id));
-  if(ids.length!==11)fail('shoulder exam ids',String(ids.length));
+  const batches=await page.evaluate(()=>[
+    {moduleKey:'shoulder',ids:shoulderExamModule.clinical_tests.map(x=>x.clinical_test_id)},
+    {moduleKey:'elbow',ids:elbowExamModule.clinical_tests.map(x=>x.clinical_test_id)}
+  ]);
+  if(batches[0].ids.length!==11)fail('shoulder exam ids',String(batches[0].ids.length));
+  if(batches[1].ids.length!==10)fail('elbow exam ids',String(batches[1].ids.length));
 
-  for(const id of ids){
-    const result=await page.evaluate(async testId=>{
-      await openClinicalModule('shoulder',false);
+  for(const batch of batches){
+    for(const id of batch.ids){
+    const result=await page.evaluate(async ({testId,moduleKey})=>{
+      await openClinicalModule(moduleKey,false);
       await openClinicalTopic('exam',false);
       await openClinicalItem(testId,false);
       const host=document.getElementById('clinicalDetailContent');
@@ -35,7 +41,7 @@ try{
         text,
         overflow:(host?.scrollWidth||0)-(host?.clientWidth||0)
       };
-    },id);
+    },{testId:id,moduleKey:batch.moduleKey});
 
     if(!result.custom)fail(id+' custom illustration visible');
     if(result.stable!==id)fail(id+' stable-id binding',result.stable);
@@ -45,10 +51,11 @@ try{
       if(!result.text.includes(label))fail(id+' detail label '+label);
     }
     if(result.overflow>2)fail(id+' mobile horizontal overflow',String(result.overflow));
-    pass('Shoulder custom clinical exam illustration',id);
+    pass((batch.moduleKey==='shoulder'?'Shoulder':'Elbow')+' custom clinical exam illustration',id);
+    }
   }
-  console.log('\n--- SHOULDER EXAM ILLUSTRATION E2E ---');
-  pass('11/11 shoulder tests use Stable-ID custom teaching schematics');
+  console.log('\n--- CLINICAL EXAM ILLUSTRATION E2E ---');
+  pass('21/21 shoulder + elbow tests use Stable-ID custom teaching schematics');
 }finally{
   await browser.close();
 }
