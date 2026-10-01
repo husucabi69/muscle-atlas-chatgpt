@@ -42,8 +42,13 @@ const css=cssStart>=0&&cssEnd>cssStart?index.slice(cssStart,cssEnd):'';
 check('realistic media CSS exists',Boolean(css),String(cssStart));
 check('realistic image uses intrinsic width',/\.exercise-realistic-media img\{[^}]*width:auto/.test(css));
 check('realistic image has responsive viewport cap',css.includes('max-width:calc(100vw - 48px)'));
-check('desktop realistic image has 720px cap',css.includes('@media(min-width:769px){.exercise-realistic-media img{max-width:720px}}'));
+check('mobile-preview image has balanced 400px soft-upscale target',css.includes('.exercise-realistic-media.a4-hd-pending img{width:min(400px,calc(100vw - 48px));max-width:min(400px,calc(100vw - 48px))}'));
+check('high-resolution desktop realistic image has 720px cap',css.includes('@media(min-width:769px){.exercise-realistic-media:not(.a4-hd-pending) img{max-width:720px}}'));
 check('realistic image is not forced to width 100%',!/\.exercise-realistic-media img\{[^}]*width:100%/.test(css));
+check('manifest records 1.25x mobile-preview soft-upscale cap',
+  manifest.asset_policy?.display_fidelity?.mobile_preview_soft_upscale_max_ratio===1.25&&
+  manifest.asset_policy?.display_fidelity?.mobile_preview_target_css_px===400
+);
 check('runtime labels mobile-preview assets honestly',index.includes("a4Pending?'실사형 환자교육 일러스트 · 모바일 미리보기':'실사형 환자교육 일러스트'"));
 check('A4 still hides mobile-preview realistic image',index.includes('body.printing-education .exercise-realistic-media.a4-hd-pending'));
 check('A4 still exposes sharp SVG fallback',index.includes('body.printing-education .exercise-svg-fallback.a4-hd-pending[hidden]{display:block!important}'));
