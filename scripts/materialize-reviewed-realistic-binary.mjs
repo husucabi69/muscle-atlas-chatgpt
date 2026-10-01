@@ -3,6 +3,16 @@ import path from 'node:path';
 import {inspectWebP} from './inspect-realistic-webp.mjs';
 import {checkpointIdentity,registerCandidate} from './register-realistic-candidate.mjs';
 
+function checkpointBinaryReceipt(checkpointPath){
+  if(!checkpointPath||!fs.existsSync(checkpointPath)||path.extname(checkpointPath).toLowerCase()!=='.json')return null;
+  const checkpoint=JSON.parse(fs.readFileSync(checkpointPath,'utf8'));
+  const recovery=checkpoint.binary_recovery||{};
+  const sha256=recovery.converted_webp_sha256||null;
+  const bytes=Number.isInteger(recovery.converted_webp_bytes)?recovery.converted_webp_bytes:null;
+  if(!sha256&&!bytes)return null;
+  return{sha256,bytes,source:'candidate_checkpoint'};
+}
+
 export function planReviewedBinaryMaterialization(manifest,profileId,sourcePath,genId){
   const profile=manifest.profiles?.find(x=>x.profile_id===profileId);
   if(!profile)throw new Error('Unknown profile: '+profileId);
@@ -17,9 +27,24 @@ export function planReviewedBinaryMaterialization(manifest,profileId,sourcePath,
   if(identity.profile_id!==profileId)throw new Error(profileId+' checkpoint profile mismatch: '+String(identity.profile_id));
   if(identity.gen_id!==genId)throw new Error(profileId+' checkpoint gen_id mismatch: '+String(identity.gen_id));
   const sourceInfo=inspectWebP(sourcePath);
-  const receiptSha=profile.binary_receipt?.sha256||null;
-  if(receiptSha&&receiptSha!==sourceInfo.sha256){
+  const manifestReceipt=profile.binary_receipt||null;
+  const checkpointReceipt=checkpointBinaryReceipt(profile.candidate_checkpoint_path);
+  if(manifestReceipt?.sha256&&checkpointReceipt?.sha256&&manifestReceipt.sha256!==checkpointReceipt.sha256){
+    throw new Error(profileId+' manifest/checkpoint binary receipt SHA-256 mismatch');
+  }
+  if(Number.isInteger(manifestReceipt?.bytes)&&Number.isInteger(checkpointReceipt?.bytes)&&manifestReceipt.bytes!==checkpointReceipt.bytes){
+    throw new Error(profileId+' manifest/checkpoint binary receipt byte-size mismatch');
+  }
+  const receipt={
+    sha256:manifestReceipt?.sha256||checkpointReceipt?.sha256||null,
+    bytes:Number.isInteger(manifestReceipt?.bytes)?manifestReceipt.bytes:(checkpointReceipt?.bytes??null),
+    source:manifestReceipt?.sha256||Number.isInteger(manifestReceipt?.bytes)?'manifest':(checkpointReceipt?.source||null)
+  };
+  if(receipt.sha256&&receipt.sha256!==sourceInfo.sha256){
     throw new Error(profileId+' recovered binary SHA-256 does not match recorded receipt');
+  }
+  if(Number.isInteger(receipt.bytes)&&receipt.bytes!==sourceInfo.bytes){
+    throw new Error(profileId+' recovered binary byte-size does not match recorded receipt');
   }
   const canonicalRel='assets/patient-exercise-realistic/'+profileId+'.webp';
   return{
@@ -29,8 +54,11 @@ export function planReviewedBinaryMaterialization(manifest,profileId,sourcePath,
     source_path:sourcePath,
     source_info:sourceInfo,
     canonical_path:canonicalRel,
-    receipt_sha256:receiptSha,
-    receipt_verified:receiptSha?receiptSha===sourceInfo.sha256:null
+    receipt_sha256:receipt.sha256,
+    receipt_bytes:receipt.bytes,
+    receipt_source:receipt.source,
+    receipt_verified:receipt.sha256?receipt.sha256===sourceInfo.sha256:null,
+    receipt_size_verified:Number.isInteger(receipt.bytes)?receipt.bytes===sourceInfo.bytes:null
   };
 }
 
@@ -48,6 +76,7 @@ export function materializeReviewedBinary(manifest,profileId,sourcePath,genId,{g
       fs.copyFileSync(sourcePath,tmp);
       const copiedInfo=inspectWebP(tmp);
       if(copiedInfo.sha256!==plan.source_info.sha256)throw new Error('Copied WebP SHA-256 mismatch');
+      if(copiedInfo.bytes!==plan.source_info.bytes)throw new Error('Copied WebP byte-size mismatch');
       fs.renameSync(tmp,target);
       copied=true;
     }catch(error){
