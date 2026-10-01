@@ -5,6 +5,7 @@ const json=p=>JSON.parse(read(p));
 const registry=json('data/clinical-exam-illustration-presets-v1.json');
 const shoulder=json('data/examination-shoulder-v1.json');
 const elbow=json('data/examination-elbow-v1.json');
+const wristHand=json('data/examination-wrist-hand-v1.json');
 const index=read('index.html');
 const sw=read('sw.js');
 
@@ -16,18 +17,21 @@ const check=(name,pass,detail='')=>{
 
 const shoulderTests=shoulder.clinical_tests||[];
 const elbowTests=elbow.clinical_tests||[];
-const tests=[...shoulderTests,...elbowTests];
+const wristHandTests=wristHand.clinical_tests||[];
+const tests=[...shoulderTests,...elbowTests,...wristHandTests];
 const presets=registry.presets||{};
 const ids=tests.map(x=>x.clinical_test_id);
 const customIds=Object.keys(presets).sort();
 
 check('Shoulder canonical examination count',shoulderTests.length===11,String(shoulderTests.length));
 check('Elbow canonical examination count',elbowTests.length===10,String(elbowTests.length));
-check('Custom illustration registry covers shoulder + elbow',
-  customIds.length===21&&ids.every(id=>presets[id]),customIds.join(', '));
-check('Registry coverage metadata matches 21/148',
-  registry.coverage?.customized===21&&registry.coverage?.total_canonical_tests===148&&
-  Array.isArray(registry.coverage?.modules)&&registry.coverage.modules.includes('shoulder')&&registry.coverage.modules.includes('elbow'),
+check('Wrist-hand canonical examination count',wristHandTests.length===14,String(wristHandTests.length));
+check('Custom illustration registry covers shoulder + elbow + wrist-hand',
+  customIds.length===35&&ids.every(id=>presets[id]),customIds.join(', '));
+check('Registry coverage metadata matches 35/148',
+  registry.coverage?.customized===35&&registry.coverage?.total_canonical_tests===148&&
+  Array.isArray(registry.coverage?.modules)&&
+  ['shoulder','elbow','wrist-hand'].every(x=>registry.coverage.modules.includes(x)),
   JSON.stringify(registry.coverage||{}));
 
 for(const test of tests){
