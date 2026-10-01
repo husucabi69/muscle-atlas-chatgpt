@@ -554,14 +554,16 @@ Stage 24 Production Release는 위 실기기 확인 및 사용자 명시 승인 
   - px009는 “무릎이 발끝보다 앞으로 나가면 안 된다”는 절대금기 문구를 금지한 상태로만 제작·승인한다.
 
 ### 표시 품질 checkpoint — 2026-10-01
-- 사용자 PC·앱 실화면 피드백에서 320×400급 mobile-preview WebP가 CSS `width:100%`로 큰 화면에서 과대 확대되어 흐릿하게 보이는 문제가 확인됐다.
-- 실사형 환자교육 이미지는 **원본 픽셀보다 확대하지 않는다(no-upscale)**. 작은 원본은 PC에서도 원본 크기 중심 표시, 화면이 더 작을 때만 축소한다.
+- 사용자 PC·앱 실화면 피드백에서 320×400급 mobile-preview WebP가 CSS `width:100%`로 큰 화면에서 과대 확대되어 흐릿하게 보이는 문제가 먼저 확인됐다.
+- 이후 원본 320px 고정으로 바꾸었더니 PC에서는 반대로 너무 작다는 사용자 실화면 피드백이 확인됐다.
+- 따라서 최신 정본은 **320×400 mobile-preview → 데스크톱 목표 400 CSS px / 원본 대비 최대 1.25× soft-upscale**로 고정한다. 1.25×를 넘는 확대는 금지한다.
+- 모바일에서는 viewport보다 크면 자동 축소한다.
 - 향후 고해상도 자산은 데스크톱 화면에서 과도하게 커지지 않도록 720px 표시 상한과 72vh 높이 상한을 둔다.
-- Stage 23B browser E2E에 `renderedWidth <= naturalWidth` 및 desktop 720px cap 회귀검사를 추가한다.
+- Stage 23B browser E2E는 저해상도 Preview에서 `renderedWidth <= naturalWidth × 1.25`, desktop 400px cap, 너무 작지 않은 하한을 검사한다.
 - 이 수정은 현재 Active Stage 23B의 시각 품질 결함 수정으로 처리하며, px007 binary handoff → px012+ 제작 순서를 바꾸지 않는다.
 - px001–px006 저장소 WebP를 전수 확인한 결과 모두 **320×400px** 모바일 미리보기 자산이다. A4-HD로 오인하지 않도록 asset gate를 유지한다.
-- UI 배지에 **모바일 미리보기**를 명시하고, 실제 WebP 해상도와 manifest의 `preview_resolution`이 일치하는지 전수 검사하는 `realistic-display-fidelity-qa.mjs`를 Global QA에 추가했다.
-- 표시 품질 Gate가 추가되어 앞으로 저해상도 자산이 원본보다 확대되거나 A4-HD로 잘못 승격되면 CI에서 FAIL한다.
+- UI 배지에 **모바일 미리보기**를 명시하고, 실제 WebP 해상도와 manifest의 `preview_resolution`이 일치하는지 전수 검사하는 `realistic-display-fidelity-qa.mjs`를 Global QA에 유지한다.
+- 저해상도 mobile-preview는 A4 인쇄에 사용하지 않는다. A4-HD 조건을 통과한 별도 고해상도 asset만 인쇄용으로 승격한다.
 
 현재 Stage 19의 운동 그림은 **기능 검증용 개념형 SVG**이며 최종 환자교육 품질로 보지 않는다.
 
