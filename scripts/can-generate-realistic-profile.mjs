@@ -2,7 +2,7 @@ import fs from 'node:fs';
 
 export function canGenerateRealisticProfile(manifest,profileId){
   const ordered=[...manifest.profiles]
-    .filter(p=>p.actionability===true)
+    .filter(p=>/^px\d{3}$/.test(p.profile_id||''))
     .sort((a,b)=>a.profile_id.localeCompare(b.profile_id));
   const index=ordered.findIndex(p=>p.profile_id===profileId);
   if(index<0)return{allowed:false,reason:'UNKNOWN_PROFILE'};
