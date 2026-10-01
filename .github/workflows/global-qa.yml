@@ -58,6 +58,8 @@ jobs:
         run: node scripts/patient-exercise-illustration-3-qa.mjs
       - name: Run specialist case quiz and differential detail QA
         run: node scripts/specialist-quiz-differential-detail-qa.mjs
+      - name: Run clinical exam illustration QA
+        run: node scripts/clinical-exam-illustration-qa.mjs
       - name: Run Stage 23B realistic exercise asset pipeline QA
         run: node scripts/patient-exercise-realistic-assets-qa.mjs
       - name: Run Stage 23B realistic WebP binary integrity QA
@@ -119,5 +121,7 @@ jobs:
           exit 1
       - name: Run anatomy click-through runtime E2E
         run: node scripts/runtime-navigation-e2e.mjs
+      - name: Run shoulder clinical exam illustration runtime E2E
+        run: node scripts/clinical-exam-illustration-e2e.mjs
       - name: Run Stage 23B patient exercise illustration runtime E2E
         run: node scripts/patient-exercise-illustration-3-e2e.mjs
