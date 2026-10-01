@@ -3,15 +3,16 @@
   "updated_at": "2026-10-01",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 35,
+    "customized": 49,
     "total_canonical_tests": 148,
     "modules": [
       "shoulder",
       "elbow",
-      "wrist-hand"
+      "wrist-hand",
+      "hip-pelvis"
     ],
-    "status": "BATCH_3_COMPLETE",
-    "next_module": "hip-pelvis"
+    "status": "BATCH_4_COMPLETE",
+    "next_module": "knee-thigh"
   },
   "presets": {
     "ct001": {
@@ -2191,6 +2192,898 @@
       "examiner_position": "엄지로 주상골 결절을 촉지해 압박하고 다른 손으로 중수골을 잡아 손목 움직임을 유도한다.",
       "hand_force": "주상골 압박을 유지하면서 손목을 척측편위·약간 신전에서 요측편위·굴곡으로 이동시킨다.",
       "common_error": "무통성 click이나 정상 laxity를 병적 clunk로 과해석하지 말고 반대측과 비교한다."
+    },
+    "ct036": {
+      "clinical_test_id": "ct036",
+      "precision": "custom",
+      "view": "side",
+      "title": "대전자 촉진 · 대전자 외측/후외측 facet 순차 압박",
+      "start": {
+        "body": "side-lying",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          151,
+          121
+        ],
+        "ankle": [
+          185,
+          143
+        ],
+        "foot_label": "측와위"
+      },
+      "action": {
+        "body": "side-lying",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          151,
+          121
+        ],
+        "ankle": [
+          185,
+          143
+        ],
+        "foot_label": "촉진"
+      },
+      "examiner_hands": [
+        {
+          "x": 106,
+          "y": 106,
+          "label": "대전자/건 부착부"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 106,
+          "y1": 78,
+          "x2": 106,
+          "y2": 103,
+          "label": "국소 압박"
+        }
+      ],
+      "positive": {
+        "x": 106,
+        "y": 107,
+        "label": "익숙한 외측 통증"
+      },
+      "examiner_position": "측와위에서 대전자 윤곽을 찾고 외측·후외측 facet을 손끝으로 순차 촉진한다.",
+      "hand_force": "넓게 누르지 말고 해부학적 부착부를 단계적으로 압박하며 통증 위치를 확인한다.",
+      "common_error": "압통만으로 점액낭염과 둔근건병증을 구분하지 않고, 저항성 외전 등 다른 유발검사와 함께 해석한다."
+    },
+    "ct037": {
+      "clinical_test_id": "ct037",
+      "precision": "custom",
+      "view": "side",
+      "title": "저항성 고관절 외전 · 측와위 외전 유지에 하방 저항",
+      "start": {
+        "body": "side-lying",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          151,
+          121
+        ],
+        "ankle": [
+          186,
+          143
+        ],
+        "foot_label": "중립"
+      },
+      "action": {
+        "body": "side-lying",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          151,
+          88
+        ],
+        "ankle": [
+          188,
+          78
+        ],
+        "foot_label": "외전"
+      },
+      "examiner_hands": [
+        {
+          "x": 183,
+          "y": 80,
+          "label": "원위 대퇴/발목"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 183,
+          "y1": 57,
+          "x2": 183,
+          "y2": 94,
+          "label": "내전 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 106,
+        "y": 107,
+        "label": "대전자 통증/약화"
+      },
+      "examiner_position": "검사측이 위로 가는 측와위에서 골반을 안정시키고 원위 대퇴 또는 발목에 저항을 준다.",
+      "hand_force": "환자가 고관절 외전을 유지하는 동안 검사자는 내전 방향으로 점진적 저항을 건다.",
+      "common_error": "골반 hiking이나 몸통 측굴로 보상하지 않게 하고, 통증성 억제와 실제 외전근 약화를 구분한다."
+    },
+    "ct038": {
+      "clinical_test_id": "ct038",
+      "precision": "custom",
+      "view": "front",
+      "title": "30초 한발서기 · 증상측 지지에서 골반/외측 통증 관찰",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          205
+        ],
+        "foot_label": "지지측"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          205
+        ],
+        "foot_label": "30초 유지"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 122,
+          "y1": 164,
+          "x2": 143,
+          "y2": 142,
+          "label": "반대다리 들기"
+        }
+      ],
+      "positive": {
+        "x": 92,
+        "y": 110,
+        "label": "대전자 통증"
+      },
+      "examiner_position": "낙상 위험이 없도록 가까이 서서 필요하면 고정 지지물을 사용할 수 있게 한다.",
+      "hand_force": "외부 저항은 주지 않고 증상측 한발서기를 최대 30초 유지하게 한다.",
+      "common_error": "균형장애로 중단된 경우를 통증 양성과 혼동하지 않고, 통증 재현과 수행 실패 이유를 분리 기록한다."
+    },
+    "ct039": {
+      "clinical_test_id": "ct039",
+      "precision": "custom",
+      "view": "side",
+      "title": "저항성 외회전 되돌림 · 외회전 위치에서 중립 복귀에 저항",
+      "start": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          144,
+          79
+        ],
+        "ankle": [
+          180,
+          97
+        ],
+        "foot_label": "굴곡·외회전"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          151,
+          91
+        ],
+        "ankle": [
+          184,
+          111
+        ],
+        "foot_label": "중립 복귀"
+      },
+      "examiner_hands": [
+        {
+          "x": 180,
+          "y": 107,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 147,
+          "cy": 101,
+          "r": 35,
+          "start_angle": -75,
+          "end_angle": 5,
+          "label": "중립 복귀 저항"
+        }
+      ],
+      "positive": {
+        "x": 106,
+        "y": 107,
+        "label": "외측 고관절 통증"
+      },
+      "examiner_position": "앙와위에서 고관절·무릎을 지지해 외회전 위치를 만들고 원위 하퇴를 잡는다.",
+      "hand_force": "환자가 중립으로 돌아오려는 힘에 반대 저항을 주어 외측 둔근건 부하를 만든다.",
+      "common_error": "요추·골반 회전으로 동작을 대신하지 않게 하고, 서혜부 통증과 외측 대전자 통증을 구분한다."
+    },
+    "ct040": {
+      "clinical_test_id": "ct040",
+      "precision": "custom",
+      "view": "front",
+      "title": "Trendelenburg · 한발서기 중 반대측 골반 하강/몸통 보상 관찰",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          205
+        ],
+        "foot_label": "지지측"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          205
+        ],
+        "foot_label": "한발 유지"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 122,
+          "y1": 110,
+          "x2": 143,
+          "y2": 121,
+          "label": "반대 골반 하강"
+        }
+      ],
+      "positive": {
+        "x": 92,
+        "y": 110,
+        "label": "골반 하강/몸통 보상"
+      },
+      "examiner_position": "환자 뒤 또는 앞에서 양측 장골능 높이와 몸통 보상을 동시에 관찰한다.",
+      "hand_force": "외부 저항 없이 반대쪽 발을 들어 한발서기를 유지하게 한다.",
+      "common_error": "통증 회피, 균형 문제, 신경학적 약화와 둔근건 파열을 Trendelenburg 하나로 구분하지 않는다."
+    },
+    "ct041": {
+      "clinical_test_id": "ct041",
+      "precision": "custom",
+      "view": "side",
+      "title": "저항성 내회전 · 둔근건 부하 위치에서 내회전 유지에 반대 저항",
+      "start": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          151,
+          88
+        ],
+        "ankle": [
+          177,
+          120
+        ],
+        "foot_label": "굴곡/외전"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          151,
+          88
+        ],
+        "ankle": [
+          165,
+          128
+        ],
+        "foot_label": "내회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 166,
+          "y": 126,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 150,
+          "cy": 91,
+          "r": 35,
+          "start_angle": 45,
+          "end_angle": 105,
+          "label": "내회전 저항"
+        }
+      ],
+      "positive": {
+        "x": 106,
+        "y": 107,
+        "label": "외측 통증/약화"
+      },
+      "examiner_position": "앙와위에서 고관절을 검사 정의에 맞는 굴곡·외전 위치에 두고 원위 하퇴를 잡는다.",
+      "hand_force": "환자가 내회전을 유지하도록 하고 검사자는 반대 방향으로 저항한다.",
+      "common_error": "검사 위치가 달라지면 부하 구조가 바뀌므로 매번 같은 자세를 유지하고 단일 연구 결과를 과도하게 일반화하지 않는다."
+    },
+    "ct042": {
+      "clinical_test_id": "ct042",
+      "precision": "custom",
+      "view": "side",
+      "title": "FADIR · 고관절 굴곡 후 내전 + 내회전",
+      "start": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          145,
+          72
+        ],
+        "ankle": [
+          171,
+          95
+        ],
+        "foot_label": "굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          139,
+          80
+        ],
+        "ankle": [
+          160,
+          115
+        ],
+        "foot_label": "내전·내회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 142,
+          "y": 79,
+          "label": "무릎"
+        },
+        {
+          "x": 160,
+          "y": 113,
+          "label": "발목"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 145,
+          "y1": 78,
+          "x2": 128,
+          "y2": 86,
+          "label": "내전"
+        },
+        {
+          "kind": "arc",
+          "cx": 158,
+          "cy": 108,
+          "r": 18,
+          "start_angle": -40,
+          "end_angle": 75,
+          "label": "내회전"
+        }
+      ],
+      "positive": {
+        "x": 108,
+        "y": 106,
+        "label": "서혜부/전방 통증"
+      },
+      "examiner_position": "앙와위에서 무릎과 발목을 지지해 고관절을 굴곡시킨다.",
+      "hand_force": "굴곡된 고관절을 내전시키며 하퇴를 움직여 내회전을 추가한다.",
+      "common_error": "끝범위를 세게 밀어 통증을 만들지 말고, 양성 하나로 FAI나 labral tear를 확정하지 않는다."
+    },
+    "ct043": {
+      "clinical_test_id": "ct043",
+      "precision": "custom",
+      "view": "side",
+      "title": "FABER / Patrick · Figure-4 자세에서 골반 안정 + 무릎 하강",
+      "start": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          144,
+          82
+        ],
+        "ankle": [
+          118,
+          103
+        ],
+        "foot_label": "반대 무릎 위"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          154,
+          97
+        ],
+        "ankle": [
+          118,
+          103
+        ],
+        "foot_label": "FABER"
+      },
+      "examiner_hands": [
+        {
+          "x": 101,
+          "y": 106,
+          "label": "반대 ASIS 고정"
+        },
+        {
+          "x": 153,
+          "y": 95,
+          "label": "검사측 무릎"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 153,
+          "y1": 72,
+          "x2": 153,
+          "y2": 100,
+          "label": "부드러운 하강"
+        }
+      ],
+      "positive": {
+        "x": 108,
+        "y": 106,
+        "label": "통증 위치 기록"
+      },
+      "examiner_position": "한 손은 반대쪽 ASIS를 안정화하고 다른 손은 검사측 무릎 안쪽에 위치시킨다.",
+      "hand_force": "Figure-4를 만든 뒤 골반이 돌아가지 않게 고정하면서 무릎을 부드럽게 아래로 내린다.",
+      "common_error": "서혜부·외측·후방 통증 위치를 구분하지 않고 단순 양성/음성으로만 기록하지 않는다."
+    },
+    "ct044": {
+      "clinical_test_id": "ct044",
+      "precision": "custom",
+      "view": "side",
+      "title": "Stinchfield · 무릎 편 30° 하지직거상에 하방 저항",
+      "start": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          154,
+          103
+        ],
+        "ankle": [
+          196,
+          97
+        ],
+        "foot_label": "약 30° 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          154,
+          103
+        ],
+        "ankle": [
+          196,
+          97
+        ],
+        "foot_label": "SLR 유지"
+      },
+      "examiner_hands": [
+        {
+          "x": 176,
+          "y": 100,
+          "label": "원위 대퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 176,
+          "y1": 75,
+          "x2": 176,
+          "y2": 108,
+          "label": "하방 저항"
+        }
+      ],
+      "positive": {
+        "x": 108,
+        "y": 106,
+        "label": "서혜부/전방 통증·약화"
+      },
+      "examiner_position": "앙와위에서 무릎을 편 채 다리를 약 30° 들어 올리게 하고 원위 대퇴에 손을 둔다.",
+      "hand_force": "환자가 하지직거상을 유지하는 동안 검사자는 아래 방향으로 점진적 저항을 준다.",
+      "common_error": "요근·대퇴직근 통증, 관절내 통증, 통증성 억제를 구분하지 않고 하나의 구조 병변으로 확정하지 않는다."
+    },
+    "ct045": {
+      "clinical_test_id": "ct045",
+      "precision": "custom",
+      "view": "side",
+      "title": "좌위 저항성 고관절 굴곡 · 90° 굴곡에서 대퇴 하방 저항",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot_label": "90° 좌위"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          145,
+          91
+        ],
+        "ankle": [
+          145,
+          150
+        ],
+        "foot_label": "대퇴 들기"
+      },
+      "examiner_hands": [
+        {
+          "x": 126,
+          "y": 96,
+          "label": "원위 대퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 126,
+          "y1": 73,
+          "x2": 126,
+          "y2": 104,
+          "label": "하방 저항"
+        }
+      ],
+      "positive": {
+        "x": 98,
+        "y": 108,
+        "label": "서혜부 통증"
+      },
+      "examiner_position": "환자 앞에서 골반/몸통을 안정시키고 검사측 원위 대퇴에 손을 둔다.",
+      "hand_force": "환자가 대퇴를 들어 고관절 굴곡을 유지하려 하면 검사자는 아래 방향으로 저항한다.",
+      "common_error": "몸통 후방 기울임과 반대측 보상을 허용하지 않고, iliopsoas 단독 확진검사로 사용하지 않는다."
+    },
+    "ct046": {
+      "clinical_test_id": "ct046",
+      "precision": "custom",
+      "view": "side",
+      "title": "Active Piriformis · 측와위 굴곡 자세에서 외전·외회전에 저항",
+      "start": {
+        "body": "side-lying",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          146,
+          92
+        ],
+        "ankle": [
+          177,
+          119
+        ],
+        "foot_label": "굴곡"
+      },
+      "action": {
+        "body": "side-lying",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          155,
+          83
+        ],
+        "ankle": [
+          184,
+          105
+        ],
+        "foot_label": "외전·외회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 179,
+          "y": 104,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 178,
+          "y1": 82,
+          "x2": 178,
+          "y2": 111,
+          "label": "내전/내회전 저항"
+        }
+      ],
+      "positive": {
+        "x": 112,
+        "y": 108,
+        "label": "심부 둔부/좌골신경 증상"
+      },
+      "examiner_position": "검사측이 위로 가는 측와위에서 골반을 안정시키고 무릎/하퇴를 지지한다.",
+      "hand_force": "환자가 외전·외회전 방향으로 힘을 내게 하고 검사자는 반대 방향으로 저항한다.",
+      "common_error": "외측 대전자 통증과 심부 둔부/좌골신경성 증상을 같은 양성으로 묶지 않는다."
+    },
+    "ct047": {
+      "clinical_test_id": "ct047",
+      "precision": "custom",
+      "view": "side",
+      "title": "좌위 Piriformis stretch · 굴곡·내전·내회전으로 심부 둔부 구조 신장",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot_label": "좌위"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          132,
+          95
+        ],
+        "ankle": [
+          160,
+          132
+        ],
+        "foot_label": "내전·내회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 132,
+          "y": 96,
+          "label": "무릎"
+        },
+        {
+          "x": 158,
+          "y": 131,
+          "label": "발목"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 142,
+          "y1": 95,
+          "x2": 126,
+          "y2": 95,
+          "label": "내전"
+        },
+        {
+          "kind": "arc",
+          "cx": 155,
+          "cy": 127,
+          "r": 18,
+          "start_angle": -40,
+          "end_angle": 80,
+          "label": "내회전"
+        }
+      ],
+      "positive": {
+        "x": 112,
+        "y": 109,
+        "label": "심부 둔부/좌골신경 증상"
+      },
+      "examiner_position": "좌위에서 무릎과 발목을 지지하고 골반이 돌아가지 않게 관찰한다.",
+      "hand_force": "고관절 굴곡을 유지하며 무릎을 안쪽으로 유도하고 하퇴를 조절해 내회전을 만든다.",
+      "common_error": "요추 굴곡이나 골반 회전으로 신장 느낌을 대신 만들지 않으며 piriformis 자체가 원인이라고 단정하지 않는다."
+    },
+    "ct048": {
+      "clinical_test_id": "ct048",
+      "precision": "custom",
+      "view": "side",
+      "title": "Puranen-Orava · 발뒤꿈치 지지대 + 무릎 신전 상태에서 전방 굴곡",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          141,
+          103
+        ],
+        "ankle": [
+          190,
+          95
+        ],
+        "foot_label": "발뒤꿈치 지지"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          141,
+          103
+        ],
+        "ankle": [
+          190,
+          95
+        ],
+        "foot_label": "무릎 편 상태"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 80,
+          "y1": 56,
+          "x2": 104,
+          "y2": 82,
+          "label": "몸통 전방 굴곡"
+        }
+      ],
+      "positive": {
+        "x": 94,
+        "y": 112,
+        "label": "좌골결절 통증"
+      },
+      "examiner_position": "환자가 균형을 잃지 않도록 옆에서 관찰하고 낮은 지지대 높이를 선택한다.",
+      "hand_force": "외부 저항 없이 무릎을 편 채 고관절에서 몸통을 전방으로 굴곡해 햄스트링 기시부를 신장한다.",
+      "common_error": "요추만 굽히거나 무릎이 굽혀지지 않게 하고, 급성 견열이 의심되면 강한 도발을 피한다."
+    },
+    "ct049": {
+      "clinical_test_id": "ct049",
+      "precision": "custom",
+      "view": "side",
+      "title": "Modified Bent-knee Stretch · 고관절 굴곡 유지 후 무릎 비교적 빠른 신전",
+      "start": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          142,
+          70
+        ],
+        "ankle": [
+          165,
+          97
+        ],
+        "foot_label": "고관절/무릎 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          156,
+          72
+        ],
+        "ankle": [
+          199,
+          70
+        ],
+        "foot_label": "무릎 신전"
+      },
+      "examiner_hands": [
+        {
+          "x": 145,
+          "y": 72,
+          "label": "대퇴 지지"
+        },
+        {
+          "x": 194,
+          "y": 72,
+          "label": "하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 166,
+          "y1": 90,
+          "x2": 198,
+          "y2": 70,
+          "label": "비교적 빠른 신전"
+        }
+      ],
+      "positive": {
+        "x": 98,
+        "y": 111,
+        "label": "좌골결절 통증"
+      },
+      "examiner_position": "앙와위에서 한 손으로 대퇴를 충분히 굴곡된 상태로 지지하고 다른 손은 원위 하퇴를 잡는다.",
+      "hand_force": "고관절 굴곡을 유지하면서 무릎을 비교적 빠르게 펴 근위 햄스트링을 신장한다.",
+      "common_error": "급성 손상/견열 의심 환자에서 강하게 반복하지 말고, 익숙한 기시부 통증 재현 여부만 확인한다."
     }
   }
 }
