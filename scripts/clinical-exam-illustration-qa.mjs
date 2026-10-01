@@ -6,6 +6,7 @@ const registry=json('data/clinical-exam-illustration-presets-v1.json');
 const shoulder=json('data/examination-shoulder-v1.json');
 const elbow=json('data/examination-elbow-v1.json');
 const wristHand=json('data/examination-wrist-hand-v1.json');
+const hipPelvis=json('data/examination-hip-pelvis-v1.json');
 const index=read('index.html');
 const sw=read('sw.js');
 
@@ -18,7 +19,8 @@ const check=(name,pass,detail='')=>{
 const shoulderTests=shoulder.clinical_tests||[];
 const elbowTests=elbow.clinical_tests||[];
 const wristHandTests=wristHand.clinical_tests||[];
-const tests=[...shoulderTests,...elbowTests,...wristHandTests];
+const hipPelvisTests=hipPelvis.clinical_tests||[];
+const tests=[...shoulderTests,...elbowTests,...wristHandTests,...hipPelvisTests];
 const presets=registry.presets||{};
 const ids=tests.map(x=>x.clinical_test_id);
 const customIds=Object.keys(presets).sort();
@@ -26,21 +28,24 @@ const customIds=Object.keys(presets).sort();
 check('Shoulder canonical examination count',shoulderTests.length===11,String(shoulderTests.length));
 check('Elbow canonical examination count',elbowTests.length===10,String(elbowTests.length));
 check('Wrist-hand canonical examination count',wristHandTests.length===14,String(wristHandTests.length));
-check('Custom illustration registry covers shoulder + elbow + wrist-hand',
-  customIds.length===35&&ids.every(id=>presets[id]),customIds.join(', '));
-check('Registry coverage metadata matches 35/148',
-  registry.coverage?.customized===35&&registry.coverage?.total_canonical_tests===148&&
+check('Hip-pelvis canonical examination count',hipPelvisTests.length===14,String(hipPelvisTests.length));
+check('Custom illustration registry covers shoulder + elbow + wrist-hand + hip-pelvis',
+  customIds.length===49&&ids.every(id=>presets[id]),customIds.join(', '));
+check('Registry coverage metadata matches 49/148',
+  registry.coverage?.customized===49&&registry.coverage?.total_canonical_tests===148&&
   Array.isArray(registry.coverage?.modules)&&
-  ['shoulder','elbow','wrist-hand'].every(x=>registry.coverage.modules.includes(x)),
+  ['shoulder','elbow','wrist-hand','hip-pelvis'].every(x=>registry.coverage.modules.includes(x)),
   JSON.stringify(registry.coverage||{}));
 
 for(const test of tests){
   const p=presets[test.clinical_test_id];
   check(test.clinical_test_id+' custom precision',p?.precision==='custom',p?.precision||'missing');
   check(test.clinical_test_id+' stable id matches',p?.clinical_test_id===test.clinical_test_id,p?.clinical_test_id||'missing');
-  check(test.clinical_test_id+' start/action pose',
-    Array.isArray(p?.start?.shoulder)&&Array.isArray(p?.start?.elbow)&&Array.isArray(p?.start?.wrist)&&
-    Array.isArray(p?.action?.shoulder)&&Array.isArray(p?.action?.elbow)&&Array.isArray(p?.action?.wrist));
+  const upperPose=Array.isArray(p?.start?.shoulder)&&Array.isArray(p?.start?.elbow)&&Array.isArray(p?.start?.wrist)&&
+    Array.isArray(p?.action?.shoulder)&&Array.isArray(p?.action?.elbow)&&Array.isArray(p?.action?.wrist);
+  const lowerPose=Array.isArray(p?.start?.hip)&&Array.isArray(p?.start?.knee)&&Array.isArray(p?.start?.ankle)&&
+    Array.isArray(p?.action?.hip)&&Array.isArray(p?.action?.knee)&&Array.isArray(p?.action?.ankle);
+  check(test.clinical_test_id+' start/action pose',upperPose||lowerPose);
   check(test.clinical_test_id+' examiner teaching text',
     String(p?.examiner_position||'').length>=20&&String(p?.hand_force||'').length>=20&&String(p?.common_error||'').length>=20);
   check(test.clinical_test_id+' positive marker',
