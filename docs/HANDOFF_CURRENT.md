@@ -1,3 +1,13 @@
+## 2026-10-01 manual checkpoint — px007 source recovered
+
+- px007 exact reviewed source image was recovered from the user's personal Library as `손가락 벌림 운동 안내 포스터.png` (1536×1024).
+- Visual re-check: fingers together → finger spread, wrist neutral/forearm supported, fist closure/wrist bend/unsupported hand shown only as errors; no invented dose numbers.
+- A mobile portrait derivative was created from that exact source without changing the clinical motion: `px007-mobile.webp` (520×942) and preserved in personal Library folder `/MuscleAtlasRecovery/`.
+- Direct large-base64 GitHub transfer truncated once. The bad repository file was immediately deleted before any manifest/runtime connection; patient screen remained unchanged.
+- Do not regenerate px007. Next exact task is safe binary transfer of the preserved `px007-mobile.webp` using chunked/staged transfer or another byte-safe path, then repository re-open/visual check → three-part review confirmation → ingest.
+- px008–px011 remain blocked behind px007 binary handoff. No further image generation until px007 is materialized.
+- A4 runtime E2E was expanded to check all 18 actionable profiles; approved mobile-only assets must hide in print and safe SVG fallback must remain visible until A4-HD is available.
+
 ## 2026-10-01 morning manual checkpoint — binary handoff safety
 
 - px001–px006 remain approved mobile Preview realistic assets.
