@@ -39,6 +39,24 @@ check('new worker receives SKIP_WAITING',updateCode.includes("postMessage({type:
 check('reload uses one-shot session guard',updateCode.includes("sessionStorage.getItem(reloadKey)!==APP_RELEASE.buildVersion")&&updateCode.includes('window.location.reload()'));
 check('update engine never clears local learning storage',!updateCode.includes('localStorage.clear')&&!sw.includes('localStorage'));
 check('manual update button exists',index.includes('id="appUpdateButton"')&&updateCode.includes("addEventListener('click',()=>checkForAppUpdate(true))"));
+check('stable preview origin is canonical for development installs',
+  index.includes("APP_CANONICAL_PREVIEW_ORIGIN='https://preview-development.muscle-atlas-chatgpt.pages.dev'")
+);
+check('immutable Cloudflare deployment host is detected',
+  index.includes('function isImmutableCloudflareDeploymentHost()')&&index.includes('muscle-atlas-chatgpt\\.pages\\.dev')
+);
+check('immutable deployment never claims latest update state',
+  updateCode.includes('if(isImmutableCloudflareDeploymentHost())')&&updateCode.includes('setStablePreviewMigrationUI()')
+);
+check('immutable deployment blocks service-worker update registration',
+  updateCode.includes('setStablePreviewMigrationUI();')&&updateCode.includes('if(isImmutableCloudflareDeploymentHost())return;')
+);
+check('stable preview migration action exists',
+  index.includes('id="appOpenStablePreviewButton"')&&index.includes('function openCanonicalPreview()')
+);
+check('install prompt is blocked on immutable deployment URLs',
+  index.includes('if(!applyInstallOriginPolicy()){deferredInstallPrompt=null;return;}')
+);
 check('visible current-version label exists',index.includes('id="appVersionLabel"')&&index.includes("appVersionLabel.textContent=APP_RELEASE.displayVersion"));
 check('offline status preserves stable app',updateCode.includes("오프라인입니다. 저장된 앱으로 계속 사용할 수 있습니다."));
 check('online recovery triggers update check',updateCode.includes("window.addEventListener('online',()=>checkForAppUpdate(false))"));
