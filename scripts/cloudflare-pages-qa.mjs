@@ -49,6 +49,12 @@ check('Cloudflare root scope resolution works',
   new URL(manifest.scope,cfManifest).href==='https://preview-example.muscle-atlas-chatgpt.pages.dev/',
   new URL(manifest.scope,cfManifest).href);
 
+check('Development install channel uses stable Cloudflare branch alias',
+  html.includes("APP_CANONICAL_PREVIEW_ORIGIN='https://preview-development.muscle-atlas-chatgpt.pages.dev'"));
+check('Commit-hash preview origins are treated as immutable visual-QA deployments',
+  html.includes('function isImmutableCloudflareDeploymentHost()')&&
+  html.includes('Cloudflare의 배포번호 주소에서 설치하면 그 버전에 고정되어 자동 업데이트가 되지 않습니다.'));
+
 for(const path of ['/sw.js','/app-version.js','/manifest.webmanifest']){
   check(`Cloudflare no-cache header present for ${path}`,
     headers.includes(path) && headers.slice(headers.indexOf(path),headers.indexOf(path)+180).includes('Cache-Control: no-cache, no-store, must-revalidate'));
