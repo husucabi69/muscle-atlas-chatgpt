@@ -163,7 +163,9 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 - **2026-10-01 Batch 3 완료:** 손목·손 canonical 14개(ct022–ct035)를 Stable ID 맞춤 도해로 추가했다. True Finkelstein/WHAT, Phalen/손목터널 Tinel/Durkan, Guyon관 Tinel/Froment/Wartenberg, 척측 fovea/DRUJ ballottement/ECU synergy, Thumb CMC grind/pressure-shear, Watson scaphoid shift를 각각 분리했다.
 - **2026-10-01 Batch 4 완료:** 고관절·골반 canonical 14개(ct036–ct049)를 Stable ID 맞춤 도해로 추가했다. 대전자 촉진/저항성 외전/30초 한발서기/Trendelenburg, 저항성 외회전 되돌림·내회전, FADIR/FABER/Stinchfield/좌위 저항성 굴곡, Active·seated piriformis, Puranen-Orava, modified bent-knee stretch를 각각 분리했다.
 - 고관절·골반부터 하지를 제대로 표현하기 위해 검사 도해 renderer에 **hip–knee–ankle 하위사지 pose schema**와 기립/앙와위/측와위/좌위 body mode를 추가했다. 상지 preset과 동일 renderer 안에서 Stable ID별로 분기하며 기존 어깨·팔꿈치·손목 도해는 보존한다.
-- 현재 custom coverage는 **49/148**이며 다음 Batch는 **무릎·대퇴 canonical tests**다. 기존 공통 도해는 해당 검사별 preset이 생길 때까지만 fallback으로 유지한다.
+- **2026-10-02 Batch 5 완료:** 무릎·대퇴 canonical 15개(ct050–ct064)를 Stable ID 맞춤 도해로 추가했다. 스쿼트/스텝다운 patellofemoral 부하, patellar tilt·mobility/apprehension, SLR-extensor lag, 저항성 신전, 슬개건·대퇴사두건 촉진, 0°/30° valgus·30° varus stress, 거위발, 원위 햄스트링, ITB 외측 대퇴과, Foucher sign을 각각 분리했다.
+- 무릎 stress test에서는 외반/내반 힘 방향과 검사자 손 위치를 표시하고, 급성 통증에서 과도한 provocation을 피하도록 common-error safety를 유지한다.
+- 현재 custom coverage는 **64/148**이며 다음 Batch는 **하퇴·발목·발 canonical tests**다. 기존 공통 도해는 해당 검사별 preset이 생길 때까지만 fallback으로 유지한다.
 - **148개 canonical clinical test 전부**를 단순 한두 줄 설명으로 끝내지 않는다.
 - 각 검사는 목적, 환자 시작자세, 검사자 위치·손 위치/힘 방향, 시행 순서, 양성 기준, 해석, 한계·거짓양성/흔한 오류, 연결 구조, 연결 감별진단을 제공한다.
 - 각 검사 상세에는 **시작자세 → 시행 → 양성 판단**을 이해할 수 있는 교육용 일러스트를 제공한다.
@@ -198,7 +200,7 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 | UPD-001 | 앱 실행/재개/포커스 시 자동 업데이트 확인 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | UPD-002 | 홈 최상단에서 아래로 당겨 업데이트 확인/재로드 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | UPD-003 | Cloudflare commit-hash Preview 설치 시 영구 고정되는 문제 방지: 설치 차단 + 안정 branch alias 이동 + 실기기 update E2E | Release blocker | Stage 15 + Cloudflare Preview | **PATCHED / Stage 23C USER E2E REQUIRED** |
-| EXAM-001 | 148개 진찰검사 전부 교과서급 상세 설명 + 시작/시행/양성 일러스트 + 구조·감별 연결 | Release blocker | A5 clinical stable IDs | **IN PROGRESS · shoulder 11/11 + elbow 10/10 + wrist-hand 14/14 + hip-pelvis 14/14 custom · 49/148 total / next knee-thigh** |
+| EXAM-001 | 148개 진찰검사 전부 교과서급 상세 설명 + 시작/시행/양성 일러스트 + 구조·감별 연결 | Release blocker | A5 clinical stable IDs | **IN PROGRESS · shoulder 11/11 + elbow 10/10 + wrist-hand 14/14 + hip-pelvis 14/14 + knee-thigh 15/15 custom · 64/148 total / next leg-ankle-foot** |
 | DIFF-001 | 10개 임상영역 감별후보 전부 클릭형 교과서급 상세 설명 | Release blocker | A5 differential stable IDs | **IN PROGRESS · cervical 12 COMPLETE / 9 regions pending** |
 | QUIZ-BOARD-001 | 전문의 수준 임상 Case 자동출제: 쉬운 O/I/F/N 제외, 가까운 감별 distractor, 20/40/80/120 세션 | High | 10 clinical differential modules | **IMPLEMENTED BASELINE / CONTENT EXPANSION ONGOING** |
 | QUIZ-BOARD-002 | 실제 전문의 기출은 공식 공개원문만 연결하고 공식 범위·참고문헌 registry 유지 | High | source/license audit | **IMPLEMENTED POLICY / ONGOING SOURCE CHECK** |
