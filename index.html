@@ -127,7 +127,8 @@ button,input{font:inherit} button{cursor:pointer}
 .oral-coach.good{border-color:#7bc7b7;background:#f3fffc}.oral-coach.partial{border-color:#e6c66a;background:#fffdf2}.oral-coach.bad{border-color:#efaaa5;background:#fff7f6}
 .board-exam-panel{border:1px solid #9fb7d8;border-radius:16px;background:#f7faff;padding:16px;margin:14px 0}.board-exam-panel h4{margin:0 0 7px;font-size:19px}.board-exam-grid{display:grid;grid-template-columns:minmax(150px,.5fr) auto;gap:10px;align-items:end;margin-top:12px}.board-exam-grid select{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:#fff}.board-source-list{display:grid;gap:6px;margin-top:10px}.board-source-list a{font-size:13px;line-height:1.45}.board-source-note{font-size:12px;color:var(--muted);line-height:1.55;margin-top:8px}
 .diagnosis-candidate{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.diagnosis-candidate>summary{list-style:none;cursor:pointer;padding:16px;display:flex;justify-content:space-between;gap:12px;align-items:center}.diagnosis-candidate>summary::-webkit-details-marker{display:none}.diagnosis-candidate>summary:after{content:'상세 ›';font-size:12px;color:var(--muted);white-space:nowrap}.diagnosis-candidate[open]>summary:after{content:'접기 ∧'}.diagnosis-candidate-title b{display:block;font-size:18px}.diagnosis-candidate-title small{display:block;color:var(--muted);margin-top:4px}.diagnosis-candidate-body{padding:0 14px 14px}.diagnosis-textbook{border-top:1px solid var(--line);margin-top:10px;padding-top:10px}.diagnosis-textbook h4{margin:14px 0 5px;font-size:15px}.diagnosis-textbook p{margin:0;line-height:1.72}.diagnosis-related{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.diagnosis-related span{border:1px solid var(--line);border-radius:999px;padding:4px 8px;font-size:12px;background:#fafafa}
-@media(max-width:700px){.board-exam-grid{grid-template-columns:1fr}.diagnosis-candidate>summary{padding:14px}}
+.clinical-exam-visual{border:1px solid #d8e2f0;border-radius:16px;background:#fbfdff;padding:14px;margin:12px 0 16px}.clinical-exam-visual-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.clinical-exam-visual-head b{font-size:17px}.clinical-exam-visual-head span{font-size:12px;color:var(--muted)}.clinical-exam-visual svg{display:block;width:100%;max-width:760px;height:auto;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:14px}.clinical-exam-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.clinical-exam-step{border:1px solid var(--line);border-radius:12px;background:#fff;padding:11px;line-height:1.55}.clinical-exam-step b{display:block;font-size:13px;margin-bottom:4px}.clinical-exam-step span{font-size:13px;color:#475467}.clinical-exam-section{border:1px solid var(--line);border-radius:14px;padding:14px 15px;background:#fff;margin:10px 0}.clinical-exam-section h4{margin:0 0 7px;font-size:16px}.clinical-exam-section p{margin:0;line-height:1.72;color:#344054}.clinical-exam-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.clinical-exam-links span{border:1px solid var(--line);border-radius:999px;padding:5px 8px;font-size:12px;background:#fafafa}
+@media(max-width:700px){.board-exam-grid{grid-template-columns:1fr}.diagnosis-candidate>summary{padding:14px}.clinical-exam-steps{grid-template-columns:1fr}}
 
 .evidence-badge{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:12px;font-weight:750;margin-left:6px}
 .exercise-card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:10px 0}
@@ -221,7 +222,7 @@ button,input{font:inherit} button{cursor:pointer}
   <div id="appUpdatePanel" class="note" style="margin:0 0 12px;border-color:#cce8e3">
     <b id="appUpdateState">앱 최신 상태를 확인하는 중입니다.</b><br>
     <span id="appUpdateDetail" style="color:var(--muted)">앱을 열 때 자동 확인합니다. 홈에서 아래로 당겨도 업데이트됩니다.</span>
-    <div class="quiz-actions"><button id="appUpdateButton" class="pill" type="button">업데이트 확인</button></div>
+    <div class="quiz-actions"><button id="appUpdateButton" class="pill" type="button">업데이트 확인</button><button id="appOpenStablePreviewButton" class="primary" type="button" style="display:none">최신 Preview 앱 열기</button></div>
   </div>
   <details id="deviceQualityGate" class="device-qa">
     <summary>실기기·오프라인 품질 점검</summary>
@@ -1962,6 +1963,32 @@ window.addEventListener('popstate',event=>{
 });
 
 let deferredInstallPrompt=null;
+const APP_CANONICAL_PREVIEW_ORIGIN='https://preview-development.muscle-atlas-chatgpt.pages.dev';
+function isImmutableCloudflareDeploymentHost(){
+  return /^[0-9a-f]{8,}\.muscle-atlas-chatgpt\.pages\.dev$/i.test(location.hostname);
+}
+function isCanonicalPreviewOrigin(){
+  return location.origin===APP_CANONICAL_PREVIEW_ORIGIN;
+}
+function openCanonicalPreview(){
+  const target=APP_CANONICAL_PREVIEW_ORIGIN+'/?source=preview-stable';
+  if(location.origin===APP_CANONICAL_PREVIEW_ORIGIN){location.href=target;return;}
+  window.open(target,'_blank','noopener');
+}
+function applyInstallOriginPolicy(){
+  const immutable=isImmutableCloudflareDeploymentHost();
+  const banner=document.getElementById('pwaModeBanner');
+  const install=document.getElementById('pwaInstallButton');
+  if(immutable){
+    if(banner){
+      banner.style.display='block';
+      banner.innerHTML='<b>이 주소는 고정 검수본입니다.</b><br>Cloudflare의 배포번호 주소에서 설치하면 그 버전에 고정되어 자동 업데이트가 되지 않습니다. 앱 설치는 <b>preview-development.muscle-atlas-chatgpt.pages.dev</b>에서만 하세요.<div class="quiz-actions"><button class="primary" type="button" onclick="openCanonicalPreview()">최신 Preview 앱 열기</button></div>';
+    }
+    if(install)install.style.display='none';
+    return false;
+  }
+  return true;
+}
 function isPWAStandalone(){
   return window.matchMedia('(display-mode: fullscreen)').matches ||
          window.matchMedia('(display-mode: standalone)').matches ||
@@ -1971,11 +1998,16 @@ function isPWAStandalone(){
 function updatePWADisplayMode(){
   const banner=document.getElementById('pwaModeBanner');
   if(!banner)return;
-  banner.style.display=isPWAStandalone()?'none':'block';
+  if(isImmutableCloudflareDeploymentHost()){
+    applyInstallOriginPolicy();
+  }else{
+    banner.style.display=isPWAStandalone()?'none':'block';
+  }
   document.documentElement.dataset.displayMode=isPWAStandalone()?'app':'browser';
 }
 window.addEventListener('beforeinstallprompt',e=>{
   e.preventDefault();
+  if(!applyInstallOriginPolicy()){deferredInstallPrompt=null;return;}
   deferredInstallPrompt=e;
   const btn=document.getElementById('pwaInstallButton');
   if(btn)btn.style.display='inline-block';
@@ -2197,14 +2229,67 @@ function clinicalDifferentialDetailHtml(group,moduleKey){
   }).join('');
   return html+'</div>';
 }
-function clinicalExamDetailHtml(test){
-  const target=(test.target_structure_ids||[]).map(sid=>clinicalEntityLabel(sid)+' ('+sid+')').join(' · ');
-  return '<div class="anatomy-detail-head" id="clinical-test-'+esc(test.clinical_test_id)+'"><h2>'+esc(test.name_ko)+'</h2><div class="sub">'+esc(test.name_en||'')+'</div><div class="tagrow"><span class="tag">'+esc(test.clinical_test_id)+'</span></div></div>'+
-    '<div class="card"><div class="note"><b>목적</b><br>'+esc(test.category||'임상 진찰')+(target?'<br><span style="color:var(--muted)">대상: '+esc(target)+'</span>':'')+'</div>'+
-    '<div class="note"><b>방법</b><br>'+esc(test.setup||'')+' '+esc(test.maneuver||'')+'</div>'+
-    '<div class="note"><b>양성 기준</b><br>'+esc(test.positive_definition||'')+'</div>'+
-    '<div class="note"><b>해석</b><br>'+esc(test.interpretation_note||'')+'</div>'+
-    '<div class="note"><b>한계 / 흔한 오류</b><br>'+esc(test.limitation||'단일 검사만으로 확정하지 않는다.')+'</div>'+
+function clinicalExamTeachingNote(test){
+  const key=((test.category||'')+' '+(test.name_ko||'')+' '+(test.name_en||'')).toLowerCase();
+  if(/radicul|nerve|neurolog|myelopath|tarsal|occipital|cluneal|ulnar|median/.test(key))return '익숙한 증상의 재현 여부와 신경학적 분포를 함께 기록하고, 단일 provocation sign만으로 병변 level을 확정하지 않습니다.';
+  if(/strength|cuff|tendon|achilles|biceps|triceps|patellar|quadriceps|muscle|motor_control|scapulo|heel-rise/.test(key))return '통증 때문에 힘을 못 쓰는 pain inhibition과 실제 약화를 구분하고, 가능하면 반대측과 수행 질을 비교합니다.';
+  if(/ligament|syndes|collateral|instability|tfcc|ulnar_wrist/.test(key))return '통증 유발과 실제 laxity/end-point 변화를 분리해 기록하고, 급성 외상에서는 과도한 반복 스트레스를 피합니다.';
+  if(/safety|fracture|hernia/.test(key))return '이 검사는 확진보다 안전한 다음 단계 결정이 목적입니다. 위험소견이 있으면 반복 유발검사보다 적절한 영상·전문의 평가를 우선합니다.';
+  return '검사 전 환자의 주증상과 기준 자세를 확인하고, 시행 중 재현되는 증상이 평소 증상과 같은지와 좌우 차이를 함께 기록합니다.';
+}
+function clinicalExamRegionVisual(moduleKey){
+  const map={
+    shoulder:{label:'어깨',x:124,y:70},elbow:{label:'팔꿈치·전완',x:92,y:104},wristHand:{label:'손목·손',x:75,y:130},
+    hipPelvis:{label:'고관절·골반',x:122,y:138},kneeThigh:{label:'무릎·대퇴',x:118,y:185},legAnkleFoot:{label:'하퇴·발목·발',x:118,y:222},
+    cervical:{label:'경추',x:120,y:48},thoracic:{label:'흉추·흉곽',x:120,y:88},lumbarSacral:{label:'요추·천추',x:120,y:125},abdominalCore:{label:'복벽·코어',x:120,y:108}
+  };
+  return map[moduleKey]||{label:'검사 부위',x:120,y:108};
+}
+function clinicalExamMotionVisual(test){
+  const text=((test.setup||'')+' '+(test.maneuver||'')).toLowerCase();
+  if(/견인|traction|distraction/.test(text))return{kind:'traction',label:'견인 / 분리'};
+  if(/압박|compression|누르|저항/.test(text))return{kind:'force',label:'압박 / 저항'};
+  if(/회전|rotation|내번|외번|굴곡|신전|거상|외전|내전/.test(text))return{kind:'arc',label:'관절 움직임'};
+  if(/촉진|palpat|압통/.test(text))return{kind:'palpation',label:'촉진 / 압통'};
+  return{kind:'observe',label:'유발·관찰'};
+}
+function clinicalExamIllustrationHtml(test,moduleKey){
+  const r=clinicalExamRegionVisual(moduleKey),m=clinicalExamMotionVisual(test);
+  const action=m.kind==='traction'
+    ?'<line x1="'+r.x+'" y1="'+(r.y-5)+'" x2="'+r.x+'" y2="'+(r.y-34)+'" stroke="#2563eb" stroke-width="5" marker-end="url(#examArrow)"/><line x1="'+r.x+'" y1="'+(r.y+5)+'" x2="'+r.x+'" y2="'+(r.y+34)+'" stroke="#2563eb" stroke-width="5" marker-end="url(#examArrow)"/>'
+    :m.kind==='arc'
+    ?'<path d="M '+(r.x-34)+' '+(r.y+18)+' Q '+r.x+' '+(r.y-42)+' '+(r.x+42)+' '+(r.y-2)+'" fill="none" stroke="#2563eb" stroke-width="5" marker-end="url(#examArrow)"/>'
+    :m.kind==='palpation'
+    ?'<circle cx="'+(r.x+3)+'" cy="'+(r.y+3)+'" r="9" fill="none" stroke="#2563eb" stroke-width="4"/><line x1="'+(r.x+38)+'" y1="'+(r.y-28)+'" x2="'+(r.x+11)+'" y2="'+(r.y-6)+'" stroke="#2563eb" stroke-width="5" marker-end="url(#examArrow)"/>'
+    :'<line x1="'+(r.x+48)+'" y1="'+(r.y-35)+'" x2="'+(r.x+10)+'" y2="'+(r.y-5)+'" stroke="#2563eb" stroke-width="5" marker-end="url(#examArrow)"/>';
+  const figure='<svg viewBox="0 0 720 280" role="img" aria-label="'+esc(test.name_ko+' 검사 시행 개념도')+'"><defs><marker id="examArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/></marker></defs>'+
+    '<rect x="18" y="18" width="210" height="244" rx="16" fill="#fff"/><rect x="255" y="18" width="210" height="244" rx="16" fill="#fff"/><rect x="492" y="18" width="210" height="244" rx="16" fill="#fff"/>'+
+    '<text x="38" y="48" font-size="18" font-weight="700" fill="#18212b">1 · 시작 자세</text><text x="275" y="48" font-size="18" font-weight="700" fill="#18212b">2 · 검사 시행</text><text x="512" y="48" font-size="18" font-weight="700" fill="#18212b">3 · 양성 판단</text>'+
+    '<g transform="translate(28,4)"><circle cx="120" cy="54" r="18" fill="none" stroke="#475467" stroke-width="3"/><path d="M120 72 L120 156 M82 102 L158 102 M120 156 L92 230 M120 156 L148 230" fill="none" stroke="#475467" stroke-width="5" stroke-linecap="round"/><circle cx="'+r.x+'" cy="'+r.y+'" r="17" fill="rgba(220,38,38,.14)" stroke="#dc2626" stroke-width="3"/><text x="120" y="252" text-anchor="middle" font-size="14" fill="#667085">'+esc(r.label)+'</text></g>'+
+    '<g transform="translate(265,4)"><circle cx="120" cy="54" r="18" fill="none" stroke="#475467" stroke-width="3"/><path d="M120 72 L120 156 M82 102 L158 102 M120 156 L92 230 M120 156 L148 230" fill="none" stroke="#475467" stroke-width="5" stroke-linecap="round"/><circle cx="'+r.x+'" cy="'+r.y+'" r="17" fill="rgba(37,99,235,.10)" stroke="#2563eb" stroke-width="3"/>'+action+'<text x="120" y="252" text-anchor="middle" font-size="14" fill="#667085">'+esc(m.label)+'</text></g>'+
+    '<g transform="translate(505,0)"><circle cx="96" cy="108" r="42" fill="#f6f9ff" stroke="#9fb7d8" stroke-width="3"/><path d="M76 108 L91 124 L119 88" fill="none" stroke="#087a55" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><text x="96" y="178" text-anchor="middle" font-size="14" fill="#344054">평소 증상과 같은가?</text><text x="96" y="201" text-anchor="middle" font-size="14" fill="#344054">좌우 차이·통증·약화</text><text x="96" y="224" text-anchor="middle" font-size="14" fill="#344054">단독 확진은 금지</text></g></svg>';
+  return '<div class="clinical-exam-visual"><div class="clinical-exam-visual-head"><b>검사 시행 도해</b><span>교육용 개념도 · 정확한 자세는 아래 절차를 우선</span></div>'+figure+
+    '<div class="clinical-exam-steps"><div class="clinical-exam-step"><b>1. 준비</b><span>'+esc(test.setup||'환자 자세를 준비합니다.')+'</span></div><div class="clinical-exam-step"><b>2. 시행</b><span>'+esc(test.maneuver||'검사 동작을 시행합니다.')+'</span></div><div class="clinical-exam-step"><b>3. 양성 판단</b><span>'+esc(test.positive_definition||'평소 증상 재현과 객관적 변화를 기록합니다.')+'</span></div></div></div>';
+}
+function clinicalExamDetailHtml(test,moduleKey){
+  const targets=(test.target_structure_ids||[]).map(sid=>clinicalEntityLabel(sid)+' ('+sid+')').filter(Boolean);
+  const relatedDx=(test.related_diagnosis_concept_ids||[]).map(id=>{
+    for(const key of Object.keys(clinicalFlowModules)){
+      const d=(clinicalModuleData(key).differential?.diagnosis_concepts||[]).find(x=>x.diagnosis_concept_id===id);
+      if(d)return (d.name_ko||id)+' ('+id+')';
+    }
+    return id;
+  });
+  return '<div class="anatomy-detail-head" id="clinical-test-'+esc(test.clinical_test_id)+'"><h2>'+esc(test.name_ko)+'</h2><div class="sub">'+esc(test.name_en||'')+'</div><div class="tagrow"><span class="tag">'+esc(test.clinical_test_id)+'</span><span class="tag">'+esc(test.category||'임상 진찰')+'</span></div></div>'+
+    '<div class="card">'+clinicalExamIllustrationHtml(test,moduleKey)+
+    '<div class="clinical-exam-section"><h4>검사의 목적</h4><p>'+esc(test.interpretation_note||'해당 구조와 증상 재현을 임상 문맥에서 평가합니다.')+'</p>'+(targets.length?'<div class="clinical-exam-links">'+targets.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div>':'')+'</div>'+
+    '<div class="clinical-exam-section"><h4>검사 전 확인</h4><p>'+esc(clinicalExamTeachingNote(test))+'</p></div>'+
+    '<div class="clinical-exam-section"><h4>환자 시작 자세</h4><p>'+esc(test.setup||'')+'</p></div>'+
+    '<div class="clinical-exam-section"><h4>검사자 동작 · 시행 순서</h4><p>'+esc(test.maneuver||'')+'</p></div>'+
+    '<div class="clinical-exam-section"><h4>양성 기준</h4><p>'+esc(test.positive_definition||'')+'</p></div>'+
+    '<div class="clinical-exam-section"><h4>임상 해석</h4><p>'+esc(test.interpretation_note||'')+'</p></div>'+
+    '<div class="clinical-exam-section"><h4>한계 / 흔한 오류</h4><p>'+esc(test.limitation||'단일 검사만으로 확정하지 않는다.')+'</p></div>'+
+    (relatedDx.length?'<div class="clinical-exam-section"><h4>연결 감별진단</h4><div class="clinical-exam-links">'+relatedDx.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div></div>':'')+
     '<small style="color:var(--muted)">Stable ID · '+esc(test.clinical_test_id)+'</small></div>';
 }
 function clinicalUltrasoundDetailHtml(view,moduleKey){
@@ -2225,7 +2310,7 @@ function renderClinicalItemDetail(moduleKey,topic,item){
   const crumb=document.getElementById('clinicalDetailBreadcrumb');if(crumb)crumb.textContent='임상 › '+meta.label+' › '+spec.label+' › '+clinicalItemTitle(topic,item);
   const host=document.getElementById('clinicalDetailContent');if(!host)return;
   if(topic==='differential')host.innerHTML=clinicalDifferentialDetailHtml(item,moduleKey);
-  else if(topic==='exam')host.innerHTML=clinicalExamDetailHtml(item);
+  else if(topic==='exam')host.innerHTML=clinicalExamDetailHtml(item,moduleKey);
   else if(topic==='ultrasound')host.innerHTML=clinicalUltrasoundDetailHtml(item,moduleKey);
   else host.innerHTML='<div class="status">상세 정보를 표시할 수 없습니다.</div>';
 }
@@ -4834,6 +4919,13 @@ renderDeviceManualGate();
 
 let appSWRegistration=null;
 let appSWControllerChanged=false;
+function setStablePreviewMigrationUI(){
+  const move=document.getElementById('appOpenStablePreviewButton');
+  if(move)move.style.display=isImmutableCloudflareDeploymentHost()?'inline-block':'none';
+  if(isImmutableCloudflareDeploymentHost()){
+    setAppUpdateStatus('이 설치본은 고정 배포 주소라 자동 업데이트할 수 없습니다.','현재 버전에서 멈춘 원인은 배포번호 pages.dev 주소로 설치했기 때문입니다. 최신 개발 앱은 안정 Preview 주소에서 다시 설치해야 합니다.');
+  }
+}
 let appLastAutoUpdateCheckAt=0;
 let appPullRefreshing=false;
 const APP_AUTO_UPDATE_MIN_INTERVAL=15000;
@@ -4957,6 +5049,10 @@ async function getControllerVersion(){
 }
 
 async function checkForAppUpdate(manual=false){
+  if(isImmutableCloudflareDeploymentHost()){
+    setStablePreviewMigrationUI();
+    return false;
+  }
   if(!('serviceWorker' in navigator)){
     setAppUpdateStatus('이 브라우저는 자동 업데이트를 지원하지 않습니다.','Chrome/PWA 환경에서 다시 확인해 주세요.');
     return false;
@@ -4994,6 +5090,8 @@ async function checkForAppUpdate(manual=false){
 }
 
 async function initAppServiceWorker(){
+  setStablePreviewMigrationUI();
+  if(isImmutableCloudflareDeploymentHost())return;
   if(!('serviceWorker' in navigator)){
     setAppUpdateStatus('자동 업데이트 미지원','이 브라우저에서는 설치 앱 업데이트를 자동 관리할 수 없습니다.');
     return;
@@ -5027,6 +5125,8 @@ async function initAppServiceWorker(){
 
 const appUpdateButton=document.getElementById('appUpdateButton');
 if(appUpdateButton)appUpdateButton.addEventListener('click',()=>checkForAppUpdate(true));
+const appOpenStablePreviewButton=document.getElementById('appOpenStablePreviewButton');
+if(appOpenStablePreviewButton)appOpenStablePreviewButton.addEventListener('click',openCanonicalPreview);
 window.addEventListener('online',()=>checkForAppUpdate(false));
 window.addEventListener('online',()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
 window.addEventListener('offline',()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
