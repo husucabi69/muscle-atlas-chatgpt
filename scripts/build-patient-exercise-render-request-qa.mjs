@@ -8,8 +8,8 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 
 const p7=buildRenderRequest(manifest,curated,'px007');
 check('px007 uses curated override',p7.source==='CURATED_OVERRIDE',p7.source);
-check('px007 stays blocked for exact reviewed binary handoff',
-  p7.status==='REVIEWED_CANDIDATE_BINARY_HANDOFF_BLOCKED'&&p7.generation_permission?.blocking_profile_id==='px007',
+check('px007 is ready to regenerate from locked brief after loss audit',
+  p7.status==='READY_TO_REGENERATE'&&p7.generation_permission?.allowed===true&&p7.generation_permission?.reason==='READY_REGENERATION',
   JSON.stringify({status:p7.status,permission:p7.generation_permission})
 );
 check('px007 curated request forbids fist closure',p7.must_not_show?.includes('주먹쥐기'));
@@ -34,7 +34,7 @@ check('px011 inherits approved style lock',p11.style?.style_lock_name===manifest
 
 const p18=buildRenderRequest(manifest,curated,'px018');
 check('px018 is blocked behind earliest unresolved binary handoff',
-  p18.status==='BLOCKED_BEHIND_EARLIER_BINARY_HANDOFF'&&p18.generation_permission?.blocking_profile_id==='px007',
+  p18.status==='BLOCKED_BEHIND_EARLIER_BINARY_HANDOFF'&&p18.generation_permission?.blocking_profile_id==='px008',
   JSON.stringify({status:p18.status,permission:p18.generation_permission})
 );
 check('px018 carries deadbug stability brief',String(p18.exact_motion?.end||'').includes('반대 팔과 다리')&&p18.must_not_show?.some(x=>x.includes('숨 참기')));
