@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.01-stage23b-px007-regeneration-recovery",
+  "dataset_version": "2026.10.01-stage23b-balanced-preview-size",
   "style_lock": {
     "status": "USER_APPROVED",
     "approved_on": "2026-09-28",
@@ -35,12 +35,14 @@
     "fallback": "existing SVG only while realistic asset is pending or fails to load",
     "production_gate": "All 18 actionable profiles must be approved before SVG fallback may be removed.",
     "display_fidelity": {
-      "no_upscale": true,
-      "desktop_max_css_px": 720,
+      "no_unbounded_upscale": true,
+      "mobile_preview_soft_upscale_max_ratio": 1.25,
+      "mobile_preview_target_css_px": 400,
+      "high_resolution_desktop_max_css_px": 720,
       "viewport_max_height": "72vh",
       "a4_hd_minimum_px": "1240x1754",
       "low_resolution_gate": "MOBILE_PREVIEW_APPROVED_A4_HD_PENDING",
-      "rule": "Approved raster assets may be scaled down but never enlarged beyond intrinsic pixel width. Low-resolution mobile-preview assets must not be used for A4 printing."
+      "rule": "Low-resolution 320px mobile-preview raster assets may use a modest desktop soft-upscale capped at 1.25x (400 CSS px) for readability, but are never used for A4 printing. High-resolution approved assets remain capped at 720 CSS px on desktop."
     }
   },
   "profiles": [
