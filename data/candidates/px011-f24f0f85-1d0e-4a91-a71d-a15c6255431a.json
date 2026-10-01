@@ -31,8 +31,19 @@
     "converted_webp_bytes": 191546,
     "converted_webp_sha256": "1dff1e43f64046ceffb95cca800fdb804b1f491ab0e51ec053c1a708cc947557",
     "integrity": "PASS_RIFF_WEBP_AND_PIL_REOPEN",
+    "deterministic_reproduction": {
+      "verified_on": "2026-10-02",
+      "decoder": "Pillow",
+      "input_mode": "RGB",
+      "format": "WEBP",
+      "quality": 88,
+      "method": 6,
+      "result_bytes": 191546,
+      "result_sha256": "1dff1e43f64046ceffb95cca800fdb804b1f491ab0e51ec053c1a708cc947557",
+      "result": "EXACT_MATCH"
+    },
     "repository_materialization": "BLOCKED_CONNECTOR_BINARY_PAYLOAD_TRUNCATION_GUARD",
-    "note": "실제 생성 PNG를 런타임에서 회수했고 WebP 변환·무결성 검증까지 완료했다. GitHub Git Data create_blob 경로도 시험했으나 큰 base64 payload가 기대 크기보다 작게 저장되는 현상을 확인했다. 검증용 orphan commit f8d2fba5c61ff33846e9adae6f2542f4c84dd703의 px011 blob은 14999 bytes로, 의도한 local test WebP 24180 bytes와 일치하지 않아 preview/development ref에는 절대 연결하지 않았다. 따라서 현재 blocker는 단순 API 부재가 아니라 binary payload integrity를 보장할 수 없는 connector handoff이다. 이 상태에서는 px012 신규 이미지 생성 금지."
+    "note": "실제 생성 PNG는 현재 런타임에도 존재한다. Pillow RGB + WEBP quality=88, method=6으로 재변환하면 기존 receipt와 byte-for-byte 동일한 191546-byte WebP와 동일 SHA-256이 재현됨을 확인했다. GitHub create_blob connector는 base64 문자열 직접 전달만 지원하고 로컬 파일 parameter를 받지 않으므로, 255396-character base64 payload를 안전하게 파일 기반 전달할 통로는 이번 실행환경에 없다. 이전 검증용 orphan commit의 truncation 사례 때문에 preview/development ref에는 불완전 blob을 절대 연결하지 않는다. px012 신규 이미지 생성 금지 유지."
   },
   "handoff_safety": {
     "orphan_verification_commit": "f8d2fba5c61ff33846e9adae6f2542f4c84dd703",
@@ -43,5 +54,5 @@
     "production_touched": false,
     "rule": "Never move preview/development to a binary commit unless repository blob size/hash can be proven to match the locally verified WebP."
   },
-  "next_action": "Do not regenerate px011 and do not generate px012 while this blocker remains. Use a binary-upload-capable session or connector that preserves exact bytes; verify repository blob size/hash against the local WebP before moving preview/development, then run canonical ingest and mobile/A4 Preview review."
+  "next_action": "Do not regenerate px011 and do not generate px012 while this blocker remains. In a binary-file-capable GitHub session, reproduce px011.webp from the retained PNG with Pillow RGB, WEBP quality=88, method=6; verify 191546 bytes and SHA-256 1dff1e43f64046ceffb95cca800fdb804b1f491ab0e51ec053c1a708cc947557 before canonical materialization, then run ingest and mobile/A4 Preview review."
 }
