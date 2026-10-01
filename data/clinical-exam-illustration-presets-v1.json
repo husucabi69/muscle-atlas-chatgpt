@@ -3,17 +3,18 @@
   "updated_at": "2026-10-02",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 64,
+    "customized": 81,
     "total_canonical_tests": 148,
     "modules": [
       "shoulder",
       "elbow",
       "wrist-hand",
       "hip-pelvis",
-      "knee-thigh"
+      "knee-thigh",
+      "leg-ankle-foot"
     ],
-    "status": "BATCH_5_COMPLETE",
-    "next_module": "leg-ankle-foot"
+    "status": "BATCH_6_COMPLETE",
+    "next_module": "cervical"
   },
   "presets": {
     "ct001": {
@@ -4021,6 +4022,1423 @@
       "examiner_position": "환자 뒤에서 후내측 무릎 팽륜을 관찰하고 필요 시 엎드린 자세에서도 종괴의 경계와 긴장도를 촉진한다.",
       "hand_force": "외부 스트레스를 주지 않고 무릎 굴곡과 신전에 따라 종괴가 단단해지거나 부드러워지는지 비교한다.",
       "common_error": "비전형적 종괴나 종아리 부종을 단순 Baker cyst로 보지 말고 혈관성 병변과 DVT 가능성이 있으면 혈관 평가를 우선한다."
+    },
+    "ct065": {
+      "clinical_test_id": "ct065",
+      "precision": "custom",
+      "view": "side",
+      "title": "Thompson · 종아리 압박 시 수동 족저굴곡 반응",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          150,
+          100
+        ],
+        "ankle": [
+          188,
+          118
+        ],
+        "foot": [
+          207,
+          126
+        ],
+        "toe": [
+          220,
+          126
+        ],
+        "foot_label": "발목 이완"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          150,
+          100
+        ],
+        "ankle": [
+          188,
+          118
+        ],
+        "foot": [
+          213,
+          132
+        ],
+        "toe": [
+          226,
+          134
+        ],
+        "foot_label": "족저굴곡 반응"
+      },
+      "examiner_hands": [
+        {
+          "x": 155,
+          "y": 105,
+          "label": "종아리 근복"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 142,
+          "y1": 105,
+          "x2": 155,
+          "y2": 105,
+          "label": "squeeze"
+        },
+        {
+          "x1": 168,
+          "y1": 105,
+          "x2": 155,
+          "y2": 105,
+          "label": "squeeze"
+        },
+        {
+          "kind": "arc",
+          "cx": 191,
+          "cy": 119,
+          "r": 28,
+          "start_angle": 10,
+          "end_angle": 55,
+          "label": "족저굴곡"
+        }
+      ],
+      "positive": {
+        "x": 205,
+        "y": 126,
+        "label": "반응 소실/현저 감소"
+      },
+      "examiner_position": "복와위 또는 무릎을 굽혀 발이 검사대 밖으로 나오게 한 뒤 양측 발목의 휴식각과 움직임을 비교한다.",
+      "hand_force": "종아리 근복을 손으로 압박해 정상적인 경우 유발되는 수동 족저굴곡을 관찰한다.",
+      "common_error": "부분파열이나 만성파열에서 반응이 일부 남을 수 있으므로 단일 검사만으로 파열 범위를 확정하지 않는다."
+    },
+    "ct066": {
+      "clinical_test_id": "ct066",
+      "precision": "custom",
+      "view": "side",
+      "title": "Achilles 촉진 · MTJ부터 종골 부착부까지 연속성/비후/결손 확인",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          151,
+          102
+        ],
+        "ankle": [
+          188,
+          119
+        ],
+        "foot": [
+          208,
+          126
+        ],
+        "toe": [
+          220,
+          126
+        ],
+        "foot_label": "이완"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          151,
+          102
+        ],
+        "ankle": [
+          188,
+          119
+        ],
+        "foot": [
+          208,
+          126
+        ],
+        "toe": [
+          220,
+          126
+        ],
+        "foot_label": "건 촉진"
+      },
+      "examiner_hands": [
+        {
+          "x": 183,
+          "y": 116,
+          "label": "Achilles 주행"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 173,
+          "y1": 95,
+          "x2": 183,
+          "y2": 114,
+          "label": "단계적 촉진"
+        }
+      ],
+      "positive": {
+        "x": 184,
+        "y": 116,
+        "label": "압통/비후/결손"
+      },
+      "examiner_position": "근건이행부부터 midportion, 종골 부착부까지 Achilles tendon 전체 주행을 순차 촉진한다.",
+      "hand_force": "건을 좌우에서 부드럽게 집어 두께와 연속성을 보고 압통 위치를 정확히 기록한다.",
+      "common_error": "부종이 있는 급성 손상에서 촉진만으로 rupture를 배제하지 않고 Thompson과 영상검사를 함께 본다."
+    },
+    "ct067": {
+      "clinical_test_id": "ct067",
+      "precision": "custom",
+      "view": "back",
+      "title": "Single-leg heel-rise · 높이·반복·후족부 inversion과 통증 관찰",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          202
+        ],
+        "foot": [
+          103,
+          207
+        ],
+        "toe": [
+          116,
+          207
+        ],
+        "foot_label": "한발 지지"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          154
+        ],
+        "ankle": [
+          92,
+          189
+        ],
+        "foot": [
+          105,
+          192
+        ],
+        "toe": [
+          118,
+          192
+        ],
+        "foot_label": "heel rise"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 92,
+          "y1": 205,
+          "x2": 92,
+          "y2": 184,
+          "label": "뒤꿈치 상승"
+        }
+      ],
+      "positive": {
+        "x": 98,
+        "y": 191,
+        "label": "높이 저하/통증/불가"
+      },
+      "examiner_position": "낙상 방지를 위해 옆에서 관찰하고 필요하면 손끝으로 고정 지지물을 잡게 한다.",
+      "hand_force": "외부 저항 없이 한 발로 최대 heel rise를 반복하게 하며 높이와 후족부 inversion, 통증, 좌우 차이를 본다.",
+      "common_error": "균형 실패를 Achilles 또는 후경골근 기능저하로 동일하게 해석하지 않고 수행 실패 이유를 분리한다."
+    },
+    "ct068": {
+      "clinical_test_id": "ct068",
+      "precision": "custom",
+      "view": "side",
+      "title": "Calf strain · 근복/MTJ 촉진 + 저항성 족저굴곡",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          178,
+          170
+        ],
+        "foot_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          170,
+          178
+        ],
+        "toe": [
+          183,
+          180
+        ],
+        "foot_label": "족저굴곡"
+      },
+      "examiner_hands": [
+        {
+          "x": 126,
+          "y": 142,
+          "label": "종아리 근복"
+        },
+        {
+          "x": 168,
+          "y": 176,
+          "label": "전족부"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 168,
+          "y1": 185,
+          "x2": 168,
+          "y2": 166,
+          "label": "배굴 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 126,
+        "y": 142,
+        "label": "국소 근복/MTJ 통증"
+      },
+      "examiner_position": "종아리 근복과 근건이행부를 촉진하고 다른 손으로 전족부를 잡아 족저굴곡 저항을 줄 수 있게 한다.",
+      "hand_force": "환자가 족저굴곡하려는 힘에 반대 저항을 주며 통증과 힘을 좌우 비교한다.",
+      "common_error": "급성 일측 종창·열감·호흡곤란 등 DVT/PE red flag를 단순 calf strain으로 간주하지 않는다."
+    },
+    "ct069": {
+      "clinical_test_id": "ct069",
+      "precision": "custom",
+      "view": "side",
+      "title": "Ankle anterior drawer · 경골 고정 + 종골/거골 전방 translation",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          171
+        ],
+        "toe": [
+          178,
+          171
+        ],
+        "foot_label": "약간 족저굴곡"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          149,
+          166
+        ],
+        "foot": [
+          171,
+          171
+        ],
+        "toe": [
+          184,
+          171
+        ],
+        "foot_label": "전방 당김"
+      },
+      "examiner_hands": [
+        {
+          "x": 140,
+          "y": 158,
+          "label": "원위 경골 고정"
+        },
+        {
+          "x": 169,
+          "y": 171,
+          "label": "종골"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 159,
+          "y1": 171,
+          "x2": 181,
+          "y2": 171,
+          "label": "전방 translation"
+        }
+      ],
+      "positive": {
+        "x": 149,
+        "y": 166,
+        "label": "비대칭 전위/soft endpoint"
+      },
+      "examiner_position": "한 손으로 원위 경골을 고정하고 다른 손으로 종골을 감싸 발목을 약간 족저굴곡한다.",
+      "hand_force": "종골과 거골을 전방으로 부드럽게 당겨 전위량과 end-point를 반대측과 비교한다.",
+      "common_error": "급성 통증으로 인한 guarding이나 정상 관절 이완도 차이를 rupture로 과해석하지 않는다."
+    },
+    "ct070": {
+      "clinical_test_id": "ct070",
+      "precision": "custom",
+      "view": "front",
+      "title": "Talar tilt inversion · 경골 고정 + 종골 내번 스트레스",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          164,
+          170
+        ],
+        "toe": [
+          177,
+          170
+        ],
+        "foot_label": "중립/약간 배굴"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          158,
+          181
+        ],
+        "toe": [
+          169,
+          185
+        ],
+        "foot_label": "내번"
+      },
+      "examiner_hands": [
+        {
+          "x": 141,
+          "y": 159,
+          "label": "원위 경골"
+        },
+        {
+          "x": 160,
+          "y": 178,
+          "label": "종골"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 145,
+          "cy": 167,
+          "r": 28,
+          "start_angle": 5,
+          "end_angle": 75,
+          "label": "내번"
+        }
+      ],
+      "positive": {
+        "x": 145,
+        "y": 166,
+        "label": "외측 통증/과도한 tilt"
+      },
+      "examiner_position": "원위 경골을 고정하고 다른 손으로 종골을 잡아 발목이 회전하지 않도록 한다.",
+      "hand_force": "종골을 내번 방향으로 점진적으로 기울여 lateral opening과 end-point를 반대측과 비교한다.",
+      "common_error": "검사 하나로 CFL/ATFL 손상 grade를 확정하거나 급성 손상에서 과도한 내번을 강요하지 않는다."
+    },
+    "ct071": {
+      "clinical_test_id": "ct071",
+      "precision": "custom",
+      "view": "front",
+      "title": "Syndesmosis squeeze · 중간 하퇴 경비골 압박으로 원위 통증 유발",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          164,
+          170
+        ],
+        "toe": [
+          177,
+          170
+        ],
+        "foot_label": "발목 이완"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          164,
+          170
+        ],
+        "toe": [
+          177,
+          170
+        ],
+        "foot_label": "원위 syndesmosis"
+      },
+      "examiner_hands": [
+        {
+          "x": 132,
+          "y": 135,
+          "label": "경골/비골 양측"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 118,
+          "y1": 135,
+          "x2": 132,
+          "y2": 135,
+          "label": "압박"
+        },
+        {
+          "x1": 146,
+          "y1": 135,
+          "x2": 132,
+          "y2": 135,
+          "label": "압박"
+        }
+      ],
+      "positive": {
+        "x": 147,
+        "y": 164,
+        "label": "원위 경비인대 통증"
+      },
+      "examiner_position": "무릎 아래 중간 하퇴에서 경골과 비골을 양손으로 감싸고 원위 syndesmosis 통증 위치를 미리 확인한다.",
+      "hand_force": "중간 하퇴에서 경골과 비골을 서로 압박해 원위 경비인대 부위의 익숙한 통증이 재현되는지 본다.",
+      "common_error": "통증이 없다고 syndesmosis injury를 배제하거나 근위 하퇴 압통을 양성으로 잘못 해석하지 않는다."
+    },
+    "ct072": {
+      "clinical_test_id": "ct072",
+      "precision": "custom",
+      "view": "front",
+      "title": "External rotation stress · 경골 고정 + 발 외회전으로 syndesmosis 부하",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          164,
+          170
+        ],
+        "toe": [
+          177,
+          170
+        ],
+        "foot_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          171,
+          162
+        ],
+        "toe": [
+          184,
+          158
+        ],
+        "foot_label": "외회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 141,
+          "y": 158,
+          "label": "경골 고정"
+        },
+        {
+          "x": 171,
+          "y": 163,
+          "label": "전족부/종골"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 145,
+          "cy": 166,
+          "r": 30,
+          "start_angle": 10,
+          "end_angle": -35,
+          "label": "외회전"
+        }
+      ],
+      "positive": {
+        "x": 147,
+        "y": 164,
+        "label": "전외측 syndesmosis 통증"
+      },
+      "examiner_position": "무릎을 굽힌 자세에서 원위 경골을 고정하고 다른 손으로 발을 잡아 회전력을 조절한다.",
+      "hand_force": "발을 외회전시키며 원위 syndesmosis에 회전 부하를 가하고 익숙한 전외측 통증을 확인한다.",
+      "common_error": "심한 급성 외상에서 강하게 반복하지 말고 골절 의심 시 Ottawa rule과 영상평가를 우선한다."
+    },
+    "ct073": {
+      "clinical_test_id": "ct073",
+      "precision": "custom",
+      "view": "side",
+      "title": "Peroneal dynamic assessment · 저항성 외번 + retromalleolar snapping 관찰",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          164,
+          170
+        ],
+        "toe": [
+          177,
+          170
+        ],
+        "foot_label": "중립/약간 배굴"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          171,
+          162
+        ],
+        "toe": [
+          184,
+          159
+        ],
+        "foot_label": "외번"
+      },
+      "examiner_hands": [
+        {
+          "x": 174,
+          "y": 160,
+          "label": "전족부 저항"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 184,
+          "y1": 160,
+          "x2": 171,
+          "y2": 170,
+          "label": "내번 방향 저항"
+        },
+        {
+          "kind": "arc",
+          "cx": 145,
+          "cy": 166,
+          "r": 30,
+          "start_angle": 20,
+          "end_angle": -25,
+          "label": "circumduction"
+        }
+      ],
+      "positive": {
+        "x": 150,
+        "y": 166,
+        "label": "외측 통증/snap"
+      },
+      "examiner_position": "외과 뒤 retromalleolar 부위를 직접 보거나 촉지하면서 다른 손으로 전족부에 저항을 준다.",
+      "hand_force": "환자에게 외번과 circumduction을 시키고 검사자는 반대 방향으로 저항하며 건 이동과 snap을 관찰한다.",
+      "common_error": "통증만으로 tendon tear를 확정하지 않고 실제 subluxation이 의심되면 dynamic ultrasound로 확인한다."
+    },
+    "ct074": {
+      "clinical_test_id": "ct074",
+      "precision": "custom",
+      "view": "back",
+      "title": "Posterior tibial · 저항성 내번 + single heel-rise의 후족부 inversion",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          202
+        ],
+        "foot": [
+          103,
+          207
+        ],
+        "toe": [
+          116,
+          207
+        ],
+        "foot_label": "한발 지지"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          154
+        ],
+        "ankle": [
+          92,
+          189
+        ],
+        "foot": [
+          100,
+          192
+        ],
+        "toe": [
+          113,
+          192
+        ],
+        "foot_label": "heel rise + inversion"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 92,
+          "y1": 205,
+          "x2": 92,
+          "y2": 184,
+          "label": "heel rise"
+        },
+        {
+          "x1": 105,
+          "y1": 192,
+          "x2": 98,
+          "y2": 187,
+          "label": "후족부 inversion"
+        }
+      ],
+      "positive": {
+        "x": 98,
+        "y": 191,
+        "label": "통증/약화/inversion 실패"
+      },
+      "examiner_position": "뒤에서 Achilles 선과 종골 정렬을 관찰하고 필요 시 앉은 자세 저항성 내번으로 보조 평가한다.",
+      "hand_force": "한발 heel rise에서 후족부 inversion을 관찰하고 별도 저항검사에서는 내번에 반대 저항을 준다.",
+      "common_error": "평발 정렬만으로 posterior tibial tendon tear를 확정하지 않고 통증, 힘, heel-rise 패턴을 함께 본다."
+    },
+    "ct075": {
+      "clinical_test_id": "ct075",
+      "precision": "custom",
+      "view": "front",
+      "title": "Tibialis anterior · 배굴+내번에 반대 저항",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          164,
+          176
+        ],
+        "toe": [
+          177,
+          178
+        ],
+        "foot_label": "약간 족저굴곡"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          157,
+          158
+        ],
+        "toe": [
+          169,
+          154
+        ],
+        "foot_label": "배굴+내번"
+      },
+      "examiner_hands": [
+        {
+          "x": 169,
+          "y": 156,
+          "label": "전족부"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 164,
+          "y1": 146,
+          "x2": 174,
+          "y2": 164,
+          "label": "반대 저항"
+        }
+      ],
+      "positive": {
+        "x": 149,
+        "y": 164,
+        "label": "전내측 통증/약화"
+      },
+      "examiner_position": "발등과 전내측 발목이 보이도록 앉힌 뒤 전족부를 잡아 저항을 줄 수 있게 한다.",
+      "hand_force": "환자가 발목 배굴과 내번을 시도하면 검사자는 족저굴곡·외번 방향으로 저항한다.",
+      "common_error": "deep fibular neuropathy, extensor tendon pain, anterior impingement와 혼동하지 않고 국소 통증 위치를 기록한다."
+    },
+    "ct076": {
+      "clinical_test_id": "ct076",
+      "precision": "custom",
+      "view": "side",
+      "title": "Windlass · 제1 MTP 수동 배굴로 plantar fascia 장력 증가",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          178,
+          170
+        ],
+        "foot_label": "제1 MTP 중립"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          177,
+          156
+        ],
+        "foot_label": "엄지 배굴"
+      },
+      "examiner_hands": [
+        {
+          "x": 177,
+          "y": 158,
+          "label": "제1 MTP/엄지"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 165,
+          "cy": 170,
+          "r": 20,
+          "start_angle": 0,
+          "end_angle": -70,
+          "label": "배굴"
+        }
+      ],
+      "positive": {
+        "x": 157,
+        "y": 174,
+        "label": "medial plantar heel pain"
+      },
+      "examiner_position": "내측 종골결절과 제1 MTP가 모두 보이도록 발을 지지하고 엄지 근위지골을 잡는다.",
+      "hand_force": "제1 MTP를 수동 배굴해 plantar fascia를 긴장시키며 익숙한 medial heel pain이 재현되는지 본다.",
+      "common_error": "발바닥 통증 하나로 plantar fasciopathy를 확정하지 않고 fat pad, nerve entrapment, stress injury를 감별한다."
+    },
+    "ct077": {
+      "clinical_test_id": "ct077",
+      "precision": "custom",
+      "view": "side",
+      "title": "Plantar fascia insertion palpation · 내측 종골결절/근위 central band 촉진",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          178,
+          170
+        ],
+        "foot_label": "발바닥 노출"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          178,
+          170
+        ],
+        "foot_label": "삽입부 촉진"
+      },
+      "examiner_hands": [
+        {
+          "x": 156,
+          "y": 174,
+          "label": "내측 종골결절"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 156,
+          "y1": 148,
+          "x2": 156,
+          "y2": 171,
+          "label": "국소 압박"
+        }
+      ],
+      "positive": {
+        "x": 156,
+        "y": 174,
+        "label": "익숙한 medial heel pain"
+      },
+      "examiner_position": "발바닥 내측에서 종골결절과 central band 기시부를 정확히 찾는다.",
+      "hand_force": "삽입부에서 원위 방향으로 단계적으로 촉진하며 익숙한 통증 위치와 범위를 확인한다.",
+      "common_error": "단순 압통만으로 진단하지 않고 first-step pain, windlass, 신경학적 증상과 함께 해석한다."
+    },
+    "ct078": {
+      "clinical_test_id": "ct078",
+      "precision": "custom",
+      "view": "side",
+      "title": "Tarsal tunnel Tinel · 내과 뒤 경골신경 주행을 가볍게 타진",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          178,
+          170
+        ],
+        "foot_label": "내과 노출"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          178,
+          170
+        ],
+        "foot_label": "가벼운 타진"
+      },
+      "examiner_hands": [
+        {
+          "x": 147,
+          "y": 168,
+          "label": "족근관"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 147,
+          "y1": 143,
+          "x2": 147,
+          "y2": 164,
+          "label": "가벼운 타진"
+        }
+      ],
+      "positive": {
+        "x": 170,
+        "y": 176,
+        "label": "발바닥 방사 paresthesia"
+      },
+      "examiner_position": "내과 뒤쪽 flexor retinaculum 아래 경골신경 주행을 확인한 뒤 손끝을 위치시킨다.",
+      "hand_force": "세게 누르지 말고 신경 주행을 가볍게 타진해 발바닥으로 퍼지는 익숙한 감각증상이 재현되는지 본다.",
+      "common_error": "국소 압통만을 양성으로 기록하지 않고 plantar nerve 분포의 방사감각인지 확인한다."
+    },
+    "ct079": {
+      "clinical_test_id": "ct079",
+      "precision": "custom",
+      "view": "front",
+      "title": "Mulder/web-space compression · 전족부 squeeze + web-space 압박",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          181,
+          170
+        ],
+        "foot_label": "전족부 노출"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          181,
+          170
+        ],
+        "foot_label": "전족부 압박"
+      },
+      "examiner_hands": [
+        {
+          "x": 173,
+          "y": 169,
+          "label": "중족골두 양측"
+        },
+        {
+          "x": 180,
+          "y": 166,
+          "label": "web space"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 158,
+          "y1": 169,
+          "x2": 171,
+          "y2": 169,
+          "label": "squeeze"
+        },
+        {
+          "x1": 188,
+          "y1": 169,
+          "x2": 175,
+          "y2": 169,
+          "label": "squeeze"
+        }
+      ],
+      "positive": {
+        "x": 179,
+        "y": 168,
+        "label": "web-space pain/click"
+      },
+      "examiner_position": "한 손으로 전족부 양측을 감싸고 다른 손가락으로 증상 web space를 촉지한다.",
+      "hand_force": "중족골두를 서로 압박하면서 web space를 압박해 click, 방사통, paresthesia가 재현되는지 본다.",
+      "common_error": "click 하나로 Morton neuroma를 확정하지 않고 intermetatarsal bursa와 dynamic ultrasound 소견을 함께 본다."
+    },
+    "ct080": {
+      "clinical_test_id": "ct080",
+      "precision": "custom",
+      "view": "side",
+      "title": "1st MTP dorsiflexion + sesamoid load · 엄지 배굴과 plantar first-ray 압박",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          178,
+          170
+        ],
+        "foot_label": "제1 MTP 중립"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          165,
+          170
+        ],
+        "toe": [
+          177,
+          155
+        ],
+        "foot_label": "엄지 배굴"
+      },
+      "examiner_hands": [
+        {
+          "x": 177,
+          "y": 157,
+          "label": "엄지"
+        },
+        {
+          "x": 166,
+          "y": 174,
+          "label": "sesamoid/1st ray"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 165,
+          "cy": 170,
+          "r": 20,
+          "start_angle": 0,
+          "end_angle": -70,
+          "label": "MTP 배굴"
+        },
+        {
+          "x1": 166,
+          "y1": 148,
+          "x2": 166,
+          "y2": 171,
+          "label": "plantar load"
+        }
+      ],
+      "positive": {
+        "x": 168,
+        "y": 171,
+        "label": "MTP/sesamoid 통증·ROM 제한"
+      },
+      "examiner_position": "제1 MTP와 sesamoid complex를 지지하고 한 손으로 엄지를 잡아 관절 움직임을 조절한다.",
+      "hand_force": "엄지를 수동 배굴하고 제1 중족골두 plantar surface에 축성/국소 부하를 주어 통증과 ROM을 본다.",
+      "common_error": "골성 stress injury나 관절염을 임상검사만으로 배제하지 않고 국소 압통과 영상 필요성을 함께 판단한다."
+    },
+    "ct081": {
+      "clinical_test_id": "ct081",
+      "precision": "custom",
+      "view": "front",
+      "title": "Ottawa ankle/foot rule · 표준 골성 압통점 + 4-step weight-bearing 선별",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          202
+        ],
+        "foot": [
+          105,
+          207
+        ],
+        "toe": [
+          118,
+          207
+        ],
+        "foot_label": "급성 외상"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          202
+        ],
+        "foot": [
+          105,
+          207
+        ],
+        "toe": [
+          118,
+          207
+        ],
+        "foot_label": "압통점/4걸음"
+      },
+      "examiner_hands": [
+        {
+          "x": 88,
+          "y": 201,
+          "label": "malleolar zone"
+        },
+        {
+          "x": 108,
+          "y": 205,
+          "label": "midfoot zone"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 77,
+          "y1": 180,
+          "x2": 88,
+          "y2": 199,
+          "label": "골성 압통 확인"
+        },
+        {
+          "x1": 130,
+          "y1": 204,
+          "x2": 149,
+          "y2": 204,
+          "label": "4-step 확인"
+        }
+      ],
+      "positive": {
+        "x": 100,
+        "y": 202,
+        "label": "rule 기준 충족 → X-ray"
+      },
+      "examiner_position": "급성 외상에서 먼저 체중부하 가능 여부와 적용 제외 상황을 확인한 뒤 표준 골성 압통 부위를 촉진한다.",
+      "hand_force": "후방 malleolar edge/tip와 navicular, base of 5th metatarsal 등 rule의 표준 지점을 확인하고 4-step weight-bearing을 평가한다.",
+      "common_error": "Ottawa rule을 골절 확정검사로 사용하지 않고, 적용 제외 상황이나 고위험 임상소견이 있으면 별도 판단을 우선한다."
     }
   }
 }
