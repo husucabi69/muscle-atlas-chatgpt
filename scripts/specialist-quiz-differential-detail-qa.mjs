@@ -39,7 +39,8 @@ check('Focused diagnosis auto-opens detail',index.includes("if('open' in el)el.o
 
 check('Clinical exam detail has educational illustration renderer',
   index.includes('function clinicalExamIllustrationHtml(test,moduleKey)')&&
-  index.includes('검사 시행 도해')&&index.includes('교육용 개념도')
+  index.includes('검사 시행 도해')&&
+  (index.includes('검사별 시행 도해')||index.includes('공통 개념도'))
 );
 check('Clinical exam detail separates setup, examiner maneuver, positive criteria, interpretation and limitations',
   ['검사 전 확인','환자 시작 자세','검사자 동작 · 시행 순서','양성 기준','임상 해석','한계 / 흔한 오류'].every(x=>index.includes(x))
