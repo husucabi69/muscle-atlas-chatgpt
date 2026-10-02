@@ -39,6 +39,24 @@ check('Spurling prompt distinguishes radicular symptom from local neck pain',
 check('Spurling prompt locks cervical compression pose',
   spurling.includes('증상측으로 경추를 회전·측굴/신전')&&spurling.includes('축성 압박'));
 
+const ct082=manifest.profiles?.find(x=>x.clinical_test_id==='ct082');
+check('ct082 candidate 1 has a new generation id',
+  ct082?.preview_candidate?.gen_id==='7d4e6df1-19d5-4439-9fe4-41ce23d27f8f',
+  ct082?.preview_candidate?.gen_id||'missing');
+check('ct082 candidate 1 is blocked from canonical promotion',
+  ct082?.composite_url===null&&ct082?.review?.user_preview==='PENDING'&&
+  Array.isArray(ct082?.approval_blockers)&&ct082.approval_blockers.length>0);
+check('ct082 failed axes stay explicit while baseline remains generation-ready',
+  ct082?.status==='PENDING_GENERATION'&&ct082?.brief_status==='GENERATION_READY'&&
+  ct082?.review?.visual_pose==='FAIL'&&ct082?.review?.embedded_text==='FAIL');
+
+const runtime=fs.readFileSync('index.html','utf8');
+check('Runtime loads realistic Physical Examination registry',
+  runtime.includes("fetch('./data/physical-exam-realistic-assets-v1.json'"));
+check('Runtime renders realistic candidate without replacing schematic fallback',
+  runtime.includes('physicalExamRealisticCandidateHtml(test)+clinicalExamIllustrationHtml(test,moduleKey)')&&
+  runtime.includes('이 후보는 사용자 검수용이며 canonical 교체가 아닙니다.'));
+
 let nonPilotBlocked=false;
 try{buildPhysicalExamPrompt(manifest,'ct001')}catch(e){nonPilotBlocked=String(e.message).includes('not in the active realistic Physical Examination pilot')}
 check('Non-pilot generation is blocked during cervical pilot',nonPilotBlocked);
