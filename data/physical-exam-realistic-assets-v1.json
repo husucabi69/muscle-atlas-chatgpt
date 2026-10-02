@@ -3133,12 +3133,12 @@
         "source_png_dimensions": "1024x1536",
         "source_png_sha256_verified": "050ff5edaa489813605835125471e56f961fa1d7ba61ccb2b0b88e38893a3621",
         "preview_asset_path": "./assets/physical-exam-realistic/approved/ct082-spurling-gen-919bcbfd-approved.webp",
-        "preview_dimensions": "600x900",
-        "preview_webp_sha256": "2efbc017f0098d5f00106c07b01e0fddb603f8c009049d00e79abbb55163c620",
+        "preview_dimensions": "400x600",
+        "preview_webp_sha256": "7e6d505b9d0411422c45b2a79a46134f8b6d3f0ba834d43acee82088df4a483b",
         "user_approval": "PASS",
         "disposition": "USER_APPROVED_PREVIEW_ASSET",
         "ip_vault": "husucabi69/muscle-atlas-ip-vault",
-        "note": "Preferred realistic teaching asset. User explicitly corrected and approved ipsilateral laterality. This WebP is a derived app asset; the source PNG hash refers to the mounted reviewed source file."
+        "note": "Preferred realistic teaching asset. User explicitly corrected and approved ipsilateral laterality. This 400x600 WebP is the verified derived app asset; the source PNG hash refers to the mounted reviewed source file."
       }
     },
     {
