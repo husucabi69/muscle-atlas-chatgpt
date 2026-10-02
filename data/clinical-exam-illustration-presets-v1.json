@@ -3,7 +3,7 @@
   "updated_at": "2026-10-02",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 132,
+    "customized": 148,
     "total_canonical_tests": 148,
     "modules": [
       "shoulder",
@@ -14,10 +14,11 @@
       "leg-ankle-foot",
       "cervical",
       "thoracic",
-      "lumbar-sacral"
+      "lumbar-sacral",
+      "abdominal-core"
     ],
-    "status": "BATCH_9_COMPLETE",
-    "next_module": "abdominal-core"
+    "status": "EXAM_001_BASELINE_COMPLETE",
+    "next_module": "none"
   },
   "presets": {
     "ct001": {
@@ -9005,6 +9006,1044 @@
       "examiner_position": "배뇨·배변 변화, saddle sensory change, 양측/진행성 약화·감각이상을 우선 확인한다.",
       "hand_force": "중대한 red flag가 있으면 반복운동이나 강한 provocation을 중단하고 긴급 평가로 전환한다.",
       "common_error": "비특이 증상 하나로 CES를 확정하지 않되 진행성 객관적 결손을 routine LBP로 처리하지 않는다."
+    },
+    "ct133": {
+      "clinical_test_id": "ct133",
+      "precision": "custom",
+      "view": "front",
+      "title": "Carnett · 압통점 유지 + 복벽 긴장으로 abdominal-wall source 평가",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "국소 압통점"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "복벽 긴장"
+      },
+      "examiner_hands": [
+        {
+          "x": 96,
+          "y": 116,
+          "label": "압통점 유지"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 48,
+          "y1": 103,
+          "x2": 61,
+          "y2": 89,
+          "label": "head/shoulder lift"
+        },
+        {
+          "x1": 96,
+          "y1": 92,
+          "x2": 96,
+          "y2": 114,
+          "label": "압박 유지"
+        }
+      ],
+      "positive": {
+        "x": 96,
+        "y": 116,
+        "label": "통증 같거나 증가"
+      },
+      "examiner_position": "환자가 한 손가락으로 가장 아픈 점을 가리키게 한 뒤 그 부위에 일정한 압력을 유지한다.",
+      "hand_force": "압박을 유지한 채 머리·어깨를 들거나 양 다리를 들어 복벽을 긴장시키고 통증 변화를 묻는다.",
+      "common_error": "급성 복통·복막자극·전신증상이 있으면 Carnett 결과보다 visceral/peritoneal 평가를 우선한다."
+    },
+    "ct134": {
+      "clinical_test_id": "ct134",
+      "precision": "custom",
+      "view": "front",
+      "title": "국소 압통점·감각지도 · 복직근 외측연 trigger point와 피부감각 비교",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "복직근 외측연"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "감각 mapping"
+      },
+      "examiner_hands": [
+        {
+          "x": 103,
+          "y": 116,
+          "label": "trigger point / 피부감각"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 88,
+          "y1": 116,
+          "x2": 112,
+          "y2": 116,
+          "label": "좌우·주변 비교"
+        }
+      ],
+      "positive": {
+        "x": 103,
+        "y": 116,
+        "label": "작은 trigger point + 감각변화"
+      },
+      "examiner_position": "복직근 외측연 주변을 단계적으로 촉진하고 동일 높이의 반대측 피부감각과 비교한다.",
+      "hand_force": "가벼운 촉각 또는 표준 핀프릭으로 hyperesthesia·hypoesthesia·allodynia를 확인한다.",
+      "common_error": "국소 압통 하나만으로 ACNES를 확정하지 않고 Carnett·병력과 통합한다."
+    },
+    "ct135": {
+      "clinical_test_id": "ct135",
+      "precision": "custom",
+      "view": "front",
+      "title": "Dynamic Valsalva · 기침/복압 증가에서 복벽 bulge와 reducibility 관찰",
+      "start": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "기립·휴식"
+      },
+      "action": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "Valsalva/기침"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 80,
+          "y1": 116,
+          "x2": 103,
+          "y2": 116,
+          "label": "bulge"
+        },
+        {
+          "x1": 80,
+          "y1": 91,
+          "x2": 80,
+          "y2": 111,
+          "label": "복압 증가"
+        }
+      ],
+      "positive": {
+        "x": 100,
+        "y": 116,
+        "label": "반복 가능한 bulge/impulse"
+      },
+      "examiner_position": "앙와위와 기립을 비교하며 의심 부위를 정면·사면에서 관찰한다.",
+      "hand_force": "기침 또는 적절한 Valsalva를 시행하게 하고 일시적 돌출과 환원 여부를 본다.",
+      "common_error": "bulge가 없다고 작은/간헐 hernia를 배제하지 않고 통증만으로 hernia를 확정하지 않는다."
+    },
+    "ct136": {
+      "clinical_test_id": "ct136",
+      "precision": "custom",
+      "view": "front",
+      "title": "Cough impulse · defect 후보 부위 촉지하며 기침 충격 전달 확인",
+      "start": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "defect 촉지"
+      },
+      "action": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "기침"
+      },
+      "examiner_hands": [
+        {
+          "x": 80,
+          "y": 116,
+          "label": "umbilical/linea alba/groin"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 80,
+          "y1": 94,
+          "x2": 80,
+          "y2": 113,
+          "label": "cough impulse"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 116,
+        "label": "해부학적 defect와 일치하는 impulse"
+      },
+      "examiner_position": "의심되는 결손 부위에 손가락을 가볍게 대고 환자가 힘을 주기 전 위치를 확인한다.",
+      "hand_force": "기침 시 전달되는 impulse와 bulge를 촉지하되 통증성 종괴를 세게 누르지 않는다.",
+      "common_error": "비만·작은 hernia에서는 민감도가 낮을 수 있어 음성만으로 배제하지 않는다."
+    },
+    "ct137": {
+      "clinical_test_id": "ct137",
+      "precision": "custom",
+      "view": "front",
+      "title": "Rectus diastasis screen · 작은 curl-up에서 linea alba widening/bulging 관찰",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "휴식"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "head lift/curl-up"
+      },
+      "examiner_hands": [
+        {
+          "x": 80,
+          "y": 115,
+          "label": "linea alba"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 68,
+          "y1": 116,
+          "x2": 59,
+          "y2": 116,
+          "label": "widening"
+        },
+        {
+          "x1": 92,
+          "y1": 116,
+          "x2": 101,
+          "y2": 116,
+          "label": "widening"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 116,
+        "label": "inter-recti separation/bulging"
+      },
+      "examiner_position": "앙와위에서 무릎을 굽히고 linea alba/umbilical region을 정면에서 관찰·촉진한다.",
+      "hand_force": "작은 head lift/curl-up으로 복직근을 활성화하고 midline widening·doming을 확인한다.",
+      "common_error": "손가락 폭만으로 정량진단하지 않고 true fascial hernia defect와 구분한다."
+    },
+    "ct138": {
+      "clinical_test_id": "ct138",
+      "precision": "custom",
+      "view": "front",
+      "title": "Inter-recti distance US · 표준 위치에서 양측 rectus 내측연 사이 거리 측정",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "transverse probe"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "rest vs contraction"
+      },
+      "examiner_hands": [
+        {
+          "x": 80,
+          "y": 112,
+          "label": "US probe"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 68,
+          "y1": 111,
+          "x2": 92,
+          "y2": 111,
+          "label": "inter-recti distance"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 112,
+        "label": "위치·호흡·수축조건과 함께 기록"
+      },
+      "examiner_position": "umbilicus 및 정해진 상·하 위치에서 transverse probe를 수직으로 두고 압력을 일정하게 한다.",
+      "hand_force": "rest와 정의된 contraction에서 같은 위치를 반복 측정한다.",
+      "common_error": "단일 cutoff를 자동진단으로 쓰지 않고 측정 위치와 contraction protocol을 반드시 기록한다."
+    },
+    "ct139": {
+      "clinical_test_id": "ct139",
+      "precision": "custom",
+      "view": "front",
+      "title": "ADIM · 정상호흡 유지하며 하복부를 부드럽게 안쪽으로 draw-in",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "편안한 호흡"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "하복부 draw-in"
+      },
+      "examiner_hands": [
+        {
+          "x": 102,
+          "y": 123,
+          "label": "TrA/IO 촉진/US"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 104,
+          "y1": 123,
+          "x2": 92,
+          "y2": 123,
+          "label": "안쪽으로 수축"
+        }
+      ],
+      "positive": {
+        "x": 101,
+        "y": 123,
+        "label": "호흡 유지 + 과도한 bracing 없음"
+      },
+      "examiner_position": "crook lying에서 복부·흉곽 움직임이 보이게 하고 하복부 측벽을 촉진하거나 초음파로 관찰한다.",
+      "hand_force": "숨을 참거나 골반을 움직이지 않고 하복부를 부드럽게 당기도록 cue한다.",
+      "common_error": "강한 abdominal bracing이나 posterior pelvic tilt를 ADIM으로 오인하지 않는다."
+    },
+    "ct140": {
+      "clinical_test_id": "ct140",
+      "precision": "custom",
+      "view": "front",
+      "title": "Resisted trunk flexion · 작은 curl-up에 점진 저항",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "crook lying"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          78
+        ],
+        "umbilicus": [
+          80,
+          113
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "curl-up"
+      },
+      "examiner_hands": [
+        {
+          "x": 55,
+          "y": 83,
+          "label": "상부 체간 저항"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 55,
+          "y1": 65,
+          "x2": 55,
+          "y2": 87,
+          "label": "신전 방향 저항"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 105,
+        "label": "복직근 belly/attachment 통증·약화"
+      },
+      "examiner_position": "작은 curl-up을 먼저 통증 없이 시행한 뒤 상부 체간에 가벼운 저항을 더한다.",
+      "hand_force": "환자의 trunk flexion에 반대 방향으로 점진적 저항을 주고 국소 통증을 확인한다.",
+      "common_error": "급성 파열·hematoma 의심 시 강한 저항을 금지하고 hernia/visceral pain을 먼저 배제한다."
+    },
+    "ct141": {
+      "clinical_test_id": "ct141",
+      "precision": "custom",
+      "view": "front",
+      "title": "External oblique resisted rotation · 반대측 회전에 저항",
+      "start": {
+        "body": "seated",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "중립 좌위"
+      },
+      "action": {
+        "body": "seated",
+        "abdomen_top": [
+          88,
+          82
+        ],
+        "umbilicus": [
+          84,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "반대측 회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 104,
+          "y": 83,
+          "label": "어깨/상부체간"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 112,
+          "r": 38,
+          "start_angle": 195,
+          "end_angle": 335,
+          "label": "회전 저항"
+        }
+      ],
+      "positive": {
+        "x": 99,
+        "y": 116,
+        "label": "해당 flank 통증/약화"
+      },
+      "examiner_position": "골반을 고정하고 상부 체간 회전을 유도할 수 있도록 어깨 또는 흉곽에 손을 둔다.",
+      "hand_force": "목표 외복사근이 주로 관여하는 반대측 회전에 가벼운 저항을 준다.",
+      "common_error": "회전은 여러 근육이 협력하므로 한 근육 병변으로 단정하지 않는다."
+    },
+    "ct142": {
+      "clinical_test_id": "ct142",
+      "precision": "custom",
+      "view": "front",
+      "title": "Internal oblique resisted rotation · 동측 회전에 저항",
+      "start": {
+        "body": "seated",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "중립 좌위"
+      },
+      "action": {
+        "body": "seated",
+        "abdomen_top": [
+          72,
+          82
+        ],
+        "umbilicus": [
+          76,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "동측 회전"
+      },
+      "examiner_hands": [
+        {
+          "x": 56,
+          "y": 83,
+          "label": "어깨/상부체간"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 112,
+          "r": 38,
+          "start_angle": 345,
+          "end_angle": 205,
+          "label": "회전 저항"
+        }
+      ],
+      "positive": {
+        "x": 61,
+        "y": 116,
+        "label": "해당 flank 통증/약화"
+      },
+      "examiner_position": "골반을 고정하고 상부체간 동측 회전이 잘 보이도록 위치한다.",
+      "hand_force": "환자의 동측 회전에 반대방향 가벼운 저항을 준다.",
+      "common_error": "TrA/EO/paraspinal contribution을 무시하고 IO 단독 병변으로 확정하지 않는다."
+    },
+    "ct143": {
+      "clinical_test_id": "ct143",
+      "precision": "custom",
+      "view": "front",
+      "title": "TrA ultrasound contraction ratio · lateral abdominal wall rest→ADIM thickness 비교",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "rest"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "ADIM contraction"
+      },
+      "examiner_hands": [
+        {
+          "x": 108,
+          "y": 121,
+          "label": "lateral US probe"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 108,
+          "y1": 106,
+          "x2": 108,
+          "y2": 118,
+          "label": "probe"
+        },
+        {
+          "x1": 102,
+          "y1": 121,
+          "x2": 94,
+          "y2": 121,
+          "label": "thickness change"
+        }
+      ],
+      "positive": {
+        "x": 106,
+        "y": 121,
+        "label": "protocolized rest→contraction 변화"
+      },
+      "examiner_position": "lateral abdominal wall의 표준 위치에 probe를 두고 압력과 각도를 일정하게 한다.",
+      "hand_force": "rest 측정 후 같은 위치에서 ADIM을 시행해 TrA thickness 변화를 비교한다.",
+      "common_error": "thickness change를 최대근력과 동일시하지 않고 호흡·probe pressure 영향을 기록한다."
+    },
+    "ct144": {
+      "clinical_test_id": "ct144",
+      "precision": "custom",
+      "view": "front",
+      "title": "Athletic groin resisted sit-up · trunk flexion으로 pubic/inguinal abdominal-wall pain 재현",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "groin_l": [
+          58,
+          150
+        ],
+        "groin_r": [
+          102,
+          150
+        ],
+        "abdomen_label": "groin boundary"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          78
+        ],
+        "umbilicus": [
+          80,
+          113
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "groin_l": [
+          58,
+          150
+        ],
+        "groin_r": [
+          102,
+          150
+        ],
+        "abdomen_label": "resisted sit-up"
+      },
+      "examiner_hands": [
+        {
+          "x": 54,
+          "y": 83,
+          "label": "상부체간 저항"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 54,
+          "y1": 66,
+          "x2": 54,
+          "y2": 87,
+          "label": "저항"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 148,
+        "label": "pubic/inguinal pain"
+      },
+      "examiner_position": "하복부와 치골부 통증 위치를 먼저 확인하고 작은 sit-up을 시행하게 한다.",
+      "hand_force": "trunk flexion에 가벼운 반대 저항을 주고 pubic/inguinal pain 재현을 본다.",
+      "common_error": "adductor·hip·pubic symphysis pathology와 겹치므로 sports hernia 단독 확진검사로 사용하지 않는다."
+    },
+    "ct145": {
+      "clinical_test_id": "ct145",
+      "precision": "custom",
+      "view": "front",
+      "title": "Dynamic inguinal US · deep ring/inguinal canal에서 rest vs Valsalva 실시간 비교",
+      "start": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "groin_l": [
+          58,
+          150
+        ],
+        "groin_r": [
+          102,
+          150
+        ],
+        "abdomen_label": "inguinal canal"
+      },
+      "action": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "groin_l": [
+          58,
+          150
+        ],
+        "groin_r": [
+          102,
+          150
+        ],
+        "abdomen_label": "Valsalva dynamic US"
+      },
+      "examiner_hands": [
+        {
+          "x": 102,
+          "y": 148,
+          "label": "US probe / deep ring"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 91,
+          "y1": 148,
+          "x2": 111,
+          "y2": 148,
+          "label": "posterior wall bulge/content excursion"
+        }
+      ],
+      "positive": {
+        "x": 102,
+        "y": 148,
+        "label": "dynamic defect/bulging + content movement"
+      },
+      "examiner_position": "inferior epigastric vessels와 deep ring landmark를 확인하고 inguinal canal을 표준화해 스캔한다.",
+      "hand_force": "rest와 Valsalva/standing을 비교해 posterior wall과 fat/bowel excursion을 실시간 관찰한다.",
+      "common_error": "불완전한 Valsalva로 false negative를 만들지 않고 무증상 bulging은 증상과 통합한다."
+    },
+    "ct146": {
+      "clinical_test_id": "ct146",
+      "precision": "custom",
+      "view": "front",
+      "title": "Abdominal-wall hematoma/tear screen · 종창·반상출혈·초음파 collection 확인",
+      "start": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "국소 종창/멍"
+      },
+      "action": {
+        "body": "supine",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "US mass/collection"
+      },
+      "examiner_hands": [
+        {
+          "x": 98,
+          "y": 108,
+          "label": "국소 촉진/US"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 98,
+          "y1": 84,
+          "x2": 98,
+          "y2": 104,
+          "label": "부드러운 평가"
+        }
+      ],
+      "positive": {
+        "x": 98,
+        "y": 108,
+        "label": "focal swelling/ecchymosis/collection"
+      },
+      "examiner_position": "외상·기침·운동·항응고제 병력을 확인한 뒤 국소 종창·멍과 초음파 소견을 함께 본다.",
+      "hand_force": "통증 부위를 강하게 누르지 않고 mass/collection 범위를 관찰한다.",
+      "common_error": "활동성 출혈·혈역학적 문제 가능성이 있으면 재활검사보다 추가 영상·응급평가를 우선한다."
+    },
+    "ct147": {
+      "clinical_test_id": "ct147",
+      "precision": "custom",
+      "view": "front",
+      "title": "Hernia complication red flag · 통증성 비환원성 bulge + obstruction/systemic signs",
+      "start": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "통증성 bulge"
+      },
+      "action": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "urgent surgical gate"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 107,
+          "y1": 116,
+          "x2": 140,
+          "y2": 116,
+          "label": "응급/외과 평가"
+        }
+      ],
+      "positive": {
+        "x": 98,
+        "y": 116,
+        "label": "비환원성 종괴·구토·obstruction·systemic compromise"
+      },
+      "examiner_position": "통증성 종괴의 피부변화, 압통, 환원 여부와 GI/systemic symptoms를 먼저 확인한다.",
+      "hand_force": "무리한 manual reduction을 시도하지 않는다.",
+      "common_error": "통증성 비환원성 hernia를 routine exercise/rehab 경로로 보내지 않는다."
+    },
+    "ct148": {
+      "clinical_test_id": "ct148",
+      "precision": "custom",
+      "view": "front",
+      "title": "Visceral/peritoneal red-flag screen · 중대한 복강내 질환 의심 시 MSK pathway 중단",
+      "start": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "문진+전신 선별"
+      },
+      "action": {
+        "body": "standing",
+        "abdomen_top": [
+          80,
+          82
+        ],
+        "umbilicus": [
+          80,
+          116
+        ],
+        "pubic": [
+          80,
+          150
+        ],
+        "abdomen_label": "medical/surgical gate"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 107,
+          "y1": 116,
+          "x2": 140,
+          "y2": 116,
+          "label": "의학적 평가 우선"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 116,
+        "label": "발열·지속구토·GI bleed·syncope·peritoneal/systemic signs"
+      },
+      "examiner_position": "급성 복통에서 vital/systemic findings와 tenderness pattern, 출혈·임신·전신질환 위험을 우선 확인한다.",
+      "hand_force": "중대한 visceral/peritoneal 병리가 의심되면 복벽 도발검사를 중단한다.",
+      "common_error": "Carnett 양성이라는 이유만으로 visceral/peritoneal red flag를 무시하지 않는다."
     }
   }
 }
