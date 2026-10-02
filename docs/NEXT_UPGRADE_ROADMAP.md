@@ -213,7 +213,7 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 - **EXAM-REAL-001 착수:** `data/physical-exam-realistic-assets-v1.json`에 148개 전수 realistic asset slot을 생성했다. 모든 항목은 기존 EXAM-001 schematic을 fallback으로 유지하며, clinical content / visual pose / examiner hand / force direction / embedded text / user Preview 6개 gate를 통과하기 전 교체 금지.
 - 첫 실사형 pilot은 경추 6개 **ct082 Spurling / ct083 distraction / ct084 ULNT1 / ct088 Hoffmann / ct092 flexion-rotation / ct095 CCFT**로 고정한다. 각 후보는 새 gen_id와 인간 교정·저작권 evidence를 남긴다.
 - **2026-10-02 EXAM-REAL generation gate 준비 완료:** `scripts/build-physical-exam-realistic-prompt.mjs`가 active pilot 밖의 검사 생성을 차단하고, 같은 환자·검사자 3-panel / 정확한 손 위치 / force direction / 보수적 진단 표현 / 저작권·human-edit evidence를 프롬프트에 강제한다. `scripts/physical-exam-realistic-prompt-qa.mjs`를 Global QA에 연결했다.
-- 다음 실제 시각자산 작업은 **ct082 Spurling 실사형 candidate 1개 생성 → 새 gen_id 기록 → clinical/pose/hand/force/text 5축 검토 → 사용자 Preview 승인 전 baseline 교체 금지** 순서로 진행한다.
+- **2026-10-02 ct082 Candidate 1 생성·검수 완료:** gen_id `7d4e6df1-19d5-4439-9fe4-41ce23d27f8f`. 임상내용/검사자 손/축성 압박 방향은 PASS했으나, 세로형 composite 미준수·회전 성분 시인성 부족·짧은 한국어 라벨 원칙 위반으로 `visual_pose`와 `embedded_text`는 FAIL. Preview에는 승인 전 후보로만 병렬 표시하고 기존 EXAM-001 schematic은 유지한다. 다음 EXAM-REAL 작업은 **ct082 교정 candidate 2**이며, ct083으로 넘어가기 전에 내부 FAIL 축을 해소한다.
 - 다음 시각 품질 단계는 **EXAM-REAL-001**이다. 현재 148/148 schematic은 구조·검사법 정확성 baseline으로 보존하고, 정본 스타일 계약에 따라 **실사형 환자 + 실사형 검사자 + 손 위치/힘 방향/양성 overlay**로 순차 승격한다.
 - **148개 canonical clinical test 전부**를 단순 한두 줄 설명으로 끝내지 않는다.
 - 각 검사는 목적, 환자 시작자세, 검사자 위치·손 위치/힘 방향, 시행 순서, 양성 기준, 해석, 한계·거짓양성/흔한 오류, 연결 구조, 연결 감별진단을 제공한다.
@@ -250,7 +250,7 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 | UPD-002 | 홈 최상단에서 아래로 당겨 업데이트 확인/재로드 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | UPD-003 | Cloudflare commit-hash Preview 설치 시 영구 고정되는 문제 방지: 설치 차단 + 안정 branch alias 이동 + 실기기 update E2E | Release blocker | Stage 15 + Cloudflare Preview | **PATCHED / Stage 23C USER E2E REQUIRED** |
 | EXAM-001 | 148개 진찰검사 전부 교과서급 상세 설명 + 시작/시행/양성 일러스트 + 구조·감별 연결 | Release blocker | A5 clinical stable IDs | **BASELINE COMPLETE · 148/148 custom Stable-ID schematics across all 10 regions / next EXAM-REAL-001** |
-| EXAM-REAL-001 | Physical Examination 148개를 실사형 환자·검사자 일러스트 + 손 위치/힘 방향/양성 overlay로 최종 승격 | Release blocker / visual quality | EXAM-001 baseline + realistic asset pipeline | **IN PROGRESS · 148-profile registry + prompt gate ready / cervical pilot next = ct082 Spurling candidate generation** |
+| EXAM-REAL-001 | Physical Examination 148개를 실사형 환자·검사자 일러스트 + 손 위치/힘 방향/양성 overlay로 최종 승격 | Release blocker / visual quality | EXAM-001 baseline + realistic asset pipeline | **IN PROGRESS · ct082 candidate 1 Preview 기록 / 2축 FAIL 교정 필요 / next = ct082 candidate 2** |
 | DIFF-001 | 10개 임상영역 감별후보 전부 클릭형 교과서급 상세 설명 | Release blocker | A5 differential stable IDs | **IN PROGRESS · cervical 12 COMPLETE / 9 regions pending** |
 | QUIZ-BOARD-001 | 전문의 수준 임상 Case 자동출제: 쉬운 O/I/F/N 제외, 가까운 감별 distractor, 20/40/80/120 세션 | High | 10 clinical differential modules | **IMPLEMENTED BASELINE / CONTENT EXPANSION ONGOING** |
 | QUIZ-BOARD-002 | 실제 전문의 기출은 공식 공개원문만 연결하고 공식 범위·참고문헌 registry 유지 | High | source/license audit | **IMPLEMENTED POLICY / ONGOING SOURCE CHECK** |
