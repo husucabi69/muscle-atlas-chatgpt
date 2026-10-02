@@ -20,7 +20,7 @@
 
 ## Deployment Safety Baseline — QPU 경량 통합 / 2026-10-01
 
-상태: **QUEUED / NON-PREEMPTIVE — Stage 23B 콘텐츠 개발을 중단하지 않고 다음 자연스러운 배치 경계에서 경량 구현**
+상태: **IN PROGRESS — LIGHTWEIGHT GATE 1/2 PASS (2026-10-02) / Production guard + drift check remaining**
 
 목적:
 - H3Y Ledger의 복잡한 DB migration/recovery 체계를 복제하지 않고, 정적 의료교육 PWA인 Muscle Atlas의 실제 위험에 맞는 상위 배포 Gate를 둔다.
@@ -78,8 +78,15 @@
 위 조건 중 하나라도 생기면 본 경량 baseline을 재검토하고 강화 Profile로 승격한다.
 
 예상 작업 회차:
-- **1회차:** deploy-safety preflight 스크립트 + exact SHA/Cloudflare check/URL smoke 계약 + 기존 Global QA 연결.
-- **2회차:** Production promotion guard 및 Cloudflare↔GitHub Pages drift check 정리 + 문서/실기기 checklist 통합.
+- **1회차 완료 / PASS — 2026-10-02:** `scripts/deploy-safety-gate.mjs` + 기존 `.github/workflows/global-qa.yml`의 단일 `deploy-safety-gate` job으로 exact SHA/Cloudflare check/immutable Preview/stable branch alias/PWA smoke를 묶었다.
+  - 검증 SHA: `e0ee6667a31fb517d60f5d7dc655b8f75ece59a9`
+  - Cloudflare immutable Preview: `https://c0ee4408.muscle-atlas-chatgpt.pages.dev`
+  - stable Preview: `https://preview-development.muscle-atlas-chatgpt.pages.dev`
+  - Global QA PASS / Runtime E2E PASS / Deploy Safety Gate **24/24 PASS**
+  - exact Preview와 stable Preview의 `app-version.js`가 checked-out SHA의 v11.90 release metadata와 일치함을 자동 확인
+  - home / manifest / service worker HTTP 200 + PWA start_url/scope + canonical install-origin 계약 확인
+  - CI evidence artifact를 SHA별로 14일 보존
+- **2회차 남음:** Production promotion guard 및 Cloudflare Production↔GitHub Pages fallback drift check 정리 + 문서/실기기 checklist 통합.
 - Cloudflare Dashboard 설정 변경이 필요한 경우에만 별도 외부계정 확인 1회가 추가될 수 있다.
 
 삽입 위치:
@@ -887,7 +894,7 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 # 현재 바로 시작할 순서
 
-**EXAM-001 검사별 맞춤도해 148/148 진행 → 경량 Deployment Safety Gate → Stage 23B 실사형 운동 일러스트 잔여 제작/검수 → Stage 23B-Disease Rehab → Stage 23B-Anatomy IP Pilot + IP-REG Filing 1 → Stage 23B-3D Anatomy Pilot → Stage 23B-Motion Animation Pilot → Stage 23C → Stage 24**
+**EXAM-001 148/148 COMPLETE → 경량 Deployment Safety Gate 1/2 PASS, Gate 2 진행 → EXAM-REAL-001 경추 실사형 pilot → Stage 23B 실사형 운동 일러스트 잔여 제작/검수 → Stage 23B-Disease Rehab → Stage 23B-Anatomy IP Pilot + IP-REG Filing 1 → Stage 23B-3D Anatomy Pilot → Stage 23B-Motion Animation Pilot → Stage 23C → Stage 24**
 
 대표도해 미확보 항목 재탐색, 초음파 direct-embed 후보 탐색, 신규 근육/질환 콘텐츠 제안은 모두 위 주 개발선과 별도의 **Evergreen Refresh backlog**로 보존하며 주 개발선을 중단시키지 않는다.
 
