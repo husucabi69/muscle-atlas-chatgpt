@@ -2996,7 +2996,6 @@
         "examiner_hand_position": "PASS",
         "force_direction": "PASS",
         "embedded_text": "FAIL",
-        "copyright_provenance": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-02",
         "note": "Spurling 핵심인 증상측 회전·측굴/신전 + 축성 압박, 평소 팔 방사통/저림 재현, 단독 확진 금지는 표현됨. 다만 정본은 세로형 composite인데 생성물이 가로형이고 회전 성분이 충분히 명확하지 않다. 또한 '짧은 한국어 라벨만' 원칙보다 텍스트가 과도하고 영문 병기가 많아 교정 생성이 필요하다."
@@ -3024,7 +3023,14 @@
         "증상측 경추 회전 성분을 시각적으로 더 명확히 표현 필요",
         "짧은 한국어 라벨 원칙 위반: 장문 설명·영문 병기 과다"
       ],
-      "review_note": "Candidate 1 생성·검수 완료. 내부 gate FAIL 2축(visual_pose, embedded_text)으로 canonical 승격 금지. 다음 생성도 ct082 locked brief를 유지하되 비율/회전 표현/텍스트를 교정한다."
+      "review_note": "Candidate 1 생성·검수 완료. 내부 gate FAIL 2축(visual_pose, embedded_text)으로 canonical 승격 금지. 다음 생성도 ct082 locked brief를 유지하되 비율/회전 표현/텍스트를 교정한다.",
+      "provenance_review": {
+        "status": "PASS",
+        "reviewed_on": "2026-10-02",
+        "generator": "OpenAI image generation",
+        "rule": "AI raw output is candidate-only; human clinical correction/edit history is required before any final copyright-registration asset.",
+        "note": "새 gen_id와 raw SHA-256, Preview thumbnail SHA-256를 기록했고 교과서 tracing/near-copy를 사용하지 않았다."
+      }
     },
     {
       "clinical_test_id": "ct083",
