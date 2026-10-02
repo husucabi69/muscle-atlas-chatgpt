@@ -4,7 +4,11 @@ const token=process.env.GITHUB_TOKEN||'';
 const repository=process.env.DEPLOY_GATE_REPOSITORY||process.env.GITHUB_REPOSITORY||'';
 const sha=process.env.DEPLOY_GATE_SHA||process.env.GITHUB_SHA||'';
 const refName=process.env.DEPLOY_GATE_REF_NAME||process.env.GITHUB_REF_NAME||'';
+const mode=process.env.DEPLOY_GATE_MODE||'preview';
+const promotionApproved=process.env.PROMOTION_APPROVED_BY_USER||'';
 const canonicalPreview='https://preview-development.muscle-atlas-chatgpt.pages.dev';
+const cloudflareProduction='https://muscle-atlas-chatgpt.pages.dev';
+const githubPagesProduction='https://husucabi69.github.io/muscle-atlas-chatgpt';
 const evidencePath=process.env.DEPLOY_GATE_EVIDENCE||'/tmp/deploy-safety-evidence.json';
 
 const checks=[];
@@ -37,7 +41,11 @@ async function fetchText(url){
   return {ok:r.ok,status:r.status,text,url:r.url};
 }
 
-check('Gate runs only on canonical development branch',refName==='preview/development',refName);
+check('Gate mode is supported',['preview','promotion'].includes(mode),mode);
+check('Gate runs from canonical development branch',refName==='preview/development',refName);
+if(mode==='promotion'){
+  check('Explicit user Production approval token present',promotionApproved==='YES',promotionApproved||'missing');
+}
 check('Repository identity',repository==='husucabi69/muscle-atlas-chatgpt',repository);
 check('Exact commit SHA present',/^[0-9a-f]{40}$/i.test(sha),sha);
 check('Local release metadata complete',Boolean(localRelease.buildVersion&&localRelease.displayVersion&&localRelease.cacheKey),JSON.stringify(localRelease));
@@ -118,11 +126,60 @@ check('Stable Preview service worker uses canonical version file',
 check('Stable Preview home declares canonical install origin',
   (branchHome.text||'').includes("APP_CANONICAL_PREVIEW_ORIGIN='https://preview-development.muscle-atlas-chatgpt.pages.dev'"));
 
+const [cloudflareProductionVersion,githubPagesProductionVersion]=await Promise.all([
+  fetchText(cloudflareProduction+'/app-version.js'),
+  fetchText(githubPagesProduction+'/app-version.js')
+]);
+check('Cloudflare Production app-version.js smoke HTTP 200',cloudflareProductionVersion.ok,String(cloudflareProductionVersion.status));
+check('GitHub Pages fallback app-version.js smoke HTTP 200',githubPagesProductionVersion.ok,String(githubPagesProductionVersion.status));
+const cloudflareProductionRelease=parseRelease(cloudflareProductionVersion.text||'');
+const githubPagesProductionRelease=parseRelease(githubPagesProductionVersion.text||'');
+check('Cloudflare Production release metadata complete',
+  Boolean(cloudflareProductionRelease.buildVersion&&cloudflareProductionRelease.displayVersion&&cloudflareProductionRelease.cacheKey),
+  JSON.stringify(cloudflareProductionRelease));
+check('GitHub Pages fallback release metadata complete',
+  Boolean(githubPagesProductionRelease.buildVersion&&githubPagesProductionRelease.displayVersion&&githubPagesProductionRelease.cacheKey),
+  JSON.stringify(githubPagesProductionRelease));
+check('Cloudflare Production and GitHub Pages fallback have no release drift',
+  cloudflareProductionRelease.buildVersion===githubPagesProductionRelease.buildVersion&&
+  cloudflareProductionRelease.displayVersion===githubPagesProductionRelease.displayVersion&&
+  cloudflareProductionRelease.cacheKey===githubPagesProductionRelease.cacheKey,
+  JSON.stringify({cloudflare:cloudflareProductionRelease,githubPages:githubPagesProductionRelease}));
+
+let previewHeadSha=null,mainHeadSha=null,promotionChecks={};
+try{
+  const [previewRef,mainRef]=await Promise.all([
+    ghJson(`https://api.github.com/repos/${repository}/git/ref/heads/preview/development`),
+    ghJson(`https://api.github.com/repos/${repository}/git/ref/heads/main`)
+  ]);
+  previewHeadSha=previewRef?.object?.sha||null;
+  mainHeadSha=mainRef?.object?.sha||null;
+}catch(e){
+  check('Branch SHA preflight readable',false,String(e));
+}
+check('Checked SHA is current preview/development HEAD',previewHeadSha===sha,previewHeadSha||'missing');
+check('main Production HEAD readable',/^[0-9a-f]{40}$/i.test(mainHeadSha||''),mainHeadSha||'missing');
+
+if(mode==='promotion'){
+  const data=await ghJson(`https://api.github.com/repos/${repository}/commits/${sha}/check-runs?per_page=100`);
+  const byName=name=>(data.check_runs||[]).find(x=>x.name===name&&x.head_sha===sha)||null;
+  for(const name of ['global-qa','runtime-navigation-e2e','deploy-safety-gate','Cloudflare Pages']){
+    const item=byName(name);
+    promotionChecks[name]={status:item?.status||null,conclusion:item?.conclusion||null};
+    check(`Promotion prerequisite ${name} PASS`,item?.status==='completed'&&item?.conclusion==='success',
+      `${item?.status||'missing'}/${item?.conclusion||'missing'}`);
+  }
+}
+
 const evidence={
   gate:'Muscle Atlas lightweight deployment safety gate',
+  mode,
   checked_at:new Date().toISOString(),
   repository,sha,refName,
   localRelease,
+  branchHeads:{preview_development:previewHeadSha,main:mainHeadSha},
+  productionRelease:{cloudflare:cloudflareProductionRelease,githubPages:githubPagesProductionRelease},
+  promotionChecks,
   cloudflare:{
     status:cloudflare?.status||null,
     conclusion:cloudflare?.conclusion||null,
@@ -142,6 +199,7 @@ if(process.env.GITHUB_STEP_SUMMARY){
     '## Muscle Atlas Deploy Safety Gate',
     '',
     `- Result: **${evidence.result}**`,
+    `- Mode: \`${mode}\``,
     `- SHA: \`${sha}\``,
     `- Exact Preview: ${exactUrl||'missing'}`,
     `- Stable Preview: ${branchUrl||'missing'}`,
