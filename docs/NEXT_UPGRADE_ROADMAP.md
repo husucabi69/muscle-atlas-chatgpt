@@ -159,6 +159,10 @@
 - **Splenius capitis 3D Master + Master-derived 2D 교본판의 첫 완성 저작물 세트가 사용자 승인된 직후** 실행한다.
 - 등록 직전 한국저작권위원회의 최신 작품분류·AI 활용 기재방법을 다시 확인한다.
 - 단순 AI raw output은 filing master로 사용하지 않는다.
+- **MANDATORY USER ACTION GATE:** ANATOMY-KNOWLEDGE 시작 직전, 첫 3D Master reviewable 시점, Filing 1 준비 시점, 사용자 승인 직후, 3D/Layer/Motion 완성 시점, Stage 23C PASS 직후마다 사용자가 먼저 묻지 않아도 저작권 준비·신청 필요사항을 반드시 보고한다.
+- 사용자는 미리 CROS 회원가입/인증서를 준비할 수 있으나, 완성 전 raw/candidate를 서둘러 등록하지 않는다.
+- Filing 1 직전에는 저작자·저작재산권자·개인/법인 귀속·외주/공동기여 여부를 사용자에게 확인한 뒤 진행한다.
+- 상세 사용자 행동표: `docs/COPYRIGHT_REGISTRATION_STRATEGY.md`.
 
 ### ANATOMY-3D-VIEWER-001 — 3D Rotation
 - 동일 Canonical Master를 실제 앱에서 rotate / zoom / reset.
