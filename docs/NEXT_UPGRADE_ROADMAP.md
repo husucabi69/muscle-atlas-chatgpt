@@ -189,7 +189,10 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 - **2026-10-02 Batch 8 완료:** 흉추·등·흉곽 canonical 16개(ct099–ct114)를 Stable ID 맞춤도해로 추가했다. thoracic rotation/extension-rotation, rib spring/CTJ palpation, deep-inspiration/intercostal sensory mapping, neurologic red flag, wall push-up/serratus punch/scapular assistance/retraction/snapping scapula, paraspinal endurance/intercostal load/diaphragmatic breathing, integrated thoracic red-flag screen을 각각 분리했다.
 - 흉추·흉곽 전용 renderer를 추가해 thoracic spine line, rib cage, scapula, upper-limb position을 같은 3-step 교육도해 안에서 표현한다.
 - 흉통·호흡곤란·골절·척수성 red flag는 강한 MSK provocation보다 심폐/영상/전문의 평가 우선으로 유지한다.
-- 현재 custom coverage는 **114/148**이며 다음 Batch는 **요추·천추 canonical tests**다. 기존 공통 도해는 해당 검사별 preset이 생길 때까지만 fallback으로 유지한다.
+- **2026-10-02 Batch 9 완료:** 요추·천추 canonical 18개(ct115–ct132)를 Stable ID 맞춤도해로 추가했다. lumbar active ROM/repeated movement, SLR/crossed SLR/slump/femoral stretch, L2–S1 neurologic screen/heel-toe walk, lumbar extension-rotation, SI distraction/thigh thrust/compression/sacral thrust/Gaenslen/cluster, multifidus activation, superior cluneal nerve, cauda equina red-flag screen을 각각 분리했다.
+- 요추·천추 전용 renderer를 추가해 lumbar spine, sacrum, pelvis와 필요한 하지 위치를 같은 교육도해에서 표현한다.
+- SLR·slump는 hamstring stretch와 neural symptom을 구분하고, CES/red flag에서는 반복운동·강한 provocation보다 urgent MRI/전문의·응급평가를 우선하도록 유지한다.
+- 현재 custom coverage는 **132/148**이며 다음 Batch는 마지막 **복벽·코어 canonical 16개**다. 이 Batch까지 닫히면 EXAM-001 baseline이 **148/148** 완성된다.
 - **148개 canonical clinical test 전부**를 단순 한두 줄 설명으로 끝내지 않는다.
 - 각 검사는 목적, 환자 시작자세, 검사자 위치·손 위치/힘 방향, 시행 순서, 양성 기준, 해석, 한계·거짓양성/흔한 오류, 연결 구조, 연결 감별진단을 제공한다.
 - 각 검사 상세에는 **시작자세 → 시행 → 양성 판단**을 이해할 수 있는 교육용 일러스트를 제공한다.
@@ -224,7 +227,7 @@ ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구�
 | UPD-001 | 앱 실행/재개/포커스 시 자동 업데이트 확인 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | UPD-002 | 홈 최상단에서 아래로 당겨 업데이트 확인/재로드 | High | Stage 15 | **IMPLEMENTED v11.37** |
 | UPD-003 | Cloudflare commit-hash Preview 설치 시 영구 고정되는 문제 방지: 설치 차단 + 안정 branch alias 이동 + 실기기 update E2E | Release blocker | Stage 15 + Cloudflare Preview | **PATCHED / Stage 23C USER E2E REQUIRED** |
-| EXAM-001 | 148개 진찰검사 전부 교과서급 상세 설명 + 시작/시행/양성 일러스트 + 구조·감별 연결 | Release blocker | A5 clinical stable IDs | **IN PROGRESS · shoulder 11/11 + elbow 10/10 + wrist-hand 14/14 + hip-pelvis 14/14 + knee-thigh 15/15 + leg-ankle-foot 17/17 + cervical 17/17 + thoracic 16/16 custom · 114/148 total / next lumbar-sacral** |
+| EXAM-001 | 148개 진찰검사 전부 교과서급 상세 설명 + 시작/시행/양성 일러스트 + 구조·감별 연결 | Release blocker | A5 clinical stable IDs | **IN PROGRESS · shoulder 11/11 + elbow 10/10 + wrist-hand 14/14 + hip-pelvis 14/14 + knee-thigh 15/15 + leg-ankle-foot 17/17 + cervical 17/17 + thoracic 16/16 + lumbar-sacral 18/18 custom · 132/148 total / next abdominal-core** |
 | EXAM-REAL-001 | Physical Examination 148개를 실사형 환자·검사자 일러스트 + 손 위치/힘 방향/양성 overlay로 최종 승격 | Release blocker / visual quality | EXAM-001 baseline + realistic asset pipeline | **LOCKED / MUST DEVELOP · Stage 23B→23C before Production** |
 | DIFF-001 | 10개 임상영역 감별후보 전부 클릭형 교과서급 상세 설명 | Release blocker | A5 differential stable IDs | **IN PROGRESS · cervical 12 COMPLETE / 9 regions pending** |
 | QUIZ-BOARD-001 | 전문의 수준 임상 Case 자동출제: 쉬운 O/I/F/N 제외, 가까운 감별 distractor, 20/40/80/120 세션 | High | 10 clinical differential modules | **IMPLEMENTED BASELINE / CONTENT EXPANSION ONGOING** |
