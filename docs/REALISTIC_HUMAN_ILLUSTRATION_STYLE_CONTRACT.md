@@ -57,7 +57,7 @@ Physical Examination에서는 실사형 인물 위에 교육용 overlay를 추�
 
 ## 5. 현재 EXAM-001과의 관계
 
-현재 진행 중인 148개 진찰검사 Stable-ID 맞춤도해는 **구조·내용·힘 방향을 먼저 정확히 완성하는 baseline**이다.
+148개 진찰검사 Stable-ID 맞춤도해 baseline은 **2026-10-02 기준 148/148 COMPLETE**다. 이 baseline은 구조·내용·힘 방향의 정본이며, EXAM-REAL-001 실사형 승격에서 각 후보의 임상 정확도 기준으로 계속 보존한다.
 
 그 후 최종 시각자산은 순차적으로:
 `개념형/구조도해 → 실사형 Physical Examination 일러스트`
