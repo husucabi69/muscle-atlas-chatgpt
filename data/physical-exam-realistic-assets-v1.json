@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.02-exam-real-001-ct082-user-approved",
+  "dataset_version": "2026.10.03-exam-real-001-ct083-brief-locked",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3152,15 +3152,15 @@
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "앙와위 또는 좌위에서 머리를 지지하고 부드럽게 축성 견인을 가한다.",
-        "examiner_maneuver": "평소 상지 방사통이 감소하는지 확인한다.",
-        "positive_finding": "견인 시 익숙한 radicular arm symptom이 명확히 감소하면 양성 소견으로 기록한다.",
-        "interpretation": "cervical radiculopathy 임상 추론의 보조 소견이다.",
-        "limitation_safety": "증상 완화가 특정 신경근 병변을 확정하지 않는다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient; same premium realistic visual family as approved ct082 but independently generated new people/pose/scene",
+        "panel_structure": "세로형 portrait 3-panel을 위→아래로 쌓는다: 1 시작 자세 / 2 검사 시행 / 3 양성 판단. 각 패널은 같은 환자·같은 검사자를 유지한다.",
+        "patient_setup": "환자는 앙와위로 검사대에 편안히 눕고 경추는 중립 또는 환자가 편안한 약간의 굴곡 위치. 팔은 몸 옆에 자연스럽게 둔다.",
+        "examiner_maneuver": "검사자는 환자 머리쪽에 위치한다. 한 손은 후두부를 넓게 받치고 다른 손은 턱 아래를 부드럽게 지지한다. 머리를 몸통에서 멀어지는 두개측 방향으로 작고 점진적인 축성 견인을 가한다. 과격한 당김, 회전, 측굴, 신전은 넣지 않는다.",
+        "positive_finding": "검사 전 존재하던 한쪽 상지의 익숙한 방사통·저림 overlay가 검사 시행 후 명확히 감소하거나 옅어지는 모습을 보여준다. 새로운 통증이 생기는 그림은 금지.",
+        "interpretation": "Cervical distraction/traction relief finding은 cervical radiculopathy 임상추론의 보조 소견이다. 2026 diagnostic-accuracy systematic review에서는 대부분의 개별 physical test가 단일 연구 수준으로 평가됐고 전체 근거 확실성이 매우 낮아 단독 확진용으로 표현하지 않는다.",
+        "limitation_safety": "증상 완화가 특정 신경근 병변을 확정하지 않는다. 급성 외상, 의심되는 경추 불안정성, 척수병증·감염·악성종양 등 위험상황을 일반 교육그림에서 무리하게 검사하는 것으로 표현하지 않는다.",
+        "overlay_policy": "2번 패널에는 후두부/턱 지지 손 위치와 두개측 axial distraction 화살표를 명확히 표시한다. 3번 패널에는 동일한 증상측 팔의 기존 방사통 overlay가 약해지거나 사라지는 변화만 표시한다. 화면 좌우가 아니라 환자 해부학적 좌우를 기준으로 laterality를 일관되게 유지한다. 임의 kg 수치·각도·횟수 금지.",
+        "text_policy": "이미지 내부 글자는 극소화. 허용: 패널 번호, '시작 자세', '검사 시행', '양성 판단', 필요 시 '부드러운 축성 견인', '팔 방사통·저림 감소'. 영문 병기·장문 설명·진단 확정 문구 금지."
       },
       "review": {
         "clinical_content": "PENDING",
@@ -3175,7 +3175,15 @@
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "evidence_alignment": {
+        "canonical_refs": [
+          "radic_review_2026"
+        ],
+        "status": "PASS_WITH_VERY_LOW_CERTAINTY_CAUTION",
+        "note": "2026 systematic review: diagnostic accuracy evidence for cervical radiculopathy physical tests is sparse; most non-Spurling/non-ULNT outcomes are based on single studies and overall certainty is very low. Historical diagnostic literature describes supine distraction with occiput/chin support and symptom relief as the positive response. Use only as an adjunct to history and neurologic examination."
+      },
+      "review_note": "ct083 brief locked before generation. Supine, occiput + chin support, gentle cranial axial distraction, concordant radicular arm symptom relief. Laterality and relief-vs-provocation are mandatory visual QA gates."
     },
     {
       "clinical_test_id": "ct084",
