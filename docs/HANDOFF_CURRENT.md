@@ -1,3 +1,14 @@
+## 2026-10-03 manual checkpoint — direct review links + model casting
+
+- Manual development time rule: target 25 minutes; at 25 minutes start wrap-up only; hard stop at 30 minutes.
+- After each reviewable EXAM-REAL / patient-education asset is deployed, report a direct item-detail Preview link rather than only the app home URL.
+- Clinical deep-link query contract: `?page=clinical&module=<module>&topic=exam&item=<ctNNN>`.
+- Final user-facing teaching screens should remove/hide development-only wording such as Preview candidate, approval pending, canonical/fallback status, internal PASS/FAIL and gen_id. Preserve those records in GitHub/IP Vault instead.
+- Human model casting is now governed by `docs/REALISTIC_HUMAN_MODEL_CASTING_CONTRACT.md`.
+- New EXAM-REAL assets from ct084 use deterministic balanced patient/examiner male/female-presenting combinations; existing ct082/ct083 are grandfathered unless regenerated for another reason.
+- New patient-exercise realistic generations use the same stable-ID balanced patient-presentation rule. Existing approved/reviewed assets are not regenerated merely to satisfy casting.
+- Current EXAM-REAL user-review target remains ct083 Candidate 2. Do not advance to ct084 before ct083 user approval or requested revision.
+
 ## 2026-10-01 manual checkpoint — px007 source recovered
 
 - px007 exact reviewed source image was recovered from the user's personal Library as `손가락 벌림 운동 안내 포스터.png` (1536×1024).
