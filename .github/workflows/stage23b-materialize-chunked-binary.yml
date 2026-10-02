@@ -21,7 +21,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: preview/development
+          # Materialize the exact triggering commit, never a later moving branch tip.
+          ref: ${{ github.sha }}
 
       - name: Read exact binary handoff request
         id: req
@@ -78,4 +79,14 @@ jobs:
             "assets/patient-exercise-realistic/${PROFILE}.webp" \
             data/patient-exercise-realistic-assets-v1.json
           git commit -m "Stage 23B: materialize ${PROFILE} reviewed binary"
+
+          # Fail closed if preview/development advanced after this handoff was triggered.
+          # This prevents a stale automation run from racing with another development commit.
+          git fetch origin preview/development
+          REMOTE_HEAD="$(git rev-parse origin/preview/development)"
+          if [[ "$REMOTE_HEAD" != "${GITHUB_SHA}" ]]; then
+            echo "preview/development advanced during materialization: ${GITHUB_SHA} -> ${REMOTE_HEAD}" >&2
+            echo "Refusing stale push; rerun from the latest exact HEAD." >&2
+            exit 1
+          fi
           git push origin HEAD:preview/development
