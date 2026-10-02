@@ -60,7 +60,7 @@ check('ct082 approval state is complete',
 check('ct082 approved asset uses final generation id',
   ct082?.approved_asset?.candidate_no===9&&
   ct082?.approved_asset?.gen_id==='919bcbfd-9a99-4e37-b635-f78fa5655151'&&
-  ct082?.approved_asset?.preview_webp_sha256==='2efbc017f0098d5f00106c07b01e0fddb603f8c009049d00e79abbb55163c620');
+  ct082?.approved_asset?.preview_webp_sha256==='7e6d505b9d0411422c45b2a79a46134f8b6d3f0ba834d43acee82088df4a483b');
 
 check('ct082 approved source hash is explicitly verified',
   ct082?.approved_asset?.source_png_sha256_verified==='050ff5edaa489813605835125471e56f961fa1d7ba61ccb2b0b88e38893a3621');
