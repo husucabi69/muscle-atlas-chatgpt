@@ -40,15 +40,28 @@ check('Spurling prompt locks cervical compression pose',
   spurling.includes('증상측으로 경추를 회전·측굴/신전')&&spurling.includes('축성 압박'));
 
 const ct082=manifest.profiles?.find(x=>x.clinical_test_id==='ct082');
-check('ct082 candidate 1 has a new generation id',
-  ct082?.preview_candidate?.gen_id==='7d4e6df1-19d5-4439-9fe4-41ce23d27f8f',
+check('ct082 latest candidate is candidate 2 with a new generation id',
+  ct082?.preview_candidate?.candidate_no===2&&
+  ct082?.preview_candidate?.gen_id==='2bbacf3a-f954-4b86-9d5e-a952b89eeca8',
   ct082?.preview_candidate?.gen_id||'missing');
-check('ct082 candidate 1 is blocked from canonical promotion',
+check('ct082 candidate 2 is blocked from canonical promotion',
   ct082?.composite_url===null&&ct082?.review?.user_preview==='PENDING'&&
+  ct082?.preview_candidate?.disposition==='NEEDS_REVISION_NOT_CANONICAL'&&
   Array.isArray(ct082?.approval_blockers)&&ct082.approval_blockers.length>0);
+check('ct082 candidate history preserves candidate 1',
+  Array.isArray(ct082?.candidate_history)&&
+  ct082.candidate_history.some(x=>x.candidate_no===1&&x.gen_id==='7d4e6df1-19d5-4439-9fe4-41ce23d27f8f'));
 check('ct082 failed axes stay explicit while baseline remains generation-ready',
   ct082?.status==='PENDING_GENERATION'&&ct082?.brief_status==='GENERATION_READY'&&
   ct082?.review?.visual_pose==='FAIL'&&ct082?.review?.embedded_text==='FAIL');
+check('ct082 evidence caution includes 2025 and 2026 reviews',
+  ct082?.evidence_alignment?.status==='PASS_WITH_LOW_CERTAINTY_CAUTION'&&
+  (ct082?.evidence_alignment?.canonical_refs||[]).includes('spurling_2025')&&
+  (ct082?.evidence_alignment?.canonical_refs||[]).includes('radic_review_2026'));
+check('ct082 candidate 3 brief removes long embedded text',
+  String(ct082?.generation_brief?.text_policy||'').includes('영문 병기')&&
+  String(ct082?.generation_brief?.text_policy||'').includes('앱 HTML')&&
+  String(ct082?.generation_brief?.overlay_policy||'').includes('회전·측굴/신전'));
 
 const runtime=fs.readFileSync('index.html','utf8');
 check('Runtime loads realistic Physical Examination registry',
