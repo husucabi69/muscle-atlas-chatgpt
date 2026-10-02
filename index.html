@@ -2245,6 +2245,35 @@ async function loadClinicalExamIllustrationRegistry(){
 function clinicalExamIllustrationPreset(test){
   return clinicalExamIllustrationRegistryData?.presets?.[test?.clinical_test_id]||null;
 }
+let physicalExamRealisticAssetsData=null;
+async function loadPhysicalExamRealisticAssets(){
+  try{
+    const r=await fetch('./data/physical-exam-realistic-assets-v1.json',{cache:'no-cache'});
+    if(!r.ok)throw new Error('physical exam realistic registry unavailable');
+    physicalExamRealisticAssetsData=await r.json();
+    return true;
+  }catch(e){
+    console.warn('Physical exam realistic registry fallback',e);
+    physicalExamRealisticAssetsData={profiles:[]};
+    return false;
+  }
+}
+function physicalExamRealisticProfile(test){
+  return physicalExamRealisticAssetsData?.profiles?.find(x=>x.clinical_test_id===test?.clinical_test_id)||null;
+}
+function physicalExamRealisticCandidateHtml(test){
+  const p=physicalExamRealisticProfile(test),candidate=p?.preview_candidate;
+  if(!candidate?.preview_asset_path)return'';
+  const review=p.review||{},blockers=p.approval_blockers||[];
+  const failed=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text']
+    .filter(k=>review[k]==='FAIL');
+  return '<div class="clinical-exam-visual" data-exam-realistic-candidate="preview" data-clinical-test-id="'+esc(test.clinical_test_id)+'" style="border:2px solid #f59e0b;background:#fffbeb;margin-bottom:14px">'+
+    '<div class="clinical-exam-visual-head"><b>실사형 Preview 후보 · 승인 전</b><span>gen_id '+esc(candidate.gen_id||'')+' · 기존 Stable-ID 도해 유지</span></div>'+
+    '<div style="padding:12px;text-align:center"><img src="'+esc(candidate.preview_asset_path)+'" alt="'+esc((test.name_ko||'Physical Examination')+' 실사형 Preview 후보')+'" style="display:block;width:min(100%,720px);height:auto;margin:0 auto;border-radius:12px;background:#fff" loading="lazy"></div>'+
+    '<div class="note"><b>현재 판정</b><br>'+(failed.length?'교정 필요: '+esc(failed.join(' · ')):'내부 5축 검수 PASS 대기')+
+    (blockers.length?'<br><span style="color:var(--muted)">승격 차단: '+esc(blockers.join(' / '))+'</span>':'')+
+    '<br><span style="color:var(--muted)">이 후보는 사용자 검수용이며 canonical 교체가 아닙니다.</span></div></div>';
+}
 function clinicalExamTeachingNote(test){
   const key=((test.category||'')+' '+(test.name_ko||'')+' '+(test.name_en||'')).toLowerCase();
   if(/radicul|nerve|neurolog|myelopath|tarsal|occipital|cluneal|ulnar|median/.test(key))return '익숙한 증상의 재현 여부와 신경학적 분포를 함께 기록하고, 단일 provocation sign만으로 병변 level을 확정하지 않습니다.';
@@ -2510,7 +2539,7 @@ function clinicalExamDetailHtml(test,moduleKey){
     return id;
   });
   return '<div class="anatomy-detail-head" id="clinical-test-'+esc(test.clinical_test_id)+'"><h2>'+esc(test.name_ko)+'</h2><div class="sub">'+esc(test.name_en||'')+'</div><div class="tagrow"><span class="tag">'+esc(test.clinical_test_id)+'</span><span class="tag">'+esc(test.category||'임상 진찰')+'</span>'+(preset?'<span class="tag">검사별 도해</span>':'<span class="tag">공통 도해</span>')+'</div></div>'+
-    '<div class="card">'+clinicalExamIllustrationHtml(test,moduleKey)+
+    '<div class="card">'+physicalExamRealisticCandidateHtml(test)+clinicalExamIllustrationHtml(test,moduleKey)+
     '<div class="clinical-exam-section"><h4>검사의 목적</h4><p>'+esc(test.interpretation_note||'해당 구조와 증상 재현을 임상 문맥에서 평가합니다.')+'</p>'+(targets.length?'<div class="clinical-exam-links">'+targets.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div>':'')+'</div>'+
     '<div class="clinical-exam-section"><h4>검사 전 확인</h4><p>'+esc(clinicalExamTeachingNote(test))+'</p></div>'+
     '<div class="clinical-exam-section"><h4>환자 시작 자세</h4><p>'+esc(test.setup||'')+'</p></div>'+
@@ -5008,6 +5037,7 @@ hydrateKnowledgeCore();
 loadPatientExerciseLibrary();
 Promise.all([
   loadClinicalExamIllustrationRegistry(),
+  loadPhysicalExamRealisticAssets(),
   loadShoulderClinicalModule(),loadElbowClinicalModule(),loadWristHandClinicalModule(),loadHipPelvisClinicalModule(),
   loadKneeThighClinicalModule(),loadLegAnkleFootClinicalModule(),loadCervicalClinicalModule(),loadThoracicClinicalModule(),
   loadLumbarSacralClinicalModule(),loadAbdominalCoreClinicalModule()
