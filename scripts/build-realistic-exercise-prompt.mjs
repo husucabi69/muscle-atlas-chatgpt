@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import {pathToFileURL} from 'node:url';
+import {realisticPatientPresentationForStableId} from './realistic-human-model-casting.mjs';
 
 export const MANIFEST_PATH='data/patient-exercise-realistic-assets-v1.json';
 
@@ -12,6 +13,7 @@ export function buildGenerationPrompt(manifest,profileId){
   if(!brief)fail(profileId+' has no locked generation_brief.');
   const style=manifest.style_lock;
   if(style?.status!=='USER_APPROVED')fail('User-approved style lock missing.');
+  const patientPresentation=realisticPatientPresentationForStableId(profileId);
 
   const blockers=(profile.approval_blockers||[])
     .map(x=>`- 이전 후보 승인 차단 사유 [${x.code||'UNKNOWN'}]: ${x.note||''}`)
@@ -25,6 +27,8 @@ export function buildGenerationPrompt(manifest,profileId){
     '- 실제 성인 환자를 닮은 고품질 의료·재활 교육용 디지털 일러스트를 만든다.',
     '- 한 장의 세로형 composite 안에 1 · 시작 / 2 · 끝 두 패널을 배치한다.',
     '- 두 패널은 같은 사람, 같은 복장, 같은 카메라 시점과 배경을 유지한다.',
+    patientPresentation?'- 모델 배정: 환자 '+patientPresentation+'. 성별 표현은 운동의 임상적 의미를 암시하지 않으며 Stable ID 균형 규칙에 따른다.':'- 성별 표현은 임상적 의미를 암시하지 않도록 중립적으로 선택한다.',
+    '- 서로 다른 운동에서 같은 인물 이미지를 재사용하지 않는다. Stable ID마다 독립 장면을 제작한다.',
     '- 흰색 임상교육 배경, 모바일 가독성, A4 인쇄 확장성을 우선한다.',
     '- 실제 환자·유명인·식별 가능한 인물을 닮게 만들지 않는다.',
     '',
