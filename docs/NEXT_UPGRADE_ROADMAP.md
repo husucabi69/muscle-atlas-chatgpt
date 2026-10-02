@@ -109,47 +109,128 @@
 - 등록 전 한국저작권위원회에 작품 분류와 생성형 AI 활용 기재방법을 확인한다.
 - 상세 정본: `docs/COPYRIGHT_REGISTRATION_STRATEGY.md`
 
-## Anatomy IP / 3D / Motion — 정식 개발 트랙 LOCK / 2026-10-01
+## Anatomy IP / 3D / Layer / Motion / Copyright — 정식 개발 트랙 LOCK / 2026-10-02
 
-상태: **LOCKED / MUST DEVELOP / CANONICAL WORKLINE**  
-상세 계약: `docs/ANATOMY_IP_3D_MOTION_CONTRACT.md`
+상태: **LOCKED / MUST DEVELOP / COPYRIGHT-FIRST / STAGE 23C ENTRY BLOCKER**  
+상세 계약: `docs/ANATOMY_IP_3D_MOTION_CONTRACT.md`  
+저작권 정본: `docs/COPYRIGHT_REGISTRATION_STRATEGY.md`
 
-이 트랙은 아이디어 메모가 아니다. **Stage 23C 이전 mandatory pilot**으로 정식 편입하며, 파일럿 완료 후에도 자체 해부학 자산을 205 canonical muscles로 점진 확장한다.
+이 트랙은 Idea가 아니다. **Stage 23C 이전 mandatory pilot**이며, 목표는 단순한 해부학 그림 추가가 아니라 Muscle Atlas가 자체 보유하는 고급 해부학 IP 제작 파이프라인을 만드는 것이다.
 
-### ANATOMY-IP-001 — 자체 해부학 2D 도해
-- 교과서급 구조 정확도 + Muscle Atlas 고유 표현으로 자체 제작한다.
-- 특정 교과서 도판의 복제·트레이싱·near-copy를 금지한다.
-- 첫 파일럿은 **경추–견갑대**, 첫 mandatory muscle은 **두판상근(Splenius capitis)**.
-- 대표 whole-muscle view, origin/insertion/course, 주변 뼈 관계, label on/off를 제공한다.
-- SVG 또는 고해상도 원본을 canonical asset으로 보존한다.
-- 파일럿 필수근육: 두판상근 / 견갑거근 / 승모근 / 흉쇄유돌근 / 사각근군 / 후두하근군.
+### 최종 품질 목표
+- Grant / Netter / Gray / Thieme급 교본에서 기대하는 구조 정확도·깊이감·교육성을 목표로 한다.
+- 단, 특정 교본의 도판·구도·선·색·mesh를 복제·트레이싱·near-copy하지 않는다.
+- 해부학적 사실은 다수 reference로 검증하고, **시각표현은 Muscle Atlas가 독립 제작**한다.
+- 생성형 AI는 concept/render assistant로 사용할 수 있으나 AI raw output 자체를 최종 자체 저작물로 승인하지 않는다.
 
-### ANATOMY-3D-001 — 3D 해부학 뷰어
-- 경추–견갑대 파일럿.
-- rotate / zoom / reset / muscle on-off / bone on-off / layer transparency / selected muscle highlight 필수.
-- glTF/GLB + WebGL 계열의 정적 PWA 친화 구조를 우선한다.
-- 외부 model 사용 시 license/provenance audit를 반드시 통과한다.
-- 서버 DB 도입 없이 현재 Cloudflare static architecture 안에서 먼저 구현한다.
+### 핵심 Architecture — Master First
+정본 제작 흐름은 다음으로 고정한다.
 
-### MOTION-ANIM-001 — 근육 작용 애니메이션
-- 첫 mandatory animation은 **두판상근**.
-- bilateral contraction → cervical extension.
-- unilateral contraction → ipsilateral rotation + ipsilateral lateral flexion.
-- neutral → contraction → end, motion arrow, muscle highlight, replay를 제공한다.
-- canonical Function 데이터와 animation 방향의 불일치가 있으면 QA FAIL한다.
+**해부학 사실 정본 → 자체 3D Canonical Master → 2D 교본판 / 3D Rotation / Layer Transparency / Muscle Action Animation 파생 → IP evidence → 저작권 등록**
 
-### 저작권·자산 원칙
-- 해부학적 사실 자체가 아니라 **독립적으로 제작한 시각적 표현**을 자체 자산으로 축적한다.
-- asset registry에 Stable ID / 제작일 / 제작방식 / 검수상태 / provenance / license note를 기록한다.
-- 자체 도해가 기존 외부 대표도해보다 교육적으로 우수하고 QA를 통과하면 동일 Stable ID slot에서 자체 asset으로 교체한다.
+2D와 3D를 서로 독립적으로 만들지 않는다.  
+가능한 모든 최종 시각자산은 동일 Stable ID와 동일한 자체 3D Master에서 파생하여 origin/insertion/course/depth/action의 일관성을 유지한다.
 
-### 필수 선후관계
-현재 EXAM-001을 중단하지 않는다.
+### ANATOMY-KNOWLEDGE-001 — 해부학 사실 정본
+- 각 근육 Stable ID별 origin / insertion / course / fiber direction / superficial-deep relation / adjacent bone·muscle / bilateral·unilateral action을 구조화한다.
+- 사실 검증 reference와 시각표현 reference를 분리한다.
+- 첫 파일럿: **경추–견갑대**.
+- 첫 mandatory muscle: **Splenius capitis / 두판상근**.
 
-**EXAM-001 계속 → 경량 Deployment Safety Gate → Stage 23B 잔여 실사 운동그림 → Stage 23B-Disease Rehab → ANATOMY-IP-001 → ANATOMY-3D-001 → MOTION-ANIM-001 → Stage 23C → Stage 24**
+### IP-EVIDENCE-001 — 저작권 증빙 즉시 시작
+- 해부학 작업을 시작하는 날부터 `data/ip-asset-registry-v1.json` + `docs/ip-evidence/`를 함께 운영한다.
+- stable_id / author-editor / creation date / reference facts / AI-tool usage / human anatomy correction / modeling decision / camera-composition / color-material-lighting / labels-overlay / before-after / master hash / Git SHA / review / user approval을 기록한다.
+- evidence를 개발 종료 후 소급 작성하는 것은 금지한다.
 
-ANATOMY-IP/3D/MOTION의 **파일럿 3개는 Stage 23C 진입 전 반드시 구현**한다.  
-파일럿 후 전체 근육·부위 확장은 own-asset evergreen track으로 계속 진행하며 무기한 deferred 상태로 두지 않는다.
+### ANATOMY-MASTER-3D-001 — 자체 3D Canonical Master
+- 전체 own-asset pipeline의 중심 원본.
+- bones / landmarks / muscle body / tendon-aponeurosis / adjacent layer / origin-insertion anchor / left-right / neutral pose / action rig metadata를 포함한다.
+- 자체 mesh를 기본으로 한다.
+- 특정 외부 교본 mesh의 복제·형태 추종을 금지한다.
+- glTF/GLB export + editable master를 모두 보존한다.
+
+### ANATOMY-IP-2D-001 — 고해상도 2D 교본판
+- 별도 AI 그림으로 새로 만드는 것이 아니라 3D Master에서 파생 후 사람이 교육용으로 편집한다.
+- whole-muscle view / 대표 camera / origin-insertion-course / 주변 뼈 / depth cue / label on-off.
+- camera, crop, shading, palette, label, callout을 인간이 결정·교정한다.
+- 모바일 / PC / A4-HD를 모두 고려한다.
+
+### IP-REG-001 Filing 1 — 첫 저작권 등록
+- **Splenius capitis 3D Master + Master-derived 2D 교본판의 첫 완성 저작물 세트가 사용자 승인된 직후** 실행한다.
+- 등록 직전 한국저작권위원회의 최신 작품분류·AI 활용 기재방법을 다시 확인한다.
+- 단순 AI raw output은 filing master로 사용하지 않는다.
+
+### ANATOMY-3D-VIEWER-001 — 3D Rotation
+- 동일 Canonical Master를 실제 앱에서 rotate / zoom / reset.
+- anterior / posterior / lateral quick view.
+- muscle on/off / bone on/off / selected muscle highlight / label on-off.
+- 모바일 touch + PC mouse.
+
+### ANATOMY-LAYER-001 — 표층→심층 투명화
+- skin / superficial / intermediate / deep / bone hierarchy.
+- opacity slider.
+- muscle group on/off.
+- selected muscle isolation.
+- 동일 3D Master의 실제 layer hierarchy를 제어한다.
+
+### MOTION-ANIM-001 — Muscle Action Animation
+첫 mandatory animation: **Splenius capitis**
+- neutral
+- bilateral contraction → cervical extension
+- unilateral contraction → ipsilateral rotation
+- unilateral contraction → ipsilateral lateral flexion
+- contraction highlight
+- motion arrows
+- start / mid / end
+- replay / pause
+- 동일 3D Master rig에서 파생한다.
+
+### 경추–견갑대 필수 Pilot
+1. Splenius capitis / 두판상근
+2. Levator scapulae / 견갑거근
+3. Trapezius / 승모근
+4. Sternocleidomastoid / 흉쇄유돌근
+5. Scalenes / 사각근군
+6. Suboccipital muscles / 후두하근군
+
+두판상근 하나에서 **Knowledge → 3D Master → 2D → Rotation → Layer → Motion → Copyright evidence/filing** 전체 pipeline을 먼저 검증한 뒤 나머지 5개 근육으로 확장한다.
+
+### Stage 23C 진입 Gate
+다음을 모두 만족하기 전 Stage 23C COMPLETE 진입 금지:
+- 경추–견갑대 own 3D Master pilot
+- Master-derived 2D plate
+- 3D rotation
+- layer transparency
+- muscle isolation
+- Splenius capitis action animation
+- IP evidence package
+- Filing 1 준비 또는 실행 상태 명확화
+- 전문의 anatomy review
+- mobile / PC Preview QA
+- 사용자 Preview 승인
+- 특정 외부 교본 near-copy 0
+
+### 전체 canonical 선후관계
+**EXAM-001 148/148 COMPLETE  
+→ Deployment Safety 2/2 COMPLETE  
+→ EXAM-REAL-001 경추 실사형 pilot [현재 ACTIVE]  
+→ Stage 23B Patient Exercise 실사형 잔여  
+→ Stage 23B-Disease Rehab  
+→ ANATOMY-KNOWLEDGE-001  
+→ IP-EVIDENCE-001 시작  
+→ ANATOMY-MASTER-3D-001 (Splenius capitis)  
+→ ANATOMY-IP-2D-001  
+→ IP-REG-001 Filing 1  
+→ ANATOMY-3D-VIEWER-001  
+→ ANATOMY-LAYER-001  
+→ MOTION-ANIM-001  
+→ 경추–견갑대 6-muscle pilot 확장  
+→ IP-REG Filing 2/3  
+→ Stage 23C Integrated Real Device & Visual Gate  
+→ Stage 24 Google Play Production  
+→ 205-muscle own-asset expansion evergreen**
+
+자체 해부학 IP는 외부 representative anatomy refresh보다 상위의 정식 제품 개발선이다. 파일럿 후 205 canonical muscles로 확장하며 무기한 backlog로 보내지 않는다.
 
 ## 2026-10-01 사용자 실기기 피드백 · 개발정본 LOCK
 
