@@ -5038,7 +5038,7 @@ updateQuizStats();
 initOralVoiceEngine();
 renderRegionChooser();
 renderSymptomGroupChooser();
-hydrateKnowledgeCore();
+const knowledgeCoreReady=hydrateKnowledgeCore();
 loadPatientExerciseLibrary();
 function clinicalDeepLinkFromUrl(){
   const q=new URLSearchParams(location.search);
@@ -5060,6 +5060,7 @@ async function applyClinicalDeepLinkFromUrl(){
   return true;
 }
 Promise.all([
+  knowledgeCoreReady,
   loadClinicalExamIllustrationRegistry(),
   loadPhysicalExamRealisticAssets(),
   loadShoulderClinicalModule(),loadElbowClinicalModule(),loadWristHandClinicalModule(),loadHipPelvisClinicalModule(),
