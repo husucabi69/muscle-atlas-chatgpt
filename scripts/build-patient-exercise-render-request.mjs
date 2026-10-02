@@ -12,7 +12,7 @@ function canonicalMotionFromBrief(brief){
   };
 }
 
-function renderAvailability(manifest,profile){
+function renderAvailability(manifest,profile,options={}){
   if(profile.status==='CANDIDATE_GENERATED'&&
      (profile.asset_gate==='BINARY_HANDOFF_BLOCKED'||profile.binary_handoff?.state==='BLOCKED')){
     return{
@@ -26,7 +26,7 @@ function renderAvailability(manifest,profile){
     };
   }
   if(['PENDING_GENERATION','PENDING_REGENERATION'].includes(profile.status)){
-    const permission=canGenerateRealisticProfile(manifest,profile.profile_id);
+    const permission=canGenerateRealisticProfile(manifest,profile.profile_id,options);
     const readyStatus=profile.status==='PENDING_REGENERATION'?'READY_TO_REGENERATE':'READY_TO_GENERATE';
     return{
       status:permission.allowed?readyStatus:'BLOCKED_BEHIND_EARLIER_BINARY_HANDOFF',
@@ -42,7 +42,7 @@ function renderAvailability(manifest,profile){
   };
 }
 
-export function buildRenderRequest(manifest,curated,profileId){
+export function buildRenderRequest(manifest,curated,profileId,options={}){
   const profile=manifest.profiles?.find(x=>x.profile_id===profileId);
   if(!profile)throw new Error('Unknown profile: '+profileId);
   const b=profile.generation_brief;
@@ -50,7 +50,7 @@ export function buildRenderRequest(manifest,curated,profileId){
   if(manifest.style_lock?.status!=='USER_APPROVED')throw new Error('User-approved style lock missing');
 
   const canonicalMotion=canonicalMotionFromBrief(b);
-  const availability=renderAvailability(manifest,profile);
+  const availability=renderAvailability(manifest,profile,options);
   const special=curated.requests?.find(x=>x.profile_id===profileId);
   if(special){
     return{
