@@ -16,8 +16,14 @@ check('px007 remains off-screen',p7?.composite_url===null&&p7?.candidate_asset_p
 check('px007 next task is locked-brief regeneration',classifyProfile(p7).action==='REGENERATE_FROM_LOCKED_BRIEF',classifyProfile(p7).action);
 const next=getNextMainlineTask(manifest);
 check('mainline still starts at px007',next?.profile_id==='px007'&&next?.action==='REGENERATE_FROM_LOCKED_BRIEF',JSON.stringify(next));
-const permission=canGenerateRealisticProfile(manifest,'px007');
-check('px007 regeneration is permitted after documented loss',permission.allowed===true&&permission.reason==='READY_REGENERATION',JSON.stringify(permission));
+const blockedPermission=canGenerateRealisticProfile(manifest,'px007');
+check('px007 regeneration remains blocked when binary materialization is unavailable',
+  blockedPermission.allowed===false&&blockedPermission.reason==='BINARY_MATERIALIZATION_UNAVAILABLE',
+  JSON.stringify(blockedPermission));
+const permission=canGenerateRealisticProfile(manifest,'px007',{binaryMaterializationAvailable:true});
+check('px007 regeneration is permitted after documented loss only with binary materialization available',
+  permission.allowed===true&&permission.reason==='READY_REGENERATION',
+  JSON.stringify(permission));
 
 const synthetic=structuredClone(manifest);
 const target=synthetic.profiles.find(x=>x.profile_id==='px008');
