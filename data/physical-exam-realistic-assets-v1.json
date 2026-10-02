@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.02-exam-real-001-ct082-candidate2-review",
+  "dataset_version": "2026.10.02-exam-real-001-ct082-candidate3-binary-handoff-blocked",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3020,17 +3020,18 @@
         "note": "Candidate 2. 세로형 3-panel과 실사형 인물·축성 압박·상지 방사증상 overlay는 개선되었으나, locked brief의 '짧은 한국어 라벨만'을 다시 위반했고 증상측 회전 성분도 정지화면에서 충분히 명확하지 않아 승인 금지."
       },
       "approval_blockers": [
-        "증상측 경추 회전 성분을 정지화면에서 더 명확히 표현 필요",
-        "짧은 한국어 라벨 원칙 재위반: 장문 설명과 영문 병기 제거 필요",
-        "Candidate 3에서는 이미지 내부 텍스트를 패널 번호·최소 한국어 라벨·방향표시만 남기고, 상세 설명은 앱 HTML로 분리"
+        "Candidate 3 PNG binary가 현재 작업공간에 없어 실제 시각검수·hash·asset 저장·Preview 연결 불가",
+        "Candidate 2의 증상측 경추 회전 성분을 정지화면에서 더 명확히 표현 필요",
+        "Candidate 2의 짧은 한국어 라벨 원칙 재위반: 장문 설명과 영문 병기 제거 필요",
+        "다음 생성이 필요하면 ct082 locked brief를 그대로 사용하되 새 gen_id를 가진 새 candidate로 생성"
       ],
-      "review_note": "Candidate 2 생성·검수 완료. 세로형/실사형/축성 압박/방사통 overlay는 개선됐지만 visual_pose와 embedded_text가 FAIL이라 canonical 승격 금지. 다음 생성도 ct082이며 이미지 내부 장문 텍스트를 사실상 제거하고 회전 시인성을 강화한다.",
+      "review_note": "Candidate 3 gen_id 80d60cd0-19b8-47ef-9e8e-3a38c2cd9720은 이전 세션 생성 provenance로 보존했다. 그러나 현재 작업공간에 원본 PNG binary가 없어 어떤 review gate도 새로 PASS 처리하지 않았고 asset/Preview도 연결하지 않았다. Candidate 2가 계속 Preview 표시본이며 canonical 승격은 차단한다. ct083으로 넘어가지 않는다.",
       "provenance_review": {
-        "status": "PASS",
+        "status": "PASS_WITH_BINARY_HANDOFF_BLOCKER",
         "reviewed_on": "2026-10-02",
         "generator": "OpenAI image generation",
-        "rule": "AI raw output is candidate-only; human clinical correction/edit history is required before any final copyright-registration asset.",
-        "note": "Candidate 2 새 gen_id, 원본 SHA-256, Preview thumbnail SHA-256를 기록. 외부 교과서 tracing/near-copy를 사용하지 않았고 canonical 승격은 차단 상태."
+        "rule": "Generation ID alone is not an asset. A reviewable binary, content hash and human clinical review are required before Preview integration or copyright evidence promotion.",
+        "note": "Candidate 1·2 provenance는 기존대로 유지. Candidate 3은 gen_id만 보존하며 binary 부재 때문에 raw SHA-256, visual review, asset path를 만들지 않았다. 새 생성 시 기존 gen_id 재사용 금지."
       },
       "candidate_history": [
         {
@@ -3042,6 +3043,30 @@
             "embedded_text"
           ],
           "note": "가로형 composite, 증상측 회전 시인성 부족, 장문/영문 라벨 과다."
+        },
+        {
+          "candidate_no": 2,
+          "gen_id": "2bbacf3a-f954-4b86-9d5e-a952b89eeca8",
+          "generated_on": "2026-10-02",
+          "disposition": "NEEDS_REVISION_NOT_CANONICAL",
+          "failed_axes": [
+            "visual_pose",
+            "embedded_text"
+          ],
+          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct082-spurling-gen-2bbacf3a-preview.svg",
+          "raw_generation_sha256": "766268864e21c21e2314c76e86da3926216e7fb94e1ae202eb0e7ec30867b89f",
+          "note": "현재 Preview 표시본. 세로형 3-panel, 실사형 인물, 축성 압박과 상지 방사증상 overlay는 확보했으나 회전 시인성과 embedded text 문제로 canonical 승격 금지."
+        },
+        {
+          "candidate_no": 3,
+          "gen_id": "80d60cd0-19b8-47ef-9e8e-3a38c2cd9720",
+          "generated_on": "2026-10-02",
+          "generator": "OpenAI image generation",
+          "source_session_path": "/mnt/data/a_vertical_triptych_instructional_medical_clinical.png",
+          "disposition": "BINARY_HANDOFF_BLOCKED_NOT_REVIEWED",
+          "review_state": "NOT_REVIEWED_BINARY_UNAVAILABLE",
+          "binary_access_check_on": "2026-10-02",
+          "note": "이전 세션에서 생성됐다는 generation provenance만 보존한다. 현재 작업공간에서 PNG binary가 확인되지 않아 임상/자세/손/힘/텍스트/저작권 시각검수, SHA-256 산출, asset 저장, Preview 연결을 수행하지 않았다. 이 gen_id를 새 생성물에 재사용하지 않는다."
         }
       ],
       "evidence_alignment": {
