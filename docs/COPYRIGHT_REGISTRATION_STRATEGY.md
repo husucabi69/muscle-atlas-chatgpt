@@ -17,9 +17,10 @@
 - HTML/CSS/JavaScript, PWA/service worker, clinical renderer, 3D/animation logic 등.
 - 최종 filing 시 한국저작권위원회의 컴퓨터프로그램저작물 등록 분류를 우선 검토한다.
 
-### B. 자체 해부학 2D 일러스트
-- ANATOMY-IP-001의 최종 승인본.
-- 사람의 해부학적 교정, 구성 선택, 선/색/레이어, label/overlay, 편집·가필을 거친 canonical master를 등록 후보로 한다.
+### B. 자체 해부학 3D Canonical Master + 2D 교본판
+- `ANATOMY-MASTER-3D-001`의 자체 3D master와 그 master에서 파생·편집한 `ANATOMY-IP-2D-001` 최종 승인본을 핵심 등록 후보로 한다.
+- 사람의 해부학적 교정, topology/mesh 결정, camera/composition, 선·색·재질·광원·레이어, label/overlay, 편집·가필을 기록한다.
+- 2D와 3D를 따로 만들어 서로 다른 해부형태가 되지 않게 하고, 동일 Stable ID·동일 master에서 파생되었다는 증빙을 남긴다.
 - 단순 AI 생성 원본은 filing master로 사용하지 않는다.
 
 ### C. 실사형 환자교육·Physical Examination 일러스트
@@ -73,9 +74,10 @@
 
 ## 5. 등록 실행 시점
 
-### Filing 1 — 첫 자체 IP 파일럿 직후
-- Splenius capitis를 포함한 경추-견갑대 2D 자체 해부학 일러스트 파일럿이 사용자 승인된 시점.
-- 등록 전 한국저작권위원회 AI 특화 상담/등록상담으로 작품 분류와 AI 기여 기재방법을 확인한다.
+### Filing 1 — 첫 자체 Anatomy Master 파일럿 직후
+- Splenius capitis의 자체 3D Canonical Master와 그 Master에서 파생·인간 편집한 고해상도 2D 교본판이 사용자 승인된 시점.
+- 최소 제출 후보에는 human-edit history, anatomy correction, mesh/topology 변경, camera/composition 결정, 색·재질·라벨 결정, final hash와 Git SHA를 포함한다.
+- 등록 전 한국저작권위원회 최신 상담/등록 안내로 작품 분류와 AI 활용 기재방법을 다시 확인한다.
 
 ### Filing 2 — 실사형 Physical Examination 첫 완성 세트
 - 한 부위 전체가 실사형 환자+검사자 자산으로 승격된 뒤.
@@ -109,6 +111,16 @@
 
 ## 8. 개발 로드맵 연계
 
-**지금은 등록 신청 자체보다 증빙 가능한 창작 workflow를 먼저 구축한다.**
-ANATOMY-IP-001 착수 시 `data/ip-asset-registry-v1.json`과 `docs/ip-evidence/`를 같이 시작한다.
-첫 자체 2D 파일럿 승인 시 Filing 1을 실행한다.
+**등록 준비와 창작은 동시에 진행한다. 증빙을 나중에 소급해서 만들지 않는다.**
+
+정본 순서:
+1. `ANATOMY-KNOWLEDGE-001` — 해부학 사실 정본
+2. `IP-EVIDENCE-001` — 증빙 registry 즉시 시작
+3. `ANATOMY-MASTER-3D-001` — 자체 3D Canonical Master
+4. `ANATOMY-IP-2D-001` — Master-derived 고해상도 2D 교본판
+5. 사용자 Preview 승인
+6. `IP-REG-001 Filing 1`
+7. 3D Viewer / Layer / Motion 완성에 따라 Filing 2/3
+8. Stage 23C PASS 후 앱 source-code Filing 4 후보 보존
+
+`ANATOMY-KNOWLEDGE-001` 시작 시 `data/ip-asset-registry-v1.json`과 `docs/ip-evidence/`를 동시에 시작한다.
