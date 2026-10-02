@@ -5040,13 +5040,32 @@ renderRegionChooser();
 renderSymptomGroupChooser();
 hydrateKnowledgeCore();
 loadPatientExerciseLibrary();
+function clinicalDeepLinkFromUrl(){
+  const q=new URLSearchParams(location.search);
+  if(q.get('page')!=='clinical')return null;
+  const moduleKey=q.get('module')||'',topic=q.get('topic')||'',itemId=q.get('item')||'';
+  if(!clinicalFlowModules[moduleKey]||!clinicalTopicMeta[topic]||!itemId)return null;
+  return{moduleKey,topic,itemId};
+}
+async function applyClinicalDeepLinkFromUrl(){
+  const d=clinicalDeepLinkFromUrl();if(!d)return false;
+  showPage('clinical');
+  showClinicalModules(false);
+  await openClinicalModule(d.moduleKey,false);
+  await openClinicalTopic(d.topic,false);
+  const exists=clinicalTopicItems(d.moduleKey,d.topic).some(x=>clinicalItemId(d.topic,x)===d.itemId);
+  if(!exists)return false;
+  await openClinicalItem(d.itemId,false);
+  recordClinicalHistory('detail','replace');
+  return true;
+}
 Promise.all([
   loadClinicalExamIllustrationRegistry(),
   loadPhysicalExamRealisticAssets(),
   loadShoulderClinicalModule(),loadElbowClinicalModule(),loadWristHandClinicalModule(),loadHipPelvisClinicalModule(),
   loadKneeThighClinicalModule(),loadLegAnkleFootClinicalModule(),loadCervicalClinicalModule(),loadThoracicClinicalModule(),
   loadLumbarSacralClinicalModule(),loadAbdominalCoreClinicalModule()
-]).then(()=>{renderClinicalModuleChooser();renderUltrasoundAtlasRegions();refreshBoardCaseCount();});
+]).then(async()=>{renderClinicalModuleChooser();renderUltrasoundAtlasRegions();refreshBoardCaseCount();await applyClinicalDeepLinkFromUrl();});
 loadBoardExamSources();
 renderClinicalModuleChooser();
 renderUltrasoundAtlasRegions();
