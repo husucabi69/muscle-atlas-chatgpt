@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import {buildPhysicalExamPrompt,nextPilotProfile} from './build-physical-exam-realistic-prompt.mjs';
+import {buildPhysicalExamPrompt,nextPilotProfile,modelCastingForClinicalTestId} from './build-physical-exam-realistic-prompt.mjs';
 
 const manifest=JSON.parse(fs.readFileSync('data/physical-exam-realistic-assets-v1.json','utf8'));
 const checks=[];
@@ -9,6 +9,11 @@ const check=(name,pass,detail='')=>{
 };
 
 const next=nextPilotProfile(manifest);
+
+const c84=modelCastingForClinicalTestId('ct084');
+check('ct084 balanced casting rule is deterministic',
+  c84?.patient==='여성형'&&c84?.examiner==='남성형'&&c84?.rule_version==='2026-10-03',
+  JSON.stringify(c84));
 check('Next EXAM-REAL pilot task is ct083 Cervical distraction',
   next?.clinical_test_id==='ct083',next?.clinical_test_id||'missing');
 
@@ -40,6 +45,10 @@ for(const id of generationReadyIds){
     prompt.includes('복제·트레이싱하지 않는다')&&prompt.includes('새로운 gen_id')&&prompt.includes('인간이 임상내용'));
   check(id+' keeps EXAM-001 fallback until user approval',
     prompt.includes('사용자 Preview 승인 전 기존 EXAM-001 Stable-ID schematic을 교체하지 않는다.'));
+  if(Number(id.match(/(\d+)$/)?.[1]||0)>=84){
+    check(id+' prompt carries balanced model casting',
+      prompt.includes('모델 배정: 환자')&&prompt.includes('검사자')&&prompt.includes('서로 다른 검사에서 같은 인물 이미지를 재사용하지 않는다.'));
+  }
 }
 
 const ct082=manifest.profiles?.find(x=>x.clinical_test_id==='ct082');
