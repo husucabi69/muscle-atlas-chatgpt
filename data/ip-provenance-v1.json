@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "registry_id": "muscle-atlas-ip-provenance-v1",
+  "updated_at": "2026-10-02",
+  "public_repository": true,
+  "rights_owner": {
+    "owner_id": "LYS_IP_OWNER",
+    "legal_identity_storage": "PRIVATE_EXTERNAL_RECORD",
+    "note": "Do not store private legal identity documents or home address in the public repository."
+  },
+  "policy": {
+    "human_directed_ai_assisted": true,
+    "final_human_approval_required": true,
+    "unresolved_third_party_assets_block_registration_ready": true,
+    "final_file_sha256_required_for_registration_ready": true
+  },
+  "work_families": [
+    {
+      "id": "ANATOMY_2D",
+      "title": "Original 2D anatomy illustration set"
+    },
+    {
+      "id": "ANATOMY_3D",
+      "title": "Original 3D anatomy model set"
+    },
+    {
+      "id": "MUSCLE_ACTION_ANIMATION",
+      "title": "Original muscle action animation set"
+    },
+    {
+      "id": "SOFTWARE_INTERACTION",
+      "title": "Original viewer / layer / transparency / rotation interaction software assets"
+    }
+  ],
+  "assets": []
+}

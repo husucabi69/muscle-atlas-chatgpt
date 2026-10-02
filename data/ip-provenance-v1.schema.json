@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/muscle-atlas/ip-provenance-v1.schema.json",
+  "title": "Muscle Atlas IP Provenance Registry v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_id",
+    "rights_owner",
+    "policy",
+    "work_families",
+    "assets"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "registry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "public_repository": {
+      "type": "boolean"
+    },
+    "rights_owner": {
+      "type": "object",
+      "required": [
+        "owner_id",
+        "legal_identity_storage"
+      ],
+      "properties": {
+        "owner_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legal_identity_storage": {
+          "const": "PRIVATE_EXTERNAL_RECORD"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object"
+    },
+    "work_families": {
+      "type": "array"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "asset_id",
+          "work_family",
+          "work_type",
+          "title",
+          "version",
+          "status",
+          "creator_role",
+          "human_contribution",
+          "ai_assistance",
+          "external_references",
+          "third_party_assets",
+          "source_files",
+          "final_files",
+          "final_human_approval",
+          "registration"
+        ],
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "pattern": "^IP-[A-Z0-9][A-Z0-9._-]*$"
+          },
+          "work_family": {
+            "enum": [
+              "ANATOMY_2D",
+              "ANATOMY_3D",
+              "MUSCLE_ACTION_ANIMATION",
+              "SOFTWARE_INTERACTION"
+            ]
+          },
+          "work_type": {
+            "enum": [
+              "ILLUSTRATION_2D",
+              "MODEL_3D",
+              "RIG_3D",
+              "TEXTURE_MATERIAL",
+              "ANIMATION",
+              "SOFTWARE_CODE",
+              "UI_DESIGN",
+              "COMPOSITE"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "DRAFT",
+              "HUMAN_REVIEWED",
+              "REGISTRATION_READY",
+              "REGISTERED",
+              "RETIRED"
+            ]
+          },
+          "creation_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "creator_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "human_contribution": {
+            "type": "object",
+            "required": [
+              "summary",
+              "creative_decisions"
+            ],
+            "properties": {
+              "summary": {
+                "type": "string"
+              },
+              "creative_decisions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ai_assistance": {
+            "type": "object",
+            "required": [
+              "used",
+              "tools",
+              "summary"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "tools": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "summary": {
+                "type": "string"
+              }
+            }
+          },
+          "external_references": {
+            "type": "array"
+          },
+          "third_party_assets": {
+            "type": "array"
+          },
+          "source_files": {
+            "type": "array"
+          },
+          "final_files": {
+            "type": "array"
+          },
+          "final_human_approval": {
+            "type": "object"
+          },
+          "registration": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
