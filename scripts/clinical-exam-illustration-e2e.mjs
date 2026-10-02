@@ -9,7 +9,7 @@ const pass=(name,detail='')=>console.log('PASS | '+name+(detail?' | '+detail:'')
 try{
   await page.goto(base,{waitUntil:'networkidle',timeout:30000});
   await page.waitForFunction(()=>
-    clinicalExamIllustrationRegistryData?.coverage?.customized===132 &&
+    clinicalExamIllustrationRegistryData?.coverage?.customized===148 &&
     shoulderExamModule?.clinical_tests?.length===11 &&
     elbowExamModule?.clinical_tests?.length===10 &&
     wristHandExamModule?.clinical_tests?.length===14 &&
@@ -18,7 +18,8 @@ try{
     legAnkleFootExamModule?.clinical_tests?.length===17 &&
     cervicalExamModule?.clinical_tests?.length===17 &&
     thoracicExamModule?.clinical_tests?.length===16 &&
-    lumbarSacralExamModule?.clinical_tests?.length===18,
+    lumbarSacralExamModule?.clinical_tests?.length===18 &&
+    abdominalCoreExamModule?.clinical_tests?.length===16,
     {timeout:12000}
   );
 
@@ -31,7 +32,8 @@ try{
     {moduleKey:'legAnkleFoot',ids:legAnkleFootExamModule.clinical_tests.map(x=>x.clinical_test_id)},
     {moduleKey:'cervical',ids:cervicalExamModule.clinical_tests.map(x=>x.clinical_test_id)},
     {moduleKey:'thoracic',ids:thoracicExamModule.clinical_tests.map(x=>x.clinical_test_id)},
-    {moduleKey:'lumbarSacral',ids:lumbarSacralExamModule.clinical_tests.map(x=>x.clinical_test_id)}
+    {moduleKey:'lumbarSacral',ids:lumbarSacralExamModule.clinical_tests.map(x=>x.clinical_test_id)},
+    {moduleKey:'abdominalCore',ids:abdominalCoreExamModule.clinical_tests.map(x=>x.clinical_test_id)}
   ]);
   if(batches[0].ids.length!==11)fail('shoulder exam ids',String(batches[0].ids.length));
   if(batches[1].ids.length!==10)fail('elbow exam ids',String(batches[1].ids.length));
@@ -42,6 +44,7 @@ try{
   if(batches[6].ids.length!==17)fail('cervical exam ids',String(batches[6].ids.length));
   if(batches[7].ids.length!==16)fail('thoracic exam ids',String(batches[7].ids.length));
   if(batches[8].ids.length!==18)fail('lumbar-sacral exam ids',String(batches[8].ids.length));
+  if(batches[9].ids.length!==16)fail('abdominal-core exam ids',String(batches[9].ids.length));
 
   for(const batch of batches){
     for(const id of batch.ids){
@@ -72,12 +75,12 @@ try{
       if(!result.text.includes(label))fail(id+' detail label '+label);
     }
     if(result.overflow>2)fail(id+' mobile horizontal overflow',String(result.overflow));
-    const label=batch.moduleKey==='shoulder'?'Shoulder':batch.moduleKey==='elbow'?'Elbow':batch.moduleKey==='wristHand'?'Wrist-hand':batch.moduleKey==='hipPelvis'?'Hip-pelvis':batch.moduleKey==='kneeThigh'?'Knee-thigh':batch.moduleKey==='legAnkleFoot'?'Leg-ankle-foot':batch.moduleKey==='cervical'?'Cervical':batch.moduleKey==='thoracic'?'Thoracic':'Lumbar-sacral';
+    const label=batch.moduleKey==='shoulder'?'Shoulder':batch.moduleKey==='elbow'?'Elbow':batch.moduleKey==='wristHand'?'Wrist-hand':batch.moduleKey==='hipPelvis'?'Hip-pelvis':batch.moduleKey==='kneeThigh'?'Knee-thigh':batch.moduleKey==='legAnkleFoot'?'Leg-ankle-foot':batch.moduleKey==='cervical'?'Cervical':batch.moduleKey==='thoracic'?'Thoracic':batch.moduleKey==='lumbarSacral'?'Lumbar-sacral':'Abdominal-core';
     pass(label+' custom clinical exam illustration',id);
     }
   }
   console.log('\n--- CLINICAL EXAM ILLUSTRATION E2E ---');
-  pass('132/132 clinical tests through lumbar-sacral use Stable-ID custom teaching schematics');
+  pass('148/148 canonical clinical tests use Stable-ID custom teaching schematics');
 }finally{
   await browser.close();
 }
