@@ -1,7 +1,9 @@
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 
 const read=p=>fs.readFileSync(p,'utf8');
 const json=p=>JSON.parse(read(p));
+const sha256=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 const reg=json('data/physical-exam-realistic-assets-v1.json');
 const examFiles=[
   'data/examination-shoulder-v1.json','data/examination-elbow-v1.json','data/examination-wrist-hand-v1.json',
@@ -26,17 +28,55 @@ check('EXAM-001 baseline dependency locked',reg.baseline_contract?.exam_001==='C
 check('Realistic style contract linked',String(reg.style_contract||'').includes('REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT'));
 check('Copyright contract linked',String(reg.copyright_contract||'').includes('COPYRIGHT_REGISTRATION_STRATEGY'));
 check('AI raw output cannot be final',profiles.every(p=>p.provenance?.ai_raw_output_allowed_as_final===false&&p.provenance?.human_edit_required===true));
+
 const reviewKeys=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text','user_preview'];
 const reviewValues=new Set(['PENDING','PASS','FAIL']);
 check('All profiles require six review gates',profiles.every(p=>reviewKeys.every(k=>reviewValues.has(p.review?.[k]))));
+
+const unreviewed=profiles.filter(p=>p.status==='PENDING_GENERATION'&&!p.preview_candidate&&!p.approved_asset);
 check('Unreviewed profiles remain PENDING on all six review gates',
-  profiles.filter(p=>!p.preview_candidate).every(p=>reviewKeys.every(k=>p.review?.[k]==='PENDING')));
+  unreviewed.every(p=>reviewKeys.every(k=>p.review?.[k]==='PENDING')),
+  String(unreviewed.length));
+
 check('All profiles preserve schematic fallback',String(reg.asset_policy?.fallback||'').includes('EXAM-001'));
 check('Pilot batch is cervical six-test set',
   JSON.stringify(reg.pilot?.clinical_test_ids||[])===JSON.stringify(['ct082','ct083','ct084','ct088','ct092','ct095']),
   JSON.stringify(reg.pilot?.clinical_test_ids||[]));
-check('Pilot profiles are generation-ready',profiles.filter(p=>(reg.pilot?.clinical_test_ids||[]).includes(p.clinical_test_id)).every(p=>p.brief_status==='GENERATION_READY'));
-check('No realistic asset falsely approved before generation',profiles.every(p=>p.status==='PENDING_GENERATION'&&p.composite_url===null));
+
+const pilotProfiles=profiles.filter(p=>(reg.pilot?.clinical_test_ids||[]).includes(p.clinical_test_id));
+check('Pilot state allows approved ct082 and generation-ready remainder',
+  pilotProfiles.every(p=>p.clinical_test_id==='ct082'
+    ? p.status==='APPROVED'&&p.brief_status==='APPROVED'
+    : p.status==='PENDING_GENERATION'&&p.brief_status==='GENERATION_READY'));
+
+const approvedProfiles=profiles.filter(p=>p.status==='APPROVED');
+check('Exactly ct082 is approved in current pilot',
+  approvedProfiles.length===1&&approvedProfiles[0]?.clinical_test_id==='ct082',
+  approvedProfiles.map(p=>p.clinical_test_id).join(','));
+
+const ct082=profiles.find(p=>p.clinical_test_id==='ct082');
+check('ct082 has user-approved realistic asset',
+  ct082?.review?.user_preview==='PASS'&&
+  ct082?.approved_asset?.gen_id==='919bcbfd-9a99-4e37-b635-f78fa5655151'&&
+  ct082?.approved_asset?.disposition==='USER_APPROVED_PREVIEW_ASSET'&&
+  Array.isArray(ct082?.approval_blockers)&&ct082.approval_blockers.length===0);
+
+check('ct082 approved asset remains paired with EXAM-001 fallback',
+  String(ct082?.composite_url||'').includes('ct082-spurling-gen-919bcbfd-approved.webp')&&
+  String(reg.asset_policy?.fallback||'').includes('EXAM-001'));
+
+const approvedPath=String(ct082?.approved_asset?.preview_asset_path||'').replace(/^\.\//,'');
+check('ct082 approved WebP exists',approvedPath&&fs.existsSync(approvedPath),approvedPath);
+if(approvedPath&&fs.existsSync(approvedPath)){
+  check('ct082 approved WebP SHA-256 matches registry',
+    sha256(approvedPath)===ct082?.approved_asset?.preview_webp_sha256,
+    sha256(approvedPath));
+}
+
+check('No false approval outside approved asset',
+  profiles.every(p=>p.status==='APPROVED'
+    ? Boolean(p.approved_asset)&&p.review?.user_preview==='PASS'&&Boolean(p.composite_url)
+    : p.status==='PENDING_GENERATION'&&p.composite_url===null));
 
 for(const p of profiles){
   const b=p.generation_brief||{};
