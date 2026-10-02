@@ -2406,6 +2406,32 @@ function clinicalExamPoseMarkup(pose,view='front',accent='#475467'){
       '<text x="80" y="210" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='prone'?'복와위':body==='supine'?'앙와위':body==='seated'?'좌위':'기립')+'</text>'+
       '</g>';
   }
+  const abdominal=Array.isArray(pose.abdomen_top)&&Array.isArray(pose.umbilicus)&&Array.isArray(pose.pubic);
+  if(abdominal){
+    const top=pose.abdomen_top,umb=pose.umbilicus,pubic=pose.pubic;
+    const body=pose.body||view||'supine';
+    const rectusL=pose.rectus_l||[68,105],rectusR=pose.rectus_r||[92,105];
+    const groinL=pose.groin_l||[58,150],groinR=pose.groin_r||[102,150];
+    const head=pose.head||[80,32];
+    let base='';
+    if(body==='standing'||body==='seated'){
+      base='<circle cx="'+head[0]+'" cy="'+head[1]+'" r="16" fill="#fff" stroke="#98a2b3" stroke-width="3"/>'+
+        '<path d="M50 62 Q80 54 110 62 L106 154 Q80 168 54 154 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>';
+    }else{
+      base='<circle cx="28" cy="102" r="14" fill="#fff" stroke="#98a2b3" stroke-width="3"/>'+
+        '<path d="M43 103 L118 103" stroke="#c5ccd6" stroke-width="11" stroke-linecap="round"/>'+
+        '<path d="M52 89 Q80 80 108 89 L105 151 Q80 163 55 151 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>';
+    }
+    const abdominalWall='<line x1="'+top[0]+'" y1="'+top[1]+'" x2="'+umb[0]+'" y2="'+umb[1]+'" stroke="'+accent+'" stroke-width="7" stroke-linecap="round"/>'+
+      '<line x1="'+umb[0]+'" y1="'+umb[1]+'" x2="'+pubic[0]+'" y2="'+pubic[1]+'" stroke="'+accent+'" stroke-width="7" stroke-linecap="round"/>'+
+      '<path d="M'+rectusL[0]+' 82 L'+rectusL[0]+' 139 M'+rectusR[0]+' 82 L'+rectusR[0]+' 139" stroke="#c5ccd6" stroke-width="5" stroke-linecap="round"/>'+
+      '<circle cx="'+umb[0]+'" cy="'+umb[1]+'" r="5" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+      '<path d="M'+groinL[0]+' '+groinL[1]+' Q80 '+(groinL[1]+10)+' '+groinR[0]+' '+groinR[1]+'" fill="none" stroke="#98a2b3" stroke-width="6" stroke-linecap="round"/>';
+    return '<g>'+base+abdominalWall+
+      (pose.abdomen_label?'<text x="'+(umb[0]+18)+'" y="'+(umb[1]+4)+'" font-size="11" font-weight="700" fill="#344054">'+esc(pose.abdomen_label)+'</text>':'')+
+      '<text x="80" y="210" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='standing'?'기립':body==='seated'?'좌위':'앙와위')+'</text>'+
+      '</g>';
+  }
   const sh=pose.shoulder||[104,82],el=pose.elbow||[135,120],wr=pose.wrist||[155,160];
   const back=view==='back';
   const side=view==='side';
