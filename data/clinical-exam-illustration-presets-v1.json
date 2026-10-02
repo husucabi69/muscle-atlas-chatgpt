@@ -3,7 +3,7 @@
   "updated_at": "2026-10-02",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 98,
+    "customized": 114,
     "total_canonical_tests": 148,
     "modules": [
       "shoulder",
@@ -12,10 +12,11 @@
       "hip-pelvis",
       "knee-thigh",
       "leg-ankle-foot",
-      "cervical"
+      "cervical",
+      "thoracic"
     ],
-    "status": "BATCH_7_COMPLETE",
-    "next_module": "thoracic"
+    "status": "BATCH_8_COMPLETE",
+    "next_module": "lumbar-sacral"
   },
   "presets": {
     "ct001": {
@@ -6537,6 +6538,1137 @@
       "examiner_position": "외상, 감염/암 위험, DCM 증상, 진행성 신경학적 결손, 혈관성 증상을 문진과 기본 신경학적 진찰로 선별한다.",
       "hand_force": "red flag가 있으면 강한 provocation을 추가하지 않고 필요한 영상·응급평가·전문의 의뢰로 경로를 전환한다.",
       "common_error": "비특이적 증상 하나만으로 중증질환을 확정하지 않되, 진행성 결손이나 급성 신경혈관 소견을 단순 기계적 목통증으로 처리하지 않는다."
+    },
+    "ct099": {
+      "clinical_test_id": "ct099",
+      "precision": "custom",
+      "view": "back",
+      "title": "Thoracic rotation ROM · 골반 고정 후 좌우 흉추 회전",
+      "start": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "thoracic_top": [
+          88,
+          74
+        ],
+        "thoracic_mid": [
+          84,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "회전"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 110,
+          "r": 38,
+          "start_angle": 195,
+          "end_angle": 340,
+          "label": "좌↔우 회전"
+        }
+      ],
+      "positive": {
+        "x": 84,
+        "y": 111,
+        "label": "비대칭/익숙한 국소통증"
+      },
+      "examiner_position": "환자 뒤에서 골반과 요추 보상이 최소화되는지 관찰하며 좌우 회전을 비교한다.",
+      "hand_force": "기본은 능동 회전으로 시행하고 필요 시 안전한 범위에서 수동 보조를 더한다.",
+      "common_error": "견관절·요추·고관절 보상으로 흉추 회전처럼 보이는 움직임을 그대로 기록하지 않는다."
+    },
+    "ct100": {
+      "clinical_test_id": "ct100",
+      "precision": "custom",
+      "view": "back",
+      "title": "Thoracic extension-rotation · 신전+회전에서 편측 후방통 재현",
+      "start": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "thoracic_top": [
+          91,
+          68
+        ],
+        "thoracic_mid": [
+          87,
+          108
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "신전+회전"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 82,
+          "cy": 108,
+          "r": 40,
+          "start_angle": 190,
+          "end_angle": 325,
+          "label": "신전·회전"
+        }
+      ],
+      "positive": {
+        "x": 91,
+        "y": 105,
+        "label": "편측 후방통"
+      },
+      "examiner_position": "좌위에서 골반을 안정시키고 몸통이 과도하게 뒤로 젖혀지지 않도록 관찰한다.",
+      "hand_force": "환자가 안전한 범위에서 흉추 신전과 회전을 결합하도록 한다.",
+      "common_error": "radicular/chest-wall/visceral symptom이 섞이면 facet 후보로 단순화하지 않는다."
+    },
+    "ct101": {
+      "clinical_test_id": "ct101",
+      "precision": "custom",
+      "view": "back",
+      "title": "Rib spring / PA · posterior rib angle에 부드러운 PA pressure",
+      "start": {
+        "body": "prone",
+        "thoracic_top": [
+          80,
+          78
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          146
+        ],
+        "torso_label": "복와위"
+      },
+      "action": {
+        "body": "prone",
+        "thoracic_top": [
+          80,
+          78
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          146
+        ],
+        "torso_label": "rib PA"
+      },
+      "examiner_hands": [
+        {
+          "x": 104,
+          "y": 112,
+          "label": "posterior rib angle"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 104,
+          "y1": 88,
+          "x2": 104,
+          "y2": 108,
+          "label": "PA pressure"
+        }
+      ],
+      "positive": {
+        "x": 104,
+        "y": 112,
+        "label": "익숙한 paravertebral/rib pain"
+      },
+      "examiner_position": "증상 늑골과 흉추 level을 확인하고 늑골각 또는 posterior rib 위에 손을 둔다.",
+      "hand_force": "짧고 부드러운 PA pressure로 좌우를 비교하며 익숙한 국소 통증을 확인한다.",
+      "common_error": "골절 가능성이 있거나 심한 골다공증에서는 강한 spring을 피한다."
+    },
+    "ct102": {
+      "clinical_test_id": "ct102",
+      "precision": "custom",
+      "view": "back",
+      "title": "Costotransverse palpation + respiration · CTJ 촉진과 호흡 연동",
+      "start": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "호흡 전"
+      },
+      "action": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "심호흡"
+      },
+      "examiner_hands": [
+        {
+          "x": 102,
+          "y": 100,
+          "label": "CTJ"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 102,
+          "y1": 78,
+          "x2": 102,
+          "y2": 97,
+          "label": "국소 촉진"
+        },
+        {
+          "x1": 55,
+          "y1": 110,
+          "x2": 45,
+          "y2": 110,
+          "label": "흡기 확장"
+        },
+        {
+          "x1": 105,
+          "y1": 110,
+          "x2": 115,
+          "y2": 110,
+          "label": "흡기 확장"
+        }
+      ],
+      "positive": {
+        "x": 102,
+        "y": 100,
+        "label": "국소 통증+호흡 연동"
+      },
+      "examiner_position": "rib-transverse process junction을 촉지하고 깊은 호흡과 체간 회전 시 증상 변화를 확인한다.",
+      "hand_force": "국소 압박은 가볍게 유지하고 호흡/움직임에 따른 재현성을 본다.",
+      "common_error": "촉진 압통 하나로 CTJ 병변을 확정하지 않는다."
+    },
+    "ct103": {
+      "clinical_test_id": "ct103",
+      "precision": "custom",
+      "view": "front",
+      "title": "Deep-inspiration chest-wall provocation · 흡기/기침/회전에서 통증 위치 확인",
+      "start": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "조용한 호흡"
+      },
+      "action": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          72
+        ],
+        "thoracic_mid": [
+          80,
+          110
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "심호흡"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 58,
+          "y1": 110,
+          "x2": 44,
+          "y2": 110,
+          "label": "흉곽 확장"
+        },
+        {
+          "x1": 102,
+          "y1": 110,
+          "x2": 116,
+          "y2": 110,
+          "label": "흉곽 확장"
+        }
+      ],
+      "positive": {
+        "x": 96,
+        "y": 110,
+        "label": "국소 chest-wall pain"
+      },
+      "examiner_position": "안정시 호흡과 심호흡, 기침, 체간 회전에서 통증 위치와 양상을 비교한다.",
+      "hand_force": "외부 도발 없이 호흡과 움직임에 따른 증상 변화를 관찰한다.",
+      "common_error": "호흡곤란·저산소증·발열·흉통이 있으면 MSK 도발보다 심폐 평가를 우선한다."
+    },
+    "ct104": {
+      "clinical_test_id": "ct104",
+      "precision": "custom",
+      "view": "front",
+      "title": "Intercostal sensory mapping · band-like 감각변화를 좌우 비교",
+      "start": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "감각검사"
+      },
+      "action": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "dermatome mapping"
+      },
+      "examiner_hands": [
+        {
+          "x": 111,
+          "y": 112,
+          "label": "가벼운 촉각/핀프릭"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 54,
+          "y1": 112,
+          "x2": 108,
+          "y2": 112,
+          "label": "band-like mapping"
+        }
+      ],
+      "positive": {
+        "x": 109,
+        "y": 112,
+        "label": "일관된 dermatomal 변화"
+      },
+      "examiner_position": "흉벽/복벽 양측에서 같은 높이의 감각을 좌우 비교한다.",
+      "hand_force": "가벼운 촉각 또는 표준 감각자극으로 band-like 분포를 단계적으로 확인한다.",
+      "common_error": "dermatome overlap과 zoster/visceral referral을 고려하지 않고 단일 level로 확정하지 않는다."
+    },
+    "ct105": {
+      "clinical_test_id": "ct105",
+      "precision": "custom",
+      "view": "front",
+      "title": "Thoracic neurologic red-flag screen · gait/UMN/sensory level/sphincter 우선",
+      "start": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "신경학적 선별"
+      },
+      "action": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "red flag gate"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 110,
+          "y1": 110,
+          "x2": 140,
+          "y2": 110,
+          "label": "MRI/전문의 평가"
+        }
+      ],
+      "positive": {
+        "x": 89,
+        "y": 111,
+        "label": "gait·UMN·sensory level·진행성 약화"
+      },
+      "examiner_position": "보행, 하지 근력·감각·반사와 sensory level을 전체적으로 평가한다.",
+      "hand_force": "red flag가 있으면 추가 강한 MSK provocation을 중단하고 영상/전문의 평가로 전환한다.",
+      "common_error": "정상 선별검사 하나로 척수병변을 완전히 배제하지 않는다."
+    },
+    "ct106": {
+      "clinical_test_id": "ct106",
+      "precision": "custom",
+      "view": "back",
+      "title": "Wall push-up · medial scapular winging과 serratus 기능 관찰",
+      "start": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "arm_l": {
+          "elbow": [
+            42,
+            104
+          ],
+          "wrist": [
+            30,
+            104
+          ]
+        },
+        "arm_r": {
+          "elbow": [
+            118,
+            104
+          ],
+          "wrist": [
+            130,
+            104
+          ]
+        },
+        "torso_label": "벽 짚기"
+      },
+      "action": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "scapula_r": [
+          108,
+          100
+        ],
+        "arm_l": {
+          "elbow": [
+            42,
+            100
+          ],
+          "wrist": [
+            30,
+            92
+          ]
+        },
+        "arm_r": {
+          "elbow": [
+            118,
+            100
+          ],
+          "wrist": [
+            130,
+            92
+          ]
+        },
+        "torso_label": "push-up"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 108,
+          "y1": 97,
+          "x2": 122,
+          "y2": 97,
+          "label": "winging 관찰"
+        }
+      ],
+      "positive": {
+        "x": 108,
+        "y": 101,
+        "label": "medial winging/serratus weakness"
+      },
+      "examiner_position": "환자 뒤에서 wall push-up 동안 견갑 내측연과 하각을 관찰한다.",
+      "hand_force": "외부 저항 없이 벽 밀기 동작을 반복하게 하고 좌우 winging을 비교한다.",
+      "common_error": "피로·통증·운동조절 문제를 long thoracic nerve palsy로 바로 단정하지 않는다."
+    },
+    "ct107": {
+      "clinical_test_id": "ct107",
+      "precision": "custom",
+      "view": "front",
+      "title": "Resisted serratus punch · 90° 굴곡에서 protraction에 저항",
+      "start": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "arm_r": {
+          "elbow": [
+            140,
+            90
+          ],
+          "wrist": [
+            180,
+            88
+          ]
+        },
+        "torso_label": "90° 굴곡"
+      },
+      "action": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "arm_r": {
+          "elbow": [
+            150,
+            88
+          ],
+          "wrist": [
+            192,
+            86
+          ]
+        },
+        "torso_label": "protraction"
+      },
+      "examiner_hands": [
+        {
+          "x": 190,
+          "y": 86,
+          "label": "주먹/원위 상지"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 198,
+          "y1": 86,
+          "x2": 180,
+          "y2": 86,
+          "label": "후방 저항"
+        }
+      ],
+      "positive": {
+        "x": 108,
+        "y": 100,
+        "label": "약화/winging/익숙한 통증"
+      },
+      "examiner_position": "어깨를 약 90° 굴곡시킨 뒤 견갑 전인이 잘 보이도록 정면과 측면에서 관찰한다.",
+      "hand_force": "환자가 punch/protraction을 유지하면 검사자는 후방 방향으로 점진적 저항을 준다.",
+      "common_error": "shoulder pain inhibition과 serratus weakness를 구분한다."
+    },
+    "ct108": {
+      "clinical_test_id": "ct108",
+      "precision": "custom",
+      "view": "back",
+      "title": "Scapular assistance · 팔 elevation 중 상방회전/후방경사 보조",
+      "start": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "arm_r": {
+          "elbow": [
+            125,
+            115
+          ],
+          "wrist": [
+            142,
+            150
+          ]
+        },
+        "torso_label": "팔 내림"
+      },
+      "action": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "scapula_r": [
+          103,
+          90
+        ],
+        "arm_r": {
+          "elbow": [
+            135,
+            65
+          ],
+          "wrist": [
+            145,
+            28
+          ]
+        },
+        "torso_label": "elevation"
+      },
+      "examiner_hands": [
+        {
+          "x": 104,
+          "y": 96,
+          "label": "견갑 하각/상연"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 104,
+          "cy": 98,
+          "r": 28,
+          "start_angle": 120,
+          "end_angle": 15,
+          "label": "상방회전 보조"
+        }
+      ],
+      "positive": {
+        "x": 105,
+        "y": 98,
+        "label": "통증↓/elevation 개선"
+      },
+      "examiner_position": "환자 뒤에서 한 손으로 견갑 하각과 상연을 지지하며 팔 elevation을 관찰한다.",
+      "hand_force": "팔이 올라갈 때 견갑 상방회전과 후방경사를 부드럽게 보조한다.",
+      "common_error": "보조만으로 특정 근육/신경 병변을 확정하지 않는다."
+    },
+    "ct109": {
+      "clinical_test_id": "ct109",
+      "precision": "custom",
+      "view": "back",
+      "title": "Scapular retraction · 견갑 후인·안정화 후 힘/통증 변화",
+      "start": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "arm_r": {
+          "elbow": [
+            135,
+            88
+          ],
+          "wrist": [
+            178,
+            86
+          ]
+        },
+        "torso_label": "strength test"
+      },
+      "action": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "scapula_r": [
+          95,
+          96
+        ],
+        "arm_r": {
+          "elbow": [
+            135,
+            88
+          ],
+          "wrist": [
+            178,
+            86
+          ]
+        },
+        "torso_label": "retraction 고정"
+      },
+      "examiner_hands": [
+        {
+          "x": 97,
+          "y": 96,
+          "label": "견갑 내측연 안정화"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 109,
+          "y1": 96,
+          "x2": 96,
+          "y2": 96,
+          "label": "후인"
+        }
+      ],
+      "positive": {
+        "x": 98,
+        "y": 96,
+        "label": "통증↓/힘 개선"
+      },
+      "examiner_position": "환자 뒤에서 견갑을 후인·안정화하고 같은 팔 strength/elevation task를 반복한다.",
+      "hand_force": "견갑을 과도하게 누르지 않고 기능적으로 후인된 위치를 유지한다.",
+      "common_error": "개선 여부만으로 dyskinesis 원인을 특정하지 않는다."
+    },
+    "ct110": {
+      "clinical_test_id": "ct110",
+      "precision": "custom",
+      "view": "back",
+      "title": "Dynamic snapping scapula · elevation/protraction/retraction 중 painful snap 촉지",
+      "start": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "arm_r": {
+          "elbow": [
+            125,
+            115
+          ],
+          "wrist": [
+            142,
+            150
+          ]
+        },
+        "torso_label": "시작"
+      },
+      "action": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "scapula_r": [
+          108,
+          93
+        ],
+        "arm_r": {
+          "elbow": [
+            142,
+            68
+          ],
+          "wrist": [
+            150,
+            34
+          ]
+        },
+        "torso_label": "반복 elevation"
+      },
+      "examiner_hands": [
+        {
+          "x": 106,
+          "y": 97,
+          "label": "견갑 내측연/상각 촉진"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 105,
+          "cy": 98,
+          "r": 30,
+          "start_angle": 100,
+          "end_angle": 5,
+          "label": "견갑 이동"
+        }
+      ],
+      "positive": {
+        "x": 106,
+        "y": 97,
+        "label": "painful snapping과 동작 일치"
+      },
+      "examiner_position": "환자 뒤에서 견갑 내측연/상각을 촉지하며 반복 elevation·protraction·retraction을 관찰한다.",
+      "hand_force": "강한 압박 없이 crepitus/snapping이 통증과 시간적으로 일치하는지 본다.",
+      "common_error": "무통성 crepitus를 병적 snapping으로 과해석하지 않는다."
+    },
+    "ct111": {
+      "clinical_test_id": "ct111",
+      "precision": "custom",
+      "view": "back",
+      "title": "Thoracic paraspinal endurance · 저강도 신전 유지 중 피로·비대칭 관찰",
+      "start": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          70
+        ],
+        "thoracic_mid": [
+          80,
+          108
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "저강도 신전 유지"
+      },
+      "examiner_hands": [
+        {
+          "x": 70,
+          "y": 112,
+          "label": "paraspinal 촉진"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 80,
+          "y1": 120,
+          "x2": 80,
+          "y2": 98,
+          "label": "저강도 신전"
+        }
+      ],
+      "positive": {
+        "x": 70,
+        "y": 112,
+        "label": "조기 피로/비대칭/통증"
+      },
+      "examiner_position": "좌위 또는 복와위에서 erector/transversospinalis 부위를 양측으로 관찰·촉지한다.",
+      "hand_force": "저강도 흉추 신전을 유지하게 하며 시간, 피로, 좌우 비대칭과 통증을 기록한다.",
+      "common_error": "근육 두께나 촉진 차이를 병리 확진으로 사용하지 않는다."
+    },
+    "ct112": {
+      "clinical_test_id": "ct112",
+      "precision": "custom",
+      "view": "front",
+      "title": "Intercostal load · 체간 회전/측굴 + 깊은 호흡에서 국소 intercostal pain",
+      "start": {
+        "body": "seated",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "중립"
+      },
+      "action": {
+        "body": "seated",
+        "thoracic_top": [
+          90,
+          76
+        ],
+        "thoracic_mid": [
+          86,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "회전·측굴+심호흡"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 110,
+          "r": 36,
+          "start_angle": 190,
+          "end_angle": 330,
+          "label": "회전·측굴"
+        },
+        {
+          "x1": 56,
+          "y1": 112,
+          "x2": 45,
+          "y2": 112,
+          "label": "호흡 확장"
+        }
+      ],
+      "positive": {
+        "x": 102,
+        "y": 112,
+        "label": "국소 intercostal pain"
+      },
+      "examiner_position": "통증 없는 범위의 회전·측굴과 깊은 호흡을 단계적으로 시행하게 한다.",
+      "hand_force": "외부 저항은 최소화하고 움직임과 호흡 단계에 따른 국소 통증 재현을 확인한다.",
+      "common_error": "갈비뼈 골절·폐/흉막·심장 원인을 배제할 수 없는 상황에서 강한 도발을 반복하지 않는다."
+    },
+    "ct113": {
+      "clinical_test_id": "ct113",
+      "precision": "custom",
+      "view": "front",
+      "title": "Diaphragmatic breathing pattern · 상흉부/복부/좌우 흉곽 움직임 관찰",
+      "start": {
+        "body": "supine",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "조용한 호흡"
+      },
+      "action": {
+        "body": "supine",
+        "thoracic_top": [
+          80,
+          72
+        ],
+        "thoracic_mid": [
+          80,
+          108
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "깊은 호흡"
+      },
+      "examiner_hands": [
+        {
+          "x": 80,
+          "y": 138,
+          "label": "복부/하부흉곽 관찰"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 58,
+          "y1": 120,
+          "x2": 45,
+          "y2": 120,
+          "label": "좌측 확장"
+        },
+        {
+          "x1": 102,
+          "y1": 120,
+          "x2": 115,
+          "y2": 120,
+          "label": "우측 확장"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 120,
+        "label": "비대칭/상흉부 우세/보조근 과사용"
+      },
+      "examiner_position": "앙와위 또는 반좌위에서 흉곽과 복부를 동시에 볼 수 있게 하고 조용한 호흡과 깊은 호흡을 비교한다.",
+      "hand_force": "외부 저항 없이 호흡 패턴과 좌우 대칭, 보조근 사용을 관찰한다.",
+      "common_error": "호흡기 질환 진단검사로 사용하지 않고 dyspnea/red flag가 있으면 별도 평가한다."
+    },
+    "ct114": {
+      "clinical_test_id": "ct114",
+      "precision": "custom",
+      "view": "front",
+      "title": "Integrated thoracic red-flag screen · 골성/감염/종양/척수/심폐 위험 우선",
+      "start": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "문진+신경학적 선별"
+      },
+      "action": {
+        "body": "standing",
+        "thoracic_top": [
+          80,
+          74
+        ],
+        "thoracic_mid": [
+          80,
+          112
+        ],
+        "thoracic_bottom": [
+          80,
+          150
+        ],
+        "torso_label": "red flag gate"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 110,
+          "y1": 110,
+          "x2": 141,
+          "y2": 110,
+          "label": "영상/응급·전문의 평가"
+        }
+      ],
+      "positive": {
+        "x": 90,
+        "y": 111,
+        "label": "외상·전신증상·흉통/호흡곤란·신경학적 이상"
+      },
+      "examiner_position": "외상, 골다공증, 암/감염 위험, 전신증상, 흉통/호흡곤란, 신경학적 이상을 우선 선별한다.",
+      "hand_force": "중대한 병리 가능성이 있으면 routine MSK provocation을 줄이고 적절한 영상·응급·전문의 평가로 전환한다.",
+      "common_error": "red flag 하나로 특정 질환을 확정하지 않되 심폐·척수성 위험을 단순 근골격 통증으로 처리하지 않는다."
     }
   }
 }
