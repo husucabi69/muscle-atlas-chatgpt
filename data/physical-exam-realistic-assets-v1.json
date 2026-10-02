@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.02-exam-real-001-ct082-candidate4-reviewed",
+  "dataset_version": "2026.10.02-exam-real-001-ct082-user-approved",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "Generate one candidate at a time, retain a new gen_id, review against EXAM-001 baseline, then integrate only after user Preview approval."
+    "next_action": "ct082 is user-approved and integrated in Preview; continue one-at-a-time with ct083 Cervical distraction. Preserve ct082 Stable-ID schematic fallback as a secondary reference while the realistic approved asset remains the preferred teaching image."
   },
   "profiles": [
     {
@@ -2974,10 +2974,10 @@
       "region": "cervical",
       "title_ko": "Spurling 검사",
       "title_en": "Spurling test",
-      "status": "PENDING_GENERATION",
+      "status": "APPROVED",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct082-spurling-gen-919bcbfd-approved.webp",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
@@ -2991,14 +2991,14 @@
         "text_policy": "이미지 내부 글자는 극소화. 허용: 패널 번호, 시작 자세, 검사 시행, 양성 판단, 필요 시 '축성 압박', '회전 + 측굴 + 신전', '팔 방사통·저림'. 영문 병기·장문 설명 금지."
       },
       "review": {
-        "clinical_content": "FAIL",
-        "visual_pose": "FAIL",
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
         "examiner_hand_position": "PASS",
         "force_direction": "PASS",
         "embedded_text": "PASS",
-        "user_preview": "PENDING",
+        "user_preview": "PASS",
         "reviewed_on": "2026-10-02",
-        "note": "Candidate 4 검수. 환자/검사자 실사형, 두부 지지, 축성 압박, 상지 방사증상, 최소 한국어 라벨은 양호. 그러나 환자 오른팔의 양성 overlay와 머리 회전·측굴 방향이 서로 반대처럼 보여 symptom-side laterality가 일치하지 않는다. 또한 portrait stacked 3-panel 요구와 달리 가로 3열이므로 visual gate 실패."
+        "note": "User-approved ct082 realistic illustration. Final review confirms the clinically material correction requested by the user: cervical rotation/lateral flexion/slight extension and the reproduced arm radicular symptom are shown on the same anatomical side. Realistic teaching style, examiner hand placement, axial compression cue and minimal Korean labels were accepted."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3019,18 +3019,14 @@
         "disposition": "NEEDS_REVISION_NOT_CANONICAL",
         "note": "Candidate 2. 세로형 3-panel과 실사형 인물·축성 압박·상지 방사증상 overlay는 개선되었으나, locked brief의 '짧은 한국어 라벨만'을 다시 위반했고 증상측 회전 성분도 정지화면에서 충분히 명확하지 않아 승인 금지."
       },
-      "approval_blockers": [
-        "Candidate 4 laterality 불일치: maneuver 방향과 환자 오른팔 radicular overlay를 동일 증상측으로 맞춰야 함",
-        "portrait stacked 3-panel 위→아래 구성 필요; 3열 가로 배치 금지",
-        "회전은 얼굴/코 방향으로 명확히, 측굴·신전과 시각적으로 분리되어야 함"
-      ],
-      "review_note": "Candidate 4는 텍스트와 force 표현은 개선됐지만 laterality와 layout gate에서 FAIL. canonical/USER PREVIEW 승격 금지. 다음도 ct082이며 Candidate 5는 환자 오른쪽을 고정한 locked brief로 새 gen_id를 발급한다.",
+      "approval_blockers": [],
+      "review_note": "ct082 Spurling realistic illustration is user-approved and may be used as the preferred Preview teaching asset. Existing EXAM-001 schematic remains available as secondary fallback/reference. Next EXAM-REAL pilot item is ct083.",
       "provenance_review": {
-        "status": "PASS",
+        "status": "PASS_WITH_IP_VAULT_LINK",
         "reviewed_on": "2026-10-02",
         "generator": "OpenAI image generation",
-        "rule": "AI raw output is candidate-only; failed candidates remain provenance/history assets and may not become canonical.",
-        "note": "Candidate 4의 새 gen_id, raw generation SHA-256, review thumbnail SHA-256를 기록했다. 외부 교과서 tracing/near-copy를 사용하지 않았으며 canonical 승격은 차단 상태."
+        "rule": "AI generation is preserved as provenance; user-directed clinical corrections, candidate rejection/selection and final approval are recorded separately in the private IP evidence vault.",
+        "note": "Approved source PNG was re-hashed from the currently mounted reviewed file before integration. App Preview uses a derived 600x900 WebP; both the verified source-file hash and derived-preview hash are recorded. Private IP evidence vault: husucabi69/muscle-atlas-ip-vault."
       },
       "candidate_history": [
         {
@@ -3089,6 +3085,36 @@
             "provenance"
           ],
           "note": "텍스트 최소화·한국어 단일표기·두정부 축성 압박·상지 방사통 overlay는 개선. 그러나 양성 방사통은 환자 오른팔에 표시된 반면 머리 회전/측굴은 반대쪽으로 보이는 laterality 불일치가 있고, portrait stacked 3-panel이 아니라 가로 3열 구성이어서 승인 금지."
+        },
+        {
+          "candidate_no": 5,
+          "gen_id": "9ea141ec-9c2c-402e-9178-b4b52453f0c7",
+          "disposition": "REJECTED_LATERALITY",
+          "note": "User rejected: maneuver side and radiating symptom side did not match."
+        },
+        {
+          "candidate_no": 6,
+          "gen_id": "ee0f2eff-d5cb-4127-a1d3-b3f2ce2d2328",
+          "disposition": "REJECTED_LATERALITY",
+          "note": "User rejected: laterality remained clinically inconsistent."
+        },
+        {
+          "candidate_no": 7,
+          "gen_id": "4f1f0c3f-9676-4dd4-aaeb-d70b56992787",
+          "disposition": "REJECTED_LATERALITY",
+          "note": "User rejected: ipsilateral symptom rule still not satisfied."
+        },
+        {
+          "candidate_no": 8,
+          "gen_id": "129a4688-9ae2-421f-853a-eab2f9b936dd",
+          "disposition": "REJECTED_LATERALITY",
+          "note": "User rejected: maneuver side and symptom side remained opposite."
+        },
+        {
+          "candidate_no": 9,
+          "gen_id": "919bcbfd-9a99-4e37-b635-f78fa5655151",
+          "disposition": "USER_APPROVED",
+          "note": "User explicitly approved after laterality was corrected while retaining the preferred realistic clinical teaching style."
         }
       ],
       "evidence_alignment": {
@@ -3098,6 +3124,21 @@
         ],
         "status": "PASS_WITH_LOW_CERTAINTY_CAUTION",
         "note": "2025 meta-analysis: 높은 특이도·제한적 민감도. 2026 update review: 검사 변형/이질성이 크고 근거 확실성이 낮거나 매우 낮음. 앱과 일러스트에서는 단독 확진검사로 표현하지 않는다."
+      },
+      "approved_asset": {
+        "candidate_no": 9,
+        "gen_id": "919bcbfd-9a99-4e37-b635-f78fa5655151",
+        "approved_on": "2026-10-02",
+        "generator": "OpenAI image generation",
+        "source_png_dimensions": "1024x1536",
+        "source_png_sha256_verified": "050ff5edaa489813605835125471e56f961fa1d7ba61ccb2b0b88e38893a3621",
+        "preview_asset_path": "./assets/physical-exam-realistic/approved/ct082-spurling-gen-919bcbfd-approved.webp",
+        "preview_dimensions": "600x900",
+        "preview_webp_sha256": "2efbc017f0098d5f00106c07b01e0fddb603f8c009049d00e79abbb55163c620",
+        "user_approval": "PASS",
+        "disposition": "USER_APPROVED_PREVIEW_ASSET",
+        "ip_vault": "husucabi69/muscle-atlas-ip-vault",
+        "note": "Preferred realistic teaching asset. User explicitly corrected and approved ipsilateral laterality. This WebP is a derived app asset; the source PNG hash refers to the mounted reviewed source file."
       }
     },
     {
