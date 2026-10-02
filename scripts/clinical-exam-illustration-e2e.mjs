@@ -9,13 +9,14 @@ const pass=(name,detail='')=>console.log('PASS | '+name+(detail?' | '+detail:'')
 try{
   await page.goto(base,{waitUntil:'networkidle',timeout:30000});
   await page.waitForFunction(()=>
-    clinicalExamIllustrationRegistryData?.coverage?.customized===81 &&
+    clinicalExamIllustrationRegistryData?.coverage?.customized===98 &&
     shoulderExamModule?.clinical_tests?.length===11 &&
     elbowExamModule?.clinical_tests?.length===10 &&
     wristHandExamModule?.clinical_tests?.length===14 &&
     hipPelvisExamModule?.clinical_tests?.length===14 &&
     kneeThighExamModule?.clinical_tests?.length===15 &&
-    legAnkleFootExamModule?.clinical_tests?.length===17,
+    legAnkleFootExamModule?.clinical_tests?.length===17 &&
+    cervicalExamModule?.clinical_tests?.length===17,
     {timeout:12000}
   );
 
@@ -25,7 +26,8 @@ try{
     {moduleKey:'wristHand',ids:wristHandExamModule.clinical_tests.map(x=>x.clinical_test_id)},
     {moduleKey:'hipPelvis',ids:hipPelvisExamModule.clinical_tests.map(x=>x.clinical_test_id)},
     {moduleKey:'kneeThigh',ids:kneeThighExamModule.clinical_tests.map(x=>x.clinical_test_id)},
-    {moduleKey:'legAnkleFoot',ids:legAnkleFootExamModule.clinical_tests.map(x=>x.clinical_test_id)}
+    {moduleKey:'legAnkleFoot',ids:legAnkleFootExamModule.clinical_tests.map(x=>x.clinical_test_id)},
+    {moduleKey:'cervical',ids:cervicalExamModule.clinical_tests.map(x=>x.clinical_test_id)}
   ]);
   if(batches[0].ids.length!==11)fail('shoulder exam ids',String(batches[0].ids.length));
   if(batches[1].ids.length!==10)fail('elbow exam ids',String(batches[1].ids.length));
@@ -33,6 +35,7 @@ try{
   if(batches[3].ids.length!==14)fail('hip-pelvis exam ids',String(batches[3].ids.length));
   if(batches[4].ids.length!==15)fail('knee-thigh exam ids',String(batches[4].ids.length));
   if(batches[5].ids.length!==17)fail('leg-ankle-foot exam ids',String(batches[5].ids.length));
+  if(batches[6].ids.length!==17)fail('cervical exam ids',String(batches[6].ids.length));
 
   for(const batch of batches){
     for(const id of batch.ids){
@@ -63,12 +66,12 @@ try{
       if(!result.text.includes(label))fail(id+' detail label '+label);
     }
     if(result.overflow>2)fail(id+' mobile horizontal overflow',String(result.overflow));
-    const label=batch.moduleKey==='shoulder'?'Shoulder':batch.moduleKey==='elbow'?'Elbow':batch.moduleKey==='wristHand'?'Wrist-hand':batch.moduleKey==='hipPelvis'?'Hip-pelvis':batch.moduleKey==='kneeThigh'?'Knee-thigh':'Leg-ankle-foot';
+    const label=batch.moduleKey==='shoulder'?'Shoulder':batch.moduleKey==='elbow'?'Elbow':batch.moduleKey==='wristHand'?'Wrist-hand':batch.moduleKey==='hipPelvis'?'Hip-pelvis':batch.moduleKey==='kneeThigh'?'Knee-thigh':batch.moduleKey==='legAnkleFoot'?'Leg-ankle-foot':'Cervical';
     pass(label+' custom clinical exam illustration',id);
     }
   }
   console.log('\n--- CLINICAL EXAM ILLUSTRATION E2E ---');
-  pass('81/81 shoulder + elbow + wrist-hand + hip-pelvis + knee-thigh + leg-ankle-foot tests use Stable-ID custom teaching schematics');
+  pass('98/98 clinical tests through cervical use Stable-ID custom teaching schematics');
 }finally{
   await browser.close();
 }
