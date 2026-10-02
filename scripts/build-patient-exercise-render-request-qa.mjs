@@ -8,9 +8,14 @@ const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail})
 
 const p7=buildRenderRequest(manifest,curated,'px007');
 check('px007 uses curated override',p7.source==='CURATED_OVERRIDE',p7.source);
-check('px007 is ready to regenerate from locked brief after loss audit',
-  p7.status==='READY_TO_REGENERATE'&&p7.generation_permission?.allowed===true&&p7.generation_permission?.reason==='READY_REGENERATION',
+check('px007 is blocked when binary materialization is unavailable',
+  p7.status==='BLOCKED_BEHIND_EARLIER_BINARY_HANDOFF'&&p7.generation_permission?.allowed===false&&p7.generation_permission?.reason==='BINARY_MATERIALIZATION_UNAVAILABLE',
   JSON.stringify({status:p7.status,permission:p7.generation_permission})
+);
+const p7Ready=buildRenderRequest(manifest,curated,'px007',{binaryMaterializationAvailable:true});
+check('px007 becomes ready to regenerate only when exact binary materialization is available',
+  p7Ready.status==='READY_TO_REGENERATE'&&p7Ready.generation_permission?.allowed===true&&p7Ready.generation_permission?.reason==='READY_REGENERATION',
+  JSON.stringify({status:p7Ready.status,permission:p7Ready.generation_permission})
 );
 check('px007 curated request forbids fist closure',p7.must_not_show?.includes('주먹쥐기'));
 
@@ -46,8 +51,13 @@ const cleared={...manifest,profiles:manifest.profiles.map(p=>{
   }
   return p;
 })};
-const p12Ready=buildRenderRequest(cleared,curated,'px012');
-check('px012 becomes ready only after earlier handoffs are cleared',
+const p12Blocked=buildRenderRequest(cleared,curated,'px012');
+check('px012 remains blocked without binary materialization even after earlier handoffs are cleared',
+  p12Blocked.status==='BLOCKED_BEHIND_EARLIER_BINARY_HANDOFF'&&p12Blocked.generation_permission?.reason==='BINARY_MATERIALIZATION_UNAVAILABLE',
+  JSON.stringify({status:p12Blocked.status,permission:p12Blocked.generation_permission})
+);
+const p12Ready=buildRenderRequest(cleared,curated,'px012',{binaryMaterializationAvailable:true});
+check('px012 becomes ready only after earlier handoffs are cleared and binary materialization is available',
   p12Ready.status==='READY_TO_GENERATE'&&p12Ready.generation_permission?.allowed===true,
   JSON.stringify({status:p12Ready.status,permission:p12Ready.generation_permission})
 );
