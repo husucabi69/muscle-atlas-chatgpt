@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.03-exam-real-001-ct083-candidate2-internal-pass",
+  "dataset_version": "2026.10.03-exam-real-001-ct083-candidate2-preview-connected",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3185,7 +3185,7 @@
         "status": "PASS_WITH_VERY_LOW_CERTAINTY_CAUTION",
         "note": "2026 systematic review: diagnostic accuracy evidence for cervical radiculopathy physical tests is sparse; most non-Spurling/non-ULNT outcomes are based on single studies and overall certainty is very low. Historical diagnostic literature describes supine distraction with occiput/chin support and symptom relief as the positive response. Use only as an adjunct to history and neurologic examination."
       },
-      "review_note": "ct083 Candidate 2 is the internally accepted candidate. Stay on ct083 until exact binary ingest → QA → Preview → user approval; do not advance to ct084 yet.",
+      "review_note": "ct083 Candidate 2 is connected to Preview with all internal clinical/visual gates PASS. Do not advance to ct084 until user reviews and approves or requests correction.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3219,8 +3219,8 @@
           "local_preview_derivative_sha256": "943707e7e6796e7c5805519c6ac1953af50416c14d5ef70f73cdd006d04ef9f5",
           "source_session_path": "/mnt/data/a_clean_clinical_instructional_triptych_vertical.png",
           "local_preview_path": "/mnt/data/ct083-candidate2-preview-320.webp",
-          "binary_vault_status": "PENDING_BINARY_INGEST",
-          "disposition": "INTERNAL_PASS_BINARY_HANDOFF_PENDING",
+          "binary_vault_status": "APP_PREVIEW_INGESTED_VAULT_SYNC_PENDING",
+          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
           "passed_axes": [
             "clinical_content",
             "visual_pose",
@@ -3230,11 +3230,13 @@
             "laterality",
             "positive_finding"
           ],
-          "note": "Supine independent realistic asset. One hand supports occiput and the other supports under the chin/mandible; traction vector is shown along the patient's cervical long axis toward the head; the same symptomatic arm overlay visibly decreases in the positive panel. Awaiting byte-safe repository/Vault ingest before Preview connection."
+          "note": "Supine independent realistic asset. One hand supports occiput and the other supports under the chin/mandible; traction vector is shown along the patient's cervical long axis toward the head; the same symptomatic arm overlay visibly decreases in the positive panel. Awaiting byte-safe repository/Vault ingest before Preview connection.",
+          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct083-cervical-distraction-gen-5b72a5e1-preview.webp",
+          "preview_thumbnail_dimensions": "240x360",
+          "preview_webp_sha256": "be576a6c46cc57342dc5e14b087492e046e72805826799eac92df6f47decfa29"
         }
       ],
       "approval_blockers": [
-        "Candidate 2 exact reviewed binary must be byte-safely ingested and SHA-256 verified before app Preview connection",
         "User Preview approval remains required before canonical approval"
       ],
       "preview_candidate": {
@@ -3244,11 +3246,11 @@
         "generator": "OpenAI image generation",
         "raw_generation_dimensions": "1024x1536",
         "raw_generation_sha256": "780ce01590ce91430bb59b56383b166e45ac2fc1dc69d19e133a785d5237a45a",
-        "preview_asset_path": null,
-        "local_preview_derivative_dimensions": "320x480",
-        "local_preview_derivative_sha256": "943707e7e6796e7c5805519c6ac1953af50416c14d5ef70f73cdd006d04ef9f5",
-        "disposition": "INTERNAL_PASS_BINARY_HANDOFF_PENDING",
-        "note": "Internal clinical/visual review passed. Do not expose in app until the exact reviewed binary is safely ingested and hash-verified."
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct083-cervical-distraction-gen-5b72a5e1-preview.webp",
+        "preview_thumbnail_dimensions": "240x360",
+        "preview_webp_sha256": "be576a6c46cc57342dc5e14b087492e046e72805826799eac92df6f47decfa29",
+        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+        "note": "Independent ct083 realistic candidate. Internal clinical/visual gates PASS; user Preview approval remains required before canonical approval."
       }
     },
     {
