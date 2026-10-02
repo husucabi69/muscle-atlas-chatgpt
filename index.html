@@ -2346,6 +2346,42 @@ function clinicalExamPoseMarkup(pose,view='front',accent='#475467'){
       '<text x="80" y="220" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='supine'?'앙와위':body==='standing'?'기립':'좌위')+'</text>'+
       '</g>';
   }
+  const thoracic=Array.isArray(pose.thoracic_top)&&Array.isArray(pose.thoracic_mid)&&Array.isArray(pose.thoracic_bottom);
+  if(thoracic){
+    const top=pose.thoracic_top,mid=pose.thoracic_mid,bottom=pose.thoracic_bottom;
+    const body=pose.body||view||'seated';
+    const head=pose.head||[80,34],neck=pose.neck||[80,61];
+    const shoulderL=pose.shoulder_l||[50,78],shoulderR=pose.shoulder_r||[110,78];
+    const scapL=pose.scapula_l||[60,96],scapR=pose.scapula_r||[100,96];
+    const armL=pose.arm_l||null,armR=pose.arm_r||null;
+    const armMarkup=(arm,sh)=>{
+      if(!arm||!Array.isArray(arm.elbow)||!Array.isArray(arm.wrist))return'';
+      return '<line x1="'+sh[0]+'" y1="'+sh[1]+'" x2="'+arm.elbow[0]+'" y2="'+arm.elbow[1]+'" stroke="#98a2b3" stroke-width="7" stroke-linecap="round"/>'+
+        '<line x1="'+arm.elbow[0]+'" y1="'+arm.elbow[1]+'" x2="'+arm.wrist[0]+'" y2="'+arm.wrist[1]+'" stroke="#98a2b3" stroke-width="6" stroke-linecap="round"/>'+
+        '<ellipse cx="'+arm.wrist[0]+'" cy="'+arm.wrist[1]+'" rx="7" ry="4" fill="#fff" stroke="#98a2b3" stroke-width="2"/>';
+    };
+    const ribs='<path d="M58 92 Q80 82 102 92" fill="none" stroke="#d0d5dd" stroke-width="2"/>'+
+      '<path d="M55 107 Q80 96 105 107" fill="none" stroke="#d0d5dd" stroke-width="2"/>'+
+      '<path d="M57 122 Q80 112 103 122" fill="none" stroke="#d0d5dd" stroke-width="2"/>'+
+      '<path d="M62 137 Q80 130 98 137" fill="none" stroke="#d0d5dd" stroke-width="2"/>';
+    return '<g>'+
+      '<circle cx="'+head[0]+'" cy="'+head[1]+'" r="17" fill="#fff" stroke="#98a2b3" stroke-width="3"/>'+
+      '<line x1="'+neck[0]+'" y1="'+neck[1]+'" x2="'+top[0]+'" y2="'+top[1]+'" stroke="#98a2b3" stroke-width="8" stroke-linecap="round"/>'+
+      '<path d="M48 78 Q80 68 112 78 L104 158 Q80 172 56 158 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>'+
+      ribs+
+      '<line x1="'+shoulderL[0]+'" y1="'+shoulderL[1]+'" x2="'+shoulderR[0]+'" y2="'+shoulderR[1]+'" stroke="#98a2b3" stroke-width="7" stroke-linecap="round"/>'+
+      '<path d="M'+scapL[0]+' '+scapL[1]+' l-13 20 l18 8 z" fill="none" stroke="#c5ccd6" stroke-width="2"/>'+
+      '<path d="M'+scapR[0]+' '+scapR[1]+' l13 20 l-18 8 z" fill="none" stroke="#c5ccd6" stroke-width="2"/>'+
+      '<line x1="'+top[0]+'" y1="'+top[1]+'" x2="'+mid[0]+'" y2="'+mid[1]+'" stroke="'+accent+'" stroke-width="8" stroke-linecap="round"/>'+
+      '<line x1="'+mid[0]+'" y1="'+mid[1]+'" x2="'+bottom[0]+'" y2="'+bottom[1]+'" stroke="'+accent+'" stroke-width="8" stroke-linecap="round"/>'+
+      '<circle cx="'+top[0]+'" cy="'+top[1]+'" r="5" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+      '<circle cx="'+mid[0]+'" cy="'+mid[1]+'" r="5" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+      '<circle cx="'+bottom[0]+'" cy="'+bottom[1]+'" r="5" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+      armMarkup(armL,shoulderL)+armMarkup(armR,shoulderR)+
+      (pose.torso_label?'<text x="'+(bottom[0]+16)+'" y="'+(mid[1]+4)+'" font-size="11" font-weight="700" fill="#344054">'+esc(pose.torso_label)+'</text>':'')+
+      '<text x="80" y="210" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='prone'?'복와위':body==='standing'?'기립':body==='supine'?'앙와위':'좌위')+'</text>'+
+      '</g>';
+  }
   const sh=pose.shoulder||[104,82],el=pose.elbow||[135,120],wr=pose.wrist||[155,160];
   const back=view==='back';
   const side=view==='side';
