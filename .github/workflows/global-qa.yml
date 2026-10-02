@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  checks: read
 
 jobs:
   global-qa:
@@ -133,3 +134,32 @@ jobs:
         run: node scripts/clinical-exam-illustration-e2e.mjs
       - name: Run Stage 23B patient exercise illustration runtime E2E
         run: node scripts/patient-exercise-illustration-3-e2e.mjs
+
+  deploy-safety-gate:
+    if: github.event_name == 'push' && github.ref_name == 'preview/development'
+    needs: [global-qa, runtime-navigation-e2e]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact SHA
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify exact-SHA Cloudflare Preview and stable branch alias
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEPLOY_GATE_REPOSITORY: ${{ github.repository }}
+          DEPLOY_GATE_SHA: ${{ github.sha }}
+          DEPLOY_GATE_REF_NAME: ${{ github.ref_name }}
+          DEPLOY_GATE_EVIDENCE: /tmp/deploy-safety-evidence.json
+        run: node scripts/deploy-safety-gate.mjs
+      - name: Upload deploy-safety evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-safety-evidence-${{ github.sha }}
+          path: /tmp/deploy-safety-evidence.json
+          if-no-files-found: warn
+          retention-days: 14
