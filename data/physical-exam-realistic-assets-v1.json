@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.02-exam-real-001-ct082-candidate3-binary-handoff-blocked",
+  "dataset_version": "2026.10.02-exam-real-001-ct082-candidate4-reviewed",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -2981,24 +2981,24 @@
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "좌위에서 증상측으로 경추를 회전·측굴/신전한 뒤 안전한 범위에서 축성 압박을 가한다.",
-        "examiner_maneuver": "목 통증이 아니라 평소 팔의 방사통·저림이 재현되는지 확인한다.",
-        "positive_finding": "익숙한 상지 radicular pain/paresthesia가 재현되면 양성 소견으로 기록한다.",
+        "panel_structure": "세로형 portrait 3-panel을 위→아래로 쌓는다: 1 시작 자세 / 2 검사 시행 / 3 양성 판단. 3열 가로 배치 금지.",
+        "patient_setup": "좌위. 이번 correction에서는 증상측을 환자 오른쪽으로 고정한다. 중립 시작 후 환자 오른쪽으로 경추 회전 + 오른쪽 측굴 + 약간의 신전을 명확히 보이게 한다.",
+        "examiner_maneuver": "검사자는 환자의 머리를 안정적으로 지지하고 두정부에 작고 점진적인 축성 압박을 가한다. 머리와 목의 방향은 반드시 환자 오른쪽 증상측과 일치해야 한다.",
+        "positive_finding": "양성 overlay는 환자 오른쪽 목에서 시작해 오른쪽 어깨·팔·손으로 이어지는 익숙한 radicular pain/paresthesia만 표시한다. 반대쪽 팔 표시 금지.",
         "interpretation": "2025 Spurling meta-analysis에서는 높은 특이도와 제한적 민감도가 보고되었고, 2026 진단정확도 체계적 고찰에서는 검사 변형과 연구 이질성 때문에 근거 확실성이 낮거나 매우 낮다고 평가했다. 단독 확진이 아니라 병력·신경학적 진찰·다른 검사와 함께 임상추론에서 가능성을 조정하는 용도로 표현한다.",
         "limitation_safety": "목의 국소 통증만으로 양성 처리하지 않으며 단독 확진검사가 아니다.",
-        "overlay_policy": "검사자 손 위치를 정확히 보이고, 증상측 경추 회전·측굴/신전은 서로 구분되는 최소 방향표시로 명확히 표현한다. 두정부의 축성 압박 화살표는 작고 점진적인 힘으로 보이게 하며, 양성은 목 국소통이 아니라 상지 방사통/저림 경로를 최소 overlay로 표시한다. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "이미지 내부 텍스트는 반드시 최소화한다. 허용: 패널 번호와 '시작 자세'·'검사 시행'·'양성 판단', 필요 시 '축성 압박'·'팔 방사통/저림' 정도의 짧은 한국어 라벨. 영문 병기, 장문 설명, 임상적 의미/오류/안전/감별진단 문단은 이미지 안에 넣지 않고 앱 HTML에서 제공한다. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "overlay_policy": "환자 오른쪽을 단일 증상측으로 고정. 회전(얼굴/코 방향), 측굴(귀-어깨 거리), 약간의 신전을 서로 구분되게 표시하고 모두 환자 오른쪽으로 일치시킨다. 두정부 축성 압박은 작고 점진적. 양성 overlay도 반드시 환자 오른팔로 일치. 과도한 목 꺾임, 반대측 overlay, 임의 각도/수치/횟수 금지.",
+        "text_policy": "이미지 내부 글자는 극소화. 허용: 패널 번호, 시작 자세, 검사 시행, 양성 판단, 필요 시 '축성 압박', '회전 + 측굴 + 신전', '팔 방사통·저림'. 영문 병기·장문 설명 금지."
       },
       "review": {
-        "clinical_content": "PASS",
+        "clinical_content": "FAIL",
         "visual_pose": "FAIL",
         "examiner_hand_position": "PASS",
         "force_direction": "PASS",
-        "embedded_text": "FAIL",
+        "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-02",
-        "note": "Candidate 2는 세로형 3-panel, 실사형 환자/검사자, 두부 지지와 점진적 축성 압박, 평소 팔 방사통/저림 재현이라는 핵심은 보존했다. 그러나 경추 회전이 측굴에 비해 시각적으로 분명하지 않고, 장문 한국어 설명과 다수 영문 병기가 삽입되어 text_policy를 위반한다. 임상내용은 2025 meta-analysis와 2026 update review의 제한을 반영해 단독 확진으로 표현하지 않는다."
+        "note": "Candidate 4 검수. 환자/검사자 실사형, 두부 지지, 축성 압박, 상지 방사증상, 최소 한국어 라벨은 양호. 그러나 환자 오른팔의 양성 overlay와 머리 회전·측굴 방향이 서로 반대처럼 보여 symptom-side laterality가 일치하지 않는다. 또한 portrait stacked 3-panel 요구와 달리 가로 3열이므로 visual gate 실패."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3020,18 +3020,17 @@
         "note": "Candidate 2. 세로형 3-panel과 실사형 인물·축성 압박·상지 방사증상 overlay는 개선되었으나, locked brief의 '짧은 한국어 라벨만'을 다시 위반했고 증상측 회전 성분도 정지화면에서 충분히 명확하지 않아 승인 금지."
       },
       "approval_blockers": [
-        "Candidate 3 PNG binary가 현재 작업공간에 없어 실제 시각검수·hash·asset 저장·Preview 연결 불가",
-        "Candidate 2의 증상측 경추 회전 성분을 정지화면에서 더 명확히 표현 필요",
-        "Candidate 2의 짧은 한국어 라벨 원칙 재위반: 장문 설명과 영문 병기 제거 필요",
-        "다음 생성이 필요하면 ct082 locked brief를 그대로 사용하되 새 gen_id를 가진 새 candidate로 생성"
+        "Candidate 4 laterality 불일치: maneuver 방향과 환자 오른팔 radicular overlay를 동일 증상측으로 맞춰야 함",
+        "portrait stacked 3-panel 위→아래 구성 필요; 3열 가로 배치 금지",
+        "회전은 얼굴/코 방향으로 명확히, 측굴·신전과 시각적으로 분리되어야 함"
       ],
-      "review_note": "Candidate 3 gen_id 80d60cd0-19b8-47ef-9e8e-3a38c2cd9720은 이전 세션 생성 provenance로 보존했다. 그러나 현재 작업공간에 원본 PNG binary가 없어 어떤 review gate도 새로 PASS 처리하지 않았고 asset/Preview도 연결하지 않았다. Candidate 2가 계속 Preview 표시본이며 canonical 승격은 차단한다. ct083으로 넘어가지 않는다.",
+      "review_note": "Candidate 4는 텍스트와 force 표현은 개선됐지만 laterality와 layout gate에서 FAIL. canonical/USER PREVIEW 승격 금지. 다음도 ct082이며 Candidate 5는 환자 오른쪽을 고정한 locked brief로 새 gen_id를 발급한다.",
       "provenance_review": {
-        "status": "PASS_WITH_BINARY_HANDOFF_BLOCKER",
+        "status": "PASS",
         "reviewed_on": "2026-10-02",
         "generator": "OpenAI image generation",
-        "rule": "Generation ID alone is not an asset. A reviewable binary, content hash and human clinical review are required before Preview integration or copyright evidence promotion.",
-        "note": "Candidate 1·2 provenance는 기존대로 유지. Candidate 3은 gen_id만 보존하며 binary 부재 때문에 raw SHA-256, visual review, asset path를 만들지 않았다. 새 생성 시 기존 gen_id 재사용 금지."
+        "rule": "AI raw output is candidate-only; failed candidates remain provenance/history assets and may not become canonical.",
+        "note": "Candidate 4의 새 gen_id, raw generation SHA-256, review thumbnail SHA-256를 기록했다. 외부 교과서 tracing/near-copy를 사용하지 않았으며 canonical 승격은 차단 상태."
       },
       "candidate_history": [
         {
@@ -3067,6 +3066,29 @@
           "review_state": "NOT_REVIEWED_BINARY_UNAVAILABLE",
           "binary_access_check_on": "2026-10-02",
           "note": "이전 세션에서 생성됐다는 generation provenance만 보존한다. 현재 작업공간에서 PNG binary가 확인되지 않아 임상/자세/손/힘/텍스트/저작권 시각검수, SHA-256 산출, asset 저장, Preview 연결을 수행하지 않았다. 이 gen_id를 새 생성물에 재사용하지 않는다."
+        },
+        {
+          "candidate_no": 4,
+          "gen_id": "3d216ff9-a4a8-44a0-98c0-b7f6daa865dc",
+          "generated_on": "2026-10-02",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1295x1214",
+          "raw_generation_sha256": "f0a7a1e6033491ecdc166f81bb814a7fe131e964184b3c81d1c2dc324d2f144a",
+          "review_thumbnail_path": "./assets/physical-exam-realistic/candidates/ct082-spurling-gen-3d216ff9-review.svg",
+          "review_thumbnail_dimensions": "96x90",
+          "review_thumbnail_webp_sha256": "904709bab6e62a6b3ae8496bfdcc97570354120f2a3f5abe815bd278a4c12c3a",
+          "disposition": "NEEDS_REVISION_NOT_CANONICAL",
+          "failed_axes": [
+            "clinical_content",
+            "visual_pose"
+          ],
+          "passed_axes": [
+            "examiner_hand_position",
+            "force_direction",
+            "embedded_text",
+            "provenance"
+          ],
+          "note": "텍스트 최소화·한국어 단일표기·두정부 축성 압박·상지 방사통 overlay는 개선. 그러나 양성 방사통은 환자 오른팔에 표시된 반면 머리 회전/측굴은 반대쪽으로 보이는 laterality 불일치가 있고, portrait stacked 3-panel이 아니라 가로 3열 구성이어서 승인 금지."
         }
       ],
       "evidence_alignment": {
