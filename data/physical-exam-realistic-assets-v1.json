@@ -3163,12 +3163,14 @@
         "text_policy": "이미지 내부 글자는 극소화. 허용: 패널 번호, '시작 자세', '검사 시행', '양성 판단', 필요 시 '부드러운 축성 견인', '팔 방사통·저림 감소'. 영문 병기·장문 설명·진단 확정 문구 금지."
       },
       "review": {
-        "clinical_content": "PENDING",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "FAIL",
+        "embedded_text": "PASS",
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-03",
+        "note": "Candidate 1 failed only the force-direction gate: screen-up arrow does not represent cranial axial distraction in a supine patient whose head is to screen right."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3183,7 +3185,34 @@
         "status": "PASS_WITH_VERY_LOW_CERTAINTY_CAUTION",
         "note": "2026 systematic review: diagnostic accuracy evidence for cervical radiculopathy physical tests is sparse; most non-Spurling/non-ULNT outcomes are based on single studies and overall certainty is very low. Historical diagnostic literature describes supine distraction with occiput/chin support and symptom relief as the positive response. Use only as an adjunct to history and neurologic examination."
       },
-      "review_note": "ct083 brief locked before generation. Supine, occiput + chin support, gentle cranial axial distraction, concordant radicular arm symptom relief. Laterality and relief-vs-provocation are mandatory visual QA gates."
+      "review_note": "ct083 Candidate 1 preserved as a failed review. Next candidate must keep the same supine clinical setup but correct the traction vector to the patient anatomical cranial direction.",
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "f6475e35-4238-4342-b75a-753a2c82b654",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "f950c469cdc8ebb8b45cc112bb7167d9d000dfaf5de27408448f137cbc16c1fb",
+          "source_session_path": "/mnt/data/a_vertical_triptych_infographic_style_medical_demo.png",
+          "binary_vault_status": "PENDING_BINARY_INGEST",
+          "disposition": "NEEDS_REVISION_NOT_CANONICAL",
+          "failed_axes": [
+            "force_direction"
+          ],
+          "passed_axes": [
+            "clinical_content",
+            "visual_pose",
+            "examiner_hand_position",
+            "embedded_text"
+          ],
+          "note": "Supine setup, occiput/chin support, concordant arm symptom relief and minimal Korean labels are good. However the distraction arrow points upward on the screen rather than along the patient cervical long axis toward the head, so force direction is visually misleading. Do not promote."
+        }
+      ],
+      "approval_blockers": [
+        "견인 화살표를 화면 위쪽이 아니라 환자의 경추 장축을 따라 머리쪽(두개측)으로 표시해야 함",
+        "양성 패널은 같은 증상측 팔의 기존 방사통·저림이 감소하는 것으로 유지"
+      ]
     },
     {
       "clinical_test_id": "ct084",
