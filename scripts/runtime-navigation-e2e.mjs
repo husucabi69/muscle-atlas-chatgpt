@@ -517,6 +517,31 @@ try{
   await page.locator('#searchBox').fill('');
   pass('A10 home/search canonical direct-route shell');
 
+  const deepPage=await context.newPage();
+  const deepErrors=[];
+  deepPage.on('pageerror',e=>deepErrors.push(String(e?.stack||e)));
+  const deepUrl=new URL('?page=clinical&module=cervical&topic=exam&item=ct083',base).toString();
+  await deepPage.goto(deepUrl,{waitUntil:'domcontentloaded',timeout:30000});
+  await deepPage.waitForFunction(()=>document.documentElement.dataset.appPage==='clinical'&&!document.querySelector('#clinicalDetailView')?.hidden,{timeout:20000});
+  const deepState=await deepPage.evaluate(()=>({
+    page:document.documentElement.dataset.appPage||'',
+    group:document.documentElement.dataset.activeDrillGroup||'',
+    view:document.documentElement.dataset.activeDrillView||'',
+    module:typeof selectedClinicalModuleKey==='string'?selectedClinicalModuleKey:'',
+    topic:typeof selectedClinicalTopic==='string'?selectedClinicalTopic:'',
+    item:typeof selectedClinicalItemId==='string'?selectedClinicalItemId:'',
+    version:document.getElementById('appVersionLabel')?.textContent||''
+  }));
+  if(deepState.page!=='clinical'||deepState.group!=='clinical'||deepState.view!=='detail'||deepState.module!=='cervical'||deepState.topic!=='exam'||deepState.item!=='ct083'){
+    fail('Clinical deep link opens exact ct083 detail',JSON.stringify(deepState));
+  }
+  const deepText=(await deepPage.locator('#clinicalDetailContent').textContent()||'').trim();
+  if(!deepText.includes('ct083')||!deepText.includes('경추 견인/Distraction 검사'))fail('Clinical deep link preserves ct083 identity',deepText.slice(0,400));
+  if(await deepPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="preview"]').count()!==1)fail('Clinical deep link renders ct083 realistic Preview candidate');
+  if(deepErrors.length)fail('Clinical deep link has no page errors',deepErrors.join(' || '));
+  await deepPage.close();
+  pass('A11 direct clinical deep link',deepUrl);
+
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
   pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral, learning and home/search click sweep');
