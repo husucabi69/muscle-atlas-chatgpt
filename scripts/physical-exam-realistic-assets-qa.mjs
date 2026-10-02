@@ -26,7 +26,11 @@ check('EXAM-001 baseline dependency locked',reg.baseline_contract?.exam_001==='C
 check('Realistic style contract linked',String(reg.style_contract||'').includes('REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT'));
 check('Copyright contract linked',String(reg.copyright_contract||'').includes('COPYRIGHT_REGISTRATION_STRATEGY'));
 check('AI raw output cannot be final',profiles.every(p=>p.provenance?.ai_raw_output_allowed_as_final===false&&p.provenance?.human_edit_required===true));
-check('All profiles require six review gates',profiles.every(p=>['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text','user_preview'].every(k=>p.review?.[k]==='PENDING')));
+const reviewKeys=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text','user_preview'];
+const reviewValues=new Set(['PENDING','PASS','FAIL']);
+check('All profiles require six review gates',profiles.every(p=>reviewKeys.every(k=>reviewValues.has(p.review?.[k]))));
+check('Unreviewed profiles remain PENDING on all six review gates',
+  profiles.filter(p=>!p.preview_candidate).every(p=>reviewKeys.every(k=>p.review?.[k]==='PENDING')));
 check('All profiles preserve schematic fallback',String(reg.asset_policy?.fallback||'').includes('EXAM-001'));
 check('Pilot batch is cervical six-test set',
   JSON.stringify(reg.pilot?.clinical_test_ids||[])===JSON.stringify(['ct082','ct083','ct084','ct088','ct092','ct095']),
