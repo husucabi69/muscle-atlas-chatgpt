@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.02-exam-real-001-pipeline",
+  "dataset_version": "2026.10.02-exam-real-001-ct082-candidate1-review",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -2991,19 +2991,40 @@
         "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
       },
       "review": {
-        "clinical_content": "PENDING",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "clinical_content": "PASS",
+        "visual_pose": "FAIL",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "FAIL",
+        "copyright_provenance": "PASS",
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-02",
+        "note": "Spurling 핵심인 증상측 회전·측굴/신전 + 축성 압박, 평소 팔 방사통/저림 재현, 단독 확진 금지는 표현됨. 다만 정본은 세로형 composite인데 생성물이 가로형이고 회전 성분이 충분히 명확하지 않다. 또한 '짧은 한국어 라벨만' 원칙보다 텍스트가 과도하고 영문 병기가 많아 교정 생성이 필요하다."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "preview_candidate": {
+        "gen_id": "7d4e6df1-19d5-4439-9fe4-41ce23d27f8f",
+        "generated_on": "2026-10-02",
+        "generator": "OpenAI image generation",
+        "raw_generation_dimensions": "1536x1024",
+        "raw_generation_sha256": "3f057467f6d9c4c9c2a1f736da22c56af8c60d30c79d47fcd4b2f8d1f9179bf8",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct082-spurling-gen-7d4e6df1-preview.svg",
+        "preview_thumbnail_dimensions": "400x206",
+        "embedded_preview_webp_sha256": "3c4611c17f64fe01ccc2ffc16f759a4c5608541bdd94dd0cc1f265c9bd152292",
+        "disposition": "NEEDS_REVISION_NOT_CANONICAL",
+        "note": "원본 생성물은 candidate 1로만 보존. Preview에는 빠른 사용자 검수를 위한 축소 썸네일만 연결하며 기존 EXAM-001 schematic은 그대로 유지한다."
+      },
+      "approval_blockers": [
+        "세로형 clinical teaching poster 비율 미준수",
+        "증상측 경추 회전 성분을 시각적으로 더 명확히 표현 필요",
+        "짧은 한국어 라벨 원칙 위반: 장문 설명·영문 병기 과다"
+      ],
+      "review_note": "Candidate 1 생성·검수 완료. 내부 gate FAIL 2축(visual_pose, embedded_text)으로 canonical 승격 금지. 다음 생성도 ct082 locked brief를 유지하되 비율/회전 표현/텍스트를 교정한다."
     },
     {
       "clinical_test_id": "ct083",
