@@ -2382,6 +2382,30 @@ function clinicalExamPoseMarkup(pose,view='front',accent='#475467'){
       '<text x="80" y="210" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='prone'?'복와위':body==='standing'?'기립':body==='supine'?'앙와위':'좌위')+'</text>'+
       '</g>';
   }
+  const lumbar=Array.isArray(pose.lumbar_top)&&Array.isArray(pose.lumbar_mid)&&Array.isArray(pose.sacrum);
+  if(lumbar){
+    const top=pose.lumbar_top,mid=pose.lumbar_mid,sacrum=pose.sacrum;
+    const body=pose.body||view||'standing';
+    const pelvisL=pose.pelvis_l||[56,142],pelvisR=pose.pelvis_r||[104,142];
+    const legL=pose.leg_l||null,legR=pose.leg_r||null;
+    const legMarkup=(leg,hip)=>{
+      if(!leg||!Array.isArray(leg.knee)||!Array.isArray(leg.ankle))return'';
+      return '<line x1="'+hip[0]+'" y1="'+hip[1]+'" x2="'+leg.knee[0]+'" y2="'+leg.knee[1]+'" stroke="#98a2b3" stroke-width="8" stroke-linecap="round"/>'+
+        '<line x1="'+leg.knee[0]+'" y1="'+leg.knee[1]+'" x2="'+leg.ankle[0]+'" y2="'+leg.ankle[1]+'" stroke="#98a2b3" stroke-width="7" stroke-linecap="round"/>';
+    };
+    const torso=body==='prone'||body==='supine'
+      ?'<path d="M36 104 L124 104" stroke="#c5ccd6" stroke-width="11" stroke-linecap="round"/><path d="M54 98 Q80 88 106 98 L103 146 Q80 158 57 146 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>'
+      :'<path d="M52 66 Q80 58 108 66 L106 142 Q80 155 54 142 Z" fill="#f7f9fc" stroke="#98a2b3" stroke-width="3"/>';
+    return '<g>'+torso+
+      '<line x1="'+top[0]+'" y1="'+top[1]+'" x2="'+mid[0]+'" y2="'+mid[1]+'" stroke="'+accent+'" stroke-width="8" stroke-linecap="round"/>'+
+      '<line x1="'+mid[0]+'" y1="'+mid[1]+'" x2="'+sacrum[0]+'" y2="'+sacrum[1]+'" stroke="'+accent+'" stroke-width="8" stroke-linecap="round"/>'+
+      '<path d="M'+pelvisL[0]+' '+pelvisL[1]+' Q80 '+(pelvisL[1]+12)+' '+pelvisR[0]+' '+pelvisR[1]+'" fill="none" stroke="#98a2b3" stroke-width="7" stroke-linecap="round"/>'+
+      '<circle cx="'+sacrum[0]+'" cy="'+sacrum[1]+'" r="6" fill="#fff" stroke="'+accent+'" stroke-width="3"/>'+
+      legMarkup(legL,pelvisL)+legMarkup(legR,pelvisR)+
+      (pose.torso_label?'<text x="'+(sacrum[0]+18)+'" y="'+(mid[1]+4)+'" font-size="11" font-weight="700" fill="#344054">'+esc(pose.torso_label)+'</text>':'')+
+      '<text x="80" y="210" text-anchor="middle" font-size="11" fill="#667085">'+esc(body==='prone'?'복와위':body==='supine'?'앙와위':body==='seated'?'좌위':'기립')+'</text>'+
+      '</g>';
+  }
   const sh=pose.shoulder||[104,82],el=pose.elbow||[135,120],wr=pose.wrist||[155,160];
   const back=view==='back';
   const side=view==='side';
