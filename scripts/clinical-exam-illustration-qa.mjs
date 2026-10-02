@@ -12,6 +12,7 @@ const legAnkleFoot=json('data/examination-leg-ankle-foot-v1.json');
 const cervical=json('data/examination-cervical-v1.json');
 const thoracic=json('data/examination-thoracic-back-chestwall-v1.json');
 const lumbarSacral=json('data/examination-lumbar-sacral-v1.json');
+const abdominalCore=json('data/examination-abdominal-core-v1.json');
 const index=read('index.html');
 const sw=read('sw.js');
 
@@ -30,7 +31,8 @@ const legAnkleFootTests=legAnkleFoot.clinical_tests||[];
 const cervicalTests=cervical.clinical_tests||[];
 const thoracicTests=thoracic.clinical_tests||[];
 const lumbarSacralTests=lumbarSacral.clinical_tests||[];
-const tests=[...shoulderTests,...elbowTests,...wristHandTests,...hipPelvisTests,...kneeThighTests,...legAnkleFootTests,...cervicalTests,...thoracicTests,...lumbarSacralTests];
+const abdominalCoreTests=abdominalCore.clinical_tests||[];
+const tests=[...shoulderTests,...elbowTests,...wristHandTests,...hipPelvisTests,...kneeThighTests,...legAnkleFootTests,...cervicalTests,...thoracicTests,...lumbarSacralTests,...abdominalCoreTests];
 const presets=registry.presets||{};
 const ids=tests.map(x=>x.clinical_test_id);
 const customIds=Object.keys(presets).sort();
@@ -44,12 +46,13 @@ check('Leg-ankle-foot canonical examination count',legAnkleFootTests.length===17
 check('Cervical canonical examination count',cervicalTests.length===17,String(cervicalTests.length));
 check('Thoracic canonical examination count',thoracicTests.length===16,String(thoracicTests.length));
 check('Lumbar-sacral canonical examination count',lumbarSacralTests.length===18,String(lumbarSacralTests.length));
-check('Custom illustration registry covers through lumbar-sacral',
-  customIds.length===132&&ids.every(id=>presets[id]),customIds.join(', '));
-check('Registry coverage metadata matches 132/148',
-  registry.coverage?.customized===132&&registry.coverage?.total_canonical_tests===148&&
-  Array.isArray(registry.coverage?.modules)&&
-  ['shoulder','elbow','wrist-hand','hip-pelvis','knee-thigh','leg-ankle-foot','cervical','thoracic','lumbar-sacral'].every(x=>registry.coverage.modules.includes(x)),
+check('Abdominal-core canonical examination count',abdominalCoreTests.length===16,String(abdominalCoreTests.length));
+check('Custom illustration registry covers all canonical clinical tests',
+  customIds.length===148&&ids.every(id=>presets[id]),customIds.join(', '));
+check('Registry coverage metadata matches 148/148 complete',
+  registry.coverage?.customized===148&&registry.coverage?.total_canonical_tests===148&&
+  registry.coverage?.status==='EXAM_001_BASELINE_COMPLETE'&&
+  Array.isArray(registry.coverage?.modules)&&registry.coverage.modules.length===10,
   JSON.stringify(registry.coverage||{}));
 
 for(const test of tests){
@@ -66,7 +69,9 @@ for(const test of tests){
     Array.isArray(p?.action?.thoracic_top)&&Array.isArray(p?.action?.thoracic_mid)&&Array.isArray(p?.action?.thoracic_bottom);
   const lumbarPose=Array.isArray(p?.start?.lumbar_top)&&Array.isArray(p?.start?.lumbar_mid)&&Array.isArray(p?.start?.sacrum)&&
     Array.isArray(p?.action?.lumbar_top)&&Array.isArray(p?.action?.lumbar_mid)&&Array.isArray(p?.action?.sacrum);
-  check(test.clinical_test_id+' start/action pose',upperPose||lowerPose||cervicalPose||thoracicPose||lumbarPose);
+  const abdominalPose=Array.isArray(p?.start?.abdomen_top)&&Array.isArray(p?.start?.umbilicus)&&Array.isArray(p?.start?.pubic)&&
+    Array.isArray(p?.action?.abdomen_top)&&Array.isArray(p?.action?.umbilicus)&&Array.isArray(p?.action?.pubic);
+  check(test.clinical_test_id+' start/action pose',upperPose||lowerPose||cervicalPose||thoracicPose||lumbarPose||abdominalPose);
   check(test.clinical_test_id+' examiner teaching text',
     String(p?.examiner_position||'').length>=20&&String(p?.hand_force||'').length>=20&&String(p?.common_error||'').length>=20);
   check(test.clinical_test_id+' positive marker',
