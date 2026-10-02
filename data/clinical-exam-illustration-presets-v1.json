@@ -3,7 +3,7 @@
   "updated_at": "2026-10-02",
   "purpose": "Stable-ID driven teaching illustration presets for canonical clinical examinations. Coordinates are educational schematics, not measurements.",
   "coverage": {
-    "customized": 114,
+    "customized": 132,
     "total_canonical_tests": 148,
     "modules": [
       "shoulder",
@@ -13,10 +13,11 @@
       "knee-thigh",
       "leg-ankle-foot",
       "cervical",
-      "thoracic"
+      "thoracic",
+      "lumbar-sacral"
     ],
-    "status": "BATCH_8_COMPLETE",
-    "next_module": "lumbar-sacral"
+    "status": "BATCH_9_COMPLETE",
+    "next_module": "abdominal-core"
   },
   "presets": {
     "ct001": {
@@ -7669,6 +7670,1341 @@
       "examiner_position": "외상, 골다공증, 암/감염 위험, 전신증상, 흉통/호흡곤란, 신경학적 이상을 우선 선별한다.",
       "hand_force": "중대한 병리 가능성이 있으면 routine MSK provocation을 줄이고 적절한 영상·응급·전문의 평가로 전환한다.",
       "common_error": "red flag 하나로 특정 질환을 확정하지 않되 심폐·척수성 위험을 단순 근골격 통증으로 처리하지 않는다."
+    },
+    "ct115": {
+      "clinical_test_id": "ct115",
+      "precision": "custom",
+      "view": "back",
+      "title": "Lumbar active ROM · 굴곡/신전/측굴/회전에서 증상·비대칭 기록",
+      "start": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "중립"
+      },
+      "action": {
+        "body": "standing",
+        "lumbar_top": [
+          72,
+          78
+        ],
+        "lumbar_mid": [
+          76,
+          110
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "굴곡·신전·측굴·회전"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 110,
+          "r": 40,
+          "start_angle": 190,
+          "end_angle": 330,
+          "label": "다방향 ROM"
+        }
+      ],
+      "positive": {
+        "x": 77,
+        "y": 111,
+        "label": "제한/익숙한 허리·다리 증상"
+      },
+      "examiner_position": "환자 뒤와 측면에서 골반·흉추·고관절 보상을 관찰한다.",
+      "hand_force": "능동 ROM을 우선 시행하고 통증 없는 범위에서 좌우를 비교한다.",
+      "common_error": "고관절/흉추 보상을 요추 ROM으로 오인하거나 한 방향 통증만으로 특정 구조를 확정하지 않는다."
+    },
+    "ct116": {
+      "clinical_test_id": "ct116",
+      "precision": "custom",
+      "view": "side",
+      "title": "Repeated movement / centralization · 반복 굴곡·신전 중 증상 위치 변화",
+      "start": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "기준 증상"
+      },
+      "action": {
+        "body": "standing",
+        "lumbar_top": [
+          89,
+          78
+        ],
+        "lumbar_mid": [
+          85,
+          108
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "반복 신전/굴곡"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 112,
+          "r": 38,
+          "start_angle": 170,
+          "end_angle": 310,
+          "label": "반복운동"
+        }
+      ],
+      "positive": {
+        "x": 88,
+        "y": 109,
+        "label": "centralization / peripheralization"
+      },
+      "examiner_position": "반복동작 전 다리 증상의 가장 원위 위치와 강도를 먼저 기록한다.",
+      "hand_force": "안전 범위에서 반복 굴곡 또는 신전을 시행하며 매 반복 후 증상 위치 변화를 확인한다.",
+      "common_error": "진행성 신경결손·cauda equina 의심에서 반복운동을 지속하지 않는다."
+    },
+    "ct117": {
+      "clinical_test_id": "ct117",
+      "precision": "custom",
+      "view": "side",
+      "title": "SLR · 무릎 신전 유지한 고관절 굴곡 + 구조감별",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          155,
+          108
+        ],
+        "ankle": [
+          198,
+          108
+        ],
+        "foot": [
+          216,
+          112
+        ],
+        "toe": [
+          228,
+          112
+        ],
+        "foot_label": "무릎 신전"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          148,
+          78
+        ],
+        "ankle": [
+          185,
+          52
+        ],
+        "foot": [
+          202,
+          47
+        ],
+        "toe": [
+          214,
+          46
+        ],
+        "foot_label": "SLR"
+      },
+      "examiner_hands": [
+        {
+          "x": 148,
+          "y": 78,
+          "label": "대퇴/무릎"
+        },
+        {
+          "x": 200,
+          "y": 48,
+          "label": "발목"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 104,
+          "cy": 108,
+          "r": 62,
+          "start_angle": 5,
+          "end_angle": -62,
+          "label": "고관절 굴곡"
+        }
+      ],
+      "positive": {
+        "x": 176,
+        "y": 66,
+        "label": "익숙한 다리 방사통/저림"
+      },
+      "examiner_position": "앙와위에서 무릎이 굽혀지지 않게 다리를 지지하고 증상 반응을 본다.",
+      "hand_force": "다리를 천천히 올리고 증상 재현 시 발목 배굴 등 structural differentiation을 추가한다.",
+      "common_error": "hamstring stretch sensation과 익숙한 신경성 증상을 구분하고 ROM 각도 하나로 진단하지 않는다."
+    },
+    "ct118": {
+      "clinical_test_id": "ct118",
+      "precision": "custom",
+      "view": "side",
+      "title": "Crossed SLR · 덜 아픈 다리를 올려 반대측 radicular pain 확인",
+      "start": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          155,
+          108
+        ],
+        "ankle": [
+          198,
+          108
+        ],
+        "foot": [
+          216,
+          112
+        ],
+        "toe": [
+          228,
+          112
+        ],
+        "foot_label": "반대측 검사"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          148,
+          78
+        ],
+        "ankle": [
+          185,
+          52
+        ],
+        "foot": [
+          202,
+          47
+        ],
+        "toe": [
+          214,
+          46
+        ],
+        "foot_label": "반대측 SLR"
+      },
+      "examiner_hands": [
+        {
+          "x": 148,
+          "y": 78,
+          "label": "검사 다리 지지"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 104,
+          "cy": 108,
+          "r": 62,
+          "start_angle": 5,
+          "end_angle": -62,
+          "label": "SLR"
+        }
+      ],
+      "positive": {
+        "x": 110,
+        "y": 111,
+        "label": "반대 증상측 방사통"
+      },
+      "examiner_position": "무증상 또는 덜 증상인 다리를 SLR 하며 반대편 다리 증상을 확인한다.",
+      "hand_force": "천천히 고관절 굴곡을 증가시키고 반대측 익숙한 radicular pain 여부를 본다.",
+      "common_error": "음성이라고 radiculopathy를 배제하지 않는다."
+    },
+    "ct119": {
+      "clinical_test_id": "ct119",
+      "precision": "custom",
+      "view": "side",
+      "title": "Slump · 흉요추굴곡→경추굴곡→무릎신전→배굴 순차 neural load",
+      "start": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          144,
+          108
+        ],
+        "ankle": [
+          144,
+          166
+        ],
+        "foot": [
+          164,
+          171
+        ],
+        "toe": [
+          177,
+          171
+        ],
+        "foot_label": "좌위"
+      },
+      "action": {
+        "body": "seated",
+        "hip": [
+          94,
+          108
+        ],
+        "knee": [
+          151,
+          98
+        ],
+        "ankle": [
+          192,
+          98
+        ],
+        "foot": [
+          210,
+          94
+        ],
+        "toe": [
+          222,
+          92
+        ],
+        "foot_label": "무릎신전+배굴"
+      },
+      "examiner_hands": [
+        {
+          "x": 191,
+          "y": 98,
+          "label": "원위 하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 118,
+          "y1": 68,
+          "x2": 105,
+          "y2": 89,
+          "label": "slump"
+        },
+        {
+          "x1": 170,
+          "y1": 100,
+          "x2": 205,
+          "y2": 95,
+          "label": "무릎 신전"
+        }
+      ],
+      "positive": {
+        "x": 183,
+        "y": 96,
+        "label": "익숙한 신경성 다리 증상"
+      },
+      "examiner_position": "좌위에서 각 단계가 독립적으로 추가되도록 자세를 조절한다.",
+      "hand_force": "흉요추/경추 굴곡, 무릎 신전, 발목 배굴을 순차 적용하고 경추 위치 변화로 구조감별한다.",
+      "common_error": "hamstring tightness를 양성으로 보지 않고 익숙한 신경성 증상과 structural differentiation을 확인한다."
+    },
+    "ct120": {
+      "clinical_test_id": "ct120",
+      "precision": "custom",
+      "view": "side",
+      "title": "Femoral nerve stretch / prone knee bend · 무릎 굴곡±고관절 신전",
+      "start": {
+        "body": "side-lying",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          151,
+          121
+        ],
+        "ankle": [
+          185,
+          143
+        ],
+        "foot": [
+          201,
+          147
+        ],
+        "toe": [
+          212,
+          147
+        ],
+        "foot_label": "복와위 대체도해"
+      },
+      "action": {
+        "body": "side-lying",
+        "hip": [
+          104,
+          108
+        ],
+        "knee": [
+          143,
+          93
+        ],
+        "ankle": [
+          117,
+          73
+        ],
+        "foot": [
+          105,
+          68
+        ],
+        "toe": [
+          96,
+          66
+        ],
+        "foot_label": "무릎 굴곡"
+      },
+      "examiner_hands": [
+        {
+          "x": 117,
+          "y": 73,
+          "label": "발목/하퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 151,
+          "cy": 121,
+          "r": 45,
+          "start_angle": 30,
+          "end_angle": 220,
+          "label": "무릎 굴곡"
+        }
+      ],
+      "positive": {
+        "x": 130,
+        "y": 90,
+        "label": "익숙한 전방 대퇴 신경증상"
+      },
+      "examiner_position": "복와위에서 무릎을 천천히 굴곡하고 필요하면 고관절 신전을 소량 추가한다.",
+      "hand_force": "증상 재현 시 대퇴사두근 신장감과 신경성 전방 대퇴 증상을 구분한다.",
+      "common_error": "통증을 강하게 만들기 위해 끝범위를 억지로 밀지 않는다."
+    },
+    "ct121": {
+      "clinical_test_id": "ct121",
+      "precision": "custom",
+      "view": "front",
+      "title": "L2–S1 neurologic screen · myotome/dermatome/reflex 좌우 비교",
+      "start": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "leg_l": {
+          "knee": [
+            60,
+            170
+          ],
+          "ankle": [
+            60,
+            205
+          ]
+        },
+        "leg_r": {
+          "knee": [
+            100,
+            170
+          ],
+          "ankle": [
+            100,
+            205
+          ]
+        },
+        "torso_label": "신경학적 선별"
+      },
+      "action": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "leg_l": {
+          "knee": [
+            60,
+            164
+          ],
+          "ankle": [
+            60,
+            196
+          ]
+        },
+        "leg_r": {
+          "knee": [
+            100,
+            164
+          ],
+          "ankle": [
+            100,
+            196
+          ]
+        },
+        "torso_label": "L2–S1 비교"
+      },
+      "examiner_hands": [
+        {
+          "x": 100,
+          "y": 176,
+          "label": "근력·감각·반사"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 116,
+          "y1": 160,
+          "x2": 102,
+          "y2": 174,
+          "label": "분절별 비교"
+        }
+      ],
+      "positive": {
+        "x": 99,
+        "y": 176,
+        "label": "일관된 분절성 이상"
+      },
+      "examiner_position": "하지 myotome, dermatome, patellar/Achilles reflex를 같은 조건에서 비교한다.",
+      "hand_force": "근력은 표준 저항, 감각은 좌우 비교, 반사는 동일한 방법으로 시행한다.",
+      "common_error": "중첩되는 myotome/dermatome 특성을 무시하고 한 소견으로 level을 확정하지 않는다."
+    },
+    "ct122": {
+      "clinical_test_id": "ct122",
+      "precision": "custom",
+      "view": "front",
+      "title": "Heel / toe walk · 배굴·족저굴곡 기능 선별",
+      "start": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          203
+        ],
+        "foot": [
+          105,
+          207
+        ],
+        "toe": [
+          118,
+          207
+        ],
+        "foot_label": "기립"
+      },
+      "action": {
+        "body": "standing",
+        "hip": [
+          92,
+          110
+        ],
+        "knee": [
+          92,
+          158
+        ],
+        "ankle": [
+          92,
+          194
+        ],
+        "foot": [
+          106,
+          198
+        ],
+        "toe": [
+          118,
+          198
+        ],
+        "foot_label": "heel/toe walk"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 118,
+          "y1": 198,
+          "x2": 143,
+          "y2": 198,
+          "label": "짧은 거리 보행"
+        }
+      ],
+      "positive": {
+        "x": 99,
+        "y": 195,
+        "label": "일측 기능저하/반복 불가"
+      },
+      "examiner_position": "낙상 예방 위치에서 heel walk와 toe walk를 각각 짧게 관찰한다.",
+      "hand_force": "외부 저항 없이 배굴/족저굴곡 유지와 좌우 차이를 본다.",
+      "common_error": "발목 통증·균형장애 영향을 root weakness로 곧바로 해석하지 않는다."
+    },
+    "ct123": {
+      "clinical_test_id": "ct123",
+      "precision": "custom",
+      "view": "back",
+      "title": "Lumbar extension-rotation · 신전+동측 회전/측굴에서 편측 axial pain",
+      "start": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "중립"
+      },
+      "action": {
+        "body": "standing",
+        "lumbar_top": [
+          91,
+          77
+        ],
+        "lumbar_mid": [
+          87,
+          108
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "신전+회전"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "kind": "arc",
+          "cx": 80,
+          "cy": 112,
+          "r": 40,
+          "start_angle": 190,
+          "end_angle": 325,
+          "label": "신전·회전"
+        }
+      ],
+      "positive": {
+        "x": 91,
+        "y": 110,
+        "label": "편측 axial LBP"
+      },
+      "examiner_position": "기립에서 골반을 안정시키고 다리 방사통이 생기는지 함께 관찰한다.",
+      "hand_force": "안전 범위에서 신전과 동측 회전/측굴을 결합한다.",
+      "common_error": "진단적 block을 대체하는 확진검사로 사용하지 않는다."
+    },
+    "ct124": {
+      "clinical_test_id": "ct124",
+      "precision": "custom",
+      "view": "front",
+      "title": "SI distraction · 양 ASIS 후외측 방향 압박",
+      "start": {
+        "body": "supine",
+        "lumbar_top": [
+          80,
+          96
+        ],
+        "lumbar_mid": [
+          80,
+          118
+        ],
+        "sacrum": [
+          80,
+          140
+        ],
+        "pelvis_l": [
+          58,
+          142
+        ],
+        "pelvis_r": [
+          102,
+          142
+        ],
+        "torso_label": "앙와위"
+      },
+      "action": {
+        "body": "supine",
+        "lumbar_top": [
+          80,
+          96
+        ],
+        "lumbar_mid": [
+          80,
+          118
+        ],
+        "sacrum": [
+          80,
+          140
+        ],
+        "pelvis_l": [
+          55,
+          144
+        ],
+        "pelvis_r": [
+          105,
+          144
+        ],
+        "torso_label": "distraction"
+      },
+      "examiner_hands": [
+        {
+          "x": 58,
+          "y": 142,
+          "label": "ASIS"
+        },
+        {
+          "x": 102,
+          "y": 142,
+          "label": "ASIS"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 67,
+          "y1": 137,
+          "x2": 54,
+          "y2": 146,
+          "label": "후외측"
+        },
+        {
+          "x1": 93,
+          "y1": 137,
+          "x2": 106,
+          "y2": 146,
+          "label": "후외측"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 143,
+        "label": "익숙한 SI-region pain"
+      },
+      "examiner_position": "앙와위에서 양 ASIS에 손을 올려 골반을 대칭으로 안정화한다.",
+      "hand_force": "양 ASIS를 후외측 방향으로 점진 압박해 posterior pelvic pain 재현을 확인한다.",
+      "common_error": "양성 하나로 SI joint source를 확정하지 않는다."
+    },
+    "ct125": {
+      "clinical_test_id": "ct125",
+      "precision": "custom",
+      "view": "side",
+      "title": "Thigh thrust · 고관절 굴곡·내전 후 대퇴 장축 posterior shear",
+      "start": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          145,
+          78
+        ],
+        "ankle": [
+          165,
+          110
+        ],
+        "foot": [
+          180,
+          114
+        ],
+        "toe": [
+          191,
+          114
+        ],
+        "foot_label": "고관절 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          145,
+          78
+        ],
+        "ankle": [
+          165,
+          110
+        ],
+        "foot": [
+          180,
+          114
+        ],
+        "toe": [
+          191,
+          114
+        ],
+        "foot_label": "thigh thrust"
+      },
+      "examiner_hands": [
+        {
+          "x": 144,
+          "y": 77,
+          "label": "무릎/대퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 144,
+          "y1": 55,
+          "x2": 144,
+          "y2": 82,
+          "label": "장축 압박"
+        }
+      ],
+      "positive": {
+        "x": 107,
+        "y": 109,
+        "label": "익숙한 posterior pelvic pain"
+      },
+      "examiner_position": "앙와위에서 고관절을 굴곡·내전시켜 대퇴 장축이 SI joint 방향으로 놓이게 한다.",
+      "hand_force": "대퇴 장축을 따라 점진적인 posterior shear를 가한다.",
+      "common_error": "고관절 통증과 posterior pelvic pain을 구분한다."
+    },
+    "ct126": {
+      "clinical_test_id": "ct126",
+      "precision": "custom",
+      "view": "side",
+      "title": "SI compression · 측와위 상측 iliac crest 하방 압박",
+      "start": {
+        "body": "side-lying",
+        "lumbar_top": [
+          80,
+          92
+        ],
+        "lumbar_mid": [
+          80,
+          116
+        ],
+        "sacrum": [
+          80,
+          140
+        ],
+        "pelvis_l": [
+          58,
+          142
+        ],
+        "pelvis_r": [
+          102,
+          142
+        ],
+        "torso_label": "측와위"
+      },
+      "action": {
+        "body": "side-lying",
+        "lumbar_top": [
+          80,
+          92
+        ],
+        "lumbar_mid": [
+          80,
+          116
+        ],
+        "sacrum": [
+          80,
+          140
+        ],
+        "pelvis_l": [
+          58,
+          142
+        ],
+        "pelvis_r": [
+          99,
+          147
+        ],
+        "torso_label": "compression"
+      },
+      "examiner_hands": [
+        {
+          "x": 102,
+          "y": 141,
+          "label": "상측 iliac crest"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 102,
+          "y1": 118,
+          "x2": 102,
+          "y2": 145,
+          "label": "하방 압박"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 143,
+        "label": "익숙한 SI-region pain"
+      },
+      "examiner_position": "측와위에서 상측 iliac crest를 안정적으로 잡는다.",
+      "hand_force": "골반을 아래쪽으로 점진 압박해 SI region의 익숙한 통증을 확인한다.",
+      "common_error": "연부조직 압통을 SI joint provocation과 혼동하지 않는다."
+    },
+    "ct127": {
+      "clinical_test_id": "ct127",
+      "precision": "custom",
+      "view": "back",
+      "title": "Sacral thrust · sacrum 중앙에 전방 방향 점진 압박",
+      "start": {
+        "body": "prone",
+        "lumbar_top": [
+          80,
+          98
+        ],
+        "lumbar_mid": [
+          80,
+          120
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "복와위"
+      },
+      "action": {
+        "body": "prone",
+        "lumbar_top": [
+          80,
+          98
+        ],
+        "lumbar_mid": [
+          80,
+          120
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "sacral thrust"
+      },
+      "examiner_hands": [
+        {
+          "x": 80,
+          "y": 142,
+          "label": "sacrum 중앙"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 80,
+          "y1": 116,
+          "x2": 80,
+          "y2": 139,
+          "label": "전방 압박"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 143,
+        "label": "익숙한 posterior pelvic pain"
+      },
+      "examiner_position": "복와위에서 sacrum 중앙을 찾고 손을 겹쳐 안정적으로 위치시킨다.",
+      "hand_force": "전방 방향으로 점진 압박을 가하되 외상/골절 위험에서는 강한 thrust를 피한다.",
+      "common_error": "급성 외상·골다공증에서 강한 thrust를 시행하지 않는다."
+    },
+    "ct128": {
+      "clinical_test_id": "ct128",
+      "precision": "custom",
+      "view": "side",
+      "title": "Gaenslen · 한쪽 고관절 굴곡 + 반대쪽 신전으로 골반 torsion",
+      "start": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          145,
+          78
+        ],
+        "ankle": [
+          165,
+          110
+        ],
+        "foot": [
+          180,
+          114
+        ],
+        "toe": [
+          191,
+          114
+        ],
+        "foot_label": "한쪽 굴곡"
+      },
+      "action": {
+        "body": "supine",
+        "hip": [
+          105,
+          108
+        ],
+        "knee": [
+          145,
+          78
+        ],
+        "ankle": [
+          165,
+          110
+        ],
+        "foot": [
+          180,
+          114
+        ],
+        "toe": [
+          191,
+          114
+        ],
+        "foot_label": "반대쪽 신전"
+      },
+      "examiner_hands": [
+        {
+          "x": 145,
+          "y": 78,
+          "label": "굴곡측 무릎"
+        },
+        {
+          "x": 107,
+          "y": 108,
+          "label": "반대측 대퇴"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 145,
+          "y1": 57,
+          "x2": 145,
+          "y2": 82,
+          "label": "굴곡 유지"
+        },
+        {
+          "x1": 109,
+          "y1": 91,
+          "x2": 109,
+          "y2": 116,
+          "label": "반대쪽 신전"
+        }
+      ],
+      "positive": {
+        "x": 108,
+        "y": 109,
+        "label": "익숙한 SI-region pain"
+      },
+      "examiner_position": "한쪽 무릎을 가슴 쪽으로 유지하고 반대쪽 다리가 검사대 가장자리에서 신전되도록 한다.",
+      "hand_force": "양쪽을 반대 방향으로 부드럽게 유도해 골반 torsion을 만든다.",
+      "common_error": "고관절·요추 통증을 SI 통증으로 잘못 해석하지 않는다."
+    },
+    "ct129": {
+      "clinical_test_id": "ct129",
+      "precision": "custom",
+      "view": "back",
+      "title": "SI provocation cluster · 여러 stress test에서 같은 익숙한 통증 반복 여부",
+      "start": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "여러 검사 통합"
+      },
+      "action": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "cluster 해석"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 52,
+          "y1": 145,
+          "x2": 72,
+          "y2": 145,
+          "label": "distraction"
+        },
+        {
+          "x1": 108,
+          "y1": 145,
+          "x2": 88,
+          "y2": 145,
+          "label": "compression"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 143,
+        "label": "여러 검사에서 동일 SI pain"
+      },
+      "examiner_position": "distraction, thigh thrust, compression, sacral thrust, Gaenslen 결과를 한 세트로 기록한다.",
+      "hand_force": "각 검사를 독립적으로 안전하게 시행하고 동일한 익숙한 통증 재현 여부를 비교한다.",
+      "common_error": "positive cluster만으로 SI joint pain을 확진하지 않는다."
+    },
+    "ct130": {
+      "clinical_test_id": "ct130",
+      "precision": "custom",
+      "view": "back",
+      "title": "Lumbar multifidus activation · 반대 팔 들기로 low-load stabilization 유도",
+      "start": {
+        "body": "prone",
+        "lumbar_top": [
+          80,
+          98
+        ],
+        "lumbar_mid": [
+          80,
+          120
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "L4/5 multifidus"
+      },
+      "action": {
+        "body": "prone",
+        "lumbar_top": [
+          80,
+          98
+        ],
+        "lumbar_mid": [
+          80,
+          120
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "contralateral arm lift"
+      },
+      "examiner_hands": [
+        {
+          "x": 70,
+          "y": 122,
+          "label": "multifidus 촉진/US"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 43,
+          "y1": 112,
+          "x2": 28,
+          "y2": 96,
+          "label": "반대 팔 들기"
+        }
+      ],
+      "positive": {
+        "x": 70,
+        "y": 122,
+        "label": "활성 비대칭/저하"
+      },
+      "examiner_position": "복와위에서 L4/5 또는 L5 multifidus를 촉진하거나 초음파로 확인한다.",
+      "hand_force": "반대쪽 팔을 가볍게 들어 low-load trunk stabilization을 유도한다.",
+      "common_error": "US thickness 변화만으로 통증 원인을 확정하지 않는다."
+    },
+    "ct131": {
+      "clinical_test_id": "ct131",
+      "precision": "custom",
+      "view": "back",
+      "title": "Superior cluneal nerve · posterior iliac crest 부근 압통·방사감각 재현",
+      "start": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "pelvis_l": [
+          56,
+          142
+        ],
+        "pelvis_r": [
+          104,
+          142
+        ],
+        "torso_label": "posterior iliac crest"
+      },
+      "action": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "pelvis_l": [
+          56,
+          142
+        ],
+        "pelvis_r": [
+          104,
+          142
+        ],
+        "torso_label": "SCN 촉진"
+      },
+      "examiner_hands": [
+        {
+          "x": 111,
+          "y": 140,
+          "label": "SCN 경로"
+        }
+      ],
+      "arrows": [
+        {
+          "x1": 111,
+          "y1": 117,
+          "x2": 111,
+          "y2": 136,
+          "label": "부드러운 촉진"
+        }
+      ],
+      "positive": {
+        "x": 112,
+        "y": 141,
+        "label": "upper-buttock pain/dysesthesia"
+      },
+      "examiner_position": "posterior iliac crest의 SCN 주행 후보 부위를 해부학적으로 찾는다.",
+      "hand_force": "국소를 부드럽게 촉진해 익숙한 upper-buttock pain 또는 dysesthesia를 확인한다.",
+      "common_error": "요추/SI/둔부 원인과 구분하지 않고 촉진 하나로 entrapment를 확정하지 않는다."
+    },
+    "ct132": {
+      "clinical_test_id": "ct132",
+      "precision": "custom",
+      "view": "front",
+      "title": "Cauda equina / serious neurologic red flag · 배뇨·saddle·양측성 진행성 결손 우선",
+      "start": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "문진+신경학적 선별"
+      },
+      "action": {
+        "body": "standing",
+        "lumbar_top": [
+          80,
+          82
+        ],
+        "lumbar_mid": [
+          80,
+          112
+        ],
+        "sacrum": [
+          80,
+          142
+        ],
+        "torso_label": "urgent gate"
+      },
+      "examiner_hands": [],
+      "arrows": [
+        {
+          "x1": 108,
+          "y1": 120,
+          "x2": 140,
+          "y2": 120,
+          "label": "urgent MRI/응급·전문의"
+        }
+      ],
+      "positive": {
+        "x": 80,
+        "y": 143,
+        "label": "배뇨·saddle·양측/진행성 결손"
+      },
+      "examiner_position": "배뇨·배변 변화, saddle sensory change, 양측/진행성 약화·감각이상을 우선 확인한다.",
+      "hand_force": "중대한 red flag가 있으면 반복운동이나 강한 provocation을 중단하고 긴급 평가로 전환한다.",
+      "common_error": "비특이 증상 하나로 CES를 확정하지 않되 진행성 객관적 결손을 routine LBP로 처리하지 않는다."
     }
   }
 }
