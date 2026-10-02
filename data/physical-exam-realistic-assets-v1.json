@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.02-exam-real-001-ct082-candidate1-review",
+  "dataset_version": "2026.10.02-exam-real-001-ct082-candidate2-review",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -2985,7 +2985,7 @@
         "patient_setup": "좌위에서 증상측으로 경추를 회전·측굴/신전한 뒤 안전한 범위에서 축성 압박을 가한다.",
         "examiner_maneuver": "목 통증이 아니라 평소 팔의 방사통·저림이 재현되는지 확인한다.",
         "positive_finding": "익숙한 상지 radicular pain/paresthesia가 재현되면 양성 소견으로 기록한다.",
-        "interpretation": "2025 meta-analysis에서 높은 특이도와 제한적 민감도가 보고되어, 병력·신경학적 진찰과 함께 radiculopathy 가능성을 높이는 용도로 사용한다.",
+        "interpretation": "2025 Spurling meta-analysis에서는 높은 특이도와 제한적 민감도가 보고되었고, 2026 진단정확도 체계적 고찰에서는 검사 변형과 연구 이질성 때문에 근거 확실성이 낮거나 매우 낮다고 평가했다. 단독 확진이 아니라 병력·신경학적 진찰·다른 검사와 함께 임상추론에서 가능성을 조정하는 용도로 표현한다.",
         "limitation_safety": "목의 국소 통증만으로 양성 처리하지 않으며 단독 확진검사가 아니다.",
         "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
         "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
@@ -2998,7 +2998,7 @@
         "embedded_text": "FAIL",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-02",
-        "note": "Spurling 핵심인 증상측 회전·측굴/신전 + 축성 압박, 평소 팔 방사통/저림 재현, 단독 확진 금지는 표현됨. 다만 정본은 세로형 composite인데 생성물이 가로형이고 회전 성분이 충분히 명확하지 않다. 또한 '짧은 한국어 라벨만' 원칙보다 텍스트가 과도하고 영문 병기가 많아 교정 생성이 필요하다."
+        "note": "Candidate 2는 세로형 3-panel, 실사형 환자/검사자, 두부 지지와 점진적 축성 압박, 평소 팔 방사통/저림 재현이라는 핵심은 보존했다. 그러나 경추 회전이 측굴에 비해 시각적으로 분명하지 않고, 장문 한국어 설명과 다수 영문 병기가 삽입되어 text_policy를 위반한다. 임상내용은 2025 meta-analysis와 2026 update review의 제한을 반영해 단독 확진으로 표현하지 않는다."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3007,29 +3007,50 @@
         "copyright_evidence_required": true
       },
       "preview_candidate": {
-        "gen_id": "7d4e6df1-19d5-4439-9fe4-41ce23d27f8f",
+        "candidate_no": 2,
+        "gen_id": "2bbacf3a-f954-4b86-9d5e-a952b89eeca8",
         "generated_on": "2026-10-02",
         "generator": "OpenAI image generation",
-        "raw_generation_dimensions": "1536x1024",
-        "raw_generation_sha256": "3f057467f6d9c4c9c2a1f736da22c56af8c60d30c79d47fcd4b2f8d1f9179bf8",
-        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct082-spurling-gen-7d4e6df1-preview.svg",
-        "preview_thumbnail_dimensions": "400x206",
-        "embedded_preview_webp_sha256": "3c4611c17f64fe01ccc2ffc16f759a4c5608541bdd94dd0cc1f265c9bd152292",
+        "raw_generation_dimensions": "1024x1536",
+        "raw_generation_sha256": "766268864e21c21e2314c76e86da3926216e7fb94e1ae202eb0e7ec30867b89f",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct082-spurling-gen-2bbacf3a-preview.svg",
+        "preview_thumbnail_dimensions": "400x600",
+        "embedded_preview_webp_sha256": "f4765efeb289d78b3d26fdef161aa806f7ec51eed40bb03d16c4a6dcfdb0d60d",
         "disposition": "NEEDS_REVISION_NOT_CANONICAL",
-        "note": "원본 생성물은 candidate 1로만 보존. Preview에는 빠른 사용자 검수를 위한 축소 썸네일만 연결하며 기존 EXAM-001 schematic은 그대로 유지한다."
+        "note": "Candidate 2. 세로형 3-panel과 실사형 인물·축성 압박·상지 방사증상 overlay는 개선되었으나, locked brief의 '짧은 한국어 라벨만'을 다시 위반했고 증상측 회전 성분도 정지화면에서 충분히 명확하지 않아 승인 금지."
       },
       "approval_blockers": [
-        "세로형 clinical teaching poster 비율 미준수",
-        "증상측 경추 회전 성분을 시각적으로 더 명확히 표현 필요",
-        "짧은 한국어 라벨 원칙 위반: 장문 설명·영문 병기 과다"
+        "증상측 경추 회전 성분을 정지화면에서 더 명확히 표현 필요",
+        "짧은 한국어 라벨 원칙 재위반: 장문 설명과 영문 병기 제거 필요",
+        "Candidate 3에서는 이미지 내부 텍스트를 패널 번호·최소 한국어 라벨·방향표시만 남기고, 상세 설명은 앱 HTML로 분리"
       ],
-      "review_note": "Candidate 1 생성·검수 완료. 내부 gate FAIL 2축(visual_pose, embedded_text)으로 canonical 승격 금지. 다음 생성도 ct082 locked brief를 유지하되 비율/회전 표현/텍스트를 교정한다.",
+      "review_note": "Candidate 2 생성·검수 완료. 세로형/실사형/축성 압박/방사통 overlay는 개선됐지만 visual_pose와 embedded_text가 FAIL이라 canonical 승격 금지. 다음 생성도 ct082이며 이미지 내부 장문 텍스트를 사실상 제거하고 회전 시인성을 강화한다.",
       "provenance_review": {
         "status": "PASS",
         "reviewed_on": "2026-10-02",
         "generator": "OpenAI image generation",
         "rule": "AI raw output is candidate-only; human clinical correction/edit history is required before any final copyright-registration asset.",
-        "note": "새 gen_id와 raw SHA-256, Preview thumbnail SHA-256를 기록했고 교과서 tracing/near-copy를 사용하지 않았다."
+        "note": "Candidate 2 새 gen_id, 원본 SHA-256, Preview thumbnail SHA-256를 기록. 외부 교과서 tracing/near-copy를 사용하지 않았고 canonical 승격은 차단 상태."
+      },
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "7d4e6df1-19d5-4439-9fe4-41ce23d27f8f",
+          "disposition": "NEEDS_REVISION_NOT_CANONICAL",
+          "failed_axes": [
+            "visual_pose",
+            "embedded_text"
+          ],
+          "note": "가로형 composite, 증상측 회전 시인성 부족, 장문/영문 라벨 과다."
+        }
+      ],
+      "evidence_alignment": {
+        "canonical_refs": [
+          "spurling_2025",
+          "radic_review_2026"
+        ],
+        "status": "PASS_WITH_LOW_CERTAINTY_CAUTION",
+        "note": "2025 meta-analysis: 높은 특이도·제한적 민감도. 2026 update review: 검사 변형/이질성이 크고 근거 확실성이 낮거나 매우 낮음. 앱과 일러스트에서는 단독 확진검사로 표현하지 않는다."
       }
     },
     {
