@@ -1,21 +1,13 @@
 import fs from 'node:fs';
 import {pathToFileURL} from 'node:url';
+import {realisticModelCastingForStableId} from './realistic-human-model-casting.mjs';
 
 export const REGISTRY_PATH='data/physical-exam-realistic-assets-v1.json';
 
 function fail(message){throw new Error(message);}
 
 export function modelCastingForClinicalTestId(clinicalTestId){
-  const m=String(clinicalTestId||'').match(/(\d+)$/);
-  if(!m)return null;
-  const n=Number(m[1]),mod=n%4;
-  const table={
-    0:{patient:'여성형',examiner:'남성형'},
-    1:{patient:'남성형',examiner:'여성형'},
-    2:{patient:'여성형',examiner:'여성형'},
-    3:{patient:'남성형',examiner:'남성형'}
-  };
-  return{...table[mod],rule_version:'2026-10-03',mod};
+  return realisticModelCastingForStableId(clinicalTestId);
 }
 
 export function nextPilotProfile(manifest){
