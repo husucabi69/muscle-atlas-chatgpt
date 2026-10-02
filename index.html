@@ -2262,17 +2262,22 @@ function physicalExamRealisticProfile(test){
   return physicalExamRealisticAssetsData?.profiles?.find(x=>x.clinical_test_id===test?.clinical_test_id)||null;
 }
 function physicalExamRealisticCandidateHtml(test){
-  const p=physicalExamRealisticProfile(test),candidate=p?.preview_candidate;
+  const p=physicalExamRealisticProfile(test),approved=p?.approved_asset,candidate=approved||p?.preview_candidate;
   if(!candidate?.preview_asset_path)return'';
   const review=p.review||{},blockers=p.approval_blockers||[];
   const failed=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text']
     .filter(k=>review[k]==='FAIL');
-  return '<div class="clinical-exam-visual" data-exam-realistic-candidate="preview" data-clinical-test-id="'+esc(test.clinical_test_id)+'" style="border:2px solid #f59e0b;background:#fffbeb;margin-bottom:14px">'+
-    '<div class="clinical-exam-visual-head"><b>실사형 Preview 후보 · 승인 전</b><span>gen_id '+esc(candidate.gen_id||'')+' · 기존 Stable-ID 도해 유지</span></div>'+
-    '<div style="padding:12px;text-align:center"><img src="'+esc(candidate.preview_asset_path)+'" alt="'+esc((test.name_ko||'Physical Examination')+' 실사형 Preview 후보')+'" style="display:block;width:min(100%,720px);height:auto;margin:0 auto;border-radius:12px;background:#fff" loading="lazy"></div>'+
-    '<div class="note"><b>현재 판정</b><br>'+(failed.length?'교정 필요: '+esc(failed.join(' · ')):'내부 5축 검수 PASS 대기')+
+  const isApproved=Boolean(approved&&review.user_preview==='PASS');
+  const border=isApproved?'#16a34a':'#f59e0b',background=isApproved?'#f0fdf4':'#fffbeb';
+  const heading=isApproved?'실사형 승인본 · Preview 적재':'실사형 Preview 후보 · 승인 전';
+  const verdict=isApproved?'사용자 승인 · 내부 검수 PASS':(failed.length?'교정 필요: '+esc(failed.join(' · ')):'내부 5축 검수 PASS 대기');
+  const footer=isApproved?'승인된 실사형 교육자산입니다. 기존 Stable-ID 도해는 보조 reference로 유지합니다.':'이 후보는 사용자 검수용이며 canonical 교체가 아닙니다.';
+  return '<div class="clinical-exam-visual" data-exam-realistic-candidate="'+(isApproved?'approved':'preview')+'" data-clinical-test-id="'+esc(test.clinical_test_id)+'" style="border:2px solid '+border+';background:'+background+';margin-bottom:14px">'+
+    '<div class="clinical-exam-visual-head"><b>'+heading+'</b><span>gen_id '+esc(candidate.gen_id||'')+' · 기존 Stable-ID 도해 유지</span></div>'+
+    '<div style="padding:12px;text-align:center"><img src="'+esc(candidate.preview_asset_path)+'" alt="'+esc((test.name_ko||'Physical Examination')+(isApproved?' 실사형 승인본':' 실사형 Preview 후보'))+'" style="display:block;width:min(100%,720px);height:auto;margin:0 auto;border-radius:12px;background:#fff" loading="lazy"></div>'+
+    '<div class="note"><b>현재 판정</b><br>'+verdict+
     (blockers.length?'<br><span style="color:var(--muted)">승격 차단: '+esc(blockers.join(' / '))+'</span>':'')+
-    '<br><span style="color:var(--muted)">이 후보는 사용자 검수용이며 canonical 교체가 아닙니다.</span></div></div>';
+    '<br><span style="color:var(--muted)">'+footer+'</span></div></div>';
 }
 function clinicalExamTeachingNote(test){
   const key=((test.category||'')+' '+(test.name_ko||'')+' '+(test.name_en||'')).toLowerCase();
