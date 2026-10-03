@@ -3482,7 +3482,7 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PREVIEW_CANDIDATE_READY",
+      "status": "PENDING_GENERATION",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "GENERATION_READY",
       "composite_url": null,
@@ -3520,14 +3520,12 @@
         }
       },
       "review": {
-        "clinical_content": "PASS",
-        "visual_pose": "PASS",
-        "examiner_hand_position": "PASS",
-        "force_direction": "PASS",
-        "embedded_text": "PASS",
-        "user_preview": "PENDING",
-        "reviewed_on": "2026-10-03",
-        "note": "Candidate 8 human-edited derivative passes internal gate. Final user approval still required."
+        "clinical_content": "PENDING",
+        "visual_pose": "PENDING",
+        "examiner_hand_position": "PENDING",
+        "force_direction": "PENDING",
+        "embedded_text": "PENDING",
+        "user_preview": "PENDING"
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3543,9 +3541,10 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "User must visually confirm exact middle-finger support/flick and same-hand thumb/index response before canonical approval."
+        "Valid high-resolution Candidate 8 derivative binary must be materialized with verified dimensions/hash before Preview exposure.",
+        "User visual approval remains required after binary integrity is restored."
       ],
-      "review_note": "ct088 Candidate 8 is a reviewable Preview candidate, not approved. High-resolution hand-only four-panel derivative connected; schematic fallback remains available until user approval.",
+      "review_note": "ct088 corrected clinical brief and rich interpretation are complete. Candidate 8 four-panel derivative is locally ready but repository binary handoff failed integrity; verified schematic fallback is restored until a valid binary is materialized.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3694,7 +3693,7 @@
           "preview_dimensions": "1200x1275",
           "preview_webp_sha256": "e13f892f7cbf397d53b505f04fc6d7820856c8aab171e66b76f1f67d1b60ae25",
           "preview_git_blob_sha": "2e0ef8c9d0542913ecf2d80bf60aa5269f5e1759",
-          "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
+          "disposition": "HUMAN_EDIT_READY_BINARY_HANDOFF_FAILED_NOT_EXPOSED",
           "passed_axes": [
             "clinical_subject_identity",
             "hand_dorsum_start",
@@ -3705,27 +3704,16 @@
             "minimal_embedded_text",
             "high_resolution_derivative"
           ],
-          "note": "Candidate 8 follows the user-corrected hand-only four-step Hoffmann concept. Detailed interpretation remains in app HTML below the image. User visual approval remains required."
+          "note": "Candidate 8 follows the user-corrected hand-only four-step Hoffmann concept. Detailed interpretation remains in app HTML below the image. User visual approval remains required. Corrected four-panel derivative exists locally and is documented, but repository binary handoff failed integrity/runtime decode. It is not exposed to users.",
+          "binary_handoff_status": "FAILED_CORRUPT_UPLOAD_DO_NOT_USE"
         }
       ],
       "generation_blocker": {
-        "status": "PENDING_CANDIDATE_8_GENERATION",
-        "reason": "PREVIOUS_PREVIEW_CANDIDATE_SUPERSEDED_FOR_ANATOMICAL_ERROR",
-        "note": "Candidate 5 was unlinked from Preview after user visual review found impossible middle-finger orientation. Candidate 8 is allowed only from the direct-reference-locked brief."
-      },
-      "preview_candidate": {
-        "candidate_no": 8,
-        "gen_id": "c80fb8e2-0510-441e-a4a5-b0d9465821b7",
-        "generated_on": "2026-10-03",
-        "generator": "OpenAI image generation + human crop/recomposition",
-        "raw_generation_dimensions": "1536x1024",
-        "raw_generation_sha256": "ea23ce96f9c30e3e5732f4258292bb02586228a765472a76d4fb8c176dc7dd64",
-        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-c80fb8e2-derived-4panel.webp",
-        "preview_thumbnail_dimensions": "1200x1275",
-        "preview_webp_sha256": "e13f892f7cbf397d53b505f04fc6d7820856c8aab171e66b76f1f67d1b60ae25",
-        "preview_git_blob_sha": "2e0ef8c9d0542913ecf2d80bf60aa5269f5e1759",
-        "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
-        "note": "Hand-only corrected four-panel Hoffmann sequence; no long clinical text embedded in image."
+        "status": "ACTIVE",
+        "reason": "BINARY_HANDOFF_INTEGRITY_FAILURE",
+        "note": "The locally reviewed Candidate 8 four-panel derivative could not be transferred to the repository with intact WebP bytes in this work chunk. App has reverted to the verified Stable-ID schematic fallback; no broken or corrupt image is exposed.",
+        "intended_derivative_dimensions": "1200x1275",
+        "intended_derivative_sha256": "e13f892f7cbf397d53b505f04fc6d7820856c8aab171e66b76f1f67d1b60ae25"
       },
       "direct_reference_review": {
         "status": "LOCKED",
