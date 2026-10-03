@@ -30,8 +30,16 @@ check('Copyright contract linked',String(reg.copyright_contract||'').includes('C
 check('AI raw output cannot be final',profiles.every(p=>p.provenance?.ai_raw_output_allowed_as_final===false&&p.provenance?.human_edit_required===true));
 
 const reviewKeys=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text','user_preview'];
-const reviewValues=new Set(['PENDING','PASS','FAIL']);
-check('All profiles require six review gates',profiles.every(p=>reviewKeys.every(k=>reviewValues.has(p.review?.[k]))));
+const technicalReviewKeys=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text'];
+const technicalReviewValues=new Set(['PENDING','PASS','FAIL']);
+const userPreviewValues=new Set(['PENDING','PASS','FAIL','DEFERRED']);
+check('All profiles require lifecycle-aware six review gates',profiles.every(p=>
+  technicalReviewKeys.every(k=>technicalReviewValues.has(p.review?.[k]))&&
+  userPreviewValues.has(p.review?.user_preview)
+));
+check('DEFERRED is restricted to user_preview only',profiles.every(p=>
+  technicalReviewKeys.every(k=>p.review?.[k]!=='DEFERRED')
+));
 
 const unreviewed=profiles.filter(p=>p.status==='PENDING_GENERATION'&&!p.preview_candidate&&!p.approved_asset);
 check('Unreviewed profiles remain PENDING on all six review gates',
