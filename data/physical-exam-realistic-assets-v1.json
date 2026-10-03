@@ -3482,7 +3482,7 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PENDING_GENERATION",
+      "status": "GENERATION_BLOCKED_WRONG_SUBJECT_DRIFT",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "GENERATION_READY",
       "composite_url": null,
@@ -3533,7 +3533,7 @@
         "Positive response must appear in thumb/index of the same examined hand",
         "Do not depict pain or paresthesia as the positive finding"
       ],
-      "review_note": "ct088 C1: Hoffmann subject but flick target ambiguous. C2/C3: wrong-subject ULNT1 generation drift, rejected. Next: edit C1 specifically to isolate middle-finger distal phalanx/nail target.",
+      "review_note": "ct088 clinical brief + rich interpretation are complete. Realistic image remains BLOCKED after C1 ambiguous target and C2-C4 wrong-subject generation drift. Schematic fallback remains canonical; do not connect any failed image to Preview.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3584,6 +3584,22 @@
             "text_policy"
           ],
           "note": "Second generation drifted again to ct084 ULNT1 despite ct088 lock. Rejected immediately. Next attempt will edit the actual ct088 Hoffmann Candidate 1 rather than generate from scratch."
+        },
+        {
+          "candidate_no": 4,
+          "gen_id": "90aec347-e689-4217-aac6-1b6b64a56ba6",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1536x1024",
+          "source_session_path": "/mnt/data/a_wide_high_resolution_medical_infographic_poster.png",
+          "disposition": "REJECTED_WRONG_SUBJECT_NOT_CANONICAL",
+          "failed_axes": [
+            "clinical_content",
+            "asset_identity",
+            "panel_contract",
+            "text_policy"
+          ],
+          "note": "Third consecutive attempt drifted to ct084 ULNT1 despite explicit ct088 Hoffmann edit instruction and reference targeting. Rejected immediately. Image generation is hard-stopped for this manual chunk; no wrong-subject asset may enter Preview."
         }
       ]
     },
