@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.03-exam-real-001-ct084-candidate2-preview-connected",
+  "dataset_version": "2026.10.03-exam-real-001-ct084-hires-interpretation",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3308,7 +3308,7 @@
       "approval_blockers": [
         "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "ct084 Candidate 2 is connected to Preview. Keep Candidate 1 as rejected history. Next step is exact Preview QA and user review.",
+      "review_note": "ct084 Candidate 2 remains the user-review target. Preview upgraded to 480x720 and detailed interpretation/differential sections added. Await user review; do not canonical-approve automatically.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3339,8 +3339,8 @@
           "raw_generation_sha256": "0e9903f425b50de560d9086466b91ff839578f41cc838bcf1c6d371acebd593d",
           "source_session_path": "/mnt/data/a_clean_photographic_instructional_medical_collag.png",
           "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct084-ulnt1-gen-b9b9cbc2-preview.webp",
-          "preview_dimensions": "240x360",
-          "preview_webp_sha256": "e9d4f309f214a0a5633dc7309965fedc7f417729b2a4d4206bdfb72828a6f5e7",
+          "preview_dimensions": "480x720",
+          "preview_webp_sha256": "209dbd9d95823bb1ae9273636eb83ba7202a019d9257e457947f963218039221",
           "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
           "passed_axes": [
             "clinical_content",
@@ -3352,7 +3352,7 @@
             "embedded_text",
             "adult_model_casting"
           ],
-          "note": "Candidate 2 corrected Candidate 1: relaxed elbow-flexed start, explicit right-arm test positioning, visible contralateral cervical side-bending and same-arm symptom-change overlay. User Preview review remains required."
+          "note": "Candidate 2 corrected Candidate 1 and was upgraded to a 480x720 Preview derivative after user requested higher resolution. Rich clinical interpretation/differential content added; user approval remains pending."
         }
       ],
       "preview_candidate": {
@@ -3363,10 +3363,10 @@
         "raw_generation_dimensions": "1024x1536",
         "raw_generation_sha256": "0e9903f425b50de560d9086466b91ff839578f41cc838bcf1c6d371acebd593d",
         "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct084-ulnt1-gen-b9b9cbc2-preview.webp",
-        "preview_thumbnail_dimensions": "240x360",
-        "preview_webp_sha256": "e9d4f309f214a0a5633dc7309965fedc7f417729b2a4d4206bdfb72828a6f5e7",
+        "preview_thumbnail_dimensions": "480x720",
+        "preview_webp_sha256": "209dbd9d95823bb1ae9273636eb83ba7202a019d9257e457947f963218039221",
         "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
-        "note": "Adult female-presenting patient / adult male-presenting examiner. Right-arm ULNT1 with contralateral cervical structural differentiation."
+        "note": "Higher-resolution 480x720 reviewed derivative. Rich interpretation block added to the ct084 clinical detail page. Adult female-presenting patient / adult male-presenting examiner. User Preview approval remains pending."
       }
     },
     {
