@@ -16,7 +16,9 @@
     "hoffmann_houten_2008": "https://pubmed.ncbi.nlm.nih.gov/18928217/",
     "dcm_cluster_cook_2010": "https://pubmed.ncbi.nlm.nih.gov/22131790/",
     "dynamic_hoffmann_1991": "https://pubmed.ncbi.nlm.nih.gov/1771463/",
-    "dynamic_hoffmann_2018": "https://pubmed.ncbi.nlm.nih.gov/30309800/"
+    "dynamic_hoffmann_2018": "https://pubmed.ncbi.nlm.nih.gov/30309800/",
+    "dcm_scoping_2025": "https://pubmed.ncbi.nlm.nih.gov/40011743/",
+    "dcm_early_2026": "https://pubmed.ncbi.nlm.nih.gov/41915723/"
   },
   "clinical_tests": [
     {
@@ -241,17 +243,44 @@
       "name_en": "Babinski and clonus screen",
       "category": "myelopathy_screen",
       "target_structure_ids": [],
-      "setup": "하지 upper motor neuron signs를 검사한다.",
-      "maneuver": "plantar response와 ankle clonus를 표준 방법으로 확인한다.",
-      "positive_definition": "extensor plantar response 또는 병적 clonus가 있으면 기록한다.",
-      "interpretation_note": "2024 systematic review에서 비교적 높은 특이도를 보인 DCM 경고 소견으로, 존재 시 추가 평가가 필요하다.",
-      "limitation": "음성이라고 DCM을 배제할 수 없다.",
+      "setup": "Babinski는 환자가 이완한 상태에서 발바닥이 보이도록 발을 지지한다. Ankle clonus는 무릎과 하퇴를 이완시키고 발뒤꿈치를 지지해 발목을 수동으로 움직일 수 있게 한다.",
+      "maneuver": "Babinski는 무딘 자극으로 발뒤꿈치에서 시작해 발바닥 외측연을 따라 전족부까지 긁고 앞발에서 안쪽으로 곡선을 그린다. Clonus는 하퇴를 안정화한 채 발목을 빠르게 배굴한 뒤 그 위치를 유지하면서 반복적인 율동성 족저굴곡-배굴 진동이 생기는지 관찰한다.",
+      "positive_definition": "성인에서 Babinski는 엄지발가락의 신전/배굴(± 다른 발가락의 벌어짐)이 나타나면 extensor plantar response로 기록한다. Clonus는 빠른 발목 배굴 후 반복적이고 율동적인 발목 진동이 유발되면 기록하며, 지속성 clonus는 특히 병적 UMN 소견으로 본다.",
+      "interpretation_note": "Babinski와 clonus는 상위운동신경원/피질척수로 이상을 시사하는 병적 반사 소견이다. DCM 연구에서 비교적 높은 특이도가 보고되지만 민감도는 낮아 음성이라고 DCM을 배제할 수 없다.",
+      "limitation": "통증 회피성 발가락 굴곡, 비특이적 withdrawal, 일시적/비지속성 진동을 병적 반사로 과대해석하지 않는다. 단독 검사로 병변 위치·원인·중증도를 확정하지 않는다.",
       "related_diagnosis_concept_ids": [
         "d090"
       ],
       "evidence_refs": [
-        "dcm_signs_2024"
-      ]
+        "dcm_signs_2024",
+        "dcm_scoping_2025",
+        "dcm_early_2026"
+      ],
+      "interpretation_detail": {
+        "what_it_assesses": "Babinski와 ankle clonus는 피질척수로 억제 이상이 말초 반사 회로에 드러나는지를 보는 상위운동신경원(UMN) 검사다. 경추 신경근병증 같은 단일 nerve-root 병변을 국소화하는 검사가 아니다.",
+        "positive_meaning": "성인에서 extensor plantar response 또는 반복적 clonus가 있으면 중추성/피질척수로 기능 이상 가능성이 올라간다. 특히 다른 과반사, Hoffmann/Trömner, 손기능 저하, 보행장애와 함께 있으면 cervical cord dysfunction 의심도가 커진다.",
+        "raises_suspicion_for": [
+          "퇴행성 경추척수병증(DCM) 및 경추 척수압박",
+          "뇌 또는 다른 척수 부위의 상위운동신경원 병변",
+          "다발성경화증 등 탈수초성 중추신경계 질환 등 임상 분포에 맞는 corticospinal tract 병변"
+        ],
+        "important_differentials": [
+          "진짜 Babinski extensor response ↔ 통증/간질임 때문에 발을 빼는 withdrawal response",
+          "병적 clonus ↔ 단발성/비지속성 발목 진동 또는 검사자에 의한 수동 흔들림",
+          "DCM ↔ 뇌 병변/흉추·기타 척수병변",
+          "중추성 UMN 소견 ↔ 말초신경병증·radiculopathy: 말초병변만으로는 Babinski/clonus를 설명하기 어렵다"
+        ],
+        "what_it_cannot_rule_out": "Babinski나 clonus가 음성이라고 DCM을 배제할 수 없다. 2024 systematic review와 2025 scoping review에서 두 소견은 대체로 높은 특이도와 낮은 민감도의 패턴을 보여, 존재하면 의심을 높이는 데 더 유용하고 부재는 rule-out에 부족하다.",
+        "next_clinical_steps": [
+          "biceps/brachioradialis/triceps/patellar/Achilles reflex와 generalized hyperreflexia를 비교한다.",
+          "Hoffmann, Trömner, inverted supinator 등 다른 병적반사를 함께 본다.",
+          "hand dexterity, 10-second grip-and-release, gait, tandem gait, balance를 확인한다.",
+          "다분절 근력·감각 이상과 sphincter 변화, 진행성 보행/손기능 저하를 확인한다.",
+          "임상적으로 DCM이 의심되면 cervical MRI를 고려하고 진행성 신경학적 결손이면 조기 spine specialist 평가를 우선한다."
+        ],
+        "diagnostic_weight": "2025 scoping review에서는 Babinski specificity가 약 93–100%, clonus specificity가 약 96–99% 범위로 보고되었지만 연구별 민감도와 검사기준의 변이가 크다. 따라서 '양성이면 확진'이 아니라, 높은 특이도를 가진 UMN 단서로 전체 신경학적 맥락에 통합한다.",
+        "interpretation_bottom_line": "Babinski와 clonus는 DCM을 찾는 단독 선별검사라기보다, 보이면 척수/중추성 병변에 대한 사전확률을 의미 있게 높이는 경고 소견이다. 음성은 안심 근거가 아니며, 다른 UMN signs·손기능·보행·MRI 판단과 묶어 해석한다."
+      }
     },
     {
       "clinical_test_id": "ct090",
