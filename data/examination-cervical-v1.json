@@ -185,17 +185,42 @@
       "name_en": "Hoffmann sign",
       "category": "myelopathy_screen",
       "target_structure_ids": [],
-      "setup": "손을 이완시키고 중지 말단을 빠르게 굴곡-방출한다.",
-      "maneuver": "엄지/검지의 비자발적 굴곡·내전 반응을 관찰한다.",
-      "positive_definition": "일관된 Hoffmann response가 있으면 upper motor neuron sign으로 기록한다.",
-      "interpretation_note": "DCM 가능성을 높이는 신호 중 하나지만 단독진단·중증도 판정검사가 아니다.",
-      "limitation": "정상인에서도 나타날 수 있고 민감도·특이도가 충분하지 않아 전체 신경학적 소견과 통합한다.",
+      "setup": "손과 손가락을 이완시킨 상태에서 검사자가 중지를 안정적으로 지지한다.",
+      "maneuver": "중지의 원위지골/손톱 부위를 짧고 빠르게 아래쪽으로 flick하여 DIP를 순간 굴곡시킨 뒤 즉시 놓고, 같은 손의 엄지·검지 반응을 관찰한다.",
+      "positive_definition": "flick 직후 같은 손의 엄지 굴곡·내전 및 검지 굴곡이 일관되게 나타나면 Hoffmann sign 양성으로 기록한다.",
+      "interpretation_note": "상위운동신경원/피질척수로 이상을 시사하는 병적 반사 중 하나다. DCM 의심도를 높일 수 있지만 단독 확진·병변 위치·중증도 판정검사는 아니다.",
+      "limitation": "정상 과반사에서도 나타날 수 있고 연구별 진단정확도 변이가 크다. 음성이라고 DCM을 배제할 수 없으며 전체 신경학적 검사와 통합한다.",
       "related_diagnosis_concept_ids": [
         "d090"
       ],
       "evidence_refs": [
         "dcm_signs_2024"
-      ]
+      ],
+      "interpretation_detail": {
+        "what_it_assesses": "Hoffmann sign은 손가락 굴곡반사를 이용해 상지의 상위운동신경원(upper motor neuron) 또는 피질척수로(corticospinal tract) 기능 이상 가능성을 살피는 병적 반사 검사다. 특정 신경근이나 말초신경의 가동성을 보는 검사가 아니다.",
+        "positive_meaning": "엄지·검지의 비자발적 반응이 명확하면 cervical cord dysfunction을 포함한 UMN 병변 가능성을 높이는 단서가 된다. 그러나 정상적인 과반사 성향에서도 나타날 수 있으므로 '양성=경추척수증 확진'으로 해석하면 안 된다.",
+        "raises_suspicion_for": [
+          "손의 서툼·버튼 채우기 어려움·물건을 자주 떨어뜨림, 보행불안정, 사지 과반사 등과 함께 있으면 퇴행성 경추척수병증(DCM)을 우선 의심한다.",
+          "경추 협착, 추간판/골극, 후종인대골화증(OPLL) 등 경추 척수압박을 일으키는 구조적 원인이 임상문맥과 맞는지 확인한다.",
+          "경추 영상만으로 설명되지 않는 UMN 소견이면 뇌/척수의 다른 피질척수로 병변 등 비경추성 중추신경계 원인도 감별한다."
+        ],
+        "important_differentials": [
+          "퇴행성 경추척수병증 ↔ 경추 신경근병증: radiculopathy는 root-level LMN/감각분포가 중심이며 Hoffmann 자체는 root localization 검사가 아니다.",
+          "DCM ↔ 정상/생리적 과반사: 양측성 반사 항진만 있고 기능장애·다른 병적 반사가 없으면 임상문맥이 중요하다.",
+          "DCM ↔ 기타 중추신경계 병변: 뇌졸중 후유증, 탈수초성 질환, 다른 척수병변 등 전체 신경학적 분포로 구분한다.",
+          "DCM ↔ 말초신경병증/포착신경병증: 말초병변은 Hoffmann sign만으로 설명되지 않으며 근력·감각·반사 패턴과 EMG/NCS 문맥을 본다."
+        ],
+        "what_it_cannot_rule_out": "Hoffmann sign이 음성이라고 DCM을 배제할 수 없다. 체계적 고찰에서 연구별 민감도·특이도가 넓게 변했고, 최근 요약에서도 Hoffmann은 대체로 중등도 민감도/특이도의 단일 sign에 머문다. 반대로 양성도 정상인 또는 다른 UMN 병변에서 나타날 수 있어 DCM을 확정하지 못한다.",
+        "next_clinical_steps": [
+          "손 기능 저하 여부와 10초 grip-and-release 등 dexterity를 확인한다.",
+          "biceps/brachioradialis/triceps reflex, generalized hyperreflexia, inverted supinator, Trömner, Babinski, ankle clonus를 함께 본다.",
+          "보행, tandem gait, 균형, 하지 stiffness 및 장거리 보행 변화를 확인한다.",
+          "근력·감각의 다분절 이상과 bowel/bladder 등 심한 척수 기능 이상 여부를 확인한다.",
+          "DCM이 임상적으로 의심되면 cervical MRI로 cord compression과 cord signal change를 평가하고, 진행성 신경학적 이상이면 조기에 spine specialist 평가를 연결한다."
+        ],
+        "diagnostic_weight": "2023 systematic review/meta-analysis에서는 Hoffmann sign의 진단정확도가 연구마다 크게 달랐고, 한 종합 자료에서는 가중 sensitivity 약 58%, specificity 약 72%로 보고됐다. 2025 scoping review에서도 일부 연구는 sensitivity 58–62%, specificity 78–86%였지만 다른 전향 연구에서는 sensitivity 89%, specificity 41%로 차이가 컸다. 따라서 단일 cutoff처럼 사용하지 않는다.",
+        "interpretation_bottom_line": "Hoffmann sign의 핵심은 '양성이면 DCM'이 아니라, 손기능 저하·보행장애·과반사·다른 병적반사와 함께 나타날 때 cervical myelopathy의 사전확률을 올리고 MRI/전문평가로 이어지게 하는 경고 신호로 사용하는 것이다."
+      }
     },
     {
       "clinical_test_id": "ct089",
