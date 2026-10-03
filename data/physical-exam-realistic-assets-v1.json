@@ -3530,7 +3530,7 @@
       "approval_blockers": [
         "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "User supplied corrected Hoffmann technique/interpretation on 2026-10-03. Generation brief revised to hand-only high-resolution 4-panel close-up. Prior Candidate 5 is superseded for visual anatomy; do not canonical-approve it.",
+      "review_note": "Candidate 7 is clinically closer but rejected for landscape/over-dense infographic format. Generate Candidate 8 as portrait hand-only four-panel sequence with minimal labels.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3643,6 +3643,28 @@
             "positive_response_concept"
           ],
           "note": "Correct Hoffmann subject but landscape dense infographic duplicated interpretation that already belongs in app HTML. Rejected as app image."
+        },
+        {
+          "candidate_no": 7,
+          "gen_id": "445f23cc-33a2-4367-bfad-6cc7226fa4b1",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1536x1024",
+          "source_session_path": "/mnt/data/a_clean_medical_instructional_infographic_collage.png",
+          "disposition": "REJECTED_OVERDENSE_LANDSCAPE_NOT_CANONICAL",
+          "failed_axes": [
+            "panel_contract",
+            "mobile_layout",
+            "text_policy"
+          ],
+          "passed_axes": [
+            "clinical_subject_identity",
+            "hand_dorsum_start",
+            "middle_finger_support_concept",
+            "distal_phalanx_flick_concept",
+            "same_hand_thumb_index_response_concept"
+          ],
+          "note": "Clinically closer to the corrected Hoffmann brief, but rejected before Preview because it is a landscape infographic with dense interpretation text. The app image must be a portrait, hand-only four-panel sequence with only minimal labels; rich interpretation remains in HTML."
         }
       ],
       "generation_blocker": {
