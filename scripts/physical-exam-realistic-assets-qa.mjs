@@ -43,14 +43,28 @@ check('Pilot batch is cervical six-test set',
   JSON.stringify(reg.pilot?.clinical_test_ids||[])===JSON.stringify(['ct082','ct083','ct084','ct088','ct092','ct095']),
   JSON.stringify(reg.pilot?.clinical_test_ids||[]));
 
+const lifecycleStates=new Set([
+  'PENDING_GENERATION',
+  'PREVIEW_CANDIDATE_READY',
+  'APPROVED',
+  'INCOMPLETE_DEFERRED_BY_USER_2026_10_04',
+  'USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'
+]);
+check('All EXAM-REAL lifecycle states are recognized',
+  profiles.every(p=>lifecycleStates.has(p.status)),
+  profiles.filter(p=>!lifecycleStates.has(p.status)).map(p=>p.clinical_test_id+':'+p.status).join(','));
+
 const pilotProfiles=profiles.filter(p=>(reg.pilot?.clinical_test_ids||[]).includes(p.clinical_test_id));
-check('Pilot state allows approved ct082 and reviewable generation-ready remainder',
-  pilotProfiles.every(p=>p.clinical_test_id==='ct082'
-    ? p.status==='APPROVED'&&p.brief_status==='APPROVED'
-    : ['PENDING_GENERATION','PREVIEW_CANDIDATE_READY'].includes(p.status)&&p.brief_status==='GENERATION_READY'));
+check('Pilot states preserve approval, deferral, binary-transfer and generation semantics',
+  pilotProfiles.every(p=>{
+    if(p.status==='APPROVED') return p.brief_status==='APPROVED'&&p.review?.user_preview==='PASS'&&Boolean(p.approved_asset)&&Boolean(p.composite_url);
+    if(p.status==='INCOMPLETE_DEFERRED_BY_USER_2026_10_04') return p.review?.user_preview==='DEFERRED'&&!p.approved_asset&&!p.preview_candidate&&!p.composite_url;
+    if(p.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING') return p.review?.user_preview==='PASS'&&!p.approved_asset&&!p.preview_candidate&&!p.composite_url&&Array.isArray(p.approval_blockers)&&p.approval_blockers.length>0;
+    return ['PENDING_GENERATION','PREVIEW_CANDIDATE_READY'].includes(p.status)&&p.brief_status==='GENERATION_READY';
+  }));
 
 const approvedProfiles=profiles.filter(p=>p.status==='APPROVED');
-check('Exactly ct082 is approved in current pilot',
+check('Canonical approval remains limited to ct082 until exact binaries are ingested',
   approvedProfiles.length===1&&approvedProfiles[0]?.clinical_test_id==='ct082',
   approvedProfiles.map(p=>p.clinical_test_id).join(','));
 
@@ -73,10 +87,13 @@ if(approvedPath&&fs.existsSync(approvedPath)){
     sha256(approvedPath));
 }
 
-check('No false approval outside approved asset',
-  profiles.every(p=>p.status==='APPROVED'
-    ? Boolean(p.approved_asset)&&p.review?.user_preview==='PASS'&&Boolean(p.composite_url)
-    : ['PENDING_GENERATION','PREVIEW_CANDIDATE_READY'].includes(p.status)&&p.review?.user_preview!=='PASS'&&p.composite_url===null));
+check('No false canonical approval outside approved asset',
+  profiles.every(p=>{
+    if(p.status==='APPROVED') return Boolean(p.approved_asset)&&p.review?.user_preview==='PASS'&&Boolean(p.composite_url);
+    if(p.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING') return p.review?.user_preview==='PASS'&&!p.approved_asset&&!p.preview_candidate&&p.composite_url===null&&Array.isArray(p.approval_blockers)&&p.approval_blockers.length>0;
+    if(p.status==='INCOMPLETE_DEFERRED_BY_USER_2026_10_04') return p.review?.user_preview==='DEFERRED'&&!p.approved_asset&&!p.preview_candidate&&p.composite_url===null;
+    return ['PENDING_GENERATION','PREVIEW_CANDIDATE_READY'].includes(p.status)&&p.review?.user_preview!=='PASS'&&p.composite_url===null;
+  }));
 
 for(const p of profiles){
   const b=p.generation_brief||{};
