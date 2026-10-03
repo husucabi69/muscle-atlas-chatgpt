@@ -3282,12 +3282,14 @@
         }
       },
       "review": {
-        "clinical_content": "PENDING",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "clinical_content": "PARTIAL",
+        "visual_pose": "FAIL",
+        "examiner_hand_position": "PASS_WITH_CAUTION",
+        "force_direction": "PASS_WITH_CAUTION",
+        "embedded_text": "PASS",
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-03",
+        "note": "Candidate 1 failed internal gate before Preview. Regenerate with relaxed start posture and visibly clear contralateral cervical side-bending."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3308,7 +3310,29 @@
         "Contralateral cervical side-bending must be visually linked to change in the same right-arm symptoms",
         "Do not treat generic stretch discomfort as a positive result"
       ],
-      "review_note": "ct084 brief re-locked 2026-10-03 before generation. Adult female-presenting patient / adult male-presenting examiner per casting contract. Right-arm laterality fixed."
+      "review_note": "ct084 Candidate 1 preserved as failed internal review. Stay on ct084 and generate Candidate 2; no app Preview connection for Candidate 1.",
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "4c057427-1291-4566-a7f4-6ca084467d0c",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "source_session_path": "/mnt/data/a_vertically_stacked_three_panel_instructional_med.png",
+          "disposition": "REJECTED_NOT_CANONICAL",
+          "failed_axes": [
+            "visual_pose",
+            "structural_differentiation_visibility"
+          ],
+          "passed_axes": [
+            "adult_model_casting",
+            "realistic_style",
+            "embedded_text_minimal",
+            "same_subject_continuity"
+          ],
+          "note": "Candidate 1 rejected internally. Panel 1 already places the tested arm in a substantially abducted/extended tensioned posture rather than a relaxed start. Panel 3 does not make contralateral cervical side-bending sufficiently visible for structural differentiation teaching. Do not expose in app Preview."
+        }
+      ]
     },
     {
       "clinical_test_id": "ct085",
