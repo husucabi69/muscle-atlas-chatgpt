@@ -3484,7 +3484,7 @@
       "title_en": "Hoffmann sign",
       "status": "PREVIEW_CANDIDATE_READY",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3726,6 +3726,12 @@
         "preview_git_blob_sha": "2e0ef8c9d0542913ecf2d80bf60aa5269f5e1759",
         "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
         "note": "Hand-only corrected four-panel Hoffmann sequence; no long clinical text embedded in image."
+      },
+      "direct_reference_review": {
+        "status": "LOCKED",
+        "reviewed_on": "2026-10-03",
+        "reference_role": "clinical_maneuver_facts_only",
+        "note": "Physiotutors demonstration reviewed only to verify technique; no external visual expression copied."
       }
     },
     {
