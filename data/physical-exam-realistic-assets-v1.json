@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.03-exam-real-001-ct084-hires-interpretation",
+  "dataset_version": "2026.10.03-exam-real-001-ct088-brief-interpretation-locked",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3488,15 +3488,21 @@
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "손을 이완시키고 중지 말단을 빠르게 굴곡-방출한다.",
-        "examiner_maneuver": "엄지/검지의 비자발적 굴곡·내전 반응을 관찰한다.",
-        "positive_finding": "일관된 Hoffmann response가 있으면 upper motor neuron sign으로 기록한다.",
-        "interpretation": "DCM 가능성을 높이는 신호 중 하나지만 단독진단·중증도 판정검사가 아니다.",
-        "limitation_safety": "정상인에서도 나타날 수 있고 민감도·특이도가 충분하지 않아 전체 신경학적 소견과 통합한다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic adult clinician; clean neutral clinic background; high-resolution portrait teaching asset; independently generated people and scene; no identifiable real patient",
+        "panel_structure": "세로형 portrait 3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단. 동일 환자·동일 검사자 유지.",
+        "patient_setup": "성인 여성형 환자, 편안한 좌위. 검사할 손과 손가락을 충분히 이완한다. 손은 검사자가 안정적으로 지지하되 환자가 능동적으로 힘주지 않는다.",
+        "examiner_maneuver": "성인 남성형 검사자. 중지(middle finger)의 중절골을 지지하고 원위지골/손톱 부위를 짧고 빠르게 아래쪽으로 flick하여 DIP를 순간 굴곡시킨 뒤 즉시 놓는다. 엄지와 검지의 비자발적 굴곡·엄지 내전 반응을 관찰한다.",
+        "positive_finding": "flick 직후 같은 손의 엄지 굴곡/내전과 검지 굴곡이 일관되게 나타나는 모습을 양성 패널에 명확히 보여준다. 통증·저림을 양성으로 그리지 않는다.",
+        "interpretation": "Hoffmann sign은 상위운동신경원/피질척수로 이상을 시사하는 병적 반사 소견으로 DCM 의심도를 높일 수 있으나, 정상 과반사에서도 나타날 수 있고 음성이라고 DCM을 배제할 수 없다. 단독 진단·병변 level·중증도 판정에 사용하지 않는다.",
+        "limitation_safety": "반드시 gait, hand dexterity, 다른 병적 반사, 심부건반사, 근력·감각과 통합한다. 진행성 손기능 저하·보행장애·다분절 신경학적 이상이 있으면 반복 provocation보다 cervical MRI와 전문평가를 우선한다.",
+        "overlay_policy": "검사자의 지지 손과 flick 손을 구분한다. 화살표는 중지 원위지골의 짧은 순간 굴곡/방출만 표시한다. 양성 overlay는 같은 손의 엄지·검지 움직임에만 표시한다. 팔 방사통 overlay 금지. 임의 각도·수치·횟수 금지.",
+        "text_policy": "이미지 내부는 '시작 자세', '중지 flick', '엄지·검지 반응' 정도의 짧은 한국어만 허용. 장문 설명·영문 병기·민감도/특이도 숫자는 HTML에만 표시.",
+        "model_casting": {
+          "patient": "성인 여성형",
+          "examiner": "성인 남성형",
+          "rule": "ct088 mod 4 = 0",
+          "casting_rule_version": "2026-10-03"
+        }
       },
       "review": {
         "clinical_content": "PENDING",
@@ -3511,7 +3517,21 @@
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "evidence_alignment": {
+        "canonical_refs": [
+          "dcm_signs_2024"
+        ],
+        "status": "PASS_WITH_DIAGNOSTIC_CAUTION",
+        "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
+      },
+      "approval_blockers": [
+        "Patient hand must be visibly relaxed rather than actively gripping",
+        "Flick must target the middle-finger distal phalanx/nail region with immediate release",
+        "Positive response must appear in thumb/index of the same examined hand",
+        "Do not depict pain or paresthesia as the positive finding"
+      ],
+      "review_note": "ct088 high-resolution generation brief and detailed interpretation locked before image generation."
     },
     {
       "clinical_test_id": "ct089",
