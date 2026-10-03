@@ -2533,6 +2533,24 @@ function clinicalExamIllustrationHtml(test,moduleKey){
   return '<div class="clinical-exam-visual" data-exam-illustration="generic"><div class="clinical-exam-visual-head"><b>검사 시행 도해</b><span>공통 개념도 · 검사별 고정밀 도해 교체 대기</span></div>'+figure+
     '<div class="clinical-exam-steps"><div class="clinical-exam-step"><b>1. 준비</b><span>'+esc(test.setup||'환자 자세를 준비합니다.')+'</span></div><div class="clinical-exam-step"><b>2. 시행</b><span>'+esc(test.maneuver||'검사 동작을 시행합니다.')+'</span></div><div class="clinical-exam-step"><b>3. 양성 판단</b><span>'+esc(test.positive_definition||'평소 증상 재현과 객관적 변화를 기록합니다.')+'</span></div></div></div>';
 }
+function clinicalExamInterpretationDetailHtml(test){
+  const d=test?.interpretation_detail;
+  if(!d)return '<div class="clinical-exam-section"><h4>임상 해석</h4><p>'+esc(test.interpretation_note||'')+'</p></div>';
+  const list=(title,items)=>Array.isArray(items)&&items.length
+    ? '<div class="note" style="margin-top:10px"><b>'+esc(title)+'</b><ul style="margin:8px 0 0;padding-left:20px">'+items.map(x=>'<li style="margin:6px 0">'+esc(x)+'</li>').join('')+'</ul></div>'
+    : '';
+  return '<div class="clinical-exam-section clinical-interpretation-detail">'+
+    '<h4>임상 해석 · 이 검사를 어떻게 읽을 것인가</h4>'+
+    (d.what_it_assesses?'<div class="note"><b>무엇을 보는 검사인가</b><br>'+esc(d.what_it_assesses)+'</div>':'')+
+    (d.positive_meaning?'<div class="note" style="margin-top:10px"><b>양성이 의미하는 것</b><br>'+esc(d.positive_meaning)+'</div>':'')+
+    list('양성이면 우선 생각할 것',d.raises_suspicion_for)+
+    list('중요 감별진단',d.important_differentials)+
+    (d.what_it_cannot_rule_out?'<div class="note clinical-oppose" style="margin-top:10px"><b>이 검사 하나로 배제할 수 없는 것</b><br>'+esc(d.what_it_cannot_rule_out)+'</div>':'')+
+    list('다음에 이어서 확인할 검사·판단',d.next_clinical_steps)+
+    (d.diagnostic_weight?'<div class="note" style="margin-top:10px"><b>진단적 무게</b><br>'+esc(d.diagnostic_weight)+'</div>':'')+
+    (d.interpretation_bottom_line?'<div class="clinical-redflag" style="margin-top:10px"><b>해석의 핵심</b><br>'+esc(d.interpretation_bottom_line)+'</div>':'')+
+    '</div>';
+}
 function clinicalExamDetailHtml(test,moduleKey){
   const preset=clinicalExamIllustrationPreset(test);
   const targets=(test.target_structure_ids||[]).map(sid=>clinicalEntityLabel(sid)+' ('+sid+')').filter(Boolean);
@@ -2551,7 +2569,7 @@ function clinicalExamDetailHtml(test,moduleKey){
     (preset?'<div class="clinical-exam-section"><h4>검사자 위치 · 손 위치</h4><p>'+esc(preset.examiner_position||'')+'</p></div>':'')+
     '<div class="clinical-exam-section"><h4>방법 · 검사자 동작 · 시행 순서</h4><p>'+esc(test.maneuver||'')+'</p>'+(preset?.hand_force?'<p style="margin-top:8px"><b>힘의 방향:</b> '+esc(preset.hand_force)+'</p>':'')+'</div>'+
     '<div class="clinical-exam-section"><h4>양성 기준</h4><p>'+esc(test.positive_definition||'')+'</p></div>'+
-    '<div class="clinical-exam-section"><h4>임상 해석</h4><p>'+esc(test.interpretation_note||'')+'</p></div>'+
+    clinicalExamInterpretationDetailHtml(test)+
     '<div class="clinical-exam-section"><h4>한계 / 흔한 오류</h4><p>'+esc(test.limitation||'단일 검사만으로 확정하지 않는다.')+'</p>'+(preset?.common_error?'<p style="margin-top:8px"><b>시행 오류:</b> '+esc(preset.common_error)+'</p>':'')+'</div>'+
     (relatedDx.length?'<div class="clinical-exam-section"><h4>연결 감별진단</h4><div class="clinical-exam-links">'+relatedDx.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div></div>':'')+
     '<small style="color:var(--muted)">Stable ID · '+esc(test.clinical_test_id)+'</small></div>';
