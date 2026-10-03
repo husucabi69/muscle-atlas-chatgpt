@@ -3482,9 +3482,9 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "INTERNAL_PASS_CANDIDATE9_ASSET_TRANSFER_PENDING",
+      "status": "INCOMPLETE_DEFERRED_BY_USER_2026_10_04",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
+      "brief_status": "LOCKED_BUT_VISUAL_NOT_APPROVED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3525,9 +3525,9 @@
         "examiner_hand_position": "PASS",
         "force_direction": "PASS",
         "embedded_text": "PASS",
-        "user_preview": "PENDING",
+        "user_preview": "DEFERRED",
         "reviewed_on": "2026-10-03",
-        "note": "Candidate 9 passed the locked 10-point anatomy/technique/mobile QA. Historical Candidate 8 is preserved as a failed binary-handoff provenance record. Preview remains disconnected until the exact Candidate 9 binary asset is stored in the repository."
+        "note": "User explicitly deferred Hoffmann realistic illustration on 2026-10-04 after repeated anatomical/finger-selection errors. Clinical interpretation remains valid; realistic asset is incomplete and must not be promoted."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3543,10 +3543,10 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "Exact Candidate 8 binary asset must be committed before Preview connection",
-        "User Preview approval remains required before canonical approval"
+        "Realistic illustration remains incomplete by explicit user decision",
+        "Fresh user approval required before any future ct088 Preview promotion"
       ],
-      "review_note": "Candidate 9 fe0186f9-ee19-4b0a-bb70-45b4154f8b7c selected after direct Physiotutors motion-reference review. It best shows side-view middle-finger isolation/support and dorsal nail/distal-phalanx palmward flick. Candidate 8 c80fb8e2 remains superseded provenance only.",
+      "review_note": "DEFERRED. Do not continue ct088 until user explicitly reopens it.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3831,36 +3831,47 @@
       "region": "cervical",
       "title_ko": "Babinski·clonus 선별",
       "title_en": "Babinski and clonus screen",
-      "status": "PENDING_GENERATION",
-      "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "status": "ACTIVE_CLINICAL_BRIEF_LOCKED_PENDING_GENERATION",
+      "pilot_batch": "PILOT_CERVICAL_01",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "하지 upper motor neuron signs를 검사한다.",
-        "examiner_maneuver": "plantar response와 ankle clonus를 표준 방법으로 확인한다.",
-        "positive_finding": "extensor plantar response 또는 병적 clonus가 있으면 기록한다.",
-        "interpretation": "2024 systematic review에서 비교적 높은 특이도를 보인 DCM 경고 소견으로, 존재 시 추가 평가가 필요하다.",
-        "limitation_safety": "음성이라고 DCM을 배제할 수 없다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult lower limb/foot and examiner hands; clean neutral clinic background; no identifiable patient; close-up anatomy-first framing",
+        "panel_structure": "Two independent maneuvers within one ct089 teaching asset: Babinski plantar response and ankle clonus. Use 4 panels total only if it improves clarity: 1 plantar-stroke setup, 2 extensor plantar response, 3 rapid ankle dorsiflexion setup, 4 sustained/repetitive clonus response. No full-body view required.",
+        "patient_setup": "Babinski: patient relaxed supine or seated with plantar surface visible and foot supported. Clonus: knee relaxed with ankle accessible; examiner supports lower leg/heel so the ankle can be briskly dorsiflexed without twisting.",
+        "examiner_maneuver": "Babinski: use a blunt object to stroke the lateral plantar border from heel toward forefoot, then curve medially across the ball of the foot. Clonus: stabilize the leg and rapidly dorsiflex the ankle, then maintain dorsiflexion to observe rhythmic plantarflexion-dorsiflexion beats.",
+        "positive_finding": "Babinski positive in an adult: great toe extension/dorsiflexion, with or without fanning of the other toes. Clonus positive/pathologic: repetitive rhythmic ankle oscillations after brisk dorsiflexion; sustained clonus is particularly concerning for an UMN process.",
+        "interpretation": "Both are upper-motor-neuron/pyramidal signs. In DCM literature they are relatively specific but not sensitive; absence does not exclude DCM. Presence should increase concern for cord/central corticospinal tract dysfunction and trigger integration with gait, reflexes, hand dexterity and imaging context.",
+        "limitation_safety": "Do not use pain withdrawal or a nonspecific flexor plantar response as Babinski positivity. Avoid excessive force at the ankle. Do not equate a single unsustained beat with definitive myelopathy without the broader neurologic context.",
+        "overlay_policy": "Babinski: one clean stroke-path arrow along lateral sole then medial forefoot. Clonus: short dorsiflexion arrow plus small rhythmic bidirectional ankle arrows only. No pain/radiation overlays.",
+        "text_policy": "Minimal Korean labels only; detailed interpretation stays in HTML.",
+        "evidence_lock": [
+          "dcm_signs_2024",
+          "dcm_scoping_2025",
+          "dcm_early_2026"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-04",
+        "note": "Clinical brief locked before image generation. Babinski and ankle clonus must remain visually distinct maneuvers."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Realistic candidate must pass maneuver-specific anatomy/force QA",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct090",
