@@ -3484,14 +3484,14 @@
       "title_en": "Hoffmann sign",
       "status": "PENDING_REGENERATION_USER_CORRECTED_BRIEF",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic adult clinician; clean neutral clinic background; high-resolution portrait teaching asset; independently generated people and scene; no identifiable real patient",
         "panel_structure": "고해상도 손 중심 세로형 4-panel. 환자 전신은 보여주지 않는다. 1 손등이 위로 보이는 이완된 손 / 2 검사자가 중지를 분리·지지 / 3 검사자 엄지로 중지 손톱·원위지골을 손바닥 쪽으로 빠르게 flick 후 즉시 release / 4 같은 손의 엄지 굴곡·내전 + 검지 굴곡 양성반응.",
         "patient_setup": "성인 환자의 손만 확대. 손은 회내하여 손등이 위로 보이게 하고 손목·손가락은 이완한다. 해부학적으로 정상적인 손가락 배열을 유지하고 어떤 손가락도 손바닥/손등을 비정상적으로 관통하거나 뒤집히지 않게 한다.",
-        "examiner_maneuver": "검사자는 환자 중지를 분명히 분리해 중절골을 안정적으로 받친다. 다음 패널에서 검사자 엄지가 중지 손톱/원위지골을 손바닥 방향으로 짧고 빠르게 눌러 DIP를 순간 굴곡시킨 뒤 즉시 놓는 동작을 클로즈업한다.",
+        "examiner_maneuver": "검사자는 환자 중지를 분명히 분리하고 DIP 관절 바로 근위부의 중절골을 안정적으로 지지해 원위지골은 자유롭게 움직이게 둔다. 다음 패널에서 검사자 엄지가 중지 손톱/원위지골의 등쪽에 닿아 손바닥 방향으로 짧고 빠르게 눌러 DIP를 순간 굴곡시킨 뒤 즉시 release/rebound시키는 동작을 옆에서 명확히 보여준다.",
         "positive_finding": "양성 패널은 같은 손의 엄지 굴곡·내전 및 검지 굴곡을 명확히 보여준다. 4·5수지 굴곡을 필수 양성반응처럼 과장하지 않는다. 통증·저림·팔 방사통 overlay는 금지한다.",
         "interpretation": "Hoffmann sign은 상위운동신경원/피질척수로 이상을 시사하는 병적 반사 소견으로 DCM 의심도를 높일 수 있으나, 정상 과반사에서도 나타날 수 있고 음성이라고 DCM을 배제할 수 없다. 단독 진단·병변 level·중증도 판정에 사용하지 않는다.",
         "limitation_safety": "반드시 gait, hand dexterity, 다른 병적 반사, 심부건반사, 근력·감각과 통합한다. 진행성 손기능 저하·보행장애·다분절 신경학적 이상이 있으면 반복 provocation보다 cervical MRI와 전문평가를 우선한다.",
@@ -3502,17 +3502,32 @@
           "examiner": "성인 남성형",
           "rule": "ct088 mod 4 = 0",
           "casting_rule_version": "2026-10-03"
+        },
+        "reference_review": {
+          "source_type": "clinical motion reference only",
+          "source_title": "Physiotutors — Hoffmann's Sign or Reflex | Upper Motor Neuron Lesion",
+          "source_url": "https://www.youtube.com/watch?v=uVI55amnVuk",
+          "reviewed_on": "2026-10-03",
+          "copyright_rule": "Use only the medical action facts. Do not trace, screenshot, near-copy, or reproduce the source composition/model/lighting/layout.",
+          "observed_motion_facts": [
+            "Patient hand relaxed with fingers naturally/partially flexed and fully supported.",
+            "Middle finger is isolated.",
+            "Examiner stabilizes the middle finger immediately proximal to the DIP joint, leaving the distal phalanx free.",
+            "Examiner thumb contacts the middle fingernail/dorsal distal phalanx and gives a brief rapid palmward depression/flick that momentarily flexes the DIP, followed by immediate release/rebound.",
+            "Positive response is an involuntary same-hand thumb flexion/adduction and index-finger flexion."
+          ],
+          "user_layout_override": "For this app asset, show the hand dorsum-up/pronated where feasible so the tested middle fingernail, support point, flick direction, and same-hand thumb/index response are unmistakable."
         }
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PASS",
-        "examiner_hand_position": "PASS",
-        "force_direction": "PASS",
-        "embedded_text": "PASS",
+        "visual_pose": "PENDING_CANDIDATE_8",
+        "examiner_hand_position": "PENDING_CANDIDATE_8",
+        "force_direction": "PENDING_CANDIDATE_8",
+        "embedded_text": "PENDING_CANDIDATE_8",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-03",
-        "note": "Human-edited candidate 5 derivative internally PASS. Correct binary now hash-verified after transfer repair; user Preview review required before canonical approval."
+        "note": "Candidate 5 preview link removed after user identified impossible hand anatomy. Candidate 7 remains rejected. Candidate 8 must pass the locked direct-reference technique brief before Preview connection."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3528,9 +3543,10 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
+        "Candidate 8 must pass 10-point internal anatomy/technique/mobile QA before Preview connection",
         "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "Candidate 7 is clinically closer but rejected for landscape/over-dense infographic format. Generate Candidate 8 as portrait hand-only four-panel sequence with minimal labels.",
+      "review_note": "Directly reviewed the Physiotutors Hoffmann’s Sign demonstration on 2026-10-03. Motion facts only are used as clinical reference; no frame, composition, model, lighting, or layout may be copied. Candidate 8 must be portrait, hand-only, four-panel, minimal-label.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3668,23 +3684,11 @@
         }
       ],
       "generation_blocker": {
-        "status": "RESOLVED_BY_HUMAN_EDITED_DERIVATIVE",
-        "reason": "VALID_CLINICAL_SEQUENCE_RECOVERED_FROM_CANDIDATE_5",
-        "note": "Repeated raw generation drift/overdensity was resolved by human selection and editorial recomposition of clinically correct Hoffmann panels."
+        "status": "PENDING_CANDIDATE_8_GENERATION",
+        "reason": "PREVIOUS_PREVIEW_CANDIDATE_SUPERSEDED_FOR_ANATOMICAL_ERROR",
+        "note": "Candidate 5 was unlinked from Preview after user visual review found impossible middle-finger orientation. Candidate 8 is allowed only from the direct-reference-locked brief."
       },
-      "preview_candidate": {
-        "candidate_no": 5,
-        "gen_id": "7b7c9985-3403-4530-96ca-ab65640fbaf7",
-        "generated_on": "2026-10-03",
-        "generator": "OpenAI image generation + human crop/composite derivative",
-        "raw_generation_dimensions": "1024x1536",
-        "raw_generation_sha256": "00fe7407e56d3628cc599da7966667c015ea3120ff9f34a239f003e9a7b2c214",
-        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-7b7c9985-derived-preview.webp",
-        "preview_thumbnail_dimensions": "480x562",
-        "preview_webp_sha256": "80c5267252f3ae8e7b96e5fb619af3a8a8585d21e82f92977f58ec4287b2dd1d",
-        "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
-        "note": "Human-edited four-step Hoffmann derivative. Binary re-encoded and hash-verified after initial transfer-integrity failure. Detailed interpretation remains in HTML."
-      }
+      "preview_candidate": null
     },
     {
       "clinical_test_id": "ct089",
