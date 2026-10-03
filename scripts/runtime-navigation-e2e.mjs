@@ -553,10 +553,35 @@ try{
   const img=ulntPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="preview"] img');
   if(await img.count()!==1)fail('ct084 high-resolution Preview image is present');
   await img.waitFor({state:'visible',timeout:10000});
-  const size=await img.evaluate(el=>({naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight}));
+  const size=await img.evaluate(el=>{
+    const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+    return{
+      naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,
+      clientWidth:Math.round(r.width),clientHeight:Math.round(r.height),
+      display:cs.display,visibility:cs.visibility,opacity:cs.opacity,
+      complete:el.complete,currentSrc:el.currentSrc
+    };
+  });
   if(size.naturalWidth<480||size.naturalHeight<720)fail('ct084 Preview image resolution >=480x720',JSON.stringify(size));
+  if(!size.complete||!size.currentSrc||size.clientWidth<250||size.clientHeight<350||size.display==='none'||size.visibility==='hidden'||Number(size.opacity)===0){
+    fail('ct084 Preview image is visibly rendered',JSON.stringify(size));
+  }
+  const steps=await ulntPage.locator('#clinicalDetailContent .clinical-exam-steps').evaluate(el=>{
+    const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+    return{width:Math.round(r.width),height:Math.round(r.height),display:cs.display,visibility:cs.visibility,text:(el.textContent||'').trim()};
+  });
+  if(steps.width<250||steps.height<80||steps.display==='none'||steps.visibility==='hidden'||!steps.text.includes('1. 준비')||!steps.text.includes('2. 시행')||!steps.text.includes('3. 양성 판단')){
+    fail('ct084 step-by-step sequence is visibly rendered',JSON.stringify(steps));
+  }
+  const interpretation=await ulntPage.locator('#clinicalDetailContent .clinical-interpretation-detail').evaluate(el=>{
+    const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+    return{width:Math.round(r.width),height:Math.round(r.height),display:cs.display,visibility:cs.visibility,text:(el.textContent||'').trim()};
+  });
+  if(interpretation.width<250||interpretation.height<200||interpretation.display==='none'||interpretation.visibility==='hidden'){
+    fail('ct084 interpretation block is visibly rendered',JSON.stringify(interpretation));
+  }
   await ulntPage.close();
-  pass('A12 ct084 high-resolution interpretation detail',JSON.stringify(size));
+  pass('A12 ct084 high-resolution interpretation detail',JSON.stringify({size,steps:{width:steps.width,height:steps.height},interpretation:{width:interpretation.width,height:interpretation.height}}));
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
