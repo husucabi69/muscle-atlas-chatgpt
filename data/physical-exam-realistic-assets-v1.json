@@ -3482,21 +3482,21 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PREVIEW_CANDIDATE_READY",
+      "status": "PENDING_REGENERATION_USER_CORRECTED_BRIEF",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic adult clinician; clean neutral clinic background; high-resolution portrait teaching asset; independently generated people and scene; no identifiable real patient",
-        "panel_structure": "세로형 portrait 3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단. 동일 환자·동일 검사자 유지.",
-        "patient_setup": "성인 여성형 환자, 편안한 좌위. 검사할 손과 손가락을 충분히 이완한다. 손은 검사자가 안정적으로 지지하되 환자가 능동적으로 힘주지 않는다.",
-        "examiner_maneuver": "성인 남성형 검사자. 중지(middle finger)의 중절골을 지지하고 원위지골/손톱 부위를 짧고 빠르게 아래쪽으로 flick하여 DIP를 순간 굴곡시킨 뒤 즉시 놓는다. 엄지와 검지의 비자발적 굴곡·엄지 내전 반응을 관찰한다.",
-        "positive_finding": "flick 직후 같은 손의 엄지 굴곡/내전과 검지 굴곡이 일관되게 나타나는 모습을 양성 패널에 명확히 보여준다. 통증·저림을 양성으로 그리지 않는다.",
+        "panel_structure": "고해상도 손 중심 세로형 4-panel. 환자 전신은 보여주지 않는다. 1 손등이 위로 보이는 이완된 손 / 2 검사자가 중지를 분리·지지 / 3 검사자 엄지로 중지 손톱·원위지골을 손바닥 쪽으로 빠르게 flick 후 즉시 release / 4 같은 손의 엄지 굴곡·내전 + 검지 굴곡 양성반응.",
+        "patient_setup": "성인 환자의 손만 확대. 손은 회내하여 손등이 위로 보이게 하고 손목·손가락은 이완한다. 해부학적으로 정상적인 손가락 배열을 유지하고 어떤 손가락도 손바닥/손등을 비정상적으로 관통하거나 뒤집히지 않게 한다.",
+        "examiner_maneuver": "검사자는 환자 중지를 분명히 분리해 중절골을 안정적으로 받친다. 다음 패널에서 검사자 엄지가 중지 손톱/원위지골을 손바닥 방향으로 짧고 빠르게 눌러 DIP를 순간 굴곡시킨 뒤 즉시 놓는 동작을 클로즈업한다.",
+        "positive_finding": "양성 패널은 같은 손의 엄지 굴곡·내전 및 검지 굴곡을 명확히 보여준다. 4·5수지 굴곡을 필수 양성반응처럼 과장하지 않는다. 통증·저림·팔 방사통 overlay는 금지한다.",
         "interpretation": "Hoffmann sign은 상위운동신경원/피질척수로 이상을 시사하는 병적 반사 소견으로 DCM 의심도를 높일 수 있으나, 정상 과반사에서도 나타날 수 있고 음성이라고 DCM을 배제할 수 없다. 단독 진단·병변 level·중증도 판정에 사용하지 않는다.",
         "limitation_safety": "반드시 gait, hand dexterity, 다른 병적 반사, 심부건반사, 근력·감각과 통합한다. 진행성 손기능 저하·보행장애·다분절 신경학적 이상이 있으면 반복 provocation보다 cervical MRI와 전문평가를 우선한다.",
-        "overlay_policy": "검사자의 지지 손과 flick 손을 구분한다. 화살표는 중지 원위지골의 짧은 순간 굴곡/방출만 표시한다. 양성 overlay는 같은 손의 엄지·검지 움직임에만 표시한다. 팔 방사통 overlay 금지. 임의 각도·수치·횟수 금지.",
-        "text_policy": "이미지 내부는 '시작 자세', '중지 flick', '엄지·검지 반응' 정도의 짧은 한국어만 허용. 장문 설명·영문 병기·민감도/특이도 숫자는 HTML에만 표시.",
+        "overlay_policy": "손 중심 고해상도. 중지는 다른 손가락과 명확히 구분하고 검사자 지지 손과 flick 엄지를 분명히 보이게 한다. panel 3에는 짧은 손바닥 방향 화살표 1개만 허용. panel 4에는 같은 손 엄지·검지의 굴곡반응만 시각적으로 강조한다.",
+        "text_policy": "이미지 내부 글자는 '1 이완', '2 중지 지지', '3 손톱 flick', '4 양성 반응' 정도만 허용. 상세 임상해석·민감도·특이도·감별진단은 HTML에 둔다.",
         "model_casting": {
           "patient": "성인 여성형",
           "examiner": "성인 남성형",
@@ -3530,7 +3530,7 @@
       "approval_blockers": [
         "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "ct088 Candidate 5 human-edited derivative is now the active user-review target. Keep prior failures in history; do not auto-approve.",
+      "review_note": "User supplied corrected Hoffmann technique/interpretation on 2026-10-03. Generation brief revised to hand-only high-resolution 4-panel close-up. Prior Candidate 5 is superseded for visual anatomy; do not canonical-approve it.",
       "candidate_history": [
         {
           "candidate_no": 1,
