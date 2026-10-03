@@ -3512,7 +3512,7 @@
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-03",
-        "note": "Human-edited candidate 5 derivative internally PASS. Sequence shows relaxed start, middle-finger support, distal phalanx/nail flick, then same-hand thumb/index response. User Preview review required before canonical approval."
+        "note": "Human-edited candidate 5 derivative internally PASS. Correct binary now hash-verified after transfer repair; user Preview review required before canonical approval."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3609,7 +3609,7 @@
           "human_edit_summary": "Raw ct088 infographic was not used as-is. Human/editorial processing cropped only the four clinically relevant realistic examination panels, removed duplicated anatomy/interpretation blocks, recomposed them into a clean 2×2 step sequence, and resized to a mobile-friendly 480×562 WebP. No new anatomical content was invented during the crop/composite edit.",
           "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-7b7c9985-derived-preview.webp",
           "preview_dimensions": "480x562",
-          "preview_webp_sha256": "42bec8cae2b280f5b9a002ba942e211828024ecca783307158de97ee4b2f7441",
+          "preview_webp_sha256": "80c5267252f3ae8e7b96e5fb619af3a8a8585d21e82f92977f58ec4287b2dd1d",
           "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
           "passed_axes": [
             "clinical_content",
@@ -3621,7 +3621,7 @@
             "same_hand_thumb_index_response",
             "minimal_embedded_text_after_crop"
           ],
-          "note": "Candidate 5 raw output was over-dense, but its four realistic Hoffmann sequence panels were clinically usable. Human-edited derivative removes the redundant infographic content and preserves only the examination sequence. User Preview approval still required."
+          "note": "Candidate 5 raw output was over-dense, but clinically correct realistic Hoffmann panels were human-selected/recomposed. Final app derivative was re-encoded and hash-verified after a failed binary transfer attempt. User Preview approval pending."
         },
         {
           "candidate_no": 6,
@@ -3659,9 +3659,9 @@
         "raw_generation_sha256": "00fe7407e56d3628cc599da7966667c015ea3120ff9f34a239f003e9a7b2c214",
         "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-7b7c9985-derived-preview.webp",
         "preview_thumbnail_dimensions": "480x562",
-        "preview_webp_sha256": "42bec8cae2b280f5b9a002ba942e211828024ecca783307158de97ee4b2f7441",
+        "preview_webp_sha256": "80c5267252f3ae8e7b96e5fb619af3a8a8585d21e82f92977f58ec4287b2dd1d",
         "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
-        "note": "Four-step realistic Hoffmann sequence derived from candidate 5 raw generation. Detailed interpretation remains in HTML below the image."
+        "note": "Human-edited four-step Hoffmann derivative. Binary re-encoded and hash-verified after initial transfer-integrity failure. Detailed interpretation remains in HTML."
       }
     },
     {
