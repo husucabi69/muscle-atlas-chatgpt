@@ -583,6 +583,30 @@ try{
   await ulntPage.close();
   pass('A12 ct084 high-resolution interpretation detail',JSON.stringify({size,steps:{width:steps.width,height:steps.height},interpretation:{width:interpretation.width,height:interpretation.height}}));
 
+  const hoffPage=await context.newPage();
+  const hoffUrl=new URL('?page=clinical&module=cervical&topic=exam&item=ct088',base).toString();
+  await hoffPage.goto(hoffUrl,{waitUntil:'domcontentloaded',timeout:30000});
+  await hoffPage.waitForFunction(()=>document.documentElement.dataset.appPage==='clinical'&&!document.querySelector('#clinicalDetailView')?.hidden,{timeout:20000});
+  const hoffText=(await hoffPage.locator('#clinicalDetailContent').textContent()||'').trim();
+  for(const required of ['ct088','Hoffmann','임상 해석 · 이 검사를 어떻게 읽을 것인가','무엇을 보는 검사인가','양성이면 우선 생각할 것','중요 감별진단','이 검사 하나로 배제할 수 없는 것','다음에 이어서 확인할 검사·판단','진단적 무게','해석의 핵심']){
+    if(!hoffText.includes(required))fail('ct088 rich interpretation contains '+required,hoffText.slice(0,1600));
+  }
+  const hoffInterpretation=await hoffPage.locator('#clinicalDetailContent .clinical-interpretation-detail').evaluate(el=>{
+    const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+    return{width:Math.round(r.width),height:Math.round(r.height),display:cs.display,visibility:cs.visibility,text:(el.textContent||'').trim()};
+  });
+  if(hoffInterpretation.width<250||hoffInterpretation.height<200||hoffInterpretation.display==='none'||hoffInterpretation.visibility==='hidden'){
+    fail('ct088 interpretation block is visibly rendered',JSON.stringify(hoffInterpretation));
+  }
+  if(await hoffPage.locator('#clinicalDetailContent [data-exam-realistic-candidate]').count()!==0){
+    fail('ct088 failed realistic candidates are not exposed in Preview');
+  }
+  if(await hoffPage.locator('#clinicalDetailContent [data-exam-illustration]').count()!==1){
+    fail('ct088 Stable-ID schematic fallback remains visible');
+  }
+  await hoffPage.close();
+  pass('A13 ct088 rich interpretation fallback',JSON.stringify({width:hoffInterpretation.width,height:hoffInterpretation.height}));
+
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
   pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral, learning and home/search click sweep');
