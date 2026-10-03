@@ -26,23 +26,23 @@ const generationReadyIds=pilotIds.filter(id=>{
   const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
   return p?.status==='PENDING_GENERATION'&&p?.brief_status==='GENERATION_READY';
 });
-check('Four cervical pilot profiles remain generation-ready while ct088 waits for user Preview review',
+check('Four cervical pilot profiles remain generation-ready while ct088 is explicitly deferred',
   JSON.stringify(generationReadyIds)===JSON.stringify(['ct083','ct084','ct092','ct095']),
   JSON.stringify(generationReadyIds));
 const ct088=manifest.profiles?.find(x=>x.clinical_test_id==='ct088');
-const ct088PreviewPath=String(ct088?.preview_candidate?.preview_asset_path||'').replace(/^\.\//,'');
-check('ct088 Candidate 13 is Preview-ready but not user-approved',
-  ct088?.status==='PREVIEW_CANDIDATE_READY'&&
-  ct088?.brief_status==='GENERATION_READY'&&
-  ct088?.preview_candidate?.candidate_no===13&&
-  ct088?.preview_candidate?.gen_id==='64db8f81-b5e0-460a-8b41-046895643b0b'&&
-  ct088?.review?.user_preview==='PENDING'&&
-  ct088?.generation_blocker?.status==='RESOLVED_FOR_PREVIEW'&&
+check('ct088 is explicitly deferred by user and cannot be promoted',
+  ct088?.status==='INCOMPLETE_DEFERRED_BY_USER_2026_10_04'&&
+  ct088?.brief_status==='LOCKED_BUT_VISUAL_NOT_APPROVED'&&
+  ct088?.review?.user_preview==='DEFERRED'&&
+  !ct088?.preview_candidate&&
   !ct088?.approved_asset);
-check('ct088 Preview SVG wrapper exists and embeds a WebP derivative',
-  Boolean(ct088PreviewPath)&&fs.existsSync(ct088PreviewPath)&&
-  fs.readFileSync(ct088PreviewPath,'utf8').includes('data:image/webp;base64,'),
-  ct088PreviewPath);
+check('ct088 preserves clinical review while realistic visual remains incomplete',
+  ct088?.review?.clinical_content==='PASS'&&
+  ct088?.review?.visual_pose==='PASS'&&
+  ct088?.review?.examiner_hand_position==='PASS'&&
+  ct088?.review?.force_direction==='PASS'&&
+  ct088?.review?.embedded_text==='PASS'&&
+  ct088?.generation_blocker?.status==='RESOLVED_CLINICALLY_CANDIDATE9_BINARY_TRANSFER_PENDING');
 
 for(const id of generationReadyIds){
   let prompt='';
