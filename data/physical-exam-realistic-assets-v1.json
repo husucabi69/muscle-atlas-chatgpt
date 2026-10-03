@@ -3482,7 +3482,7 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "INTERNAL_PASS_CANDIDATE8_ASSET_TRANSFER_PENDING",
+      "status": "INTERNAL_PASS_CANDIDATE9_ASSET_TRANSFER_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
       "composite_url": null,
@@ -3527,7 +3527,7 @@
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-03",
-        "note": "Candidate 8 passed the locked 10-point anatomy/technique/mobile QA. Preview remains intentionally disconnected until the exact binary asset is stored in the repository."
+        "note": "Candidate 9 passed the locked 10-point anatomy/technique/mobile QA. Historical Candidate 8 is preserved as a failed binary-handoff provenance record. Preview remains disconnected until the exact Candidate 9 binary asset is stored in the repository."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3546,7 +3546,7 @@
         "Exact Candidate 8 binary asset must be committed before Preview connection",
         "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "Candidate 8 fe0186f9-ee19-4b0a-bb70-45b4154f8b7c selected after direct Physiotutors motion-reference review. It best shows side-view middle-finger isolation/support and dorsal nail/distal-phalanx palmward flick. No Preview connection until exact labeled WebP is committed.",
+      "review_note": "Candidate 9 fe0186f9-ee19-4b0a-bb70-45b4154f8b7c selected after direct Physiotutors motion-reference review. It best shows side-view middle-finger isolation/support and dorsal nail/distal-phalanx palmward flick. Candidate 8 c80fb8e2 remains superseded provenance only.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3813,8 +3813,8 @@
         }
       ],
       "generation_blocker": {
-        "status": "RESOLVED_CLINICALLY_BINARY_TRANSFER_PENDING",
-        "reason": "CANDIDATE_8_INTERNAL_QA_PASS",
+        "status": "RESOLVED_CLINICALLY_CANDIDATE9_BINARY_TRANSFER_PENDING",
+        "reason": "CANDIDATE_9_INTERNAL_QA_PASS",
         "note": "Clinical/visual candidate selection is complete. Remaining blocker is exact binary repository transfer, not clinical content."
       },
       "direct_reference_review": {
