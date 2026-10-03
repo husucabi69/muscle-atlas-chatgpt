@@ -67,6 +67,10 @@ jobs:
         run: node scripts/clinical-exam-illustration-qa.mjs
       - name: Run physical examination realistic asset registry QA
         run: node scripts/physical-exam-realistic-assets-qa.mjs
+      - name: Run EXAM-REAL review lifecycle QA
+        run: node scripts/exam-real-review-lifecycle-qa.mjs
+      - name: Run EXAM-REAL lifecycle QA
+        run: node scripts/exam-real-lifecycle-qa.mjs
       - name: Run EXAM-REAL realistic prompt builder QA
         run: node scripts/physical-exam-realistic-prompt-qa.mjs
       - name: Run Stage 23B realistic exercise asset pipeline QA
