@@ -3482,9 +3482,9 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PREVIEW_CANDIDATE_READY",
+      "status": "INTERNAL_PASS_CANDIDATE8_ASSET_TRANSFER_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3527,7 +3527,7 @@
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-03",
-        "note": "Candidate 13 passed internal anatomy/technique QA and is staged as PREVIEW_CANDIDATE_READY. Canonical approval remains blocked on user visual review."
+        "note": "Candidate 8 passed the locked 10-point anatomy/technique/mobile QA. Preview remains intentionally disconnected until the exact binary asset is stored in the repository."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3543,9 +3543,10 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "User visual approval remains required in exact ct088 Preview before canonical approval or any main merge."
+        "Exact Candidate 8 binary asset must be committed before Preview connection",
+        "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "Physiotutors maneuver facts were directly reviewed; Candidate 13 was independently generated and iterated until the middle-finger target, distal flick/DIP cue, and same-hand thumb/index response were visually unambiguous enough for Preview.",
+      "review_note": "Candidate 8 fe0186f9-ee19-4b0a-bb70-45b4154f8b7c selected after direct Physiotutors motion-reference review. It best shows side-view middle-finger isolation/support and dorsal nail/distal-phalanx palmward flick. No Preview connection until exact labeled WebP is committed.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3812,9 +3813,9 @@
         }
       ],
       "generation_blocker": {
-        "status": "RESOLVED_FOR_PREVIEW",
-        "reason": "ASCII_SVG_WRAPPER_WITH_EMBEDDED_WEBP_VERIFIED",
-        "note": "Prior binary handoff corruption was resolved for Preview using a UTF-8 SVG wrapper containing a hash-tracked WebP derivative; embedded base64 length and Git blob were re-verified after repair. Canonical approval still waits on user review."
+        "status": "RESOLVED_CLINICALLY_BINARY_TRANSFER_PENDING",
+        "reason": "CANDIDATE_8_INTERNAL_QA_PASS",
+        "note": "Clinical/visual candidate selection is complete. Remaining blocker is exact binary repository transfer, not clinical content."
       },
       "direct_reference_review": {
         "status": "LOCKED",
@@ -3822,21 +3823,7 @@
         "reference_role": "clinical_maneuver_facts_only",
         "note": "Physiotutors demonstration reviewed only to verify technique; no external visual expression copied."
       },
-      "preview_candidate": {
-        "candidate_no": 13,
-        "gen_id": "64db8f81-b5e0-460a-8b41-046895643b0b",
-        "generated_on": "2026-10-03",
-        "source_session_path": "/mnt/data/a_clean_clinical_photographic_collage_on_a_neutral.png",
-        "raw_generation_dimensions": "1159x1356",
-        "raw_generation_sha256": "1edd9e1936f1d60dc4215be458628d80bab9a5772573ef0ae9e78b724050829d",
-        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-64db8f81-derived-4panel.svg",
-        "preview_dimensions": "900x1053",
-        "preview_embedded_webp_sha256": "bf7531b377fa800cf123552379bd507d770ded9f9286ef52a8b409d60c184c85",
-        "preview_svg_sha256": "b8136b028c6386fb38ec47d095318b5a3bdce6657d01788b419375b423a05ae8",
-        "preview_git_blob_sha": "08c4d361d5faccac4de8cb22b2ea3492fa782d4b",
-        "internal_qa": "PASS_10_OF_10",
-        "user_approval": "PENDING"
-      },
+      "preview_candidate": null,
       "brief_lock": "DIRECT_REFERENCE_REVIEW_LOCKED"
     },
     {
