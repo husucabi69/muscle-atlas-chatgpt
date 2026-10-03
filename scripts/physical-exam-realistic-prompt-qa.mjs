@@ -26,14 +26,15 @@ const generationReadyIds=pilotIds.filter(id=>{
   const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
   return p?.status==='PENDING_GENERATION'&&p?.brief_status==='GENERATION_READY';
 });
-check('Four cervical pilot profiles remain generation-ready while ct088 awaits user review',
-  JSON.stringify(generationReadyIds)===JSON.stringify(['ct083','ct084','ct092','ct095']),
+check('Five cervical pilot profiles are generation-ready while ct088 binary handoff is safely blocked',
+  JSON.stringify(generationReadyIds)===JSON.stringify(['ct083','ct084','ct088','ct092','ct095']),
   JSON.stringify(generationReadyIds));
 const ct088=manifest.profiles?.find(x=>x.clinical_test_id==='ct088');
-check('ct088 is a reviewable realistic Preview candidate, not approved',
-  ct088?.status==='PREVIEW_CANDIDATE_READY'&&
-  Boolean(ct088?.preview_candidate)&&
+check('ct088 is safely reverted to schematic fallback after binary integrity failure',
+  ct088?.status==='PENDING_GENERATION'&&
+  !ct088?.preview_candidate&&
   ct088?.review?.user_preview==='PENDING'&&
+  ct088?.generation_blocker?.reason==='BINARY_HANDOFF_INTEGRITY_FAILURE'&&
   !ct088?.approved_asset);
 
 for(const id of generationReadyIds){
