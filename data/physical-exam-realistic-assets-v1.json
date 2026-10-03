@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.03-exam-real-001-ct084-brief-locked",
+  "dataset_version": "2026.10.03-exam-real-001-ct084-candidate2-preview-connected",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3282,14 +3282,14 @@
         }
       },
       "review": {
-        "clinical_content": "PARTIAL",
-        "visual_pose": "FAIL",
-        "examiner_hand_position": "PASS_WITH_CAUTION",
-        "force_direction": "PASS_WITH_CAUTION",
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-03",
-        "note": "Candidate 1 failed internal gate before Preview. Regenerate with relaxed start posture and visibly clear contralateral cervical side-bending."
+        "note": "Candidate 2 internal gate PASS. Start posture relaxed; right-arm ULNT1 sequence, right-arm symptom overlay and contralateral cervical side-bending are visually linked."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3306,11 +3306,9 @@
         "note": "2026 systematic review: ULNT1 pooled sensitivity ~0.70 and specificity ~0.71 with low/very-low certainty; use only as an adjunct. 2023 systematic review/meta-analysis also found only fair diagnostic accuracy with high heterogeneity."
       },
       "approval_blockers": [
-        "Laterality must remain right upper limb throughout all panels",
-        "Contralateral cervical side-bending must be visually linked to change in the same right-arm symptoms",
-        "Do not treat generic stretch discomfort as a positive result"
+        "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "ct084 Candidate 1 preserved as failed internal review. Stay on ct084 and generate Candidate 2; no app Preview connection for Candidate 1.",
+      "review_note": "ct084 Candidate 2 is connected to Preview. Keep Candidate 1 as rejected history. Next step is exact Preview QA and user review.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3331,8 +3329,45 @@
             "same_subject_continuity"
           ],
           "note": "Candidate 1 rejected internally. Panel 1 already places the tested arm in a substantially abducted/extended tensioned posture rather than a relaxed start. Panel 3 does not make contralateral cervical side-bending sufficiently visible for structural differentiation teaching. Do not expose in app Preview."
+        },
+        {
+          "candidate_no": 2,
+          "gen_id": "b9b9cbc2-5c3f-4329-a88a-d7909a38fedb",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "0e9903f425b50de560d9086466b91ff839578f41cc838bcf1c6d371acebd593d",
+          "source_session_path": "/mnt/data/a_clean_photographic_instructional_medical_collag.png",
+          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct084-ulnt1-gen-b9b9cbc2-preview.webp",
+          "preview_dimensions": "240x360",
+          "preview_webp_sha256": "e9d4f309f214a0a5633dc7309965fedc7f417729b2a4d4206bdfb72828a6f5e7",
+          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+          "passed_axes": [
+            "clinical_content",
+            "visual_pose",
+            "examiner_hand_position",
+            "force_direction",
+            "structural_differentiation",
+            "laterality",
+            "embedded_text",
+            "adult_model_casting"
+          ],
+          "note": "Candidate 2 corrected Candidate 1: relaxed elbow-flexed start, explicit right-arm test positioning, visible contralateral cervical side-bending and same-arm symptom-change overlay. User Preview review remains required."
         }
-      ]
+      ],
+      "preview_candidate": {
+        "candidate_no": 2,
+        "gen_id": "b9b9cbc2-5c3f-4329-a88a-d7909a38fedb",
+        "generated_on": "2026-10-03",
+        "generator": "OpenAI image generation",
+        "raw_generation_dimensions": "1024x1536",
+        "raw_generation_sha256": "0e9903f425b50de560d9086466b91ff839578f41cc838bcf1c6d371acebd593d",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct084-ulnt1-gen-b9b9cbc2-preview.webp",
+        "preview_thumbnail_dimensions": "240x360",
+        "preview_webp_sha256": "e9d4f309f214a0a5633dc7309965fedc7f417729b2a4d4206bdfb72828a6f5e7",
+        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+        "note": "Adult female-presenting patient / adult male-presenting examiner. Right-arm ULNT1 with contralateral cervical structural differentiation."
+      }
     },
     {
       "clinical_test_id": "ct085",
