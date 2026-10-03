@@ -3533,7 +3533,7 @@
         "Positive response must appear in thumb/index of the same examined hand",
         "Do not depict pain or paresthesia as the positive finding"
       ],
-      "review_note": "ct088 Candidate 1 rejected for ambiguous flick target. Candidate 2 rejected for wrong-subject generation drift to ct084. Stay on ct088 and generate a tightly constrained Candidate 3.",
+      "review_note": "ct088 C1: Hoffmann subject but flick target ambiguous. C2/C3: wrong-subject ULNT1 generation drift, rejected. Next: edit C1 specifically to isolate middle-finger distal phalanx/nail target.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3569,6 +3569,21 @@
             "text_policy"
           ],
           "note": "Generation drifted to ct084 ULNT1 instead of ct088 Hoffmann sign and became a dense infographic. Rejected immediately; never connect to Preview or reuse as ct088."
+        },
+        {
+          "candidate_no": 3,
+          "gen_id": "ea39fba8-4608-4bd6-97af-c0ec5d4a1578",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "source_session_path": "/mnt/data/a_detailed_infographic_poster_medical_chart_in_kor.png",
+          "disposition": "REJECTED_WRONG_SUBJECT_NOT_CANONICAL",
+          "failed_axes": [
+            "clinical_content",
+            "asset_identity",
+            "text_policy"
+          ],
+          "note": "Second generation drifted again to ct084 ULNT1 despite ct088 lock. Rejected immediately. Next attempt will edit the actual ct088 Hoffmann Candidate 1 rather than generate from scratch."
         }
       ]
     },
