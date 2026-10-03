@@ -74,15 +74,41 @@
       "setup": "견갑을 안정화하고 어깨 외전, 손목/손가락 신전, 전완 회외, 어깨 외회전, 팔꿈치 신전을 단계적으로 적용한다.",
       "maneuver": "증상 재현 후 경추 측굴을 이용한 structural differentiation을 확인한다.",
       "positive_definition": "환자의 익숙한 상지 증상이 재현되고 신경계 부하를 변화시키는 structural differentiation에 따라 증상이 변하면 기록한다.",
-      "interpretation_note": "2023 표준화 제안과 2026 review에 따라 단독 확정검사가 아니라 radiculopathy 임상추론의 일부로 사용한다.",
-      "limitation": "검사 순서·양성기준 이질성이 있고 median nerve entrapment 등 다른 원인도 고려한다.",
+      "interpretation_note": "익숙한 상지 증상의 재현 + structural differentiation에 따른 증상 변화가 핵심이다. 이는 신경조직 기계민감도를 지지하지만 병변 위치나 원인을 단독으로 확정하지 않는다.",
+      "limitation": "검사 순서·양성기준의 연구 이질성이 크며 건강인에서도 당김/감각이 생길 수 있다. 양성은 root·plexus·peripheral nerve를 단독 구분하지 못하고, 음성도 cervical radiculopathy를 배제하지 못한다.",
       "related_diagnosis_concept_ids": [
         "d089"
       ],
       "evidence_refs": [
         "ulnt_standard",
         "radic_review_2026"
-      ]
+      ],
+      "interpretation_detail": {
+        "what_it_assesses": "ULNT1은 '신경이 잘 늘어나는가'를 단순 측정하는 검사가 아니라, 경추 신경근–상완신경총–정중신경 편향 경로에 단계적으로 기계적 부하를 주었을 때 환자의 익숙한 증상이 어떻게 재현되고 structural differentiation에 따라 어떻게 변하는지를 보는 신경조직 기계민감도(neural mechanosensitivity) 검사다.",
+        "positive_meaning": "환자의 평소 팔 통증·저림이 검사 자세에서 재현되고, 경추 반대쪽 측굴 등 신경계 부하를 바꾸는 동작에 따라 같은 증상이 의미 있게 변하면 '신경조직이 증상 발생에 관여할 가능성'을 높인다. 단순한 근육 스트레칭 느낌이나 끝범위 당김만으로는 양성으로 해석하지 않는다.",
+        "raises_suspicion_for": [
+          "경부통과 상지 방사통이 함께 있고 감각저하·건반사 변화·근력저하가 신경근 분포와 맞는다면 경추 신경근병증(cervical radiculopathy)의 가능성을 높인다.",
+          "증상이 경추 소견보다 말초 정중신경 분포와 국소 압박검사에 더 잘 맞으면 손목터널증후군·전완부 정중신경 포착 등 말초 정중신경병증을 고려한다.",
+          "광범위한 상지 신경증상, 다수 말초신경 분포, 외상/견인 병력이 있으면 상완신경총 병변도 감별한다.",
+          "자세·상지 거상에 따라 광범위한 신경성 증상이 유발되고 혈관/신경학적 문맥이 맞는 경우에는 신경성 흉곽출구증후군 등 다른 근위부 신경 압박도 임상 문맥에서 비교한다."
+        ],
+        "important_differentials": [
+          "경추 신경근병증 ↔ 정중신경 포착(손목터널증후군, 근위부 정중신경 포착)",
+          "경추 신경근병증 ↔ 상완신경총병증",
+          "신경성 통증 ↔ 어깨·팔꿈치·손목의 근골격계 통증 및 관절가동범위 제한",
+          "다발성/비전형 신경증상 ↔ 척수병증 또는 전신성/다발성 말초신경병증"
+        ],
+        "what_it_cannot_rule_out": "ULNT1 하나가 음성이라고 경추 신경근병증을 배제할 수는 없다. 2026 메타분석의 ULNT1 LR−는 약 0.42로 질환 가능성을 낮추는 정도이며 단독 rule-out 검사로 충분하지 않다. 반대로 양성도 LR+ 약 2.45 수준으로 확진력이 제한적이다. 검사 결과는 사전확률을 조정하는 보조 정보로 사용한다.",
+        "next_clinical_steps": [
+          "경추 신경근병증이 의심되면 Spurling, cervical distraction, shoulder-abduction relief, 근력(myotome), 감각(dermatome), biceps/brachioradialis/triceps reflex를 함께 본다.",
+          "말초 정중신경병증이 의심되면 증상 분포와 함께 손목/전완의 국소 압박·Tinel/Phalen 계열 검사 및 해당 부위 신경학적 소견을 확인한다.",
+          "어깨 통증이 주된 경우에는 shoulder ROM·rotator cuff/impingement 관련 진찰을 병행해 비신경성 통증을 분리한다.",
+          "진행성 근력저하, 다분절 신경학적 이상, 보행장애·손 기능 저하·병적 반사 등 척수병증 의심 소견이 있으면 단순 유발검사를 반복하기보다 MRI/전문의 평가를 우선한다.",
+          "임상진찰과 영상이 불일치하거나 root vs plexus vs peripheral nerve localization이 필요한 경우 EMG/NCS를 고려한다."
+        ],
+        "diagnostic_weight": "2026 systematic review에서는 ULNT1 pooled sensitivity 0.70, specificity 0.71, LR+ 2.45, LR− 0.42였으나 근거 확실성은 낮거나 매우 낮았다. 2023 ULNT1 meta-analysis에서는 sensitivity 0.69, specificity 0.54로 보고되어 연구·양성기준 이질성이 크다는 점을 보여준다.",
+        "interpretation_bottom_line": "핵심은 '양성이면 어떤 신경이 눌렸다고 확정'하는 것이 아니라, 환자의 익숙한 증상이 신경계 기계부하에 따라 재현·변조되는지를 확인하고 그 결과를 경추 신경근병증, 상완신경총병증, 말초 정중신경병증 및 비신경성 상지 통증의 감별에 통합하는 것이다."
+      }
     },
     {
       "clinical_test_id": "ct085",
