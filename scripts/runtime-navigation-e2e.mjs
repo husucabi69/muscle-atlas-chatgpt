@@ -598,22 +598,14 @@ try{
   if(hoffInterpretation.width<250||hoffInterpretation.height<200||hoffInterpretation.display==='none'||hoffInterpretation.visibility==='hidden'){
     fail('ct088 interpretation block is visibly rendered',JSON.stringify(hoffInterpretation));
   }
-  const hoffCandidate=hoffPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="preview"] img');
-  if(await hoffCandidate.count()!==1)fail('ct088 human-edited realistic Preview candidate is visible');
-  const hoffSize=await hoffCandidate.evaluate(el=>({
-    naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,
-    clientWidth:Math.round(el.getBoundingClientRect().width),
-    clientHeight:Math.round(el.getBoundingClientRect().height),
-    complete:el.complete,currentSrc:el.currentSrc
-  }));
-  if(!hoffSize.complete||!hoffSize.currentSrc||hoffSize.naturalWidth<480||hoffSize.naturalHeight<560||hoffSize.clientWidth<250){
-    fail('ct088 realistic derivative renders at usable resolution',JSON.stringify(hoffSize));
+  if(await hoffPage.locator('#clinicalDetailContent [data-exam-realistic-candidate]').count()!==0){
+    fail('ct088 broken/unmaterialized realistic candidates are not exposed');
   }
   if(await hoffPage.locator('#clinicalDetailContent [data-exam-illustration]').count()!==1){
     fail('ct088 Stable-ID schematic fallback remains visible');
   }
   await hoffPage.close();
-  pass('A13 ct088 realistic derivative + rich interpretation',JSON.stringify({width:hoffInterpretation.width,height:hoffInterpretation.height,hoffSize}));
+  pass('A13 ct088 safe schematic fallback + rich interpretation',JSON.stringify({width:hoffInterpretation.width,height:hoffInterpretation.height}));
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
