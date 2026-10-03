@@ -542,6 +542,22 @@ try{
   await deepPage.close();
   pass('A11 direct clinical deep link',deepUrl);
 
+  const ulntPage=await context.newPage();
+  const ulntUrl=new URL('?page=clinical&module=cervical&topic=exam&item=ct084',base).toString();
+  await ulntPage.goto(ulntUrl,{waitUntil:'domcontentloaded',timeout:30000});
+  await ulntPage.waitForFunction(()=>document.documentElement.dataset.appPage==='clinical'&&!document.querySelector('#clinicalDetailView')?.hidden,{timeout:20000});
+  const ulntText=(await ulntPage.locator('#clinicalDetailContent').textContent()||'').trim();
+  for(const required of ['ct084','임상 해석 · 이 검사를 어떻게 읽을 것인가','무엇을 보는 검사인가','양성이면 우선 생각할 것','중요 감별진단','이 검사 하나로 배제할 수 없는 것','다음에 이어서 확인할 검사·판단','진단적 무게','해석의 핵심']){
+    if(!ulntText.includes(required))fail('ct084 rich interpretation contains '+required,ulntText.slice(0,1600));
+  }
+  const img=ulntPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="preview"] img');
+  if(await img.count()!==1)fail('ct084 high-resolution Preview image is present');
+  await img.waitFor({state:'visible',timeout:10000});
+  const size=await img.evaluate(el=>({naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight}));
+  if(size.naturalWidth<480||size.naturalHeight<720)fail('ct084 Preview image resolution >=480x720',JSON.stringify(size));
+  await ulntPage.close();
+  pass('A12 ct084 high-resolution interpretation detail',JSON.stringify(size));
+
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
   pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral, learning and home/search click sweep');
