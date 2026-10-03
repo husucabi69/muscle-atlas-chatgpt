@@ -3482,7 +3482,7 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "GENERATION_BLOCKED_WRONG_SUBJECT_DRIFT",
+      "status": "PENDING_GENERATION",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "GENERATION_READY",
       "composite_url": null,
@@ -3505,14 +3505,12 @@
         }
       },
       "review": {
-        "clinical_content": "PASS",
-        "visual_pose": "PARTIAL",
-        "examiner_hand_position": "FAIL",
-        "force_direction": "PASS_WITH_CAUTION",
-        "embedded_text": "PASS",
-        "user_preview": "PENDING",
-        "reviewed_on": "2026-10-03",
-        "note": "Candidate 1 blocked before Preview because the middle-finger flick target is visually ambiguous. Regenerate with dorsal-oblique close-up and explicit middle-finger isolation."
+        "clinical_content": "PENDING",
+        "visual_pose": "PENDING",
+        "examiner_hand_position": "PENDING",
+        "force_direction": "PENDING",
+        "embedded_text": "PENDING",
+        "user_preview": "PENDING"
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3533,7 +3531,7 @@
         "Positive response must appear in thumb/index of the same examined hand",
         "Do not depict pain or paresthesia as the positive finding"
       ],
-      "review_note": "ct088 clinical brief + rich interpretation are complete. Realistic image remains BLOCKED after C1 ambiguous target and C2-C4 wrong-subject generation drift. Schematic fallback remains canonical; do not connect any failed image to Preview.",
+      "review_note": "ct088 clinical brief + rich interpretation are complete. No active realistic candidate. C1 rejected for ambiguous middle-finger target; C2-C4 rejected for wrong-subject generation drift. Stable-ID schematic fallback remains canonical.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3601,7 +3599,18 @@
           ],
           "note": "Third consecutive attempt drifted to ct084 ULNT1 despite explicit ct088 Hoffmann edit instruction and reference targeting. Rejected immediately. Image generation is hard-stopped for this manual chunk; no wrong-subject asset may enter Preview."
         }
-      ]
+      ],
+      "generation_blocker": {
+        "status": "ACTIVE",
+        "reason": "REPEATED_WRONG_SUBJECT_GENERATION_DRIFT",
+        "note": "No active candidate survived internal gate. Candidate-specific FAIL states are preserved only in candidate_history; the six current review gates remain PENDING until a valid candidate exists.",
+        "failed_candidate_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
     },
     {
       "clinical_test_id": "ct089",
