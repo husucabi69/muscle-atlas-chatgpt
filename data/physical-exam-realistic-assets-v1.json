@@ -3794,7 +3794,7 @@
           "preview_dimensions": "900x1053",
           "preview_embedded_webp_sha256": "bf7531b377fa800cf123552379bd507d770ded9f9286ef52a8b409d60c184c85",
           "preview_svg_sha256": "b8136b028c6386fb38ec47d095318b5a3bdce6657d01788b419375b423a05ae8",
-          "preview_git_blob_sha": "b8536406f6e22d17f7565b96e7946b03136d381b",
+          "preview_git_blob_sha": "08c4d361d5faccac4de8cb22b2ea3492fa782d4b",
           "disposition": "INTERNAL_PASS_PREVIEW_READY_USER_APPROVAL_PENDING",
           "passed_axes": [
             "hand_dorsum_up",
@@ -3814,7 +3814,7 @@
       "generation_blocker": {
         "status": "RESOLVED_FOR_PREVIEW",
         "reason": "ASCII_SVG_WRAPPER_WITH_EMBEDDED_WEBP_VERIFIED",
-        "note": "The prior binary handoff failure was bypassed without external hosting by using a UTF-8 SVG wrapper containing the compressed WebP Preview derivative. Canonical approval still waits on user review."
+        "note": "Prior binary handoff corruption was resolved for Preview using a UTF-8 SVG wrapper containing a hash-tracked WebP derivative; embedded base64 length and Git blob were re-verified after repair. Canonical approval still waits on user review."
       },
       "direct_reference_review": {
         "status": "LOCKED",
@@ -3833,7 +3833,7 @@
         "preview_dimensions": "900x1053",
         "preview_embedded_webp_sha256": "bf7531b377fa800cf123552379bd507d770ded9f9286ef52a8b409d60c184c85",
         "preview_svg_sha256": "b8136b028c6386fb38ec47d095318b5a3bdce6657d01788b419375b423a05ae8",
-        "preview_git_blob_sha": "b8536406f6e22d17f7565b96e7946b03136d381b",
+        "preview_git_blob_sha": "08c4d361d5faccac4de8cb22b2ea3492fa782d4b",
         "internal_qa": "PASS_10_OF_10",
         "user_approval": "PENDING"
       }
