@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.03-exam-real-001-ct083-candidate2-preview-connected",
+  "dataset_version": "2026.10.03-exam-real-001-ct084-brief-locked",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3264,15 +3264,22 @@
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "견갑을 안정화하고 어깨 외전, 손목/손가락 신전, 전완 회외, 어깨 외회전, 팔꿈치 신전을 단계적으로 적용한다.",
-        "examiner_maneuver": "증상 재현 후 경추 측굴을 이용한 structural differentiation을 확인한다.",
-        "positive_finding": "환자의 익숙한 상지 증상이 재현되고 신경계 부하를 변화시키는 structural differentiation에 따라 증상이 변하면 기록한다.",
-        "interpretation": "2023 표준화 제안과 2026 review에 따라 단독 확정검사가 아니라 radiculopathy 임상추론의 일부로 사용한다.",
-        "limitation_safety": "검사 순서·양성기준 이질성이 있고 median nerve entrapment 등 다른 원인도 고려한다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic adult clinician; clean neutral clinic background; no identifiable real patient; independently generated new people/pose/scene; same premium realistic visual family as approved ct082",
+        "panel_structure": "세로형 portrait 3-panel을 위→아래로 쌓는다: 1 시작 자세 / 2 검사 시행 / 3 구조적 감별·양성 판단. 세 패널은 동일 환자·동일 검사자를 유지한다.",
+        "patient_setup": "성인 여성형 환자. 앙와위. 우측 상지를 검사한다. 우측 견갑대를 검사자가 안정화하고 팔은 처음에는 편안히 둔다.",
+        "examiner_maneuver": "성인 남성형 검사자. 우측 견갑대를 안정화한 상태에서 우측 어깨 외전 → 전완 회외 → 손목/손가락 신전 → 어깨 외회전 → 팔꿈치 신전을 단계적으로 적용한다. 각 요소는 부드럽고 점진적으로 적용하며 과도한 end-range 도발은 피한다.",
+        "structural_differentiation": "우측 상지 검사 자세를 유지한 채 경추를 반대쪽(좌측)으로 가볍게 측굴하여 신경계 부하를 변화시킨다. 익숙한 우측 상지 증상이 증가·감소 등 의미 있게 변하는지 확인한다. 그림에서는 반대쪽 측굴과 우측 팔 증상 변화를 명확히 연결한다.",
+        "positive_finding": "환자의 평소 익숙한 우측 팔/전완/손의 신경성 통증·저림이 재현되고, 경추 structural differentiation으로 그 증상이 의미 있게 변하면 양성 소견으로 기록한다. 단순 stretch discomfort만으로 양성으로 표현하지 않는다.",
+        "interpretation": "ULNT1은 cervical radiculopathy 진단을 보조하는 검사이며 단독 확진검사가 아니다. 2026 systematic review에서 ULNT1 pooled sensitivity 약 0.70, specificity 약 0.71이었으나 근거 확실성은 낮거나 매우 낮았다. 병력·신경학적 검사·다른 검사와 함께 해석한다.",
+        "limitation_safety": "검사 시행 순서·cut-off·양성기준의 연구 이질성이 크다. median nerve entrapment 등 말초 신경 문제와 구분해야 한다. 급성 외상, 심한 신경학적 악화, 강한 신경 자극 증상이 있는 경우 과도한 provocation을 피한다.",
+        "overlay_policy": "우측 팔 검사로 laterality를 고정한다. 검사자의 견갑 안정화 손과 원위부 손 위치를 명확히 표시한다. 움직임 화살표는 단계적 우측 상지 positioning을 보여주고, 3번 패널은 경추 좌측 측굴과 우측 팔의 익숙한 신경성 증상 변화를 연결한다. 임의 각도·kg·횟수 금지.",
+        "text_policy": "이미지 내부 글자는 극소화. 허용: 패널 번호, '시작 자세', '검사 시행', '구조적 감별', 필요 시 '익숙한 팔 증상 변화'. 영문 병기, 장문 설명, 진단 확정 문구, 수치·각도 금지.",
+        "model_casting": {
+          "patient": "성인 여성형",
+          "examiner": "성인 남성형",
+          "rule": "ct084 mod 4 = 0",
+          "casting_rule_version": "2026-10-03"
+        }
       },
       "review": {
         "clinical_content": "PENDING",
@@ -3287,7 +3294,21 @@
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "evidence_alignment": {
+        "canonical_refs": [
+          "ulnt_standard",
+          "radic_review_2026"
+        ],
+        "status": "PASS_WITH_LOW_CERTAINTY_CAUTION",
+        "note": "2026 systematic review: ULNT1 pooled sensitivity ~0.70 and specificity ~0.71 with low/very-low certainty; use only as an adjunct. 2023 systematic review/meta-analysis also found only fair diagnostic accuracy with high heterogeneity."
+      },
+      "approval_blockers": [
+        "Laterality must remain right upper limb throughout all panels",
+        "Contralateral cervical side-bending must be visually linked to change in the same right-arm symptoms",
+        "Do not treat generic stretch discomfort as a positive result"
+      ],
+      "review_note": "ct084 brief re-locked 2026-10-03 before generation. Adult female-presenting patient / adult male-presenting examiner per casting contract. Right-arm laterality fixed."
     },
     {
       "clinical_test_id": "ct085",
