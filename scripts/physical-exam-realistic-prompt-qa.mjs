@@ -30,7 +30,7 @@ check('Four cervical pilot profiles remain generation-ready while ct088 waits fo
   JSON.stringify(generationReadyIds)===JSON.stringify(['ct083','ct084','ct092','ct095']),
   JSON.stringify(generationReadyIds));
 const ct088=manifest.profiles?.find(x=>x.clinical_test_id==='ct088');
-const ct088PreviewPath=String(ct088?.preview_candidate?.preview_asset_path||'').replace(/^\\.\\//,'');
+const ct088PreviewPath=String(ct088?.preview_candidate?.preview_asset_path||'').replace(/^\.\//,'');
 check('ct088 Candidate 13 is Preview-ready but not user-approved',
   ct088?.status==='PREVIEW_CANDIDATE_READY'&&
   ct088?.brief_status==='GENERATION_READY'&&
