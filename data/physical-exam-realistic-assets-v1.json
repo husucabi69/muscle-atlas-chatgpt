@@ -3482,9 +3482,9 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PENDING_GENERATION",
+      "status": "INTERNAL_PASS_USER_PREVIEW_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3520,12 +3520,14 @@
         }
       },
       "review": {
-        "clinical_content": "PENDING",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-03",
+        "note": "Candidate 13 passed the locked hand-only four-panel Hoffmann QA. Final approval is blocked only on user visual review in Cloudflare Preview."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3541,10 +3543,9 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "Valid high-resolution Candidate 8 derivative binary must be materialized with verified dimensions/hash before Preview exposure.",
-        "User visual approval remains required after binary integrity is restored."
+        "User visual approval remains required in exact ct088 Preview before canonical approval or any main merge."
       ],
-      "review_note": "ct088 corrected clinical brief and rich interpretation are complete. Candidate 8 four-panel derivative is locally ready but repository binary handoff failed integrity; verified schematic fallback is restored until a valid binary is materialized.",
+      "review_note": "Physiotutors maneuver facts were directly reviewed; Candidate 13 was independently generated and iterated until the middle-finger target, distal flick/DIP cue, and same-hand thumb/index response were visually unambiguous enough for Preview.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3706,20 +3707,135 @@
           ],
           "note": "Candidate 8 follows the user-corrected hand-only four-step Hoffmann concept. Detailed interpretation remains in app HTML below the image. User visual approval remains required. Corrected four-panel derivative exists locally and is documented, but repository binary handoff failed integrity/runtime decode. It is not exposed to users.",
           "binary_handoff_status": "FAILED_CORRUPT_UPLOAD_DO_NOT_USE"
+        },
+        {
+          "candidate_no": 9,
+          "gen_id": "13ff5475-6dcc-4aab-9328-09500bfdce46",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1159x1356",
+          "source_session_path": "/mnt/data/a_clean_clinical_high_resolution_composite_photo.png",
+          "disposition": "REJECTED_NOT_CANONICAL",
+          "failed_axes": [
+            "target_middle_finger_identity"
+          ],
+          "passed_axes": [
+            "portrait_four_panel",
+            "hand_only_focus",
+            "positive_thumb_index_concept"
+          ],
+          "note": "Rejected before Preview because the manipulated digit could still be mistaken for an adjacent finger."
+        },
+        {
+          "candidate_no": 10,
+          "gen_id": "fe0186bd-3c5f-4849-a132-4f24154b440e",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1159x1356",
+          "source_session_path": "/mnt/data/a_clean_high_resolution_clinical_instructional_s.png",
+          "disposition": "REJECTED_NOT_CANONICAL",
+          "failed_axes": [
+            "target_middle_finger_identity",
+            "positive_thumb_adduction_clarity"
+          ],
+          "passed_axes": [
+            "portrait_four_panel",
+            "hand_only_focus",
+            "flick_concept"
+          ],
+          "note": "Rejected before Preview; side-view target finger remained insufficiently unambiguous and the positive thumb response was not clean enough."
+        },
+        {
+          "candidate_no": 11,
+          "gen_id": "d6fae2a7-a535-4008-a5e1-abd69eea7aef",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1159x1356",
+          "source_session_path": "/mnt/data/a_clean_instructional_medical_clinical_style_colla.png",
+          "disposition": "REJECTED_NOT_CANONICAL",
+          "failed_axes": [
+            "positive_thumb_adduction_clarity"
+          ],
+          "passed_axes": [
+            "middle_finger_support",
+            "distal_flick_target",
+            "same_hand_index_flexion"
+          ],
+          "note": "Rejected before Preview because panel 4 showed the thumb too abducted rather than a clear flexion/adduction response."
+        },
+        {
+          "candidate_no": 12,
+          "gen_id": "f171dbb0-5522-4984-a729-7d38657403a9",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1159x1356",
+          "source_session_path": "/mnt/data/a_clean_clinical_instructional_photo_collage_in_a.png",
+          "disposition": "REJECTED_NOT_CANONICAL",
+          "failed_axes": [
+            "dip_momentary_flexion_visibility"
+          ],
+          "passed_axes": [
+            "middle_finger_identity",
+            "middle_finger_support",
+            "same_hand_thumb_index_response"
+          ],
+          "note": "Rejected before Preview because the nail/distal-phalanx contact was good but the DIP momentary flexion itself remained too straight/ambiguous."
+        },
+        {
+          "candidate_no": 13,
+          "gen_id": "64db8f81-b5e0-460a-8b41-046895643b0b",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1159x1356",
+          "raw_generation_sha256": "1edd9e1936f1d60dc4215be458628d80bab9a5772573ef0ae9e78b724050829d",
+          "source_session_path": "/mnt/data/a_clean_clinical_photographic_collage_on_a_neutral.png",
+          "human_edit_summary": "Human/editorial pass added only the four locked minimal labels, retained the single palmward motion arrow in panel 3, and encoded a 900x1053 mobile Preview derivative. No external Physiotutors frame, model, lighting, or layout was copied.",
+          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-64db8f81-derived-4panel.svg",
+          "preview_dimensions": "900x1053",
+          "preview_embedded_webp_sha256": "bf7531b377fa800cf123552379bd507d770ded9f9286ef52a8b409d60c184c85",
+          "preview_svg_sha256": "b8136b028c6386fb38ec47d095318b5a3bdce6657d01788b419375b423a05ae8",
+          "preview_git_blob_sha": "b8536406f6e22d17f7565b96e7946b03136d381b",
+          "disposition": "INTERNAL_PASS_PREVIEW_READY_USER_APPROVAL_PENDING",
+          "passed_axes": [
+            "hand_dorsum_up",
+            "normal_five_digit_anatomy",
+            "middle_finger_identity",
+            "middle_finger_support_proximal_to_dip",
+            "distal_phalanx_nail_flick",
+            "dip_momentary_flexion_and_release_cue",
+            "same_hand_thumb_index_response",
+            "no_required_ring_little_response",
+            "no_pain_radiation_overlay",
+            "mobile_high_resolution"
+          ],
+          "note": "Candidate 13 passed the locked 10-point internal checklist and is the only candidate allowed to be exposed in Preview. User visual approval remains required before canonical approval."
         }
       ],
       "generation_blocker": {
-        "status": "ACTIVE",
-        "reason": "BINARY_HANDOFF_INTEGRITY_FAILURE",
-        "note": "The locally reviewed Candidate 8 four-panel derivative could not be transferred to the repository with intact WebP bytes in this work chunk. App has reverted to the verified Stable-ID schematic fallback; no broken or corrupt image is exposed.",
-        "intended_derivative_dimensions": "1200x1275",
-        "intended_derivative_sha256": "e13f892f7cbf397d53b505f04fc6d7820856c8aab171e66b76f1f67d1b60ae25"
+        "status": "RESOLVED_FOR_PREVIEW",
+        "reason": "ASCII_SVG_WRAPPER_WITH_EMBEDDED_WEBP_VERIFIED",
+        "note": "The prior binary handoff failure was bypassed without external hosting by using a UTF-8 SVG wrapper containing the compressed WebP Preview derivative. Canonical approval still waits on user review."
       },
       "direct_reference_review": {
         "status": "LOCKED",
         "reviewed_on": "2026-10-03",
         "reference_role": "clinical_maneuver_facts_only",
         "note": "Physiotutors demonstration reviewed only to verify technique; no external visual expression copied."
+      },
+      "preview_candidate": {
+        "candidate_no": 13,
+        "gen_id": "64db8f81-b5e0-460a-8b41-046895643b0b",
+        "generated_on": "2026-10-03",
+        "source_session_path": "/mnt/data/a_clean_clinical_photographic_collage_on_a_neutral.png",
+        "raw_generation_dimensions": "1159x1356",
+        "raw_generation_sha256": "1edd9e1936f1d60dc4215be458628d80bab9a5772573ef0ae9e78b724050829d",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-64db8f81-derived-4panel.svg",
+        "preview_dimensions": "900x1053",
+        "preview_embedded_webp_sha256": "bf7531b377fa800cf123552379bd507d770ded9f9286ef52a8b409d60c184c85",
+        "preview_svg_sha256": "b8136b028c6386fb38ec47d095318b5a3bdce6657d01788b419375b423a05ae8",
+        "preview_git_blob_sha": "b8536406f6e22d17f7565b96e7946b03136d381b",
+        "internal_qa": "PASS_10_OF_10",
+        "user_approval": "PENDING"
       }
     },
     {
