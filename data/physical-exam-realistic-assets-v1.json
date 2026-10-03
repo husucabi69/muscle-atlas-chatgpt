@@ -3482,7 +3482,7 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "USER_PREVIEW_PENDING",
+      "status": "PREVIEW_CANDIDATE_READY",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
       "composite_url": null,
@@ -3545,7 +3545,7 @@
       "approval_blockers": [
         "User must visually confirm exact middle-finger support/flick and same-hand thumb/index response before canonical approval."
       ],
-      "review_note": "ct088 Candidate 8 connected as high-resolution corrected Preview candidate. Keep all prior failed candidates in history; do not delete schematic fallback until user approval.",
+      "review_note": "ct088 Candidate 8 is a reviewable Preview candidate, not approved. High-resolution hand-only four-panel derivative connected; schematic fallback remains available until user approval.",
       "candidate_history": [
         {
           "candidate_no": 1,
