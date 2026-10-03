@@ -100,6 +100,22 @@ Stage 23A 기반 UX 위에서 현재 Stage 23B 콘텐츠/진찰도해를 계속 
 - 장기 운영 정본: 자체 해부도해·3D·motion·실제 초음파·근육별 재활·질환별 재활은 계속 추가/교체되는 Evergreen 콘텐츠이며, 새 요청은 Idea Register에 보존 후 로드맵 우선순위에 따라 구현
 
 ---
+## 웹·브라우저 검증 도구 정책 — LOCKED 2026-10-03
+
+사용자 정본 지시:
+> 앞으로 근육학에서 기본은 GitHub connector / 직접 API 확인 / 자체 Chromium E2E로 해. TinyFish는 자체 E2E로 재현이 안 되는 UI 문제에만 예외적으로 써. 쓸 때마다 '왜 자체 E2E로 안 되는지' 먼저 밝혀.
+
+실행 규칙:
+- 1순위는 **GitHub connector**로 저장소 상태·파일·commit·workflow를 직접 확인한다.
+- 외부 서비스 상태는 가능한 경우 **공식 API / 직접 HTTP 확인**을 우선한다.
+- 실제 화면 검증은 저장소에 포함된 **자체 Chromium/Playwright E2E**를 기본으로 한다.
+- **TinyFish는 자체 Chromium E2E로 재현할 수 없는 UI 상호작용 문제에만 예외적으로 사용**한다.
+- TinyFish를 호출하기 전 반드시 작업 보고에 **“왜 자체 E2E로 재현할 수 없는지”**를 구체적으로 적는다.
+- 단순 공개 페이지 읽기, 공식 문서 검색, GitHub/Cloudflare 상태 확인, 일반 Preview 검증을 이유로 TinyFish를 사용하지 않는다.
+- TinyFish SDK/API 호출을 앱 runtime, production bundle, service worker, Cloudflare Worker 또는 데이터 파이프라인에 넣지 않는다. 사용하더라도 개발자의 외부 검증 도구일 뿐 최종 앱 코드 의존성으로 남기지 않는다.
+- 로그인 사이트는 가능한 한 해당 서비스의 공식 connector/API/자체 인증 E2E를 우선한다. TinyFish Browser Profile/Vault가 정말 필요한 경우에도 사용자 승인과 사전 이유 설명 없이 사용하지 않으며 ID·비밀번호를 코드/채팅/저장소에 기록하지 않는다.
+- TinyFish 사용 시 대상 사이트, 목적, 대체 불가 사유, run 수를 HANDOFF 또는 관련 provenance에 기록한다.
+
 ## 개발 운영
 - 개발은 dev branch에서 한다.
 - 정본 Stage 12 dev branch: `dev/stage12-readonly-integration-20260925`. 과거 stage11/stage12 divergent branch는 참고용이며 merge하지 않는다.
