@@ -3482,9 +3482,9 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+      "status": "PREVIEW_CANDIDATE_READY",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3527,7 +3527,7 @@
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-03",
-        "note": "Candidate 13 passed the locked hand-only four-panel Hoffmann QA. Final approval is blocked only on user visual review in Cloudflare Preview."
+        "note": "Candidate 13 passed internal anatomy/technique QA and is staged as PREVIEW_CANDIDATE_READY. Canonical approval remains blocked on user visual review."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3795,7 +3795,7 @@
           "preview_embedded_webp_sha256": "bf7531b377fa800cf123552379bd507d770ded9f9286ef52a8b409d60c184c85",
           "preview_svg_sha256": "b8136b028c6386fb38ec47d095318b5a3bdce6657d01788b419375b423a05ae8",
           "preview_git_blob_sha": "08c4d361d5faccac4de8cb22b2ea3492fa782d4b",
-          "disposition": "INTERNAL_PASS_PREVIEW_READY_USER_APPROVAL_PENDING",
+          "disposition": "PREVIEW_CANDIDATE_READY_USER_APPROVAL_PENDING",
           "passed_axes": [
             "hand_dorsum_up",
             "normal_five_digit_anatomy",
@@ -3836,7 +3836,8 @@
         "preview_git_blob_sha": "08c4d361d5faccac4de8cb22b2ea3492fa782d4b",
         "internal_qa": "PASS_10_OF_10",
         "user_approval": "PENDING"
-      }
+      },
+      "brief_lock": "DIRECT_REFERENCE_REVIEW_LOCKED"
     },
     {
       "clinical_test_id": "ct089",
