@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.03-exam-real-001-ct088-derived-preview",
+  "dataset_version": "2026.10.03-exam-real-001-ct088-candidate8-corrected-preview",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3482,7 +3482,7 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PENDING_REGENERATION_USER_CORRECTED_BRIEF",
+      "status": "USER_PREVIEW_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "DIRECT_REFERENCE_REVIEW_LOCKED",
       "composite_url": null,
@@ -3521,13 +3521,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PENDING_CANDIDATE_8",
-        "examiner_hand_position": "PENDING_CANDIDATE_8",
-        "force_direction": "PENDING_CANDIDATE_8",
-        "embedded_text": "PENDING_CANDIDATE_8",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-03",
-        "note": "Candidate 5 preview link removed after user identified impossible hand anatomy. Candidate 7 remains rejected. Candidate 8 must pass the locked direct-reference technique brief before Preview connection."
+        "note": "Candidate 8 human-edited derivative passes internal gate. Final user approval still required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3543,10 +3543,9 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "Candidate 8 must pass 10-point internal anatomy/technique/mobile QA before Preview connection",
-        "User Preview approval remains required before canonical approval"
+        "User must visually confirm exact middle-finger support/flick and same-hand thumb/index response before canonical approval."
       ],
-      "review_note": "Directly reviewed the Physiotutors Hoffmann’s Sign demonstration on 2026-10-03. Motion facts only are used as clinical reference; no frame, composition, model, lighting, or layout may be copied. Candidate 8 must be portrait, hand-only, four-panel, minimal-label.",
+      "review_note": "ct088 Candidate 8 connected as high-resolution corrected Preview candidate. Keep all prior failed candidates in history; do not delete schematic fallback until user approval.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3681,6 +3680,32 @@
             "same_hand_thumb_index_response_concept"
           ],
           "note": "Clinically closer to the corrected Hoffmann brief, but rejected before Preview because it is a landscape infographic with dense interpretation text. The app image must be a portrait, hand-only four-panel sequence with only minimal labels; rich interpretation remains in HTML."
+        },
+        {
+          "candidate_no": 8,
+          "gen_id": "c80fb8e2-0510-441e-a4a5-b0d9465821b7",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1536x1024",
+          "raw_generation_sha256": "ea23ce96f9c30e3e5732f4258292bb02586228a765472a76d4fb8c176dc7dd64",
+          "source_session_path": "/mnt/data/a_large_educational_infographic_poster_slide_in_a.png",
+          "human_edit_summary": "Raw output was over-dense. Human/editorial processing retained only the four hand-photography panels that matched the user-corrected Hoffmann technique, removed title and all explanatory/diagnostic text blocks, and recomposed the four steps into a high-resolution 2x2 teaching asset. No external frame or Physiotutors visual was copied; the external video was used only to verify the clinical maneuver.",
+          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-c80fb8e2-derived-4panel.webp",
+          "preview_dimensions": "1200x1275",
+          "preview_webp_sha256": "e13f892f7cbf397d53b505f04fc6d7820856c8aab171e66b76f1f67d1b60ae25",
+          "preview_git_blob_sha": "2e0ef8c9d0542913ecf2d80bf60aa5269f5e1759",
+          "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
+          "passed_axes": [
+            "clinical_subject_identity",
+            "hand_dorsum_start",
+            "middle_finger_isolation_and_support",
+            "distal_phalanx_nail_flick_direction",
+            "same_hand_thumb_index_positive_response",
+            "hand_only_focus",
+            "minimal_embedded_text",
+            "high_resolution_derivative"
+          ],
+          "note": "Candidate 8 follows the user-corrected hand-only four-step Hoffmann concept. Detailed interpretation remains in app HTML below the image. User visual approval remains required."
         }
       ],
       "generation_blocker": {
@@ -3688,7 +3713,20 @@
         "reason": "PREVIOUS_PREVIEW_CANDIDATE_SUPERSEDED_FOR_ANATOMICAL_ERROR",
         "note": "Candidate 5 was unlinked from Preview after user visual review found impossible middle-finger orientation. Candidate 8 is allowed only from the direct-reference-locked brief."
       },
-      "preview_candidate": null
+      "preview_candidate": {
+        "candidate_no": 8,
+        "gen_id": "c80fb8e2-0510-441e-a4a5-b0d9465821b7",
+        "generated_on": "2026-10-03",
+        "generator": "OpenAI image generation + human crop/recomposition",
+        "raw_generation_dimensions": "1536x1024",
+        "raw_generation_sha256": "ea23ce96f9c30e3e5732f4258292bb02586228a765472a76d4fb8c176dc7dd64",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-c80fb8e2-derived-4panel.webp",
+        "preview_thumbnail_dimensions": "1200x1275",
+        "preview_webp_sha256": "e13f892f7cbf397d53b505f04fc6d7820856c8aab171e66b76f1f67d1b60ae25",
+        "preview_git_blob_sha": "2e0ef8c9d0542913ecf2d80bf60aa5269f5e1759",
+        "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
+        "note": "Hand-only corrected four-panel Hoffmann sequence; no long clinical text embedded in image."
+      }
     },
     {
       "clinical_test_id": "ct089",
