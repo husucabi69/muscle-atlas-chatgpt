@@ -44,10 +44,10 @@ check('Pilot batch is cervical six-test set',
   JSON.stringify(reg.pilot?.clinical_test_ids||[]));
 
 const pilotProfiles=profiles.filter(p=>(reg.pilot?.clinical_test_ids||[]).includes(p.clinical_test_id));
-check('Pilot state allows approved ct082 and generation-ready remainder',
+check('Pilot state allows approved ct082 and reviewable generation-ready remainder',
   pilotProfiles.every(p=>p.clinical_test_id==='ct082'
     ? p.status==='APPROVED'&&p.brief_status==='APPROVED'
-    : p.status==='PENDING_GENERATION'&&p.brief_status==='GENERATION_READY'));
+    : ['PENDING_GENERATION','PREVIEW_CANDIDATE_READY'].includes(p.status)&&p.brief_status==='GENERATION_READY'));
 
 const approvedProfiles=profiles.filter(p=>p.status==='APPROVED');
 check('Exactly ct082 is approved in current pilot',
@@ -76,7 +76,7 @@ if(approvedPath&&fs.existsSync(approvedPath)){
 check('No false approval outside approved asset',
   profiles.every(p=>p.status==='APPROVED'
     ? Boolean(p.approved_asset)&&p.review?.user_preview==='PASS'&&Boolean(p.composite_url)
-    : p.status==='PENDING_GENERATION'&&p.composite_url===null));
+    : ['PENDING_GENERATION','PREVIEW_CANDIDATE_READY'].includes(p.status)&&p.review?.user_preview!=='PASS'&&p.composite_url===null));
 
 for(const p of profiles){
   const b=p.generation_brief||{};
