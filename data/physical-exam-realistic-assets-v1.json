@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.03-exam-real-001-ct088-brief-interpretation-locked",
+  "dataset_version": "2026.10.03-exam-real-001-ct088-derived-preview",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3482,7 +3482,7 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PENDING_GENERATION",
+      "status": "PREVIEW_CANDIDATE_READY",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "GENERATION_READY",
       "composite_url": null,
@@ -3505,12 +3505,14 @@
         }
       },
       "review": {
-        "clinical_content": "PENDING",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "clinical_content": "PASS",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-03",
+        "note": "Human-edited candidate 5 derivative internally PASS. Sequence shows relaxed start, middle-finger support, distal phalanx/nail flick, then same-hand thumb/index response. User Preview review required before canonical approval."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3526,12 +3528,9 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "Patient hand must be visibly relaxed rather than actively gripping",
-        "Flick must target the middle-finger distal phalanx/nail region with immediate release",
-        "Positive response must appear in thumb/index of the same examined hand",
-        "Do not depict pain or paresthesia as the positive finding"
+        "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "ct088 clinical brief + rich interpretation are complete. No active realistic candidate. C1 rejected for ambiguous middle-finger target; C2-C4 rejected for wrong-subject generation drift. Stable-ID schematic fallback remains canonical.",
+      "review_note": "ct088 Candidate 5 human-edited derivative is now the active user-review target. Keep prior failures in history; do not auto-approve.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3598,18 +3597,71 @@
             "text_policy"
           ],
           "note": "Third consecutive attempt drifted to ct084 ULNT1 despite explicit ct088 Hoffmann edit instruction and reference targeting. Rejected immediately. Image generation is hard-stopped for this manual chunk; no wrong-subject asset may enter Preview."
+        },
+        {
+          "candidate_no": 5,
+          "gen_id": "7b7c9985-3403-4530-96ca-ab65640fbaf7",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "00fe7407e56d3628cc599da7966667c015ea3120ff9f34a239f003e9a7b2c214",
+          "source_session_path": "/mnt/data/a_detailed_medical_infographic_layout_clean_clini.png",
+          "human_edit_summary": "Raw ct088 infographic was not used as-is. Human/editorial processing cropped only the four clinically relevant realistic examination panels, removed duplicated anatomy/interpretation blocks, recomposed them into a clean 2×2 step sequence, and resized to a mobile-friendly 480×562 WebP. No new anatomical content was invented during the crop/composite edit.",
+          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-7b7c9985-derived-preview.webp",
+          "preview_dimensions": "480x562",
+          "preview_webp_sha256": "42bec8cae2b280f5b9a002ba942e211828024ecca783307158de97ee4b2f7441",
+          "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
+          "passed_axes": [
+            "clinical_content",
+            "adult_model_casting",
+            "realistic_style",
+            "examiner_hand_position",
+            "middle_finger_support",
+            "flick_direction",
+            "same_hand_thumb_index_response",
+            "minimal_embedded_text_after_crop"
+          ],
+          "note": "Candidate 5 raw output was over-dense, but its four realistic Hoffmann sequence panels were clinically usable. Human-edited derivative removes the redundant infographic content and preserves only the examination sequence. User Preview approval still required."
+        },
+        {
+          "candidate_no": 6,
+          "gen_id": "408a5727-2345-4f2a-a989-801b45093b4a",
+          "generated_on": "2026-10-03",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1536x1024",
+          "raw_generation_sha256": "2dfa78a41e1127ec1e713be240fba2190901a8a76fa915f06f7533b862d88fc1",
+          "source_session_path": "/mnt/data/a_detailed_medical_instructional_infographic_with.png",
+          "disposition": "REJECTED_OVERDENSE_WRONG_FORMAT_NOT_CANONICAL",
+          "failed_axes": [
+            "panel_contract",
+            "text_policy",
+            "mobile_layout"
+          ],
+          "passed_axes": [
+            "clinical_subject_identity",
+            "flick_concept",
+            "positive_response_concept"
+          ],
+          "note": "Correct Hoffmann subject but landscape dense infographic duplicated interpretation that already belongs in app HTML. Rejected as app image."
         }
       ],
       "generation_blocker": {
-        "status": "ACTIVE",
-        "reason": "REPEATED_WRONG_SUBJECT_GENERATION_DRIFT",
-        "note": "No active candidate survived internal gate. Candidate-specific FAIL states are preserved only in candidate_history; the six current review gates remain PENDING until a valid candidate exists.",
-        "failed_candidate_numbers": [
-          1,
-          2,
-          3,
-          4
-        ]
+        "status": "RESOLVED_BY_HUMAN_EDITED_DERIVATIVE",
+        "reason": "VALID_CLINICAL_SEQUENCE_RECOVERED_FROM_CANDIDATE_5",
+        "note": "Repeated raw generation drift/overdensity was resolved by human selection and editorial recomposition of clinically correct Hoffmann panels."
+      },
+      "preview_candidate": {
+        "candidate_no": 5,
+        "gen_id": "7b7c9985-3403-4530-96ca-ab65640fbaf7",
+        "generated_on": "2026-10-03",
+        "generator": "OpenAI image generation + human crop/composite derivative",
+        "raw_generation_dimensions": "1024x1536",
+        "raw_generation_sha256": "00fe7407e56d3628cc599da7966667c015ea3120ff9f34a239f003e9a7b2c214",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-7b7c9985-derived-preview.webp",
+        "preview_thumbnail_dimensions": "480x562",
+        "preview_webp_sha256": "42bec8cae2b280f5b9a002ba942e211828024ecca783307158de97ee4b2f7441",
+        "disposition": "INTERNAL_PASS_HUMAN_EDITED_DERIVATIVE_USER_PREVIEW_PENDING",
+        "note": "Four-step realistic Hoffmann sequence derived from candidate 5 raw generation. Detailed interpretation remains in HTML below the image."
       }
     },
     {
