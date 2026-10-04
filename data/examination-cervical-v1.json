@@ -193,11 +193,11 @@
       "name_en": "Hoffmann sign",
       "category": "myelopathy_screen",
       "target_structure_ids": [],
-      "setup": "환자는 편안히 앉고 검사할 손을 회내(pronation)하여 손등이 위로 보이게 둔다. 손목과 손가락은 힘을 빼고 이완시킨다.",
-      "maneuver": "검사자는 중지를 안정적으로 지지한 뒤 중지 손톱/원위지골을 손바닥 쪽으로 짧고 빠르게 눌러 DIP를 순간 굴곡시킨 후 즉시 놓는다. 같은 손의 엄지와 검지의 비자발적 반응을 관찰한다. 필요하면 재현성을 확인하고 반대쪽과 비교한다.",
-      "positive_definition": "같은 손에서 엄지의 빠른 굴곡·내전 및/또는 검지 굴곡이 나타나면 Hoffmann sign 양성으로 기록한다. 4·5수지 굴곡은 정의상 필수 양성 기준이 아니다.",
-      "interpretation_note": "상위운동신경원/피질척수로 이상 가능성을 시사하는 병적 반사다. 경추 척수병증 의심도를 높일 수 있지만 병변의 정확한 척추 level을 국소화하거나 단독으로 확진·배제하지 못한다.",
-      "limitation": "정상인에서도 양성일 수 있고, 양측성이라고 임상 의미가 자동으로 낮아지는 것은 아니다. 한 연구에서는 양측 Hoffmann 양성이 편측보다 occult cervical cord compression과 더 강하게 연관됐다. 연구별 진단정확도 변이가 크므로 전체 신경학적 검사와 통합한다.",
+      "setup": "환자는 편안히 앉고 검사할 손을 회내(pronation)하여 손등이 위로 보이게 편하게 눕힌다. 손목과 손가락의 힘을 완전히 빼고 이완시킨다.",
+      "maneuver": "검사자는 왼손으로 제3수지인 중지의 근위지절간관절(Proximal Interphalangeal Joint, PIP)을 단단히 안정화한다. 오른손으로 중지의 손톱·원위지골을 잡아 원위지절간관절(Distal Interphalangeal Joint, DIP)을 손바닥 쪽으로 아주 짧고 빠르게 굴곡시킨 뒤 즉시 놓아 반동(rebound)되게 한다. 같은 손의 엄지와 검지의 비자발적 반응을 관찰한다.",
+      "positive_definition": "같은 손에서 엄지의 빠른 굴곡·내전 및/또는 검지 굴곡이 비자발적으로 나타나면 Hoffmann sign 양성으로 기록한다. 제4·5수지 굴곡은 필수 양성 기준으로 과장하지 않는다.",
+      "interpretation_note": "상위운동신경원(Upper Motor Neuron, UMN) 또는 피질척수로 이상 가능성을 시사하는 병적 반사다. 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 의심도를 높일 수 있지만 단독으로 확진·배제하거나 정확한 병변 척추 수준을 국소화하지 못한다.",
+      "limitation": "정상인에서도 양성일 수 있고 연구별 진단정확도 변이가 크므로 전체 신경학적 검사와 통합한다. 음성 Hoffmann sign 하나로 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 배제하지 않는다.",
       "related_diagnosis_concept_ids": [
         "d090"
       ],
@@ -211,29 +211,29 @@
         "dynamic_hoffmann_2018"
       ],
       "interpretation_detail": {
-        "what_it_assesses": "Hoffmann sign은 중지 원위지골을 빠르게 굴곡·반동시켜 같은 손의 엄지·검지 굴곡 반응을 보는 병적 반사 검사다. 상위운동신경원/피질척수로 기능 이상 가능성을 살피며, 경추 신경근병증(radiculopathy) 자체를 진단하는 검사가 아니다.",
-        "positive_meaning": "같은 손의 엄지 굴곡·내전 및/또는 검지 굴곡이 비자발적으로 나타나면 양성이다. 이는 cervical cord dysfunction을 포함한 corticospinal tract 이상 가능성을 높이는 단서지만, 정상 과반사에서도 나타날 수 있어 양성 하나만으로 경추척수병증을 확진할 수 없다.",
+        "what_it_assesses": "Hoffmann sign은 중지의 근위지절간관절(Proximal Interphalangeal Joint, PIP)을 안정화한 상태에서 원위지절간관절(Distal Interphalangeal Joint, DIP)을 빠르게 굴곡·방출시켜 같은 손의 엄지·검지 반응을 보는 병적 반사 검사다. 상위운동신경원(Upper Motor Neuron, UMN) 또는 피질척수로 기능 이상 가능성을 살피며 경추 신경근병증(radiculopathy) 자체를 진단하는 검사는 아니다.",
+        "positive_meaning": "같은 손의 엄지 굴곡·내전 및/또는 검지 굴곡이 비자발적으로 나타나면 양성이다. 이는 경추 척수 기능 이상을 포함한 피질척수로(corticospinal tract) 이상 가능성을 높이는 단서지만 정상 과반사에서도 나타날 수 있어 양성 하나만으로 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 확진할 수 없다.",
         "raises_suspicion_for": [
-          "손의 서툼, 단추 잠그기 어려움, 물건을 자주 떨어뜨림, 보행불안정, 사지 과반사 등과 함께 있으면 퇴행성 경추척수병증(DCM)을 우선 의심한다.",
-          "경추 협착, 추간판/골극, 후종인대골화증(OPLL) 등 경추 척수압박의 구조적 원인이 임상문맥과 맞는지 확인한다.",
-          "경추 영상으로 설명되지 않는 UMN 소견이면 뇌 또는 다른 척수 부위의 피질척수로 병변도 감별한다."
+          "손의 서툼, 단추 잠그기 어려움, 물건을 자주 떨어뜨림, 보행불안정, 사지 과반사 등과 함께 있으면 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 우선 의심한다.",
+          "경추 협착, 추간판/골극, 후종인대골화증(Ossification of the Posterior Longitudinal Ligament, OPLL) 등 경추 척수압박의 구조적 원인이 임상문맥과 맞는지 확인한다.",
+          "경추 영상으로 설명되지 않는 상위운동신경원(Upper Motor Neuron, UMN) 소견이면 뇌 또는 다른 척수 부위의 피질척수로 병변도 감별한다."
         ],
         "important_differentials": [
-          "DCM ↔ 경추 신경근병증: radiculopathy는 root-level 감각·근력·반사 이상이 중심이며 Hoffmann sign은 root localization 검사가 아니다.",
-          "DCM ↔ 정상/생리적 과반사: 무증상 양성도 가능하다. 양측 대칭이라는 이유만으로 의미가 낮다고 단정하지 않는다.",
-          "DCM ↔ 기타 중추신경계 병변: 뇌졸중 후유증, 탈수초성 질환, 다른 척수병변 등 신경학적 분포로 구분한다.",
-          "DCM ↔ 말초신경병증/포착신경병증: 말초병변은 Hoffmann sign만으로 설명되지 않으며 근력·감각·반사 패턴과 필요 시 EMG/NCS를 본다."
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 경추 신경근병증: 신경근병증은 신경근(root) 수준의 감각·근력·반사 이상이 중심이며 Hoffmann sign은 신경근 수준을 국소화하는 검사가 아니다.",
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 정상/생리적 과반사: 무증상 양성도 가능하다.",
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 기타 중추신경계 병변: 뇌졸중 후유증, 탈수초성 질환, 다른 척수병변 등을 신경학적 분포로 구분한다.",
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 말초신경병증/포착신경병증: 말초병변은 Hoffmann sign만으로 설명되지 않으며 필요 시 근전도검사(Electromyography, EMG)와 신경전도검사(Nerve Conduction Study, NCS)를 본다."
         ],
-        "what_it_cannot_rule_out": "Hoffmann sign이 음성이라고 DCM을 배제할 수 없다. 2024 체계적 고찰에서도 임상 징후의 진단정확도는 연구마다 크게 달랐고, Hoffmann sign은 단독 screening/rule-out 검사로 충분하지 않았다. 반대로 양성도 정상인 또는 다른 UMN 병변에서 나타날 수 있다.",
+        "what_it_cannot_rule_out": "Hoffmann sign이 음성이라고 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 배제할 수 없다. 반대로 양성도 정상인 또는 다른 상위운동신경원(Upper Motor Neuron, UMN) 병변에서 나타날 수 있다.",
         "next_clinical_steps": [
           "손 기능 저하와 10초 grip-and-release 등 dexterity를 확인한다.",
-          "biceps, brachioradialis, triceps reflex와 generalized hyperreflexia, inverted supinator, Trömner, Babinski, ankle clonus를 함께 본다.",
+          "상완이두근(biceps), 상완요골근(brachioradialis), 상완삼두근(triceps) 심부건반사와 전신 과반사, inverted supinator, Trömner, Babinski, ankle clonus를 함께 본다.",
           "보행, tandem gait, 균형, 하지 stiffness 및 장거리 보행 변화를 확인한다.",
           "근력·감각의 다분절 이상과 심한 척수 기능 이상 증상을 확인한다.",
-          "임상적으로 DCM이 의심되면 cervical MRI를 고려하고, 진행성 신경학적 이상이면 조기에 spine specialist 평가를 연결한다."
+          "임상적으로 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)이 의심되면 경추 자기공명영상(Magnetic Resonance Imaging, MRI)을 고려하고 진행성 신경학적 이상이면 조기에 척추 전문의 평가를 연결한다."
         ],
-        "diagnostic_weight": "Glaser et al. 2001에서는 한 판독 기준으로 sensitivity 58%, specificity 78%였으나 blinded neuroradiologist subset에서는 33%/59%로 더 낮았다. 즉 58%/78%를 Hoffmann sign의 고정 성능처럼 사용하면 안 된다. Cook et al. 2010의 5항목 cluster는 gait deviation, Hoffmann, inverted supinator, Babinski, age >45로 구성되었고, 같은 표본에서 3/5 양성 시 LR+ 30.9였지만 derivation study이므로 보편적 확정 규칙으로 쓰지 않는다.",
-        "interpretation_bottom_line": "핵심은 '양성이면 C5~C6 이상 압박'처럼 level을 단정하는 것이 아니라, Hoffmann sign을 손기능 저하·보행장애·과반사·다른 병적반사와 함께 해석해 cervical myelopathy 가능성을 조정하고 필요 시 MRI/전문평가로 이어가는 것이다.",
+        "diagnostic_weight": "연구별 민감도와 특이도는 크게 달라 고정 성능값처럼 사용하면 안 된다. 5항목 cluster의 양성우도비(Positive Likelihood Ratio, LR+)도 derivation study 결과이므로 보편적 확정 규칙으로 쓰지 않는다.",
+        "interpretation_bottom_line": "Hoffmann sign을 손기능 저하·보행장애·과반사·다른 병적반사와 함께 해석해 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 가능성을 조정하고 필요 시 경추 자기공명영상(Magnetic Resonance Imaging, MRI) 및 전문평가로 이어간다.",
         "dynamic_note": "목 굴곡·신전 후 재검하는 dynamic Hoffmann은 오래된 연구와 후속 관찰연구에서 보조적 가치가 제시되었지만, 표준 Hoffmann보다 민감도가 확립적으로 높다고 단정할 근거는 부족하다."
       }
     },
@@ -291,8 +291,8 @@
       "setup": "평평하고 장애물 없는 바닥에서 낙상 안전을 확보한 뒤 자연 보행과 tandem gait를 평가한다. 검사자는 환자 옆 또는 약간 뒤에서 보호하되 결과를 만들 정도로 지지하지 않는다.",
       "maneuver": "자연 보행의 보폭·보행기저·경직·몸통 흔들림을 먼저 관찰한 뒤, 발뒤꿈치를 반대쪽 발가락 바로 앞에 두는 heel-to-toe tandem gait를 시행하게 한다. 선 이탈, side-step, 반복 실패와 균형 회복 양상을 확인한다.",
       "positive_definition": "반복되는 tandem gait 실패, 명확한 선 이탈/side-step, 비정상적으로 넓은 보행기저, 경직성 또는 불안정한 보행이 객관적으로 관찰되면 이상 소견으로 기록한다. 단 한 번의 실수만으로 양성으로 단정하지 않는다.",
-      "interpretation_note": "보행 불안정은 DCM에서 흔한 기능적 단서이며 손 서툼·과반사·병적반사와 함께 있으면 cervical cord dysfunction 의심을 높인다. 다만 tandem gait 하나는 DCM 특이 검사가 아니다.",
-      "limitation": "전정·소뇌·말초신경/고유감각·하지 관절·시각·약물·전신쇠약 등 여러 원인이 tandem gait 실패를 만들 수 있다. 낙상위험이 있으면 안전이 우선이며 음성이라고 DCM을 배제할 수 없다.",
+      "interpretation_note": "보행 불안정은 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)에서 흔한 기능적 단서이며 손 서툼·과반사·병적반사와 함께 있으면 경추 척수 기능 이상 의심을 높인다. 다만 tandem gait 하나는 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)에 특이적인 검사가 아니다.",
+      "limitation": "전정·소뇌·말초신경/고유감각·하지 관절·시각·약물·전신쇠약 등 여러 원인이 tandem gait 실패를 만들 수 있다. 낙상위험이 있으면 안전이 우선이며 음성이라고 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 배제할 수 없다.",
       "related_diagnosis_concept_ids": [
         "d090"
       ],
@@ -302,28 +302,28 @@
       ],
       "interpretation_detail": {
         "what_it_assesses": "Tandem gait와 일반 보행 관찰은 척수 기능 이상이 보행의 균형·협응·보행기저·경직성에 드러나는지를 보는 기능 선별이다. 특정 신경근(root)이나 하나의 근육을 국소화하는 검사가 아니다.",
-        "positive_meaning": "반복되는 heel-to-toe 실패, 선 이탈, side-step, 넓은 보행기저 또는 경직성 보행이 있으면 중추성 보행장애 가능성이 올라간다. 다른 UMN 소견과 손기능 저하가 함께 있으면 DCM 의심도가 더 높아진다.",
+        "positive_meaning": "반복되는 heel-to-toe 실패, 선 이탈, side-step, 넓은 보행기저 또는 경직성 보행이 있으면 중추성 보행장애 가능성이 올라간다. 다른 상위운동신경원(Upper Motor Neuron, UMN) 소견과 손기능 저하가 함께 있으면 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 의심도가 더 높아진다.",
         "raises_suspicion_for": [
-          "퇴행성 경추척수병증(DCM) 및 경추 척수압박",
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 및 경추 척수압박",
           "뇌·소뇌 또는 다른 척수 수준의 중추성 보행장애",
-          "임상 분포에 맞는 기타 corticospinal/proprioceptive pathway disorder"
+          "임상 분포에 맞는 기타 피질척수로(corticospinal tract) 또는 고유감각(proprioceptive) 경로 이상"
         ],
         "important_differentials": [
-          "DCM ↔ 전정질환/소뇌성 실조",
-          "DCM ↔ 말초신경병증 또는 고유감각 저하",
-          "DCM ↔ 하지 관절통·관절염·근력저하에 의한 보행 변화",
-          "DCM ↔ 시각장애, 진정성 약물, 전신쇠약 등 비신경학적 원인"
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 전정질환/소뇌성 실조",
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 말초신경병증 또는 고유감각 저하",
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 하지 관절통·관절염·근력저하에 의한 보행 변화",
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 시각장애, 진정성 약물, 전신쇠약 등 비신경학적 원인"
         ],
-        "what_it_cannot_rule_out": "정상 tandem gait 또는 뚜렷한 gait imbalance가 없다고 DCM을 배제할 수 없다. 초기 DCM은 손 서툼이나 반사 이상이 먼저 두드러질 수 있다.",
+        "what_it_cannot_rule_out": "정상 tandem gait 또는 뚜렷한 gait imbalance가 없다고 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 배제할 수 없다.",
         "next_clinical_steps": [
           "hand dexterity 및 10-second grip-and-release를 확인한다.",
-          "biceps, brachioradialis, triceps, patellar, Achilles reflex와 generalized hyperreflexia를 비교한다.",
-          "Hoffmann/Trömner/inverted supinator/Babinski/clonus 등 병적반사를 함께 본다.",
-          "다분절 근력·감각, proprioception, Romberg/balance를 임상 맥락에 맞게 확인한다.",
-          "DCM이 임상적으로 의심되거나 진행성 손기능·보행 저하가 있으면 cervical MRI 및 spine specialist 평가를 고려한다."
+          "상완이두근(biceps), 상완요골근(brachioradialis), 상완삼두근(triceps), 슬개건(patellar), 아킬레스건(Achilles) 심부건반사와 전신 과반사를 비교한다.",
+          "Hoffmann, Trömner, inverted supinator, Babinski, clonus 등 병적반사를 함께 본다.",
+          "다분절 근력·감각, 고유감각(proprioception), Romberg/balance를 임상 맥락에 맞게 확인한다.",
+          "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)이 임상적으로 의심되거나 진행성 손기능·보행 저하가 있으면 경추 자기공명영상(Magnetic Resonance Imaging, MRI) 및 척추 전문의 평가를 고려한다."
         ],
-        "diagnostic_weight": "2025 DCM scoping review에서 'gait imbalance'는 대략 56–63% sensitivity와 52–95% specificity 범위로 보고됐다. 다만 이는 하나의 표준화된 tandem-gait 프로토콜 성능값이 아니라 여러 연구의 gait-imbalance 소견을 요약한 값이므로 tandem gait 단독 정확도로 인용하지 않는다.",
-        "interpretation_bottom_line": "Tandem gait 실패는 DCM의 단독 확진검사가 아니라 기능적 경고 신호다. 반복되는 객관적 보행 이상을 다른 UMN signs·손기능 저하와 묶어 보고, 의심이 충분하면 MRI/전문의 평가로 이어간다."
+        "diagnostic_weight": "2025 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) scoping review에서 gait imbalance의 진단정확도는 연구마다 넓은 범위로 보고됐다. 이는 하나의 표준화된 tandem-gait 프로토콜 성능값이 아니라 여러 연구의 gait-imbalance 소견을 요약한 값이므로 tandem gait 단독 정확도로 인용하지 않는다.",
+        "interpretation_bottom_line": "Tandem gait 실패는 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)의 단독 확진검사가 아니라 기능적 경고 신호다. 반복되는 객관적 보행 이상을 다른 상위운동신경원(Upper Motor Neuron, UMN) 징후와 손기능 저하에 묶어 보고 의심이 충분하면 경추 자기공명영상(Magnetic Resonance Imaging, MRI) 및 전문의 평가로 이어간다."
       }
     },
     {
