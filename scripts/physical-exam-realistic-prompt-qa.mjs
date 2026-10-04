@@ -83,12 +83,13 @@ for(const id of generationReadyIds){
 }
 
 const ct095=manifest.profiles?.find(x=>x.clinical_test_id==='ct095');
-check('ct095 CCFT evidence-locked candidate is awaiting user preview',
-  ct095?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
-  ct095?.brief_status==='CANDIDATE_READY_USER_PREVIEW'&&
+check('ct095 CCFT evidence-locked candidate is user-approved and regeneration-locked',
+  ct095?.status==='APPROVED'&&
+  ct095?.brief_status==='APPROVED'&&
   ct095?.review?.clinical_content==='PASS'&&
-  ct095?.review?.user_preview==='PENDING'&&
-  Boolean(ct095?.preview_candidate)&&
+  ct095?.review?.user_preview==='PASS'&&
+  Boolean(ct095?.user_approved_asset)&&
+  Boolean(ct095?.composite_url)&&
   String(ct095?.generation_brief?.patient_setup||'').includes('20 mmHg')&&
   String(ct095?.generation_brief?.examiner_maneuver||'').includes('22·24·26·28·30 mmHg')&&
   String(ct095?.generation_brief?.positive_finding||'').includes('운동조절 저하')&&
