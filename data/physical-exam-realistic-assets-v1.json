@@ -4312,35 +4312,53 @@
       "title_ko": "Extension-rotation 국소 통증유발 검사",
       "title_en": "Cervical extension-rotation pain provocation",
       "status": "PENDING_GENERATION",
-      "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "pilot_batch": "PILOT_CERVICAL_01",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "좌위에서 안전한 범위의 신전과 회전을 결합한다.",
-        "examiner_maneuver": "국소 경부통의 재현 위치와 방사통 여부를 확인한다.",
-        "positive_finding": "일관된 편측 국소 posterior neck pain이 재현되면 facet-related pain 후보 소견으로 기록한다.",
-        "interpretation": "facet-mediated pain을 임상적으로 추정하는 보조 소견일 뿐 확진검사가 아니다.",
-        "limitation_safety": "radicular symptom이 재현되면 Spurling 맥락과 구분하고 고위험 환자에서 과도한 신전은 피한다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult female patient and adult female clinician; clean neutral clinic background; seated examination; no identifiable real patient; mobile-readable",
+        "model_casting": {
+          "patient": "성인 여성형",
+          "examiner": "성인 여성형",
+          "rule": "ct094 mod 4 = 2",
+          "casting_rule_version": "2026-10-03"
+        },
+        "panel_structure": "세로형 3-panel. 1 시작 — 좌위 중립 자세 / 2 신전-회전 — 환자가 통증이 의심되는 쪽으로 경추를 안전한 범위에서 신전한 뒤 회전 / 3 양성 소견 — 같은 쪽 후외측 경부의 익숙한 국소 통증이 재현되는 위치를 표시. 팔 방사통을 양성으로 표현하지 않는다.",
+        "patient_setup": "환자는 등받이 없는 의자에 편안히 앉고 어깨를 이완한다. 검사자는 옆 또는 뒤에서 머리와 목 움직임을 관찰하고 필요 시 가볍게 유도하되 강제로 끝범위까지 밀지 않는다.",
+        "examiner_maneuver": "중립에서 먼저 증상을 확인한 뒤 경추를 안전한 범위에서 신전하고, 그 상태에서 한쪽으로 회전시킨다. 반대쪽도 비교한다. 환자가 평소 느끼는 편측 후외측 경부의 국소 통증이 재현되는지, 팔로 퍼지는 신경근성 증상이 생기는지 구분한다.",
+        "positive_finding": "검사 방향과 같은 쪽의 익숙한 편측 후외측 경부 국소 통증이 반복적으로 재현되면 경추 후관절성 통증(cervical facet-mediated pain) 가능성을 지지하는 소견으로 기록한다. 팔 저림·통증이 주로 재현되면 경추 신경근병증(cervical radiculopathy) 평가 맥락으로 전환한다.",
+        "interpretation": "신전-회전(extension-rotation) 통증유발 검사는 경추 후관절성 통증(cervical facet-mediated pain)을 임상적으로 추정하는 보조 검사다. 단독으로 통증발생 후관절의 정확한 분절이나 원인을 확진하지 못한다.",
+        "limitation_safety": "급성 외상, 경추 불안정성 의심, 진행성 신경학적 결손, 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 의심, 심한 어지럼·실신성 증상 등 red flag가 있으면 강한 신전-회전을 시행하지 않는다.",
+        "overlay_policy": "패널 2에는 신전 방향과 회전 방향 화살표를 따로 표시한다. 패널 3에는 같은 쪽 후외측 경부의 작은 국소 통증 영역만 표시한다. 팔 전체 방사통 overlay 금지.",
+        "text_policy": "이미지 내부는 '1 시작', '2 신전·회전', '3 국소 통증 재현'만 사용한다. 약어는 단독 사용하지 않는다.",
+        "evidence_lock": [
+          "cervical_facet_guideline_2021",
+          "facet_cdg_2014",
+          "cervical_facet_review_2025"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-04",
+        "note": "Clinical brief locked. Extension-rotation is supportive only; no single history or physical sign reliably predicts facet block response."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Must show seated cervical extension followed by ipsilateral rotation without exaggerated end-range force",
+        "Positive panel must depict localized posterior/lateral neck pain rather than arm radicular pain",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct095",
