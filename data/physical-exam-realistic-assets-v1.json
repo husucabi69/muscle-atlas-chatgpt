@@ -4036,36 +4036,48 @@
       "region": "cervical",
       "title_ko": "10초 grip-release / 손 dexterity 선별",
       "title_en": "10-second grip-release / hand dexterity screen",
-      "status": "ACTIVE_CLINICAL_BRIEF_PREPARATION",
+      "status": "PENDING_GENERATION",
       "pilot_batch": null,
-      "brief_status": "BRIEF_BEING_EXPANDED",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "양손을 번갈아 빠르게 쥐었다 펴도록 한다.",
-        "examiner_maneuver": "10초 동안 반복횟수, 리듬, 손가락 펴짐의 불완전성을 관찰한다.",
-        "positive_finding": "연령·기저기능을 고려해 뚜렷한 느림, 불규칙, 손가락 release 장애가 있으면 기록한다.",
-        "interpretation": "DCM에서 손 dexterity 저하를 확인하는 보조 기능검사다.",
-        "limitation_safety": "관절염·말초신경병증·통증 등 다양한 원인이 있으므로 단독 진단 금지.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult patient; clean neutral clinic; hands and forearms dominant; no identifiable real patient; mobile-readable",
+        "panel_structure": "세로형 3-panel. 1 시작 — 팔을 편안히 앞으로 두고 손을 완전히 편 상태 / 2 빠른 쥐기-펴기 — 10초 동안 최대한 빠르게 완전한 주먹과 완전한 손가락 펴기를 반복 / 3 이상 소견 — 반복 속도 저하, 리듬 불규칙, 특히 손가락 완전 신전·release 지연을 보여준다. 동일 환자·동일 손 유지.",
+        "patient_setup": "환자는 편안히 앉고 검사할 손을 몸 앞에 둔다. 손목은 가능한 중립에 가깝게 유지하고 손가락이 모두 잘 보이게 한다. 양손은 각각 평가할 수 있으며 그림은 한 손을 대표로 보여준다.",
+        "examiner_maneuver": "검사자는 먼저 완전한 grip과 완전한 release 동작을 시범으로 보여준 뒤 환자에게 10초 동안 가능한 한 빠르게 반복하도록 한다. 반복 횟수뿐 아니라 리듬, 각 손가락의 완전한 신전, ulnar digits의 release 지연, 보상성 손목 움직임을 관찰한다.",
+        "positive_finding": "연령·성별·기저 손질환을 고려했을 때 뚜렷한 반복 속도 저하, 불규칙성, 불완전한 finger extension 또는 release 장애가 반복되면 이상 소견으로 기록한다. 단일 고정 cut-off 하나로 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 확진하지 않는다.",
+        "interpretation": "10초 grip-and-release test는 손의 빠른 반복운동과 dexterity를 보는 보조 기능검사다. 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)에서 myelopathy hand를 포착하는 데 유용하지만 나이·성별·말초신경병증·관절질환·통증 등의 영향을 받는다.",
+        "limitation_safety": "손가락 관절염, 수근관증후군, 말초신경병증, 통증, 근력저하, 이전 손수술 등도 반복 횟수와 release를 떨어뜨릴 수 있다. 결과는 보행, 상위운동신경원(Upper Motor Neuron, UMN) 징후, 심부건반사, 감각·근력 및 경추 자기공명영상(Magnetic Resonance Imaging, MRI) 필요성과 함께 해석한다.",
+        "overlay_policy": "패널 2에는 손가락 쥐기↔펴기 방향을 작은 양방향 화살표로만 표시한다. 패널 3에는 지연되는 손가락 release를 짧은 화살표/점선으로 표시할 수 있다. 통증·전기감·방사통 overlay 금지.",
+        "text_policy": "이미지 내부 글자는 '1 시작', '2 10초 빠른 쥐기·펴기', '3 이상 소견' 정도만 사용한다. 약어는 단독 표기하지 않는다.",
+        "evidence_lock": [
+          "grip_release_2013_norms",
+          "grip_release_2023_dcm",
+          "grip_release_2026_level"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-04",
+        "note": "Clinical brief locked. Candidate must show full grip and full finger extension/release; do not depict only fist strength."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Realistic candidate must clearly distinguish full grip from full finger release",
+        "Must show 10-second repeated dexterity task, not static grip-strength testing",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct092",
