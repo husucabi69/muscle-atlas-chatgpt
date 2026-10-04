@@ -14,8 +14,8 @@ const c84=modelCastingForClinicalTestId('ct084');
 check('ct084 balanced casting rule is deterministic',
   c84?.patient==='여성형'&&c84?.examiner==='남성형'&&c84?.rule_version==='2026-10-03',
   JSON.stringify(c84));
-check('Next EXAM-REAL pilot task is ct083 Cervical distraction',
-  next?.clinical_test_id==='ct083',next?.clinical_test_id||'missing');
+check('Next EXAM-REAL generation task is ct095 Craniocervical flexion test',
+  next?.clinical_test_id==='ct095',next?.clinical_test_id||'missing');
 
 const pilotIds=manifest.pilot?.clinical_test_ids||[];
 check('Pilot contains six locked cervical tests',
@@ -26,9 +26,23 @@ const generationReadyIds=pilotIds.filter(id=>{
   const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
   return p?.status==='PENDING_GENERATION'&&p?.brief_status==='GENERATION_READY';
 });
-check('Three cervical pilot profiles remain generation-ready while ct088 is deferred and ct092 awaits user preview',
-  JSON.stringify(generationReadyIds)===JSON.stringify(['ct083','ct084','ct095']),
+check('Only ct095 remains generation-ready; ct083/ct084/ct092 await user preview',
+  JSON.stringify(generationReadyIds)===JSON.stringify(['ct095']),
   JSON.stringify(generationReadyIds));
+const ct083=manifest.profiles?.find(x=>x.clinical_test_id==='ct083');
+const ct084=manifest.profiles?.find(x=>x.clinical_test_id==='ct084');
+const ct092=manifest.profiles?.find(x=>x.clinical_test_id==='ct092');
+check('Internally-passed ct083/ct084 are protected from duplicate regeneration',
+  [ct083,ct084].every(p=>
+    p?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
+    p?.brief_status==='CANDIDATE_READY_USER_PREVIEW'&&
+    Boolean(p?.preview_candidate)&&
+    p?.review?.user_preview==='PENDING'
+  ));
+check('ct092 stays in user-preview queue, not generation queue',
+  ct092?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
+  ct092?.review?.user_preview==='PENDING');
+
 const ct088=manifest.profiles?.find(x=>x.clinical_test_id==='ct088');
 check('ct088 is explicitly deferred by user and cannot be promoted',
   ct088?.status==='INCOMPLETE_DEFERRED_MUST_REVISIT'&&
