@@ -4131,9 +4131,24 @@
             "do_not_regenerate_approved_ct090"
           ],
           "note": "Generation drifted back to already user-approved ct090 tandem gait instead of active ct091 grip-release. Rejected immediately; never expose or reuse."
+        },
+        {
+          "candidate_no": 3,
+          "gen_id": "204a0b74-b14a-4872-a483-96b267517151",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1536x1024",
+          "source_session_path": "/mnt/data/a_clean_infographic_medical_instruction_poster_lay.png",
+          "disposition": "REJECTED_WRONG_SUBJECT_NOT_CANONICAL",
+          "failed_axes": [
+            "asset_identity",
+            "roadmap_target",
+            "repeated_regression_to_approved_ct090"
+          ],
+          "note": "Second consecutive generation drifted to already user-approved tandem gait instead of ct091 grip-release. Image regeneration hard-stopped to avoid repeating the same failure; retain ct091 Candidate 1 for future review."
         }
       ],
-      "review_note": "ACTIVE NEXT ITEM after user-approved ct090. Candidate refinement may proceed; no promotion without explicit user visual approval."
+      "review_note": "Candidate 1 remains the only ct091 review target. Further generation is paused after two wrong-subject tandem-gait regressions. Continue independent roadmap work instead of repeating the same failure."
     },
     {
       "clinical_test_id": "ct092",
