@@ -3482,21 +3482,21 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "INCOMPLETE_DEFERRED_BY_USER_2026_10_04",
+      "status": "PENDING_GENERATION",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "LOCKED_BUT_VISUAL_NOT_APPROVED",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic adult clinician; clean neutral clinic background; high-resolution portrait teaching asset; independently generated people and scene; no identifiable real patient",
-        "panel_structure": "고해상도 손 중심 세로형 4-panel. 환자 전신은 보여주지 않는다. 1 손등이 위로 보이는 이완된 손 / 2 검사자가 중지를 분리·지지 / 3 검사자 엄지로 중지 손톱·원위지골을 손바닥 쪽으로 빠르게 flick 후 즉시 release / 4 같은 손의 엄지 굴곡·내전 + 검지 굴곡 양성반응.",
-        "patient_setup": "성인 환자의 손만 확대. 손은 회내하여 손등이 위로 보이게 하고 손목·손가락은 이완한다. 해부학적으로 정상적인 손가락 배열을 유지하고 어떤 손가락도 손바닥/손등을 비정상적으로 관통하거나 뒤집히지 않게 한다.",
-        "examiner_maneuver": "검사자는 환자 중지를 분명히 분리하고 DIP 관절 바로 근위부의 중절골을 안정적으로 지지해 원위지골은 자유롭게 움직이게 둔다. 다음 패널에서 검사자 엄지가 중지 손톱/원위지골의 등쪽에 닿아 손바닥 방향으로 짧고 빠르게 눌러 DIP를 순간 굴곡시킨 뒤 즉시 release/rebound시키는 동작을 옆에서 명확히 보여준다.",
-        "positive_finding": "양성 패널은 같은 손의 엄지 굴곡·내전 및 검지 굴곡을 명확히 보여준다. 4·5수지 굴곡을 필수 양성반응처럼 과장하지 않는다. 통증·저림·팔 방사통 overlay는 금지한다.",
-        "interpretation": "Hoffmann sign은 상위운동신경원/피질척수로 이상을 시사하는 병적 반사 소견으로 DCM 의심도를 높일 수 있으나, 정상 과반사에서도 나타날 수 있고 음성이라고 DCM을 배제할 수 없다. 단독 진단·병변 level·중증도 판정에 사용하지 않는다.",
-        "limitation_safety": "반드시 gait, hand dexterity, 다른 병적 반사, 심부건반사, 근력·감각과 통합한다. 진행성 손기능 저하·보행장애·다분절 신경학적 이상이 있으면 반복 provocation보다 cervical MRI와 전문평가를 우선한다.",
-        "overlay_policy": "손 중심 고해상도. 중지는 다른 손가락과 명확히 구분하고 검사자 지지 손과 flick 엄지를 분명히 보이게 한다. panel 3에는 짧은 손바닥 방향 화살표 1개만 허용. panel 4에는 같은 손 엄지·검지의 굴곡반응만 시각적으로 강조한다.",
-        "text_policy": "이미지 내부 글자는 '1 이완', '2 중지 지지', '3 손톱 flick', '4 양성 반응' 정도만 허용. 상세 임상해석·민감도·특이도·감별진단은 HTML에 둔다.",
+        "panel_structure": "고해상도 손 중심 세로형 4-panel. 1 환자 손 완전 이완 / 2 검사자 왼손이 제3수지 중지의 근위지절간관절(Proximal Interphalangeal Joint, PIP)을 단단히 안정화 / 3 검사자 오른손이 제3수지 중지의 원위지절간관절(Distal Interphalangeal Joint, DIP) 원위부·손톱을 손바닥 쪽으로 아주 빠르게 굴곡시킨 뒤 즉시 release/rebound / 4 같은 손 엄지와 검지의 비자발적 굴곡 반응.",
+        "patient_setup": "성인 환자의 손만 크게 보여준다. 손은 회내하여 손등이 위로 보이게 편하게 눕히고 손목·손가락의 힘을 완전히 뺀다. 제3수지인 중지가 처음부터 끝까지 명확히 식별되어야 하며 인접한 검지나 약지와 혼동되면 실패다.",
+        "examiner_maneuver": "검사자는 왼손으로 환자의 제3수지 중지 근위지절간관절(Proximal Interphalangeal Joint, PIP)을 단단히 잡아 안정화한다. 오른손 엄지/손가락은 중지 손톱·원위지골을 잡아 원위지절간관절(Distal Interphalangeal Joint, DIP)을 손바닥 쪽으로 아주 짧고 빠르게 굴곡시킨 뒤 즉시 놓아 rebound되게 한다. 제3수지 이외의 손가락을 자극하지 않는다.",
+        "positive_finding": "자극 직후 같은 손의 엄지와 검지가 비자발적으로 굴곡하는 모습을 분명히 보여준다. 엄지는 굴곡/내전 반응이 보일 수 있다. 통증·저림·방사통을 양성으로 표현하지 않는다.",
+        "interpretation": "Hoffmann sign은 상위운동신경원(Upper Motor Neuron, UMN) 또는 피질척수로 이상 가능성을 시사한다. 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 의심도를 높일 수 있으나 단독 확진 또는 배제 검사는 아니다.",
+        "limitation_safety": "보행, 손기능, 심부건반사와 다른 병적반사를 함께 해석한다. 진행성 손기능 저하나 보행장애가 있으면 반복 provocation보다 경추 자기공명영상(Magnetic Resonance Imaging, MRI) 및 척추 전문의 평가를 우선한다.",
+        "overlay_policy": "panel 3에만 짧은 손바닥 방향 화살표 1개를 둔다. 화살표는 제3수지 중지의 원위지절간관절(Distal Interphalangeal Joint, DIP) 굴곡 방향만 가리킨다. panel 2의 검사자 왼손은 중지 근위지절간관절(Proximal Interphalangeal Joint, PIP) 안정화를 명확히 보여준다.",
+        "text_policy": "이미지 내부 글자는 '1 이완', '2 중지 PIP 고정', '3 중지 DIP 빠른 굴곡·놓기', '4 엄지·검지 굴곡'만 허용한다. 약자를 쓰는 경우 바로 옆에 풀네임을 병기한다.",
         "model_casting": {
           "patient": "성인 여성형",
           "examiner": "성인 남성형",
@@ -3516,18 +3516,18 @@
             "Examiner thumb contacts the middle fingernail/dorsal distal phalanx and gives a brief rapid palmward depression/flick that momentarily flexes the DIP, followed by immediate release/rebound.",
             "Positive response is an involuntary same-hand thumb flexion/adduction and index-finger flexion."
           ],
-          "user_layout_override": "For this app asset, show the hand dorsum-up/pronated where feasible so the tested middle fingernail, support point, flick direction, and same-hand thumb/index response are unmistakable."
+          "user_layout_override": "Use the user's exact maneuver as the highest spatial constraint: relaxed dorsum-up hand; left examiner hand stabilizes the third-digit proximal interphalangeal joint (PIP); right examiner hand rapidly flexes and releases the third-digit distal interphalangeal joint (DIP); then show same-hand thumb/index flexion. Do not reinterpret digit identity from screen left/right."
         }
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PASS",
-        "examiner_hand_position": "PASS",
-        "force_direction": "PASS",
-        "embedded_text": "PASS",
-        "user_preview": "DEFERRED",
-        "reviewed_on": "2026-10-03",
-        "note": "User explicitly deferred Hoffmann realistic illustration on 2026-10-04 after repeated anatomical/finger-selection errors. Clinical interpretation remains valid; realistic asset is incomplete and must not be promoted."
+        "visual_pose": "PENDING",
+        "examiner_hand_position": "PENDING",
+        "force_direction": "PENDING",
+        "embedded_text": "PENDING",
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-04",
+        "note": "User explicitly reopened ct088 on 2026-10-04. New attempt must use dorsum-up relaxed hand, left-hand stabilization at the middle-finger proximal interphalangeal joint (PIP), right-hand rapid distal interphalangeal joint (DIP) palmward flexion/release, then same-hand thumb/index flexion response."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3543,10 +3543,13 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "Realistic illustration remains incomplete by explicit user decision",
-        "Fresh user approval required before any future ct088 Preview promotion"
+        "Fresh realistic candidate must unambiguously show the patient's third digit (middle finger)",
+        "Examiner left hand must stabilize the middle-finger proximal interphalangeal joint (PIP), not an adjacent digit",
+        "Examiner right hand must rapidly flex the middle-finger distal interphalangeal joint (DIP) palmward and immediately release",
+        "Positive panel must show involuntary same-hand thumb and index-finger flexion",
+        "User Preview approval required before canonical promotion"
       ],
-      "review_note": "DEFERRED. Do not continue ct088 until user explicitly reopens it.",
+      "review_note": "REOPENED_BY_USER_2026_10_04. Fresh candidate required; prior rejected/deferred history remains audit-only.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3895,7 +3898,7 @@
       "region": "cervical",
       "title_ko": "Tandem gait·보행 선별",
       "title_en": "Tandem gait and balance screen",
-      "status": "ACTIVE_CLINICAL_BRIEF_LOCKED_PENDING_GENERATION",
+      "status": "PENDING_GENERATION",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "GENERATION_READY",
       "composite_url": null,
@@ -3906,8 +3909,8 @@
         "patient_setup": "평평하고 장애물 없는 바닥에서 환자에게 편안한 신발 또는 안전한 맨발 상태로 서게 한다. 검사자는 환자 옆 또는 약간 뒤에 서서 넘어질 때만 지지할 수 있도록 준비한다.",
         "examiner_maneuver": "먼저 자연 보행을 관찰한 뒤 일직선상 heel-to-toe tandem gait를 시행하게 한다. 발뒤꿈치가 반대쪽 발가락 바로 앞에 오도록 걷게 하며 보폭, 선 이탈, side-step, 몸통 흔들림, 경직성/넓은 보행기저, 반복 재현성을 관찰한다. 검사자는 결과를 만들 정도로 환자를 잡거나 유도하지 않는다.",
         "positive_finding": "반복되는 tandem gait 실패, 일직선에서의 명확한 이탈/side-step, 비정상적으로 넓은 보행기저, 경직성 또는 불안정한 보행이 관찰되면 이상 소견으로 기록한다. 단 한 번의 실수만으로 병적이라고 단정하지 않는다.",
-        "interpretation": "보행 불안정은 DCM에서 흔한 기능적 단서이며 손 서툼, 과반사, 병적반사 등과 함께 있을 때 cervical cord dysfunction 의심을 높인다. 그러나 tandem gait 하나는 DCM 특이 검사가 아니다.",
-        "limitation_safety": "낙상위험이 있으면 검사자가 즉시 보호하고 무리한 반복을 하지 않는다. 전정질환, 소뇌질환, 말초신경병증/고유감각저하, 하지 관절질환, 시각문제, 약물/진정, 전신쇠약도 실패를 유발할 수 있다. tandem gait 실패만으로 DCM 확진 금지.",
+        "interpretation": "보행 불안정은 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)에서 흔한 기능적 단서이며 손 서툼, 과반사, 병적반사와 함께 있을 때 경추 척수 기능 이상 의심을 높인다. 그러나 tandem gait 하나는 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)에 특이적인 검사가 아니다.",
+        "limitation_safety": "낙상위험이 있으면 검사자가 즉시 보호하고 무리한 반복을 하지 않는다. 전정질환, 소뇌질환, 말초신경병증/고유감각저하, 하지 관절질환, 시각문제, 약물/진정, 전신쇠약도 실패를 유발할 수 있다. tandem gait 실패만으로 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 확진하지 않는다.",
         "overlay_policy": "바닥의 얇은 직선과 발 진행방향 화살표만 사용. positive panel은 선 이탈/side-step을 작은 화살표로 표시. 통증·전기감·방사통 overlay 금지. 검사자 손은 환자에 상시 접촉하지 않고 낙상보호 위치를 보여준다.",
         "text_policy": "이미지 내부는 '1 시작', '2 일자보행', '3 이상 소견' 정도의 짧은 라벨만 사용. 긴 해석·감별·MRI 기준은 HTML 아래에 둔다.",
         "evidence_lock": [
