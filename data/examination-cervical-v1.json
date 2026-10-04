@@ -21,7 +21,10 @@
     "dcm_early_2026": "https://pubmed.ncbi.nlm.nih.gov/41915723/",
     "grip_release_2013_norms": "https://pubmed.ncbi.nlm.nih.gov/23564077/",
     "grip_release_2023_dcm": "https://pubmed.ncbi.nlm.nih.gov/38112277/",
-    "grip_release_2026_level": "https://pubmed.ncbi.nlm.nih.gov/41808140/"
+    "grip_release_2026_level": "https://pubmed.ncbi.nlm.nih.gov/41808140/",
+    "cfrot_validity_2006": "https://pubmed.ncbi.nlm.nih.gov/17112768/",
+    "cfrot_reliability_2008": "https://pubmed.ncbi.nlm.nih.gov/18486750/",
+    "cfrot_accuracy_2010": "https://pubmed.ncbi.nlm.nih.gov/20508964/"
   },
   "clinical_tests": [
     {
@@ -383,18 +386,43 @@
       "target_structure_ids": [
         "j017"
       ],
-      "setup": "앙와위에서 상부 경추를 최대한 굴곡시켜 하부 경추 움직임을 제한한다.",
-      "maneuver": "좌우 회전을 비교하며 ROM 제한과 익숙한 두통 재현을 확인한다.",
-      "positive_definition": "뚜렷한 비대칭/제한과 평소 후두-두부 증상이 함께 재현되면 기록한다.",
-      "interpretation_note": "cervicogenic headache에서 유용한 임상검사지만 단독으로 다른 headache를 배제하지 않는다.",
-      "limitation": "편두통·긴장형두통·상부 경추 통증이 겹칠 수 있어 두통 병력과 신경학적 red flag가 우선이다.",
+      "setup": "환자는 검사대에 바로 누운 앙와위 자세로 편안히 이완한다. 검사자는 환자의 머리와 후두부를 양손으로 지지한다.",
+      "maneuver": "검사자는 경추를 가능한 범위에서 충분히 굴곡한 뒤 그 굴곡을 유지하면서 머리를 좌우로 천천히 수동 회전한다. 좌우 회전 범위, end-feel과 익숙한 후두-두부 증상 재현 여부를 비교한다.",
+      "positive_definition": "한쪽 회전이 반대쪽보다 뚜렷하게 제한되거나 전체 회전 범위가 현저히 감소하고, 임상 병력과 맞는 익숙한 증상이 재현되면 경추성 두통(Cervicogenic Headache) 가능성을 지지하는 이상 소견으로 기록한다. 단일 각도 cut-off만으로 확진하지 않는다.",
+      "interpretation_note": "경추 굴곡-회전 검사(Cervical Flexion-Rotation Test)는 상부 경추, 특히 제1-2경추 분절(C1-C2)의 회전 움직임을 평가하는 검사로 경추성 두통(Cervicogenic Headache) 감별에 유용하다. 그러나 단독 진단검사는 아니다.",
+      "limitation": "편두통(Migraine), 긴장형두통(Tension-Type Headache), 다른 상부 경추 통증과 소견이 겹칠 수 있다. 급성 외상, 불안정성 의심, 심한 어지럼이나 국소 신경학적 이상, 혈관성 또는 다른 이차성 두통 red flag가 있으면 강한 수동 회전보다 원인 평가를 우선한다.",
       "related_diagnosis_concept_ids": [
         "d091",
         "d094"
       ],
       "evidence_refs": [
-        "cgh_review"
-      ]
+        "cgh_review",
+        "cfrot_validity_2006",
+        "cfrot_reliability_2008",
+        "cfrot_accuracy_2010"
+      ],
+      "interpretation_detail": {
+        "what_it_assesses": "경추 굴곡-회전 검사(Cervical Flexion-Rotation Test)는 경추를 충분히 굴곡해 하부 경추의 회전을 줄인 상태에서 좌우 회전을 비교함으로써 상부 경추, 특히 제1-2경추 분절(C1-C2)의 회전 움직임 제한을 평가한다.",
+        "positive_meaning": "한쪽 또는 양쪽 회전이 뚜렷하게 감소하거나 좌우 비대칭이 크고 환자의 전형적인 후두-두부 증상이 함께 재현되면 경추성 두통(Cervicogenic Headache) 가능성을 지지한다. 단, 움직임 제한 자체는 비특이적일 수 있다.",
+        "raises_suspicion_for": [
+          "제1-2경추 분절(C1-C2) 기능장애와 연관된 경추성 두통(Cervicogenic Headache)",
+          "상부 경추 움직임 제한이 두통 패턴과 연관된 환자"
+        ],
+        "important_differentials": [
+          "경추성 두통(Cervicogenic Headache) ↔ 편두통(Migraine)",
+          "경추성 두통(Cervicogenic Headache) ↔ 긴장형두통(Tension-Type Headache)",
+          "경추성 두통(Cervicogenic Headache) ↔ 비두통성 상부 경추 관절통",
+          "근골격성 두통 ↔ 혈관성·감염성·종양성·기타 이차성 두통 red flag"
+        ],
+        "what_it_cannot_rule_out": "검사가 음성이라고 경추성 두통(Cervicogenic Headache)을 완전히 배제할 수 없고, 양성이라고 다른 일차성 또는 이차성 두통을 배제할 수 없다.",
+        "next_clinical_steps": [
+          "두통의 시작 위치, 목 움직임과의 연관, 두통 전 목 증상 여부, 편두통 특징과 신경학적 red flag를 확인한다.",
+          "일반 경추 능동 움직임, 상부 경추 압통 및 다른 경추 근골격계 소견을 함께 평가한다.",
+          "비전형적 두통, 새로운 신경학적 이상 또는 이차성 두통 red flag가 있으면 추가 영상검사 또는 전문의 평가를 고려한다."
+        ],
+        "diagnostic_weight": "2022년 체계적 고찰·메타분석에서 경추 굴곡-회전 검사(Cervical Flexion-Rotation Test)는 4개 연구, 182명을 종합했을 때 sensitivity 약 83%, specificity 약 83%, positive likelihood ratio 약 5.0, negative likelihood ratio 약 0.2로 보고됐다. 그러나 표본이 작고 검사자 경험과 reference standard가 연구마다 달라 단독 확진 규칙으로 쓰지 않는다.",
+        "interpretation_bottom_line": "경추 굴곡-회전 검사(Cervical Flexion-Rotation Test)는 경추성 두통(Cervicogenic Headache) 감별에 도움이 되는 비교적 유용한 임상검사지만, 두통 병력과 전체 경추·신경학적 평가의 한 요소로 사용해야 한다."
+      }
     },
     {
       "clinical_test_id": "ct093",
