@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.03-exam-real-001-ct088-candidate8-corrected-preview",
+  "dataset_version": "2026.10.04-exam-real-002-review-queue-reconciled",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct082 is user-approved and integrated in Preview; continue one-at-a-time with ct083 Cervical distraction. Preserve ct082 Stable-ID schematic fallback as a secondary reference while the realistic approved asset remains the preferred teaching image."
+    "next_action": "Do not regenerate internally-passed candidates. User-preview queue: ct083 Cervical distraction, ct084 ULNT1, ct092 Cervical flexion-rotation. Generation queue: ct095 Craniocervical flexion test. Mandatory deferred backlog: ct088 Hoffmann. Approved cervical assets ct082, ct090, ct093 and ct094 stay locked; Production remains frozen."
   },
   "profiles": [
     {
@@ -3146,9 +3146,9 @@
       "region": "cervical",
       "title_ko": "경추 견인/Distraction 검사",
       "title_en": "Cervical distraction test",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3258,9 +3258,9 @@
       "region": "cervical",
       "title_ko": "상지 신경가동성 검사 1",
       "title_en": "Upper Limb Neurodynamic Test 1 (ULNT1)",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
