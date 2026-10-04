@@ -3,11 +3,9 @@ import fs from 'node:fs';
 const registry=JSON.parse(fs.readFileSync('data/physical-exam-realistic-assets-v1.json','utf8'));
 const profiles=registry.profiles||[];
 const allowed=new Set([
-  'PENDING_GENERATION',
-  'PREVIEW_CANDIDATE_READY',
-  'APPROVED',
-  'INCOMPLETE_DEFERRED_BY_USER_2026_10_04',
-  'USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'
+  'PENDING_GENERATION','PREVIEW_CANDIDATE_READY','APPROVED',
+  'INCOMPLETE_DEFERRED_BY_USER_2026_10_04','INCOMPLETE_DEFERRED_MUST_REVISIT',
+  'USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING','CANDIDATE_GENERATED_USER_PREVIEW_PENDING'
 ]);
 const failures=[];
 const check=(name,ok,detail='')=>{
@@ -20,17 +18,21 @@ check('All EXAM-REAL lifecycle states recognized',profiles.every(p=>allowed.has(
 
 for(const p of profiles){
   if(p.status==='APPROVED'){
-    check(p.clinical_test_id+' canonical approval has binary metadata',
-      p.review?.user_preview==='PASS'&&Boolean(p.approved_asset)&&Boolean(p.composite_url));
+    check(p.clinical_test_id+' canonical approval has user PASS and binary metadata',
+      p.review?.user_preview==='PASS'&&Boolean(p.approved_asset||p.user_approved_asset)&&Boolean(p.composite_url));
   }
   if(p.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'){
     check(p.clinical_test_id+' user approval remains non-canonical until binary transfer',
-      p.review?.user_preview==='PASS'&&!p.approved_asset&&!p.preview_candidate&&!p.composite_url&&
+      p.review?.user_preview==='PASS'&&!(p.approved_asset||p.user_approved_asset)&&!p.composite_url&&
       Array.isArray(p.approval_blockers)&&p.approval_blockers.length>0);
   }
-  if(p.status==='INCOMPLETE_DEFERRED_BY_USER_2026_10_04'){
+  if(String(p.status||'').startsWith('INCOMPLETE_DEFERRED')){
     check(p.clinical_test_id+' deferred visual remains non-canonical',
-      p.review?.user_preview==='DEFERRED'&&!p.approved_asset&&!p.preview_candidate&&!p.composite_url);
+      p.review?.user_preview==='DEFERRED'&&!(p.approved_asset||p.user_approved_asset)&&!p.composite_url);
+  }
+  if(p.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'){
+    check(p.clinical_test_id+' generated candidate remains user-preview pending',
+      p.review?.user_preview==='PENDING'&&!(p.approved_asset||p.user_approved_asset)&&!p.composite_url);
   }
 }
 

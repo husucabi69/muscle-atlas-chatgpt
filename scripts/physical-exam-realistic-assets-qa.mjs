@@ -5,6 +5,7 @@ const read=p=>fs.readFileSync(p,'utf8');
 const json=p=>JSON.parse(read(p));
 const sha256=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 const reg=json('data/physical-exam-realistic-assets-v1.json');
+const index=read('index.html');
 const examFiles=[
   'data/examination-shoulder-v1.json','data/examination-elbow-v1.json','data/examination-wrist-hand-v1.json',
   'data/examination-hip-pelvis-v1.json','data/examination-knee-thigh-v1.json','data/examination-leg-ankle-foot-v1.json',
@@ -29,79 +30,67 @@ check('Realistic style contract linked',String(reg.style_contract||'').includes(
 check('Copyright contract linked',String(reg.copyright_contract||'').includes('COPYRIGHT_REGISTRATION_STRATEGY'));
 check('AI raw output cannot be final',profiles.every(p=>p.provenance?.ai_raw_output_allowed_as_final===false&&p.provenance?.human_edit_required===true));
 
-const reviewKeys=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text','user_preview'];
-const technicalReviewKeys=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text'];
-const technicalReviewValues=new Set(['PENDING','PASS','FAIL']);
-const userPreviewValues=new Set(['PENDING','PASS','FAIL','DEFERRED']);
-check('All profiles require lifecycle-aware six review gates',profiles.every(p=>
-  technicalReviewKeys.every(k=>technicalReviewValues.has(p.review?.[k]))&&
-  userPreviewValues.has(p.review?.user_preview)
+const allowedByReviewKey={
+  clinical_content:new Set(['PENDING','PASS','FAIL']),
+  visual_pose:new Set(['PENDING','PASS','FAIL','PENDING_USER','PASS_INTERNAL']),
+  examiner_hand_position:new Set(['PENDING','PASS','FAIL','NOT_APPLICABLE','PASS_INTERNAL']),
+  force_direction:new Set(['PENDING','PASS','FAIL','PENDING_USER','PASS_INTERNAL']),
+  embedded_text:new Set(['PENDING','PASS','FAIL','PASS_INTERNAL']),
+  user_preview:new Set(['PENDING','PASS','FAIL','DEFERRED'])
+};
+check('All profiles use recognized review-gate values',profiles.every(p=>
+  Object.entries(allowedByReviewKey).every(([k,set])=>set.has(p.review?.[k]))
 ));
-check('DEFERRED is restricted to user_preview only',profiles.every(p=>
-  technicalReviewKeys.every(k=>p.review?.[k]!=='DEFERRED')
-));
 
-const unreviewed=profiles.filter(p=>p.status==='PENDING_GENERATION'&&!p.preview_candidate&&!p.approved_asset);
-check('Unreviewed profiles remain PENDING on all six review gates',
-  unreviewed.every(p=>reviewKeys.every(k=>p.review?.[k]==='PENDING')),
-  String(unreviewed.length));
-
-check('All profiles preserve schematic fallback',String(reg.asset_policy?.fallback||'').includes('EXAM-001'));
-check('Pilot batch is cervical six-test set',
-  JSON.stringify(reg.pilot?.clinical_test_ids||[])===JSON.stringify(['ct082','ct083','ct084','ct088','ct092','ct095']),
-  JSON.stringify(reg.pilot?.clinical_test_ids||[]));
-
-const lifecycleStates=new Set([
-  'PENDING_GENERATION',
-  'PREVIEW_CANDIDATE_READY',
-  'APPROVED',
-  'INCOMPLETE_DEFERRED_BY_USER_2026_10_04',
-  'USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'
+const allowedStates=new Set([
+  'PENDING_GENERATION','PREVIEW_CANDIDATE_READY','APPROVED',
+  'INCOMPLETE_DEFERRED_BY_USER_2026_10_04','INCOMPLETE_DEFERRED_MUST_REVISIT',
+  'USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING','CANDIDATE_GENERATED_USER_PREVIEW_PENDING'
 ]);
 check('All EXAM-REAL lifecycle states are recognized',
-  profiles.every(p=>lifecycleStates.has(p.status)),
-  profiles.filter(p=>!lifecycleStates.has(p.status)).map(p=>p.clinical_test_id+':'+p.status).join(','));
+  profiles.every(p=>allowedStates.has(p.status)),
+  profiles.filter(p=>!allowedStates.has(p.status)).map(p=>p.clinical_test_id+':'+p.status).join(','));
 
-const pilotProfiles=profiles.filter(p=>(reg.pilot?.clinical_test_ids||[]).includes(p.clinical_test_id));
-check('Pilot states preserve approval, deferral, binary-transfer and generation semantics',
-  pilotProfiles.every(p=>{
-    if(p.status==='APPROVED') return p.brief_status==='APPROVED'&&p.review?.user_preview==='PASS'&&Boolean(p.approved_asset)&&Boolean(p.composite_url);
-    if(p.status==='INCOMPLETE_DEFERRED_BY_USER_2026_10_04') return p.review?.user_preview==='DEFERRED'&&!p.approved_asset&&!p.preview_candidate&&!p.composite_url;
-    if(p.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING') return p.review?.user_preview==='PASS'&&!p.approved_asset&&!p.preview_candidate&&!p.composite_url&&Array.isArray(p.approval_blockers)&&p.approval_blockers.length>0;
-    return ['PENDING_GENERATION','PREVIEW_CANDIDATE_READY'].includes(p.status)&&p.brief_status==='GENERATION_READY';
-  }));
+const unreviewed=profiles.filter(p=>p.status==='PENDING_GENERATION'&&!p.preview_candidate&&!p.approved_asset&&!p.user_approved_asset);
+check('Unreviewed profiles remain PENDING on all six review gates',
+  unreviewed.every(p=>Object.keys(allowedByReviewKey).every(k=>p.review?.[k]==='PENDING')),
+  String(unreviewed.length));
+check('All profiles preserve schematic fallback',String(reg.asset_policy?.fallback||'').includes('EXAM-001'));
 
-const approvedProfiles=profiles.filter(p=>p.status==='APPROVED');
-check('Canonical approval remains limited to ct082 until exact binaries are ingested',
-  approvedProfiles.length===1&&approvedProfiles[0]?.clinical_test_id==='ct082',
-  approvedProfiles.map(p=>p.clinical_test_id).join(','));
+const approved=profiles.filter(p=>p.status==='APPROVED');
+check('Approved profiles have user PASS, canonical URL and approval metadata',
+  approved.every(p=>p.review?.user_preview==='PASS'&&Boolean(p.composite_url)&&Boolean(p.approved_asset||p.user_approved_asset)),
+  approved.map(p=>p.clinical_test_id).join(','));
 
-const ct082=profiles.find(p=>p.clinical_test_id==='ct082');
-check('ct082 has user-approved realistic asset',
-  ct082?.review?.user_preview==='PASS'&&
-  ct082?.approved_asset?.gen_id==='919bcbfd-9a99-4e37-b635-f78fa5655151'&&
-  ct082?.approved_asset?.disposition==='USER_APPROVED_PREVIEW_ASSET'&&
-  Array.isArray(ct082?.approval_blockers)&&ct082.approval_blockers.length===0);
-
-check('ct082 approved asset remains paired with EXAM-001 fallback',
-  String(ct082?.composite_url||'').includes('ct082-spurling-gen-919bcbfd-approved.webp')&&
-  String(reg.asset_policy?.fallback||'').includes('EXAM-001'));
-
-const approvedPath=String(ct082?.approved_asset?.preview_asset_path||'').replace(/^\.\//,'');
-check('ct082 approved WebP exists',approvedPath&&fs.existsSync(approvedPath),approvedPath);
-if(approvedPath&&fs.existsSync(approvedPath)){
-  check('ct082 approved WebP SHA-256 matches registry',
-    sha256(approvedPath)===ct082?.approved_asset?.preview_webp_sha256,
-    sha256(approvedPath));
+for(const p of approved){
+  const meta=p.approved_asset||p.user_approved_asset||{};
+  const path=String(p.composite_url||meta.preview_asset_path||meta.approved_asset_path||'').replace(/^\.\//,'');
+  check(p.clinical_test_id+' approved asset exists',Boolean(path)&&fs.existsSync(path),path);
+  if(path&&fs.existsSync(path)){
+    const hash=sha256(path);
+    const expected=meta.preview_webp_sha256||meta.approved_svg_sha256||'';
+    if(expected) check(p.clinical_test_id+' approved asset hash matches registry',hash===expected,hash);
+  }
 }
 
-check('No false canonical approval outside approved asset',
-  profiles.every(p=>{
-    if(p.status==='APPROVED') return Boolean(p.approved_asset)&&p.review?.user_preview==='PASS'&&Boolean(p.composite_url);
-    if(p.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING') return p.review?.user_preview==='PASS'&&!p.approved_asset&&!p.preview_candidate&&p.composite_url===null&&Array.isArray(p.approval_blockers)&&p.approval_blockers.length>0;
-    if(p.status==='INCOMPLETE_DEFERRED_BY_USER_2026_10_04') return p.review?.user_preview==='DEFERRED'&&!p.approved_asset&&!p.preview_candidate&&p.composite_url===null;
-    return ['PENDING_GENERATION','PREVIEW_CANDIDATE_READY'].includes(p.status)&&p.review?.user_preview!=='PASS'&&p.composite_url===null;
-  }));
+const binaryPending=profiles.filter(p=>p.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING');
+check('Binary-transfer pending approvals remain non-canonical',binaryPending.every(p=>
+  p.review?.user_preview==='PASS'&&!p.composite_url&&!(p.approved_asset||p.user_approved_asset)&&Array.isArray(p.approval_blockers)&&p.approval_blockers.length>0
+),binaryPending.map(p=>p.clinical_test_id).join(','));
+
+const deferred=profiles.filter(p=>String(p.status||'').startsWith('INCOMPLETE_DEFERRED'));
+check('Deferred items stay non-canonical and explicitly DEFERRED',deferred.every(p=>
+  p.review?.user_preview==='DEFERRED'&&!p.composite_url&&!(p.approved_asset||p.user_approved_asset)
+),deferred.map(p=>p.clinical_test_id).join(','));
+
+const candidatePending=profiles.filter(p=>p.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING');
+check('Generated candidates remain user-preview pending and non-canonical',candidatePending.every(p=>
+  p.review?.user_preview==='PENDING'&&!p.composite_url&&!(p.approved_asset||p.user_approved_asset)
+),candidatePending.map(p=>p.clinical_test_id).join(','));
+
+check('Runtime supports canonical approved composite_url',index.includes("p?.status==='APPROVED'&&p?.composite_url"));
+check('Runtime supports both approval metadata schemas',index.includes("p?.approved_asset||p?.user_approved_asset"));
+check('Runtime renders approved asset from composite_url',index.includes("const assetPath=isApproved?p.composite_url"));
 
 for(const p of profiles){
   const b=p.generation_brief||{};

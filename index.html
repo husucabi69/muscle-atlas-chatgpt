@@ -2262,19 +2262,22 @@ function physicalExamRealisticProfile(test){
   return physicalExamRealisticAssetsData?.profiles?.find(x=>x.clinical_test_id===test?.clinical_test_id)||null;
 }
 function physicalExamRealisticCandidateHtml(test){
-  const p=physicalExamRealisticProfile(test),approved=p?.approved_asset,candidate=approved||p?.preview_candidate;
-  if(!candidate?.preview_asset_path)return'';
-  const review=p.review||{},blockers=p.approval_blockers||[];
+  const p=physicalExamRealisticProfile(test);
+  const review=p?.review||{},blockers=p?.approval_blockers||[];
+  const approvedMeta=p?.approved_asset||p?.user_approved_asset||null;
+  const isApproved=Boolean(p?.status==='APPROVED'&&p?.composite_url&&review.user_preview==='PASS'&&approvedMeta);
+  const candidate=isApproved?approvedMeta:p?.preview_candidate;
+  const assetPath=isApproved?p.composite_url:(candidate?.preview_asset_path||candidate?.asset_path||candidate?.composite_url);
+  if(!assetPath)return'';
   const failed=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text']
     .filter(k=>review[k]==='FAIL');
-  const isApproved=Boolean(approved&&review.user_preview==='PASS');
   const border=isApproved?'#16a34a':'#f59e0b',background=isApproved?'#f0fdf4':'#fffbeb';
   const heading=isApproved?'실사형 승인본 · Preview 적재':'실사형 Preview 후보 · 승인 전';
-  const verdict=isApproved?'사용자 승인 · 내부 검수 PASS':(failed.length?'교정 필요: '+esc(failed.join(' · ')):'내부 5축 검수 PASS 대기');
+  const verdict=isApproved?'사용자 승인 · 내부 검수 PASS':(failed.length?'교정 필요: '+esc(failed.join(' · ')):'내부 검수 후 사용자 승인 대기');
   const footer=isApproved?'승인된 실사형 교육자산입니다. 기존 Stable-ID 도해는 보조 reference로 유지합니다.':'이 후보는 사용자 검수용이며 canonical 교체가 아닙니다.';
   return '<div class="clinical-exam-visual" data-exam-realistic-candidate="'+(isApproved?'approved':'preview')+'" data-clinical-test-id="'+esc(test.clinical_test_id)+'" style="border:2px solid '+border+';background:'+background+';margin-bottom:14px">'+
-    '<div class="clinical-exam-visual-head"><b>'+heading+'</b><span>gen_id '+esc(candidate.gen_id||'')+' · 기존 Stable-ID 도해 유지</span></div>'+
-    '<div style="padding:12px;text-align:center"><img src="'+esc(candidate.preview_asset_path)+'" alt="'+esc((test.name_ko||'Physical Examination')+(isApproved?' 실사형 승인본':' 실사형 Preview 후보'))+'" style="display:block;width:auto;max-width:100%;height:auto;margin:0 auto;border-radius:12px;background:#fff" loading="eager" decoding="sync" fetchpriority="high"></div>'+
+    '<div class="clinical-exam-visual-head"><b>'+heading+'</b><span>gen_id '+esc(candidate?.gen_id||'')+' · 기존 Stable-ID 도해 유지</span></div>'+
+    '<div style="padding:12px;text-align:center"><img src="'+esc(assetPath)+'" alt="'+esc((test.name_ko||'Physical Examination')+(isApproved?' 실사형 승인본':' 실사형 Preview 후보'))+'" style="display:block;width:auto;max-width:100%;height:auto;margin:0 auto;border-radius:12px;background:#fff" loading="eager" decoding="sync" fetchpriority="high"></div>'+
     '<div class="note"><b>현재 판정</b><br>'+verdict+
     (blockers.length?'<br><span style="color:var(--muted)">승격 차단: '+esc(blockers.join(' / '))+'</span>':'')+
     '<br><span style="color:var(--muted)">'+footer+'</span></div></div>';

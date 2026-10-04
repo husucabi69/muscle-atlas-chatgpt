@@ -79,6 +79,34 @@ try{
     pass(label+' custom clinical exam illustration',id);
     }
   }
+  const approvedRealistic=await page.evaluate(()=>physicalExamRealisticAssetsData?.profiles
+    ?.filter(p=>p.status==='APPROVED'&&p.review?.user_preview==='PASS'&&p.composite_url)
+    .map(p=>({id:p.clinical_test_id,url:p.composite_url}))||[]);
+  for(const item of approvedRealistic){
+    const result=await page.evaluate(async ({testId})=>{
+      await openClinicalModule('cervical',false);
+      await openClinicalTopic('exam',false);
+      await openClinicalItem(testId,false);
+      const host=document.getElementById('clinicalDetailContent');
+      const approved=host?.querySelector('[data-exam-realistic-candidate="approved"]');
+      const img=approved?.querySelector('img');
+      const fallback=host?.querySelector('[data-exam-illustration="custom"]');
+      if(img&&!img.complete) await new Promise(resolve=>{img.addEventListener('load',resolve,{once:true});img.addEventListener('error',resolve,{once:true});});
+      return{
+        approved:Boolean(approved),
+        stable:approved?.getAttribute('data-clinical-test-id')||'',
+        src:img?.getAttribute('src')||'',
+        naturalWidth:img?.naturalWidth||0,
+        fallback:Boolean(fallback)
+      };
+    },{testId:item.id});
+    if(!result.approved)fail(item.id+' approved realistic asset visible');
+    if(result.stable!==item.id)fail(item.id+' approved realistic Stable-ID binding',result.stable);
+    if(result.src!==item.url)fail(item.id+' approved realistic asset path',result.src);
+    if(result.naturalWidth<1)fail(item.id+' approved realistic image loads',String(result.naturalWidth));
+    if(!result.fallback)fail(item.id+' Stable-ID schematic fallback remains available');
+    pass('Approved realistic physical-exam asset visible',item.id);
+  }
   console.log('\n--- CLINICAL EXAM ILLUSTRATION E2E ---');
   pass('148/148 canonical clinical tests use Stable-ID custom teaching schematics');
 }finally{
