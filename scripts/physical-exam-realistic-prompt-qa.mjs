@@ -14,8 +14,8 @@ const c84=modelCastingForClinicalTestId('ct084');
 check('ct084 balanced casting rule is deterministic',
   c84?.patient==='여성형'&&c84?.examiner==='남성형'&&c84?.rule_version==='2026-10-03',
   JSON.stringify(c84));
-check('Next EXAM-REAL generation task is ct095 Craniocervical flexion test',
-  next?.clinical_test_id==='ct095',next?.clinical_test_id||'missing');
+check('No duplicate generation task remains after ct095 candidate creation',
+  next===null,next?.clinical_test_id||'none');
 
 const pilotIds=manifest.pilot?.clinical_test_ids||[];
 check('Pilot contains six locked cervical tests',
@@ -26,8 +26,8 @@ const generationReadyIds=pilotIds.filter(id=>{
   const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
   return p?.status==='PENDING_GENERATION'&&p?.brief_status==='GENERATION_READY';
 });
-check('Only ct095 remains generation-ready; ct083/ct084/ct092 await user preview',
-  JSON.stringify(generationReadyIds)===JSON.stringify(['ct095']),
+check('No cervical pilot profile remains generation-ready after ct095 candidate creation',
+  JSON.stringify(generationReadyIds)===JSON.stringify([]),
   JSON.stringify(generationReadyIds));
 const ct083=manifest.profiles?.find(x=>x.clinical_test_id==='ct083');
 const ct084=manifest.profiles?.find(x=>x.clinical_test_id==='ct084');
@@ -83,10 +83,12 @@ for(const id of generationReadyIds){
 }
 
 const ct095=manifest.profiles?.find(x=>x.clinical_test_id==='ct095');
-check('ct095 CCFT evidence-locked protocol is ready for generation',
-  ct095?.status==='PENDING_GENERATION'&&
-  ct095?.brief_status==='GENERATION_READY'&&
+check('ct095 CCFT evidence-locked candidate is awaiting user preview',
+  ct095?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
+  ct095?.brief_status==='CANDIDATE_READY_USER_PREVIEW'&&
   ct095?.review?.clinical_content==='PASS'&&
+  ct095?.review?.user_preview==='PENDING'&&
+  Boolean(ct095?.preview_candidate)&&
   String(ct095?.generation_brief?.patient_setup||'').includes('20 mmHg')&&
   String(ct095?.generation_brief?.examiner_maneuver||'').includes('22·24·26·28·30 mmHg')&&
   String(ct095?.generation_brief?.positive_finding||'').includes('운동조절 저하')&&
