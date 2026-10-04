@@ -4036,7 +4036,7 @@
       "region": "cervical",
       "title_ko": "10초 grip-release / 손 dexterity 선별",
       "title_en": "10-second grip-release / hand dexterity screen",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": null,
       "brief_status": "GENERATION_READY",
       "composite_url": null,
@@ -4059,10 +4059,10 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
+        "visual_pose": "PENDING_USER",
+        "examiner_hand_position": "NOT_APPLICABLE",
+        "force_direction": "PENDING_USER",
+        "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-04",
         "note": "Clinical brief locked. Candidate must show full grip and full finger extension/release; do not depict only fist strength."
@@ -4077,6 +4077,28 @@
         "Realistic candidate must clearly distinguish full grip from full finger release",
         "Must show 10-second repeated dexterity task, not static grip-strength testing",
         "User Preview approval required before canonical promotion"
+      ],
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "41e626cc-3a36-4067-84ac-cbb7b6bb550e",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "e4c5062a494abc023cb5457df20e4887f0d96216b7d0ff062a6374877521de54",
+          "source_session_path": "/mnt/data/a_clean_instructional_infographic_image_in_a_verti.png",
+          "disposition": "USER_PREVIEW_PENDING",
+          "passed_axes": [
+            "clinical_subject_identity",
+            "three_panel_structure",
+            "full_open_hand_visibility",
+            "grip_release_concept",
+            "abnormal_release_concept",
+            "minimal_embedded_text",
+            "adult_model_casting"
+          ],
+          "review_note": "Candidate 1 generated for ct091. Await user visual review; do not promote until explicit approval."
+        }
       ]
     },
     {
