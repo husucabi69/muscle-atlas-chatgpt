@@ -4041,7 +4041,7 @@
         "gen_id": "3973f251-89c5-4e22-a58a-800279e21d6d",
         "source_session_path": "/mnt/data/일자보행_검사_안내_포스터.png",
         "approved_asset_path": "./assets/physical-exam-realistic/approved/ct090-tandem-gait-gen-3973f251-approved.svg",
-        "approved_svg_sha256": "899878d6cdf89dff9e87512407c7a835f1ee766aff5c343dbab4c5aaf8d967f4",
+        "approved_svg_sha256": "ca4a61d5a8e06c6e89dcc0b580c3b5b2c69251035e07fd7644576de1c8b750a4",
         "embedded_webp_sha256": "9e234174ab28bd99dcdbb7157761806c42c1c205182c6b3dd39a7958012a88cc",
         "dimensions": "480x600",
         "disposition": "USER_APPROVED_PASS"
