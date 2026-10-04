@@ -4233,7 +4233,7 @@
       "region": "cervical",
       "title_ko": "대후두신경 압통·증상 재현 평가",
       "title_en": "Greater occipital nerve tenderness/provocation",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "GENERATION_READY",
       "composite_url": null,
@@ -4261,10 +4261,10 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
+        "visual_pose": "PASS_INTERNAL",
+        "examiner_hand_position": "PASS_INTERNAL",
+        "force_direction": "PASS_INTERNAL",
+        "embedded_text": "PASS_INTERNAL",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-04",
         "note": "Clinical brief locked to International Classification of Headache Disorders, 3rd edition diagnostic criteria. Palpation/tenderness is supportive only and must not be depicted as a standalone definitive diagnosis."
@@ -4280,6 +4280,25 @@
         "Symptom reproduction should follow the posterior scalp distribution without implying exact needle target",
         "Must not label tenderness alone as diagnostic of occipital neuralgia",
         "User Preview approval required before canonical promotion"
+      ],
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "e7be8ccb-f1e6-4bea-9156-890735679191",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "source_session_path": "/mnt/data/a_clean_medical_infographic_poster_guide_layout_wi.png",
+          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+          "passed_axes": [
+            "correct_asset_identity",
+            "posterior_head_focus",
+            "gentle_palpation",
+            "bilateral_comparison",
+            "symptom_reproduction",
+            "adult_model_casting"
+          ]
+        }
       ]
     },
     {
