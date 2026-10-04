@@ -83,13 +83,21 @@ for(const id of generationReadyIds){
 }
 
 const ct095=manifest.profiles?.find(x=>x.clinical_test_id==='ct095');
-check('ct095 CCFT evidence-locked candidate is user-approved and regeneration-locked',
+const ct095SafeApprovalLifecycle=(
+  ct095?.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'&&
+  ct095?.review?.user_preview==='PASS'&&
+  !ct095?.composite_url&&!ct095?.user_approved_asset&&!ct095?.approved_asset&&
+  ct095?.approved_binary_handoff?.state==='CHUNKED_HANDOFF_PREPARED'
+)||(
   ct095?.status==='APPROVED'&&
   ct095?.brief_status==='APPROVED'&&
-  ct095?.review?.clinical_content==='PASS'&&
   ct095?.review?.user_preview==='PASS'&&
-  Boolean(ct095?.user_approved_asset)&&
-  Boolean(ct095?.composite_url)&&
+  Boolean(ct095?.user_approved_asset||ct095?.approved_asset)&&
+  Boolean(ct095?.composite_url)
+);
+check('ct095 CCFT user approval is binary-safe and regeneration-locked',
+  ct095SafeApprovalLifecycle&&
+  ct095?.review?.clinical_content==='PASS'&&
   String(ct095?.generation_brief?.patient_setup||'').includes('20 mmHg')&&
   String(ct095?.generation_brief?.examiner_maneuver||'').includes('22·24·26·28·30 mmHg')&&
   String(ct095?.generation_brief?.positive_finding||'').includes('운동조절 저하')&&

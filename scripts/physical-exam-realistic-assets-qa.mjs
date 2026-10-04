@@ -85,7 +85,7 @@ for(const p of approved){
   check(p.clinical_test_id+' approved asset exists',Boolean(path)&&fs.existsSync(path),path);
   if(path&&fs.existsSync(path)){
     const hash=sha256(path);
-    const expected=meta.preview_webp_sha256||meta.approved_svg_sha256||'';
+    const expected=meta.preview_webp_sha256||meta.approved_webp_sha256||meta.approved_svg_sha256||'';
     if(expected) check(p.clinical_test_id+' approved asset hash matches registry',hash===expected,hash);
   }
 }

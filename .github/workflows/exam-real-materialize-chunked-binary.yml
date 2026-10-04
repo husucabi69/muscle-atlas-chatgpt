@@ -1,0 +1,93 @@
+name: EXAM-REAL materialize chunked approved binary
+
+on:
+  push:
+    branches:
+      - preview/development
+    paths:
+      - ops/exam-real-binary-handoff.trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: exam-real-materialize-chunked-binary
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.sha }}
+
+      - name: Read exact EXAM-REAL binary handoff request
+        id: req
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=ops/exam-real-binary-handoff.trigger
+          TEST_ID="$(sed -n 's/^test_id=//p' "$FILE" | tail -1)"
+          GEN_ID="$(sed -n 's/^gen_id=//p' "$FILE" | tail -1)"
+          SHA256="$(sed -n 's/^sha256=//p' "$FILE" | tail -1)"
+          BYTES="$(sed -n 's/^bytes=//p' "$FILE" | tail -1)"
+          CHUNK_DIR="$(sed -n 's/^chunk_dir=//p' "$FILE" | tail -1)"
+          OUTPUT_PATH="$(sed -n 's/^output_path=//p' "$FILE" | tail -1)"
+          [[ "$TEST_ID" =~ ^ct[0-9]{3}$ ]]
+          [[ -n "$GEN_ID" ]]
+          [[ "$SHA256" =~ ^[0-9a-f]{64}$ ]]
+          [[ "$BYTES" =~ ^[0-9]+$ ]]
+          [[ "$CHUNK_DIR" =~ ^ops/exam-real-binary-handoff/ct[0-9]{3}$ ]]
+          [[ "$OUTPUT_PATH" =~ ^assets/physical-exam-realistic/approved/ct[0-9]{3}[-A-Za-z0-9_.]*\.webp$ ]]
+          echo "test_id=$TEST_ID" >> "$GITHUB_OUTPUT"
+          echo "gen_id=$GEN_ID" >> "$GITHUB_OUTPUT"
+          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
+          echo "bytes=$BYTES" >> "$GITHUB_OUTPUT"
+          echo "chunk_dir=$CHUNK_DIR" >> "$GITHUB_OUTPUT"
+          echo "output_path=$OUTPUT_PATH" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Reconstruct and verify approved Physical Examination WebP
+        run: |
+          node scripts/materialize-physical-exam-binary-chunks.mjs \
+            "${{ steps.req.outputs.test_id }}" \
+            "${{ steps.req.outputs.chunk_dir }}" \
+            "${{ steps.req.outputs.gen_id }}" \
+            "${{ steps.req.outputs.sha256 }}" \
+            "${{ steps.req.outputs.bytes }}" \
+            "${{ steps.req.outputs.output_path }}"
+
+      - name: Run focused EXAM-REAL QA
+        run: |
+          node scripts/inspect-realistic-webp.mjs "${{ steps.req.outputs.output_path }}"
+          node scripts/physical-exam-realistic-assets-qa.mjs
+          node scripts/exam-real-review-lifecycle-qa.mjs
+          node scripts/exam-real-lifecycle-qa.mjs
+          node scripts/physical-exam-realistic-prompt-qa.mjs
+
+      - name: Commit verified asset and remove transport chunks
+        shell: bash
+        run: |
+          set -euo pipefail
+          TEST_ID="${{ steps.req.outputs.test_id }}"
+          CHUNK_DIR="${{ steps.req.outputs.chunk_dir }}"
+          OUTPUT_PATH="${{ steps.req.outputs.output_path }}"
+          git config user.name "muscle-atlas-bot"
+          git config user.email "actions@users.noreply.github.com"
+          rm -rf "$CHUNK_DIR"
+          rm -f ops/exam-real-binary-handoff.trigger
+          git add -A "$CHUNK_DIR" ops/exam-real-binary-handoff.trigger "$OUTPUT_PATH" data/physical-exam-realistic-assets-v1.json
+          git commit -m "EXAM-REAL: materialize $TEST_ID approved binary"
+
+          git fetch origin preview/development
+          REMOTE_HEAD="$(git rev-parse origin/preview/development)"
+          if [[ "$REMOTE_HEAD" != "${GITHUB_SHA}" ]]; then
+            echo "preview/development advanced during materialization: ${GITHUB_SHA} -> $REMOTE_HEAD" >&2
+            exit 1
+          fi
+          git push origin HEAD:preview/development
