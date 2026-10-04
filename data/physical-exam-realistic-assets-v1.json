@@ -4112,30 +4112,50 @@
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "앙와위에서 상부 경추를 최대한 굴곡시켜 하부 경추 움직임을 제한한다.",
-        "examiner_maneuver": "좌우 회전을 비교하며 ROM 제한과 익숙한 두통 재현을 확인한다.",
-        "positive_finding": "뚜렷한 비대칭/제한과 평소 후두-두부 증상이 함께 재현되면 기록한다.",
-        "interpretation": "cervicogenic headache에서 유용한 임상검사지만 단독으로 다른 headache를 배제하지 않는다.",
-        "limitation_safety": "편두통·긴장형두통·상부 경추 통증이 겹칠 수 있어 두통 병력과 신경학적 red flag가 우선이다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult female patient and adult male clinician; clean neutral clinic background; examination table; no identifiable real patient; mobile-readable",
+        "model_casting": {
+          "patient": "성인 여성형",
+          "examiner": "성인 남성형",
+          "rule": "ct092 mod 4 = 0",
+          "casting_rule_version": "2026-10-03"
+        },
+        "panel_structure": "세로형 3-panel. 1 시작 — 환자 앙와위, 검사자가 머리와 목을 양손으로 지지 / 2 최대 경추 굴곡 후 좌우 회전 — 하부 경추 움직임을 줄이도록 목을 충분히 굴곡한 상태에서 머리를 좌우로 수동 회전 / 3 이상 소견 — 한쪽 회전이 뚜렷하게 제한되거나 좌우 비대칭이 관찰되는 장면. 과장된 통증표현 금지.",
+        "patient_setup": "환자는 검사대에 바로 누운 앙와위 자세로 편안히 이완한다. 검사자는 환자의 머리와 후두부를 양손으로 지지해 목이 갑자기 떨어지거나 비틀리지 않게 한다.",
+        "examiner_maneuver": "검사자는 환자의 경추를 가능한 범위에서 충분히 굴곡한 상태로 만든 뒤 그 굴곡을 유지하면서 머리를 좌우로 천천히 회전한다. 좌우 회전 범위와 end-feel, 익숙한 후두-두부 증상 재현 여부를 비교한다. 강한 끝범위 강제 회전은 하지 않는다.",
+        "positive_finding": "한쪽 회전이 반대쪽보다 뚜렷하게 제한되거나 전체 회전 범위가 현저히 감소하고, 임상 병력과 맞는 익숙한 후두-두부 증상이 재현되면 경추성 두통(Cervicogenic Headache) 가능성을 지지하는 소견으로 기록한다. 단독으로 확진하지 않는다.",
+        "interpretation": "경추 굴곡-회전 검사(Cervical Flexion-Rotation Test)는 주로 상부 경추, 특히 제1-2경추 분절(C1-C2)의 회전 제한을 평가하는 임상검사다. 경추성 두통(Cervicogenic Headache) 감별에 유용하지만 편두통(Migraine), 긴장형두통(Tension-Type Headache) 및 다른 이차성 두통을 단독으로 배제하지 못한다.",
+        "limitation_safety": "급성 외상, 불안정성 의심, 심한 어지럼/신경학적 이상, 혈관성 또는 다른 이차성 두통 red flag가 있으면 강제 수동회전보다 원인 평가를 우선한다. 검사 결과는 두통 병력, 신경학적 검사, 경추 움직임과 함께 해석한다.",
+        "overlay_policy": "패널 2에는 경추 굴곡 방향의 작은 화살표 1개와 좌우 회전 방향 화살표만 사용한다. 패널 3에는 제한된 쪽의 회전 arc가 짧게 보이도록 비교 표시한다. 정확한 각도 숫자는 그림에 넣지 않는다.",
+        "text_policy": "이미지 내부는 '1 시작', '2 굴곡 유지·좌우 회전', '3 제한/비대칭' 정도의 짧은 한국어만 사용한다. 약어만 단독 표기하지 않는다.",
+        "evidence_lock": [
+          "cgh_review",
+          "cfrot_validity_2006",
+          "cfrot_reliability_2008",
+          "cfrot_accuracy_2010"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-04",
+        "note": "Clinical brief refreshed from systematic-review and diagnostic-validity evidence. Candidate must show supine position, maintained cervical flexion, and true passive left/right rotation comparison."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Patient must be supine with clinician supporting head/occiput",
+        "Cervical flexion must remain visibly maintained during rotation",
+        "Positive panel must show asymmetric/restricted rotation without dramatic pain theatrics",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct093",
