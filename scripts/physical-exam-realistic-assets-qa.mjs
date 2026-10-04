@@ -109,6 +109,18 @@ check('Runtime supports canonical approved composite_url',index.includes("p?.sta
 check('Runtime supports both approval metadata schemas',index.includes("p?.approved_asset||p?.user_approved_asset"));
 check('Runtime renders approved asset from composite_url',index.includes("const assetPath=isApproved?p.composite_url"));
 
+check('Runtime exposes plain-language and protocol teaching blocks',
+  index.includes('쉽게 이해하기')&&index.includes('표준 시행 순서')&&index.includes('잘못된 보상 / 기능 저하 패턴'));
+
+const ct095=profiles.find(p=>p.clinical_test_id==='ct095');
+check('ct095 user-approved asset and teaching lock',
+  ct095?.status==='APPROVED'&&
+  ct095?.review?.user_preview==='PASS'&&
+  String(ct095?.composite_url||'').includes('ct095-ccft-gen-34351135-approved.webp')&&
+  ct095?.user_approved_asset?.approved_webp_sha256==='c4d9f28175fc95460ca3cd11283f37c492451609ab06d7466eb37f6fb7a82d4d');
+
+
+
 for(const p of profiles){
   const b=p.generation_brief||{};
   check(p.clinical_test_id+' brief completeness',

@@ -526,18 +526,18 @@
     },
     {
       "clinical_test_id": "ct095",
-      "name_ko": "Craniocervical flexion test",
+      "name_ko": "경추 심부굴곡근 조절 검사",
       "name_en": "Craniocervical flexion test (CCFT)",
       "category": "motor_control",
       "target_structure_ids": [
         "m005",
         "m006"
       ],
-      "setup": "바로 누운 자세에서 목 뒤의 자연스러운 곡선 아래에 납작한 공기압 주머니형 센서(pressure biofeedback unit)를 넣고 시작 압력을 20 mmHg로 맞춘다. 환자는 어깨 힘을 빼고 머리를 침대에서 들지 않는다.",
-      "maneuver": "머리를 들지 않은 채 아주 작게 '예' 하듯 고개를 끄덕여 22·24·26·28·30 mmHg 목표를 차례로 만든다. 각 단계는 약 10초 유지하고, 흉쇄유돌근(Sternocleidomastoid, SCM)·전사각근 과활성, 강한 턱 당김/경추 후퇴, 머리 들기, 떨림과 압력 유지 실패를 관찰한다.",
-      "positive_definition": "특정 압력값 하나를 질환 '양성' 기준으로 쓰지 않는다. 낮은 단계에서부터 목표압을 안정적으로 유지하지 못하거나 표재성 굴곡근 보상·머리 들기·경추 후퇴가 반복되면 심부 경추 굴곡근의 운동조절/저부하 지구력 저하 소견으로 기록한다.",
-      "interpretation_note": "Craniocervical flexion test(CCFT)는 longus colli·longus capitis를 중심으로 한 심부 경추 굴곡근의 저부하 운동조절과 지구력을 평가하는 검사다. 측정 신뢰도와 수렴타당도는 지지되지만 질환 유무를 단독으로 가르는 discriminative validity는 일관되지 않아 병리 진단검사로 사용하지 않는다.",
-      "limitation": "통증 원인이나 특정 병변을 확진하지 않는다. cuff 위치·기준압·머리/목 정렬·검사자 지시·표재성 근육 보상 허용 여부에 따라 결과가 달라질 수 있으므로 표준화해 기록한다.",
+      "setup": "바로 누운 자세에서 목 뒤의 자연스러운 곡선 아래에 납작한 공기압 주머니형 센서(pressure biofeedback unit)를 넣고 시작 압력을 20 mmHg로 맞춘다. 쉽게 말해, 혈압계처럼 압력 변화를 보여주는 작은 공기주머니를 목 뒤에 받치는 것이다. 환자는 어깨 힘을 빼고 머리를 침대에서 들지 않는다.",
+      "maneuver": "환자에게 '공기주머니를 세게 눌러 보세요'라고 하지 않는다. 대신 머리를 침대에 둔 채 아주 작게 '예' 하듯 고개를 끄덕이게 한다. 이 작은 끄덕임으로 목 뒤 곡선이 조금 펴지면서 공기주머니가 자연스럽게 더 눌리고 압력이 20 mmHg에서 22 mmHg로 올라간다. 22 mmHg를 약 10초 안정적으로 유지하면 24, 26, 28, 30 mmHg로 차례로 진행한다. 흉쇄유돌근(Sternocleidomastoid, SCM)·전사각근 과활성, 강한 턱 당김/경추 후퇴, 머리 들기, 떨림과 압력 유지 실패를 관찰한다.",
+      "positive_definition": "이 검사는 특정 질환의 '양성/음성'을 가르는 검사가 아니다. 낮은 압력 단계부터 목표압을 안정적으로 유지하지 못하거나, 머리를 들거나 턱을 과도하게 당기고 흉쇄유돌근·전사각근을 많이 쓰는 보상이 반복되면 심부 경추 굴곡근의 운동조절 또는 저부하 지구력 저하 소견으로 기록한다.",
+      "interpretation_note": "Craniocervical Flexion Test(CCFT)는 긴목근(longus colli)·긴머리근(longus capitis)을 중심으로 한 심부 경추 굴곡근의 저부하 운동조절과 지구력을 평가한다. 환자가 공기주머니를 의도적으로 세게 누르는 검사가 아니라, 정확한 작은 고개 끄덕임을 유지했을 때 생기는 압력 변화를 이용해 움직임의 질과 유지 능력을 본다.",
+      "limitation": "통증 원인이나 특정 병변을 확진하지 않는다. 공기주머니 위치·20 mmHg 기준압·머리/목 정렬·검사자 지시·표재성 근육 보상 허용 여부에 따라 결과가 달라질 수 있다. 머리를 들어 일반적인 목 굴곡을 하거나 턱을 강하게 당겨 경추 후퇴로 보상하면 다른 동작을 평가하게 되므로 다시 자세를 잡는다.",
       "related_diagnosis_concept_ids": [
         "d096"
       ],
@@ -546,11 +546,33 @@
         "ccft_meta_2022"
       ],
       "interpretation_detail": {
-        "what_it_assesses": "CCFT는 압력 biofeedback을 이용해 큰 목 굴곡 없이 작은 craniocervical flexion(nod)을 단계적으로 수행할 때 심부 경추 굴곡근의 선택적 저부하 조절과 유지 능력을 평가한다.",
-        "standard_protocol": "목 뒤에 납작한 공기압 주머니형 센서를 넣고 시작 압력을 20 mmHg로 맞춘 뒤 22·24·26·28·30 mmHg 목표를 2 mmHg씩 진행한다. 각 단계는 약 10초 유지하며, 실제 점수화 방식(activation score/performance index)은 사용하는 표준 프로토콜에 맞춰 기록한다.",
-        "impairment_pattern": "목표압을 일정하게 유지하지 못하거나 SCM/전사각근 과활성, 턱을 세게 당기는 경추 후퇴, 머리 들기, 떨림·jerky movement가 나타나면 심부 굴곡근 motor-control impairment를 지지한다.",
-        "diagnostic_weight": "2020 systematic review는 CCFT의 검사자내·검사자간 신뢰도와 수렴타당도에 중등도 근거를 보고했지만 discriminative validity는 상충했다. 2022 systematic review/meta-analysis도 여러 CCFT 점수 방식의 측정특성을 평가했으며, 결과는 평가검사로 해석하고 단독 진단검사로 사용하지 않는 것이 안전하다.",
-        "interpretation_bottom_line": "CCFT는 '병이 있나 없나'를 가르는 검사가 아니라 심부 경추 굴곡근의 조절·지구력 저하를 정량화하고 재활 목표를 잡는 기능검사로 해석한다."
+        "plain_language_explanation": "목 뒤에 납작한 공기주머니를 넣고 20 mmHg에서 시작한다. 환자가 머리를 들지 않고 '예' 하듯 아주 조금 끄덕이면 목 뒤의 오목한 곡선이 조금 펴져 공기주머니가 자연스럽게 눌리고 압력이 22 mmHg처럼 올라간다. 환자는 주머니를 억지로 누르는 것이 아니라 정확한 작은 끄덕임 자세를 유지해서 목표 압력을 약 10초간 안정적으로 유지한다.",
+        "what_it_assesses": "긴목근(longus colli)·긴머리근(longus capitis) 같은 심부 경추 굴곡근이 큰 힘을 쓰지 않고 머리와 목을 섬세하게 조절하고 그 상태를 유지할 수 있는지 평가한다. 겉의 큰 목 근육으로 힘껏 목을 굽히는 능력을 보는 검사가 아니다.",
+        "standard_protocol": "목 뒤 공기압 주머니를 20 mmHg로 맞춘 뒤 22 → 24 → 26 → 28 → 30 mmHg를 2 mmHg씩 단계적으로 목표로 한다. 각 단계는 약 10초 유지한다. 한 단계가 안정되면 다음 단계로 넘어가고, 정확한 자세를 유지하지 못하면 더 높은 숫자에 도달하는 것보다 동작의 질을 우선한다.",
+        "impairment_pattern": "목표압이 계속 흔들리거나 10초를 유지하지 못하는 경우, 머리를 침대에서 드는 경우, 턱을 세게 가슴 쪽으로 당겨 경추 후퇴를 만드는 경우, 흉쇄유돌근(Sternocleidomastoid, SCM)·전사각근이 두드러지게 긴장하는 경우는 보상 패턴이다.",
+        "positive_meaning": "낮은 단계부터 압력 유지가 어렵거나 보상 패턴이 반복되면 심부 경추 굴곡근의 운동조절·저부하 지구력 저하 가능성을 높인다. 이것은 기능 저하 소견이지 특정 질환의 확진 소견은 아니다.",
+        "raises_suspicion_for": [
+          "심부 경추 굴곡근의 motor-control impairment 또는 저부하 지구력 저하",
+          "만성 또는 반복성 경부통 환자에서 재활 목표가 될 수 있는 경추 운동조절 기능 저하",
+          "경추성 두통 환자에서 다른 임상 소견과 함께 관찰되는 심부 굴곡근 기능 저하"
+        ],
+        "important_differentials": [
+          "심부 굴곡근 기능 저하 ↔ 단순 통증 억제 또는 통증 때문에 힘을 쓰지 못하는 상태",
+          "심부 굴곡근 기능 저하 ↔ 경추 후관절성 통증(cervical facet-mediated pain)",
+          "심부 굴곡근 기능 저하 ↔ 근막통증(myofascial pain)과 표재성 목 굴곡근 과활성",
+          "경부통 ↔ 경추 신경근병증(cervical radiculopathy): 팔 방사통·감각·근력·반사 소견을 따로 확인",
+          "손 기능 저하·보행장애·병적 반사 등 신경학적 이상 ↔ 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)"
+        ],
+        "what_it_cannot_rule_out": "CCFT가 정상이라고 경추 신경근병증, 추간판성 통증, 경추 후관절성 통증, 근막통증, 경추성 두통을 배제할 수 없다. 반대로 수행이 나쁘다고 이 질환들을 확진할 수도 없다. CCFT는 원인질환 진단검사가 아니라 기능검사다.",
+        "next_clinical_steps": [
+          "경추 능동 관절가동범위와 통증 패턴을 함께 확인한다.",
+          "팔 방사통·저림이 있으면 Spurling 검사, 경추 견인검사(distraction), 상지신경가동화검사(Upper Limb Neurodynamic Test, ULNT), 근력·감각·반사를 확인한다.",
+          "국소 후외측 경부통이 주된 경우 후관절성 통증 평가와 근막 압통·trigger point를 함께 본다.",
+          "보행장애, 손의 서툼, 진행성 근력저하, 병적 반사 등 척수병증 red flag가 있으면 강한 반복 유발검사보다 영상 및 전문 평가를 우선한다.",
+          "재활 추적에서는 같은 장비 위치와 같은 지시를 사용하여 단계 유지 능력과 보상 감소를 비교한다."
+        ],
+        "diagnostic_weight": "2020 systematic review에서는 CCFT의 검사자내·검사자간 신뢰도와 수렴타당도에 중등도 근거가 있었지만 질환군과 정상군을 구분하는 discriminative validity는 일관되지 않았다. 2022 systematic review/meta-analysis도 CCFT의 여러 점수 방식과 측정특성을 검토했으며, 단독 질환 진단보다는 기능평가와 재활 추적에 사용하는 해석이 적절하다.",
+        "interpretation_bottom_line": "환자가 공기주머니를 세게 누르는 검사가 아니다. '머리를 들지 않고 아주 작게 예라고 끄덕이는 정확한 동작'을 유지했을 때 목 뒤 압력이 단계적으로 올라가고 안정적으로 유지되는지를 보는 검사다. 숫자가 높은 것보다 보상 없이 정확하게 유지하는 것이 더 중요하다."
       }
     },
     {

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.04-exam-real-004-ct095-candidate1-user-preview",
+  "dataset_version": "2026.10.04-exam-real-005-ct095-approved",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "User-preview queue now includes ct083, ct084, ct091, ct092 and ct095. Do not regenerate these while awaiting user review. ct088 Hoffmann remains mandatory deferred backlog. ct089 remains user-approved binary-transfer pending. Approved ct082/ct090/ct093/ct094 stay locked; Production remains frozen."
+    "next_action": "ct095 APPROVED and locked. Next: surface existing ct083/ct084 candidates for user review without regeneration; ct091/ct092 remain user-preview queue; ct089 binary transfer pending; ct088 Hoffmann mandatory deferred backlog. Production remains frozen."
   },
   "profiles": [
     {
@@ -4408,10 +4408,10 @@
       "region": "cervical",
       "title_ko": "Craniocervical flexion test",
       "title_en": "Craniocervical flexion test (CCFT)",
-      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
+      "status": "APPROVED",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct095-ccft-gen-34351135-approved.webp",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
@@ -4430,13 +4430,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PASS_INTERNAL",
+        "visual_pose": "PASS",
         "examiner_hand_position": "NOT_APPLICABLE",
-        "force_direction": "PASS_INTERNAL",
-        "embedded_text": "PASS_INTERNAL",
-        "user_preview": "PENDING",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
+        "user_preview": "PASS",
         "reviewed_on": "2026-10-04",
-        "note": "Clinical content and 3-panel visual structure internally reviewed. Small nod is separated from head-lift compensation; 20 mmHg baseline and 22→24→26→28→30 mmHg staged targets are shown. No disease-positive claim. Awaiting user visual approval."
+        "note": "User explicitly approved ct095 after plain-language clarification that the patient does not forcefully press the pressure bag; the small nod naturally increases pressure. User also required detailed study/teaching/patient explanations in the app."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4444,10 +4444,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "User Preview approval required before canonical promotion",
-        "Approved binary must be committed and hash-verified before composite_url is set"
-      ],
+      "approval_blockers": [],
       "preview_candidate": {
         "candidate_no": 1,
         "gen_id": "34351135-4aa5-4523-bc4a-928e28359b7a",
@@ -4463,7 +4460,39 @@
         "app_preview_webp_sha256": "90d2d209591a0d1c814a83d9f8b9c28fdf3ced40ec9d64c3f61698d534027a4f",
         "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
         "note": "Raw generation violated the locked 3-panel structure by producing four panels. It was not accepted as-is. A deterministic human layout correction retained the same generated patient imagery and reduced the teaching asset to the locked three main panels: 1 start/20 mmHg, 2 small nod with 22→30 mmHg staged cue, 3 compensation pattern. User Preview approval is still required before any repository binary/composite_url promotion."
-      }
+      },
+      "candidate_history": [
+        {
+          "candidate_no": 2,
+          "gen_id": "34351135-4aa5-4523-bc4a-928e28359b7a",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation + human 3-panel layout/text correction",
+          "raw_generation_dimensions": "1536x1024",
+          "source_session_path": "/mnt/data/a_clean_clinical_infographic_style_composite_ima.png",
+          "approved_review_path": "/mnt/data/ct095_ccft_realistic_candidate_3panel_v4.png",
+          "approved_review_sha256": "0ef8c5fb6081bd4781defc60e4cfbc306cde1a720b6db1183c6185fa9bb5229c",
+          "disposition": "USER_APPROVED_PASS",
+          "passed_axes": [
+            "3_panel_structure",
+            "20_mmHg_start",
+            "small_yes_nod",
+            "22_to_30_mmHg_progression",
+            "head_lift_compensation",
+            "plain_language_pressure_bag_explanation",
+            "no_text_overlap"
+          ]
+        }
+      ],
+      "user_approved_asset": {
+        "gen_id": "34351135-4aa5-4523-bc4a-928e28359b7a",
+        "source_review_path": "/mnt/data/ct095_ccft_realistic_candidate_3panel_v4.png",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct095-ccft-gen-34351135-approved.webp",
+        "approved_webp_sha256": "c4d9f28175fc95460ca3cd11283f37c492451609ab06d7466eb37f6fb7a82d4d",
+        "dimensions": "640x1141",
+        "source_review_png_sha256": "0ef8c5fb6081bd4781defc60e4cfbc306cde1a720b6db1183c6185fa9bb5229c",
+        "disposition": "USER_APPROVED_PASS"
+      },
+      "review_note": "USER PASS locked. Do not regenerate ct095 unless the user explicitly reopens it. Keep the detailed plain-language explanation in the app for physician study, trainee teaching and patient education."
     },
     {
       "clinical_test_id": "ct096",

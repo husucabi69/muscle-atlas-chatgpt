@@ -2544,7 +2544,10 @@ function clinicalExamInterpretationDetailHtml(test){
     : '';
   return '<div class="clinical-exam-section clinical-interpretation-detail">'+
     '<h4>임상 해석 · 이 검사를 어떻게 읽을 것인가</h4>'+
+    (d.plain_language_explanation?'<div class="clinical-redflag" style="margin-bottom:10px"><b>쉽게 이해하기</b><br>'+esc(d.plain_language_explanation)+'</div>':'')+
     (d.what_it_assesses?'<div class="note"><b>무엇을 보는 검사인가</b><br>'+esc(d.what_it_assesses)+'</div>':'')+
+    (d.standard_protocol?'<div class="note" style="margin-top:10px"><b>표준 시행 순서</b><br>'+esc(d.standard_protocol)+'</div>':'')+
+    (d.impairment_pattern?'<div class="note" style="margin-top:10px"><b>잘못된 보상 / 기능 저하 패턴</b><br>'+esc(d.impairment_pattern)+'</div>':'')+
     (d.positive_meaning?'<div class="note" style="margin-top:10px"><b>양성이 의미하는 것</b><br>'+esc(d.positive_meaning)+'</div>':'')+
     list('양성이면 우선 생각할 것',d.raises_suspicion_for)+
     list('중요 감별진단',d.important_differentials)+
