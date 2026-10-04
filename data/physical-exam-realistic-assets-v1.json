@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.04-exam-real-003-ct095-brief-locked",
+  "dataset_version": "2026.10.04-exam-real-004-ct095-candidate1-user-preview",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct083/ct084/ct092 remain user-preview candidates and must not be regenerated. ct095 CCFT is the next fresh generation task with evidence-locked 20→22→24→26→28→30 mmHg pressure-biofeedback protocol. ct088 Hoffmann remains mandatory deferred backlog. Approved ct082/ct090/ct093/ct094 stay locked; Production remains frozen."
+    "next_action": "User-preview queue now includes ct083, ct084, ct091, ct092 and ct095. Do not regenerate these while awaiting user review. ct088 Hoffmann remains mandatory deferred backlog. ct089 remains user-approved binary-transfer pending. Approved ct082/ct090/ct093/ct094 stay locked; Production remains frozen."
   },
   "profiles": [
     {
@@ -4408,9 +4408,9 @@
       "region": "cervical",
       "title_ko": "Craniocervical flexion test",
       "title_en": "Craniocervical flexion test (CCFT)",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -4430,13 +4430,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
+        "visual_pose": "PASS_INTERNAL",
+        "examiner_hand_position": "NOT_APPLICABLE",
+        "force_direction": "PASS_INTERNAL",
+        "embedded_text": "PASS_INTERNAL",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-04",
-        "note": "CCFT clinical/visual brief locked to standard pressure-biofeedback protocol: baseline 20 mmHg; 22-30 mmHg in 2-mmHg stages; small nod without head lift; interpret as motor-control/endurance impairment, not a standalone disease-positive test."
+        "note": "Clinical content and 3-panel visual structure internally reviewed. Small nod is separated from head-lift compensation; 20 mmHg baseline and 22→24→26→28→30 mmHg staged targets are shown. No disease-positive claim. Awaiting user visual approval."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4445,11 +4445,25 @@
         "copyright_evidence_required": true
       },
       "approval_blockers": [
-        "Fresh realistic candidate generation required",
-        "Must visibly distinguish small craniocervical nod from head lift/general cervical flexion",
-        "Pressure cuff baseline 20 mmHg and staged 22-30 mmHg targets must be readable without clutter",
-        "User Preview approval required before canonical promotion"
-      ]
+        "User Preview approval required before canonical promotion",
+        "Approved binary must be committed and hash-verified before composite_url is set"
+      ],
+      "preview_candidate": {
+        "candidate_no": 1,
+        "gen_id": "34351135-4aa5-4523-bc4a-928e28359b7a",
+        "generated_on": "2026-10-04",
+        "generator": "OpenAI image generation + human 3-panel layout correction",
+        "raw_generation_dimensions": "1536x1024",
+        "source_session_path": "/mnt/data/a_clean_clinical_infographic_style_composite_ima.png",
+        "review_png_path": "/mnt/data/ct095_ccft_realistic_candidate_3panel.png",
+        "review_png_dimensions": "900x1609",
+        "review_png_sha256": "f2e6a78b6425c799c42f8c97afba3a9cde81afc10ea754faddde56766e4da1fd",
+        "app_preview_webp_path": "/mnt/data/ct095_ccft_realistic_candidate_3panel_320.webp",
+        "app_preview_dimensions": "320x572",
+        "app_preview_webp_sha256": "90d2d209591a0d1c814a83d9f8b9c28fdf3ced40ec9d64c3f61698d534027a4f",
+        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+        "note": "Raw generation violated the locked 3-panel structure by producing four panels. It was not accepted as-is. A deterministic human layout correction retained the same generated patient imagery and reduced the teaching asset to the locked three main panels: 1 start/20 mmHg, 2 small nod with 22→30 mmHg staged cue, 3 compensation pattern. User Preview approval is still required before any repository binary/composite_url promotion."
+      }
     },
     {
       "clinical_test_id": "ct096",
