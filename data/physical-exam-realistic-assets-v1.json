@@ -3895,36 +3895,46 @@
       "region": "cervical",
       "title_ko": "Tandem gait·보행 선별",
       "title_en": "Tandem gait and balance screen",
-      "status": "PENDING_GENERATION",
-      "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "status": "ACTIVE_CLINICAL_BRIEF_LOCKED_PENDING_GENERATION",
+      "pilot_batch": "PILOT_CERVICAL_01",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "안전 확보 후 일자보행과 일반 보행을 관찰한다.",
-        "examiner_maneuver": "보폭, 균형, 경직, tandem gait 실패를 확인한다.",
-        "positive_finding": "새로운 보행 불안정, tandem gait 실패, spastic pattern이 있으면 기록한다.",
-        "interpretation": "손 서툼·과반사 등과 함께 DCM 의심을 높이는 기능 소견이다.",
-        "limitation_safety": "전정·말초신경·하지 관절 문제 등 다른 원인이 많아 단독진단은 금지한다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and one adult examiner; clean clinic corridor or examination-room walking lane; no identifiable real patient; mobile-readable; full lower-body/whole-body framing only as needed to show gait safely",
+        "panel_structure": "Prefer 3 panels: 1 시작 — 환자가 일직선 앞에 서고 검사자는 옆에서 낙상 대비 / 2 tandem gait — heel-to-toe로 일직선 보행 / 3 이상 소견 — 발이 선을 벗어나거나 균형을 잃어 side-step/보폭 불안정이 나타나는 장면. 과장된 넘어짐 금지.",
+        "patient_setup": "평평하고 장애물 없는 바닥에서 환자에게 편안한 신발 또는 안전한 맨발 상태로 서게 한다. 검사자는 환자 옆 또는 약간 뒤에 서서 넘어질 때만 지지할 수 있도록 준비한다.",
+        "examiner_maneuver": "먼저 자연 보행을 관찰한 뒤 일직선상 heel-to-toe tandem gait를 시행하게 한다. 발뒤꿈치가 반대쪽 발가락 바로 앞에 오도록 걷게 하며 보폭, 선 이탈, side-step, 몸통 흔들림, 경직성/넓은 보행기저, 반복 재현성을 관찰한다. 검사자는 결과를 만들 정도로 환자를 잡거나 유도하지 않는다.",
+        "positive_finding": "반복되는 tandem gait 실패, 일직선에서의 명확한 이탈/side-step, 비정상적으로 넓은 보행기저, 경직성 또는 불안정한 보행이 관찰되면 이상 소견으로 기록한다. 단 한 번의 실수만으로 병적이라고 단정하지 않는다.",
+        "interpretation": "보행 불안정은 DCM에서 흔한 기능적 단서이며 손 서툼, 과반사, 병적반사 등과 함께 있을 때 cervical cord dysfunction 의심을 높인다. 그러나 tandem gait 하나는 DCM 특이 검사가 아니다.",
+        "limitation_safety": "낙상위험이 있으면 검사자가 즉시 보호하고 무리한 반복을 하지 않는다. 전정질환, 소뇌질환, 말초신경병증/고유감각저하, 하지 관절질환, 시각문제, 약물/진정, 전신쇠약도 실패를 유발할 수 있다. tandem gait 실패만으로 DCM 확진 금지.",
+        "overlay_policy": "바닥의 얇은 직선과 발 진행방향 화살표만 사용. positive panel은 선 이탈/side-step을 작은 화살표로 표시. 통증·전기감·방사통 overlay 금지. 검사자 손은 환자에 상시 접촉하지 않고 낙상보호 위치를 보여준다.",
+        "text_policy": "이미지 내부는 '1 시작', '2 일자보행', '3 이상 소견' 정도의 짧은 라벨만 사용. 긴 해석·감별·MRI 기준은 HTML 아래에 둔다.",
+        "evidence_lock": [
+          "dcm_signs_2024",
+          "dcm_scoping_2025"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-04",
+        "note": "Clinical brief locked. Visual must distinguish safety guarding from physical assistance and must show heel-to-toe tandem gait rather than ordinary walking alone."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Realistic candidate must show true heel-to-toe tandem gait and non-contact safety guarding",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct091",
