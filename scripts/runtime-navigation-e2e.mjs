@@ -536,7 +536,7 @@ try{
     fail('Clinical deep link opens exact ct083 detail',JSON.stringify(deepState));
   }
   const deepText=(await deepPage.locator('#clinicalDetailContent').textContent()||'').trim();
-  if(!deepText.includes('ct083')||!deepText.includes('경추 견인/Distraction 검사'))fail('Clinical deep link preserves ct083 identity',deepText.slice(0,400));
+  if(!deepText.includes('ct083')||!deepText.includes('경추 견인 검사'))fail('Clinical deep link preserves ct083 identity',deepText.slice(0,400));
   if(await deepPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="preview"]').count()!==1)fail('Clinical deep link renders ct083 realistic Preview candidate');
   if(deepErrors.length)fail('Clinical deep link has no page errors',deepErrors.join(' || '));
   await deepPage.close();
