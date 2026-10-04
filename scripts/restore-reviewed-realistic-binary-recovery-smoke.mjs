@@ -1,3 +1,13 @@
+import fs from 'node:fs';
 import {restoreLateRecoveredReviewedBinary} from './restore-reviewed-realistic-binary-recovery.mjs';
-if(typeof restoreLateRecoveredReviewedBinary!=='function') process.exit(1);
-console.log('late recovery helper import PASS');
+const src=JSON.parse(fs.readFileSync('data/patient-exercise-realistic-assets-v1.json','utf8'));
+const m=structuredClone(src); const base=m.profiles.find(x=>x.profile_id==='px007'); const lost=base.lost_candidate_history?.find(x=>x.gen_id===base.recovery?.prior_gen_id);
+if(!lost) throw new Error('px007 historical candidate missing');
+const p=restoreLateRecoveredReviewedBinary(m,'px007',{gen_id:lost.gen_id,checkpoint_path:lost.checkpoint_path,sha256:'a'.repeat(64),bytes:12345,resolution:'520x942',recovered_on:'2026-10-01'});
+if(p.status!=='CANDIDATE_GENERATED'||p.asset_gate!=='BINARY_HANDOFF_BLOCKED') throw new Error('late recovery state mismatch');
+if(p.gen_id!==lost.gen_id||p.candidate_checkpoint_path!==lost.checkpoint_path) throw new Error('identity mismatch');
+if(!['clinical_content','visual_pose','embedded_text'].every(k=>p.candidate_review?.[k]==='PASS')) throw new Error('review not preserved');
+if(p.recovery?.next_action!=='MATERIALIZE_RECOVERED_EXACT_BINARY') throw new Error('wrong next action');
+if(!p.lost_candidate_history?.some(x=>x.gen_id===lost.gen_id&&x.resolution==='EXACT_BINARY_UNRECOVERABLE')) throw new Error('loss audit not preserved');
+if(p.candidate_asset_path!==null||p.composite_url!==null) throw new Error('canonical asset fabricated');
+console.log('late reviewed-binary recovery transition PASS');
