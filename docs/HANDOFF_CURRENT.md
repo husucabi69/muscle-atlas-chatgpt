@@ -1,3 +1,9 @@
+## 2026-10-04 abbreviation display lock
+
+- 사용자 노출 의학 약어는 단독 사용 금지. 약어 옆에 풀네임을 병기한다.
+- 예: 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM), 상위운동신경원(Upper Motor Neuron, UMN), 자기공명영상(Magnetic Resonance Imaging, MRI), 근위지절간관절(Proximal Interphalangeal Joint, PIP), 원위지절간관절(Distal Interphalangeal Joint, DIP).
+- 새 콘텐츠와 수정 콘텐츠부터 강제 적용한다.
+
 ## 2026-10-04 visual correction lock — Babinski regression prevention
 
 - 모든 Physical Examination / 환자교육 실사형 시각교정은 **해부학 landmark → 사용자 마킹 → 지정 영역만 국소 수정 → 원본/수정본 대조** 순서로 처리한다.
