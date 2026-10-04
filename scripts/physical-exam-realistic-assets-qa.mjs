@@ -51,10 +51,27 @@ check('All EXAM-REAL lifecycle states are recognized',
   profiles.every(p=>allowedStates.has(p.status)),
   profiles.filter(p=>!allowedStates.has(p.status)).map(p=>p.clinical_test_id+':'+p.status).join(','));
 
-const unreviewed=profiles.filter(p=>p.status==='PENDING_GENERATION'&&!p.preview_candidate&&!p.approved_asset&&!p.user_approved_asset);
-check('Unreviewed profiles remain PENDING on all six review gates',
-  unreviewed.every(p=>Object.keys(allowedByReviewKey).every(k=>p.review?.[k]==='PENDING')),
-  String(unreviewed.length));
+const rawBacklog=profiles.filter(p=>
+  p.status==='PENDING_GENERATION'&&
+  p.brief_status==='READY_FROM_CANONICAL_BASELINE'&&
+  !p.preview_candidate&&!p.approved_asset&&!p.user_approved_asset
+);
+check('Raw backlog profiles remain PENDING on all six review gates',
+  rawBacklog.every(p=>Object.keys(allowedByReviewKey).every(k=>p.review?.[k]==='PENDING')),
+  String(rawBacklog.length));
+
+const generationReady=profiles.filter(p=>
+  p.status==='PENDING_GENERATION'&&
+  p.brief_status==='GENERATION_READY'&&
+  !p.preview_candidate&&!p.approved_asset&&!p.user_approved_asset
+);
+check('Generation-ready profiles may lock clinical content while visual gates remain pending',
+  generationReady.every(p=>
+    ['PENDING','PASS'].includes(p.review?.clinical_content)&&
+    ['visual_pose','examiner_hand_position','force_direction','embedded_text','user_preview'].every(k=>p.review?.[k]==='PENDING')
+  ),
+  generationReady.map(p=>p.clinical_test_id).join(',')
+);
 check('All profiles preserve schematic fallback',String(reg.asset_policy?.fallback||'').includes('EXAM-001'));
 
 const approved=profiles.filter(p=>p.status==='APPROVED');
