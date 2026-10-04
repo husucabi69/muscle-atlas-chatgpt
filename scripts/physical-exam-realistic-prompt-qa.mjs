@@ -26,23 +26,26 @@ const generationReadyIds=pilotIds.filter(id=>{
   const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
   return p?.status==='PENDING_GENERATION'&&p?.brief_status==='GENERATION_READY';
 });
-check('Four cervical pilot profiles remain generation-ready while ct088 is explicitly deferred',
-  JSON.stringify(generationReadyIds)===JSON.stringify(['ct083','ct084','ct092','ct095']),
+check('Three cervical pilot profiles remain generation-ready while ct088 is deferred and ct092 awaits user preview',
+  JSON.stringify(generationReadyIds)===JSON.stringify(['ct083','ct084','ct095']),
   JSON.stringify(generationReadyIds));
 const ct088=manifest.profiles?.find(x=>x.clinical_test_id==='ct088');
 check('ct088 is explicitly deferred by user and cannot be promoted',
-  ct088?.status==='INCOMPLETE_DEFERRED_BY_USER_2026_10_04'&&
+  ct088?.status==='INCOMPLETE_DEFERRED_MUST_REVISIT'&&
   ct088?.brief_status==='LOCKED_BUT_VISUAL_NOT_APPROVED'&&
   ct088?.review?.user_preview==='DEFERRED'&&
   !ct088?.preview_candidate&&
-  !ct088?.approved_asset);
-check('ct088 preserves clinical review while realistic visual remains incomplete',
+  !ct088?.approved_asset&&
+  !ct088?.user_approved_asset&&
+  !ct088?.composite_url);
+check('ct088 preserves clinical review while realistic visual remains incomplete and mandatory backlog is locked',
   ct088?.review?.clinical_content==='PASS'&&
-  ct088?.review?.visual_pose==='PASS'&&
-  ct088?.review?.examiner_hand_position==='PASS'&&
-  ct088?.review?.force_direction==='PASS'&&
-  ct088?.review?.embedded_text==='PASS'&&
-  ct088?.generation_blocker?.status==='RESOLVED_CLINICALLY_CANDIDATE9_BINARY_TRANSFER_PENDING');
+  ['PENDING','PENDING_USER'].includes(ct088?.review?.visual_pose)&&
+  ['PENDING','NOT_APPLICABLE'].includes(ct088?.review?.examiner_hand_position)&&
+  ['PENDING','PENDING_USER'].includes(ct088?.review?.force_direction)&&
+  ['PENDING','PASS_INTERNAL'].includes(ct088?.review?.embedded_text)&&
+  Array.isArray(ct088?.approval_blockers)&&
+  ct088.approval_blockers.some(x=>String(x).includes('MANDATORY BACKLOG')));
 
 for(const id of generationReadyIds){
   let prompt='';
@@ -111,7 +114,8 @@ const runtime=fs.readFileSync('index.html','utf8');
 check('Runtime loads realistic Physical Examination registry',
   runtime.includes("fetch('./data/physical-exam-realistic-assets-v1.json'"));
 check('Runtime supports approved realistic asset while retaining schematic fallback',
-  runtime.includes('approved=p?.approved_asset')&&
+  runtime.includes('approvedMeta=p?.approved_asset||p?.user_approved_asset')&&
+  runtime.includes("const assetPath=isApproved?p.composite_url")&&
   runtime.includes('실사형 승인본 · Preview 적재')&&
   runtime.includes('기존 Stable-ID 도해는 보조 reference로 유지합니다.')&&
   runtime.includes('physicalExamRealisticCandidateHtml(test)+clinicalExamIllustrationHtml(test,moduleKey)'));
