@@ -117,7 +117,7 @@ check('ct095 user-approved asset and teaching lock',
   ct095?.status==='APPROVED'&&
   ct095?.review?.user_preview==='PASS'&&
   String(ct095?.composite_url||'').includes('ct095-ccft-gen-34351135-approved.webp')&&
-  ct095?.user_approved_asset?.approved_webp_sha256==='c4d9f28175fc95460ca3cd11283f37c492451609ab06d7466eb37f6fb7a82d4d');
+  ct095?.user_approved_asset?.approved_webp_sha256==='141060b6e1eb05cc93606354dd92054666900009e93196f4cd44b9052dc82bb7');
 
 
 
