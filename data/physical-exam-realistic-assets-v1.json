@@ -3938,10 +3938,10 @@
       "region": "cervical",
       "title_ko": "Tandem gait·보행 선별",
       "title_en": "Tandem gait and balance screen",
-      "status": "USER_APPROVED_ASSET_BINARY_TRANSFER_PENDING",
+      "status": "APPROVED",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "LOCKED_USER_APPROVED",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct090-tandem-gait-gen-3973f251-approved.svg",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and one adult examiner; clean clinic corridor or examination-room walking lane; no identifiable real patient; mobile-readable; full lower-body/whole-body framing only as needed to show gait safely",
@@ -3974,9 +3974,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "Exact approved binary must be committed and SHA-256 verified before Preview connection"
-      ],
+      "approval_blockers": [],
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -4041,13 +4039,15 @@
       ],
       "user_approved_asset": {
         "gen_id": "3973f251-89c5-4e22-a58a-800279e21d6d",
-        "local_path": "/mnt/data/일자보행_검사_안내_포스터.png",
-        "sha256": "f788bb7124fb6230cf5057d0760f28a0b29893941b2b08b5649659884818978a",
-        "disposition": "USER_APPROVED_PASS_BINARY_TRANSFER_PENDING",
-        "approved_scope": "isolated tandem gait three-panel asset only"
+        "source_session_path": "/mnt/data/일자보행_검사_안내_포스터.png",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct090-tandem-gait-gen-3973f251-approved.svg",
+        "approved_svg_sha256": "899878d6cdf89dff9e87512407c7a835f1ee766aff5c343dbab4c5aaf8d967f4",
+        "embedded_webp_sha256": "9e234174ab28bd99dcdbb7157761806c42c1c205182c6b3dd39a7958012a88cc",
+        "dimensions": "480x600",
+        "disposition": "USER_APPROVED_PASS"
       },
       "preview_candidate": null,
-      "review_note": "USER PASS locked. Next development item is ct091. Hoffmann ct088 remains mandatory deferred backlog."
+      "review_note": "USER PASS locked and app asset connected. Do not regenerate ct090 unless user explicitly reopens."
     },
     {
       "clinical_test_id": "ct091",
