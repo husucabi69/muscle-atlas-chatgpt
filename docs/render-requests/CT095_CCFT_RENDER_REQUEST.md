@@ -8,7 +8,7 @@ Purpose: next fresh EXAM-REAL pilot asset after review-queue reconciliation.
 ## Required 3-panel composition
 1. **시작 · 20 mmHg**
    - Adult patient supine in neutral cervical alignment.
-   - Pressure biofeedback cuff directly under the posterior cervical region, adjacent to the occiput.
+   - A flat inflatable pressure sensor (pressure biofeedback unit) under the natural curve of the posterior neck; in Korean-facing labels call it '목 뒤 압력주머니'.
    - Gauge visibly starts at **20 mmHg**.
    - Shoulders relaxed; head remains on the table.
 
@@ -34,6 +34,6 @@ CCFT assesses low-load motor control/endurance of the deep cervical flexors (lon
 ## Visual / copyright contract
 - Independent realistic medical-education illustration; no copied textbook composition, internet photo, identifiable patient, logo or watermark.
 - Same patient/clinician across all three panels.
-- Mobile-readable hand/cuff/gauge placement.
-- Minimal Korean labels only; long explanatory text belongs in the app body.
+- Mobile-readable pressure-sensor/gauge placement; keep all panel headers in dedicated header bars so no text overlaps the patient image.
+- Minimal Korean labels only; prefer plain Korean ('목 뒤 압력주머니') over 'biofeedback cuff'. Long explanatory text belongs in the app body.
 - User Preview approval is mandatory before canonical promotion.
