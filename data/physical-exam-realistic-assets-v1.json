@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.04-exam-real-006-ct095-safe-binary-handoff",
+  "dataset_version": "2026.10.04-exam-real-007-ct095-materialized",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct095 user approval is locked while exact approved WebP is transferred through chunk-safe GitHub Actions materialization. Do not regenerate. ct083 remains current user-review target; Production remains frozen."
+    "next_action": "ct095 approved binary materialized and locked. ct083 remains current user-review target; do not regenerate internally passed candidates; Production remains frozen."
   },
   "profiles": [
     {
@@ -4408,10 +4408,10 @@
       "region": "cervical",
       "title_ko": "Craniocervical flexion test",
       "title_en": "Craniocervical flexion test (CCFT)",
-      "status": "USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING",
+      "status": "APPROVED",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "USER_APPROVED_BINARY_TRANSFER_PENDING",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct095-ccft-gen-34351135-approved.webp",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
@@ -4444,9 +4444,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "Exact user-approved ct095 WebP binary materialization is pending; do not expose a corrupted/truncated asset"
-      ],
+      "approval_blockers": [],
       "preview_candidate": {
         "candidate_no": 1,
         "gen_id": "34351135-4aa5-4523-bc4a-928e28359b7a",
@@ -4487,14 +4485,26 @@
       ],
       "review_note": "USER PASS locked. Do not regenerate ct095 unless the user explicitly reopens it. Keep the detailed plain-language explanation in the app for physician study, trainee teaching and patient education.",
       "approved_binary_handoff": {
-        "state": "CHUNKED_HANDOFF_PREPARED",
+        "state": "MATERIALIZED_VERIFIED",
         "gen_id": "34351135-4aa5-4523-bc4a-928e28359b7a",
         "source_review_png_sha256": "0ef8c5fb6081bd4781defc60e4cfbc306cde1a720b6db1183c6185fa9bb5229c",
         "expected_webp_sha256": "141060b6e1eb05cc93606354dd92054666900009e93196f4cd44b9052dc82bb7",
         "expected_bytes": 47014,
         "expected_dimensions": "400x713",
         "output_path": "assets/physical-exam-realistic/approved/ct095-ccft-gen-34351135-approved.webp",
-        "note": "User approval remains PASS. Only repository binary transport is pending; regeneration is forbidden."
+        "note": "User approval remains PASS. Only repository binary transport is pending; regeneration is forbidden.",
+        "materialized_sha256": "141060b6e1eb05cc93606354dd92054666900009e93196f4cd44b9052dc82bb7",
+        "materialized_bytes": 47014,
+        "materialized_dimensions": "400x713"
+      },
+      "user_approved_asset": {
+        "gen_id": "34351135-4aa5-4523-bc4a-928e28359b7a",
+        "source_review_path": "/mnt/data/ct095_ccft_realistic_candidate_3panel_v4.png",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct095-ccft-gen-34351135-approved.webp",
+        "approved_webp_sha256": "141060b6e1eb05cc93606354dd92054666900009e93196f4cd44b9052dc82bb7",
+        "dimensions": "400x713",
+        "source_review_png_sha256": "0ef8c5fb6081bd4781defc60e4cfbc306cde1a720b6db1183c6185fa9bb5229c",
+        "disposition": "USER_APPROVED_PASS"
       }
     },
     {
