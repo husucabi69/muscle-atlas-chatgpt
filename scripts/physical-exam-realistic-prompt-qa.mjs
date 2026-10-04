@@ -82,6 +82,18 @@ for(const id of generationReadyIds){
   }
 }
 
+const ct095=manifest.profiles?.find(x=>x.clinical_test_id==='ct095');
+check('ct095 CCFT evidence-locked protocol is ready for generation',
+  ct095?.status==='PENDING_GENERATION'&&
+  ct095?.brief_status==='GENERATION_READY'&&
+  ct095?.review?.clinical_content==='PASS'&&
+  String(ct095?.generation_brief?.patient_setup||'').includes('20 mmHg')&&
+  String(ct095?.generation_brief?.examiner_maneuver||'').includes('22·24·26·28·30 mmHg')&&
+  String(ct095?.generation_brief?.positive_finding||'').includes('운동조절 저하')&&
+  Array.isArray(ct095?.generation_brief?.evidence_lock)&&
+  ct095.generation_brief.evidence_lock.includes('ccft_measurement_review_2020')&&
+  ct095.generation_brief.evidence_lock.includes('ccft_meta_2022'));
+
 const ct082=manifest.profiles?.find(x=>x.clinical_test_id==='ct082');
 let approvedGenerationBlocked=false;
 try{buildPhysicalExamPrompt(manifest,'ct082')}catch(e){approvedGenerationBlocked=String(e.message).includes('not generation-ready')}
