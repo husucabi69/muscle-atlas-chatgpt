@@ -3813,6 +3813,48 @@
             "mobile_high_resolution"
           ],
           "note": "Candidate 13 passed the locked 10-point internal checklist and is the only candidate allowed to be exposed in Preview. User visual approval remains required before canonical approval."
+        },
+        {
+          "candidate_no": 14,
+          "gen_id": "f1c07525-8a53-47a1-9ded-3484368cba83",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "source_session_path": "/mnt/data/a_wide_split_infographic_image_with_two_major_pane.png",
+          "disposition": "REJECTED_COMBINED_INFOGRAPHIC_NOT_CANONICAL",
+          "failed_axes": [
+            "asset_isolation",
+            "minimal_text_policy",
+            "exact_middle_finger_spatial_clarity"
+          ],
+          "note": "Rejected immediately. User requested independent Hoffmann hand-only four-panel asset, but generation combined Hoffmann and tandem gait into one dense infographic. Never expose in Preview."
+        },
+        {
+          "candidate_no": 15,
+          "gen_id": "b495207b-ea9d-44d4-aa7b-491c9bfab1fe",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "source_session_path": "/mnt/data/a_clean_clinical_infographic_style_educational_p.png",
+          "disposition": "REJECTED_COMBINED_INFOGRAPHIC_NOT_CANONICAL",
+          "failed_axes": [
+            "asset_isolation",
+            "minimal_text_policy",
+            "exact_middle_finger_spatial_clarity"
+          ],
+          "note": "Rejected immediately. User requested independent Hoffmann hand-only four-panel asset, but generation combined Hoffmann and tandem gait into one dense infographic. Never expose in Preview."
+        },
+        {
+          "candidate_no": 16,
+          "gen_id": "3164c7e3-7d4e-4288-831f-e59f7ab82d17",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "source_session_path": "/mnt/data/a_clean_medical_educational_infographic_poster_wit.png",
+          "disposition": "REJECTED_COMBINED_INFOGRAPHIC_NOT_CANONICAL",
+          "failed_axes": [
+            "asset_isolation",
+            "minimal_text_policy",
+            "exact_middle_finger_spatial_clarity"
+          ],
+          "note": "Rejected immediately. User requested independent Hoffmann hand-only four-panel asset, but generation combined Hoffmann and tandem gait into one dense infographic. Never expose in Preview."
         }
       ],
       "generation_blocker": {
@@ -3937,6 +3979,50 @@
       "approval_blockers": [
         "Realistic candidate must show true heel-to-toe tandem gait and non-contact safety guarding",
         "User Preview approval required before canonical promotion"
+      ],
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "f1c07525-8a53-47a1-9ded-3484368cba83",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "source_session_path": "/mnt/data/a_wide_split_infographic_image_with_two_major_pane.png",
+          "disposition": "REJECTED_COMBINED_INFOGRAPHIC_NOT_CANONICAL",
+          "failed_axes": [
+            "asset_isolation",
+            "minimal_text_policy",
+            "heel_to_toe_clarity"
+          ],
+          "note": "Rejected immediately. User requested independent tandem gait asset, but generation combined it with Hoffmann and dense interpretation. Never expose in Preview."
+        },
+        {
+          "candidate_no": 2,
+          "gen_id": "b495207b-ea9d-44d4-aa7b-491c9bfab1fe",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "source_session_path": "/mnt/data/a_clean_clinical_infographic_style_educational_p.png",
+          "disposition": "REJECTED_COMBINED_INFOGRAPHIC_NOT_CANONICAL",
+          "failed_axes": [
+            "asset_isolation",
+            "minimal_text_policy",
+            "heel_to_toe_clarity"
+          ],
+          "note": "Rejected immediately. User requested independent tandem gait asset, but generation combined it with Hoffmann and dense interpretation. Never expose in Preview."
+        },
+        {
+          "candidate_no": 3,
+          "gen_id": "3164c7e3-7d4e-4288-831f-e59f7ab82d17",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "source_session_path": "/mnt/data/a_clean_medical_educational_infographic_poster_wit.png",
+          "disposition": "REJECTED_COMBINED_INFOGRAPHIC_NOT_CANONICAL",
+          "failed_axes": [
+            "asset_isolation",
+            "minimal_text_policy",
+            "heel_to_toe_clarity"
+          ],
+          "note": "Rejected immediately. User requested independent tandem gait asset, but generation combined it with Hoffmann and dense interpretation. Never expose in Preview."
+        }
       ]
     },
     {
