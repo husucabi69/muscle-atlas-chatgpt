@@ -1,3 +1,13 @@
+## 2026-10-04 visual correction lock — Babinski regression prevention
+
+- 모든 Physical Examination / 환자교육 실사형 시각교정은 **해부학 landmark → 사용자 마킹 → 지정 영역만 국소 수정 → 원본/수정본 대조** 순서로 처리한다.
+- 화면 좌우를 medial/lateral로 추정하지 않는다. 해부학 방향을 먼저 구조명으로 잠근다.
+- 사용자가 이미지 위에 직접 그린 선·원·화살표·동그라미는 최우선 spatial constraint다. 문장 prompt로 다시 해석해 위치를 바꾸지 않는다.
+- 사용자가 `이 부분만`, `동그라미 친 그림만`, `우측 아래 좌측 작은 그림만`처럼 영역을 지정하면 **그 영역 외 픽셀/구도/텍스트/인물/화살표를 재생성하지 않는다**.
+- 수정 후 원본과 수정본을 대조해 요청 영역만 바뀌었는지 확인한 뒤에만 PASS 후보로 올린다.
+- 회귀 기준 예시: Babinski stimulation path는 `lateral heel → lateral plantar border → fifth-toe side`. 화면 좌우가 아니라 이 해부학 landmark로 판정한다.
+- 정본 상세 규칙: `docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md §9`.
+
 ## 2026-10-03 manual checkpoint — direct review links + model casting
 
 - Manual development time rule: target 25 minutes; at 25 minutes start wrap-up only; hard stop at 30 minutes.
