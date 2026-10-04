@@ -3482,9 +3482,9 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PENDING_GENERATION",
+      "status": "INCOMPLETE_DEFERRED_MUST_REVISIT",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "LOCKED_BUT_VISUAL_NOT_APPROVED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3525,9 +3525,9 @@
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING",
+        "user_preview": "DEFERRED",
         "reviewed_on": "2026-10-04",
-        "note": "User explicitly reopened ct088 on 2026-10-04. New attempt must use dorsum-up relaxed hand, left-hand stabilization at the middle-finger proximal interphalangeal joint (PIP), right-hand rapid distal interphalangeal joint (DIP) palmward flexion/release, then same-hand thumb/index flexion response."
+        "note": "User explicitly deferred Hoffmann again after fresh attempts. This is a mandatory unfinished task that must be revisited later; do not drop from roadmap."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3543,13 +3543,11 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "Fresh realistic candidate must unambiguously show the patient's third digit (middle finger)",
-        "Examiner left hand must stabilize the middle-finger proximal interphalangeal joint (PIP), not an adjacent digit",
-        "Examiner right hand must rapidly flex the middle-finger distal interphalangeal joint (DIP) palmward and immediately release",
-        "Positive panel must show involuntary same-hand thumb and index-finger flexion",
-        "User Preview approval required before canonical promotion"
+        "MANDATORY BACKLOG: regenerate Hoffmann realistic asset later",
+        "Must show relaxed dorsum-up hand, exact third digit, left-hand proximal interphalangeal joint stabilization, right-hand rapid distal interphalangeal joint palmward flexion/release, and same-hand thumb/index flexion",
+        "Fresh user approval required before Preview promotion"
       ],
-      "review_note": "REOPENED_BY_USER_2026_10_04. Fresh candidate required; prior rejected/deferred history remains audit-only.",
+      "review_note": "MANDATORY_UNFINISHED_HOMEWORK. Do not mark complete or remove from queue. Resume only when roadmap reaches the deferred-revisit slot or user explicitly reopens it.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3940,9 +3938,9 @@
       "region": "cervical",
       "title_ko": "Tandem gait·보행 선별",
       "title_en": "Tandem gait and balance screen",
-      "status": "PENDING_GENERATION",
+      "status": "USER_APPROVED_ASSET_BINARY_TRANSFER_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "LOCKED_USER_APPROVED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3962,13 +3960,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
-        "user_preview": "PENDING",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
+        "user_preview": "PASS",
         "reviewed_on": "2026-10-04",
-        "note": "Clinical brief locked. Visual must distinguish safety guarding from physical assistance and must show heel-to-toe tandem gait rather than ordinary walking alone."
+        "note": "User explicitly approved the isolated tandem-gait three-panel asset on 2026-10-04."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3977,8 +3975,7 @@
         "copyright_evidence_required": true
       },
       "approval_blockers": [
-        "Realistic candidate must show true heel-to-toe tandem gait and non-contact safety guarding",
-        "User Preview approval required before canonical promotion"
+        "Exact approved binary must be committed and SHA-256 verified before Preview connection"
       ],
       "candidate_history": [
         {
@@ -4023,16 +4020,25 @@
           ],
           "note": "Rejected immediately. User requested independent tandem gait asset, but generation combined it with Hoffmann and dense interpretation. Never expose in Preview."
         }
-      ]
+      ],
+      "user_approved_asset": {
+        "gen_id": "3973f251-89c5-4e22-a58a-800279e21d6d",
+        "local_path": "/mnt/data/일자보행_검사_안내_포스터.png",
+        "sha256": "f788bb7124fb6230cf5057d0760f28a0b29893941b2b08b5649659884818978a",
+        "disposition": "USER_APPROVED_PASS_BINARY_TRANSFER_PENDING",
+        "approved_scope": "isolated tandem gait three-panel asset only"
+      },
+      "preview_candidate": null,
+      "review_note": "USER PASS locked. Do not regenerate tandem gait unless the user explicitly reopens it."
     },
     {
       "clinical_test_id": "ct091",
       "region": "cervical",
       "title_ko": "10초 grip-release / 손 dexterity 선별",
       "title_en": "10-second grip-release / hand dexterity screen",
-      "status": "PENDING_GENERATION",
+      "status": "ACTIVE_CLINICAL_BRIEF_PREPARATION",
       "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "brief_status": "BRIEF_BEING_EXPANDED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
