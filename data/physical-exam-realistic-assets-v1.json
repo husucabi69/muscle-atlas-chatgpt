@@ -4233,10 +4233,10 @@
       "region": "cervical",
       "title_ko": "대후두신경 압통·증상 재현 평가",
       "title_en": "Greater occipital nerve tenderness/provocation",
-      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
+      "status": "APPROVED",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct093-occipital-nerve-gen-0b18c0f8-approved.svg",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult male patient and adult female clinician; clean neutral clinic; posterior head/upper neck clearly visible; no identifiable real patient; mobile-readable",
@@ -4261,13 +4261,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PASS_INTERNAL",
-        "examiner_hand_position": "PASS_INTERNAL",
-        "force_direction": "PASS_INTERNAL",
-        "embedded_text": "PASS_INTERNAL",
-        "user_preview": "PENDING",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
+        "user_preview": "PASS",
         "reviewed_on": "2026-10-04",
-        "note": "Clinical brief locked to International Classification of Headache Disorders, 3rd edition diagnostic criteria. Palpation/tenderness is supportive only and must not be depicted as a standalone definitive diagnosis."
+        "note": "User explicitly approved the corrected ct093 image. Final correction moved the symptom-reproduction palpation point to the user-marked superior-nuchal-line region over the greater occipital nerve course rather than the midline occiput."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4275,12 +4275,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "Realistic candidate must show gentle focal palpation over the greater occipital nerve course, not diffuse neck massage",
-        "Symptom reproduction should follow the posterior scalp distribution without implying exact needle target",
-        "Must not label tenderness alone as diagnostic of occipital neuralgia",
-        "User Preview approval required before canonical promotion"
-      ],
+      "approval_blockers": [],
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -4299,7 +4294,17 @@
             "adult_model_casting"
           ]
         }
-      ]
+      ],
+      "user_approved_asset": {
+        "gen_id": "0b18c0f8-988a-4945-8f78-e5aa5e2ba4e4",
+        "source_session_path": "/mnt/data/후두신경_압통_검사_3단계_가이드.png",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct093-occipital-nerve-gen-0b18c0f8-approved.svg",
+        "approved_svg_sha256": "af8a0439cfab390c0f81add11f86b6e703c8d65c295291e949e33b84838577ae",
+        "embedded_webp_sha256": "2d4d0c3fc788518d80c1ccf31dfb96498ddc91d460bd8653b5475f9719cf287b",
+        "dimensions": "480x720",
+        "disposition": "USER_APPROVED_PASS"
+      },
+      "review_note": "USER PASS locked. Do not regenerate ct093 unless the user explicitly reopens it."
     },
     {
       "clinical_test_id": "ct094",
