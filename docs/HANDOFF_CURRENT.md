@@ -1,3 +1,11 @@
+## 2026-10-04 Physical Examination report-with-image lock
+
+- Every Physical Examination image-generation or image-correction report must include the clinical teaching block directly below the image/result.
+- Required items: ① 시행 방법 ② 검사 목적/의미 ③ 양성 소견과 해석 ④ 무엇을 진단/의심할 수 있는지 ⑤ 무엇을 배제할 수 없는지 ⑥ 주요 감별진단 ⑦ 추가로 시행할 검사/영상 ⑧ 주의점·한계 ⑨ 근거 출처.
+- Image-only reporting is prohibited.
+- Medical abbreviations must be written with the full term beside them.
+- User visual markings remain the highest-priority spatial constraint for local image correction.
+
 ## 2026-10-04 abbreviation display lock
 
 - 사용자 노출 의학 약어는 단독 사용 금지. 약어 옆에 풀네임을 병기한다.
