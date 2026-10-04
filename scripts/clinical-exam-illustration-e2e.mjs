@@ -79,6 +79,39 @@ try{
     pass(label+' custom clinical exam illustration',id);
     }
   }
+  const pendingRealistic=await page.evaluate(()=>physicalExamRealisticAssetsData?.profiles
+    ?.filter(p=>p.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&p.review?.user_preview==='PENDING'&&p.preview_candidate?.preview_asset_path)
+    .map(p=>({id:p.clinical_test_id,url:p.preview_candidate.preview_asset_path}))||[]);
+  for(const item of pendingRealistic){
+    const result=await page.evaluate(async ({testId})=>{
+      await openClinicalModule('cervical',false);
+      await openClinicalTopic('exam',false);
+      await openClinicalItem(testId,false);
+      const host=document.getElementById('clinicalDetailContent');
+      const preview=host?.querySelector('[data-exam-realistic-candidate="preview"]');
+      const img=preview?.querySelector('img');
+      const text=host?.textContent||'';
+      if(img&&!img.complete) await new Promise(resolve=>{img.addEventListener('load',resolve,{once:true});img.addEventListener('error',resolve,{once:true});});
+      return{
+        preview:Boolean(preview),
+        stable:preview?.getAttribute('data-clinical-test-id')||'',
+        src:img?.getAttribute('src')||'',
+        naturalWidth:img?.naturalWidth||0,
+        hasPendingLabel:text.includes('사용자 승인 대기')||text.includes('승인 전'),
+        hasClinicalTeaching:text.includes('임상 해석 · 이 검사를 어떻게 읽을 것인가'),
+        overflow:(host?.scrollWidth||0)-(host?.clientWidth||0)
+      };
+    },{testId:item.id});
+    if(!result.preview)fail(item.id+' review candidate visible');
+    if(result.stable!==item.id)fail(item.id+' review candidate Stable-ID binding',result.stable);
+    if(result.src!==item.url)fail(item.id+' review candidate asset path',result.src);
+    if(result.naturalWidth<1)fail(item.id+' review candidate image loads',String(result.naturalWidth));
+    if(!result.hasPendingLabel)fail(item.id+' review candidate remains visibly non-canonical');
+    if(!result.hasClinicalTeaching)fail(item.id+' review candidate teaching block visible');
+    if(result.overflow>2)fail(item.id+' review candidate mobile horizontal overflow',String(result.overflow));
+    pass('Pending realistic physical-exam candidate visible for user review',item.id);
+  }
+
   const approvedRealistic=await page.evaluate(()=>physicalExamRealisticAssetsData?.profiles
     ?.filter(p=>p.status==='APPROVED'&&p.review?.user_preview==='PASS'&&p.composite_url)
     .map(p=>({id:p.clinical_test_id,url:p.composite_url}))||[]);

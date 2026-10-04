@@ -1,3 +1,13 @@
+## 2026-10-05 EXAM-REAL current line — ct095 closed, ct083 review active
+
+- ct095 Craniocervical Flexion Test(CCFT): user PASS recorded, approved WebP materialized, registry APPROVED, detailed patient/trainee/clinician explanation connected. Do not regenerate unless the user explicitly reopens it.
+- Current next user-review target: **ct083 Cervical distraction Candidate 2** (gen_id 5b72a5e1-f27e-4e64-8494-055c702922d3).
+- ct083 reviewed candidate binary already exists in the repository at assets/physical-exam-realistic/candidates/ct083-cervical-distraction-gen-5b72a5e1-preview.webp; internal clinical/visual/hand/force/text gates PASS, user Preview remains PENDING.
+- Do **not** regenerate ct083. Surface the existing Candidate 2 with the full teaching block and wait for explicit PASS/revision.
+- ct084 remains next after ct083 review. ct091/ct092 retain their existing reviewed histories; do not repeat the wrong-subject ct090 generation regression.
+- ct088 Hoffmann remains mandatory deferred backlog and must not be dropped.
+- Production main stays frozen until explicit user promotion approval.
+
 ## 2026-10-04 Physical Examination report-with-image lock
 
 - Every Physical Examination image-generation or image-correction report must include the clinical teaching block directly below the image/result.
