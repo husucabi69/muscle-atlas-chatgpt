@@ -4019,6 +4019,24 @@
             "heel_to_toe_clarity"
           ],
           "note": "Rejected immediately. User requested independent tandem gait asset, but generation combined it with Hoffmann and dense interpretation. Never expose in Preview."
+        },
+        {
+          "candidate_no": 4,
+          "gen_id": "3973f251-89c5-4e22-a58a-800279e21d6d",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "f788bb7124fb6230cf5057d0760f28a0b29893941b2b08b5649659884818978a",
+          "source_session_path": "/mnt/data/일자보행_검사_안내_포스터.png",
+          "disposition": "USER_APPROVED_PASS_BINARY_TRANSFER_PENDING",
+          "passed_axes": [
+            "true_heel_to_toe_tandem",
+            "non_contact_safety_guarding",
+            "abnormal_side_step_panel",
+            "minimal_embedded_text",
+            "adult_model_casting"
+          ],
+          "note": "Explicit user PASS/OK on 2026-10-04. Canonical tandem-gait visual is locked; do not regenerate unless user explicitly reopens."
         }
       ],
       "user_approved_asset": {
@@ -4029,7 +4047,7 @@
         "approved_scope": "isolated tandem gait three-panel asset only"
       },
       "preview_candidate": null,
-      "review_note": "USER PASS locked. Do not regenerate tandem gait unless the user explicitly reopens it."
+      "review_note": "USER PASS locked. Next development item is ct091. Hoffmann ct088 remains mandatory deferred backlog."
     },
     {
       "clinical_test_id": "ct091",
@@ -4037,7 +4055,7 @@
       "title_ko": "10초 grip-release / 손 dexterity 선별",
       "title_en": "10-second grip-release / hand dexterity screen",
       "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
-      "pilot_batch": null,
+      "pilot_batch": "PILOT_CERVICAL_01",
       "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
@@ -4099,7 +4117,8 @@
           ],
           "review_note": "Candidate 1 generated for ct091. Await user visual review; do not promote until explicit approval."
         }
-      ]
+      ],
+      "review_note": "ACTIVE NEXT ITEM after user-approved ct090. Candidate refinement may proceed; no promotion without explicit user visual approval."
     },
     {
       "clinical_test_id": "ct092",
