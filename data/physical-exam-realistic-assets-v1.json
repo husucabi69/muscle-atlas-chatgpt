@@ -4311,10 +4311,10 @@
       "region": "cervical",
       "title_ko": "Extension-rotation 국소 통증유발 검사",
       "title_en": "Cervical extension-rotation pain provocation",
-      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
+      "status": "APPROVED",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct094-extension-rotation-gen-d3e9ba95-approved.svg",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult female patient and adult female clinician; clean neutral clinic background; seated examination; no identifiable real patient; mobile-readable",
@@ -4340,13 +4340,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PASS_INTERNAL",
-        "examiner_hand_position": "PASS_INTERNAL",
-        "force_direction": "PASS_INTERNAL",
-        "embedded_text": "PASS_INTERNAL",
-        "user_preview": "PENDING",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
+        "user_preview": "PASS",
         "reviewed_on": "2026-10-04",
-        "note": "Clinical brief locked. Extension-rotation is supportive only; no single history or physical sign reliably predicts facet block response."
+        "note": "User explicitly approved the final ct094 image after moving the red pain marker to the patient's left posterolateral neck. Panels 1-3 were preserved and the positive panel was accepted."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4354,11 +4354,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "Must show seated cervical extension followed by ipsilateral rotation without exaggerated end-range force",
-        "Positive panel must depict localized posterior/lateral neck pain rather than arm radicular pain",
-        "User Preview approval required before canonical promotion"
-      ],
+      "approval_blockers": [],
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -4377,8 +4373,35 @@
             "adult_model_casting"
           ],
           "note": "Candidate 1 matches the locked ct094 clinical brief at internal review level. User visual approval required before canonical promotion."
+        },
+        {
+          "candidate_no": 2,
+          "gen_id": "d3e9ba95-cb62-4fb7-8494-c1a0fce50f3f",
+          "generated_on": "2026-10-04",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1308x1203",
+          "source_session_path": "/mnt/data/a_clean_medical_instructional_infographic_collage.png",
+          "disposition": "USER_APPROVED_PASS",
+          "passed_axes": [
+            "preserved_panels_1_2_3",
+            "cervical_extension",
+            "left_rotation_patient_reference",
+            "left_posterolateral_neck_pain_marker",
+            "pain_expression",
+            "clinically_readable_positive_panel"
+          ]
         }
-      ]
+      ],
+      "user_approved_asset": {
+        "gen_id": "d3e9ba95-cb62-4fb7-8494-c1a0fce50f3f",
+        "source_session_path": "/mnt/data/a_clean_medical_instructional_infographic_collage.png",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct094-extension-rotation-gen-d3e9ba95-approved.svg",
+        "approved_svg_sha256": "bcd896d45b261cc5a86697bf08979cd8e903659af5f9e1abcdbcdde825e6402f",
+        "embedded_webp_sha256": "dbe52f37d69bb6234beeaf3d195638a21e0d0384887cbf3105599fbfbaa58809",
+        "dimensions": "320x294",
+        "disposition": "USER_APPROVED_PASS"
+      },
+      "review_note": "USER PASS locked. Do not regenerate ct094 unless the user explicitly reopens it."
     },
     {
       "clinical_test_id": "ct095",
