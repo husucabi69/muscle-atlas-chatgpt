@@ -1,3 +1,13 @@
+## 2026-10-05 ct084 exact uploaded final approved — binary transfer pending
+
+- User explicitly approved the uploaded file `1791172601057.png` as the final ct084 ULNT1 illustration.
+- Exact source lock: 1024x1536 PNG, SHA-256 `a89e832b66f673a1c5367173103149fb207a3185dfd4376f5bc99e1ab865e078`.
+- This exact upload supersedes the earlier 240x360 Candidate 2. Do not leave the old image canonical and do not regenerate ct084.
+- Registry is intentionally `USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING` with `composite_url=null` until the exact uploaded PNG bytes are transferred into GitHub. This prevents the wrong older image from being shown as approved.
+- Clinical wording remains locked: upper-limb sequence first, familiar symptom check, contralateral cervical side flexion last as structural differentiation.
+- Independent next work continues with ct096 Neck flexor endurance test.
+- Production main remains frozen.
+
 ## 2026-10-05 ct096 next EXAM-REAL task locked
 
 - ct084 ULNT1 is user-approved and locked; contralateral cervical side flexion is explicitly the final structural-differentiation step.

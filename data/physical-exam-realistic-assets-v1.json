@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-011-ct096-brief-locked",
+  "dataset_version": "2026.10.05-exam-real-012-ct084-final-upload-approved-binary-pending",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct084 approved and locked. ct096 Neck flexor endurance test is the next fresh EXAM-REAL generation-ready item. ct083 remains user-preview PENDING; ct091/ct092 teaching is prepared but exact review binaries are not materialized. Production remains frozen."
+    "next_action": "ct084 exact 1024x1536 user-approved PNG is locked by hash and awaits binary transfer; do not substitute older Candidate 2. Continue ct096 generation work independently. ct083 remains PENDING. Production remains frozen."
   },
   "profiles": [
     {
@@ -3258,10 +3258,10 @@
       "region": "cervical",
       "title_ko": "상지 신경가동성 검사 1",
       "title_en": "Upper Limb Neurodynamic Test 1 (ULNT1)",
-      "status": "APPROVED",
+      "status": "USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "USER_APPROVED",
-      "composite_url": "./assets/physical-exam-realistic/approved/ct084-ulnt1-gen-b9b9cbc2-approved.webp",
+      "brief_status": "USER_APPROVED_FINAL_BINARY_PENDING",
+      "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic adult clinician; clean neutral clinic background; no identifiable real patient; independently generated new people/pose/scene; same premium realistic visual family as approved ct082",
@@ -3289,7 +3289,7 @@
         "embedded_text": "PASS",
         "user_preview": "PASS",
         "reviewed_on": "2026-10-05",
-        "note": "User explicitly approved ct084 Candidate 2. Protocol text finalized: no routine shoulder extension; upper-limb sequence first, then contralateral cervical side flexion as the final structural-differentiation step."
+        "note": "User explicitly selected the uploaded 1024x1536 final PNG as the canonical ct084 image. This supersedes the earlier 240x360 Candidate 2. Exact uploaded binary is not yet in the repository, so canonical app promotion is blocked until binary transfer completes."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3305,8 +3305,10 @@
         "status": "PASS_WITH_LOW_CERTAINTY_CAUTION",
         "note": "2026 systematic review: ULNT1 pooled sensitivity ~0.70 and specificity ~0.71 with low/very-low certainty; use only as an adjunct. 2023 systematic review/meta-analysis also found only fair diagnostic accuracy with high heterogeneity."
       },
-      "approval_blockers": [],
-      "review_note": "USER APPROVED PASS on 2026-10-05. Approved asset is canonical in Preview; Production remains frozen until explicit promotion approval.",
+      "approval_blockers": [
+        "Exact user-approved 1024x1536 PNG binary must be transferred into the repository before composite_url/APPROVED canonical promotion"
+      ],
+      "review_note": "USER FINAL APPROVAL PASS on 2026-10-05 for uploaded file 1791172601057.png (SHA-256 a89e832b...). Do not substitute the earlier 240x360 Candidate 2.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3373,18 +3375,19 @@
           "source_commit": "d8ebae5aa21d63b0d48d067732a5a8b512bb3524"
         }
       },
-      "approved_asset": {
-        "candidate_no": 2,
-        "gen_id": "b9b9cbc2-5c3f-4329-a88a-d7909a38fedb",
+      "final_user_approved_source": {
         "approved_on": "2026-10-05",
-        "generator": "OpenAI image generation",
-        "source_generation_dimensions": "1024x1536",
-        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct084-ulnt1-gen-b9b9cbc2-approved.webp",
-        "preview_dimensions": "240x360",
-        "preview_webp_sha256": "e9d4f309f214a0a5633dc7309965fedc7f417729b2a4d4206bdfb72828a6f5e7",
-        "user_approval": "PASS",
-        "disposition": "USER_APPROVED_PREVIEW_ASSET",
-        "note": "User explicitly approved ct084 Candidate 2 on 2026-10-05 after ULNT1 protocol clarification. Approved wording locks contralateral cervical side flexion as the final structural-differentiation step after the upper-limb sequence and symptom check."
+        "source_kind": "conversation_upload",
+        "uploaded_filename": "1791172601057.png",
+        "dimensions": "1024x1536",
+        "sha256": "a89e832b66f673a1c5367173103149fb207a3185dfd4376f5bc99e1ab865e078",
+        "visual_lock": [
+          "3-panel composition",
+          "panel 2 shoulder position accepted by user",
+          "panel 3 contralateral cervical side-flexion arrow accepted by user",
+          "this exact uploaded image supersedes previous ct084 approved/candidate binaries"
+        ],
+        "disposition": "USER_FINAL_APPROVAL_PASS_BINARY_TRANSFER_PENDING"
       }
     },
     {
