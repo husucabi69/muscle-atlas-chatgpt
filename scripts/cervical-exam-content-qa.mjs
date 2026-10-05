@@ -81,6 +81,23 @@ if (ct088Path && fs.existsSync(ct088Path)) {
     /data:image\/webp;base64,/.test(svg) && !/<image[^>]+href="https?:\/\//.test(svg));
 }
 
+const p89 = profiles.get('ct089');
+check('ct089 remains user-approved binary-transfer pending',
+  p89?.status === 'USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING' &&
+  p89?.review?.user_preview === 'PASS');
+check('ct089 has no false canonical asset before exact binary recovery',
+  !p89?.composite_url && !p89?.approved_asset && !p89?.user_approved_asset);
+check('ct089 approved Babinski source hash is preserved',
+  p89?.user_approved_assets?.babinski?.sha256 === 'efefc0fcde07756f620a38e7e024260f6b01c6199a680d57ba6fadfa5e9474d6');
+check('ct089 approved clonus source hash is preserved',
+  p89?.user_approved_assets?.ankle_clonus?.sha256 === 'c97854a065fe1fc04e29de00cf9c1a94c569bd48625a6f83daf8a9cfe670c2a4');
+
+for (const id of ['ct091', 'ct092']) {
+  const p = profiles.get(id);
+  check(`${id} remains user-review pending`, p?.review?.user_preview === 'PENDING');
+  check(`${id} has no false canonical composite before binary connection`, !p?.composite_url);
+}
+
 for (const doc of [
   'docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_RENDER_REQUEST.md',
   'docs/render-requests/CT086_CERVICAL_ROTATION_ROM_RENDER_REQUEST.md',
