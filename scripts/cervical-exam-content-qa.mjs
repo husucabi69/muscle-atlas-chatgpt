@@ -51,6 +51,11 @@ check('ct087 includes motor sensory reflex integration',
 check('ct087 warns root maps overlap', /중복|overlap/.test(JSON.stringify(ct087)));
 check('ct087 generation brief is ready', p87?.brief_status === 'GENERATION_READY');
 check('ct087 clinical gate PASS', p87?.review?.clinical_content === 'PASS');
+for (const id of ['ct085','ct086','ct087']) {
+  const p = profiles.get(id);
+  check(`${id} is bound to active cervical pilot batch`,
+    p?.pilot_batch === registry.pilot?.batch_id);
+}
 
 const ct088 = tests.get('ct088');
 const p88 = profiles.get('ct088');
