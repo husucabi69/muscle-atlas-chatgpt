@@ -39,7 +39,11 @@
     "neck_flexor_endurance_subclinical_2016": "https://pubmed.ncbi.nlm.nih.gov/27368756/",
     "neck_extensor_activity_review_2025": "https://pubmed.ncbi.nlm.nih.gov/39799617/",
     "cervical_muscle_reliability_review_2021": "https://pubmed.ncbi.nlm.nih.gov/33383030/",
-    "sensorimotor_reliability_review_2023": "https://pubmed.ncbi.nlm.nih.gov/37582811/"
+    "sensorimotor_reliability_review_2023": "https://pubmed.ncbi.nlm.nih.gov/37582811/",
+    "red_flags_guideline_review_2024": "https://pubmed.ncbi.nlm.nih.gov/39639931/",
+    "cervical_artery_dissection_aha_2024": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000457",
+    "acr_cervical_pain_2024": "https://acsearch.acr.org/docs/69426/Narrative/",
+    "canadian_c_spine_meta_2023": "https://pubmed.ncbi.nlm.nih.gov/37840870/"
   },
   "clinical_tests": [
     {
@@ -731,15 +735,23 @@
       "name_en": "Integrated cervical red-flag screen",
       "category": "safety",
       "target_structure_ids": [],
-      "setup": "외상, 발열, 암/감염 위험, 진행성 신경학적 결손, DCM 증상, 갑작스러운 심한 두통·신경혈관 증상을 문진·진찰한다.",
-      "maneuver": "중대한 병리 가능성을 시사하는 병력과 객관적 신경학적 이상을 확인한다.",
-      "positive_definition": "진행성 근력저하, 보행/손기능 악화, sphincter 변화, 발열/전신증상, 급성 중증 외상 또는 혈관성 의심 소견이 있으면 red flag로 기록한다.",
-      "interpretation_note": "일반 기계적 목통증 경로보다 적절한 추가 영상·응급/전문의 평가를 우선하게 하는 안전 게이트다.",
-      "limitation": "하나의 비특이 증상만으로 특정 중증질환을 단정하지 않는다.",
+      "setup": "목통증 환자에서 먼저 외상 기전, 발열·오한·면역저하/최근 감염, 암 병력·설명되지 않는 체중감소, 야간·휴식 시 지속 악화, 진행성 신경학적 증상, 손기능·보행 악화, 새 배뇨·배변 이상, 갑작스럽고 평소와 다른 심한 두통/목통증 및 신경혈관 증상을 확인한다.",
+      "maneuver": "단일 도발검사를 하는 항목이 아니다. 활력·전신상태와 기본 신경학적 검사를 확인하고, 필요 시 근력·감각·반사, 손 dexterity, 병적반사, 보행을 묶어 평가한다. 외상은 적용조건을 만족할 때 Canadian C-Spine Rule 같은 검증된 의사결정규칙을 사용한다. 혈관성 의심에서는 목 끝범위 회전/신전으로 증상을 일부러 유발하지 않는다.",
+      "positive_definition": "하나의 비특이 증상만으로 '양성'이라고 하지 않는다. 진행성 객관적 근력저하, 손기능·보행 악화와 상부운동신경원 징후, 고위험 외상, 감염/암을 강하게 시사하는 전신맥락, 또는 갑작스러운 비전형적 목통증·두통과 국소 신경학적/뇌허혈 증상이 함께 있으면 중대한 병리 가능성을 높여 routine 근골격계 도발검사보다 적절한 추가평가를 우선한다.",
+      "interpretation_note": "이 항목은 특정 질환을 확진하는 검사가 아니라 '일반 기계적 목통증 경로를 계속 진행해도 되는가'를 판단하는 안전 게이트다. red flag 목록은 가이드라인 간 합의와 근거수준이 낮으므로 단일 항목보다 병력의 맥락, 객관적 신경학적 이상, 시간경과를 통합한다.",
+      "limitation": "red flag 하나의 존재만으로 암·감염·골절·혈관질환·척수병증을 확진할 수 없고, red flag가 없다고 모든 중대병리를 완전히 배제할 수도 없다. 외상·감염·암·척수병증·혈관성 질환은 서로 다른 후속 검사와 영상경로가 필요하다.",
       "related_diagnosis_concept_ids": [
         "d090",
         "d098",
         "d099"
+      ],
+      "evidence_refs": [
+        "red_flags_guideline_review_2024",
+        "dcm_early_2026",
+        "dcm_scoping_2025",
+        "cervical_artery_dissection_aha_2024",
+        "acr_cervical_pain_2024",
+        "canadian_c_spine_meta_2023"
       ]
     }
   ]
