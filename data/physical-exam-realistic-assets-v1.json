@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-ct097-candidate1",
+  "dataset_version": "2026.10.05-exam-real-ct098-generation-ready",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct097 Candidate 1 ready for user Preview. ct096 remains user-preview PENDING; ct084 remains APPROVED; ct088 remains mandatory revisit; Production main frozen."
+    "next_action": "ct098 integrated cervical red-flag screen candidate generation is next. ct096 and ct097 remain user-preview PENDING; ct084 remains APPROVED; Production main frozen."
   },
   "profiles": [
     {
@@ -4711,34 +4711,51 @@
       "title_en": "Integrated cervical red-flag screen",
       "status": "PENDING_GENERATION",
       "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "외상, 발열, 암/감염 위험, 진행성 신경학적 결손, DCM 증상, 갑작스러운 심한 두통·신경혈관 증상을 문진·진찰한다.",
-        "examiner_maneuver": "중대한 병리 가능성을 시사하는 병력과 객관적 신경학적 이상을 확인한다.",
-        "positive_finding": "진행성 근력저하, 보행/손기능 악화, sphincter 변화, 발열/전신증상, 급성 중증 외상 또는 혈관성 의심 소견이 있으면 red flag로 기록한다.",
-        "interpretation": "일반 기계적 목통증 경로보다 적절한 추가 영상·응급/전문의 평가를 우선하게 하는 안전 게이트다.",
-        "limitation_safety": "하나의 비특이 증상만으로 특정 중증질환을 단정하지 않는다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and clinician; clean neutral clinic; same patient and clinician across all panels; no identifiable real patient",
+        "panel_structure": "3-panel vertical: 1 문진·위험신호 / 2 신경학적 선별 / 3 추가평가 우선",
+        "patient_setup": "성인 목통증 환자. 첫 패널은 앉아서 의사와 문진. 두 번째는 안전한 기본 신경학적 선별을 받음. 세 번째는 routine 목 도발검사를 하지 않고 추가평가로 전환하는 장면.",
+        "examiner_maneuver": "1번은 외상·전신증상·진행성 신경증상·비전형적 두통/목통증을 묻는 문진. 2번은 근력·반사·손기능 또는 보행 중 객관적 신경학적 선별을 임상적으로 자연스럽게 표현. 3번은 목을 세게 움직이거나 누르지 않고, 의사가 영상/전문의 평가 필요성을 설명하는 안전 전환.",
+        "positive_finding": "단일 '양성 자세'를 만들지 않는다. 중대한 병리 가능성을 높이는 맥락과 객관적 이상이 모이면 routine musculoskeletal provocation을 중단하고 추가평가를 우선한다는 흐름을 표현한다.",
+        "interpretation": "Integrated cervical red-flag screen is a safety gate, not a single provocative special test. Red flags are interpreted in context; trauma uses validated decision rules when applicable; DCM, infection/cancer and vascular causes need distinct escalation pathways.",
+        "limitation_safety": "Do not show end-range cervical rotation/extension provocation, forceful compression, manipulation, or arbitrary red pain marks. Do not imply that one symptom confirms cancer, infection, fracture, myelopathy or arterial dissection.",
+        "overlay_policy": "Use only restrained educational cues such as a small history checklist icon, a neurologic-screen cue, and an imaging/referral cue. No dramatic emergency theatrics and no anatomy arrows implying a specific diagnosis.",
+        "text_policy": "이미지 내부 글자는 '1 문진 · 위험신호', '2 신경학적 선별', '3 추가평가 우선' 정도만 사용. 특정 진단명 확정, 임의 cutoff, 치료 지시 금지.",
+        "evidence_lock": [
+          "red_flags_guideline_review_2024",
+          "dcm_early_2026",
+          "dcm_scoping_2025",
+          "cervical_artery_dissection_aha_2024",
+          "acr_cervical_pain_2024",
+          "canadian_c_spine_meta_2023"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-05",
+        "note": "ct098 clinical content evidence-locked before generation. Safety flow is history -> objective neurologic screen -> appropriate escalation, not provocative cervical testing."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Fresh realistic candidate generation required",
+        "Must not depict forceful/end-range cervical provocation as a vascular or red-flag test",
+        "Must visually distinguish history, objective neurologic screen, and escalation",
+        "No single red flag may be portrayed as diagnostic confirmation",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct099",
