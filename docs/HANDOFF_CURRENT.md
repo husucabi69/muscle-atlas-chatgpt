@@ -13,6 +13,17 @@
 - Production `main` remains frozen.
 - Manual development governance remains: 25~30 min actual work, 30~35 min wrap-up only, 35 min HARD STOP.
 
+## 2026-10-06 cervical pilot wave 2 activation
+
+- Active pilot `PILOT_CERVICAL_01` now includes ct085, ct086 and ct087 in addition to the original cervical pilot items.
+- ct085/ct086/ct087 are explicitly bound to the pilot batch; the official prompt builder can now select them.
+- Prompt builder now respects each test's own `panel_structure` instead of forcing every test into a 3-panel template.
+- Expected generation order: **ct085 → ct086 → ct087**.
+- ct087 may use a 4-panel layout because motor / sensory / reflex / pattern interpretation must remain distinct.
+- ct083, ct088 Candidate 13 and ct092 are review queues, not regeneration queues.
+- Approved assets remain regeneration-locked.
+- Production `main` remains frozen.
+
 ## 2026-10-06 cervical EXAM-REAL development checkpoint
 
 - Canonical execution queue: `docs/checkpoints/EXAM_REAL_CERVICAL_QUEUE_2026-10-06.md`.
