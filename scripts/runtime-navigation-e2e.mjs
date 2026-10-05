@@ -550,14 +550,20 @@ try{
   for(const required of ['ct084','임상 해석 · 이 검사를 어떻게 읽을 것인가','무엇을 보는 검사인가','양성이면 우선 생각할 것','중요 감별진단','이 검사 하나로 배제할 수 없는 것','다음에 이어서 확인할 검사·판단','진단적 무게','해석의 핵심']){
     if(!ulntText.includes(required))fail('ct084 rich interpretation contains '+required,ulntText.slice(0,1600));
   }
-  const img=ulntPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="preview"] img');
-  if(await img.count()!==1)fail('ct084 intact Preview image is present');
+  const img=ulntPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="approved"] img');
+  if(await img.count()!==1)fail('ct084 approved realistic image is present');
   await img.waitFor({state:'visible',timeout:10000});
-  const expectedPreview=await ulntPage.evaluate(()=>{
+  const expectedApproved=await ulntPage.evaluate(()=>{
     const p=physicalExamRealisticAssetsData?.profiles?.find(x=>x.clinical_test_id==='ct084');
-    const raw=String(p?.preview_candidate?.preview_thumbnail_dimensions||'');
+    const raw=String(p?.user_approved_asset?.dimensions||'');
     const m=raw.match(/^(\d+)x(\d+)$/);
-    return m?{width:Number(m[1]),height:Number(m[2]),raw}:{width:0,height:0,raw};
+    return {
+      width:m?Number(m[1]):0,
+      height:m?Number(m[2]):0,
+      raw,
+      status:p?.status||'',
+      composite:p?.composite_url||''
+    };
   });
   const size=await img.evaluate(async el=>{
     try{await el.decode();}catch{}
@@ -569,12 +575,13 @@ try{
       complete:el.complete,currentSrc:el.currentSrc
     };
   });
-  if(!expectedPreview.width||!expectedPreview.height)fail('ct084 registry declares Preview dimensions',JSON.stringify(expectedPreview));
-  if(size.naturalWidth!==expectedPreview.width||size.naturalHeight!==expectedPreview.height){
-    fail('ct084 Preview image matches registry dimensions',JSON.stringify({expectedPreview,size}));
+  if(expectedApproved.status!=='APPROVED'||!expectedApproved.composite)fail('ct084 registry is canonical approved',JSON.stringify(expectedApproved));
+  if(!expectedApproved.width||!expectedApproved.height)fail('ct084 registry declares approved dimensions',JSON.stringify(expectedApproved));
+  if(size.naturalWidth!==expectedApproved.width||size.naturalHeight!==expectedApproved.height){
+    fail('ct084 approved image matches registry dimensions',JSON.stringify({expectedApproved,size}));
   }
   if(!size.complete||!size.currentSrc||size.naturalWidth<1||size.naturalHeight<1||size.clientWidth<200||size.clientHeight<300||size.display==='none'||size.visibility==='hidden'||Number(size.opacity)===0){
-    fail('ct084 Preview image is visibly rendered',JSON.stringify(size));
+    fail('ct084 approved image is visibly rendered',JSON.stringify(size));
   }
   const steps=await ulntPage.locator('#clinicalDetailContent .clinical-exam-steps').evaluate(el=>{
     const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
@@ -591,7 +598,7 @@ try{
     fail('ct084 interpretation block is visibly rendered',JSON.stringify(interpretation));
   }
   await ulntPage.close();
-  pass('A12 ct084 intact Preview and interpretation detail',JSON.stringify({size,steps:{width:steps.width,height:steps.height},interpretation:{width:interpretation.width,height:interpretation.height}}));
+  pass('A12 ct084 approved realistic asset and interpretation detail',JSON.stringify({size,steps:{width:steps.width,height:steps.height},interpretation:{width:interpretation.width,height:interpretation.height}}));
 
   const hoffPage=await context.newPage();
   const hoffUrl=new URL('?page=clinical&module=cervical&topic=exam&item=ct088',base).toString();
