@@ -30,6 +30,20 @@ for (const field of timingFields) {
   check(`Principles requires ${field}`, files.principles.includes(field));
 }
 
+const orderedFields = ['작업 시작시간','작업 종료시간','보고시간','총 실제 작업시간','작업시간 규칙 준수 여부'];
+const inOrder = text => {
+  let last = -1;
+  for (const field of orderedFields) {
+    const idx = text.indexOf(field, last + 1);
+    if (idx < 0 || idx <= last) return false;
+    last = idx;
+  }
+  return true;
+};
+check('AGENTS timing fields are documented in required order', inOrder(files.agents));
+check('Constitution timing fields are documented in required order', inOrder(files.constitution));
+check('Principles timing fields are documented in required order', inOrder(files.principles));
+
 check('AGENTS locks two-heading report format', files.agents.includes('큰 제목은 **① 뭘 했나 ② 앞으로 뭘 할 건가** 두 개만'));
 check('Constitution locks two-heading report format', files.constitution.includes('**딱 2개만**'));
 check('Principles locks two-heading report format', files.principles.includes('**① 뭘 했나 / ② 앞으로 뭘 할 건가** 두 개만'));
