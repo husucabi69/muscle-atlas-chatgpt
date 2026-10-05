@@ -1,7 +1,7 @@
 # CT096 Neck Flexor Endurance Test — realistic render request
 
 Stable ID: ct096
-Status: GENERATION_READY
+Status: CANDIDATE_1_INTERNAL_PASS_USER_PREVIEW_PENDING
 User-facing title: 경부 굴곡근 지구력 검사
 English: Neck flexor endurance test
 
@@ -47,3 +47,17 @@ Do not show a disease diagnosis or arbitrary pain marking.
 - Same patient and clinician across panels.
 - Mobile readable.
 - User Preview approval required before canonical promotion.
+
+
+## Candidate 1 generation result — 2026-10-05
+- gen_id: `a49d9c8f-4890-4062-b247-24b212bcd900`
+- source: `/mnt/data/a_clean_clinical_instructional_triptych_three_pan.png`
+- source dimensions: 1024x1536
+- source SHA-256: `e672b44eb44b6b89993ea39f47afadffe8f477f34411910c7832ef45e17f8c97`
+- Preview asset: `./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp`
+- Preview dimensions: 320x480
+- Preview SHA-256: `0265a2fc211504f59c2ded1b2f21b0618cbf109034a8877dfdcdbc4d4166f7b6`
+- Internal clinical/visual QA: PASS
+- User Preview: PENDING
+- Canonical/APPROVED promotion: blocked until explicit user approval
+- Production main: unchanged
