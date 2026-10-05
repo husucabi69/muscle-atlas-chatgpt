@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-governance-lock-ct088-deferred",
+  "dataset_version": "2026.10.06-exam-real-ct088-candidate13-restored",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "Governance timing/reporting lock is active. ct084/ct096/ct097/ct098 APPROVED. ct088 mandatory Hoffmann backlog remains deferred until a clinically correct candidate can be generated. Production main frozen."
+    "next_action": "ct088 Candidate 13 is restored as the active user Preview target. Do not regenerate it. ct084/ct096/ct097/ct098 remain APPROVED; Production main frozen."
   },
   "profiles": [
     {
@@ -3510,9 +3510,9 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "INCOMPLETE_DEFERRED_MUST_REVISIT",
+      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "LOCKED_BUT_VISUAL_NOT_APPROVED",
+      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3528,13 +3528,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
-        "user_preview": "DEFERRED",
-        "reviewed_on": "2026-10-05",
-        "note": "Mandatory Hoffmann backlog remains deferred until a clinically correct hand-only candidate is generated. Four recent image attempts were wrong examinations/poses and were never connected to the app. Clinical content and exact render brief remain locked."
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-06",
+        "note": "ct088 Candidate 13 was re-audited from the actual repository asset on 2026-10-06. Dorsum-up hand, third-digit isolation/support, distal phalanx/nail flick with palmward motion cue, and same-hand positive thumb/index response are visually present. This is the only ct088 candidate exposed for user Preview."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3550,14 +3550,9 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "MANDATORY BACKLOG: regenerate Hoffmann realistic asset later",
-        "Exact third digit must be used",
-        "PIP stabilization and DIP motion must be visually distinct",
-        "DIP motion must be palmward rapid flexion followed by immediate release/rebound",
-        "Positive panel must show same-hand thumb and/or index flexion; do not substitute ring/little finger flexion",
-        "Fresh user approval required before canonical promotion"
+        "User Preview approval remains required before canonical approval"
       ],
-      "review_note": "MANDATORY DEFERRED BACKLOG. Clinical brief is locked; no valid visual candidate exists. Wrong generated images must not be reused or approved.",
+      "review_note": "ct088 Candidate 13 restored to active Preview after resolving stale lifecycle metadata. Do not regenerate while this valid candidate awaits user review.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3866,9 +3861,9 @@
         }
       ],
       "generation_blocker": {
-        "status": "RESOLVED_CLINICALLY_CANDIDATE9_BINARY_TRANSFER_PENDING",
-        "reason": "CANDIDATE_9_INTERNAL_QA_PASS",
-        "note": "Clinical/visual candidate selection is complete. Remaining blocker is exact binary repository transfer, not clinical content."
+        "status": "RESOLVED_CANDIDATE13_PREVIEW_READY",
+        "reason": "CANDIDATE_13_BINARY_PRESENT_AND_INTERNAL_QA_PASS",
+        "note": "The repository already contains the clinically correct Candidate 13 SVG/embedded-WebP derivative. No further generation is needed before user review."
       },
       "direct_reference_review": {
         "status": "LOCKED",
@@ -3876,7 +3871,21 @@
         "reference_role": "clinical_maneuver_facts_only",
         "note": "Physiotutors demonstration reviewed only to verify technique; no external visual expression copied."
       },
-      "preview_candidate": null,
+      "preview_candidate": {
+        "candidate_no": 13,
+        "gen_id": "64db8f81-b5e0-460a-8b41-046895643b0b",
+        "generated_on": "2026-10-03",
+        "generator": "OpenAI image generation",
+        "raw_generation_dimensions": "1159x1356",
+        "raw_generation_sha256": "1edd9e1936f1d60dc4215be458628d80bab9a5772573ef0ae9e78b724050829d",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-64db8f81-derived-4panel.svg",
+        "preview_dimensions": "900x1053",
+        "preview_embedded_webp_sha256": "bf7531b377fa800cf123552379bd507d770ded9f9286ef52a8b409d60c184c85",
+        "preview_svg_sha256": "b8136b028c6386fb38ec47d095318b5a3bdce6657d01788b419375b423a05ae8",
+        "preview_git_blob_sha": "08c4d361d5faccac4de8cb22b2ea3492fa782d4b",
+        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+        "note": "Candidate 13 is the only active ct088 user-review target. Repository SVG blob exists and embeds the verified realistic WebP derivative."
+      },
       "brief_lock": "DIRECT_REFERENCE_REVIEW_LOCKED"
     },
     {
