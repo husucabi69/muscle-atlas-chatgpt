@@ -1,3 +1,13 @@
+## 2026-10-05 ct084 standardized ULNT1 protocol lock
+
+- User asked whether shoulder extension is required and whether the neck must side-bend away from the tested arm.
+- Evidence review: the 2023 systematic review proposed ULTT1/ULNT1 standard sequence as shoulder stabilization in abduction → wrist/finger extension → forearm supination → shoulder external rotation → elbow extension → cervical side-bending structural differentiation.
+- Routine glenohumeral shoulder extension is not a core step in that proposed standardized sequence. Do not confuse shoulder extension with shoulder external rotation or scapular stabilization.
+- Contralateral cervical lateral flexion is explicitly retained as structural differentiation after familiar symptoms are reproduced; the same symptom should change to support neural mechanosensitivity.
+- App copy, EXAM-REAL generation brief, schematic preset and E2E were aligned to the same rule.
+- Reporting contract changed: user-facing reports use only ① 뭘 했나 ② 앞으로 뭘 할 건가, and every technical block must be followed by plain-language explanation + app navigation + exact app copy + expanded study note + measured timing.
+- Production main remains frozen.
+
 ## 2026-10-05 EXAM-REAL ct092 teaching prepared
 
 - Independent roadmap work continued while ct083/ct084 user visual approvals remain pending.

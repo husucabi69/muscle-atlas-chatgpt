@@ -5556,9 +5556,9 @@
       "clinical_test_id": "ct084",
       "precision": "custom",
       "view": "front",
-      "title": "ULNT1 · 견갑 안정 + 어깨 외전·회외·손목신전·외회전·팔꿈치신전",
+      "title": "ULNT1 · 어깨 외전 안정 → 손목/손가락 신전 → 회외 → 어깨 외회전 → 팔꿈치 신전 → 경추 반대쪽 측굴",
       "start": {
-        "body": "seated",
+        "body": "supine",
         "head": [
           80,
           58
@@ -5580,7 +5580,7 @@
         "head_label": "중립"
       },
       "action": {
-        "body": "seated",
+        "body": "supine",
         "head": [
           72,
           58
@@ -5634,9 +5634,9 @@
         "y": 88,
         "label": "익숙한 상지 증상 + 구조감별"
       },
-      "examiner_position": "견갑이 올라가지 않게 안정시키고 상완·전완·손목을 순차적으로 지지한다.",
-      "hand_force": "정해진 순서로 neural load를 단계적으로 증가시키고, 증상이 재현되면 경추 측굴로 structural differentiation을 확인한다.",
-      "common_error": "순서를 급하게 진행하거나 단순 hamstring-like stretch sensation을 양성으로 보지 않고 익숙한 증상과 구조감별을 확인한다."
+      "examiner_position": "환자는 앙와위. 검사자는 어깨/견갑대를 안정화하고 상완·전완·손목을 순차적으로 지지한다. 어깨 신전을 별도 단계로 추가하지 않는다.",
+      "hand_force": "신경 부하를 단계적으로 증가시키고 익숙한 증상이 재현되면 그 자세를 유지한 채 경추를 반대쪽으로 가볍게 측굴하여 structural differentiation을 확인한다.",
+      "common_error": "어깨를 뒤로 과도하게 신전하거나 견갑대를 세게 depression하지 않는다. 단순 stretch discomfort가 아니라 익숙한 증상 재현 + 경추 반대쪽 측굴에 따른 같은 증상 변화를 확인한다."
     },
     "ct085": {
       "clinical_test_id": "ct085",

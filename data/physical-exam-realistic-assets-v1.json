@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-008-ct084-binary-repair",
+  "dataset_version": "2026.10.05-exam-real-009-ct084-standardized-protocol",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3267,12 +3267,12 @@
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic adult clinician; clean neutral clinic background; no identifiable real patient; independently generated new people/pose/scene; same premium realistic visual family as approved ct082",
         "panel_structure": "세로형 portrait 3-panel을 위→아래로 쌓는다: 1 시작 자세 / 2 검사 시행 / 3 구조적 감별·양성 판단. 세 패널은 동일 환자·동일 검사자를 유지한다.",
         "patient_setup": "성인 여성형 환자. 앙와위. 우측 상지를 검사한다. 우측 견갑대를 검사자가 안정화하고 팔은 처음에는 편안히 둔다.",
-        "examiner_maneuver": "성인 남성형 검사자. 우측 견갑대를 안정화한 상태에서 우측 어깨 외전 → 전완 회외 → 손목/손가락 신전 → 어깨 외회전 → 팔꿈치 신전을 단계적으로 적용한다. 각 요소는 부드럽고 점진적으로 적용하며 과도한 end-range 도발은 피한다.",
-        "structural_differentiation": "우측 상지 검사 자세를 유지한 채 경추를 반대쪽(좌측)으로 가볍게 측굴하여 신경계 부하를 변화시킨다. 익숙한 우측 상지 증상이 증가·감소 등 의미 있게 변하는지 확인한다. 그림에서는 반대쪽 측굴과 우측 팔 증상 변화를 명확히 연결한다.",
-        "positive_finding": "환자의 평소 익숙한 우측 팔/전완/손의 신경성 통증·저림이 재현되고, 경추 structural differentiation으로 그 증상이 의미 있게 변하면 양성 소견으로 기록한다. 단순 stretch discomfort만으로 양성으로 표현하지 않는다.",
+        "examiner_maneuver": "성인 남성형 검사자. 우측 어깨를 외전 상태에서 안정화한 뒤 손목/손가락 신전 → 전완 회외 → 어깨 외회전 → 팔꿈치 신전을 단계적으로 적용한다. 어깨를 뒤로 신전시키는 동작은 표준 핵심 순서에 넣지 않고, 견갑대를 과도하게 아래로 누르지 않는다.",
+        "structural_differentiation": "우측 상지에서 익숙한 증상이 재현된 자세를 유지한 채 경추를 반대쪽(좌측)으로 가볍게 측굴하여 신경계 부하를 바꾼다. 같은 우측 팔 증상이 증가·감소하는지 확인한다. 그림에서는 좌측 경추 측굴과 우측 팔 증상 변화를 명확히 연결한다.",
+        "positive_finding": "평소 익숙한 우측 팔/전완/손의 신경성 통증·저림이 적어도 부분적으로 재현되고, 경추 반대쪽 측굴이라는 structural differentiation으로 같은 증상이 의미 있게 변하면 양성 소견으로 기록한다. 단순 stretch discomfort만으로 양성으로 표현하지 않는다.",
         "interpretation": "ULNT1은 cervical radiculopathy 진단을 보조하는 검사이며 단독 확진검사가 아니다. 2026 systematic review에서 ULNT1 pooled sensitivity 약 0.70, specificity 약 0.71이었으나 근거 확실성은 낮거나 매우 낮았다. 병력·신경학적 검사·다른 검사와 함께 해석한다.",
         "limitation_safety": "검사 시행 순서·cut-off·양성기준의 연구 이질성이 크다. median nerve entrapment 등 말초 신경 문제와 구분해야 한다. 급성 외상, 심한 신경학적 악화, 강한 신경 자극 증상이 있는 경우 과도한 provocation을 피한다.",
-        "overlay_policy": "우측 팔 검사로 laterality를 고정한다. 검사자의 견갑 안정화 손과 원위부 손 위치를 명확히 표시한다. 움직임 화살표는 단계적 우측 상지 positioning을 보여주고, 3번 패널은 경추 좌측 측굴과 우측 팔의 익숙한 신경성 증상 변화를 연결한다. 임의 각도·kg·횟수 금지.",
+        "overlay_policy": "우측 팔 검사로 laterality를 고정한다. 검사자의 어깨/견갑 안정화와 원위부 손 지지를 명확히 표시한다. 어깨 신전은 그리지 않는다. 2번 패널은 어깨 외전 + 손목/손가락 신전 + 전완 회외 + 어깨 외회전 + 팔꿈치 신전의 단계적 자세를 보여주고, 3번 패널은 경추 좌측 측굴과 우측 팔의 익숙한 신경성 증상 변화를 연결한다.",
         "text_policy": "이미지 내부 글자는 극소화. 허용: 패널 번호, '시작 자세', '검사 시행', '구조적 감별', 필요 시 '익숙한 팔 증상 변화'. 영문 병기, 장문 설명, 진단 확정 문구, 수치·각도 금지.",
         "model_casting": {
           "patient": "성인 여성형",
@@ -3289,7 +3289,7 @@
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-03",
-        "note": "Candidate 2 internal gate PASS. Start posture relaxed; right-arm ULNT1 sequence, right-arm symptom overlay and contralateral cervical side-bending are visually linked."
+        "note": "Candidate 2 internal gate PASS. Protocol clarified 2026-10-05: no routine shoulder extension; sequence locked to shoulder abduction stabilization → wrist/finger extension → forearm supination → shoulder external rotation → elbow extension → contralateral cervical side flexion structural differentiation. User Preview remains PENDING."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",

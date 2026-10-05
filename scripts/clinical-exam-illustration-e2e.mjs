@@ -131,6 +131,10 @@ try{
   if(!ct084Teaching.text.includes('0.70')||!ct084Teaching.text.includes('0.71'))fail('ct084 2026 diagnostic accuracy evidence');
   if(ct084Teaching.overflow>2)fail('ct084 teaching mobile horizontal overflow',String(ct084Teaching.overflow));
   pass('ct084 detailed teaching content visible');
+  for(const required of ['어깨 신전은 이 표준 핵심 순서에 포함하지 않는다','손목·손가락 신전','전완 회외','어깨 외회전','팔꿈치 신전','경추 반대쪽 측굴']){
+    if(!ct084Teaching.text.includes(required))fail('ct084 standardized protocol contains '+required);
+  }
+  pass('ct084 standardized ULNT1 sequence visible');
 
   const ct091Teaching=await page.evaluate(async ()=>{
     await openClinicalModule('cervical',false);
