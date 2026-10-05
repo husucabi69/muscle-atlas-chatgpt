@@ -799,7 +799,7 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - 움직임 방향·고정/지지·피할 보상동작을 시각적으로 포함
 - 기존 SVG는 realistic asset 완성 전 임시 fallback
 - realistic asset manifest: `data/patient-exercise-realistic-assets-v1.json`
-- 수동 작업 운영: 기본 15분 / 18분부터 마무리 모드 / **20분 HARD STOP**, CI·배포 진행 중이어도 안전 checkpoint 후 즉시 보고
+- 수동 작업 운영: **최신 정본 규칙을 우선 적용 — 실제 개발 25~30분 / 30~35분 저장·검증·보고 마무리 / 35분 HARD STOP**. 이전 Stage별 15~20분 운영 문구는 폐기한다.
 
 - Stage 19 개념형 SVG는 final quality 아님
 - 18 actionable profile 전수 고품질 재도해
