@@ -1,7 +1,7 @@
 # CT098 Integrated cervical red-flag screen — realistic render request
 
 Stable ID: ct098
-Status: GENERATION_READY
+Status: CANDIDATE_1_INTERNAL_PASS_USER_PREVIEW_PENDING
 User-facing title: 경추 red-flag 통합 선별
 English: Integrated cervical red-flag screen
 
@@ -48,3 +48,17 @@ history/risk context -> objective neurologic screen -> appropriate escalation wh
 - No forceful cervical provocation.
 - No copied textbook/internet composition, logo, watermark or identifiable real patient.
 - User Preview approval required before canonical promotion.
+
+
+## Candidate 1 generation result — 2026-10-05
+- gen_id: `4be8f319-96ca-498a-878d-174f114c5f79`
+- source: `/mnt/data/a_vertical_triptych_storyboard_style_medical_cons.png`
+- source dimensions: 1024x1536
+- source SHA-256: `92e30167e37b27b8e5cb40df6b00b8cd62aad8c53930f405d314259ff5ef1c0a`
+- Preview asset: `./assets/physical-exam-realistic/candidates/ct098-cervical-red-flag-gen-4be8f319-preview.webp`
+- Preview dimensions: 240x360
+- Preview SHA-256: `ad4be0f893673d5ce291b799fd88929598d55b7a5289d060b1e57c4a429bf89c`
+- Internal clinical/visual QA: PASS
+- User Preview: PENDING
+- Canonical/APPROVED promotion: blocked until explicit user approval
+- Production main: unchanged
