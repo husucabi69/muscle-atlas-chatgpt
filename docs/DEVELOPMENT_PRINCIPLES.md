@@ -1,6 +1,7 @@
 # DEVELOPMENT PRINCIPLES
 
 시행일: 2026-09-24
+최종 개정: 2026-10-05 — 수동 개발 25~30분 / 30~35분 마무리 / 35분 HARD STOP 및 실측 보고
 
 ## 공식 제품 방향
 Muscle Atlas는 독립 앱으로 계속 발전시키되 장기적으로 LYS OrthoOS의 **MSK Knowledge Layer**가 될 수 있도록 설계한다. 현재 repository와 실행 구조는 OrthoOS와 합치지 않는다.
