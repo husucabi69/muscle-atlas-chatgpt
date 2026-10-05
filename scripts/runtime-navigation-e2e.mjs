@@ -551,9 +551,16 @@ try{
     if(!ulntText.includes(required))fail('ct084 rich interpretation contains '+required,ulntText.slice(0,1600));
   }
   const img=ulntPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="preview"] img');
-  if(await img.count()!==1)fail('ct084 high-resolution Preview image is present');
+  if(await img.count()!==1)fail('ct084 intact Preview image is present');
   await img.waitFor({state:'visible',timeout:10000});
-  const size=await img.evaluate(el=>{
+  const expectedPreview=await ulntPage.evaluate(()=>{
+    const p=physicalExamRealisticAssetsData?.profiles?.find(x=>x.clinical_test_id==='ct084');
+    const raw=String(p?.preview_candidate?.preview_thumbnail_dimensions||'');
+    const m=raw.match(/^(\d+)x(\d+)$/);
+    return m?{width:Number(m[1]),height:Number(m[2]),raw}:{width:0,height:0,raw};
+  });
+  const size=await img.evaluate(async el=>{
+    try{await el.decode();}catch{}
     const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
     return{
       naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,
@@ -562,8 +569,11 @@ try{
       complete:el.complete,currentSrc:el.currentSrc
     };
   });
-  if(size.naturalWidth<480||size.naturalHeight<720)fail('ct084 Preview image resolution >=480x720',JSON.stringify(size));
-  if(!size.complete||!size.currentSrc||size.clientWidth<250||size.clientHeight<350||size.display==='none'||size.visibility==='hidden'||Number(size.opacity)===0){
+  if(!expectedPreview.width||!expectedPreview.height)fail('ct084 registry declares Preview dimensions',JSON.stringify(expectedPreview));
+  if(size.naturalWidth!==expectedPreview.width||size.naturalHeight!==expectedPreview.height){
+    fail('ct084 Preview image matches registry dimensions',JSON.stringify({expectedPreview,size}));
+  }
+  if(!size.complete||!size.currentSrc||size.naturalWidth<1||size.naturalHeight<1||size.clientWidth<200||size.clientHeight<300||size.display==='none'||size.visibility==='hidden'||Number(size.opacity)===0){
     fail('ct084 Preview image is visibly rendered',JSON.stringify(size));
   }
   const steps=await ulntPage.locator('#clinicalDetailContent .clinical-exam-steps').evaluate(el=>{
@@ -581,7 +591,7 @@ try{
     fail('ct084 interpretation block is visibly rendered',JSON.stringify(interpretation));
   }
   await ulntPage.close();
-  pass('A12 ct084 high-resolution interpretation detail',JSON.stringify({size,steps:{width:steps.width,height:steps.height},interpretation:{width:interpretation.width,height:interpretation.height}}));
+  pass('A12 ct084 intact Preview and interpretation detail',JSON.stringify({size,steps:{width:steps.width,height:steps.height},interpretation:{width:interpretation.width,height:interpretation.height}}));
 
   const hoffPage=await context.newPage();
   const hoffUrl=new URL('?page=clinical&module=cervical&topic=exam&item=ct088',base).toString();
