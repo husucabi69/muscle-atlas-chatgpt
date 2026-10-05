@@ -43,6 +43,9 @@ const inOrder = text => {
 check('AGENTS timing fields are documented in required order', inOrder(files.agents));
 check('Constitution timing fields are documented in required order', inOrder(files.constitution));
 check('Principles timing fields are documented in required order', inOrder(files.principles));
+check('AGENTS preserves explicit user-stop override', files.agents.includes('USER_STOP_OVERRIDE'));
+check('Constitution preserves explicit user-stop override', files.constitution.includes('USER_STOP_OVERRIDE'));
+check('Principles preserves explicit user-stop override', files.principles.includes('USER_STOP_OVERRIDE'));
 
 check('AGENTS locks two-heading report format', files.agents.includes('큰 제목은 **① 뭘 했나 ② 앞으로 뭘 할 건가** 두 개만'));
 check('Constitution locks two-heading report format', files.constitution.includes('**딱 2개만**'));
