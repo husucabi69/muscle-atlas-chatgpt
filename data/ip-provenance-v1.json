@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "registry_id": "muscle-atlas-ip-provenance-v1",
-  "updated_at": "2026-10-02",
+  "updated_at": "2026-10-06",
   "public_repository": true,
   "rights_owner": {
     "owner_id": "LYS_IP_OWNER",
@@ -30,6 +30,14 @@
     {
       "id": "SOFTWARE_INTERACTION",
       "title": "Original viewer / layer / transparency / rotation interaction software assets"
+    },
+    {
+      "id": "PATIENT_EXERCISE_REALISTIC",
+      "title": "AI-assisted, human-reviewed realistic patient exercise education illustrations"
+    },
+    {
+      "id": "PHYSICAL_EXAM_REALISTIC",
+      "title": "AI-assisted, human-reviewed realistic physical examination education illustrations"
     }
   ],
   "assets": []
