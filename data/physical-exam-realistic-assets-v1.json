@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct085-generation-ready",
+  "dataset_version": "2026.10.06-exam-real-ct086-generation-ready",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct088 Candidate 13 awaits user review. ct085 is generation-ready next. Continue ct086/ct087 clinical-content lock before new generation if time remains. Production main frozen."
+    "next_action": "ct088 Candidate 13 awaits user review; ct085 and ct086 are generation-ready. Continue ct087 clinical lock before new image generation. Production main frozen."
   },
   "profiles": [
     {
@@ -3453,34 +3453,47 @@
       "title_en": "Cervical rotation range-of-motion assessment",
       "status": "PENDING_GENERATION",
       "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "중립 좌위에서 좌우 회전 ROM을 측정한다.",
-        "examiner_maneuver": "증상측 회전 제한과 증상 재현을 기록한다.",
-        "positive_finding": "현저한 비대칭 또는 약 60° 미만 회전 제한이 radiculopathy cluster 맥락에서 관찰되면 기록한다.",
-        "interpretation": "단독진단이 아니라 Spurling, distraction, ULNT 등과 묶어 해석한다.",
-        "limitation_safety": "연령·통증·퇴행성 변화에 따라 ROM이 달라질 수 있다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical-education illustration; realistic adult patient and clinician; clean neutral clinic; same people across panels; mobile readable",
+        "panel_structure": "3-panel vertical: 1 중립 좌위 / 2 좌우 능동 회전 비교 / 3 제한·보상 확인",
+        "patient_setup": "환자는 등받이 있는 의자에 앉고 어깨를 이완하며 머리는 중립. 몸통과 어깨가 따라 돌지 않게 한다.",
+        "examiner_maneuver": "환자가 스스로 머리를 왼쪽과 오른쪽으로 천천히 회전한다. 검사자는 정면 또는 뒤에서 몸통 회전, 어깨 보상, 턱 들기/숙이기를 관찰한다. 강한 수동 끝범위 회전은 하지 않는다.",
+        "positive_finding": "한쪽 회전 arc가 반대쪽보다 뚜렷하게 짧거나 익숙한 목/팔 증상이 재현되는 모습을 표현한다. 특정 각도 숫자를 병적 cut-off처럼 표시하지 않는다.",
+        "interpretation": "Cervical rotation ROM is a nonspecific functional finding. In radiculopathy it is interpreted with neurologic exam, Spurling, distraction and ULNT rather than used alone.",
+        "limitation_safety": "급성 외상·불안정성·새로운 신경학적 이상·비전형적 심한 두통/목통증이 있으면 끝범위 검사보다 원인평가를 우선한다.",
+        "overlay_policy": "좌우 회전 방향은 작은 arc 화살표로만 표시. 제한 패널은 한쪽 arc가 짧게 보이게 하되 임의 빨간 통증표시와 숫자 cut-off 금지.",
+        "text_policy": "이미지 내부는 '1 중립 자세', '2 좌우 회전', '3 제한 / 보상' 정도의 최소 한국어만 사용.",
+        "evidence_lock": [
+          "radic_cluster_2026",
+          "radic_review_2026"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-06",
+        "note": "ct086 clinical content expanded. Historical ~60° cluster value is explicitly treated as a cluster item, not a universal abnormal cutoff. Fresh realistic candidate required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Fresh realistic candidate generation required",
+        "Patient trunk and shoulders must remain fixed while head rotates",
+        "Must depict active rotation rather than forceful passive end-range rotation",
+        "Do not present 60° as a universal diagnostic cutoff",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct087",
