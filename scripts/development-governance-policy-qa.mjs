@@ -7,6 +7,7 @@ const files = {
   principles: read('docs/DEVELOPMENT_PRINCIPLES.md'),
   masterRoadmap: read('docs/MASTER_ROADMAP.md'),
   handoff: read('docs/HANDOFF_CURRENT.md'),
+  previewPolicy: read('docs/PREVIEW_DEVELOPMENT_POLICY.md'),
 };
 
 const checks = [];
@@ -15,7 +16,7 @@ const check = (name, pass, detail='') => {
   console.log(`${pass ? 'PASS' : 'FAIL'} | ${name}${detail ? ` | ${detail}` : ''}`);
 };
 
-for (const name of ['agents','constitution','principles','masterRoadmap','handoff']) {
+for (const name of ['agents','constitution','principles','masterRoadmap','handoff','previewPolicy']) {
   const text = files[name];
   check(`${name}: 25~30 minute development rule`, text.includes('25~30분') || text.includes('25~30 minutes'));
   check(`${name}: 30~35 minute wrap-up rule`, text.includes('30~35분') || text.includes('30~35 minutes'));
