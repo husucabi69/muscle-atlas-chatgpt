@@ -4570,7 +4570,7 @@
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-05",
-        "note": "ct096 Candidate 1 internal clinical/visual review PASS. Supine start, low head lift with chin tuck, observer-only examiner, and clear posture-breakdown/high-lift compensation are shown. User Preview approval remains required."
+        "note": "ct096 Candidate 1 internal clinical/visual review PASS. Binary integrity repaired and rechecked after initial transport truncation. User Preview approval remains required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4592,7 +4592,7 @@
           "source_session_path": "/mnt/data/a_clean_clinical_instructional_triptych_three_pan.png",
           "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp",
           "preview_dimensions": "320x480",
-          "preview_webp_sha256": "0265a2fc211504f59c2ded1b2f21b0618cbf109034a8877dfdcdbc4d4166f7b6",
+          "preview_webp_sha256": "2c5429a9d15de304c80d94e3a3426fa241ebc034e721d8fbda286485c1eddaf4",
           "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
           "passed_axes": [
             "clinical_content",
@@ -4614,11 +4614,11 @@
         "raw_generation_sha256": "e672b44eb44b6b89993ea39f47afadffe8f477f34411910c7832ef45e17f8c97",
         "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp",
         "preview_dimensions": "320x480",
-        "preview_webp_sha256": "0265a2fc211504f59c2ded1b2f21b0618cbf109034a8877dfdcdbc4d4166f7b6",
+        "preview_webp_sha256": "2c5429a9d15de304c80d94e3a3426fa241ebc034e721d8fbda286485c1eddaf4",
         "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
         "note": "ct096 Candidate 1 internal PASS; user Preview approval remains required before canonical promotion."
       },
-      "review_note": "ct096 Candidate 1 is connected to Preview with internal clinical/visual gates PASS. Do not promote to APPROVED or main before explicit user approval."
+      "review_note": "ct096 Candidate 1 is connected to Preview with internal clinical/visual gates PASS. Candidate WebP integrity repaired; user approval is still required before APPROVED/main."
     },
     {
       "clinical_test_id": "ct097",
