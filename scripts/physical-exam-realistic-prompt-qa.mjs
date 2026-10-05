@@ -32,13 +32,18 @@ check('No cervical pilot profile remains generation-ready after ct095 candidate 
 const ct083=manifest.profiles?.find(x=>x.clinical_test_id==='ct083');
 const ct084=manifest.profiles?.find(x=>x.clinical_test_id==='ct084');
 const ct092=manifest.profiles?.find(x=>x.clinical_test_id==='ct092');
-check('Internally-passed ct083/ct084 are protected from duplicate regeneration',
-  [ct083,ct084].every(p=>
-    p?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
-    p?.brief_status==='CANDIDATE_READY_USER_PREVIEW'&&
-    Boolean(p?.preview_candidate)&&
-    p?.review?.user_preview==='PENDING'
-  ));
+check('ct083 pending review and ct084 approved asset are both protected from duplicate regeneration',
+  ct083?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
+  ct083?.brief_status==='CANDIDATE_READY_USER_PREVIEW'&&
+  Boolean(ct083?.preview_candidate)&&
+  ct083?.review?.user_preview==='PENDING'&&
+  ct084?.status==='APPROVED'&&
+  ct084?.brief_status==='APPROVED'&&
+  Boolean(ct084?.composite_url)&&
+  ct084?.review?.user_preview==='PASS'&&
+  Boolean(ct084?.user_approved_asset)&&
+  Array.isArray(ct084?.approval_blockers)&&ct084.approval_blockers.length===0
+);
 check('ct092 stays in user-preview queue, not generation queue',
   ct092?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
   ct092?.review?.user_preview==='PENDING');
