@@ -3,6 +3,14 @@
 This checkpoint is the current execution order for cervical Physical Examination realistic assets.
 It does not override explicit user approval/rejection commands.
 
+## Registry snapshot
+- Cervical profiles: 17 total.
+- Canonical APPROVED: **9** — ct082, ct084, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
+- Connected user-review candidates: **2** — ct083 Candidate 2, ct088 Candidate 13.
+- Generation-ready in active pilot: **3** — ct085 → ct086 → ct087.
+- User-approved exact-binary recovery: **1** — ct089.
+- Historical candidate metadata without connected app binary: ct091, ct092.
+
 ## Locked approved — do not regenerate
 - ct082 Spurling — APPROVED
 - ct084 ULNT1 — APPROVED
