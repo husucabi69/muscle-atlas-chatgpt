@@ -32,7 +32,7 @@ export function buildPhysicalExamPrompt(manifest,clinicalTestId){
   const casting=modelCastingForClinicalTestId(clinicalTestId);
   const numericId=Number(String(clinicalTestId).match(/(\d+)$/)?.[1]||0);
   const castingLine=numericId>=84&&casting
-    ? `- 모델 배정: 환자 ${casting.patient} / 검사자 ${casting.examiner}. 성별은 임상적 의미를 암시하지 않으며 동일 Stable ID의 세 패널에서 동일 인물을 유지한다.`
+    ? `- 모델 배정: 환자 ${casting.patient} / 검사자 ${casting.examiner}. 성별은 임상적 의미를 암시하지 않으며 동일 Stable ID의 모든 패널에서 동일 인물을 유지한다.`
     : '- 기존 ct082/ct083 자산은 캐스팅 규칙 grandfathered 대상이다. 재생성 필요가 생기면 별도 human review로 캐스팅을 확정한다.';
 
   return [
@@ -43,8 +43,8 @@ export function buildPhysicalExamPrompt(manifest,clinicalTestId){
     '목표',
     '- 실제 사람처럼 보이는 고품질 임상교육용 디지털 일러스트를 만든다.',
     '- 사진 합성이나 실제 환자 사진이 아니라 독립적으로 제작된 realistic medical education illustration이어야 한다.',
-    '- 한 장의 세로형 composite 안에 3개 패널을 배치한다: 1 · 시작 자세 / 2 · 검사 시행 / 3 · 양성 판단.',
-    '- 세 패널의 환자와 검사자는 같은 인물, 같은 복장, 같은 임상 배경을 유지한다.',
+    `- 패널 구성: ${b.panel_structure||'세로형 3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단'}`,
+    '- 모든 패널의 환자와 검사자는 같은 인물, 같은 복장, 같은 임상 배경을 유지한다.',
     castingLine,
     '- 서로 다른 검사에서 같은 인물 이미지를 재사용하지 않는다. Stable ID마다 독립적으로 새 장면을 제작한다.',
     '- 의료진 강의와 환자 설명에 바로 쓸 수 있는 명확하고 차분한 임상교육 스타일을 사용한다.',
