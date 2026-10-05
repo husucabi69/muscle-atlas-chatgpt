@@ -1,3 +1,12 @@
+## 2026-10-05 ct084 FINAL user approval — exact generated source locked
+
+- User explicitly approved the final generated ULNT1 3-panel image after the hand-position corrections.
+- Exact source: `3단계_팔_신경_검사_안내.png`, 1024x1536, SHA-256 `8a708874a227ea712bc9ffa625f130018c2c21df060f46e9b8719e68c8420322`, gen_id `3cc5780d-bfb2-4583-8c4a-4604896a5a21`.
+- This supersedes every earlier ct084 Candidate 2 / temporary approval image. Do not regenerate ct084.
+- Registry intentionally remains `USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING` until the exact approved bytes are transferred to GitHub. This prevents an older image from being rendered as canonical.
+- Continue independent next work with ct096 Neck flexor endurance test.
+- Production main remains frozen.
+
 ## 2026-10-05 ct084 exact uploaded final approved — binary transfer pending
 
 - User explicitly approved the uploaded file `1791172601057.png` as the final ct084 ULNT1 illustration.
