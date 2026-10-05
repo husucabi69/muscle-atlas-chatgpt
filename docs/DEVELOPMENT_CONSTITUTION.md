@@ -135,6 +135,7 @@ Last amended: 2026-10-05 — manual development 25~30 min / 35 min HARD STOP / m
   - 30~35분 마무리 규칙: PASS / FAIL
   - 35분 HARD STOP: PASS / FAIL
 - 추정시간을 실제 측정값처럼 쓰는 것을 금지한다.
+- 위 시간·보고·승인 계약은 `scripts/development-governance-policy-qa.mjs`와 Global QA에서 자동 강제한다. 정본 문서가 구 규칙으로 회귀하면 CI 실패가 정상 동작이다.
 
 ## 5A. 야간 예약작업 이후 오전 첫 수동 작업 시작 절차
 
