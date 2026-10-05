@@ -4737,11 +4737,11 @@
         "clinical_content": "PASS",
         "visual_pose": "PASS",
         "examiner_hand_position": "NOT_APPLICABLE",
-        "force_direction": "NOT_APPLICABLE",
+        "force_direction": "PASS",
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-05",
-        "note": "ct098 Candidate 1 internal clinical/visual review PASS. Three panels show history/risk-context interview, safe objective neurologic screening without neck provocation, and escalation to imaging/further evaluation. User Preview remains required."
+        "note": "ct098 Candidate 1 internal clinical/visual review PASS. No provocative force direction exists by design; PASS here means the visual correctly avoids forceful/end-range cervical provocation. History -> neurologic screen -> escalation flow is shown. User Preview remains required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4789,7 +4789,7 @@
         "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
         "note": "ct098 Candidate 1 internal PASS; user Preview approval remains required before canonical promotion."
       },
-      "review_note": "ct098 Candidate 1 is connected to Preview. Red-flag screening remains a safety pathway, not a provocative special test. Do not promote without explicit user approval."
+      "review_note": "ct098 Candidate 1 is connected to Preview. The force-direction gate PASS means 'no provocative cervical force is correctly depicted', not that a force maneuver exists. Do not promote without explicit user approval."
     },
     {
       "clinical_test_id": "ct099",
