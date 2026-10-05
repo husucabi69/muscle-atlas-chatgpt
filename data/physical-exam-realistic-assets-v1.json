@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct086-generation-ready",
+  "dataset_version": "2026.10.06-exam-real-ct087-generation-ready",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct088 Candidate 13 awaits user review; ct085 and ct086 are generation-ready. Continue ct087 clinical lock before new image generation. Production main frozen."
+    "next_action": "ct088 Candidate 13 awaits user review. ct085, ct086 and ct087 are generation-ready. Next independent work: render these three in roadmap order or reconcile older ct089/ct091/ct092 binary handoffs. Production main frozen."
   },
   "profiles": [
     {
@@ -3502,34 +3502,47 @@
       "title_en": "C5–T1 motor-sensory-reflex screen",
       "status": "PENDING_GENERATION",
       "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "상지 myotome, dermatome, deep tendon reflex를 좌우 비교한다.",
-        "examiner_maneuver": "C5 shoulder abduction/elbow flexion, C6 wrist extension, C7 elbow extension, C8 finger flexion/extension 등 임상 분절기능과 감각·반사를 확인한다.",
-        "positive_finding": "분절성 근력저하, 감각저하 또는 반사 비대칭이 일관된 패턴으로 나타나면 기록한다.",
-        "interpretation": "radiculopathy의 level 추정과 cord/peripheral nerve 감별에 필수적인 기본검사다.",
-        "limitation_safety": "개별 myotome·dermatome은 중복되며 하나의 소견으로 level을 확정하지 않는다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical-education illustration; realistic adult patient and clinician; clean neutral clinic; mobile readable; same people across panels",
+        "panel_structure": "4-panel vertical or 2×2: 1 motor / 2 sensory / 3 reflex / 4 pattern interpretation",
+        "patient_setup": "환자는 편안히 앉고 양측 상지를 노출하며 어깨를 이완한다.",
+        "examiner_maneuver": "motor panel은 대표 C5–T1 task 중 2~3개를 명확히 보여주되 손 위치가 해부학적으로 정확해야 한다. sensory panel은 대표 dermatome 영역을 좌우 비교하는 가벼운 촉각검사. reflex panel은 biceps/brachioradialis/triceps 중 하나 이상을 정확한 자세로 표현한다. 마지막 패널은 한 root에 motor-sensory-reflex가 모이는 개념을 보여준다.",
+        "positive_finding": "분절성 근력저하·감각저하·반사 감소가 같은 root 분포에서 일관되게 나타나는 개념을 표현한다. 하나의 점만 빨갛게 표시해 특정 root를 확정하는 그림은 금지한다.",
+        "interpretation": "C5–T1 neurologic screen supports root-level clinical localization and differentiation from peripheral nerve/plexus or cord disease. Myotomes and dermatomes overlap; no single finding is definitive.",
+        "limitation_safety": "통증 억제성 약화와 진짜 신경학적 약화를 구분해야 하며, UMN signs/보행장애가 있으면 radiculopathy만으로 설명하지 않는다.",
+        "overlay_policy": "대표 root 표시는 교육용 작은 라벨로만 사용하고 과도한 dermatome 색칠·질환 확정 아이콘 금지. 좌우 비교가 명확해야 한다.",
+        "text_policy": "이미지 내부는 '1 근력', '2 감각', '3 반사', '4 분절 패턴' 정도의 최소 한국어만 사용. 장문 설명은 앱 HTML에 둔다.",
+        "evidence_lock": [
+          "radic_review_2026",
+          "dcm_signs_2024"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-06",
+        "note": "ct087 C5–T1 motor-sensory-reflex teaching expanded and clinically locked. Fresh realistic candidate required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Fresh realistic candidate generation required",
+        "Motor/sensory/reflex must be visually distinct",
+        "Do not depict one-to-one absolute root mapping without overlap caution",
+        "Reflex hand/hammer placement must be anatomically plausible",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct088",
