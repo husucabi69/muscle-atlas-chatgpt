@@ -13,6 +13,18 @@
 - Production `main` remains frozen.
 - Manual development governance remains: 25~30 min actual work, 30~35 min wrap-up only, 35 min HARD STOP.
 
+## 2026-10-06 cervical EXAM-REAL development checkpoint
+
+- Canonical execution queue: `docs/checkpoints/EXAM_REAL_CERVICAL_QUEUE_2026-10-06.md`.
+- ct088 Candidate 13 restored and connected as active user Preview target; internal PASS, user PENDING.
+- ct085 Shoulder abduction relief: clinical teaching PASS, realistic generation brief READY.
+- ct086 Cervical rotation ROM: clinical teaching PASS, realistic generation brief READY; ~60° is not treated as a universal diagnostic cutoff.
+- ct087 C5–T1 neurologic screen: clinical teaching PASS, realistic generation brief READY; motor/sensory/reflex integration and root overlap cautions locked.
+- New CI contract: `scripts/cervical-exam-content-qa.mjs` protects ct085–ct088 content/lifecycle and the ct088 Candidate 13 binary hash.
+- ct089 remains user-approved binary-transfer recovery backlog.
+- ct091/ct092 remain binary/recovery/review backlog.
+- Production `main` remains frozen.
+
 # CURRENT OVERRIDE — 2026-10-05 20:46+ KST
 
 > This block is authoritative for the current handoff. Older same-day sections below are historical audit entries and may contain superseded `PENDING` wording.
