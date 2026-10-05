@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-014-ct084-latest-final-approved",
+  "dataset_version": "2026.10.05-exam-real-015-ct084-approved-materialized",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct084 final image is user-approved and hash-locked; binary transfer remains. Proceed with ct096 Neck flexor endurance realistic generation. Production remains frozen."
+    "next_action": "ct084 ULNT1 fully approved and materialized. Next active task: ct096 Neck flexor endurance test. ct083 remains PENDING. Production remains frozen."
   },
   "profiles": [
     {
@@ -3258,10 +3258,10 @@
       "region": "cervical",
       "title_ko": "상지 신경가동성 검사 1",
       "title_en": "Upper Limb Neurodynamic Test 1 (ULNT1)",
-      "status": "USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING",
+      "status": "APPROVED",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "USER_APPROVED_FINAL_BINARY_PENDING",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct084-ulnt1-gen-495a39af-approved.webp",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic adult clinician; clean neutral clinic background; no identifiable real patient; independently generated new people/pose/scene; same premium realistic visual family as approved ct082",
@@ -3289,7 +3289,7 @@
         "embedded_text": "PASS",
         "user_preview": "PASS",
         "reviewed_on": "2026-10-05",
-        "note": "User explicitly approved the latest generated 3-panel ULNT1 image. This exact source supersedes all prior ct084 visual variants. Binary transfer into GitHub is still pending."
+        "note": "Final user-approved ct084 image is materialized in GitHub and canonical in Preview. No routine shoulder extension; contralateral cervical side flexion remains the final structural-differentiation step."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3305,10 +3305,8 @@
         "status": "PASS_WITH_LOW_CERTAINTY_CAUTION",
         "note": "2026 systematic review: ULNT1 pooled sensitivity ~0.70 and specificity ~0.71 with low/very-low certainty; use only as an adjunct. 2023 systematic review/meta-analysis also found only fair diagnostic accuracy with high heterogeneity."
       },
-      "approval_blockers": [
-        "Exact approved source binary must be transferred into repository before composite_url/APPROVED canonical promotion"
-      ],
-      "review_note": "USER FINAL APPROVAL PASS for latest generated source. Do not regenerate ct084; only exact binary transfer remains.",
+      "approval_blockers": [],
+      "review_note": "USER FINAL APPROVAL PASS and repository binary transfer complete. Do not regenerate ct084.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3378,17 +3376,25 @@
       "final_user_approved_source": {
         "approved_on": "2026-10-05",
         "source_kind": "conversation_generated_image",
-        "source_filename": "a_clean_clinical_instructional_poster_photographic.png",
-        "dimensions": "1536x1024",
-        "sha256": "8acca2ec69a0d12c1bc078b2dbb36f9286ddb9d44d2eaa648202271bc9e01509",
-        "gen_id": "7b639e82-ef95-4045-93b9-3d1121b344d6",
-        "disposition": "USER_FINAL_APPROVAL_PASS_BINARY_TRANSFER_PENDING",
-        "visual_lock": [
-          "3-panel ULNT1 composition",
-          "panel 2 upper-limb positioning accepted by user",
-          "panel 3 contralateral cervical side-flexion accepted by user",
-          "final image supersedes every earlier ct084 variant"
-        ]
+        "source_filename": "a_clean_clinical_instructional_triptych_image_in.png",
+        "dimensions": "1024x1536",
+        "sha256": "0ffc8fdba0f93285323c758324339634d205be04afcc94fe75648bdfa6c75d9b",
+        "gen_id": "495a39af-8ae8-44a2-be97-428edca53770",
+        "derivative_app_asset": "./assets/physical-exam-realistic/approved/ct084-ulnt1-gen-495a39af-approved.webp",
+        "derivative_dimensions": "600x900",
+        "derivative_sha256": "ff8300701e20668f61918fe57a4e36fb0b126cf0219d4baca523e955cfdef424",
+        "disposition": "USER_FINAL_APPROVAL_PASS_AND_MATERIALIZED"
+      },
+      "user_approved_asset": {
+        "gen_id": "495a39af-8ae8-44a2-be97-428edca53770",
+        "source_session_path": "/mnt/data/a_clean_clinical_instructional_triptych_image_in.png",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct084-ulnt1-gen-495a39af-approved.webp",
+        "approved_webp_sha256": "ff8300701e20668f61918fe57a4e36fb0b126cf0219d4baca523e955cfdef424",
+        "dimensions": "600x900",
+        "source_png_dimensions": "1024x1536",
+        "source_png_sha256": "0ffc8fdba0f93285323c758324339634d205be04afcc94fe75648bdfa6c75d9b",
+        "disposition": "USER_APPROVED_PASS",
+        "note": "Final user-approved ct084 ULNT1 source. 600x900 WebP app derivative from the exact approved 1024x1536 PNG."
       }
     },
     {

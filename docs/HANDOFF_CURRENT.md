@@ -1,3 +1,14 @@
+## 2026-10-05 ct084 ULNT1 fully approved and uploaded to app
+
+- Final source: `a_clean_clinical_instructional_triptych_image_in.png`, 1024x1536, SHA-256 `0ffc8fdba0f93285323c758324339634d205be04afcc94fe75648bdfa6c75d9b`, gen_id `495a39af-8ae8-44a2-be97-428edca53770`.
+- Canonical app asset: `assets/physical-exam-realistic/approved/ct084-ulnt1-gen-495a39af-approved.webp`, 600x900, SHA-256 `ff8300701e20668f61918fe57a4e36fb0b126cf0219d4baca523e955cfdef424`.
+- Registry: APPROVED / user_preview PASS / blockers 0 / composite_url connected.
+- Do not regenerate ct084. Clinical lock: no routine shoulder extension; upper-limb sequence first; contralateral cervical side flexion last as structural differentiation.
+- App cache/version bumped to `2026.10.05-stage23.74`.
+- Next active work: ct096 Neck flexor endurance test. Clinical brief already evidence-locked and generation-ready.
+- ct083 remains user-preview PENDING; ct088 Hoffmann remains mandatory deferred backlog.
+- Production `main` stays frozen until explicit promotion approval.
+
 ## 2026-10-05 ct084 latest generated image approved
 
 - User explicitly approved the latest generated ULNT1 3-panel image.
