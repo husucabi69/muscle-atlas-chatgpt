@@ -36,7 +36,10 @@
     "neck_flexor_endurance_reliability_2006": "https://pubmed.ncbi.nlm.nih.gov/16461172/",
     "neck_flexor_endurance_norms_2011": "https://pubmed.ncbi.nlm.nih.gov/21333948/",
     "neck_flexor_endurance_reliability_2014": "https://pubmed.ncbi.nlm.nih.gov/25585517/",
-    "neck_flexor_endurance_subclinical_2016": "https://pubmed.ncbi.nlm.nih.gov/27368756/"
+    "neck_flexor_endurance_subclinical_2016": "https://pubmed.ncbi.nlm.nih.gov/27368756/",
+    "neck_extensor_activity_review_2025": "https://pubmed.ncbi.nlm.nih.gov/39799617/",
+    "cervical_muscle_reliability_review_2021": "https://pubmed.ncbi.nlm.nih.gov/33383030/",
+    "sensorimotor_reliability_review_2023": "https://pubmed.ncbi.nlm.nih.gov/37582811/"
   },
   "clinical_tests": [
     {
@@ -681,13 +684,18 @@
         "m012",
         "m013"
       ],
-      "setup": "복와위 또는 좌위에서 저강도 경부 신전/회전을 시행한다.",
-      "maneuver": "splenius-semispinalis-multifidus의 좌우 활성과 국소 통증을 비교한다.",
-      "positive_definition": "현저한 비대칭, 조기 피로 또는 익숙한 국소 통증 재현을 impairment로 기록한다.",
-      "interpretation_note": "posterior cervical muscle dysfunction의 기능 평가이며 초음파 thickness/CSA와 함께 연구·교육적으로 연결할 수 있다.",
-      "limitation": "촉진이나 thickness 차이만으로 통증 원인을 확정하지 않는다.",
+      "setup": "복와위에서 이마를 지지하고 어깨를 이완한다. 경추는 중립 또는 아주 약한 굴곡에서 시작한다.",
+      "maneuver": "검사자는 후방 경추의 좌우 근육 덩이를 가볍게 촉진한다. 환자는 턱을 과하게 들지 않은 채 작은 범위의 저부하 경추 신전 또는 회전을 시행한다. 좌우 수축 시작과 지속, 과도한 표층근 보상, 조기 피로, 떨림, 익숙한 국소 통증을 비교한다. 깊은 semispinalis나 multifidus를 손가락만으로 개별 근육처럼 확정하지 않으며, 층별 확인이 필요하면 초음파를 사용한다.",
+      "positive_definition": "이 검사는 질환의 양성/음성을 가르는 검사가 아니다. 반복되는 좌우 활성 비대칭, 보상성 과신전, 조기 피로·떨림 또는 익숙한 국소 통증 재현을 후방 경부근 기능 저하로 기록한다.",
+      "interpretation_note": "표면 촉진은 전체 후방근의 좌우·보상 패턴을 보는 보조평가다. splenius·semispinalis·multifidus의 실제 층별 구분은 초음파가 더 적절하며 특정 병변을 단독 확진하지 않는다.",
+      "limitation": "촉진 기반 운동조절 평가는 검사자 주관과 자세 표준화의 영향을 받는다. 복잡한 movement-control 평가는 표준화가 어렵고, 초음파 thickness/CSA도 자세·레벨·탐촉자 압력의 영향을 받아 통증 원인을 단독으로 정하지 못한다.",
       "related_diagnosis_concept_ids": [
         "d097"
+      ],
+      "evidence_refs": [
+        "neck_extensor_activity_review_2025",
+        "cervical_muscle_reliability_review_2021",
+        "sensorimotor_reliability_review_2023"
       ]
     },
     {
