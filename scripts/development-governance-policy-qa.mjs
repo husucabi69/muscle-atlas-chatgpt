@@ -1,0 +1,39 @@
+import fs from 'node:fs';
+
+const read = p => fs.readFileSync(p, 'utf8');
+const files = {
+  agents: read('AGENTS.md'),
+  constitution: read('docs/DEVELOPMENT_CONSTITUTION.md'),
+  principles: read('docs/DEVELOPMENT_PRINCIPLES.md'),
+};
+
+const checks = [];
+const check = (name, pass, detail='') => {
+  checks.push({name, pass:Boolean(pass), detail});
+  console.log(`${pass ? 'PASS' : 'FAIL'} | ${name}${detail ? ` | ${detail}` : ''}`);
+};
+
+for (const [name, text] of Object.entries(files)) {
+  check(`${name}: 25~30 minute development rule`, text.includes('25~30분'));
+  check(`${name}: 30~35 minute wrap-up rule`, text.includes('30~35분'));
+  check(`${name}: 35 minute HARD STOP rule`, text.includes('35분') && text.includes('HARD STOP'));
+}
+
+const timingFields = ['작업 시작시간','작업 종료시간','보고시간','총 실제 작업시간','작업시간 규칙 준수 여부'];
+for (const field of timingFields) {
+  check(`AGENTS requires ${field}`, files.agents.includes(field));
+  check(`Constitution requires ${field}`, files.constitution.includes(field));
+  check(`Principles requires ${field}`, files.principles.includes(field));
+}
+
+check('AGENTS locks two-heading report format', files.agents.includes('큰 제목은 **① 뭘 했나 ② 앞으로 뭘 할 건가** 두 개만'));
+check('Constitution locks two-heading report format', files.constitution.includes('**딱 2개만**'));
+check('Principles locks two-heading report format', files.principles.includes('**① 뭘 했나 / ② 앞으로 뭘 할 건가** 두 개만'));
+
+check('Constitution no longer declares 20-minute manual target', !files.constitution.includes('기본 목표 시간: **20분**'));
+check('Constitution no longer declares 25-minute manual HARD STOP', !files.constitution.includes('**25분이 되면 HARD STOP**'));
+check('AGENTS no longer declares 30-minute manual HARD STOP', !files.agents.includes('30분 HARD STOP'));
+
+const failed = checks.filter(x => !x.pass);
+console.log(`SUMMARY | ${checks.length - failed.length}/${checks.length} PASS`);
+if (failed.length) process.exit(1);
