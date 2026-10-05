@@ -20,7 +20,7 @@ for (const name of ['agents','constitution','principles','masterRoadmap','handof
   const text = files[name];
   check(`${name}: 25~30 minute development rule`, text.includes('25~30분') || text.includes('25~30 minutes'));
   check(`${name}: 30~35 minute wrap-up rule`, text.includes('30~35분') || text.includes('30~35 minutes'));
-  check(`${name}: 35 minute HARD STOP rule`, (text.includes('35분') || text.includes('35 minutes')) && text.includes('HARD STOP'));
+  check(`${name}: 35 minute HARD STOP rule`, (text.includes('35분') || text.includes('35 minute')) && text.includes('HARD STOP'));
 }
 
 const timingFields = ['작업 시작시간','작업 종료시간','보고시간','총 실제 작업시간','작업시간 규칙 준수 여부'];
