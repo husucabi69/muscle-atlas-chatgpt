@@ -1,3 +1,19 @@
+# CURRENT OVERRIDE — 2026-10-05 20:46+ KST
+
+> This block is authoritative for the current handoff. Older same-day sections below are historical audit entries and may contain superseded `PENDING` wording.
+
+- Manual development: **25~30 min actual work**.
+- Minute 30: no new feature / structure / asset generation.
+- Minute 30~35: save, QA, HANDOFF/canonical update, final-report preparation only.
+- Minute 35: **HARD STOP**.
+- Final report timing fields: **work start / work end / report time / total actual work time / explicit compliance check**.
+- Report headings: **① 뭘 했나 / ② 앞으로 뭘 할 건가** only.
+- ct084: APPROVED.
+- ct096: APPROVED.
+- ct097: APPROVED.
+- ct098: APPROVED.
+- ct088: `INCOMPLETE_DEFERRED_MUST_REVISIT`; no valid Hoffmann candidate exists. Wrong generated images are rejected and must never be promoted.
+- Production `main`: frozen.
 ## 2026-10-05 development governance timing/reporting lock
 
 - Latest user rule overrides older manual timing notes.
