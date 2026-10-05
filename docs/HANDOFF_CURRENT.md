@@ -1,3 +1,15 @@
+## 2026-10-05 EXAM-REAL ct098 Candidate 1 prepared
+
+- ct098 Integrated cervical red-flag screen is the next EXAM-REAL item after ct097.
+- Clinical safety correction locked: this is not a provocative special test. Workflow is history/risk context -> objective neurologic screen -> appropriate escalation.
+- Red-flag lists have low guideline agreement; single nonspecific findings do not confirm serious pathology. Blunt trauma should use validated decision rules such as Canadian C-Spine Rule when applicable.
+- Suspected vascular pathology is not screened by forceful/end-range cervical rotation or extension provocation.
+- Candidate 1 gen_id: `4be8f319-96ca-498a-878d-174f114c5f79`.
+- App Preview candidate: `./assets/physical-exam-realistic/candidates/ct098-cervical-red-flag-gen-4be8f319-preview.webp`.
+- Internal clinical/visual QA: PASS. User Preview remains PENDING.
+- ct096 and ct097 remain user Preview PENDING; ct084 remains APPROVED; ct088 Hoffmann remains mandatory revisit.
+- Production main remains frozen.
+
 ## 2026-10-05 EXAM-REAL ct097 Candidate 1 prepared
 
 - ct097 cervical extensor layer activation assessment is the next EXAM-REAL item after ct096.
