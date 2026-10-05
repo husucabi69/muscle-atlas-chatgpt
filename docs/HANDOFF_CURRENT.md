@@ -1,3 +1,15 @@
+## 2026-10-05 EXAM-REAL ct096 user approval locked
+
+- User explicitly approved ct096 together with the previously reviewed ct084/ct097 set.
+- ct096 status: APPROVED.
+- Canonical asset: `./assets/physical-exam-realistic/approved/ct096-neck-flexor-endurance-gen-a49d9c8f-approved.webp`.
+- Canonical SHA-256: `2c5429a9d15de304c80d94e3a3426fa241ebc034e721d8fbda286485c1eddaf4`.
+- Do not regenerate or replace ct096 without a new explicit user request.
+- ct084 and ct097 remain APPROVED.
+- ct098 remains user Preview PENDING.
+- ct088 Hoffmann remains mandatory revisit and is the next active EXAM-REAL item.
+- Production main remains frozen.
+
 ## 2026-10-05 EXAM-REAL ct097 user approval locked
 
 - User explicitly approved ct097 Candidate 1.
