@@ -179,6 +179,13 @@ Last amended: 2026-10-05 — manual development 25~30 min / 35 min HARD STOP / m
 - rejected candidate와 reviewed-but-unmaterialized candidate를 혼동하지 않는다. rejected candidate는 재사용 금지 감사기록이고, reviewed candidate는 exact binary 회수 대상이다.
 - 이 규칙은 수동 작업과 예약 자동개발 모두에 동일하게 적용한다.
 
+## 6B. 사용자 승인 해석 규칙
+
+- 사용자가 `승인`, `승인함`, `모두 승인`이라고 명시한 경우 현재 대화에서 검수 대상으로 특정된 임상적으로 올바른 후보에는 즉시 사용자 승인 상태를 반영한다.
+- 같은 후보의 승인 여부를 반복해서 되묻지 않는다.
+- 단순 `진행해` 또는 `다음 작업 진행해`는 승인으로 해석하지 않는다.
+- 잘못된 검사 그림, 명백한 해부학·손 위치·힘 방향 오류가 있는 후보는 blanket approval만으로 canonical 승격하지 않는다. 해당 후보는 REJECTED로 유지하고 오류 이유를 사용자에게 설명한다.
+- 승인된 canonical asset은 새 명시 지시 없이 다시 생성하거나 교체하지 않는다.
 ## 7. 완료 정의
 
 `DONE`은 아래를 모두 만족해야 한다.
