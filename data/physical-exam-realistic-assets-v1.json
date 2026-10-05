@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-ct097-approved",
+  "dataset_version": "2026.10.05-exam-real-ct096-approved",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct097 is APPROVED and canonical. ct096 remains user-preview PENDING; ct098 remains user-preview PENDING; ct084 remains APPROVED; ct088 remains mandatory revisit; Production main frozen."
+    "next_action": "ct096 and ct097 are APPROVED; ct098 remains user-preview PENDING; ct088 Hoffmann mandatory revisit is next; Production main frozen."
   },
   "profiles": [
     {
@@ -4540,10 +4540,10 @@
       "region": "cervical",
       "title_ko": "경부 굴곡근 지구력 검사",
       "title_en": "Neck flexor endurance test",
-      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
+      "status": "APPROVED",
       "pilot_batch": null,
-      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct096-neck-flexor-endurance-gen-a49d9c8f-approved.webp",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
@@ -4568,9 +4568,9 @@
         "examiner_hand_position": "NOT_APPLICABLE",
         "force_direction": "PASS",
         "embedded_text": "PASS",
-        "user_preview": "PENDING",
+        "user_preview": "PASS",
         "reviewed_on": "2026-10-05",
-        "note": "ct096 Candidate 1 internal clinical/visual review PASS. Binary integrity repaired and rechecked after initial transport truncation. User Preview approval remains required."
+        "note": "User explicitly approved ct096 Candidate 1 on 2026-10-05. Canonical approved asset materialized in Preview."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4578,9 +4578,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "User Preview approval remains required before canonical approval"
-      ],
+      "approval_blockers": [],
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -4593,7 +4591,7 @@
           "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp",
           "preview_dimensions": "320x480",
           "preview_webp_sha256": "2c5429a9d15de304c80d94e3a3426fa241ebc034e721d8fbda286485c1eddaf4",
-          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+          "disposition": "USER_APPROVED_CANONICAL",
           "passed_axes": [
             "clinical_content",
             "visual_pose",
@@ -4615,10 +4613,20 @@
         "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp",
         "preview_dimensions": "320x480",
         "preview_webp_sha256": "2c5429a9d15de304c80d94e3a3426fa241ebc034e721d8fbda286485c1eddaf4",
-        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+        "disposition": "USER_APPROVED_SOURCE",
         "note": "ct096 Candidate 1 internal PASS; user Preview approval remains required before canonical promotion."
       },
-      "review_note": "ct096 Candidate 1 is connected to Preview with internal clinical/visual gates PASS. Candidate WebP integrity repaired; user approval is still required before APPROVED/main."
+      "review_note": "USER FINAL APPROVAL PASS. ct096 is canonical in Preview. Do not regenerate or replace without a new explicit user request.",
+      "approved_asset": {
+        "gen_id": "a49d9c8f-4890-4062-b247-24b212bcd900",
+        "approved_on": "2026-10-05",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct096-neck-flexor-endurance-gen-a49d9c8f-approved.webp",
+        "preview_webp_sha256": "2c5429a9d15de304c80d94e3a3426fa241ebc034e721d8fbda286485c1eddaf4",
+        "dimensions": "320x480",
+        "source_preview_asset_path": "./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp",
+        "disposition": "USER_APPROVED_PASS",
+        "note": "Canonical ct096 asset is byte-identical to the user-approved Candidate 1 Preview derivative."
+      }
     },
     {
       "clinical_test_id": "ct097",
