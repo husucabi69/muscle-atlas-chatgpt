@@ -1,3 +1,10 @@
+## 2026-10-05 EXAM-REAL ct092 teaching prepared
+
+- Independent roadmap work continued while ct083/ct084 user visual approvals remain pending.
+- ct092 Cervical flexion-rotation test teaching now includes patient-level explanation, standard protocol, impairment pattern, differentials, red flags, next steps and diagnostic weight.
+- ct092 Candidate 1 history remains internally passed but its exact review binary is not materialized in the repository. Do not fabricate user approval or substitute a new unrelated asset.
+- Production main remains frozen.
+
 ## 2026-10-05 EXAM-REAL ct091 teaching prepared
 
 - ct084 binary repair is complete; user visual approval remains pending.

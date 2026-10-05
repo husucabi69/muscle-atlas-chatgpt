@@ -151,6 +151,25 @@ try{
   if(ct091Teaching.overflow>2)fail('ct091 teaching mobile horizontal overflow',String(ct091Teaching.overflow));
   pass('ct091 detailed teaching content visible');
 
+  const ct092Teaching=await page.evaluate(async ()=>{
+    await openClinicalModule('cervical',false);
+    await openClinicalTopic('exam',false);
+    await openClinicalItem('ct092',false);
+    const host=document.getElementById('clinicalDetailContent');
+    return{
+      text:host?.textContent||'',
+      overflow:(host?.scrollWidth||0)-(host?.clientWidth||0)
+    };
+  });
+  for(const label of ['쉽게 이해하기','표준 시행 순서','잘못된 보상 / 기능 저하 패턴','이 검사 하나로 배제할 수 없는 것','다음에 이어서 확인할 검사·판단','진단적 무게']){
+    if(!ct092Teaching.text.includes(label))fail('ct092 teaching label '+label);
+  }
+  if(!ct092Teaching.text.includes('경추 굴곡-회전 검사'))fail('ct092 Korean test name');
+  if(!ct092Teaching.text.includes('Cervical Flexion-Rotation Test'))fail('ct092 English full test name');
+  if(!ct092Teaching.text.includes('제1-2경추 분절'))fail('ct092 C1-C2 teaching principle');
+  if(ct092Teaching.overflow>2)fail('ct092 teaching mobile horizontal overflow',String(ct092Teaching.overflow));
+  pass('ct092 detailed teaching content visible');
+
   const approvedRealistic=await page.evaluate(()=>physicalExamRealisticAssetsData?.profiles
     ?.filter(p=>p.status==='APPROVED'&&p.review?.user_preview==='PASS'&&p.composite_url)
     .map(p=>({id:p.clinical_test_id,url:p.composite_url}))||[]);
