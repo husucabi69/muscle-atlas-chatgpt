@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct087-generation-ready",
+  "dataset_version": "2026.10.06-exam-real-cervical-pilot-wave2",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -41,16 +41,19 @@
   },
   "pilot": {
     "batch_id": "PILOT_CERVICAL_01",
-    "rationale": "Cervical tests exercise compression, traction, neural tension, UMN screening and motor-control illustration patterns.",
+    "rationale": "Cervical pilot now includes radiculopathy provocation/relief, ROM, C5–T1 neurologic screening, UMN screening, headache and motor-control illustration patterns.",
     "clinical_test_ids": [
       "ct082",
       "ct083",
       "ct084",
+      "ct085",
+      "ct086",
+      "ct087",
       "ct088",
       "ct092",
       "ct095"
     ],
-    "next_action": "ct088 Candidate 13 awaits user review. ct085, ct086 and ct087 are generation-ready. Next independent work: render these three in roadmap order or reconcile older ct089/ct091/ct092 binary handoffs. Production main frozen."
+    "next_action": "Render generation-ready ct085, then ct086, then ct087 in order. ct083/ct088/ct092 remain user-review queues and must not be regenerated. Approved assets remain locked. Production main frozen."
   },
   "profiles": [
     {
