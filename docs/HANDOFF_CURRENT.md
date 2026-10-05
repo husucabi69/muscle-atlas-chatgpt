@@ -1,3 +1,11 @@
+## 2026-10-05 ct084 latest generated image approved
+
+- User explicitly approved the latest generated ULNT1 3-panel image.
+- Exact source: `a_clean_clinical_instructional_poster_photographic.png`, 1536x1024, SHA-256 `8acca2ec69a0d12c1bc078b2dbb36f9286ddb9d44d2eaa648202271bc9e01509`, gen_id `7b639e82-ef95-4045-93b9-3d1121b344d6`.
+- This supersedes all previous ct084 visual variants. Do not regenerate ct084.
+- Binary transfer into the repository is still pending, so canonical `composite_url` remains intentionally unset.
+- Next active task: ct096 Neck flexor endurance realistic 3-panel candidate.
+
 ## 2026-10-05 ct084 FINAL user approval — exact generated source locked
 
 - User explicitly approved the final generated ULNT1 3-panel image after the hand-position corrections.
