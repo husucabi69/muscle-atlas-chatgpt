@@ -1,7 +1,7 @@
 # CT097 Cervical extensor layer activation assessment — realistic render request
 
 Stable ID: ct097
-Status: GENERATION_READY
+Status: CANDIDATE_1_INTERNAL_PASS_USER_PREVIEW_PENDING
 User-facing title: 경부 신전근 층별 활성·촉진 평가
 English: Cervical extensor layer activation assessment
 
@@ -49,3 +49,17 @@ If true layer differentiation is needed, the app links to C4 posterior extensor 
 - No copied textbook/internet composition, logo, watermark or identifiable real patient.
 - Mobile readable.
 - User Preview approval required before canonical promotion.
+
+
+## Candidate 1 generation result — 2026-10-05
+- gen_id: `27e0f01a-280b-4f82-ab2c-0722c003dc86`
+- source: `/mnt/data/a_tall_vertical_composite_instructional_medical_ph.png`
+- source dimensions: 1024x1536
+- source SHA-256: `d6f673198c38fa01fb52fd3cb652391f7de777d7eba43d27f06fef8ec2756b9d`
+- Preview asset: `./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp`
+- Preview dimensions: 320x480
+- Preview SHA-256: `60d29739875ebc77f12d6e243ce0f2d47392dd0757a3375deea1715dfad60137`
+- Internal clinical/visual QA: PASS
+- User Preview: PENDING
+- Canonical/APPROVED promotion: blocked until explicit user approval
+- Production main: unchanged
