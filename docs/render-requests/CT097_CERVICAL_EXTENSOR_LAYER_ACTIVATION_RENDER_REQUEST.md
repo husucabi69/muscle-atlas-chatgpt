@@ -57,9 +57,11 @@ If true layer differentiation is needed, the app links to C4 posterior extensor 
 - source dimensions: 1024x1536
 - source SHA-256: `d6f673198c38fa01fb52fd3cb652391f7de777d7eba43d27f06fef8ec2756b9d`
 - Preview asset: `./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp`
-- Preview dimensions: 320x480
-- Preview SHA-256: `60d29739875ebc77f12d6e243ce0f2d47392dd0757a3375deea1715dfad60137`
+- Preview dimensions: 240x360
+- Preview SHA-256: `e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf`
 - Internal clinical/visual QA: PASS
 - User Preview: PENDING
 - Canonical/APPROVED promotion: blocked until explicit user approval
 - Production main: unchanged
+
+- Binary transport integrity: first repository upload was truncated; final active Preview WebP is the smaller 240x360 transport-safe derivative and is hash/RIFF verified.
