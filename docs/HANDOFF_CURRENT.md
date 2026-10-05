@@ -1,3 +1,16 @@
+## 2026-10-05 EXAM-REAL ct097 user approval locked
+
+- User explicitly approved ct097 Candidate 1.
+- ct097 status: APPROVED.
+- Canonical asset: `./assets/physical-exam-realistic/approved/ct097-cervical-extensor-gen-27e0f01a-approved.webp`.
+- Canonical SHA-256: `e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf`.
+- Do not regenerate or replace ct097 without a new explicit user request.
+- ct084 remains APPROVED.
+- ct096 remains user Preview PENDING.
+- ct098 remains user Preview PENDING.
+- ct088 Hoffmann remains mandatory revisit.
+- Production main remains frozen.
+
 ## 2026-10-05 EXAM-REAL ct098 Candidate 1 prepared
 
 - ct098 Integrated cervical red-flag screen is the next EXAM-REAL item after ct097.
