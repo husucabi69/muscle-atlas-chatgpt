@@ -14,20 +14,20 @@ const c84=modelCastingForClinicalTestId('ct084');
 check('ct084 balanced casting rule is deterministic',
   c84?.patient==='여성형'&&c84?.examiner==='남성형'&&c84?.rule_version==='2026-10-03',
   JSON.stringify(c84));
-check('No duplicate generation task remains after ct095 candidate creation',
-  next===null,next?.clinical_test_id||'none');
+check('Next cervical pilot generation target is ct085',
+  next?.clinical_test_id==='ct085',next?.clinical_test_id||'none');
 
 const pilotIds=manifest.pilot?.clinical_test_ids||[];
-check('Pilot contains six locked cervical tests',
-  JSON.stringify(pilotIds)===JSON.stringify(['ct082','ct083','ct084','ct088','ct092','ct095']),
+check('Pilot contains nine locked cervical tests including ct085-ct087 wave 2',
+  JSON.stringify(pilotIds)===JSON.stringify(['ct082','ct083','ct084','ct085','ct086','ct087','ct088','ct092','ct095']),
   JSON.stringify(pilotIds));
 
 const generationReadyIds=pilotIds.filter(id=>{
   const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
   return p?.status==='PENDING_GENERATION'&&p?.brief_status==='GENERATION_READY';
 });
-check('No cervical pilot profile remains generation-ready after ct095 candidate creation',
-  JSON.stringify(generationReadyIds)===JSON.stringify([]),
+check('Cervical pilot generation-ready queue is ct085 -> ct086 -> ct087',
+  JSON.stringify(generationReadyIds)===JSON.stringify(['ct085','ct086','ct087']),
   JSON.stringify(generationReadyIds));
 const ct083=manifest.profiles?.find(x=>x.clinical_test_id==='ct083');
 const ct084=manifest.profiles?.find(x=>x.clinical_test_id==='ct084');
