@@ -2,6 +2,7 @@
 
 Status: **CANONICAL / HIGHEST-PRIORITY DEVELOPMENT RULE**
 Effective: 2026-09-27
+Last amended: 2026-10-05 — manual development 25~30 min / 35 min HARD STOP / measured reporting lock
 
 이 문서는 이 프로젝트의 개발 정본이다. 다른 로드맵·메모·작업지시와 충돌하면 이 문서를 우선한다.
 
