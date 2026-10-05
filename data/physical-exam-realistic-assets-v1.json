@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct088-candidate13-restored",
+  "dataset_version": "2026.10.06-exam-real-ct085-generation-ready",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct088 Candidate 13 is restored as the active user Preview target. Do not regenerate it. ct084/ct096/ct097/ct098 remain APPROVED; Production main frozen."
+    "next_action": "ct088 Candidate 13 awaits user review. ct085 is generation-ready next. Continue ct086/ct087 clinical-content lock before new generation if time remains. Production main frozen."
   },
   "profiles": [
     {
@@ -3404,34 +3404,47 @@
       "title_en": "Shoulder abduction relief test",
       "status": "PENDING_GENERATION",
       "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "환자가 증상측 손을 머리 위에 올리도록 한다.",
-        "examiner_maneuver": "상지 방사통이 감소하는지 확인한다.",
-        "positive_finding": "평소 radicular arm pain이 명확히 감소하면 기록한다.",
-        "interpretation": "radiculopathy 가능성을 지지할 수 있으며 최근 진단 연구에서는 여러 검사 조합의 일부로 평가된다.",
-        "limitation_safety": "단독으로 nerve root level을 결정하지 않는다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical-education illustration; realistic adult patient and clinician; clean neutral clinic; same people across panels; mobile readable",
+        "panel_structure": "3-panel vertical: 1 시작 자세 / 2 손을 머리 위에 / 3 익숙한 팔 증상 감소",
+        "patient_setup": "환자는 좌위 또는 선 자세에서 증상측 팔을 자연스럽게 내리고 시작한다. 검사 전 같은 팔의 익숙한 방사통·저림을 확인한다.",
+        "examiner_maneuver": "환자가 스스로 증상측 어깨를 외전해 손 또는 전완을 머리 위에 편안히 올린다. 검사자는 옆에서 관찰하고 필요하면 팔꿈치를 가볍게 지지하지만 끝범위까지 억지로 들어 올리지 않는다.",
+        "positive_finding": "같은 증상측 팔의 기존 방사통·저림 overlay가 머리 위 자세에서 명확히 약해지거나 짧아지는 변화를 보여준다. 어깨 국소통증 완화만을 양성으로 표현하지 않는다.",
+        "interpretation": "Shoulder abduction relief sign은 cervical radiculopathy를 지지하는 보조 소견이며 단독 확진·배제 또는 root-level 결정용이 아니다.",
+        "limitation_safety": "급성 외상, 진행성 신경학적 결손, myelopathy red flag가 있는 환자에서 일반적인 단순 provocation/relief illustration로 과장하지 않는다.",
+        "overlay_policy": "1번 패널에는 증상측 팔의 익숙한 방사통/저림을 제한적으로 표시하고 3번에서는 같은 overlay가 약해지는 변화만 표현. 임의 통증 숫자·각도·root label 금지.",
+        "text_policy": "이미지 내부는 '1 시작 자세', '2 손을 머리 위에', '3 팔 증상 감소' 정도의 최소 한국어만 사용.",
+        "evidence_lock": [
+          "radic_review_2026",
+          "radic_cluster_2026"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-06",
+        "note": "ct085 clinical teaching content expanded and evidence-aligned. Fresh realistic candidate required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Fresh realistic candidate generation required",
+        "Same symptomatic arm must be maintained across panels",
+        "Relief must refer to familiar radicular arm symptoms, not generic shoulder comfort",
+        "No forced end-range shoulder elevation",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct086",
