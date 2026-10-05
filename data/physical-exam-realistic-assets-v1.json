@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-ct097-generation-ready",
+  "dataset_version": "2026.10.05-exam-real-ct097-candidate1",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct097 cervical extensor layer activation candidate generation is next. ct096 remains user-preview PENDING; ct084 remains APPROVED; Production main frozen."
+    "next_action": "ct097 Candidate 1 ready for user Preview. ct096 remains user-preview PENDING; ct084 remains APPROVED; ct088 remains mandatory revisit; Production main frozen."
   },
   "profiles": [
     {
@@ -4625,9 +4625,9 @@
       "region": "cervical",
       "title_ko": "경부 신전근 층별 활성·촉진 평가",
       "title_en": "Cervical extensor layer activation assessment",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": null,
-      "brief_status": "GENERATION_READY",
+      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -4648,13 +4648,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "PASS",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-05",
-        "note": "ct097 clinical content corrected before generation: superficial palpation is an adjunct only; deep layer identification requires ultrasound when needed. Visual gates remain pending."
+        "note": "ct097 Candidate 1 internal clinical/visual review PASS. Start posture is prone with forehead supported; low-load activation is shown with light bilateral posterior cervical palpation and no strong resistance; compensation panel shows excessive upper-cervical extension. User Preview remains required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4663,12 +4663,46 @@
         "copyright_evidence_required": true
       },
       "approval_blockers": [
-        "Fresh realistic candidate generation required",
-        "Must show low-load small cervical extension/rotation rather than large resisted extension",
-        "Examiner palpation must be light and bilateral over posterior cervical muscle mass; no strong manual resistance",
-        "Do not imply fingers can selectively identify deep semispinalis/multifidus",
-        "User Preview approval required before canonical promotion"
-      ]
+        "User Preview approval remains required before canonical approval"
+      ],
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "27e0f01a-280b-4f82-ab2c-0722c003dc86",
+          "generated_on": "2026-10-05",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "d6f673198c38fa01fb52fd3cb652391f7de777d7eba43d27f06fef8ec2756b9d",
+          "source_session_path": "/mnt/data/a_tall_vertical_composite_instructional_medical_ph.png",
+          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp",
+          "preview_dimensions": "320x480",
+          "preview_webp_sha256": "60d29739875ebc77f12d6e243ce0f2d47392dd0757a3375deea1715dfad60137",
+          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+          "passed_axes": [
+            "clinical_content",
+            "visual_pose",
+            "light_bilateral_palpation",
+            "no_strong_manual_resistance",
+            "compensation_visibility",
+            "embedded_text"
+          ],
+          "note": "Independent realistic three-panel candidate. Panel 1 shows prone supported neutral start. Panel 2 shows gentle posterior cervical palpation during low-load activation. Panel 3 demonstrates excessive extension as a compensation pattern. No claim that fingertips selectively isolate deep semispinalis or multifidus."
+        }
+      ],
+      "preview_candidate": {
+        "candidate_no": 1,
+        "gen_id": "27e0f01a-280b-4f82-ab2c-0722c003dc86",
+        "generated_on": "2026-10-05",
+        "generator": "OpenAI image generation",
+        "raw_generation_dimensions": "1024x1536",
+        "raw_generation_sha256": "d6f673198c38fa01fb52fd3cb652391f7de777d7eba43d27f06fef8ec2756b9d",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp",
+        "preview_dimensions": "320x480",
+        "preview_webp_sha256": "60d29739875ebc77f12d6e243ce0f2d47392dd0757a3375deea1715dfad60137",
+        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+        "note": "ct097 Candidate 1 internal PASS. User Preview approval remains required before canonical promotion."
+      },
+      "review_note": "ct097 Candidate 1 is connected to Preview. Surface palpation remains an adjunct only; deep-layer confirmation uses ultrasound when needed. Do not promote without explicit user approval."
     },
     {
       "clinical_test_id": "ct098",
