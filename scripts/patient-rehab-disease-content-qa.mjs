@@ -46,6 +46,18 @@ pass('Disease rehab content integrity',errors.length===0,errors.slice(0,30).join
 pass('Shoulder seed coverage >= 2',(rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length>=2,String((rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length));
 pass('Multiregion disease rehab coverage >= 6',regionIds.length>=6,`${regionIds.length}: ${regionIds.join(',')}`);
 
+const roadmap=JSON.parse(fs.readFileSync('data/patient-rehab-disease-roadmap-v1.json','utf8'));
+const canonicalRegionIds=new Set((roadmap.regions||[]).map(x=>x.region_id));
+const regionAlias={elbow:'elbow_forearm',ankle_foot:'leg_ankle_foot',foot:'leg_ankle_foot'};
+const canonicalRegion=id=>regionAlias[id]||id;
+const contentCanonicalRegions=new Set((rehab.conditions||[]).map(x=>canonicalRegion(x.region_id)).filter(Boolean));
+const coverageCanonicalRegions=new Set((coverage.regions||[]).map(x=>canonicalRegion(x.region_id)).filter(Boolean));
+const regionContractErrors=[];
+for(const c of rehab.conditions||[]) if(!canonicalRegionIds.has(canonicalRegion(c.region_id))) regionContractErrors.push(c.stable_id+':unknown_canonical_region:'+c.region_id);
+for(const r of coverage.regions||[]) if(!canonicalRegionIds.has(canonicalRegion(r.region_id))) regionContractErrors.push('coverage:unknown_canonical_region:'+r.region_id);
+for(const id of contentCanonicalRegions) if(!coverageCanonicalRegions.has(id)) regionContractErrors.push('content_region_missing_from_coverage:'+id);
+pass('Roadmap/coverage/content canonical region contract',regionContractErrors.length===0,regionContractErrors.join(','));
+
 const matrix=coverage.regions||[];
 const matrixIds=matrix.map(x=>x.region_id);
 const matrixDup=[...new Set(matrixIds.filter((x,i)=>matrixIds.indexOf(x)!==i))];
