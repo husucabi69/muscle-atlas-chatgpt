@@ -300,18 +300,53 @@
         "n032",
         "n033"
       ],
-      "setup": "상지 myotome, dermatome, deep tendon reflex를 좌우 비교한다.",
-      "maneuver": "C5 shoulder abduction/elbow flexion, C6 wrist extension, C7 elbow extension, C8 finger flexion/extension 등 임상 분절기능과 감각·반사를 확인한다.",
-      "positive_definition": "분절성 근력저하, 감각저하 또는 반사 비대칭이 일관된 패턴으로 나타나면 기록한다.",
-      "interpretation_note": "radiculopathy의 level 추정과 cord/peripheral nerve 감별에 필수적인 기본검사다.",
-      "limitation": "개별 myotome·dermatome은 중복되며 하나의 소견으로 level을 확정하지 않는다.",
+      "setup": "환자는 편안히 앉고 양측 상지를 충분히 노출한다. 검사 전 손 우세측, 기존 어깨·팔꿈치·손목/손 질환, 말초신경병증, 이전 수술처럼 근력·감각·반사에 영향을 줄 수 있는 요인을 확인한다.",
+      "maneuver": "좌우를 같은 방법으로 비교한다. 대표적으로 C5는 어깨 외전/팔꿈치 굴곡, C6는 손목 신전, C7은 팔꿈치 신전, C8은 손가락 굴곡, T1은 손가락 벌림/모음을 저항에 맞서 확인한다. 감각은 C5 가쪽 상완, C6 엄지/요측 전완, C7 중지, C8 소지/척측 손, T1 안쪽 전완의 대표 영역을 비교하되 dermatome 중복을 고려한다. 심부건반사는 biceps(C5–6), brachioradialis(C6), triceps(C7)를 좌우 비교한다.",
+      "positive_definition": "근력저하·감각저하·반사 감소가 같은 신경근 분포에서 서로 일관되게 모이면 cervical radiculopathy 가능성을 지지한다. 반대로 다분절 이상, 광범위 과반사, 병적반사, 손 dexterity 저하 또는 보행장애가 동반되면 단순 radiculopathy보다 myelopathy/중추성 원인을 우선 감별한다.",
+      "interpretation_note": "C5–T1 motor-sensory-reflex screen은 cervical radiculopathy의 존재와 대략적 level을 추정하고, 말초신경병증·상완신경총 병변·척수병증을 구분하는 기본 신경학적 검사다. 각 myotome/dermatome은 여러 root와 말초신경이 겹치므로 하나의 근육·피부분절·반사만으로 level을 확정하지 않는다.",
+      "limitation": "통증 억제, 노력 차이, 기존 관절질환, 말초신경병증, 고령, 약물과 개인별 dermatome 변이가 결과에 영향을 준다. 정상 선별검사만으로 radiculopathy나 초기 myelopathy를 완전히 배제할 수 없으며, 진행성 객관적 결손은 추가 영상/전기진단 평가가 필요하다.",
       "related_diagnosis_concept_ids": [
         "d089",
         "d090"
       ],
       "evidence_refs": [
         "radic_review_2026"
-      ]
+      ],
+      "interpretation_detail": {
+        "plain_language_explanation": "쉽게 말하면, 목에서 나오는 C5부터 T1 신경뿌리가 팔과 손까지 제대로 기능하는지 근력·감각·반사를 좌우 비교하는 기본 검사다. 한 가지 동작만 보는 것이 아니라 세 종류의 정보가 같은 분절을 가리키는지 본다.",
+        "what_it_assesses": "상지 C5–T1 분절의 대표 myotome, dermatome, deep tendon reflex를 좌우 비교해 cervical nerve-root dysfunction 패턴을 찾고, peripheral nerve/plexus 또는 spinal cord 병변과 구분하는 데 도움을 준다.",
+        "precheck": "통증 때문에 힘을 못 쓰는지, 기존 회전근개 질환·팔꿈치 질환·손 관절염·수근관증후군·말초신경병증·수술 후 상태가 있는지 먼저 확인한다. 손기능·보행 악화, 다리 stiffness, 배뇨 변화 등 myelopathy red flag도 문진한다.",
+        "examiner_position_and_hands": "근력검사는 각 관절을 안정화하고 동일한 자세에서 좌우를 비교한다. 감각검사는 같은 자극으로 좌우 대표 영역을 비교한다. 반사는 근육을 이완시킨 상태에서 biceps, brachioradialis, triceps를 같은 강도로 비교한다.",
+        "standard_protocol": "C5 어깨 외전/팔꿈치 굴곡, C6 손목 신전, C7 팔꿈치 신전, C8 손가락 굴곡, T1 손가락 벌림·모음을 대표 motor task로 본다. 감각은 C5 가쪽 상완, C6 엄지/요측 전완, C7 중지, C8 소지/척측 손, T1 안쪽 전완을 대표점으로 사용하되 실제 dermatome overlap을 고려한다. 심부건반사는 biceps(C5–6), brachioradialis(C6), triceps(C7)를 비교한다.",
+        "force_direction": "근력은 관절 움직임 반대 방향으로 점진적 저항을 가해 좌우 차이를 본다. 통증을 유발할 정도의 과도한 저항은 피하고, 관절을 안정화해 다른 근육의 보상을 최소화한다.",
+        "positive_meaning": "같은 root 분포에서 motor weakness, sensory change, reflex asymmetry가 함께 나타날수록 cervical radiculopathy 가능성이 높아진다. 한 영역만 단독으로 이상한 경우 말초신경·근골격계 원인이나 측정 변이를 함께 고려한다.",
+        "raises_suspicion_for": [
+          "C5–T1 cervical radiculopathy",
+          "cervical foraminal stenosis 또는 disc/osteophyte 관련 root compression이 임상분포와 맞는 경우",
+          "다분절 이상과 UMN signs가 함께 있는 cervical myelopathy"
+        ],
+        "important_differentials": [
+          "cervical radiculopathy ↔ median/ulnar/radial mononeuropathy",
+          "cervical radiculopathy ↔ brachial plexopathy",
+          "root weakness ↔ pain-inhibited weakness from shoulder/elbow/hand pathology",
+          "radiculopathy ↔ cervical myelopathy/central nervous system lesion"
+        ],
+        "what_it_cannot_rule_out": "초기 또는 간헐적 radiculopathy에서는 근력·감각·반사가 모두 정상일 수 있다. 정상 상지 선별만으로 myelopathy도 배제할 수 없으며, 손 dexterity·병적반사·하지반사·보행을 별도로 확인해야 한다.",
+        "next_clinical_steps": [
+          "병력과 맞는 경우 Spurling, cervical distraction, shoulder abduction relief, ULNT를 조합한다.",
+          "말초신경 포착이 의심되면 해당 nerve distribution과 provocative test를 비교하고 필요 시 EMG/NCS를 고려한다.",
+          "진행성 객관적 근력저하, 다분절 결손 또는 myelopathy 소견이 있으면 cervical MRI와 조기 전문평가를 고려한다.",
+          "상지 소견이 root level과 맞지 않으면 brachial plexus, peripheral nerve, shoulder pathology 또는 central lesion을 재평가한다."
+        ],
+        "diagnostic_weight": "2026년 cervical radiculopathy diagnostic-accuracy systematic review는 개별 physical test의 근거 확실성이 전반적으로 낮다고 평가했다. 따라서 근력·감각·반사의 분절성 패턴과 provocation/relief test, 병력을 통합하는 방식이 중요하다.",
+        "common_errors": [
+          "C5–T1을 각 root마다 하나의 근육·피부분절에 1:1 대응한다고 가르치기",
+          "통증 억제성 약화를 신경학적 마비로 단정하기",
+          "좌우 반사 강도 차이를 자세·이완상태 확인 없이 병적으로 해석하기",
+          "상지 LMN 소견만 보고 동반된 UMN signs와 보행장애를 놓치기"
+        ],
+        "interpretation_bottom_line": "핵심은 한 항목의 이상이 아니라 motor·sensory·reflex가 같은 root 분포로 모이는지 보는 것이다. 분포가 맞지 않거나 UMN signs가 섞이면 peripheral nerve/plexus 또는 spinal cord 원인을 다시 생각한다."
+      }
     },
     {
       "clinical_test_id": "ct088",
