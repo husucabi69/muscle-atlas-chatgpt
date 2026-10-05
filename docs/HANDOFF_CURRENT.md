@@ -1,3 +1,13 @@
+## 2026-10-05 EXAM-REAL ct097 Candidate 1 prepared
+
+- ct097 cervical extensor layer activation assessment is the next EXAM-REAL item after ct096.
+- Clinical correction locked: surface palpation is an adjunct for posterior muscle coordination; deep semispinalis/multifidus are not selectively identified by fingers. Use C4 posterior extensor ultrasound (usv075) when true layer differentiation is needed.
+- Candidate 1 gen_id: `27e0f01a-280b-4f82-ab2c-0722c003dc86`.
+- App Preview candidate: `./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp`.
+- Internal clinical/visual QA: PASS. User Preview remains PENDING.
+- ct096 remains user Preview PENDING; ct084 remains APPROVED; ct088 Hoffmann remains mandatory revisit.
+- Production main remains frozen.
+
 ## 2026-10-05 EXAM-REAL ct096 Candidate 1 prepared
 
 - ct084 ULNT1 remains APPROVED and canonical; do not regenerate or roll back.
