@@ -20,6 +20,20 @@ for (const id of ['ct085', 'ct086', 'ct087', 'ct088']) {
   check(`${id} realistic profile exists`, profiles.has(id));
 }
 
+const p83 = profiles.get('ct083');
+check('ct083 remains internal-PASS user-review pending',
+  p83?.status === 'CANDIDATE_GENERATED_USER_PREVIEW_PENDING' &&
+  p83?.review?.user_preview === 'PENDING' &&
+  p83?.preview_candidate?.candidate_no === 2);
+const ct083Path = String(p83?.preview_candidate?.preview_asset_path ?? '').replace(/^\.\//, '');
+check('ct083 Candidate 2 asset exists', ct083Path && fs.existsSync(ct083Path), ct083Path);
+if (ct083Path && fs.existsSync(ct083Path)) {
+  const sha = crypto.createHash('sha256').update(fs.readFileSync(ct083Path)).digest('hex');
+  check('ct083 Candidate 2 WebP sha256 matches locked metadata',
+    sha === p83?.preview_candidate?.preview_webp_sha256,
+    `actual=${sha} expected=${p83?.preview_candidate?.preview_webp_sha256 ?? 'missing'}`);
+}
+
 const ct085 = tests.get('ct085');
 const p85 = profiles.get('ct085');
 check('ct085 clinical teaching is expanded', Boolean(ct085?.interpretation_detail?.plain_language_explanation));
