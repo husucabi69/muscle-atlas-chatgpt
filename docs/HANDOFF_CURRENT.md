@@ -1,3 +1,10 @@
+## 2026-10-05 EXAM-REAL progression override — ct084 review prepared
+
+- User instructed `다음 작업 진행해` after ct083 review package. This authorizes advancing development work but is **not recorded as ct083 visual PASS**; ct083 remains user-preview PENDING and non-canonical.
+- ct084 Upper Limb Neurodynamic Test 1(ULNT1) Candidate 2 is now the active review-preparation target. Do not regenerate; its reviewed binary already exists in the repository.
+- ct084 clinical teaching was expanded for three audiences: plain-language patient explanation, trainee protocol/structural differentiation, clinician differential/limitations/next tests, with 2023 and 2026 diagnostic-accuracy evidence.
+- Production main remains frozen.
+
 ## 2026-10-05 EXAM-REAL current line — ct095 closed, ct083 review active
 
 - ct095 Craniocervical Flexion Test(CCFT): user PASS recorded, approved WebP materialized, registry APPROVED, detailed patient/trainee/clinician explanation connected. Do not regenerate unless the user explicitly reopens it.

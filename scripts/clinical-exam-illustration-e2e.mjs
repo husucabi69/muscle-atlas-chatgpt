@@ -112,6 +112,26 @@ try{
     pass('Pending realistic physical-exam candidate visible for user review',item.id);
   }
 
+  const ct084Teaching=await page.evaluate(async ()=>{
+    await openClinicalModule('cervical',false);
+    await openClinicalTopic('exam',false);
+    await openClinicalItem('ct084',false);
+    const host=document.getElementById('clinicalDetailContent');
+    const text=host?.textContent||'';
+    return{
+      text,
+      overflow:(host?.scrollWidth||0)-(host?.clientWidth||0)
+    };
+  });
+  for(const label of ['쉽게 이해하기','표준 시행 순서','잘못된 보상 / 기능 저하 패턴','이 검사 하나로 배제할 수 없는 것','다음에 이어서 확인할 검사·판단','진단적 무게']){
+    if(!ct084Teaching.text.includes(label))fail('ct084 teaching label '+label);
+  }
+  if(!ct084Teaching.text.includes('상지 신경가동화검사 1'))fail('ct084 Korean full test name');
+  if(!ct084Teaching.text.includes('Upper Limb Neurodynamic Test 1'))fail('ct084 English full test name');
+  if(!ct084Teaching.text.includes('0.70')||!ct084Teaching.text.includes('0.71'))fail('ct084 2026 diagnostic accuracy evidence');
+  if(ct084Teaching.overflow>2)fail('ct084 teaching mobile horizontal overflow',String(ct084Teaching.overflow));
+  pass('ct084 detailed teaching content visible');
+
   const approvedRealistic=await page.evaluate(()=>physicalExamRealisticAssetsData?.profiles
     ?.filter(p=>p.status==='APPROVED'&&p.review?.user_preview==='PASS'&&p.composite_url)
     .map(p=>({id:p.clinical_test_id,url:p.composite_url}))||[]);
