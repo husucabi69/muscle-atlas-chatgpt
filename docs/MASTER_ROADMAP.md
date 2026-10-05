@@ -117,6 +117,11 @@ Stage 23A 기반 UX 위에서 현재 Stage 23B 콘텐츠/진찰도해를 계속 
 - TinyFish 사용 시 대상 사이트, 목적, 대체 불가 사유, run 수를 HANDOFF 또는 관련 provenance에 기록한다.
 
 ## 개발 운영
+- **수동 개발 최신 강제 규칙:** 실제 개발 25~30분 → 30~35분 저장·검증·HANDOFF·최종보고 마무리 → 35분 HARD STOP.
+- 25분 전에 한 단위가 끝나면 같은 개발선의 독립 가능한 다음 작업·QA·정본화를 이어서 최소 25분을 확보한다.
+- 30분부터 새 기능·새 asset 생성·새 구조변경을 시작하지 않는다.
+- 최종보고 말미에는 실제 계측한 **작업 시작시간 / 작업 종료시간 / 보고시간 / 총 실제 작업시간 / 작업시간 규칙 준수 여부**를 반드시 적는다.
+- 위 시간·보고 규칙은 `AGENTS.md`와 `docs/DEVELOPMENT_CONSTITUTION.md`가 최상위 정본이며, Stage별 과거 시간 문구보다 우선한다.
 - 개발은 dev branch에서 한다.
 - 정본 Stage 12 dev branch: `dev/stage12-readonly-integration-20260925`. 과거 stage11/stage12 divergent branch는 참고용이며 merge하지 않는다.
 - 회귀검사 PASS는 Preview 승격 조건이지 main 병합 조건이 아니다.
