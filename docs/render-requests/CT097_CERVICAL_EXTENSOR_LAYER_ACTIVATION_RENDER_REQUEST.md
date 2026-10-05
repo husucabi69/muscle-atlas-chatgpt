@@ -1,7 +1,7 @@
 # CT097 Cervical extensor layer activation assessment — realistic render request
 
 Stable ID: ct097
-Status: CANDIDATE_1_INTERNAL_PASS_USER_PREVIEW_PENDING
+Status: APPROVED
 User-facing title: 경부 신전근 층별 활성·촉진 평가
 English: Cervical extensor layer activation assessment
 
@@ -65,3 +65,13 @@ If true layer differentiation is needed, the app links to C4 posterior extensor 
 - Production main: unchanged
 
 - Binary transport integrity: first repository upload was truncated; final active Preview WebP is the smaller 240x360 transport-safe derivative and is hash/RIFF verified.
+
+
+## User final approval — 2026-10-05
+- User explicitly approved Candidate 1 in chat.
+- Canonical approved asset: `./assets/physical-exam-realistic/approved/ct097-cervical-extensor-gen-27e0f01a-approved.webp`
+- Approved dimensions: 240x360
+- Approved SHA-256: `e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf`
+- Approved asset bytes are identical to the verified Candidate 1 Preview derivative.
+- Do not regenerate or replace ct097 without a new explicit user request.
+- Production main remains unchanged.
