@@ -1,3 +1,18 @@
+# CURRENT OVERRIDE — 2026-10-06 ct088 restoration
+
+> This block supersedes the older statement that no valid ct088 candidate exists.
+
+- ct088 Hoffmann Candidate 13 has been re-audited directly from the repository asset and restored as the active user Preview target.
+- Active asset: `./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-64db8f81-derived-4panel.svg`
+- Candidate 13 gen_id: `64db8f81-b5e0-460a-8b41-046895643b0b`
+- Internal visual/clinical audit: PASS.
+- User Preview: PENDING.
+- Do **not** regenerate ct088 while Candidate 13 awaits user review.
+- Do **not** promote ct088 to APPROVED until explicit user approval.
+- ct084, ct096, ct097, ct098 remain APPROVED and locked.
+- Production `main` remains frozen.
+- Manual development governance remains: 25~30 min actual work, 30~35 min wrap-up only, 35 min HARD STOP.
+
 # CURRENT OVERRIDE — 2026-10-05 20:46+ KST
 
 > This block is authoritative for the current handoff. Older same-day sections below are historical audit entries and may contain superseded `PENDING` wording.
