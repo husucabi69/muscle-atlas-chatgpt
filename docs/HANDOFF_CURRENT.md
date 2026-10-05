@@ -1,3 +1,23 @@
+## 2026-10-05 development governance timing/reporting lock
+
+- Latest user rule overrides older manual timing notes.
+- Manual development actual work: **25~30 minutes**.
+- At 30 minutes: stop starting new features, new assets, or structural changes.
+- 30~35 minutes: save, verify, update HANDOFF/canonical docs, and prepare final report only.
+- 35 minutes: **absolute HARD STOP**, even if CI/Cloudflare is still running.
+- Final report must include measured KST values for: work start time, work end time, report time, total actual work time, and explicit timing-rule compliance.
+- User-facing major headings remain exactly two: `① 뭘 했나` and `② 앞으로 뭘 할 건가`.
+- Policy is locked in `AGENTS.md`, `docs/DEVELOPMENT_CONSTITUTION.md`, `docs/DEVELOPMENT_PRINCIPLES.md`, and CI contract `scripts/development-governance-policy-qa.mjs`.
+
+## 2026-10-05 ct098 approval clarification
+
+- User reconfirmed that reviewed items are approved.
+- ct098 status: APPROVED.
+- Canonical asset: `./assets/physical-exam-realistic/approved/ct098-cervical-red-flag-gen-4be8f319-approved.webp`.
+- Canonical SHA-256: `ad4be0f893673d5ce291b799fd88929598d55b7a5289d060b1e57c4a429bf89c`.
+- ct084, ct096, ct097, ct098 are APPROVED and locked.
+- ct088 Hoffmann is NOT approved because the later generated images were clinically the wrong examination and were never connected to the app. Its mandatory backlog remains active.
+- Production main remains frozen.
 ## 2026-10-05 EXAM-REAL ct096 user approval locked
 
 - User explicitly approved ct096 together with the previously reviewed ct084/ct097 set.
