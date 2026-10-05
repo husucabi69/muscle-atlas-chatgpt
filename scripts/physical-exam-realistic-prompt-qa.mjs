@@ -68,12 +68,14 @@ check('ct088 Candidate 13 preserves all internal clinical/visual PASS gates',
   ct088.approval_blockers[0].includes('User Preview approval'));
 
 for(const id of generationReadyIds){
+  const profile=manifest.profiles?.find(x=>x.clinical_test_id===id);
   let prompt='';
   try{prompt=buildPhysicalExamPrompt(manifest,id)}catch(e){prompt='ERROR '+e.message}
   check(id+' prompt builds',!prompt.startsWith('ERROR'),prompt.startsWith('ERROR')?prompt:'ok');
-  check(id+' uses three realistic panels',
-    prompt.includes('1 · 시작 자세 / 2 · 검사 시행 / 3 · 양성 판단')&&
-    prompt.includes('실제 사람처럼 보이는')&&prompt.includes('같은 인물'));
+  check(id+' uses its locked realistic panel structure',
+    prompt.includes('패널 구성: '+String(profile?.generation_brief?.panel_structure||''))&&
+    prompt.includes('실제 사람처럼 보이는')&&
+    prompt.includes('모든 패널의 환자와 검사자는 같은 인물'));
   check(id+' locks examiner hand and force direction',
     prompt.includes('검사자 손 위치')&&prompt.includes('힘 또는 움직임 방향'));
   check(id+' keeps conservative diagnostic language',
