@@ -31,7 +31,19 @@ for(const p of profiles){
 }
 
 const ct088=profiles.find(p=>p.clinical_test_id==='ct088');
-if(ct088?.review?.user_preview!=='DEFERRED') errors.push('ct088:expected_DEFERRED');
+if(!ct088) {
+  errors.push('ct088:missing_profile');
+} else if(ct088.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING') {
+  if(ct088.review?.user_preview!=='PENDING') errors.push('ct088:preview_candidate_without_PENDING_user_review');
+  if(ct088.preview_candidate?.candidate_no!==13) errors.push('ct088:active_candidate_must_be_13');
+  if(ct088.preview_candidate?.gen_id!=='64db8f81-b5e0-460a-8b41-046895643b0b') errors.push('ct088:active_candidate13_gen_id_mismatch');
+} else if(String(ct088.status||'').startsWith('INCOMPLETE_DEFERRED')) {
+  if(ct088.review?.user_preview!=='DEFERRED') errors.push('ct088:deferred_state_without_DEFERRED_review');
+} else if(ct088.status==='APPROVED') {
+  if(ct088.review?.user_preview!=='PASS') errors.push('ct088:approved_without_user_PASS');
+} else {
+  errors.push(`ct088:unexpected_lifecycle:${ct088.status}`);
+}
 
 if(errors.length){
   console.error('EXAM-REAL review lifecycle QA FAIL');
