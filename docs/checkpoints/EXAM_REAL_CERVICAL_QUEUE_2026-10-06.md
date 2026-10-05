@@ -44,6 +44,9 @@ It does not override explicit user approval/rejection commands.
 ## Binary/recovery backlog
 6. **ct089 Babinski/clonus**
    - User approval already PASS.
+   - Approved Babinski source SHA-256: `efefc0fcde07756f620a38e7e024260f6b01c6199a680d57ba6fadfa5e9474d6`.
+   - Approved ankle-clonus source SHA-256: `c97854a065fe1fc04e29de00cf9c1a94c569bd48625a6f83daf8a9cfe670c2a4`.
+   - 2026-10-06 recovery check: neither historical `/mnt/data` source exists in the current runtime; conversation/Library title search also did not recover the exact files.
    - Exact approved binary/derivative still must be recovered and hash-verified.
    - Do not invent a replacement and call it the approved original.
 7. **ct091 10-second grip-release**
