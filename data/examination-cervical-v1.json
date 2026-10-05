@@ -186,18 +186,52 @@
         "n032",
         "n033"
       ],
-      "setup": "환자가 증상측 손을 머리 위에 올리도록 한다.",
-      "maneuver": "상지 방사통이 감소하는지 확인한다.",
-      "positive_definition": "평소 radicular arm pain이 명확히 감소하면 기록한다.",
-      "interpretation_note": "radiculopathy 가능성을 지지할 수 있으며 최근 진단 연구에서는 여러 검사 조합의 일부로 평가된다.",
-      "limitation": "단독으로 nerve root level을 결정하지 않는다.",
+      "setup": "환자는 편안히 앉거나 선 상태에서 증상측 팔을 자연스럽게 둔 뒤, 현재의 익숙한 팔 방사통·저림 강도와 분포를 먼저 확인한다.",
+      "maneuver": "환자에게 증상측 어깨를 외전하여 손 또는 전완을 머리 위에 편안히 올리게 한다. 검사자가 팔을 억지로 끝범위까지 들지 않으며, 이 자세에서 기존의 익숙한 상지 방사통·저림이 감소하는지 확인한다.",
+      "positive_definition": "머리 위에 손을 올린 자세에서 평소의 익숙한 신경근성 팔 통증·저림이 분명히 감소하면 shoulder abduction relief sign으로 기록한다. 단순히 어깨가 편해지거나 목이 덜 뻣뻣한 것만으로 양성 처리하지 않는다.",
+      "interpretation_note": "어깨 외전 완화 검사는 경추 신경근병증(cervical radiculopathy)을 지지할 수 있는 보조 소견이다. 신경근 긴장 또는 신경공 주변 기계적 부담이 줄면서 증상이 완화되는 현상으로 설명되지만, 단독으로 특정 신경근 수준이나 원인을 확정하지 않는다.",
+      "limitation": "검사 성능은 연구 간 변이가 크고, 어깨 질환·자세 변화·통증 회피도 증상 완화에 영향을 줄 수 있다. 음성이라고 경추 신경근병증을 배제할 수 없고, 양성이라고 디스크 탈출·골극·협착 중 원인을 구분할 수 없다.",
       "related_diagnosis_concept_ids": [
         "d089"
       ],
       "evidence_refs": [
         "radic_cluster_2026",
         "radic_review_2026"
-      ]
+      ],
+      "interpretation_detail": {
+        "plain_language_explanation": "쉽게 말하면, 저리거나 아픈 팔을 머리 위에 올렸을 때 그 익숙한 팔 증상이 줄어드는지를 보는 검사다. 목 신경뿌리 자극이 있는 일부 환자에서는 이 자세가 신경에 걸리는 부담을 줄여 증상이 덜해질 수 있다.",
+        "what_it_assesses": "증상측 어깨를 외전해 손 또는 전완을 머리 위에 두었을 때 기존의 방사통·저림이 완화되는지를 확인해 cervical radiculopathy 가능성을 보조적으로 평가한다.",
+        "precheck": "현재 증상이 실제 팔 방사통·저림인지 먼저 확인한다. 심한 어깨 자체 통증, 급성 외상, 진행성 근력저하, 보행/손기능 악화 같은 척수병증 red flag가 있으면 검사 해석을 그 맥락에 맞춰 조정한다.",
+        "examiner_position_and_hands": "검사자는 환자 옆에서 증상 변화를 관찰하고 필요하면 팔꿈치를 가볍게 지지한다. 팔을 강제로 들어 올리거나 목을 동시에 압박하지 않는다.",
+        "standard_protocol": "검사 전 익숙한 팔 증상의 위치와 강도를 확인한다. 환자 스스로 증상측 어깨를 외전해 손 또는 전완을 머리 위에 편안히 올리게 한다. 수 초 동안 유지하며 같은 팔의 익숙한 방사통·저림이 줄어드는지 확인하고, 팔을 다시 내렸을 때 증상이 원래대로 돌아오는지도 참고한다.",
+        "force_direction": "환자가 스스로 팔을 외전한다. 검사자는 강한 수동 힘을 가하지 않는다.",
+        "positive_meaning": "익숙한 팔의 신경근성 통증·저림이 분명히 감소하면 cervical radiculopathy 가능성을 지지한다. 하지만 이 소견 하나만으로 진단을 확정하지 않는다.",
+        "raises_suspicion_for": [
+          "경추 신경근병증(cervical radiculopathy)",
+          "경추 신경공 협착 또는 디스크/골극에 의한 신경근 자극이 임상증상과 맞는 경우"
+        ],
+        "important_differentials": [
+          "경추 신경근병증 ↔ 회전근개/견관절 질환",
+          "경추 신경근병증 ↔ 상완신경총 또는 말초신경 포착",
+          "경추 신경근병증 ↔ 흉곽출구증후군",
+          "팔 증상 ↔ 비신경성 근막통증"
+        ],
+        "what_it_cannot_rule_out": "음성 결과만으로 cervical radiculopathy를 배제할 수 없다. 양성 결과도 경추척수병증, 말초신경병증, 어깨 질환을 자동으로 배제하지 않는다.",
+        "next_clinical_steps": [
+          "Spurling test, cervical distraction, Upper Limb Neurodynamic Test(ULNT)를 병력과 함께 조합한다.",
+          "C5–T1 근력·감각·심부건반사를 좌우 비교한다.",
+          "지속되거나 진행하는 객관적 근력저하, 감각저하, 반사 변화가 있으면 영상 또는 전기진단검사 필요성을 판단한다.",
+          "척수병증 징후가 있으면 경추 MRI와 전문평가를 우선한다."
+        ],
+        "diagnostic_weight": "2026년 cervical radiculopathy physical-test systematic review는 개별 검사들의 진단정확도 근거가 전반적으로 제한적이고 확실성이 낮다고 평가했다. Shoulder abduction relief sign도 단독 rule-in/rule-out 검사보다 여러 임상소견 중 하나로 사용하는 것이 적절하다.",
+        "common_errors": [
+          "팔을 검사자가 억지로 끝범위 외전시키기",
+          "어깨 국소통증 감소를 radicular symptom relief와 혼동하기",
+          "증상 완화 없이 단순히 손을 머리 위에 올릴 수 있다는 사실만으로 양성 처리하기",
+          "양성 하나만으로 특정 root level을 확정하기"
+        ],
+        "interpretation_bottom_line": "핵심은 자세 자체가 아니라 '평소의 익숙한 팔 방사통·저림이 머리 위 자세에서 실제로 감소하는가'다. 양성이면 radiculopathy 가능성을 지지하지만 신경학적 검사와 다른 provocation/relief test를 함께 본다."
+      }
     },
     {
       "clinical_test_id": "ct086",
