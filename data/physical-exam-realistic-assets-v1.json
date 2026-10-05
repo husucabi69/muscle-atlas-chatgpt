@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-ct098-candidate1",
+  "dataset_version": "2026.10.05-exam-real-ct097-approved",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct098 Candidate 1 ready for user Preview. ct096 and ct097 remain user-preview PENDING; ct084 remains APPROVED; ct088 remains mandatory revisit; Production main frozen."
+    "next_action": "ct097 is APPROVED and canonical. ct096 remains user-preview PENDING; ct098 remains user-preview PENDING; ct084 remains APPROVED; ct088 remains mandatory revisit; Production main frozen."
   },
   "profiles": [
     {
@@ -4625,10 +4625,10 @@
       "region": "cervical",
       "title_ko": "경부 신전근 층별 활성·촉진 평가",
       "title_en": "Cervical extensor layer activation assessment",
-      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
+      "status": "APPROVED",
       "pilot_batch": null,
-      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct097-cervical-extensor-gen-27e0f01a-approved.webp",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and clinician; clean neutral clinic; same patient and clinician across all panels; no identifiable real patient",
@@ -4652,9 +4652,9 @@
         "examiner_hand_position": "PASS",
         "force_direction": "PASS",
         "embedded_text": "PASS",
-        "user_preview": "PENDING",
+        "user_preview": "PASS",
         "reviewed_on": "2026-10-05",
-        "note": "ct097 Candidate 1 internal clinical/visual review PASS. Final transport-safe 240x360 WebP integrity repaired after initial truncation. User Preview remains required."
+        "note": "User explicitly approved ct097 Candidate 1 on 2026-10-05. Canonical approved asset materialized in Preview. Surface palpation remains an adjunct only; deep layer identification requires ultrasound when needed."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4662,9 +4662,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "User Preview approval remains required before canonical approval"
-      ],
+      "approval_blockers": [],
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -4677,7 +4675,7 @@
           "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp",
           "preview_dimensions": "240x360",
           "preview_webp_sha256": "e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf",
-          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+          "disposition": "USER_APPROVED_CANONICAL",
           "passed_axes": [
             "clinical_content",
             "visual_pose",
@@ -4686,7 +4684,7 @@
             "compensation_visibility",
             "embedded_text"
           ],
-          "note": "Independent realistic three-panel candidate. Panel 1 shows prone supported neutral start. Panel 2 shows gentle posterior cervical palpation during low-load activation. Panel 3 demonstrates excessive extension as a compensation pattern. No claim that fingertips selectively isolate deep semispinalis or multifidus. Candidate transport was re-encoded smaller after the first GitHub blob was truncated; final Preview binary is 240x360 and integrity-verified."
+          "note": "Independent realistic three-panel candidate. Panel 1 shows prone supported neutral start. Panel 2 shows gentle posterior cervical palpation during low-load activation. Panel 3 demonstrates excessive extension as a compensation pattern. No claim that fingertips selectively isolate deep semispinalis or multifidus. Candidate transport was re-encoded smaller after the first GitHub blob was truncated; final Preview binary is 240x360 and integrity-verified. User explicitly approved this candidate on 2026-10-05; canonical approved derivative uses the exact same verified WebP bytes."
         }
       ],
       "preview_candidate": {
@@ -4699,10 +4697,32 @@
         "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp",
         "preview_dimensions": "240x360",
         "preview_webp_sha256": "e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf",
-        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
-        "note": "ct097 Candidate 1 internal PASS. Final transport-safe 240x360 WebP is active; user Preview approval remains required."
+        "disposition": "USER_APPROVED_SOURCE",
+        "note": "Exact Candidate 1 approved by user on 2026-10-05; canonical approved asset uses identical verified WebP bytes."
       },
-      "review_note": "ct097 Candidate 1 is connected to Preview with repaired binary integrity. Surface palpation remains an adjunct only; deep-layer confirmation uses ultrasound when needed. Do not promote without explicit user approval."
+      "review_note": "USER FINAL APPROVAL PASS. ct097 is canonical in Preview. Do not regenerate or replace without a new explicit user request.",
+      "approved_asset": {
+        "gen_id": "27e0f01a-280b-4f82-ab2c-0722c003dc86",
+        "approved_on": "2026-10-05",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct097-cervical-extensor-gen-27e0f01a-approved.webp",
+        "preview_webp_sha256": "e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf",
+        "dimensions": "240x360",
+        "source_preview_asset_path": "./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp",
+        "source_raw_dimensions": "1024x1536",
+        "source_raw_sha256": "d6f673198c38fa01fb52fd3cb652391f7de777d7eba43d27f06fef8ec2756b9d",
+        "disposition": "USER_APPROVED_PASS",
+        "note": "Canonical ct097 asset is byte-identical to the user-approved Candidate 1 Preview derivative."
+      },
+      "final_user_approved_source": {
+        "approved_on": "2026-10-05",
+        "source_kind": "conversation_user_approval_of_preview_candidate",
+        "gen_id": "27e0f01a-280b-4f82-ab2c-0722c003dc86",
+        "candidate_asset_path": "./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp",
+        "derivative_app_asset": "./assets/physical-exam-realistic/approved/ct097-cervical-extensor-gen-27e0f01a-approved.webp",
+        "derivative_dimensions": "240x360",
+        "derivative_sha256": "e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf",
+        "disposition": "USER_FINAL_APPROVAL_PASS_AND_MATERIALIZED"
+      }
     },
     {
       "clinical_test_id": "ct098",
