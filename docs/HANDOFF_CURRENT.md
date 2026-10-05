@@ -13,6 +13,16 @@
 - Production `main` remains frozen.
 - Manual development governance remains: 25~30 min actual work, 30~35 min wrap-up only, 35 min HARD STOP.
 
+## 2026-10-06 cervical registry snapshot / recovery result
+
+- Cervical EXAM-REAL profiles: 17 total.
+- APPROVED canonical: 9 — ct082, ct084, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
+- Connected user-review candidates: ct083 Candidate 2 and ct088 Candidate 13.
+- Active generation-ready queue: ct085 → ct086 → ct087.
+- ct089 is user-approved but exact approved binaries remain unrecovered; preserve the locked source hashes and do not substitute a new visual as the old approved original.
+- ct091 and ct092 exact historical source filenames were searched in conversation/Library and current runtime on 2026-10-06; no exact file was recovered. Their historical metadata remains preserved and no false canonical asset has been declared.
+- Current execution queue: `docs/checkpoints/EXAM_REAL_CERVICAL_QUEUE_2026-10-06.md`.
+
 ## 2026-10-06 cervical pilot wave 2 activation
 
 - Active pilot `PILOT_CERVICAL_01` now includes ct085, ct086 and ct087 in addition to the original cervical pilot items.
