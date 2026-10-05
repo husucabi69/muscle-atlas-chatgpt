@@ -4654,7 +4654,7 @@
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-05",
-        "note": "ct097 Candidate 1 internal clinical/visual review PASS. Start posture is prone with forehead supported; low-load activation is shown with light bilateral posterior cervical palpation and no strong resistance; compensation panel shows excessive upper-cervical extension. User Preview remains required."
+        "note": "ct097 Candidate 1 internal clinical/visual review PASS. Final transport-safe 240x360 WebP integrity repaired after initial truncation. User Preview remains required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4675,8 +4675,8 @@
           "raw_generation_sha256": "d6f673198c38fa01fb52fd3cb652391f7de777d7eba43d27f06fef8ec2756b9d",
           "source_session_path": "/mnt/data/a_tall_vertical_composite_instructional_medical_ph.png",
           "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp",
-          "preview_dimensions": "320x480",
-          "preview_webp_sha256": "60d29739875ebc77f12d6e243ce0f2d47392dd0757a3375deea1715dfad60137",
+          "preview_dimensions": "240x360",
+          "preview_webp_sha256": "e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf",
           "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
           "passed_axes": [
             "clinical_content",
@@ -4686,7 +4686,7 @@
             "compensation_visibility",
             "embedded_text"
           ],
-          "note": "Independent realistic three-panel candidate. Panel 1 shows prone supported neutral start. Panel 2 shows gentle posterior cervical palpation during low-load activation. Panel 3 demonstrates excessive extension as a compensation pattern. No claim that fingertips selectively isolate deep semispinalis or multifidus."
+          "note": "Independent realistic three-panel candidate. Panel 1 shows prone supported neutral start. Panel 2 shows gentle posterior cervical palpation during low-load activation. Panel 3 demonstrates excessive extension as a compensation pattern. No claim that fingertips selectively isolate deep semispinalis or multifidus. Candidate transport was re-encoded smaller after the first GitHub blob was truncated; final Preview binary is 240x360 and integrity-verified."
         }
       ],
       "preview_candidate": {
@@ -4697,12 +4697,12 @@
         "raw_generation_dimensions": "1024x1536",
         "raw_generation_sha256": "d6f673198c38fa01fb52fd3cb652391f7de777d7eba43d27f06fef8ec2756b9d",
         "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct097-cervical-extensor-gen-27e0f01a-preview.webp",
-        "preview_dimensions": "320x480",
-        "preview_webp_sha256": "60d29739875ebc77f12d6e243ce0f2d47392dd0757a3375deea1715dfad60137",
+        "preview_dimensions": "240x360",
+        "preview_webp_sha256": "e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf",
         "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
-        "note": "ct097 Candidate 1 internal PASS. User Preview approval remains required before canonical promotion."
+        "note": "ct097 Candidate 1 internal PASS. Final transport-safe 240x360 WebP is active; user Preview approval remains required."
       },
-      "review_note": "ct097 Candidate 1 is connected to Preview. Surface palpation remains an adjunct only; deep-layer confirmation uses ultrasound when needed. Do not promote without explicit user approval."
+      "review_note": "ct097 Candidate 1 is connected to Preview with repaired binary integrity. Surface palpation remains an adjunct only; deep-layer confirmation uses ultrasound when needed. Do not promote without explicit user approval."
     },
     {
       "clinical_test_id": "ct098",
