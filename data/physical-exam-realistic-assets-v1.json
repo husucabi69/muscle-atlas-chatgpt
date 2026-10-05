@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-ct088-generation-ready",
+  "dataset_version": "2026.10.05-exam-real-ct098-approved",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct088 Hoffmann mandatory revisit is actively generation-ready. ct096/ct097/ct084 approved; ct098 pending user preview; Production main frozen."
+    "next_action": "ct084/ct096/ct097/ct098 are APPROVED. ct088 Hoffmann remains mandatory revisit because the recent generated images were clinically wrong and were never connected. Production main frozen."
   },
   "profiles": [
     {
@@ -4719,10 +4719,10 @@
       "region": "cervical",
       "title_ko": "경추 red-flag 통합 선별",
       "title_en": "Integrated cervical red-flag screen",
-      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
+      "status": "APPROVED",
       "pilot_batch": null,
-      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct098-cervical-red-flag-gen-4be8f319-approved.webp",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and clinician; clean neutral clinic; same patient and clinician across all panels; no identifiable real patient",
@@ -4749,9 +4749,9 @@
         "examiner_hand_position": "NOT_APPLICABLE",
         "force_direction": "PASS",
         "embedded_text": "PASS",
-        "user_preview": "PENDING",
+        "user_preview": "PASS",
         "reviewed_on": "2026-10-05",
-        "note": "ct098 Candidate 1 internal clinical/visual review PASS. No provocative force direction exists by design; PASS here means the visual correctly avoids forceful/end-range cervical provocation. History -> neurologic screen -> escalation flow is shown. User Preview remains required."
+        "note": "User explicitly confirmed approval on 2026-10-05. Canonical approved asset materialized in Preview. The image remains a safety-pathway illustration, not a provocative diagnostic test."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4759,9 +4759,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "User Preview approval remains required before canonical approval"
-      ],
+      "approval_blockers": [],
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -4774,7 +4772,7 @@
           "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct098-cervical-red-flag-gen-4be8f319-preview.webp",
           "preview_dimensions": "240x360",
           "preview_webp_sha256": "ad4be0f893673d5ce291b799fd88929598d55b7a5289d060b1e57c4a429bf89c",
-          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+          "disposition": "USER_APPROVED_CANONICAL",
           "passed_axes": [
             "clinical_content",
             "history_risk_context",
@@ -4783,7 +4781,7 @@
             "escalation_pathway",
             "embedded_text"
           ],
-          "note": "Independent realistic 3-panel candidate. Panel 1 history/risk context; panel 2 objective neurologic screening with arms held forward and clinician observing; panel 3 further evaluation/imaging discussion. It intentionally does not portray end-range cervical vascular provocation or a single diagnostic red flag."
+          "note": "Independent realistic 3-panel candidate. Panel 1 history/risk context; panel 2 objective neurologic screening with arms held forward and clinician observing; panel 3 further evaluation/imaging discussion. It intentionally does not portray end-range cervical vascular provocation or a single diagnostic red flag. User approval confirmed on 2026-10-05; canonical asset uses identical verified bytes."
         }
       ],
       "preview_candidate": {
@@ -4796,10 +4794,20 @@
         "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct098-cervical-red-flag-gen-4be8f319-preview.webp",
         "preview_dimensions": "240x360",
         "preview_webp_sha256": "ad4be0f893673d5ce291b799fd88929598d55b7a5289d060b1e57c4a429bf89c",
-        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
-        "note": "ct098 Candidate 1 internal PASS; user Preview approval remains required before canonical promotion."
+        "disposition": "USER_APPROVED_SOURCE",
+        "note": "Exact ct098 Candidate 1 approved by user; canonical approved asset uses identical verified WebP bytes."
       },
-      "review_note": "ct098 Candidate 1 is connected to Preview. The force-direction gate PASS means 'no provocative cervical force is correctly depicted', not that a force maneuver exists. Do not promote without explicit user approval."
+      "review_note": "USER FINAL APPROVAL PASS. ct098 is canonical in Preview. Do not regenerate or replace without a new explicit user request.",
+      "approved_asset": {
+        "gen_id": "4be8f319-96ca-498a-878d-174f114c5f79",
+        "approved_on": "2026-10-05",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct098-cervical-red-flag-gen-4be8f319-approved.webp",
+        "preview_webp_sha256": "ad4be0f893673d5ce291b799fd88929598d55b7a5289d060b1e57c4a429bf89c",
+        "dimensions": "240x360",
+        "source_preview_asset_path": "./assets/physical-exam-realistic/candidates/ct098-cervical-red-flag-gen-4be8f319-preview.webp",
+        "disposition": "USER_APPROVED_PASS",
+        "note": "Canonical ct098 asset is byte-identical to the user-approved Candidate 1 Preview derivative."
+      }
     },
     {
       "clinical_test_id": "ct099",
