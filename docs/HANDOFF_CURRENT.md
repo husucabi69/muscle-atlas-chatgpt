@@ -1,3 +1,12 @@
+## 2026-10-05 ct084 user approval and final-sequence lock
+
+- User explicitly approved ct084 ULNT1 Candidate 2: PASS.
+- Canonical Preview asset is now `assets/physical-exam-realistic/approved/ct084-ulnt1-gen-b9b9cbc2-approved.webp` using the verified intact historical binary.
+- Final teaching wording is locked: the upper-limb sequence is completed first; familiar symptoms are checked; **contralateral cervical side flexion is performed last** as structural differentiation.
+- Routine shoulder extension is not a core ULNT1 step.
+- ct083 remains user-preview PENDING because no explicit PASS was given for ct083.
+- Production main remains frozen.
+
 ## 2026-10-05 ct084 standardized ULNT1 protocol lock
 
 - User asked whether shoulder extension is required and whether the neck must side-bend away from the tested arm.
