@@ -46,6 +46,10 @@ check('Principles timing fields are documented in required order', inOrder(files
 check('AGENTS preserves explicit user-stop override', files.agents.includes('USER_STOP_OVERRIDE'));
 check('Constitution preserves explicit user-stop override', files.constitution.includes('USER_STOP_OVERRIDE'));
 check('Principles preserves explicit user-stop override', files.principles.includes('USER_STOP_OVERRIDE'));
+check('AGENTS locks explicit approval semantics', files.agents.includes('`승인`, `승인함`, `모두 승인`'));
+check('Constitution locks approval semantics section', files.constitution.includes('## 6B. 사용자 승인 해석 규칙'));
+check('Principles locks approval handling section', files.principles.includes('## 12. 사용자 승인 처리'));
+check('AGENTS forbids treating next-work command as approval', files.agents.includes('`다음 작업 진행`, `진행해`만으로는 승인으로 추정하지 않는다.'));
 
 check('AGENTS locks two-heading report format', files.agents.includes('큰 제목은 **① 뭘 했나 ② 앞으로 뭘 할 건가** 두 개만'));
 check('Constitution locks two-heading report format', files.constitution.includes('**딱 2개만**'));
