@@ -1,3 +1,12 @@
+## 2026-10-05 ct084 mobile blank-image root-cause repair
+
+- User device screenshots proved ct084 Candidate 2 rendered as a blank card and its direct WebP showed only a thin top strip.
+- Byte-level root cause: the 480x720 overwrite had only 7,500 bytes while its RIFF header declared 33,510 bytes. The repository binary was truncated; CSS and Cloudflare were not the primary cause.
+- Restored the exact known-good Candidate 2 blob from commit d8ebae5: 240x360, complete RIFF, SHA-256 e9d4f309f214a0a5633dc7309965fedc7f417729b2a4d4206bdfb72828a6f5e7.
+- ct084 remains user-preview PENDING. No approval is inferred from the screenshot.
+- Global QA now checks RIFF-declared byte length for realistic candidate and approved WebP files so this failure cannot silently pass again.
+- Production main remains frozen.
+
 ## 2026-10-05 EXAM-REAL progression override — ct084 review prepared
 
 - User instructed `다음 작업 진행해` after ct083 review package. This authorizes advancing development work but is **not recorded as ct083 visual PASS**; ct083 remains user-preview PENDING and non-canonical.
