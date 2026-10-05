@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.04-exam-real-007-ct095-materialized",
+  "dataset_version": "2026.10.05-exam-real-008-ct084-binary-repair",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3339,8 +3339,8 @@
           "raw_generation_sha256": "0e9903f425b50de560d9086466b91ff839578f41cc838bcf1c6d371acebd593d",
           "source_session_path": "/mnt/data/a_clean_photographic_instructional_medical_collag.png",
           "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct084-ulnt1-gen-b9b9cbc2-preview.webp",
-          "preview_dimensions": "480x720",
-          "preview_webp_sha256": "209dbd9d95823bb1ae9273636eb83ba7202a019d9257e457947f963218039221",
+          "preview_dimensions": "240x360",
+          "preview_webp_sha256": "e9d4f309f214a0a5633dc7309965fedc7f417729b2a4d4206bdfb72828a6f5e7",
           "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
           "passed_axes": [
             "clinical_content",
@@ -3352,7 +3352,8 @@
             "embedded_text",
             "adult_model_casting"
           ],
-          "note": "Candidate 2 corrected Candidate 1 and was upgraded to a 480x720 Preview derivative after user requested higher resolution. Rich clinical interpretation/differential content added; user approval remains pending."
+          "note": "Candidate 2 corrected Candidate 1 and was upgraded to a 480x720 Preview derivative after user requested higher resolution. Rich clinical interpretation/differential content added; user approval remains pending.",
+          "binary_vault_status": "REPOSITORY_BINARY_RESTORED_FROM_KNOWN_GOOD_HISTORY"
         }
       ],
       "preview_candidate": {
@@ -3363,10 +3364,16 @@
         "raw_generation_dimensions": "1024x1536",
         "raw_generation_sha256": "0e9903f425b50de560d9086466b91ff839578f41cc838bcf1c6d371acebd593d",
         "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct084-ulnt1-gen-b9b9cbc2-preview.webp",
-        "preview_thumbnail_dimensions": "480x720",
-        "preview_webp_sha256": "209dbd9d95823bb1ae9273636eb83ba7202a019d9257e457947f963218039221",
+        "preview_thumbnail_dimensions": "240x360",
+        "preview_webp_sha256": "e9d4f309f214a0a5633dc7309965fedc7f417729b2a4d4206bdfb72828a6f5e7",
         "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
-        "note": "Higher-resolution 480x720 reviewed derivative. Rich interpretation block added to the ct084 clinical detail page. Adult female-presenting patient / adult male-presenting examiner. User Preview approval remains pending."
+        "note": "Known-good 240x360 Candidate 2 binary restored from historical blob after later 480x720 overwrite was proven RIFF-truncated on device. User Preview approval remains pending.",
+        "binary_repair": {
+          "repaired_on": "2026-10-05",
+          "reason": "480x720 WebP was truncated: actual 7,500 bytes vs RIFF-declared 33,510 bytes",
+          "restored_blob_sha": "640fbe4876fb77f077ca7c006b9b87ab1042bf7d",
+          "source_commit": "d8ebae5aa21d63b0d48d067732a5a8b512bb3524"
+        }
       }
     },
     {
