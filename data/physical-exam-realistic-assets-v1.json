@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-015-ct084-approved-materialized",
+  "dataset_version": "2026.10.05-exam-real-ct096-candidate1",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct084 ULNT1 fully approved and materialized. Next active task: ct096 Neck flexor endurance test. ct083 remains PENDING. Production remains frozen."
+    "next_action": "ct096 Candidate 1 is ready for user Preview review. Preserve ct084 APPROVED lock; ct083 remains pending; ct088 mandatory revisit backlog remains. Production main frozen."
   },
   "profiles": [
     {
@@ -4540,9 +4540,9 @@
       "region": "cervical",
       "title_ko": "경부 굴곡근 지구력 검사",
       "title_en": "Neck flexor endurance test",
-      "status": "PENDING_GENERATION",
+      "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": null,
-      "brief_status": "GENERATION_READY",
+      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -4564,13 +4564,13 @@
       },
       "review": {
         "clinical_content": "PASS",
-        "visual_pose": "PENDING",
-        "examiner_hand_position": "PENDING",
-        "force_direction": "PENDING",
-        "embedded_text": "PENDING",
+        "visual_pose": "PASS",
+        "examiner_hand_position": "NOT_APPLICABLE",
+        "force_direction": "PASS",
+        "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-05",
-        "note": "ct096 clinical content and render brief evidence-locked. Generation may proceed; visual/user review gates remain pending."
+        "note": "ct096 Candidate 1 internal clinical/visual review PASS. Supine start, low head lift with chin tuck, observer-only examiner, and clear posture-breakdown/high-lift compensation are shown. User Preview approval remains required."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -4579,11 +4579,46 @@
         "copyright_evidence_required": true
       },
       "approval_blockers": [
-        "Fresh realistic candidate generation required",
-        "Must show low head lift with maintained chin tuck, not a sit-up or high cervical flexion",
-        "Functional impairment must be shown as posture breakdown/SCM compensation, not disease diagnosis",
-        "User Preview approval required before canonical promotion"
-      ]
+        "User Preview approval remains required before canonical approval"
+      ],
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "a49d9c8f-4890-4062-b247-24b212bcd900",
+          "generated_on": "2026-10-05",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "e672b44eb44b6b89993ea39f47afadffe8f477f34411910c7832ef45e17f8c97",
+          "source_session_path": "/mnt/data/a_clean_clinical_instructional_triptych_three_pan.png",
+          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp",
+          "preview_dimensions": "320x480",
+          "preview_webp_sha256": "0265a2fc211504f59c2ded1b2f21b0618cbf109034a8877dfdcdbc4d4166f7b6",
+          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+          "passed_axes": [
+            "clinical_content",
+            "visual_pose",
+            "no_manual_resistance",
+            "low_head_lift",
+            "posture_breakdown_compensation",
+            "embedded_text"
+          ],
+          "note": "Independent three-panel realistic candidate. Panel 1: supine relaxed start with light chin tuck and head supported. Panel 2: very low controlled head lift while maintaining chin tuck, clinician observes without resistance. Panel 3: chin tuck loss/high head lift with visible superficial neck compensation. No diagnostic cutoff or arbitrary pain mark."
+        }
+      ],
+      "preview_candidate": {
+        "candidate_no": 1,
+        "gen_id": "a49d9c8f-4890-4062-b247-24b212bcd900",
+        "generated_on": "2026-10-05",
+        "generator": "OpenAI image generation",
+        "raw_generation_dimensions": "1024x1536",
+        "raw_generation_sha256": "e672b44eb44b6b89993ea39f47afadffe8f477f34411910c7832ef45e17f8c97",
+        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp",
+        "preview_dimensions": "320x480",
+        "preview_webp_sha256": "0265a2fc211504f59c2ded1b2f21b0618cbf109034a8877dfdcdbc4d4166f7b6",
+        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+        "note": "ct096 Candidate 1 internal PASS; user Preview approval remains required before canonical promotion."
+      },
+      "review_note": "ct096 Candidate 1 is connected to Preview with internal clinical/visual gates PASS. Do not promote to APPROVED or main before explicit user approval."
     },
     {
       "clinical_test_id": "ct097",
