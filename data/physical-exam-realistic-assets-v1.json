@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-ct096-candidate1",
+  "dataset_version": "2026.10.05-exam-real-ct097-generation-ready",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct096 Candidate 1 is ready for user Preview review. Preserve ct084 APPROVED lock; ct083 remains pending; ct088 mandatory revisit backlog remains. Production main frozen."
+    "next_action": "ct097 cervical extensor layer activation candidate generation is next. ct096 remains user-preview PENDING; ct084 remains APPROVED; Production main frozen."
   },
   "profiles": [
     {
@@ -4627,34 +4627,48 @@
       "title_en": "Cervical extensor layer activation assessment",
       "status": "PENDING_GENERATION",
       "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
-        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
-        "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "복와위 또는 좌위에서 저강도 경부 신전/회전을 시행한다.",
-        "examiner_maneuver": "splenius-semispinalis-multifidus의 좌우 활성과 국소 통증을 비교한다.",
-        "positive_finding": "현저한 비대칭, 조기 피로 또는 익숙한 국소 통증 재현을 impairment로 기록한다.",
-        "interpretation": "posterior cervical muscle dysfunction의 기능 평가이며 초음파 thickness/CSA와 함께 연구·교육적으로 연결할 수 있다.",
-        "limitation_safety": "촉진이나 thickness 차이만으로 통증 원인을 확정하지 않는다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "visual_style": "clinical photoreal medical education illustration; realistic adult patient and clinician; clean neutral clinic; same patient and clinician across all panels; no identifiable real patient",
+        "panel_structure": "3-panel vertical: 1 시작 자세 / 2 낮은 부하 활성 / 3 보상·비대칭",
+        "patient_setup": "성인 환자 복와위. 이마를 얇게 지지하고 어깨를 이완한다. 경추는 중립 또는 아주 약한 굴곡에서 시작한다. 목을 이미 젖힌 자세로 시작하지 않는다.",
+        "examiner_maneuver": "검사자는 환자 옆 또는 머리 쪽에서 양측 후방 경추의 극돌기 바로 바깥 근육 덩이에 손끝을 가볍게 둔다. 환자가 작은 범위의 저부하 경추 신전 또는 회전을 스스로 시행하는 동안 좌우 수축과 보상을 관찰한다. 강한 수동저항·깊은 압박은 없다.",
+        "positive_finding": "질환 양성 표시가 아니라 기능 저하를 표현한다. 3번 패널은 작은 과제에서 한쪽 후방 경부근 활성 비대칭, 상부 경추 과신전/턱 들림, 표층근 과활성 또는 조기 자세 붕괴 중 한두 가지를 명확히 보여준다.",
+        "interpretation": "후방 경부 신전근군의 협응·지구력·좌우 활성 패턴을 보는 기능평가다. 표면 촉진으로 deep semispinalis/multifidus를 개별 근육처럼 확정하지 않는다. 실제 층별 확인이 필요하면 C4 posterior extensor ultrasound를 사용한다.",
+        "limitation_safety": "촉진 기반 movement-control 평가는 주관성과 자세 표준화의 영향을 받는다. 비대칭·압통·thickness 차이만으로 특정 근육 또는 통증 원인을 확진하지 않는다. 급성 외상·진행성 신경학적 이상에서는 기능검사보다 원인평가를 우선한다.",
+        "overlay_policy": "2번 패널은 검사자의 가벼운 양측 후방 경추 촉진과 환자의 작은 저부하 신전/회전 방향을 보여준다. 3번은 보상·비대칭을 시각적으로 표현하되 임의 빨간 통증표시나 깊은 근육을 직접 손가락으로 특정하는 표현은 금지한다.",
+        "text_policy": "이미지 내부는 '1 시작 자세', '2 낮은 부하 활성', '3 보상 / 비대칭' 정도의 짧은 한국어만 사용. 특정 정상 수치·각도·초·진단 확정 문구 금지.",
+        "evidence_lock": [
+          "neck_extensor_activity_review_2025",
+          "cervical_muscle_reliability_review_2021",
+          "sensorimotor_reliability_review_2023"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-05",
+        "note": "ct097 clinical content corrected before generation: superficial palpation is an adjunct only; deep layer identification requires ultrasound when needed. Visual gates remain pending."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Fresh realistic candidate generation required",
+        "Must show low-load small cervical extension/rotation rather than large resisted extension",
+        "Examiner palpation must be light and bilateral over posterior cervical muscle mass; no strong manual resistance",
+        "Do not imply fingers can selectively identify deep semispinalis/multifidus",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct098",
