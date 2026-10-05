@@ -1,3 +1,14 @@
+## 2026-10-05 EXAM-REAL ct096 Candidate 1 prepared
+
+- ct084 ULNT1 remains APPROVED and canonical; do not regenerate or roll back.
+- ct096 Neck flexor endurance test Candidate 1 generated with gen_id `a49d9c8f-4890-4062-b247-24b212bcd900`.
+- Candidate shows: supine/light chin tuck start; low controlled head lift while maintaining chin tuck; posture breakdown/high head lift with superficial neck compensation.
+- Internal clinical/visual QA: PASS.
+- App Preview candidate path: `./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp`.
+- ct096 user Preview remains PENDING. Do not set APPROVED and do not merge to main without explicit user approval.
+- ct083 remains user Preview PENDING. ct088 Hoffmann remains mandatory deferred backlog and must not be deleted.
+- Production main remains frozen.
+
 ## 2026-10-05 ct084 ULNT1 fully approved and uploaded to app
 
 - Final source: `a_clean_clinical_instructional_triptych_image_in.png`, 1024x1536, SHA-256 `0ffc8fdba0f93285323c758324339634d205be04afcc94fe75648bdfa6c75d9b`, gen_id `495a39af-8ae8-44a2-be97-428edca53770`.
