@@ -32,7 +32,11 @@
     "cervical_facet_review_2025": "https://pubmed.ncbi.nlm.nih.gov/39846460/",
     "ccft_measurement_review_2020": "https://pubmed.ncbi.nlm.nih.gov/32313944/",
     "ccft_meta_2022": "https://pubmed.ncbi.nlm.nih.gov/35554598/",
-    "ulnt_meta_2023": "https://pubmed.ncbi.nlm.nih.gov/37356367/"
+    "ulnt_meta_2023": "https://pubmed.ncbi.nlm.nih.gov/37356367/",
+    "neck_flexor_endurance_reliability_2006": "https://pubmed.ncbi.nlm.nih.gov/16461172/",
+    "neck_flexor_endurance_norms_2011": "https://pubmed.ncbi.nlm.nih.gov/21333948/",
+    "neck_flexor_endurance_reliability_2014": "https://pubmed.ncbi.nlm.nih.gov/25585517/",
+    "neck_flexor_endurance_subclinical_2016": "https://pubmed.ncbi.nlm.nih.gov/27368756/"
   },
   "clinical_tests": [
     {
@@ -624,14 +628,47 @@
         "m006",
         "m001"
       ],
-      "setup": "앙와위에서 chin tuck 후 머리를 가볍게 들어 유지한다.",
-      "maneuver": "자세 유지시간과 SCM 보상, 통증을 기록한다.",
-      "positive_definition": "기대치 대비 현저한 유지시간 감소 또는 조기 보상을 impairment로 기록한다.",
-      "interpretation_note": "경부 굴곡근 지구력 평가로 재활 목표 설정에 사용한다.",
-      "limitation": "진단 특이 검사가 아니며 통증·피로·동기 영향을 받는다.",
+      "setup": "환자는 바로 눕는다. 먼저 턱을 살짝 당겨(craniocervical flexion, chin tuck) 목 뒤를 길게 만든 뒤, 그 자세를 유지하면서 머리를 검사대에서 아주 조금만 들어 올린다. 어깨는 이완하고 머리를 높이 들지 않는다.",
+      "maneuver": "검사자는 환자가 chin tuck을 유지한 채 머리를 낮게 들어 버티는 시간을 측정한다. 자세가 무너지거나 턱 당김이 풀리거나 머리가 검사대에 닿거나, 흉쇄유돌근(Sternocleidomastoid, SCM)이 과도하게 두드러지는 보상이 나타나거나, 통증 때문에 중단하면 검사를 종료한다. 보통 1회 값보다 반복 측정의 평균이 더 안정적일 수 있다.",
+      "positive_definition": "이 검사는 질환의 양성/음성을 가르는 검사가 아니다. 기대되는 연령·성별·기저 기능에 비해 유지시간이 현저히 짧거나, 초기부터 chin tuck을 잃고 SCM 과활성·머리 들기 과다·떨림 같은 보상이 반복되면 경부 굴곡근 지구력 저하로 기록한다.",
+      "interpretation_note": "경부 굴곡근 지구력 검사(Neck flexor endurance test)는 craniocervical flexion을 유지한 채 낮은 머리 들기 자세를 버티는 시간을 통해 경부 굴곡근의 지구력과 운동조절을 평가하는 기능검사다. 특정 경추 질환을 확진하거나 배제하는 검사는 아니다.",
+      "limitation": "유지시간은 성별, 통증, 피로, 동기, 검사 지시, 자세 표준화에 영향을 받는다. 2011년 건강 성인 연구에서는 평균 유지시간이 남성 38.9±20.1초, 여성 29.4±13.7초였지만 개인차가 매우 커 단일 cut-off를 모든 환자에게 적용하면 안 된다. 다른 연구에서도 측정오차가 작지 않아 추적평가 시 동일한 자세·지시·종료기준을 유지하는 것이 중요하다.",
       "related_diagnosis_concept_ids": [
         "d096"
-      ]
+      ],
+      "evidence_refs": [
+        "neck_flexor_endurance_reliability_2006",
+        "neck_flexor_endurance_norms_2011",
+        "neck_flexor_endurance_reliability_2014",
+        "neck_flexor_endurance_subclinical_2016"
+      ],
+      "interpretation_detail": {
+        "plain_language_explanation": "쉽게 말하면, 바로 누운 상태에서 턱을 살짝 당기고 머리를 바닥에서 아주 조금 든 채 얼마나 안정적으로 버틸 수 있는지 보는 검사다. 중요한 것은 머리를 높이 드는 것이 아니라 턱 당김을 유지하면서 목 앞쪽 깊은 근육을 오래 쓰는 능력이다.",
+        "what_it_assesses": "목 굴곡근의 지구력과 craniocervical flexion 자세를 유지하는 운동조절을 평가한다. 긴목근(longus colli)·긴머리근(longus capitis) 같은 심부 굴곡근의 기능을 반영하지만, SCM 같은 표재성 근육도 동작에 참여하므로 '심부근만 단독으로 측정하는 검사'로 과해석하지 않는다.",
+        "standard_protocol": "환자를 앙와위로 눕히고 chin tuck을 만든 뒤 그 자세를 유지하면서 머리를 검사대에서 아주 조금 들어 올린다. 검사자는 시간을 재면서 chin tuck 유지 여부, 머리 높이, SCM 과활성, 떨림, 통증을 관찰한다. 턱 당김이 풀리거나 머리가 검사대에 닿거나 보상이 뚜렷해지면 종료한다.",
+        "impairment_pattern": "초기부터 턱이 들리거나 chin tuck이 풀리고, 머리를 과도하게 높이 들거나 SCM이 강하게 튀어나오거나, 떨림과 자세 붕괴가 반복되면 운동조절과 지구력 저하를 시사한다. 단순히 버틴 시간이 짧다는 이유 하나만으로 원인을 특정하지 않는다.",
+        "positive_meaning": "연령·성별·기저 상태를 고려했을 때 유지시간이 현저히 짧고 자세 붕괴가 동반되면 경부 굴곡근 지구력 저하를 지지한다. 재활 목표 설정과 경과 추적에 유용하지만 특정 질환을 확진하지 않는다.",
+        "raises_suspicion_for": [
+          "만성 또는 반복성 경부통 환자의 경부 굴곡근 지구력 저하",
+          "머리·목 자세 유지가 어렵고 표재성 굴곡근 보상이 큰 운동조절 문제",
+          "경부 재활에서 지구력 훈련이 필요한 기능적 결손"
+        ],
+        "important_differentials": [
+          "경부 굴곡근 지구력 저하 ↔ 통증 때문에 조기 중단한 경우",
+          "운동조절 저하 ↔ 흉쇄유돌근(SCM) 우세 보상",
+          "경부 근육 기능 저하 ↔ 전신 피로·동기 부족·지시 이해 부족",
+          "경부 기능 저하 ↔ 신경학적 질환 또는 진행성 경추 병변"
+        ],
+        "what_it_cannot_rule_out": "정상 유지시간이라고 경추 신경근병증, 경추 후관절성 통증, 추간판성 통증, 경추성 두통 또는 퇴행성 경추척수병증을 배제할 수 없다. 반대로 유지시간이 짧다고 이 질환들을 확진할 수도 없다.",
+        "next_clinical_steps": [
+          "경추 능동 관절가동범위와 통증 패턴을 확인한다.",
+          "Craniocervical Flexion Test(CCFT)로 저부하 심부 굴곡근 조절을 별도로 평가한다.",
+          "방사통·저림이 있으면 Spurling, cervical distraction, Upper Limb Neurodynamic Test(ULNT), 근력·감각·반사를 추가한다.",
+          "손기능 저하·보행장애·병적반사 같은 척수 징후가 있으면 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 평가와 경추 MRI를 우선한다."
+        ],
+        "diagnostic_weight": "2006년 연구에서는 두 번의 측정값을 평균했을 때 검사자간 신뢰도가 대체로 양호했다. 2011년 건강 성인 126명 연구에서는 평균 유지시간이 남성 38.9초, 여성 29.4초였지만 표준편차가 크고 개인차가 넓었다. 2014년 연구에서도 재현성은 양호했지만 측정오차가 작지 않았다. 따라서 절대 cut-off 하나보다 동일 환자에서 표준화된 방법으로 반복 측정하고 자세 질과 유지시간을 함께 보는 것이 실용적이다.",
+        "interpretation_bottom_line": "이 검사는 '몇 초 버텼나'만 보는 검사가 아니다. chin tuck을 유지하면서 머리를 아주 낮게 든 자세를 끝까지 얼마나 안정적으로 유지하는지, SCM 보상과 자세 붕괴가 언제 나타나는지를 함께 봐야 한다."
+      }
     },
     {
       "clinical_test_id": "ct097",

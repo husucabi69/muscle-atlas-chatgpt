@@ -174,6 +174,22 @@ try{
   if(ct092Teaching.overflow>2)fail('ct092 teaching mobile horizontal overflow',String(ct092Teaching.overflow));
   pass('ct092 detailed teaching content visible');
 
+  const ct096Teaching=await page.evaluate(async ()=>{
+    await openClinicalModule('cervical',false);
+    await openClinicalTopic('exam',false);
+    await openClinicalItem('ct096',false);
+    const host=document.getElementById('clinicalDetailContent');
+    return{text:host?.textContent||'',overflow:(host?.scrollWidth||0)-(host?.clientWidth||0)};
+  });
+  for(const label of ['쉽게 이해하기','표준 시행 순서','잘못된 보상 / 기능 저하 패턴','이 검사 하나로 배제할 수 없는 것','다음에 이어서 확인할 검사·판단','진단적 무게']){
+    if(!ct096Teaching.text.includes(label))fail('ct096 teaching label '+label);
+  }
+  if(!ct096Teaching.text.includes('경부 굴곡근 지구력 검사'))fail('ct096 Korean test name');
+  if(!ct096Teaching.text.includes('머리를 검사대에서 아주 조금'))fail('ct096 low head-lift principle');
+  if(!ct096Teaching.text.includes('38.9')||!ct096Teaching.text.includes('29.4'))fail('ct096 normative-study context');
+  if(ct096Teaching.overflow>2)fail('ct096 teaching mobile horizontal overflow',String(ct096Teaching.overflow));
+  pass('ct096 detailed teaching content visible');
+
   const approvedRealistic=await page.evaluate(()=>physicalExamRealisticAssetsData?.profiles
     ?.filter(p=>p.status==='APPROVED'&&p.review?.user_preview==='PASS'&&p.composite_url)
     .map(p=>({id:p.clinical_test_id,url:p.composite_url}))||[]);

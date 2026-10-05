@@ -1,3 +1,11 @@
+## 2026-10-05 ct096 next EXAM-REAL task locked
+
+- ct084 ULNT1 is user-approved and locked; contralateral cervical side flexion is explicitly the final structural-differentiation step.
+- Next fresh cervical realistic task: ct096 Neck flexor endurance test.
+- ct096 clinical content and render brief are evidence-locked before image generation. Required visual distinction: maintain chin tuck + very low head lift, not a sit-up/high neck flexion.
+- No universal disease-positive seconds cutoff is allowed in the image. Normative values are context only because variability/measurement error are large.
+- Production main remains frozen.
+
 ## 2026-10-05 ct084 user approval and final-sequence lock
 
 - User explicitly approved ct084 ULNT1 Candidate 2: PASS.

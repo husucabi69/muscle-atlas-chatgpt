@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-010-ct084-approved",
+  "dataset_version": "2026.10.05-exam-real-011-ct096-brief-locked",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct084 ULNT1 is user-approved and locked. Continue independent roadmap work with ct091/ct092 candidate recovery or next fresh cervical EXAM-REAL item; ct083 remains PENDING until explicitly approved. Production remains frozen."
+    "next_action": "ct084 approved and locked. ct096 Neck flexor endurance test is the next fresh EXAM-REAL generation-ready item. ct083 remains user-preview PENDING; ct091/ct092 teaching is prepared but exact review binaries are not materialized. Production remains frozen."
   },
   "profiles": [
     {
@@ -4532,34 +4532,48 @@
       "title_en": "Neck flexor endurance test",
       "status": "PENDING_GENERATION",
       "pilot_batch": null,
-      "brief_status": "READY_FROM_CANONICAL_BASELINE",
+      "brief_status": "GENERATION_READY",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical education illustration; realistic adult patient and realistic clinician; clean neutral clinic background; no identifiable real patient",
         "panel_structure": "3-panel: 1 시작 자세 / 2 검사 시행 / 3 양성 판단",
-        "patient_setup": "앙와위에서 chin tuck 후 머리를 가볍게 들어 유지한다.",
-        "examiner_maneuver": "자세 유지시간과 SCM 보상, 통증을 기록한다.",
-        "positive_finding": "기대치 대비 현저한 유지시간 감소 또는 조기 보상을 impairment로 기록한다.",
-        "interpretation": "경부 굴곡근 지구력 평가로 재활 목표 설정에 사용한다.",
-        "limitation_safety": "진단 특이 검사가 아니며 통증·피로·동기 영향을 받는다.",
-        "overlay_policy": "검사자 손 위치, 힘/움직임 방향 화살표, 양성 증상 위치를 정확히 표시. 임의 수치·각도·횟수 생성 금지.",
-        "text_policy": "짧은 한국어 라벨만 사용. 교과서·인터넷 사진·실제 환자 사진 복제 금지."
+        "patient_setup": "성인 환자 앙와위. chin tuck으로 craniocervical flexion을 만든 뒤 머리를 검사대에서 아주 조금만 들어 올린다. 어깨는 이완하고 머리를 높이 들지 않는다.",
+        "examiner_maneuver": "검사자는 옆에서 시간과 자세를 관찰한다. chin tuck 유지, 머리 높이, SCM 과활성, 떨림, 통증, 머리가 다시 닿는 시점을 본다. 강한 수동 힘을 가하는 검사가 아니다.",
+        "positive_finding": "질환 양성 표시가 아니라 기능 저하를 표현한다. 3번 패널은 chin tuck 소실, 머리 높이 과다, SCM 과활성 또는 조기 자세 붕괴 중 하나를 명확히 보여준다.",
+        "interpretation": "경부 굴곡근 지구력과 운동조절 평가. 유지시간과 자세 질을 함께 기록하며 단일 초 cut-off로 특정 질환을 확진하지 않는다.",
+        "limitation_safety": "통증, 피로, 동기, 성별, 자세 표준화의 영향을 받는다. 급성 외상·진행성 신경학적 이상에서는 반복 endurance provocation보다 원인평가를 우선한다.",
+        "overlay_policy": "패널 1: 앙와위 chin tuck. 패널 2: chin tuck 유지 + 머리를 검사대에서 아주 조금 들어 올린 자세, 검사자가 옆에서 시간 관찰. 패널 3: chin tuck 소실/SCM 과활성/조기 자세 붕괴 중 하나. 과도한 목 굴곡이나 sit-up처럼 보이지 않게 한다.",
+        "text_policy": "이미지 내부는 '1 시작 자세', '2 낮게 들어 유지', '3 자세 붕괴/보상' 정도의 짧은 한국어 라벨만 사용. 특정 정상 초·병적 cut-off는 이미지에 넣지 않는다.",
+        "evidence_lock": [
+          "neck_flexor_endurance_reliability_2006",
+          "neck_flexor_endurance_norms_2011",
+          "neck_flexor_endurance_reliability_2014",
+          "neck_flexor_endurance_subclinical_2016"
+        ]
       },
       "review": {
-        "clinical_content": "PENDING",
+        "clinical_content": "PASS",
         "visual_pose": "PENDING",
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING"
+        "user_preview": "PENDING",
+        "reviewed_on": "2026-10-05",
+        "note": "ct096 clinical content and render brief evidence-locked. Generation may proceed; visual/user review gates remain pending."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
         "ai_raw_output_allowed_as_final": false,
         "human_edit_required": true,
         "copyright_evidence_required": true
-      }
+      },
+      "approval_blockers": [
+        "Fresh realistic candidate generation required",
+        "Must show low head lift with maintained chin tuck, not a sit-up or high cervical flexion",
+        "Functional impairment must be shown as posture breakdown/SCM compensation, not disease diagnosis",
+        "User Preview approval required before canonical promotion"
+      ]
     },
     {
       "clinical_test_id": "ct097",
