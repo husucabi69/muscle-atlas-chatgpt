@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Enforce development governance policy
+        run: node scripts/development-governance-policy-qa.mjs
       - name: Run Muscle Atlas global QA
         run: node scripts/global-qa.mjs
       - name: Run Cloudflare Pages portability QA
