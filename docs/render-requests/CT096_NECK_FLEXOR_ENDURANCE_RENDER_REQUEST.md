@@ -56,8 +56,10 @@ Do not show a disease diagnosis or arbitrary pain marking.
 - source SHA-256: `e672b44eb44b6b89993ea39f47afadffe8f477f34411910c7832ef45e17f8c97`
 - Preview asset: `./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp`
 - Preview dimensions: 320x480
-- Preview SHA-256: `0265a2fc211504f59c2ded1b2f21b0618cbf109034a8877dfdcdbc4d4166f7b6`
+- Preview SHA-256: `2c5429a9d15de304c80d94e3a3426fa241ebc034e721d8fbda286485c1eddaf4`
 - Internal clinical/visual QA: PASS
 - User Preview: PENDING
 - Canonical/APPROVED promotion: blocked until explicit user approval
 - Production main: unchanged
+
+- Binary transport integrity: repaired after first upload was 1 byte short; final 320x480 WebP = 7,800 bytes and is the only active Candidate 1 binary.
