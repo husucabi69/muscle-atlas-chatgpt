@@ -60,11 +60,13 @@ It does not override explicit user approval/rejection commands.
 7. **ct091 10-second grip-release**
    - Clinical content PASS.
    - Earlier Candidate 1 exists only as historical generation metadata; app binary not connected.
-   - Recover exact binary if available; otherwise create a fresh independent candidate with user review.
+   - 2026-10-06 recovery check: exact historical filename/title search in conversation/Library returned no match, and the current runtime contains no matching source file.
+   - Recover exact binary if it becomes available; otherwise create a fresh independent candidate with user review.
 8. **ct092 Cervical flexion-rotation**
    - Clinical content PASS.
    - Earlier Candidate 1 passed internal review but app binary is not connected.
-   - Recover exact binary if available; otherwise create a fresh independent candidate with user review.
+   - 2026-10-06 recovery check: exact historical filename/title search in conversation/Library returned no match, and the current runtime contains no matching source file.
+   - Recover exact binary if it becomes available; otherwise create a fresh independent candidate with user review.
 
 ## Execution rules
 - Approved assets are immutable unless user explicitly requests replacement.
