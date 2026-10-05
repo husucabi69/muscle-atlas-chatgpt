@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-012-ct084-final-upload-approved-binary-pending",
+  "dataset_version": "2026.10.05-exam-real-013-ct084-final-gen-approved",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct084 exact 1024x1536 user-approved PNG is locked by hash and awaits binary transfer; do not substitute older Candidate 2. Continue ct096 generation work independently. ct083 remains PENDING. Production remains frozen."
+    "next_action": "ct084 final visual is user-approved and hash-locked; exact binary transfer remains. Continue with ct096 Neck flexor endurance test generation and user review. Production remains frozen."
   },
   "profiles": [
     {
@@ -3289,7 +3289,7 @@
         "embedded_text": "PASS",
         "user_preview": "PASS",
         "reviewed_on": "2026-10-05",
-        "note": "User explicitly selected the uploaded 1024x1536 final PNG as the canonical ct084 image. This supersedes the earlier 240x360 Candidate 2. Exact uploaded binary is not yet in the repository, so canonical app promotion is blocked until binary transfer completes."
+        "note": "User explicitly approved the final generated 3-panel ULNT1 image shown immediately before the approval message. Exact source file is /mnt/data/3단계_팔_신경_검사_안내.png, 1024x1536, SHA-256 8a708874a227ea712bc9ffa625f130018c2c21df060f46e9b8719e68c8420322. This supersedes all earlier ct084 candidates."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3306,9 +3306,9 @@
         "note": "2026 systematic review: ULNT1 pooled sensitivity ~0.70 and specificity ~0.71 with low/very-low certainty; use only as an adjunct. 2023 systematic review/meta-analysis also found only fair diagnostic accuracy with high heterogeneity."
       },
       "approval_blockers": [
-        "Exact user-approved 1024x1536 PNG binary must be transferred into the repository before composite_url/APPROVED canonical promotion"
+        "Exact approved 1024x1536 source binary must be transferred into repository before composite_url/APPROVED canonical promotion"
       ],
-      "review_note": "USER FINAL APPROVAL PASS on 2026-10-05 for uploaded file 1791172601057.png (SHA-256 a89e832b...). Do not substitute the earlier 240x360 Candidate 2.",
+      "review_note": "USER FINAL APPROVAL PASS. Do not regenerate ct084. Keep the exact hash-locked final source; only binary transfer remains.",
       "candidate_history": [
         {
           "candidate_no": 1,
@@ -3377,15 +3377,16 @@
       },
       "final_user_approved_source": {
         "approved_on": "2026-10-05",
-        "source_kind": "conversation_upload",
-        "uploaded_filename": "1791172601057.png",
+        "source_kind": "conversation_generated_image",
+        "source_filename": "3단계_팔_신경_검사_안내.png",
         "dimensions": "1024x1536",
-        "sha256": "a89e832b66f673a1c5367173103149fb207a3185dfd4376f5bc99e1ab865e078",
+        "sha256": "8a708874a227ea712bc9ffa625f130018c2c21df060f46e9b8719e68c8420322",
+        "gen_id": "3cc5780d-bfb2-4583-8c4a-4604896a5a21",
         "visual_lock": [
           "3-panel composition",
-          "panel 2 shoulder position accepted by user",
-          "panel 3 contralateral cervical side-flexion arrow accepted by user",
-          "this exact uploaded image supersedes previous ct084 approved/candidate binaries"
+          "panel 2 and panel 3 hand position accepted by user",
+          "panel 3 contralateral cervical side flexion accepted by user",
+          "final image supersedes all earlier ct084 variants"
         ],
         "disposition": "USER_FINAL_APPROVAL_PASS_BINARY_TRANSFER_PENDING"
       }
