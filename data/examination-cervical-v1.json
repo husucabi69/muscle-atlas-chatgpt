@@ -241,18 +241,53 @@
       "target_structure_ids": [
         "j018"
       ],
-      "setup": "중립 좌위에서 좌우 회전 ROM을 측정한다.",
-      "maneuver": "증상측 회전 제한과 증상 재현을 기록한다.",
-      "positive_definition": "현저한 비대칭 또는 약 60° 미만 회전 제한이 radiculopathy cluster 맥락에서 관찰되면 기록한다.",
-      "interpretation_note": "단독진단이 아니라 Spurling, distraction, ULNT 등과 묶어 해석한다.",
-      "limitation": "연령·통증·퇴행성 변화에 따라 ROM이 달라질 수 있다.",
+      "setup": "환자는 등받이 있는 의자에 편안히 앉고 어깨를 이완하며 머리를 중립에 둔다. 검사 전 좌우 회전 시 현재 목통증·팔 방사통과 어지럼/신경학적 증상 여부를 확인한다.",
+      "maneuver": "환자가 턱을 과도하게 들거나 숙이지 않은 채 머리를 왼쪽과 오른쪽으로 천천히 능동 회전한다. 검사자는 몸통 회전·어깨 움직임 같은 보상을 막고 좌우 가동범위와 증상 재현을 비교한다. 필요하면 고니오미터·CROM 장비 또는 동일한 표준화 방법으로 각도를 기록한다.",
+      "positive_definition": "한쪽 회전이 반대쪽보다 뚜렷하게 제한되거나 익숙한 목/상지 증상이 재현되면 이상 소견으로 기록한다. 역사적 radiculopathy cluster에서 증상측 회전 약 60° 미만이 한 항목으로 사용됐지만, 이를 독립적인 보편적 병적 cut-off로 사용하지 않는다.",
+      "interpretation_note": "경추 회전 가동범위는 cervical radiculopathy, facet/degenerative change, cervicogenic headache 등 여러 상태에서 줄 수 있는 비특이적 기능소견이다. Radiculopathy에서는 Spurling, distraction, ULNT와 신경학적 검사에 보조적으로 통합한다.",
+      "limitation": "연령, 통증, 공포-회피, 퇴행성 변화, 자세, 검사도구에 따라 ROM이 달라진다. 제한 방향만으로 병변 분절·원인·신경근 수준을 확정할 수 없고 정상 ROM도 radiculopathy를 배제하지 않는다.",
       "related_diagnosis_concept_ids": [
         "d089",
         "d093"
       ],
       "evidence_refs": [
         "radic_cluster_2026"
-      ]
+      ],
+      "interpretation_detail": {
+        "plain_language_explanation": "쉽게 말하면, 앉은 자세에서 몸통은 그대로 두고 머리만 왼쪽과 오른쪽으로 돌려 어느 쪽이 얼마나 잘 돌아가는지와 익숙한 증상이 생기는지를 비교하는 검사다.",
+        "what_it_assesses": "경추의 능동 회전 범위, 좌우 대칭성, end-range에서의 익숙한 목/팔 증상 재현과 보상동작을 평가한다. 여러 분절과 관절·근육이 함께 만드는 전체 기능 결과다.",
+        "precheck": "급성 외상, 의심되는 불안정성, 갑작스러운 심한 비전형적 두통/목통증, 새로운 국소 신경학적 이상, 심한 어지럼이나 척수병증 red flag가 있으면 끝범위 ROM 측정보다 원인 평가를 우선한다.",
+        "examiner_position_and_hands": "검사자는 환자 정면 또는 뒤에서 몸통·어깨가 따라 돌지 않는지 관찰한다. 강한 수동 회전을 가하지 않는다.",
+        "standard_protocol": "중립 좌위에서 환자가 스스로 한쪽 끝범위까지 천천히 회전한 뒤 중립으로 돌아오고 반대쪽을 반복한다. 턱 들기/숙이기, 몸통 회전, 어깨 회전을 최소화한다. 좌우 각도, 증상 재현, 움직임 질을 기록하고 반복 측정 시 같은 도구·자세를 사용한다.",
+        "force_direction": "능동검사가 기본이다. 환자가 스스로 좌우 회전하고 검사자는 강제 끝범위 회전을 하지 않는다.",
+        "positive_meaning": "뚜렷한 좌우 비대칭 또는 증상측 회전 제한은 기계적 경추 기능저하를 보여주며 cervical radiculopathy cluster 맥락에서는 보조 정보가 된다. 단독 진단소견은 아니다.",
+        "raises_suspicion_for": [
+          "경추 신경근병증에서의 제한된 증상측 회전",
+          "경추 퇴행성 변화 또는 후관절 관련 움직임 제한",
+          "상부 경추 기능장애와 연관된 두통에서의 회전 제한"
+        ],
+        "important_differentials": [
+          "radiculopathy ↔ 단순 기계적 경부통",
+          "관절성 제한 ↔ 근육성 방어/통증 회피",
+          "일반 경추 회전 제한 ↔ 상부 경추 C1–C2 특이 평가가 필요한 cervicogenic headache",
+          "경추성 증상 ↔ vestibular/vascular 또는 기타 신경학적 원인"
+        ],
+        "what_it_cannot_rule_out": "정상 회전 범위만으로 cervical radiculopathy, early myelopathy, disc/facet pathology를 배제할 수 없다. 제한이 있다고 특정 root level이나 구조를 확정할 수도 없다.",
+        "next_clinical_steps": [
+          "Spurling, cervical distraction, ULNT와 C5–T1 신경학적 선별을 임상문맥에 맞게 조합한다.",
+          "상부 경추성 두통이 의심되면 flexion-rotation test를 별도로 시행한다.",
+          "객관적 근력저하·감각저하·반사 변화가 지속/진행하면 영상 또는 전기진단 평가를 고려한다.",
+          "척수병증 또는 다른 red flag가 있으면 단순 ROM 평가보다 MRI/전문의 평가를 우선한다."
+        ],
+        "diagnostic_weight": "약 60° 미만의 증상측 회전은 고전적 cervical radiculopathy clinical prediction cluster의 한 구성요소로 알려져 있지만, 최신 진단정확도 검토에서는 개별 physical test와 cluster의 근거 확실성이 제한적이다. 따라서 숫자 하나를 독립적인 정상/병적 경계처럼 쓰지 않는다.",
+        "common_errors": [
+          "몸통이 같이 돌아가는데 경추 ROM으로 기록하기",
+          "턱을 들거나 숙여 다른 움직임으로 범위를 보상하기",
+          "검사자가 끝범위를 강제로 밀어 능동 ROM을 왜곡하기",
+          "60°를 모든 연령에서 절대 cut-off로 사용하기"
+        ],
+        "interpretation_bottom_line": "핵심은 좌우 회전의 양·대칭성·증상 재현을 같은 자세에서 비교하는 것이다. radiculopathy 진단에서는 ROM 숫자 하나보다 신경학적 소견과 Spurling/distraction/ULNT 조합이 더 중요하다."
+      }
     },
     {
       "clinical_test_id": "ct087",
