@@ -988,6 +988,17 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 - 실제 환자/EMR/PHI를 Atlas에 넣지 않음
 - 이 Refresh 트랙은 **비선점(non-preemptive)** 운영이 원칙이다. 회귀·안전·release blocker가 아니면 현재 Active Stage보다 먼저 끼워 넣지 않는다.
 
+## EXAM-REAL-001 cervical wave 2 checkpoint — 2026-10-06
+
+- ct083: Candidate 2 internal PASS / user Preview PENDING.
+- ct088: Candidate 13 repository asset restored / internal PASS / user Preview PENDING. Do not regenerate while awaiting review.
+- ct085 → ct086 → ct087: clinical teaching and realistic generation briefs locked; all three are now inside the active cervical pilot in that order.
+- ct089: user-approved exact-binary recovery backlog; preserve approved source hashes and do not substitute a new image as if it were the approved original.
+- ct091/ct092: clinical content preserved; exact binary recovery or fresh independently reviewed candidate still required before canonical promotion.
+- ct084/ct090/ct093/ct094/ct095/ct096/ct097/ct098: approved assets locked; no regeneration without explicit user request.
+- CI contracts now protect ct085–ct089 content/lifecycle plus ct088 Candidate 13 binary hash and runtime rendering.
+- Production `main` remains frozen.
+
 # 현재 바로 시작할 순서
 
 **EXAM-001 148/148 COMPLETE → 경량 Deployment Safety Gate 2/2 COMPLETE → EXAM-REAL-001 경추 실사형 pilot → Stage 23B 실사형 운동 일러스트 잔여 제작/검수 → Stage 23B-Disease Rehab → Stage 23B-Anatomy IP Pilot + IP-REG Filing 1 → Stage 23B-3D Anatomy Pilot → Stage 23B-Motion Animation Pilot → Stage 23C → Stage 24**
