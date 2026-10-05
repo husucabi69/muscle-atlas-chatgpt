@@ -46,9 +46,9 @@
 - ct091/ct092 remain binary/recovery/review backlog.
 - Production `main` remains frozen.
 
-# CURRENT OVERRIDE — 2026-10-05 20:46+ KST
+# HISTORICAL OVERRIDE — 2026-10-05 20:46+ KST — SUPERSEDED BY 2026-10-06 TOP BLOCK
 
-> This block is authoritative for the current handoff. Older same-day sections below are historical audit entries and may contain superseded `PENDING` wording.
+> Historical audit only. The 2026-10-06 ct088 restoration block at the top of this file is authoritative. Entries below may contain superseded lifecycle wording.
 
 - Manual development: **25~30 min actual work**.
 - Minute 30: no new feature / structure / asset generation.
