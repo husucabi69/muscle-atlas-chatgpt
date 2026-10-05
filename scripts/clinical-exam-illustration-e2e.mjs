@@ -132,6 +132,25 @@ try{
   if(ct084Teaching.overflow>2)fail('ct084 teaching mobile horizontal overflow',String(ct084Teaching.overflow));
   pass('ct084 detailed teaching content visible');
 
+  const ct091Teaching=await page.evaluate(async ()=>{
+    await openClinicalModule('cervical',false);
+    await openClinicalTopic('exam',false);
+    await openClinicalItem('ct091',false);
+    const host=document.getElementById('clinicalDetailContent');
+    return{
+      text:host?.textContent||'',
+      overflow:(host?.scrollWidth||0)-(host?.clientWidth||0)
+    };
+  });
+  for(const label of ['쉽게 이해하기','표준 시행 순서','잘못된 보상 / 기능 저하 패턴','이 검사 하나로 배제할 수 없는 것','다음에 이어서 확인할 검사·판단','진단적 무게']){
+    if(!ct091Teaching.text.includes(label))fail('ct091 teaching label '+label);
+  }
+  if(!ct091Teaching.text.includes('10초 손 쥐기-펴기 검사'))fail('ct091 Korean test name');
+  if(!ct091Teaching.text.includes('10-second grip-and-release test'))fail('ct091 English full test name');
+  if(!ct091Teaching.text.includes('완전히 쥐고 완전히 펴'))fail('ct091 full grip-release teaching principle');
+  if(ct091Teaching.overflow>2)fail('ct091 teaching mobile horizontal overflow',String(ct091Teaching.overflow));
+  pass('ct091 detailed teaching content visible');
+
   const approvedRealistic=await page.evaluate(()=>physicalExamRealisticAssetsData?.profiles
     ?.filter(p=>p.status==='APPROVED'&&p.review?.user_preview==='PASS'&&p.composite_url)
     .map(p=>({id:p.clinical_test_id,url:p.composite_url}))||[]);

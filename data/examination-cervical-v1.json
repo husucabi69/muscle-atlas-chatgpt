@@ -374,14 +374,14 @@
     },
     {
       "clinical_test_id": "ct091",
-      "name_ko": "10초 grip-release / 손 dexterity 선별",
-      "name_en": "10-second grip-release / hand dexterity screen",
+      "name_ko": "10초 손 쥐기-펴기 검사",
+      "name_en": "10-second grip-and-release test",
       "category": "myelopathy_screen",
       "target_structure_ids": [],
-      "setup": "환자는 편안히 앉고 검사할 손을 몸 앞에 둔다. 손목은 가능한 중립에 가깝게 유지하고 손가락 전체가 보이도록 한다.",
-      "maneuver": "검사자가 완전한 주먹 쥐기와 손가락 완전 펴기를 시범으로 보인 뒤, 환자에게 10초 동안 가능한 한 빠르게 grip-release를 반복하게 한다. 반복 횟수와 함께 리듬, 손가락 완전 신전, release 지연, 보상성 손목 움직임을 관찰한다.",
-      "positive_definition": "연령·성별·기저 손 기능을 고려했을 때 뚜렷한 반복 속도 저하, 불규칙성, 불완전한 손가락 신전 또는 release 장애가 반복되면 이상 소견으로 기록한다. 단일 고정 반복횟수만으로 양성·음성을 확정하지 않는다.",
-      "interpretation_note": "10초 grip-and-release test는 손의 빠른 반복운동과 dexterity를 보는 기능 선별검사다. 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)의 myelopathy hand 평가에 유용하지만 단독 진단검사는 아니다.",
+      "setup": "환자는 편안히 앉고 검사할 손을 몸 앞에 둔다. 손목은 가능한 중립에 가깝게 유지하고 손가락 전체가 잘 보이도록 한다. 검사자는 통증, 관절염, 구축, 수근관증후군, 말초신경병증, 이전 손수술처럼 결과에 영향을 줄 수 있는 손·손목 상태를 먼저 확인한다.",
+      "maneuver": "검사자가 '완전히 주먹 쥐기 → 손가락 완전히 펴기'를 한 번 보여준 뒤, 환자에게 10초 동안 가능한 한 빠르고 크게 반복하도록 한다. 단순히 주먹을 세게 쥐는 악력검사가 아니며, 매 반복에서 손가락이 충분히 펴지는지, 특히 척측 손가락의 release가 늦지 않는지, 리듬이 무너지거나 손목으로 보상하지 않는지를 함께 본다.",
+      "positive_definition": "연령·성별·기저 손 기능을 고려했을 때 반복 속도가 뚜렷하게 느리거나 리듬이 불규칙하고, 손가락을 완전히 펴지 못하거나 release 지연이 반복되면 이상 소견으로 기록한다. '10초에 몇 회 이하' 같은 하나의 고정 cut-off만으로 퇴행성 경추척수병증을 확진하거나 배제하지 않는다.",
+      "interpretation_note": "10초 손 쥐기-펴기 검사(10-second grip-and-release test)는 빠른 반복운동과 손 dexterity를 보는 기능 선별검사다. 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)의 myelopathy hand를 포착하는 데 도움이 되지만, 단독 진단검사는 아니다.",
       "limitation": "정상 반복횟수는 연령과 성별 영향을 받으며 손가락 관절염, 수근관증후군, 말초신경병증, 통증, 근력저하, 이전 손수술 등도 성능을 떨어뜨릴 수 있다. 음성이라고 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 배제할 수 없다.",
       "related_diagnosis_concept_ids": [
         "d090"
@@ -393,7 +393,10 @@
         "grip_release_2026_level"
       ],
       "interpretation_detail": {
-        "what_it_assesses": "10초 grip-and-release test는 10초 동안 손을 가능한 한 빠르게 완전히 쥐었다가 완전히 펴는 반복운동을 통해 손 dexterity, 반복 속도, 리듬과 finger release를 평가한다. 단순 악력검사가 아니다.",
+        "plain_language_explanation": "쉽게 말하면, 10초 동안 손을 '완전히 쥐었다가 완전히 펴는 동작'을 최대한 빠르게 반복하게 해서 손가락이 빠르고 매끄럽게 움직이는지 보는 검사다. 핵심은 악력이 아니라 손가락을 제때 완전히 펴는 능력과 반복 리듬이다. 목 척수 기능이 떨어지면 손이 둔해지고 특히 손가락을 펴고 놓는 동작이 느려질 수 있다.",
+        "what_it_assesses": "10초 손 쥐기-펴기 검사는 10초 동안 완전 grip과 완전 finger release를 반복하게 하여 손 dexterity, 반복 속도, 리듬, finger extension과 release를 평가한다. 단순 악력검사가 아니라 빠른 반복 손기능을 보는 기능 선별검사다.",
+        "standard_protocol": "환자는 편안히 앉고 손목을 가능한 중립에 두며 손가락 전체가 보이게 한다. 검사자가 완전한 주먹 쥐기와 완전한 손가락 펴기를 시범으로 보여준 뒤 10초 동안 가능한 한 빠르게 반복하게 한다. 반복 횟수뿐 아니라 각 반복이 끝까지 완전한지, 리듬이 일정한지, 손가락 release가 지연되는지, 손목 보상이 생기는지 기록한다. 좌우 차이도 함께 비교하면 해석에 도움이 된다.",
+        "impairment_pattern": "이상 패턴은 단순히 횟수가 적은 것 하나가 아니라, 반복 속도 저하, 리듬 불규칙, 손가락 완전 신전 실패, 특히 척측 손가락의 release 지연, 반복할수록 동작이 작아지거나 손목으로 보상하는 소견이 함께 나타나는 것이다.",
         "positive_meaning": "반복 횟수 저하, 리듬 불규칙, 손가락 완전 신전 실패 또는 release 지연은 myelopathy hand 가능성을 높이는 기능적 단서다. 특히 다른 상위운동신경원(Upper Motor Neuron, UMN) 징후와 함께 있으면 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 의심도가 올라간다.",
         "raises_suspicion_for": [
           "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)의 hand clumsiness/myelopathy hand",
@@ -406,16 +409,16 @@
           "퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) ↔ 손/손목 수술 후 기능저하 또는 국소 근력저하",
           "중추성 dexterity 저하 ↔ 단순 피로·지시이해 부족·비최대 노력"
         ],
-        "what_it_cannot_rule_out": "정상 또는 비교적 빠른 grip-release 성능만으로 초기 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 배제할 수 없다. 반대로 느린 결과도 연령·성별과 손의 동반질환 영향을 받을 수 있다.",
+        "what_it_cannot_rule_out": "정상 또는 비교적 빠른 grip-release 성능만으로 초기 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM)을 배제할 수 없다. 반대로 느린 결과도 연령·성별·손가락 관절질환·통증·말초신경병증·이전 수술의 영향을 받을 수 있으므로 이 검사 하나로 원인을 확정할 수 없다.",
         "next_clinical_steps": [
-          "Hoffmann, Trömner, inverted supinator, Babinski, clonus 등 병적반사와 심부건반사를 함께 본다.",
+          "Hoffmann 검사, Trömner 검사, inverted supinator sign, Babinski 검사, clonus 등 병적반사와 심부건반사를 함께 본다.",
           "tandem gait, 일반 보행, 균형과 하지 경직성을 확인한다.",
           "다분절 근력·감각, 고유감각(proprioception), 손 intrinsic function과 일상 손기능 저하를 확인한다.",
           "말초신경병증이 의심되면 임상 맥락에 따라 근전도검사(Electromyography, EMG)와 신경전도검사(Nerve Conduction Study, NCS)를 고려한다.",
           "진행성 손기능 저하 또는 다른 척수 징후가 함께 있으면 경추 자기공명영상(Magnetic Resonance Imaging, MRI) 및 척추 전문의 평가를 고려한다."
         ],
-        "diagnostic_weight": "건강한 성인 1,230명을 조사한 연구에서는 10초 반복횟수가 나이와 성별의 영향을 크게 받았고 고령군에서는 20회 미만이 평균적으로 관찰될 수 있었다. 따라서 '20회 미만=병적' 같은 단일 cut-off를 모든 연령에 적용하면 안 된다. 최근 퇴행성 경추척수병증(Degenerative Cervical Myelopathy, DCM) 연구들은 반복횟수 외에도 finger kinematics와 severity 분류를 탐색하고 있다.",
-        "interpretation_bottom_line": "10초 grip-and-release test는 빠르고 유용한 손 dexterity 선별검사지만 단독 확진검사가 아니다. 연령·성별·손 동반질환을 고려하고 다른 상위운동신경원(Upper Motor Neuron, UMN) 징후와 보행·감각·근력 소견을 함께 해석한다."
+        "diagnostic_weight": "건강한 성인 1,230명을 조사한 연구에서는 10초 반복횟수가 나이와 성별의 영향을 크게 받았고 고령군에서는 20회 미만도 평균적으로 관찰될 수 있었다. 따라서 '20회 미만이면 병적' 같은 단일 cut-off를 모든 연령에 적용하면 안 된다. 최근 퇴행성 경추척수병증 연구들은 반복횟수뿐 아니라 finger kinematics와 severity 분류를 함께 탐색하고 있다.",
+        "interpretation_bottom_line": "이 검사는 '몇 번 했나'만 보는 검사가 아니다. 완전히 쥐고 완전히 펴는 동작이 빠르고 규칙적으로 유지되는지, 특히 손가락 release가 늦어지지 않는지를 보며, 이상이 있으면 다른 상위운동신경원 징후·보행·감각·근력과 함께 퇴행성 경추척수병증 가능성을 판단한다."
       }
     },
     {

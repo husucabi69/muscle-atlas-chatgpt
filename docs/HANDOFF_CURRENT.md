@@ -1,3 +1,10 @@
+## 2026-10-05 EXAM-REAL ct091 teaching prepared
+
+- ct084 binary repair is complete; user visual approval remains pending.
+- Independent next work: ct091 10-second grip-and-release teaching has been expanded for patient / trainee / clinician use without promoting any unreviewed image.
+- ct091 Candidate 1 remains the only visual review source recorded in history; exact binary is not currently materialized in the repository, so do not fabricate approval or regenerate while recovery remains possible.
+- Production main remains frozen.
+
 ## 2026-10-05 ct084 mobile blank-image root-cause repair
 
 - User device screenshots proved ct084 Candidate 2 rendered as a blank card and its direct WebP showed only a thin top strip.
