@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.05-exam-real-ct098-approved",
+  "dataset_version": "2026.10.05-governance-lock-ct088-deferred",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -50,7 +50,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct084/ct096/ct097/ct098 are APPROVED. ct088 Hoffmann remains mandatory revisit because the recent generated images were clinically wrong and were never connected. Production main frozen."
+    "next_action": "Governance timing/reporting lock is active. ct084/ct096/ct097/ct098 APPROVED. ct088 mandatory Hoffmann backlog remains deferred until a clinically correct candidate can be generated. Production main frozen."
   },
   "profiles": [
     {
@@ -3510,9 +3510,9 @@
       "region": "cervical",
       "title_ko": "Hoffmann 징후",
       "title_en": "Hoffmann sign",
-      "status": "PENDING_GENERATION",
+      "status": "INCOMPLETE_DEFERRED_MUST_REVISIT",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "GENERATION_READY",
+      "brief_status": "LOCKED_BUT_VISUAL_NOT_APPROVED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3532,9 +3532,9 @@
         "examiner_hand_position": "PENDING",
         "force_direction": "PENDING",
         "embedded_text": "PENDING",
-        "user_preview": "PENDING",
+        "user_preview": "DEFERRED",
         "reviewed_on": "2026-10-05",
-        "note": "Mandatory Hoffmann revisit reactivated. Clinical content remains PASS; fresh realistic visual required with exact third-digit PIP stabilization, rapid DIP palmward flexion/release, and same-hand thumb/index flexion response."
+        "note": "Mandatory Hoffmann backlog remains deferred until a clinically correct hand-only candidate is generated. Four recent image attempts were wrong examinations/poses and were never connected to the app. Clinical content and exact render brief remain locked."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3550,14 +3550,14 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "Fresh realistic candidate generation required",
+        "MANDATORY BACKLOG: regenerate Hoffmann realistic asset later",
         "Exact third digit must be used",
         "PIP stabilization and DIP motion must be visually distinct",
         "DIP motion must be palmward rapid flexion followed by immediate release/rebound",
         "Positive panel must show same-hand thumb and/or index flexion; do not substitute ring/little finger flexion",
-        "User Preview approval required before canonical promotion"
+        "Fresh user approval required before canonical promotion"
       ],
-      "review_note": "MANDATORY_UNFINISHED_HOMEWORK. Do not mark complete or remove from queue. Resume only when roadmap reaches the deferred-revisit slot or user explicitly reopens it.",
+      "review_note": "MANDATORY DEFERRED BACKLOG. Clinical brief is locked; no valid visual candidate exists. Wrong generated images must not be reused or approved.",
       "candidate_history": [
         {
           "candidate_no": 1,
