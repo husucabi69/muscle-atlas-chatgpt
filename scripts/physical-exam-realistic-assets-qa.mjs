@@ -4,6 +4,14 @@ import crypto from 'node:crypto';
 const read=p=>fs.readFileSync(p,'utf8');
 const json=p=>JSON.parse(read(p));
 const sha256=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const webpIntegrity=p=>{
+  const b=fs.readFileSync(p);
+  if(b.length<20||b.subarray(0,4).toString('ascii')!=='RIFF'||b.subarray(8,12).toString('ascii')!=='WEBP'){
+    return {ok:false,reason:'missing RIFF/WEBP header',actual:b.length,declared:null};
+  }
+  const declared=b.readUInt32LE(4)+8;
+  return {ok:declared===b.length,reason:declared===b.length?'ok':'truncated-or-overlong',actual:b.length,declared};
+};
 const reg=json('data/physical-exam-realistic-assets-v1.json');
 const index=read('index.html');
 const examFiles=[
@@ -87,6 +95,10 @@ for(const p of approved){
     const hash=sha256(path);
     const expected=meta.preview_webp_sha256||meta.approved_webp_sha256||meta.approved_svg_sha256||'';
     if(expected) check(p.clinical_test_id+' approved asset hash matches registry',hash===expected,hash);
+    if(path.endsWith('.webp')){
+      const wi=webpIntegrity(path);
+      check(p.clinical_test_id+' approved WebP RIFF length is complete',wi.ok,JSON.stringify(wi));
+    }
   }
 }
 
@@ -104,6 +116,21 @@ const candidatePending=profiles.filter(p=>p.status==='CANDIDATE_GENERATED_USER_P
 check('Generated candidates remain user-preview pending and non-canonical',candidatePending.every(p=>
   p.review?.user_preview==='PENDING'&&!p.composite_url&&!(p.approved_asset||p.user_approved_asset)
 ),candidatePending.map(p=>p.clinical_test_id).join(','));
+
+for(const p of candidatePending){
+  const path=String(p.preview_candidate?.preview_asset_path||'').replace(/^\.\//,'');
+  if(!path)continue;
+  check(p.clinical_test_id+' pending candidate asset exists',fs.existsSync(path),path);
+  if(fs.existsSync(path)){
+    const expected=p.preview_candidate?.preview_webp_sha256||'';
+    const hash=sha256(path);
+    if(expected)check(p.clinical_test_id+' pending candidate hash matches registry',hash===expected,hash);
+    if(path.endsWith('.webp')){
+      const wi=webpIntegrity(path);
+      check(p.clinical_test_id+' pending candidate WebP RIFF length is complete',wi.ok,JSON.stringify(wi));
+    }
+  }
+}
 
 check('Runtime supports canonical approved composite_url',index.includes("p?.status==='APPROVED'&&p?.composite_url"));
 check('Runtime supports both approval metadata schemas',index.includes("p?.approved_asset||p?.user_approved_asset"));
