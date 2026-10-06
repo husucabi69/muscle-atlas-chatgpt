@@ -1,3 +1,24 @@
+# CURRENT OVERRIDE — 2026-10-06 ct085 HD canonical approved + textbook interpretation + HD migration queue
+
+> This block is authoritative for the current handoff and supersedes older ct085 Candidate 1 wording below.
+
+- ct085 Shoulder abduction relief latest high-resolution illustration is **USER APPROVED and canonical APPROVED**.
+- Canonical asset: `./assets/physical-exam-realistic/approved/ct085-shoulder-abduction-relief-gen-1db0cd0f-approved-hd.webp`.
+- Approved gen_id: `1db0cd0f-8b06-4d13-acf2-072ee5de3351`.
+- Canonical WebP: **1024x1536 / 122,218 bytes**.
+- SHA-256: `a9d7e97588283739117a1e36d74994b8604c66e37d01b3ed4749cdd7d9fb7de2`.
+- Git blob SHA-1: `685beeb1c4b52a36514db4ab76ce7e11f2688176`.
+- Exact source-to-GitHub base64 was compared end-to-end and matched.
+- Earlier manually staged ct085 chunk files were found to be non-contiguous and were deleted **before any materialization trigger**; no corrupt binary became canonical.
+- HD policy is locked: new raster canonical illustrations use high-resolution source assets (portrait minimum 1024x1536, landscape minimum 1536x1024); thumbnail-size derivatives are not canonical.
+- Existing low-resolution approved raster migration queue: **ct082, ct084, ct095, ct096, ct097, ct098 = HD_UPGRADE_REQUIRED**.
+- Resolution-independent approved vector assets: **ct090, ct093, ct094 = VECTOR_EXEMPT**.
+- Physical Examination textbook narrative field `interpretation_detail.textbook_interpretation_narrative` is active; ct085/ct086/ct087 have detailed prose.
+- Next active fresh generation target: **ct086 Cervical rotation ROM**; ct087 follows.
+- ct088 Hoffmann remains **INCOMPLETE_DEFERRED_MUST_REVISIT**.
+- Production `main` remains frozen.
+- Manual governance remains 25~30 min development / 30~35 min wrap-up only / 35 min HARD STOP.
+
 # CURRENT OVERRIDE — 2026-10-06 ct085 Candidate 1 Preview connected + 3-layer reporting locked
 
 > This block is authoritative for the current handoff.
