@@ -151,3 +151,11 @@ Babinski 자극경로 교정에서 발생한 반복 실패를 재발시키지 �
 - 관절 약어도 동일하다: `근위지절간관절(Proximal Interphalangeal Joint, PIP)`, `원위지절간관절(Distal Interphalangeal Joint, DIP)`.
 - 이미지 내부 공간이 매우 좁으면 풀네임은 이미지 바로 아래 HTML 설명에 붙이되, 약어만 보고 의미를 추측해야 하는 상태로 두지 않는다.
 - 새 콘텐츠와 수정 콘텐츠부터 강제 적용하고, 기존 사용자 노출 콘텐츠는 해당 항목을 수정할 때 함께 정리한다.
+
+## 11. 고해상도 canonical 자산 — LOCKED 2026-10-06
+
+- raster realistic illustration의 canonical 승인 자산은 세로형 **최소 1024×1536 px**, 가로형 **최소 1536×1024 px**를 기본으로 한다.
+- 240×360 / 320×480 / 600×900는 preview thumbnail 또는 캐시 파생본으로만 사용한다.
+- canonical asset은 고해상도 원본 또는 고해상도 품질 보존 파생본이어야 하며, 앱 CSS가 화면에 맞춰 축소한다.
+- 단순 nearest/bilinear 확대처럼 실제 선명도를 회복하지 못하는 pixel-only upscaling은 HD 완료로 인정하지 않는다.
+- 기존 저해상도 승인 raster는 순차적으로 HD migration한다.
