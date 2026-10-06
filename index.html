@@ -2566,6 +2566,14 @@ function clinicalExamInterpretationDetailHtml(test){
     (d.interpretation_bottom_line?'<div class="clinical-redflag" style="margin-top:10px"><b>해석의 핵심</b><br>'+esc(d.interpretation_bottom_line)+'</div>':'')+
     '</div>';
 }
+function clinicalExamEvidenceHtml(test,moduleKey){
+  const sourceMap=clinicalModuleData(moduleKey)?.source_refs||{};
+  const refs=(test?.evidence_refs||[]).map(id=>({id,url:sourceMap[id]})).filter(x=>x.url);
+  if(!refs.length)return '';
+  return '<div class="clinical-exam-section" data-exam-evidence="'+esc(test.clinical_test_id||'')+'"><h4>근거</h4><div class="clinical-exam-links">'+
+    refs.map(x=>'<a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.id)+'</a>').join('')+
+    '</div><p style="margin-top:8px;color:var(--muted);font-size:.9rem">근거 문헌은 검사 결과를 단독 확진·배제로 사용하지 않고 병력·신경학적 진찰·다른 검사와 함께 해석하기 위한 참고자료입니다.</p></div>';
+}
 function clinicalExamDetailHtml(test,moduleKey){
   const preset=clinicalExamIllustrationPreset(test);
   const targets=(test.target_structure_ids||[]).map(sid=>clinicalEntityLabel(sid)+' ('+sid+')').filter(Boolean);
@@ -2586,6 +2594,7 @@ function clinicalExamDetailHtml(test,moduleKey){
     '<div class="clinical-exam-section"><h4>양성 기준</h4><p>'+esc(test.positive_definition||'')+'</p></div>'+
     clinicalExamInterpretationDetailHtml(test)+
     '<div class="clinical-exam-section"><h4>한계 / 흔한 오류</h4><p>'+esc(test.limitation||'단일 검사만으로 확정하지 않는다.')+'</p>'+(preset?.common_error?'<p style="margin-top:8px"><b>시행 오류:</b> '+esc(preset.common_error)+'</p>':'')+'</div>'+
+    clinicalExamEvidenceHtml(test,moduleKey)+
     (relatedDx.length?'<div class="clinical-exam-section"><h4>연결 감별진단</h4><div class="clinical-exam-links">'+relatedDx.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div></div>':'')+
     '<small style="color:var(--muted)">Stable ID · '+esc(test.clinical_test_id)+'</small></div>';
 }
