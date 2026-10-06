@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import {buildPhysicalExamPrompt,nextPilotProfile,modelCastingForClinicalTestId} from './build-physical-exam-realistic-prompt.mjs';
+import {buildPhysicalExamPrompt,buildPhysicalExamImageOnlyPrompt,nextPilotProfile,modelCastingForClinicalTestId} from './build-physical-exam-realistic-prompt.mjs';
 
 const manifest=JSON.parse(fs.readFileSync('data/physical-exam-realistic-assets-v1.json','utf8'));
 const frozenCt086=fs.readFileSync('docs/render-requests/CT086_CERVICAL_ROTATION_ROM_PROMPT_LOCK.md','utf8');
