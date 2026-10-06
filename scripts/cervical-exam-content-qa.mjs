@@ -82,6 +82,13 @@ check('ct086 textbook narrative is detailed prose',
   String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').length>=1200 &&
   String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').includes('검사'),
   String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').length);
+check('ct086 textbook narrative carries expanded measurement evidence',
+  String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').length>=4000 &&
+  tests.get('ct086')?.evidence_refs?.includes('crom_measurement_review_2010') &&
+  tests.get('ct086')?.evidence_refs?.includes('crom_reliability_neck_pain_2017') &&
+  String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').includes('Cervical Range of Motion(CROM) device') &&
+  String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').includes('숫자는 임상판단을 돕는 자료이지 진단 그 자체가 아니다.'),
+  String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').length);
 const p86 = profiles.get('ct086');
 check('ct086 teaching warns 60 degrees is not universal cutoff',
   /60°.*(보편|cut-off|cutoff)|보편.*60°/.test(
