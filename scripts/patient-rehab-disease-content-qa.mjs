@@ -52,7 +52,7 @@ for(const c of rehab.conditions||[]){
 }
 pass('Disease rehab illustration slot contract',illustrationContractErrors.length===0,illustrationContractErrors.join(','));
 pass('Shoulder seed coverage >= 2',(rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length>=2,String((rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length));
-pass('Multiregion disease rehab coverage >= 6',regionIds.length>=6,`${regionIds.length}: ${regionIds.join(',')}`);
+pass('Multiregion disease rehab coverage >= 7',regionIds.length>=7,`${regionIds.length}: ${regionIds.join(',')}`);
 pass('Cervical nonspecific neck pain seed is evidence-linked and dose-safe',(()=>{
   const c=(rehab.conditions||[]).find(x=>x.stable_id==='rehab_cervical_nonspecific_neck_pain_v1');
   return c?.region_id==='cervical' && c?.evidence_source_ids?.includes('src_neck_2025_cpg') &&
