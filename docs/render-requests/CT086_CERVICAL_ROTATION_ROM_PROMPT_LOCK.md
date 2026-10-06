@@ -4,7 +4,7 @@ Stable ID: ct086
 Generation brief version: `2026-10-06-ct086-v1`  
 Pilot batch: `PILOT_CERVICAL_01`  
 Current state: GENERATION_READY  
-Generation priority after ct085: 2
+Generation priority after ct085: 1
 
 This file is a frozen human-readable packet. The executable source of truth remains `data/physical-exam-realistic-assets-v1.json` + `scripts/build-physical-exam-realistic-prompt.mjs`.
 
