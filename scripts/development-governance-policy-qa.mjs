@@ -73,6 +73,16 @@ check('AGENTS three-layer reporting applies to next work', files.agents.includes
 check('Constitution three-layer reporting applies to next work', files.constitution.includes('② 앞으로 뭘 할 건가')&&files.constitution.includes('같은 3단 방식'));
 check('Principles three-layer reporting applies to next work', files.principles.includes('② 앞으로 뭘 할 건가')&&files.principles.includes('같은 3단 방식'));
 
+
+for (const [name,text] of [['agents',files.agents],['constitution',files.constitution],['principles',files.principles]]) {
+  check(name+': HD illustration canon is locked', text.includes('모든 일러스트 고해상도 규칙')&&text.includes('1024×1536'));
+  check(name+': textbook narrative interpretation canon is locked', text.includes('Physical Examination 교과서형 서술 해석 규칙')&&text.includes('textbook_interpretation_narrative'));
+}
+const styleContract=read('docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md');
+const interpretationContract=read('docs/PHYSICAL_EXAM_INTERPRETATION_CONTRACT.md');
+check('Realistic style contract locks HD canonical dimensions',styleContract.includes('1024×1536')&&styleContract.includes('600×900')&&styleContract.includes('thumbnail'));
+check('Physical Examination interpretation contract locks textbook narrative field',interpretationContract.includes('textbook_interpretation_narrative')&&interpretationContract.includes('교과서식 상세 해석'));
+
 const failed = checks.filter(x => !x.pass);
 console.log(`SUMMARY | ${checks.length - failed.length}/${checks.length} PASS`);
 if (failed.length) process.exit(1);
