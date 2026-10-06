@@ -1,6 +1,6 @@
 # EXAM-REAL cervical queue — 2026-10-06
 
-Preview release: `v12.03 · Cervical Exam Wave 2`
+Preview release: `v12.04 · CT085 Preview Candidate 1`
 
 This checkpoint is the current execution order for cervical Physical Examination realistic assets.
 It does not override explicit user approval/rejection commands.
@@ -8,7 +8,7 @@ It does not override explicit user approval/rejection commands.
 ## Registry snapshot
 - Cervical profiles: 17 total.
 - Canonical APPROVED: **9** — ct082, ct084, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
-- Connected user-review candidates: **1** — ct083 Candidate 2.
+- Connected user-review candidates: **2** — ct083 Candidate 2, ct085 Candidate 1.
 - ct085 Candidate 1 is materialized, byte-verified and connected to Preview; user approval is pending.
 - Remaining generation-ready briefs: **2** — ct086 → ct087. Current ct085 task is now at user-review handoff.
 - User-approved exact-binary recovery: **1** — ct089.
@@ -52,7 +52,7 @@ It does not override explicit user approval/rejection commands.
    - internal gates PASS; user Preview PENDING.
    - **Do not regenerate or canonical-promote ct085 until explicit user approval.**
 
-## Generation-ready after blocker clears
+## Generation-ready next
 4. **ct086 Cervical rotation ROM**
    - Clinical teaching expanded 2026-10-06.
    - Historical ~60° value explicitly kept as cluster context, not universal cutoff.
