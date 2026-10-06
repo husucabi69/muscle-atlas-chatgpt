@@ -1,3 +1,22 @@
+# CURRENT OVERRIDE — 2026-10-06 ct086 generation retry after four internal rejects
+
+> This block is authoritative for the current ct086 workline.
+
+- ct085 remains USER APPROVED / canonical APPROVED / HD_CANONICAL at 1024x1536. Do not regenerate.
+- ct086 remains the **only next permitted generation target**. No user-facing Preview candidate exists yet.
+- Four 1024x1536 raw ct086 generations were created in the current session and all were **rejected internally before Preview**:
+  - Candidate 1 gen_id `ac5296c2-767c-47ce-82d0-c7a4315e6ce4` — wrong model assignment, no examiner, long embedded copy, numeric angle text, red overlay.
+  - Candidate 2 gen_id `dfb7d375-f43e-493e-a5e3-724c7ede503b` — repeated wrong model/no examiner, long copy, explicit 60° text, red overlay.
+  - Candidate 3 gen_id `b5857649-e764-49b5-903a-613fb0b00cef` — wrong patient model, long copy, red overlay, examiner not consistently present.
+  - Candidate 4 gen_id `67a9abcc-9800-4e2f-9faf-b3d512d1afc8` — wrong patient/no examiner in main scenes, infographic copy, explicit 60° text.
+- None of Candidates 1–4 is connected to `preview_candidate`; none is eligible for user approval.
+- Root-cause fix implemented: `buildPhysicalExamImageOnlyPrompt()` now separates visual generation from textbook clinical prose. It explicitly bans infographic layouts, bullet cards, references, diagnoses, all extra copy, degree symbols and numeric cutoffs, while preserving the locked panel structure and casting.
+- ct086 frozen prompt has a HARD FAIL section. Current locked visual target remains: female patient + female examiner, same identities across panels, active left/right cervical rotation, trunk/shoulders fixed, neutral short arc/guide arrows only, three short Korean panel headers only, minimum 1024x1536.
+- Do not weaken the frozen contract to fit a generated image. A wrong candidate stays rejected.
+- ct087 remains blocked OUT_OF_ORDER until ct086 has a valid connected candidate.
+- ct088 Hoffmann remains `INCOMPLETE_DEFERRED_MUST_REVISIT` and must not be regenerated now.
+- Production `main` remains frozen.
+
 # CURRENT OVERRIDE — 2026-10-06 ct085 HD canonical approved + textbook interpretation + HD migration queue
 
 > This block is authoritative for the current handoff and supersedes older ct085 Candidate 1 wording below.
