@@ -14,6 +14,9 @@ export function canGeneratePhysicalExamProfile(manifest,clinicalTestId,options={
   if(profile.status==='APPROVED'){
     return{allowed:false,reason:'APPROVED_REGENERATION_LOCKED',clinical_test_id:clinicalTestId};
   }
+  if(profile.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'){
+    return{allowed:false,reason:'USER_APPROVED_BINARY_TRANSFER_PENDING',clinical_test_id:clinicalTestId};
+  }
   if(profile.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'){
     return{allowed:false,reason:'USER_PREVIEW_PENDING_NO_DUPLICATE_GENERATION',clinical_test_id:clinicalTestId};
   }
