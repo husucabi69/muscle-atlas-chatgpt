@@ -1,19 +1,21 @@
-# CURRENT OVERRIDE — 2026-10-06 ct085 Candidate 1 generated / binary handoff blocked
+# CURRENT OVERRIDE — 2026-10-06 ct085 Candidate 1 Preview connected + 3-layer reporting locked
 
-> This block is authoritative for the current handoff and supersedes older active-generation wording below.
+> This block is authoritative for the current handoff.
 
-- ct085 Shoulder abduction relief Candidate 1 generated and internally reviewed PASS.
-- Candidate 1 gen_id: `6582ec89-607d-4ce7-bd9a-f7358f9683ff`.
-- Exact generated source: `/mnt/data/a_vertical_triptych_comic_style_instructional_medi.png` — 1024x1536 — SHA-256 `0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e`.
-- Local 600x900 WebP derivative SHA-256: `05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce`.
-- Clinical/visual internal gates: PASS. User Preview remains PENDING.
-- Repository binary is **not yet materialized**, so no `preview_candidate` or app asset is falsely declared.
-- ct085 status: `CANDIDATE_GENERATED_USER_PREVIEW_PENDING / CANDIDATE_GENERATED_BINARY_HANDOFF_BLOCKED`.
-- **Do not regenerate ct085.**
-- **Do not advance to ct086/ct087 until ct085 exact binary is recovered, SHA-verified, connected to Preview, and the generation blocker is cleared.**
-- ct088 Hoffmann remains **INCOMPLETE_DEFERRED_MUST_REVISIT** and must not be regenerated now.
+- ct085 Shoulder abduction relief Candidate 1 is now connected to app Preview with an exact byte-verified WebP.
+- Candidate gen_id: `6582ec89-607d-4ce7-bd9a-f7358f9683ff`.
+- Raw source PNG: 1024x1536 / SHA-256 `0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e`.
+- Preview asset: `./assets/physical-exam-realistic/candidates/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp`.
+- Preview derivative: 240x360 / 9,936 bytes / SHA-256 `83c67093c1573746655b6921bf109b62ed16473422f7fac19168cfb70a1cb46e`.
+- Local Git blob SHA-1 and GitHub create_blob SHA matched exactly: `95624edb2711997d3bcbff4759402d9cc6d8c3c4`.
+- Internal clinical/visual/text gates: PASS. User Preview: **PENDING**.
+- Do not regenerate ct085 and do not promote it to canonical APPROVED without explicit user approval.
+- Preview release: `v12.04 · CT085 Preview Candidate 1` / cache key `20261006-stage23-76`.
+- ct086 is next generation-ready after the ct085 review handoff; ct087 follows.
+- ct088 Hoffmann remains **INCOMPLETE_DEFERRED_MUST_REVISIT**.
 - Production `main` remains frozen.
-- Manual development governance remains 25~30 min actual development / 30~35 min wrap-up only / 35 min HARD STOP.
+- Reporting canon amended: every final work item must contain **코딩 전문가 설명 → 쉬운 설명 → 실제 앱 사용 시 변화**, and the next-work section must use the same three-layer explanation.
+- Manual governance remains 25~30 min development / 30~35 min wrap-up only / 35 min HARD STOP.
 
 # CURRENT OVERRIDE — 2026-10-06 ct088 user-deferred incomplete
 

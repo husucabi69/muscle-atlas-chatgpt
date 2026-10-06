@@ -9,8 +9,8 @@ It does not override explicit user approval/rejection commands.
 - Cervical profiles: 17 total.
 - Canonical APPROVED: **9** — ct082, ct084, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
 - Connected user-review candidates: **1** — ct083 Candidate 2.
-- ct085 Candidate 1 generated/internal PASS but exact repository binary handoff is blocked; it now blocks later generation.
-- Remaining generation-ready briefs: **2** — ct086 → ct087 — but both are execution-blocked until ct085 binary recovery is complete.
+- ct085 Candidate 1 is materialized, byte-verified and connected to Preview; user approval is pending.
+- Remaining generation-ready briefs: **2** — ct086 → ct087. Current ct085 task is now at user-review handoff.
 - User-approved exact-binary recovery: **1** — ct089.
 - Historical candidate metadata without connected app binary: ct091, ct092.
 
@@ -40,14 +40,17 @@ It does not override explicit user approval/rejection commands.
   - Panel 4 must keep examiner grip on the middle finger while thumb/index involuntary flexion is shown.
   - Do not regenerate now; revisit after the active ct085 → ct086 → ct087 development line.
 
-## Active binary-handoff blocker
+## Active user-review candidate
 3. **ct085 Shoulder abduction relief**
    - Candidate 1 generated/internal review PASS on 2026-10-06.
    - gen_id: `6582ec89-607d-4ce7-bd9a-f7358f9683ff`.
    - source PNG SHA-256: `0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e`.
    - local 600x900 WebP SHA-256: `05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce`.
-   - exact binary is not yet materialized in repository.
-   - **Do not regenerate ct085. Do not advance to ct086/ct087 until exact binary recovery + Preview connection.**
+   - Preview WebP: `./assets/physical-exam-realistic/candidates/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp`.
+   - 240x360 / 9,936 bytes / SHA-256 `83c67093c1573746655b6921bf109b62ed16473422f7fac19168cfb70a1cb46e`.
+   - local Git blob SHA-1 = GitHub blob SHA: `95624edb2711997d3bcbff4759402d9cc6d8c3c4`.
+   - internal gates PASS; user Preview PENDING.
+   - **Do not regenerate or canonical-promote ct085 until explicit user approval.**
 
 ## Generation-ready after blocker clears
 4. **ct086 Cervical rotation ROM**
