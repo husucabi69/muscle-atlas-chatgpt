@@ -41,6 +41,13 @@ check('ct085 positive definition requires familiar radicular symptom relief',
   /익숙한.*(통증|저림)|방사통.*저림/.test(ct085?.positive_definition ?? ''));
 check('ct085 generation brief is ready', p85?.brief_status === 'GENERATION_READY');
 check('ct085 clinical gate PASS', p85?.review?.clinical_content === 'PASS');
+check('ct085 2026 evidence distinguishes classic relief sign from modified passive shoulder abduction',
+  /modified passive shoulder abduction/.test(ct085?.interpretation_detail?.diagnostic_weight ?? '') &&
+  /완전히 같은 검사로 취급하면 안 된다/.test(ct085?.interpretation_detail?.diagnostic_weight ?? ''));
+check('ct085 2026 pooled diagnostic values are preserved conservatively',
+  /sensitivity 0\.49/.test(ct085?.interpretation_detail?.diagnostic_weight ?? '') &&
+  /specificity 0\.76/.test(ct085?.interpretation_detail?.diagnostic_weight ?? '') &&
+  /근거 확실성은 매우 낮/.test(ct085?.interpretation_detail?.diagnostic_weight ?? ''));
 
 const ct086 = tests.get('ct086');
 const p86 = profiles.get('ct086');
@@ -51,6 +58,12 @@ check('ct086 teaching warns 60 degrees is not universal cutoff',
 check('ct086 defaults to active ROM', /능동/.test(ct086?.maneuver ?? ''));
 check('ct086 generation brief is ready', p86?.brief_status === 'GENERATION_READY');
 check('ct086 clinical gate PASS', p86?.review?.clinical_content === 'PASS');
+check('ct086 60-degree threshold stays cluster-only, not universal cutoff',
+  /2003.*cluster/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
+  /독립 정상\/병적 경계로 쓰는 근거는 아니다/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
+check('ct086 evidence records 2026 independent MRI-referenced cluster validation',
+  /2026년 독립 검증 연구/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
+  /MRI/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
 
 const ct087 = tests.get('ct087');
 const p87 = profiles.get('ct087');
