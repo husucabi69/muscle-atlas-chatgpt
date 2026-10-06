@@ -70,3 +70,24 @@
 - SHA, commit, CI run, 파일명 같은 기술 증빙은 코딩 전문가 설명 뒤에 붙인다. 증빙만 단독으로 보고하지 않는다.
 - “실제 앱 사용 시 변화”는 추정으로 쓰지 않는다. 구현·검증된 변화만 현재 변화로 표현하고, 아직 구현 전이면 **예상 변화**로 구분한다.
 - 이 규칙은 `scripts/development-governance-policy-qa.mjs`가 Global QA에서 자동 검사하며, 세 가지 설명 축 중 하나라도 정본에서 빠지면 CI가 실패해야 한다.
+
+## 모든 일러스트 고해상도 규칙 — LOCKED 2026-10-06
+
+- 앞으로 생성·교체·승인되는 모든 raster 교육 일러스트는 **고해상도 원본을 canonical 기준**으로 사용한다.
+- 세로형 자산의 기본 최소 기준은 **1024×1536 px**, 가로형은 **1536×1024 px** 또는 동등 이상의 해상도다. 정사각형·특수비율은 짧은 변 1024 px 이상을 원칙으로 한다.
+- 240×360, 320×480, 600×900 같은 축소본은 thumbnail/cache 용도로만 허용하며 canonical approved asset으로 승격하지 않는다.
+- 앱에서는 고해상도 canonical asset을 responsive CSS로 축소 표시한다. 화면 표시 크기를 줄인다는 이유로 원본 파일 자체를 저해상도로 낮추지 않는다.
+- SVG처럼 본질적으로 resolution-independent인 vector asset은 이 raster 최소 픽셀 규칙의 예외지만, 최종 실사형 인체 교육자료는 raster high-resolution 원본을 우선한다.
+- 승인 자산의 고해상도 교체는 **내용·자세·손 위치·화살표·문구가 승인본과 동일한 경우 resolution-only replacement**로 취급할 수 있다. 내용이 달라지면 새 후보로 다시 사용자 검수를 받아야 한다.
+- 기존 저해상도 승인 raster 자산은 `HD_UPGRADE_REQUIRED` migration backlog로 관리하고 순차적으로 교체한다. 단순 픽셀 확대만으로 선명도가 회복되지 않는 경우 “고해상도 완료”로 오기하지 않는다.
+- 신규 raster 후보/승인본은 dimension, byte count, SHA-256, Git blob SHA-1을 registry에 기록하고 CI에서 검증한다.
+
+## Physical Examination 교과서형 서술 해석 규칙 — LOCKED 2026-10-06
+
+- 모든 Physical Examination Stable ID에는 단편 bullet만이 아니라 **교과서 수준의 연결된 서술형 해석**을 제공한다.
+- `interpretation_detail.textbook_interpretation_narrative`를 정본 필드로 사용한다.
+- 서술은 최소한 다음 흐름을 하나의 임상적 논리로 연결한다: 검사 원리/해부·생체역학적 배경 → 무엇을 실제로 평가하는지 → 양성·음성 결과의 의미 → 진단적 무게와 한계 → 주요 감별진단 → 함께 보아야 할 신경학적/근골격계 소견 → 다음 검사·영상·전기진단/전원 판단 → red flag와 안전.
+- 단순 목록 반복이 아니라 “왜 그런 결과가 나오는가, 그 결과가 어떤 가설을 올리고 내리는가, 무엇은 여전히 남는가”를 설명한다.
+- 근거 수치가 있으면 sensitivity/specificity/LR 및 근거확실성을 맥락과 함께 설명하되, 특정 cut-off나 단일검사를 확진/배제처럼 과장하지 않는다.
+- 환자도 이해 가능한 `plain_language_explanation`은 유지하고, 그 아래 의사·전공의·학생이 공부할 수 있는 교과서형 서술을 별도 표시한다.
+- 새로 제작·수정하는 검사부터 강제 적용하며, 기존 148개 Stable ID는 별도 migration backlog로 순차 보강한다.
