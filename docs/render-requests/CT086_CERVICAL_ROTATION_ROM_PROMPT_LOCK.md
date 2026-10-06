@@ -15,6 +15,19 @@ This file is a frozen human-readable packet. The executable source of truth rema
 - Do not print 60° or any numeric cutoff inside the image.
 - The 60° historical value is cluster context only, not a universal abnormal threshold.
 
+## HARD FAIL — generation must be rejected
+The generated image is **not eligible for Preview** if any one of these occurs:
+- patient is not the locked female patient;
+- female examiner is absent from the scene or changes identity across panels;
+- any explanatory paragraph, bullet list, English title, reference list, diagnostic label, degree value, numeric angle, or cutoff is printed inside the artwork;
+- any text appears other than exactly the three short Korean panel headers: **“1 중립 자세” / “2 좌우 회전” / “3 제한 / 보상”**;
+- red pain glow/heatmap/flare is used; movement restriction must be shown with neutral short arc/guide arrows instead;
+- trunk or shoulders rotate together with the head in the active-ROM comparison panel;
+- examiner passively forces the patient's head;
+- output is less than 1024×1536.
+
+**Composition directive:** this is an illustration plate, not an infographic page. Use the full canvas for the three clinical scenes. Do not add lower text boxes, teaching paragraphs, legends, tables, references, diagnosis lists, safety cards, or explanatory captions.
+
 ## Locked prompt
 
 ```text
