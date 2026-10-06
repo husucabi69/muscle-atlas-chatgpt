@@ -105,9 +105,9 @@ check('ct088 clinical teaching stays PASS while visual gates reset',
   p88?.review?.embedded_text === 'PENDING');
 check('ct088 deferred blockers preserve unresolved panel 3/4 requirements',
   Array.isArray(p88?.approval_blockers) &&
-  p88.approval_blockers.some(x=>String(x).includes('Panel 3')) &&
-  p88.approval_blockers.some(x=>String(x).includes('Panel 4')) &&
-  p88.approval_blockers.some(x=>String(x).includes('Fresh user Preview approval')));
+  p88.approval_blockers.some(x=>String(x).includes('3번 패널')) &&
+  p88.approval_blockers.some(x=>String(x).includes('4번 패널')) &&
+  p88.approval_blockers.some(x=>String(x).includes('사용자 Preview 승인')));
 
 const p89 = profiles.get('ct089');
 check('ct089 remains user-approved binary-transfer pending',
