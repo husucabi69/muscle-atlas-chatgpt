@@ -1,3 +1,32 @@
+# CURRENT OVERRIDE — 2026-10-07 ct086 Candidate 5 pipeline + textbook/evidence UI checkpoint
+
+> This block is authoritative for the current ct086 workline.
+
+- ct085 remains USER APPROVED / canonical APPROVED / HD_CANONICAL. Do not regenerate.
+- ct086 remains the only next permitted image-generation target; no user-facing realistic candidate is connected yet.
+- Candidates 1–4 remain REJECTED_INTERNAL_NOT_FOR_PREVIEW.
+- Candidate 5 must use structured image-only render contract `2026-10-07-ct086-v2`; generation permission now reports `required_render_mode = IMAGE_ONLY_STRUCTURED_CONTRACT`.
+- Candidate 5 hard requirements: portrait >=1024x1536; female patient; female examiner visible in every panel; same identities; active cervical rotation only; trunk/shoulders fixed; exactly three allowed Korean headers; no angle/cutoff; no red pain overlay; no infographic copy.
+- `scripts/physical-exam-candidate-preflight.mjs` and its Global QA step reject visual-contract violations before registry connection.
+- `scripts/physical-exam-preview-connect.mjs` and its Global QA step refuse Preview connection unless preflight passes and candidate binary identity metadata are valid.
+- ct086 textbook narrative expanded to ~4.4k Korean characters. Evidence refs now include 2026 radiculopathy cluster validation, 2026 systematic review/meta-analysis, 2010 cervical ROM measurement review, and 2017 neck-pain active-ROM reliability review.
+- Physical Examination runtime now renders a dedicated clickable **근거** section from `evidence_refs`; ct086 has human-readable evidence labels and E2E coverage for all four source URLs.
+- Preview release metadata: `v12.06 · CT086 Textbook + Evidence`.
+- KST reporting rule is canon-locked and QA-locked: every final development report ends with `한국시간 YYYY-MM-DD HH:MM:SS KST`.
+- Latest verified pre-final CI checkpoint had Global QA + runtime Playwright E2E PASS; deploy exact-SHA failure on an intermediate commit was caused by HEAD advancing during consecutive commits. Final HEAD must be rechecked after this handoff commit settles.
+- ct087 remains OUT_OF_ORDER until ct086 has a valid connected Preview candidate.
+- ct088 Hoffmann remains INCOMPLETE_DEFERRED_MUST_REVISIT.
+- Production `main` remains frozen.
+
+Next required action:
+1. recheck final HEAD CI/Cloudflare;
+2. generate ct086 Candidate 5 only through the structured image-only contract in a binary-capable session;
+3. perform visual audit and candidate preflight;
+4. materialize exact HD binary, SHA-256/Git blob verify;
+5. connect through guarded Preview connector;
+6. run Global QA + Playwright + Cloudflare Preview;
+7. present app path/link and textbook interpretation for user review; user approval remains PENDING.
+
 # CURRENT OVERRIDE — 2026-10-07 ct086 Candidate 5 structured render/connection gate
 
 > This block is authoritative for the current ct086 workline.
