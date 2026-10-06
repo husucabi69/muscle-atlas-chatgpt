@@ -69,6 +69,10 @@ for(const id of generationReadyIds){
   let prompt='';
   try{prompt=buildPhysicalExamPrompt(manifest,id)}catch(e){prompt='ERROR '+e.message}
   check(id+' prompt builds',!prompt.startsWith('ERROR'),prompt.startsWith('ERROR')?prompt:'ok');
+  check(id+' carries locked generation brief version',
+    prompt.includes('Generation brief version: '+String(profile?.generation_brief_version||''))&&
+    /^2026-10-06-ct08[5-7]-v1$/.test(String(profile?.generation_brief_version||'')),
+    String(profile?.generation_brief_version||'missing'));
   check(id+' uses its locked realistic panel structure',
     prompt.includes('패널 구성: '+String(profile?.generation_brief?.panel_structure||''))&&
     prompt.includes('실제 사람처럼 보이는')&&
