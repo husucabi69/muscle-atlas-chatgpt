@@ -9,6 +9,7 @@ Generation priority after ct085: 2
 This file is a frozen human-readable packet. The executable source of truth remains `data/physical-exam-realistic-assets-v1.json` + `scripts/build-physical-exam-realistic-prompt.mjs`.
 
 ## Critical visual lock
+- **High-resolution source is mandatory: portrait minimum 1024×1536 px. Do not use 240×360 / 320×480 / 600×900 as the app Preview source.**
 - Patient rotates the head actively left/right while trunk and shoulders stay fixed.
 - Do not depict forceful passive end-range rotation.
 - Do not print 60° or any numeric cutoff inside the image.
@@ -58,6 +59,7 @@ Generation brief version: 2026-10-06-ct086-v1
 
 출력·후속 검수
 - 세로형 clinical teaching poster 비율.
+- 최종 생성 원본은 **최소 1024×1536 px**. 앱 Preview도 이 고해상도 후보를 responsive 축소 표시하며 thumbnail 파생본을 주 이미지로 사용하지 않는다.
 - 모바일에서도 손 위치와 화살표가 읽혀야 한다.
 - 생성 원본은 최종 승인품이 아니다. 새로운 gen_id로 보존하고 인간이 임상내용·자세·손위치·힘방향·텍스트를 교정한 뒤에만 앱 후보가 된다.
 - 사용자 Preview 승인 전 기존 EXAM-001 Stable-ID schematic을 교체하지 않는다.
@@ -69,9 +71,9 @@ Generation brief version: 2026-10-06-ct086-v1
 
 ## Candidate registration requirements
 - new `gen_id`;
-- source dimensions + SHA-256;
+- source dimensions (portrait minimum 1024×1536) + SHA-256 + Git blob SHA-1;
 - exact `generation_brief_version = 2026-10-06-ct086-v1`;
-- mobile Preview derivative + integrity hash;
+- app Preview source must remain high-resolution; thumbnail/cache derivative is optional and must never replace the HD Preview source;
 - internal clinical/visual QA;
 - user Preview remains PENDING until explicit approval;
 - existing EXAM-001 schematic remains fallback before approval.
