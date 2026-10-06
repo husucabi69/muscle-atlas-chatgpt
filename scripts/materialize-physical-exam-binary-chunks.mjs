@@ -67,7 +67,8 @@ try{
     state:'MATERIALIZED_VERIFIED',
     materialized_sha256:info.sha256,
     materialized_bytes:info.bytes,
-    materialized_dimensions:info.width+'x'+info.height
+    materialized_dimensions:info.width+'x'+info.height,
+    materialized_git_blob_sha1:info.git_blob_sha1
   };
   manifest.dataset_version='2026.10.04-exam-real-007-ct095-materialized';
   manifest.pilot.next_action='ct095 approved binary materialized and locked. ct083 remains current user-review target; do not regenerate internally passed candidates; Production remains frozen.';
