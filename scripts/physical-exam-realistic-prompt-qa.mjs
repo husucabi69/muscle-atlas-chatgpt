@@ -235,7 +235,7 @@ check('Image-only ct086 payload excludes clinical prose',
   !ct086ImageOnly.includes('임상 해석:')&&
   !ct086ImageOnly.includes('systematic review')&&
   !ct086ImageOnly.includes('radiculopathy cluster')&&
-  ct086ImageOnly.includes('All detailed clinical interpretation belongs in app HTML outside the image'));
+  ct086ImageOnly.includes('Do not add educational explanations; those are rendered separately in app HTML.'));
 check('Image-only ct086 payload carries locked female/female casting',
   ct086ImageOnly.includes('- patient: female')&&
   ct086ImageOnly.includes('- examiner: female')&&
