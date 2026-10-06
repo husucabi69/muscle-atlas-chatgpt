@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-disease-rehab-multiregion-b",
+  "dataset_version": "2026.10.07-stage23b-disease-rehab-cervical-a",
   "status": "PREVIEW_DEVELOPMENT",
   "content_policy": {
     "audience": "adult patient education",
@@ -10,106 +10,519 @@
     "illustrations_use_replaceable_asset_slots": true
   },
   "sources": {
-    "src_fs_2025_karm": {"title":"Clinical Practice Guidelines for Diagnosis and Non-Surgical Treatment of Primary Frozen Shoulder","year":2025,"kind":"clinical_practice_guideline","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12231400/","license":"CC BY-NC 4.0","use":"reference_only"},
-    "src_fs_2025_bess": {"title":"British Elbow and Shoulder Society patient care pathway: Frozen shoulder","year":2025,"kind":"clinical_practice_guideline","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12018368/","license":"verify article-level terms before media reuse","use":"reference_only"},
-    "src_rcrsp_2025_sr": {"title":"Specific modes of exercise to improve rotator cuff-related shoulder pain: systematic review and meta-analysis","year":2025,"kind":"systematic_review_meta_analysis","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12011739/","license":"CC BY","use":"reference_only"},
-    "src_elbow_2022_cpg": {"title":"Lateral Elbow Pain and Muscle Function Impairments CPG","year":2022,"kind":"clinical_practice_guideline","url":"https://www.apta.org/patient-care/evidence-based-practice-resources/cpgs/lateral-elbow-pain-and-muscle-function-impairments","license":"reference terms apply","use":"reference_only"},
-    "src_gluteal_2018_rct": {"title":"Education plus exercise versus corticosteroid injection versus wait-and-see for gluteal tendinopathy","year":2018,"kind":"randomized_controlled_trial","url":"https://www.bmj.com/content/361/bmj.k1662","license":"article terms apply","use":"reference_only"},
-    "src_pfp_2019_cpg": {"title":"Patellofemoral Pain Clinical Practice Guideline","year":2019,"kind":"clinical_practice_guideline","url":"https://doi.org/10.2519/jospt.2019.0302","license":"reference_only","use":"reference_only"},
-    "src_ankle_2021_cpg": {"title":"Lateral Ankle Ligament Sprains Revision 2021","year":2021,"kind":"clinical_practice_guideline","url":"https://doi.org/10.2519/jospt.2021.0302","license":"reference_only","use":"reference_only"},
-    "src_plantar_2023_cpg": {"title":"Heel Pain – Plantar Fasciitis Revision 2023","year":2023,"kind":"clinical_practice_guideline","url":"https://doi.org/10.2519/jospt.2023.0303","license":"reference_only","use":"reference_only"}
+    "src_fs_2025_karm": {
+      "title": "Clinical Practice Guidelines for Diagnosis and Non-Surgical Treatment of Primary Frozen Shoulder",
+      "year": 2025,
+      "kind": "clinical_practice_guideline",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12231400/",
+      "license": "CC BY-NC 4.0",
+      "use": "reference_only"
+    },
+    "src_fs_2025_bess": {
+      "title": "British Elbow and Shoulder Society patient care pathway: Frozen shoulder",
+      "year": 2025,
+      "kind": "clinical_practice_guideline",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12018368/",
+      "license": "verify article-level terms before media reuse",
+      "use": "reference_only"
+    },
+    "src_rcrsp_2025_sr": {
+      "title": "Specific modes of exercise to improve rotator cuff-related shoulder pain: systematic review and meta-analysis",
+      "year": 2025,
+      "kind": "systematic_review_meta_analysis",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12011739/",
+      "license": "CC BY",
+      "use": "reference_only"
+    },
+    "src_elbow_2022_cpg": {
+      "title": "Lateral Elbow Pain and Muscle Function Impairments CPG",
+      "year": 2022,
+      "kind": "clinical_practice_guideline",
+      "url": "https://www.apta.org/patient-care/evidence-based-practice-resources/cpgs/lateral-elbow-pain-and-muscle-function-impairments",
+      "license": "reference terms apply",
+      "use": "reference_only"
+    },
+    "src_gluteal_2018_rct": {
+      "title": "Education plus exercise versus corticosteroid injection versus wait-and-see for gluteal tendinopathy",
+      "year": 2018,
+      "kind": "randomized_controlled_trial",
+      "url": "https://www.bmj.com/content/361/bmj.k1662",
+      "license": "article terms apply",
+      "use": "reference_only"
+    },
+    "src_pfp_2019_cpg": {
+      "title": "Patellofemoral Pain Clinical Practice Guideline",
+      "year": 2019,
+      "kind": "clinical_practice_guideline",
+      "url": "https://doi.org/10.2519/jospt.2019.0302",
+      "license": "reference_only",
+      "use": "reference_only"
+    },
+    "src_ankle_2021_cpg": {
+      "title": "Lateral Ankle Ligament Sprains Revision 2021",
+      "year": 2021,
+      "kind": "clinical_practice_guideline",
+      "url": "https://doi.org/10.2519/jospt.2021.0302",
+      "license": "reference_only",
+      "use": "reference_only"
+    },
+    "src_plantar_2023_cpg": {
+      "title": "Heel Pain – Plantar Fasciitis Revision 2023",
+      "year": 2023,
+      "kind": "clinical_practice_guideline",
+      "url": "https://doi.org/10.2519/jospt.2023.0303",
+      "license": "reference_only",
+      "use": "reference_only"
+    },
+    "src_neck_2025_cpg": {
+      "title": "Clinical Practice Guideline: Nonspecific Neck Pain",
+      "year": 2025,
+      "kind": "clinical_practice_guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40665902/",
+      "license": "reference_only",
+      "use": "reference_only"
+    }
   },
   "conditions": [
     {
-      "stable_id":"rehab_shoulder_adhesive_capsulitis_v1","region_id":"shoulder","name_ko":"유착성 관절낭염(오십견)","name_en":"Primary frozen shoulder / adhesive capsulitis",
-      "plain_language_overview":"어깨 관절이 아프고 굳으면서 스스로 움직일 때뿐 아니라 다른 사람이 움직여도 운동범위가 줄어드는 질환입니다. 특히 팔을 바깥으로 돌리는 동작이 제한되는 경우가 많습니다.",
-      "who_this_is_for":"성인 원발성 유착성 관절낭염으로 진단받고 수술 직후가 아니며 담당 의료진이 가벼운 자가운동을 허용한 환자.",
-      "do_not_exercise_or_seek_care":["최근 골절·탈구·수술 또는 급성 외상이 의심되는 경우","열이 나거나 어깨가 붉고 뜨겁게 붓는 경우","새로 생긴 뚜렷한 근력저하·감각저하가 진행하는 경우","가슴통증·호흡곤란 등 응급 원인이 의심되는 경우"],
-      "stretching":{"principle":"통증을 억지로 뚫고 강하게 당기지 않고 허용 범위 안에서 부드럽게 움직입니다.","profile_ids":["px004"],"asset_slots":["rehab_asset_shoulder_fs_mobility_01"]},
-      "strengthening":{"principle":"통증과 운동범위에 맞춰 낮은 부하부터 시작하고 기능 회복에 따라 점진적으로 진행합니다.","profile_ids":["px003","px004"],"asset_slots":["rehab_asset_shoulder_fs_strength_01"]},
-      "lifestyle_activity_modification":["팔을 완전히 쓰지 않는 상태를 오래 유지하지 않습니다.","아픈 쪽 어깨를 직접 누르고 자는 자세를 피합니다."],
-      "common_errors":["아플수록 더 세게 늘리는 것","운동범위가 매우 제한된 상태에서 무거운 저항운동부터 시작하는 것"],
-      "progression_or_phase":"통증, 수면, 수동·능동 운동범위와 일상기능 변화를 기준으로 점진적으로 진행합니다.",
-      "return_or_reassessment_criteria":["통증이나 운동범위가 계속 악화되는 경우","새로운 외상·근력저하·감각저하가 생긴 경우"],
-      "evidence_source_ids":["src_fs_2025_karm","src_fs_2025_bess"],"last_reviewed":"2026-09-30","illustration_asset_ids":["rehab_asset_shoulder_fs_mobility_01","rehab_asset_shoulder_fs_strength_01"],"print_template_id":"rehab_print_a4_v1"
+      "stable_id": "rehab_shoulder_adhesive_capsulitis_v1",
+      "region_id": "shoulder",
+      "name_ko": "유착성 관절낭염(오십견)",
+      "name_en": "Primary frozen shoulder / adhesive capsulitis",
+      "plain_language_overview": "어깨 관절이 아프고 굳으면서 스스로 움직일 때뿐 아니라 다른 사람이 움직여도 운동범위가 줄어드는 질환입니다. 특히 팔을 바깥으로 돌리는 동작이 제한되는 경우가 많습니다.",
+      "who_this_is_for": "성인 원발성 유착성 관절낭염으로 진단받고 수술 직후가 아니며 담당 의료진이 가벼운 자가운동을 허용한 환자.",
+      "do_not_exercise_or_seek_care": [
+        "최근 골절·탈구·수술 또는 급성 외상이 의심되는 경우",
+        "열이 나거나 어깨가 붉고 뜨겁게 붓는 경우",
+        "새로 생긴 뚜렷한 근력저하·감각저하가 진행하는 경우",
+        "가슴통증·호흡곤란 등 응급 원인이 의심되는 경우"
+      ],
+      "stretching": {
+        "principle": "통증을 억지로 뚫고 강하게 당기지 않고 허용 범위 안에서 부드럽게 움직입니다.",
+        "profile_ids": [
+          "px004"
+        ],
+        "asset_slots": [
+          "rehab_asset_shoulder_fs_mobility_01"
+        ]
+      },
+      "strengthening": {
+        "principle": "통증과 운동범위에 맞춰 낮은 부하부터 시작하고 기능 회복에 따라 점진적으로 진행합니다.",
+        "profile_ids": [
+          "px003",
+          "px004"
+        ],
+        "asset_slots": [
+          "rehab_asset_shoulder_fs_strength_01"
+        ]
+      },
+      "lifestyle_activity_modification": [
+        "팔을 완전히 쓰지 않는 상태를 오래 유지하지 않습니다.",
+        "아픈 쪽 어깨를 직접 누르고 자는 자세를 피합니다."
+      ],
+      "common_errors": [
+        "아플수록 더 세게 늘리는 것",
+        "운동범위가 매우 제한된 상태에서 무거운 저항운동부터 시작하는 것"
+      ],
+      "progression_or_phase": "통증, 수면, 수동·능동 운동범위와 일상기능 변화를 기준으로 점진적으로 진행합니다.",
+      "return_or_reassessment_criteria": [
+        "통증이나 운동범위가 계속 악화되는 경우",
+        "새로운 외상·근력저하·감각저하가 생긴 경우"
+      ],
+      "evidence_source_ids": [
+        "src_fs_2025_karm",
+        "src_fs_2025_bess"
+      ],
+      "last_reviewed": "2026-09-30",
+      "illustration_asset_ids": [
+        "rehab_asset_shoulder_fs_mobility_01",
+        "rehab_asset_shoulder_fs_strength_01"
+      ],
+      "print_template_id": "rehab_print_a4_v1"
     },
     {
-      "stable_id":"rehab_shoulder_rotator_cuff_tendinopathy_v1","region_id":"shoulder","name_ko":"회전근개 관련 어깨통증·건병증","name_en":"Rotator cuff-related shoulder pain / tendinopathy",
-      "plain_language_overview":"팔을 들거나 물건을 들 때 어깨 바깥쪽이 아픈 흔한 상태입니다. 영상 소견 하나만으로 통증 원인을 단정하지 않고 증상과 진찰을 함께 봅니다.",
-      "who_this_is_for":"급성 완전파열이나 수술 직후가 아니고 보존적 운동치료가 적절하다고 평가된 성인.",
-      "do_not_exercise_or_seek_care":["외상 직후 팔을 들 수 없거나 갑작스러운 근력저하가 생긴 경우","탈구·골절 또는 급성 전층파열이 의심되는 경우","발열·심한 부종·발적이 있는 경우","진행하는 신경학적 증상이 있는 경우"],
-      "stretching":{"principle":"견딜 수 있는 범위에서 어깨와 흉곽의 가동성을 유지합니다.","profile_ids":["px005"],"asset_slots":["rehab_asset_shoulder_rc_mobility_01"]},
-      "strengthening":{"principle":"회전근개와 견갑대의 점진적 저항운동을 중심으로 통증 반응과 기능에 맞춰 부하를 올립니다.","profile_ids":["px003","px004"],"asset_slots":["rehab_asset_shoulder_rc_er_01","rehab_asset_shoulder_rc_scapula_01"]},
-      "lifestyle_activity_modification":["완전 휴식보다 반복적인 머리 위 작업과 무거운 들기를 일시 조절합니다.","통증이 가라앉으면 일상·업무 부하를 단계적으로 회복합니다."],
-      "common_errors":["영상 변화만 보고 팔 사용을 장기간 중단하는 것","처음부터 무거운 저항으로 실패지점까지 반복하는 것"],
-      "progression_or_phase":"특정 운동 하나보다 지속 가능한 운동 프로그램과 점진적 부하 관리에 초점을 둡니다.",
-      "return_or_reassessment_criteria":["외상 후 갑작스러운 기능저하가 있는 경우","운동을 조절해도 통증과 기능이 계속 악화되는 경우"],
-      "evidence_source_ids":["src_rcrsp_2025_sr"],"last_reviewed":"2026-09-30","illustration_asset_ids":["rehab_asset_shoulder_rc_mobility_01","rehab_asset_shoulder_rc_er_01","rehab_asset_shoulder_rc_scapula_01"],"print_template_id":"rehab_print_a4_v1"
+      "stable_id": "rehab_shoulder_rotator_cuff_tendinopathy_v1",
+      "region_id": "shoulder",
+      "name_ko": "회전근개 관련 어깨통증·건병증",
+      "name_en": "Rotator cuff-related shoulder pain / tendinopathy",
+      "plain_language_overview": "팔을 들거나 물건을 들 때 어깨 바깥쪽이 아픈 흔한 상태입니다. 영상 소견 하나만으로 통증 원인을 단정하지 않고 증상과 진찰을 함께 봅니다.",
+      "who_this_is_for": "급성 완전파열이나 수술 직후가 아니고 보존적 운동치료가 적절하다고 평가된 성인.",
+      "do_not_exercise_or_seek_care": [
+        "외상 직후 팔을 들 수 없거나 갑작스러운 근력저하가 생긴 경우",
+        "탈구·골절 또는 급성 전층파열이 의심되는 경우",
+        "발열·심한 부종·발적이 있는 경우",
+        "진행하는 신경학적 증상이 있는 경우"
+      ],
+      "stretching": {
+        "principle": "견딜 수 있는 범위에서 어깨와 흉곽의 가동성을 유지합니다.",
+        "profile_ids": [
+          "px005"
+        ],
+        "asset_slots": [
+          "rehab_asset_shoulder_rc_mobility_01"
+        ]
+      },
+      "strengthening": {
+        "principle": "회전근개와 견갑대의 점진적 저항운동을 중심으로 통증 반응과 기능에 맞춰 부하를 올립니다.",
+        "profile_ids": [
+          "px003",
+          "px004"
+        ],
+        "asset_slots": [
+          "rehab_asset_shoulder_rc_er_01",
+          "rehab_asset_shoulder_rc_scapula_01"
+        ]
+      },
+      "lifestyle_activity_modification": [
+        "완전 휴식보다 반복적인 머리 위 작업과 무거운 들기를 일시 조절합니다.",
+        "통증이 가라앉으면 일상·업무 부하를 단계적으로 회복합니다."
+      ],
+      "common_errors": [
+        "영상 변화만 보고 팔 사용을 장기간 중단하는 것",
+        "처음부터 무거운 저항으로 실패지점까지 반복하는 것"
+      ],
+      "progression_or_phase": "특정 운동 하나보다 지속 가능한 운동 프로그램과 점진적 부하 관리에 초점을 둡니다.",
+      "return_or_reassessment_criteria": [
+        "외상 후 갑작스러운 기능저하가 있는 경우",
+        "운동을 조절해도 통증과 기능이 계속 악화되는 경우"
+      ],
+      "evidence_source_ids": [
+        "src_rcrsp_2025_sr"
+      ],
+      "last_reviewed": "2026-09-30",
+      "illustration_asset_ids": [
+        "rehab_asset_shoulder_rc_mobility_01",
+        "rehab_asset_shoulder_rc_er_01",
+        "rehab_asset_shoulder_rc_scapula_01"
+      ],
+      "print_template_id": "rehab_print_a4_v1"
     },
     {
-      "stable_id":"rehab_elbow_lateral_elbow_pain_v1","region_id":"elbow","name_ko":"외측 팔꿈치 통증(테니스 엘보)","name_en":"Lateral elbow pain / lateral elbow tendinopathy",
-      "plain_language_overview":"손목과 손가락을 반복해서 쓰거나 물건을 쥘 때 팔꿈치 바깥쪽이 아픈 상태입니다. 팔꿈치 바깥 힘줄과 주변 근육의 부하를 다시 견디게 하는 과정이 중요합니다.",
-      "who_this_is_for":"외상성 골절·탈구나 진행성 신경증상이 없고 외측 팔꿈치 통증에 보존적 재활이 적절한 성인.",
-      "do_not_exercise_or_seek_care":["급성 외상 뒤 심한 부종·변형이 있는 경우","손가락 또는 손목의 진행성 근력저하가 있는 경우","목부터 손까지 심한 방사통·감각저하가 진행하는 경우","발열·발적·열감이 있는 경우"],
-      "stretching":{"principle":"통증을 강제로 재현하지 않는 범위에서 손목·전완 가동성을 유지합니다.","profile_ids":["px006"],"asset_slots":["rehab_asset_elbow_lep_mobility_01"]},
-      "strengthening":{"principle":"손목 신전근을 포함한 전완 근육의 저항운동을 낮은 부하에서 시작해 반응을 보며 올립니다.","profile_ids":["px006"],"asset_slots":["rehab_asset_elbow_lep_loading_01"]},
-      "lifestyle_activity_modification":["통증을 반복적으로 크게 올리는 강한 쥐기와 손목 반복작업을 일시 조절합니다.","가능한 범위에서 일상 사용을 유지하고 부하를 단계적으로 회복합니다."],
-      "common_errors":["통증 부위를 계속 강하게 마사지하는 것","휴식만 오래 하고 근력 회복을 시작하지 않는 것"],
-      "progression_or_phase":"통증과 악력·일상기능, 다음날 반응을 보며 저항과 작업량을 점진적으로 늘립니다.",
-      "return_or_reassessment_criteria":["근력저하나 감각저하가 새로 생기는 경우","충분한 부하조절과 운동에도 기능이 계속 악화되는 경우"],
-      "evidence_source_ids":["src_elbow_2022_cpg"],"last_reviewed":"2026-09-30","illustration_asset_ids":["rehab_asset_elbow_lep_mobility_01","rehab_asset_elbow_lep_loading_01"],"print_template_id":"rehab_print_a4_v1"
+      "stable_id": "rehab_elbow_lateral_elbow_pain_v1",
+      "region_id": "elbow",
+      "name_ko": "외측 팔꿈치 통증(테니스 엘보)",
+      "name_en": "Lateral elbow pain / lateral elbow tendinopathy",
+      "plain_language_overview": "손목과 손가락을 반복해서 쓰거나 물건을 쥘 때 팔꿈치 바깥쪽이 아픈 상태입니다. 팔꿈치 바깥 힘줄과 주변 근육의 부하를 다시 견디게 하는 과정이 중요합니다.",
+      "who_this_is_for": "외상성 골절·탈구나 진행성 신경증상이 없고 외측 팔꿈치 통증에 보존적 재활이 적절한 성인.",
+      "do_not_exercise_or_seek_care": [
+        "급성 외상 뒤 심한 부종·변형이 있는 경우",
+        "손가락 또는 손목의 진행성 근력저하가 있는 경우",
+        "목부터 손까지 심한 방사통·감각저하가 진행하는 경우",
+        "발열·발적·열감이 있는 경우"
+      ],
+      "stretching": {
+        "principle": "통증을 강제로 재현하지 않는 범위에서 손목·전완 가동성을 유지합니다.",
+        "profile_ids": [
+          "px006"
+        ],
+        "asset_slots": [
+          "rehab_asset_elbow_lep_mobility_01"
+        ]
+      },
+      "strengthening": {
+        "principle": "손목 신전근을 포함한 전완 근육의 저항운동을 낮은 부하에서 시작해 반응을 보며 올립니다.",
+        "profile_ids": [
+          "px006"
+        ],
+        "asset_slots": [
+          "rehab_asset_elbow_lep_loading_01"
+        ]
+      },
+      "lifestyle_activity_modification": [
+        "통증을 반복적으로 크게 올리는 강한 쥐기와 손목 반복작업을 일시 조절합니다.",
+        "가능한 범위에서 일상 사용을 유지하고 부하를 단계적으로 회복합니다."
+      ],
+      "common_errors": [
+        "통증 부위를 계속 강하게 마사지하는 것",
+        "휴식만 오래 하고 근력 회복을 시작하지 않는 것"
+      ],
+      "progression_or_phase": "통증과 악력·일상기능, 다음날 반응을 보며 저항과 작업량을 점진적으로 늘립니다.",
+      "return_or_reassessment_criteria": [
+        "근력저하나 감각저하가 새로 생기는 경우",
+        "충분한 부하조절과 운동에도 기능이 계속 악화되는 경우"
+      ],
+      "evidence_source_ids": [
+        "src_elbow_2022_cpg"
+      ],
+      "last_reviewed": "2026-09-30",
+      "illustration_asset_ids": [
+        "rehab_asset_elbow_lep_mobility_01",
+        "rehab_asset_elbow_lep_loading_01"
+      ],
+      "print_template_id": "rehab_print_a4_v1"
     },
     {
-      "stable_id":"rehab_hip_gluteal_tendinopathy_v1","region_id":"hip_pelvis","name_ko":"둔근 건병증·대전자 통증 증후군","name_en":"Gluteal tendinopathy / greater trochanteric pain syndrome",
-      "plain_language_overview":"엉덩이 바깥쪽이 아프고 옆으로 눕거나 계단·한발서기에서 통증이 심해질 수 있는 상태입니다. 힘줄을 눌러 자극하는 자세를 줄이고 둔근이 부하를 견디는 능력을 회복하는 것이 핵심입니다.",
-      "who_this_is_for":"골절·급성 파열·중증 고관절 관절병증이 배제되고 둔근 건병증 또는 대전자 통증에 운동치료가 적절한 성인.",
-      "do_not_exercise_or_seek_care":["넘어진 뒤 체중부하가 어렵거나 골절이 의심되는 경우","갑작스러운 심한 근력저하가 생긴 경우","발열과 관절 열감이 있는 경우","밤낮 구분 없이 빠르게 악화되는 통증이 있는 경우"],
-      "stretching":{"principle":"고관절을 깊게 모아 힘줄을 압박하는 강한 스트레칭은 피하고 편안한 가동성을 유지합니다.","profile_ids":["px008"],"asset_slots":["rehab_asset_hip_gtps_mobility_01"]},
-      "strengthening":{"principle":"압박 부하를 관리하면서 고관절 외전근을 낮은 부하부터 기능적 한발 동작까지 점진적으로 강화합니다.","profile_ids":["px008"],"asset_slots":["rehab_asset_hip_gtps_abduction_01"]},
-      "lifestyle_activity_modification":["아픈 쪽으로 오래 눕거나 다리를 꼬고 서는 자세를 줄입니다.","계단·장거리 보행은 증상 반응에 맞춰 양을 조절합니다."],
-      "common_errors":["통증 부위를 강하게 눌러 늘리는 것","처음부터 반복적인 한발 스쿼트 등 고부하 운동을 하는 것"],
-      "progression_or_phase":"일상 통증이 안정되면 저항과 한발 지지 시간을 늘리고 이후 계단·보행 기능으로 진행합니다.",
-      "return_or_reassessment_criteria":["체중부하 능력이 급격히 떨어지는 경우","점진 운동에도 야간통과 기능이 계속 악화되는 경우"],
-      "evidence_source_ids":["src_gluteal_2018_rct"],"last_reviewed":"2026-09-30","illustration_asset_ids":["rehab_asset_hip_gtps_mobility_01","rehab_asset_hip_gtps_abduction_01"],"print_template_id":"rehab_print_a4_v1"
+      "stable_id": "rehab_hip_gluteal_tendinopathy_v1",
+      "region_id": "hip_pelvis",
+      "name_ko": "둔근 건병증·대전자 통증 증후군",
+      "name_en": "Gluteal tendinopathy / greater trochanteric pain syndrome",
+      "plain_language_overview": "엉덩이 바깥쪽이 아프고 옆으로 눕거나 계단·한발서기에서 통증이 심해질 수 있는 상태입니다. 힘줄을 눌러 자극하는 자세를 줄이고 둔근이 부하를 견디는 능력을 회복하는 것이 핵심입니다.",
+      "who_this_is_for": "골절·급성 파열·중증 고관절 관절병증이 배제되고 둔근 건병증 또는 대전자 통증에 운동치료가 적절한 성인.",
+      "do_not_exercise_or_seek_care": [
+        "넘어진 뒤 체중부하가 어렵거나 골절이 의심되는 경우",
+        "갑작스러운 심한 근력저하가 생긴 경우",
+        "발열과 관절 열감이 있는 경우",
+        "밤낮 구분 없이 빠르게 악화되는 통증이 있는 경우"
+      ],
+      "stretching": {
+        "principle": "고관절을 깊게 모아 힘줄을 압박하는 강한 스트레칭은 피하고 편안한 가동성을 유지합니다.",
+        "profile_ids": [
+          "px008"
+        ],
+        "asset_slots": [
+          "rehab_asset_hip_gtps_mobility_01"
+        ]
+      },
+      "strengthening": {
+        "principle": "압박 부하를 관리하면서 고관절 외전근을 낮은 부하부터 기능적 한발 동작까지 점진적으로 강화합니다.",
+        "profile_ids": [
+          "px008"
+        ],
+        "asset_slots": [
+          "rehab_asset_hip_gtps_abduction_01"
+        ]
+      },
+      "lifestyle_activity_modification": [
+        "아픈 쪽으로 오래 눕거나 다리를 꼬고 서는 자세를 줄입니다.",
+        "계단·장거리 보행은 증상 반응에 맞춰 양을 조절합니다."
+      ],
+      "common_errors": [
+        "통증 부위를 강하게 눌러 늘리는 것",
+        "처음부터 반복적인 한발 스쿼트 등 고부하 운동을 하는 것"
+      ],
+      "progression_or_phase": "일상 통증이 안정되면 저항과 한발 지지 시간을 늘리고 이후 계단·보행 기능으로 진행합니다.",
+      "return_or_reassessment_criteria": [
+        "체중부하 능력이 급격히 떨어지는 경우",
+        "점진 운동에도 야간통과 기능이 계속 악화되는 경우"
+      ],
+      "evidence_source_ids": [
+        "src_gluteal_2018_rct"
+      ],
+      "last_reviewed": "2026-09-30",
+      "illustration_asset_ids": [
+        "rehab_asset_hip_gtps_mobility_01",
+        "rehab_asset_hip_gtps_abduction_01"
+      ],
+      "print_template_id": "rehab_print_a4_v1"
     },
     {
-      "stable_id":"rehab_knee_patellofemoral_pain_v1","region_id":"knee_thigh","name_ko":"슬개대퇴 통증 증후군","name_en":"Patellofemoral pain",
-      "plain_language_overview":"계단, 쪼그려 앉기, 오래 앉기 같은 동작에서 무릎 앞쪽이나 슬개골 주변이 아픈 흔한 상태입니다. 고관절과 무릎 근육을 함께 강화하고 활동량을 조절하는 것이 중요합니다.",
-      "who_this_is_for":"급성 인대손상·골절·잠김 증상이 없고 슬개대퇴 통증에 운동치료가 적절한 성인.",
-      "do_not_exercise_or_seek_care":["급성 외상 뒤 무릎이 심하게 붓거나 체중부하가 어려운 경우","무릎이 실제로 잠겨 펴지지 않는 경우","반복적으로 무릎이 빠지는 느낌과 큰 부종이 있는 경우","발열·관절 열감이 있는 경우"],
-      "stretching":{"principle":"필요한 경우 주변 근육의 가동성을 보조하되 통증을 억지로 늘려 해결하려 하지 않습니다.","profile_ids":["px010"],"asset_slots":["rehab_asset_knee_pfp_mobility_01"]},
-      "strengthening":{"principle":"고관절 외측 근육과 무릎 표적 운동을 함께 사용하고 통증과 기능에 따라 깊이와 저항을 조절합니다.","profile_ids":["px009"],"asset_slots":["rehab_asset_knee_pfp_squat_01"]},
-      "lifestyle_activity_modification":["통증을 크게 올리는 계단·깊은 스쿼트·달리기 양을 일시 조절합니다.","완전 휴식보다 허용 가능한 활동을 유지합니다."],
-      "common_errors":["무릎 소리만으로 연골 손상이 진행한다고 단정하는 것","처음부터 깊은 스쿼트와 고저항을 반복하는 것"],
-      "progression_or_phase":"통증 반응이 안정되면 스쿼트 깊이·저항·한발 과제와 스포츠 부하를 단계적으로 높입니다.",
-      "return_or_reassessment_criteria":["큰 관절부종이나 잠김이 생기는 경우","운동 조절에도 기능이 지속적으로 나빠지는 경우"],
-      "evidence_source_ids":["src_pfp_2019_cpg"],"last_reviewed":"2026-09-30","illustration_asset_ids":["rehab_asset_knee_pfp_mobility_01","rehab_asset_knee_pfp_squat_01"],"print_template_id":"rehab_print_a4_v1"
+      "stable_id": "rehab_knee_patellofemoral_pain_v1",
+      "region_id": "knee_thigh",
+      "name_ko": "슬개대퇴 통증 증후군",
+      "name_en": "Patellofemoral pain",
+      "plain_language_overview": "계단, 쪼그려 앉기, 오래 앉기 같은 동작에서 무릎 앞쪽이나 슬개골 주변이 아픈 흔한 상태입니다. 고관절과 무릎 근육을 함께 강화하고 활동량을 조절하는 것이 중요합니다.",
+      "who_this_is_for": "급성 인대손상·골절·잠김 증상이 없고 슬개대퇴 통증에 운동치료가 적절한 성인.",
+      "do_not_exercise_or_seek_care": [
+        "급성 외상 뒤 무릎이 심하게 붓거나 체중부하가 어려운 경우",
+        "무릎이 실제로 잠겨 펴지지 않는 경우",
+        "반복적으로 무릎이 빠지는 느낌과 큰 부종이 있는 경우",
+        "발열·관절 열감이 있는 경우"
+      ],
+      "stretching": {
+        "principle": "필요한 경우 주변 근육의 가동성을 보조하되 통증을 억지로 늘려 해결하려 하지 않습니다.",
+        "profile_ids": [
+          "px010"
+        ],
+        "asset_slots": [
+          "rehab_asset_knee_pfp_mobility_01"
+        ]
+      },
+      "strengthening": {
+        "principle": "고관절 외측 근육과 무릎 표적 운동을 함께 사용하고 통증과 기능에 따라 깊이와 저항을 조절합니다.",
+        "profile_ids": [
+          "px009"
+        ],
+        "asset_slots": [
+          "rehab_asset_knee_pfp_squat_01"
+        ]
+      },
+      "lifestyle_activity_modification": [
+        "통증을 크게 올리는 계단·깊은 스쿼트·달리기 양을 일시 조절합니다.",
+        "완전 휴식보다 허용 가능한 활동을 유지합니다."
+      ],
+      "common_errors": [
+        "무릎 소리만으로 연골 손상이 진행한다고 단정하는 것",
+        "처음부터 깊은 스쿼트와 고저항을 반복하는 것"
+      ],
+      "progression_or_phase": "통증 반응이 안정되면 스쿼트 깊이·저항·한발 과제와 스포츠 부하를 단계적으로 높입니다.",
+      "return_or_reassessment_criteria": [
+        "큰 관절부종이나 잠김이 생기는 경우",
+        "운동 조절에도 기능이 지속적으로 나빠지는 경우"
+      ],
+      "evidence_source_ids": [
+        "src_pfp_2019_cpg"
+      ],
+      "last_reviewed": "2026-09-30",
+      "illustration_asset_ids": [
+        "rehab_asset_knee_pfp_mobility_01",
+        "rehab_asset_knee_pfp_squat_01"
+      ],
+      "print_template_id": "rehab_print_a4_v1"
     },
     {
-      "stable_id":"rehab_ankle_lateral_sprain_v1","region_id":"ankle_foot","name_ko":"외측 발목 염좌","name_en":"Lateral ankle sprain",
-      "plain_language_overview":"발목이 안쪽으로 접질리면서 바깥쪽 인대가 손상되는 흔한 부상입니다. 손상 정도에 맞춘 보호와 움직임 회복, 근력·균형 훈련이 재손상 예방에 중요합니다.",
-      "who_this_is_for":"골절이나 수술이 필요한 불안정성이 배제되고 보존적 재활이 적절한 외측 발목 염좌 환자.",
-      "do_not_exercise_or_seek_care":["뼈를 누를 때 심한 통증이 있거나 체중부하가 거의 불가능한 경우","관절 변형이나 탈구가 의심되는 경우","발의 감각·혈류 이상이 생기는 경우","통증과 부종이 빠르게 악화되는 경우"],
-      "stretching":{"principle":"초기 보호가 필요한 범위를 지키면서 통증 허용 범위의 발목 움직임을 회복합니다.","profile_ids":["px012"],"asset_slots":["rehab_asset_ankle_las_rom_01"]},
-      "strengthening":{"principle":"발목 근력과 한발 균형·고유감각을 단계적으로 회복하고 이후 방향전환·착지 과제로 진행합니다.","profile_ids":["px012"],"asset_slots":["rehab_asset_ankle_las_balance_01"]},
-      "lifestyle_activity_modification":["초기에는 손상 정도에 맞는 보호와 점진적 체중부하를 사용합니다.","통증과 불안정성이 남아 있는 동안 급격한 방향전환 스포츠는 미룹니다."],
-      "common_errors":["붓기가 빠지기 전에 반복적으로 발목을 접질리는 동작을 시험하는 것","통증이 줄었다고 균형 훈련을 생략하는 것"],
-      "progression_or_phase":"보행이 안정되면 근력·균형에서 동적 reach, hop, 방향전환으로 기능 기준에 맞춰 진행합니다.",
-      "return_or_reassessment_criteria":["체중부하가 계속 어렵거나 뼈 통증이 뚜렷한 경우","반복적인 giving-way 또는 심한 불안정성이 지속되는 경우"],
-      "evidence_source_ids":["src_ankle_2021_cpg"],"last_reviewed":"2026-09-30","illustration_asset_ids":["rehab_asset_ankle_las_rom_01","rehab_asset_ankle_las_balance_01"],"print_template_id":"rehab_print_a4_v1"
+      "stable_id": "rehab_ankle_lateral_sprain_v1",
+      "region_id": "ankle_foot",
+      "name_ko": "외측 발목 염좌",
+      "name_en": "Lateral ankle sprain",
+      "plain_language_overview": "발목이 안쪽으로 접질리면서 바깥쪽 인대가 손상되는 흔한 부상입니다. 손상 정도에 맞춘 보호와 움직임 회복, 근력·균형 훈련이 재손상 예방에 중요합니다.",
+      "who_this_is_for": "골절이나 수술이 필요한 불안정성이 배제되고 보존적 재활이 적절한 외측 발목 염좌 환자.",
+      "do_not_exercise_or_seek_care": [
+        "뼈를 누를 때 심한 통증이 있거나 체중부하가 거의 불가능한 경우",
+        "관절 변형이나 탈구가 의심되는 경우",
+        "발의 감각·혈류 이상이 생기는 경우",
+        "통증과 부종이 빠르게 악화되는 경우"
+      ],
+      "stretching": {
+        "principle": "초기 보호가 필요한 범위를 지키면서 통증 허용 범위의 발목 움직임을 회복합니다.",
+        "profile_ids": [
+          "px012"
+        ],
+        "asset_slots": [
+          "rehab_asset_ankle_las_rom_01"
+        ]
+      },
+      "strengthening": {
+        "principle": "발목 근력과 한발 균형·고유감각을 단계적으로 회복하고 이후 방향전환·착지 과제로 진행합니다.",
+        "profile_ids": [
+          "px012"
+        ],
+        "asset_slots": [
+          "rehab_asset_ankle_las_balance_01"
+        ]
+      },
+      "lifestyle_activity_modification": [
+        "초기에는 손상 정도에 맞는 보호와 점진적 체중부하를 사용합니다.",
+        "통증과 불안정성이 남아 있는 동안 급격한 방향전환 스포츠는 미룹니다."
+      ],
+      "common_errors": [
+        "붓기가 빠지기 전에 반복적으로 발목을 접질리는 동작을 시험하는 것",
+        "통증이 줄었다고 균형 훈련을 생략하는 것"
+      ],
+      "progression_or_phase": "보행이 안정되면 근력·균형에서 동적 reach, hop, 방향전환으로 기능 기준에 맞춰 진행합니다.",
+      "return_or_reassessment_criteria": [
+        "체중부하가 계속 어렵거나 뼈 통증이 뚜렷한 경우",
+        "반복적인 giving-way 또는 심한 불안정성이 지속되는 경우"
+      ],
+      "evidence_source_ids": [
+        "src_ankle_2021_cpg"
+      ],
+      "last_reviewed": "2026-09-30",
+      "illustration_asset_ids": [
+        "rehab_asset_ankle_las_rom_01",
+        "rehab_asset_ankle_las_balance_01"
+      ],
+      "print_template_id": "rehab_print_a4_v1"
     },
     {
-      "stable_id":"rehab_foot_plantar_heel_pain_v1","region_id":"foot","name_ko":"족저근막성 발뒤꿈치 통증","name_en":"Plantar heel pain / plantar fasciitis",
-      "plain_language_overview":"아침 첫발이나 오래 쉬었다가 걸을 때 발뒤꿈치 안쪽 바닥이 아픈 경우가 흔합니다. 족저근막과 종아리의 유연성, 발·발목 근육의 부하 능력을 함께 회복합니다.",
-      "who_this_is_for":"골절·신경병증·전신 염증질환 등 다른 원인이 배제되고 족저근막성 발뒤꿈치 통증에 보존적 운동이 적절한 성인.",
-      "do_not_exercise_or_seek_care":["갑작스러운 외상 뒤 발을 딛기 어려운 경우","발의 감각저하·화끈거림이 진행하는 경우","발뒤꿈치가 붉고 뜨겁게 붓거나 발열이 있는 경우","야간 휴식통이 빠르게 악화되는 경우"],
-      "stretching":{"principle":"족저근막과 종아리를 통증을 크게 악화시키지 않는 범위에서 부드럽게 늘립니다.","profile_ids":["px013"],"asset_slots":["rehab_asset_foot_php_stretch_01"]},
-      "strengthening":{"principle":"발 내재근과 종아리·발목 근육의 저항운동을 증상 반응에 맞춰 점진적으로 시행합니다.","profile_ids":["px013"],"asset_slots":["rehab_asset_foot_php_strength_01"]},
-      "lifestyle_activity_modification":["갑자기 늘어난 걷기·달리기·서있는 시간을 조절합니다.","아침 첫발과 다음날 통증 변화를 운동 부하 조절에 활용합니다."],
-      "common_errors":["통증 부위를 단단한 물체로 과도하게 누르는 것","통증이 심한데 달리기 양을 그대로 유지하면서 운동만 추가하는 것"],
-      "progression_or_phase":"아침 첫발 통증과 일상 보행 반응이 안정되면 저항과 보행·달리기 부하를 점진적으로 높입니다.",
-      "return_or_reassessment_criteria":["감각저하나 신경성 통증이 진행하는 경우","부하조절과 운동에도 통증이 지속적으로 악화되는 경우"],
-      "evidence_source_ids":["src_plantar_2023_cpg"],"last_reviewed":"2026-09-30","illustration_asset_ids":["rehab_asset_foot_php_stretch_01","rehab_asset_foot_php_strength_01"],"print_template_id":"rehab_print_a4_v1"
+      "stable_id": "rehab_foot_plantar_heel_pain_v1",
+      "region_id": "foot",
+      "name_ko": "족저근막성 발뒤꿈치 통증",
+      "name_en": "Plantar heel pain / plantar fasciitis",
+      "plain_language_overview": "아침 첫발이나 오래 쉬었다가 걸을 때 발뒤꿈치 안쪽 바닥이 아픈 경우가 흔합니다. 족저근막과 종아리의 유연성, 발·발목 근육의 부하 능력을 함께 회복합니다.",
+      "who_this_is_for": "골절·신경병증·전신 염증질환 등 다른 원인이 배제되고 족저근막성 발뒤꿈치 통증에 보존적 운동이 적절한 성인.",
+      "do_not_exercise_or_seek_care": [
+        "갑작스러운 외상 뒤 발을 딛기 어려운 경우",
+        "발의 감각저하·화끈거림이 진행하는 경우",
+        "발뒤꿈치가 붉고 뜨겁게 붓거나 발열이 있는 경우",
+        "야간 휴식통이 빠르게 악화되는 경우"
+      ],
+      "stretching": {
+        "principle": "족저근막과 종아리를 통증을 크게 악화시키지 않는 범위에서 부드럽게 늘립니다.",
+        "profile_ids": [
+          "px013"
+        ],
+        "asset_slots": [
+          "rehab_asset_foot_php_stretch_01"
+        ]
+      },
+      "strengthening": {
+        "principle": "발 내재근과 종아리·발목 근육의 저항운동을 증상 반응에 맞춰 점진적으로 시행합니다.",
+        "profile_ids": [
+          "px013"
+        ],
+        "asset_slots": [
+          "rehab_asset_foot_php_strength_01"
+        ]
+      },
+      "lifestyle_activity_modification": [
+        "갑자기 늘어난 걷기·달리기·서있는 시간을 조절합니다.",
+        "아침 첫발과 다음날 통증 변화를 운동 부하 조절에 활용합니다."
+      ],
+      "common_errors": [
+        "통증 부위를 단단한 물체로 과도하게 누르는 것",
+        "통증이 심한데 달리기 양을 그대로 유지하면서 운동만 추가하는 것"
+      ],
+      "progression_or_phase": "아침 첫발 통증과 일상 보행 반응이 안정되면 저항과 보행·달리기 부하를 점진적으로 높입니다.",
+      "return_or_reassessment_criteria": [
+        "감각저하나 신경성 통증이 진행하는 경우",
+        "부하조절과 운동에도 통증이 지속적으로 악화되는 경우"
+      ],
+      "evidence_source_ids": [
+        "src_plantar_2023_cpg"
+      ],
+      "last_reviewed": "2026-09-30",
+      "illustration_asset_ids": [
+        "rehab_asset_foot_php_stretch_01",
+        "rehab_asset_foot_php_strength_01"
+      ],
+      "print_template_id": "rehab_print_a4_v1"
+    },
+    {
+      "stable_id": "rehab_cervical_nonspecific_neck_pain_v1",
+      "region_id": "cervical",
+      "name_ko": "비특이적 경부통",
+      "name_en": "Nonspecific neck pain",
+      "plain_language_overview": "골절·감염·종양·신경근병증처럼 특정 치료가 필요한 원인이 확인되지 않은 목 통증입니다. 위험 신호가 없다면 목을 오래 고정하기보다 일상 활동과 편안한 범위의 움직임을 유지하고, 스스로 관리할 수 있도록 교육하는 것이 중요합니다.",
+      "who_this_is_for": "급성 외상이나 진행성 신경학적 이상 등 구조적 원인을 의심할 소견이 없고, 비특이적 경부통으로 평가되어 보존적 자가관리와 운동이 적절한 성인.",
+      "do_not_exercise_or_seek_care": [
+        "최근 외상 뒤 심한 목 통증이나 뚜렷한 운동 제한이 생긴 경우",
+        "새로 생기거나 진행하는 팔·다리 근력저하, 감각저하, 보행·균형 이상이 있는 경우",
+        "발열·오한, 설명되지 않는 체중감소, 암 병력 등 감염·종양을 의심할 단서가 있는 경우",
+        "갑작스럽고 비전형적으로 심한 두통·목통증, 의식 변화 또는 새로운 신경학적 증상이 있는 경우"
+      ],
+      "stretching": {
+        "principle": "특정 스트레칭 한 가지를 정답처럼 강요하지 않고, 위험 신호가 없다면 통증을 과도하게 유발하지 않는 편안한 범위에서 목과 어깨를 부드럽게 움직입니다.",
+        "profile_ids": [
+          "px001"
+        ],
+        "asset_slots": [
+          "rehab_asset_cervical_nsnp_mobility_01"
+        ]
+      },
+      "strengthening": {
+        "principle": "지속되거나 만성적인 경부통에서는 개인의 증상·기능·선호에 맞춘 운동치료를 사용하며, 특정 운동 방식이나 고정된 운동량을 모든 환자에게 동일하게 적용하지 않습니다.",
+        "profile_ids": [
+          "px001"
+        ],
+        "asset_slots": [
+          "rehab_asset_cervical_nsnp_activation_01"
+        ]
+      },
+      "lifestyle_activity_modification": [
+        "목을 장시간 완전히 고정하기보다 허용 가능한 범위에서 일상 활동을 유지합니다.",
+        "오래 같은 자세로 버티는 시간을 줄이고, 증상 반응에 맞춰 자세와 활동을 자주 바꿉니다.",
+        "회복에 대한 두려움 때문에 모든 움직임을 피하기보다 안전한 활동을 점진적으로 회복합니다."
+      ],
+      "common_errors": [
+        "영상검사 없이 움직이면 위험하다고 생각해 목을 계속 고정하는 것",
+        "통증을 없애기 위해 한 가지 특정 운동이나 강한 스트레칭을 모든 환자에게 동일하게 반복하는 것",
+        "팔·다리의 진행성 신경학적 증상이나 외상 같은 위험 단서를 단순 근육통으로 넘기는 것"
+      ],
+      "progression_or_phase": "위험 신호가 없으면 자기관리와 활동 유지에서 시작하고, 지속성 경부통에서는 증상과 기능 반응에 따라 개별화된 운동을 점진적으로 진행합니다. 근거가 특정 운동 종류나 고정된 용량 하나를 보편적 최적값으로 지지하지 않으므로 임의의 반복 횟수·시간·각도를 정본으로 고정하지 않습니다.",
+      "return_or_reassessment_criteria": [
+        "새로운 근력저하·감각저하·보행 또는 균형 이상이 생기거나 진행하는 경우",
+        "심한 통증이 빠르게 악화되거나 외상·발열·야간통 등 구조적 원인을 의심할 단서가 생기는 경우",
+        "적절한 자기관리와 활동 조절에도 활동을 제한하는 통증이 지속되거나 악화되는 경우"
+      ],
+      "evidence_source_ids": [
+        "src_neck_2025_cpg"
+      ],
+      "last_reviewed": "2026-10-07",
+      "illustration_asset_ids": [
+        "rehab_asset_cervical_nsnp_mobility_01",
+        "rehab_asset_cervical_nsnp_activation_01"
+      ],
+      "print_template_id": "rehab_print_a4_v1"
     }
   ]
 }
