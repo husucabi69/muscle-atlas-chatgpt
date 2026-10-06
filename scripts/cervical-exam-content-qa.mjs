@@ -39,16 +39,15 @@ const p85 = profiles.get('ct085');
 check('ct085 clinical teaching is expanded', Boolean(ct085?.interpretation_detail?.plain_language_explanation));
 check('ct085 positive definition requires familiar radicular symptom relief',
   /익숙한.*(통증|저림)|방사통.*저림/.test(ct085?.positive_definition ?? ''));
-check('ct085 Candidate 1 exact binary is materialized and connected to Preview',
+check('ct085 Candidate 1 is preserved with exact binary handoff blocked',
   p85?.status === 'CANDIDATE_GENERATED_USER_PREVIEW_PENDING' &&
-  p85?.brief_status === 'CANDIDATE_READY_USER_PREVIEW' &&
+  p85?.brief_status === 'CANDIDATE_GENERATED_BINARY_HANDOFF_BLOCKED' &&
   p85?.gen_id === '6582ec89-607d-4ce7-bd9a-f7358f9683ff' &&
-  p85?.binary_handoff?.state === 'MATERIALIZED_VERIFIED_PREVIEW_CONNECTED' &&
-  p85?.binary_handoff?.blocks_generation_queue === false &&
-  p85?.preview_candidate?.preview_webp_sha256 === '3b52e18a9c9e9a1fe1a9e4ab0d4804b43c35f0209fb2d25e4915832645bd04fb' &&
+  p85?.binary_handoff?.state === 'BLOCKED' &&
+  p85?.binary_handoff?.blocks_generation_queue === true &&
   p85?.review?.user_preview === 'PENDING' &&
-  !p85?.composite_url);
-check('ct085 internal clinical and visual gates PASS before user review',
+  !p85?.preview_candidate && !p85?.composite_url);
+check('ct085 internal clinical and visual gates PASS before binary recovery',
   p85?.review?.clinical_content === 'PASS' &&
   p85?.review?.visual_pose === 'PASS' &&
   p85?.review?.examiner_hand_position === 'PASS' &&

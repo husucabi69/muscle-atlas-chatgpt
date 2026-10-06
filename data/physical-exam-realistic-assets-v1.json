@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct085-candidate1-preview-connected",
+  "dataset_version": "2026.10.06-exam-real-ct085-candidate1-binary-handoff-blocked",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -53,7 +53,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct085 Candidate 1 exact derivative is materialized and connected to Preview; internal clinical/visual gates PASS; user Preview remains PENDING and ct085 must not be regenerated. Stop this task at user review. ct086 remains the next generation-ready brief for the following task. ct088 remains user-deferred. Production main frozen."
+    "next_action": "ct085 Candidate 1 generated and internally reviewed. Exact generated binary is preserved in the current session but repository materialization is blocked; do not regenerate ct085 and do not advance to ct086 until ct085 binary handoff is recovered and connected to Preview. ct088 remains user-deferred. Production main frozen."
   },
   "profiles": [
     {
@@ -3407,7 +3407,7 @@
       "title_en": "Shoulder abduction relief test",
       "status": "CANDIDATE_GENERATED_USER_PREVIEW_PENDING",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "CANDIDATE_READY_USER_PREVIEW",
+      "brief_status": "CANDIDATE_GENERATED_BINARY_HANDOFF_BLOCKED",
       "composite_url": null,
       "generator": "OpenAI image generation",
       "generation_brief": {
@@ -3433,7 +3433,7 @@
         "embedded_text": "PASS",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-06",
-        "note": "Candidate 1 internal clinical/visual review PASS. Exact repository WebP derivative is materialized and connected to Preview. User approval is still required before canonical promotion; do not regenerate ct085."
+        "note": "Candidate 1 internal clinical/visual review PASS: patient actively places the same symptomatic arm overhead, examiner observes without passive forced elevation, and the familiar arm symptom overlay decreases. Exact repository binary handoff is blocked, so no Preview asset is connected yet and regeneration is forbidden."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3442,15 +3442,16 @@
         "copyright_evidence_required": true
       },
       "approval_blockers": [
-        "User Preview approval remains required before canonical approval"
+        "Exact Candidate 1 binary must be materialized and hash-verified before app Preview connection",
+        "User Preview approval required before canonical promotion"
       ],
       "generation_brief_version": "2026-10-06-ct085-v1",
       "gen_id": "6582ec89-607d-4ce7-bd9a-f7358f9683ff",
       "candidate_checkpoint_path": "docs/checkpoints/CT085_CANDIDATE1_BINARY_HANDOFF_2026-10-06.md",
       "binary_handoff": {
-        "state": "MATERIALIZED_VERIFIED_PREVIEW_CONNECTED",
-        "blocks_generation_queue": false,
-        "reason": "CLEARED_EXACT_BINARY_MATERIALIZED_AND_PREVIEW_CONNECTED",
+        "state": "BLOCKED",
+        "blocks_generation_queue": true,
+        "reason": "CURRENT_SESSION_BINARY_NOT_YET_MATERIALIZED_TO_REPOSITORY",
         "gen_id": "6582ec89-607d-4ce7-bd9a-f7358f9683ff",
         "source_session_path": "/mnt/data/a_vertical_triptych_comic_style_instructional_medi.png",
         "source_png_dimensions": "1024x1536",
@@ -3459,14 +3460,7 @@
         "local_preview_dimensions": "600x900",
         "local_preview_webp_sha256": "05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce",
         "local_preview_bytes": 71776,
-        "next_required_action": "User Preview review of ct085 Candidate 1; do not promote to canonical without explicit approval.",
-        "materialized_asset_path": "./assets/physical-exam-realistic/candidates/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp",
-        "materialized_dimensions": "320x480",
-        "materialized_bytes": 19100,
-        "materialized_sha256": "3b52e18a9c9e9a1fe1a9e4ab0d4804b43c35f0209fb2d25e4915832645bd04fb",
-        "materialized_on": "2026-10-06",
-        "gen_id_verified": true,
-        "source_sha256_preserved": true
+        "next_required_action": "Recover the exact Candidate 1 binary; verify SHA-256; connect it as preview_candidate; then run full QA before any ct086 generation."
       },
       "candidate_history": [
         {
@@ -3480,8 +3474,8 @@
           "local_preview_derivative_dimensions": "600x900",
           "local_preview_derivative_sha256": "05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce",
           "local_preview_path": "/mnt/data/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp",
-          "binary_vault_status": "APP_PREVIEW_INGESTED_VAULT_SYNC_PENDING",
-          "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
+          "binary_vault_status": "BINARY_HANDOFF_BLOCKED",
+          "disposition": "INTERNAL_PASS_BINARY_HANDOFF_BLOCKED_USER_PREVIEW_PENDING",
           "passed_axes": [
             "clinical_content",
             "visual_pose",
@@ -3491,25 +3485,9 @@
             "laterality",
             "positive_finding"
           ],
-          "note": "Exact Candidate 1 derivative materialized in repository and connected to Preview. Internal clinical/visual gates PASS; user approval pending. Do not regenerate.",
-          "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp",
-          "preview_dimensions": "320x480",
-          "preview_webp_sha256": "3b52e18a9c9e9a1fe1a9e4ab0d4804b43c35f0209fb2d25e4915832645bd04fb"
+          "note": "Classic active shoulder-abduction relief sign is preserved: same symptomatic arm moves overhead without examiner-forced elevation and familiar radicular arm symptoms visibly decrease. Do not regenerate; recover this exact binary first."
         }
-      ],
-      "preview_candidate": {
-        "candidate_no": 1,
-        "gen_id": "6582ec89-607d-4ce7-bd9a-f7358f9683ff",
-        "generated_on": "2026-10-06",
-        "generator": "OpenAI image generation",
-        "raw_generation_dimensions": "1024x1536",
-        "raw_generation_sha256": "0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e",
-        "preview_asset_path": "./assets/physical-exam-realistic/candidates/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp",
-        "preview_thumbnail_dimensions": "320x480",
-        "preview_webp_sha256": "3b52e18a9c9e9a1fe1a9e4ab0d4804b43c35f0209fb2d25e4915832645bd04fb",
-        "disposition": "INTERNAL_PASS_USER_PREVIEW_PENDING",
-        "note": "Classic active shoulder-abduction relief sign. Same symptomatic arm moves overhead without examiner-forced elevation; familiar radicular arm symptom overlay decreases. Internal gates PASS; user Preview approval pending."
-      }
+      ]
     },
     {
       "clinical_test_id": "ct086",

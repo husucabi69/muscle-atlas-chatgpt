@@ -31,20 +31,13 @@ Clinical lock:
 - local_preview_webp_sha256: 05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce
 
 ## Gate
-State: MATERIALIZED_VERIFIED_PREVIEW_CONNECTED
+State: BINARY_HANDOFF_BLOCKED
 
-The generated candidate passed internal content/pose/text review and its exact derivative is now materialized in the repository.
-
-Repository Preview derivative:
-- path: `./assets/physical-exam-realistic/candidates/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp`
-- dimensions: 320x480
-- bytes: 19,100
-- SHA-256: `3b52e18a9c9e9a1fe1a9e4ab0d4804b43c35f0209fb2d25e4915832645bd04fb`
-- Git blob SHA: `7553121c0c06d6a5dd5536cf057d93a164af16c1`
-
-Current gate:
+The generated candidate passed internal content/pose/text review, but the exact binary has not yet been materialized into the repository. Therefore:
 1. do not regenerate ct085;
-2. keep Stable-ID schematic fallback visible;
-3. user Preview approval remains required;
-4. do not promote ct085 to canonical APPROVED without explicit user approval;
-5. ct086 is the next generation-ready item for the next task.
+2. do not create a false Preview path;
+3. do not advance to ct086/ct087;
+4. recover the exact Candidate 1 binary first;
+5. SHA-verify the recovered bytes;
+6. connect the verified derivative as ct085 preview_candidate;
+7. run full QA and then request user Preview approval.

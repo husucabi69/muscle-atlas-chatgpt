@@ -1,16 +1,16 @@
-# CURRENT OVERRIDE — 2026-10-06 ct085 Candidate 1 Preview connected
+# CURRENT OVERRIDE — 2026-10-06 ct085 Candidate 1 generated / binary handoff blocked
 
-> This block is authoritative for the current handoff.
+> This block is authoritative for the current handoff and supersedes older active-generation wording below.
 
-- ct085 Shoulder abduction relief Candidate 1 is generated, internally reviewed PASS, and now connected to app Preview.
+- ct085 Shoulder abduction relief Candidate 1 generated and internally reviewed PASS.
 - Candidate 1 gen_id: `6582ec89-607d-4ce7-bd9a-f7358f9683ff`.
-- Raw source PNG: 1024x1536 / SHA-256 `0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e`.
-- Repository Preview derivative: `./assets/physical-exam-realistic/candidates/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp` — 320x480 / 19,100 bytes / SHA-256 `3b52e18a9c9e9a1fe1a9e4ab0d4804b43c35f0209fb2d25e4915832645bd04fb`.
-- Internal gates: clinical content / pose / examiner role / movement direction / embedded text all PASS.
-- User Preview: **PENDING**. Do not promote ct085 to APPROVED without explicit user approval.
-- Do not regenerate ct085 while this candidate is pending.
-- Preview release: `v12.04 · CT085 Preview Candidate 1` / cache key `20261006-stage23-76`.
-- ct086 remains the next generation-ready brief for the next task; this ct085 task stops at user review.
+- Exact generated source: `/mnt/data/a_vertical_triptych_comic_style_instructional_medi.png` — 1024x1536 — SHA-256 `0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e`.
+- Local 600x900 WebP derivative SHA-256: `05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce`.
+- Clinical/visual internal gates: PASS. User Preview remains PENDING.
+- Repository binary is **not yet materialized**, so no `preview_candidate` or app asset is falsely declared.
+- ct085 status: `CANDIDATE_GENERATED_USER_PREVIEW_PENDING / CANDIDATE_GENERATED_BINARY_HANDOFF_BLOCKED`.
+- **Do not regenerate ct085.**
+- **Do not advance to ct086/ct087 until ct085 exact binary is recovered, SHA-verified, connected to Preview, and the generation blocker is cleared.**
 - ct088 Hoffmann remains **INCOMPLETE_DEFERRED_MUST_REVISIT** and must not be regenerated now.
 - Production `main` remains frozen.
 - Manual development governance remains 25~30 min actual development / 30~35 min wrap-up only / 35 min HARD STOP.

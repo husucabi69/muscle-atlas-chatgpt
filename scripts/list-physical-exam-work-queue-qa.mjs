@@ -10,24 +10,26 @@ const check=(name,pass,detail='')=>{
   console.log(`${ok?'PASS':'FAIL'} | ${name}${detail?` | ${detail}`:''}`);
 };
 
-check('next generation is ct086 after ct085 Preview connection',q.next_generation==='ct086',q.next_generation||'none');
-check('remaining generation-ready queue is ct086 -> ct087',
+check('next generation is blocked until ct085 binary handoff',q.next_generation===null,q.next_generation||'none');
+check('remaining generation-ready queue is ct086 -> ct087 but cannot advance yet',
   JSON.stringify(q.generation_ready.map(x=>x.clinical_test_id))===JSON.stringify(['ct086','ct087']),
   JSON.stringify(q.generation_ready));
 check('remaining generation queue carries exact brief versions',
   JSON.stringify(q.generation_ready.map(x=>x.generation_brief_version))===
     JSON.stringify(['2026-10-06-ct086-v1','2026-10-06-ct087-v1']),
   JSON.stringify(q.generation_ready));
-check('no active binary handoff blocks generation after ct085 materialization',
-  Array.isArray(q.blocking_binary_handoff)&&q.blocking_binary_handoff.length===0,
+check('ct085 exact-binary handoff blocks later generation',
+  q.blocking_binary_handoff?.length===1&&
+  q.blocking_binary_handoff[0]?.clinical_test_id==='ct085'&&
+  q.blocking_binary_handoff[0]?.gen_id==='6582ec89-607d-4ce7-bd9a-f7358f9683ff',
   JSON.stringify(q.blocking_binary_handoff));
-check('ct085 is now a connected user-review candidate, not binary recovery or generation-ready',
-  q.user_review.some(x=>x.clinical_test_id==='ct085'&&x.gen_id==='6582ec89-607d-4ce7-bd9a-f7358f9683ff')&&
-  !q.binary_recovery.some(x=>x.clinical_test_id==='ct085')&&
+check('ct085 is in binary-recovery queue and is not regenerated or exposed before materialization',
+  q.binary_recovery.some(x=>x.clinical_test_id==='ct085'&&x.blocks_generation_queue===true)&&
+  !q.user_review.some(x=>x.clinical_test_id==='ct085')&&
   !q.generation_ready.some(x=>x.clinical_test_id==='ct085'),
   JSON.stringify({binary:q.binary_recovery,user_review:q.user_review,generation:q.generation_ready}));
-check('ct083 and ct085 are active user-review candidates',
-  JSON.stringify(q.user_review.map(x=>x.clinical_test_id))===JSON.stringify(['ct083','ct085']),
+check('only ct083 is active user-review candidate',
+  JSON.stringify(q.user_review.map(x=>x.clinical_test_id))===JSON.stringify(['ct083']),
   JSON.stringify(q.user_review));
 check('ct088 is mandatory deferred, not user-review or generation-ready',
   q.mandatory_deferred.some(x=>x.clinical_test_id==='ct088')&&
