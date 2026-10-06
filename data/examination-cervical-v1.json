@@ -911,5 +911,11 @@
         "interpretation_bottom_line": "핵심은 red flag 체크박스 개수가 아니라 '이 환자에게 일반적인 목 근골격계 검사·치료를 계속해도 안전한가'다. 병력의 맥락 + 객관적 신경학적 이상 + 시간경과를 함께 보고, 의심이 의미 있게 올라가면 적절한 영상·응급/전문의 평가로 경로를 바꾼다."
       }
     }
-  ]
+  ],
+  "source_labels": {
+    "radic_cluster_2026": "2026 · Cervical radiculopathy cluster 독립 검증",
+    "radic_review_2026": "2026 · Cervical radiculopathy 이학검사 systematic review/meta-analysis",
+    "crom_measurement_review_2010": "2010 · Cervical ROM 측정 신뢰도·타당도 systematic review",
+    "crom_reliability_neck_pain_2017": "2017 · Neck pain 환자 active cervical ROM reliability review"
+  }
 }
