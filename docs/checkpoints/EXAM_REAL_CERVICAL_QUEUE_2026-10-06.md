@@ -9,7 +9,8 @@ It does not override explicit user approval/rejection commands.
 - Cervical profiles: 17 total.
 - Canonical APPROVED: **9** — ct082, ct084, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
 - Connected user-review candidates: **1** — ct083 Candidate 2.
-- Generation-ready in active pilot: **3** — ct085 → ct086 → ct087.
+- ct085 Candidate 1 generated/internal PASS but exact repository binary handoff is blocked; it now blocks later generation.
+- Remaining generation-ready briefs: **2** — ct086 → ct087 — but both are execution-blocked until ct085 binary recovery is complete.
 - User-approved exact-binary recovery: **1** — ct089.
 - Historical candidate metadata without connected app binary: ct091, ct092.
 
@@ -39,11 +40,16 @@ It does not override explicit user approval/rejection commands.
   - Panel 4 must keep examiner grip on the middle finger while thumb/index involuntary flexion is shown.
   - Do not regenerate now; revisit after the active ct085 → ct086 → ct087 development line.
 
-## Generation-ready next
+## Active binary-handoff blocker
 3. **ct085 Shoulder abduction relief**
-   - Clinical teaching expanded 2026-10-06.
-   - Generation brief locked: `2026-10-06-ct085-v1`.
-   - Frozen packet: `docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_PROMPT_LOCK.md`.
+   - Candidate 1 generated/internal review PASS on 2026-10-06.
+   - gen_id: `6582ec89-607d-4ce7-bd9a-f7358f9683ff`.
+   - source PNG SHA-256: `0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e`.
+   - local 600x900 WebP SHA-256: `05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce`.
+   - exact binary is not yet materialized in repository.
+   - **Do not regenerate ct085. Do not advance to ct086/ct087 until exact binary recovery + Preview connection.**
+
+## Generation-ready after blocker clears
 4. **ct086 Cervical rotation ROM**
    - Clinical teaching expanded 2026-10-06.
    - Historical ~60° value explicitly kept as cluster context, not universal cutoff.
@@ -75,6 +81,7 @@ It does not override explicit user approval/rejection commands.
    - Recover exact binary if it becomes available; otherwise create a fresh independent candidate with user review.
 
 ## Execution rules
+- A generated/internal-PASS candidate with `binary_handoff.blocks_generation_queue=true` blocks all later image generation until exact binary recovery and Preview connection.
 - Approved assets are immutable unless user explicitly requests replacement.
 - A user-review PENDING candidate is not APPROVED.
 - Wrong-subject generations are rejected and never reused under another Stable ID.
