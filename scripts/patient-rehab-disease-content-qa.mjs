@@ -41,6 +41,7 @@ pass('Disease rehab coverage gate nonzero',coverage.minimum_region_gate!==0);
 pass('Disease rehab coverage gate type',typeof coverage.minimum_region_gate==='number');
 pass('Disease rehab coverage gate finite',coverage.minimum_region_gate<100);
 pass('Disease rehab coverage gate sensible',coverage.minimum_region_gate<50);
+pass('Disease rehab coverage gate bounded',coverage.minimum_region_gate<40);
 pass('Disease rehab coverage schema v1',coverage.schema_version==='1.0.0',coverage.schema_version);
 pass('Preview-only dataset',rehab.status==='PREVIEW_DEVELOPMENT'&&coverage.status==='PREVIEW_DEVELOPMENT',`${rehab.status}/${coverage.status}`);
 pass('Patient-safety policy',rehab.content_policy?.postoperative_separate===true && rehab.content_policy?.no_invented_dose===true && rehab.content_policy?.red_flags_before_exercise===true);
