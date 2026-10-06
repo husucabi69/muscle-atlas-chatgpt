@@ -1,29 +1,31 @@
 # EXAM-REAL cervical queue — 2026-10-06
 
-Preview release: `v12.04 · CT085 Preview Candidate 1`
+Preview release: `v12.05 · HD Exam + Textbook Interpretation`
 
 This checkpoint is the current execution order for cervical Physical Examination realistic assets.
 It does not override explicit user approval/rejection commands.
 
 ## Registry snapshot
 - Cervical profiles: 17 total.
-- Canonical APPROVED: **9** — ct082, ct084, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
-- Connected user-review candidates: **2** — ct083 Candidate 2, ct085 Candidate 1.
-- ct085 Candidate 1 is materialized, byte-verified and connected to Preview; user approval is pending.
-- Remaining generation-ready briefs: **2** — ct086 → ct087. Current ct085 task is now at user-review handoff.
+- Canonical APPROVED: **10** — ct082, ct084, **ct085 HD**, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
+- Connected user-review candidates: **1** — ct083 Candidate 2.
+- ct085 latest user-approved asset is canonical HD: 1024x1536 / 122,218 bytes / SHA-256 `a9d7e97588283739117a1e36d74994b8604c66e37d01b3ed4749cdd7d9fb7de2`.
+- Remaining generation-ready briefs: **2** — ct086 → ct087.
+- Existing approved raster HD migration backlog: **ct082, ct084, ct095, ct096, ct097, ct098**.
 - User-approved exact-binary recovery: **1** — ct089.
 - Historical candidate metadata without connected app binary: ct091, ct092.
 
-## Locked approved — do not regenerate
-- ct082 Spurling — APPROVED
-- ct084 ULNT1 — APPROVED
-- ct090 Tandem gait — APPROVED
-- ct093 Greater occipital nerve assessment — APPROVED
-- ct094 Extension-rotation local pain provocation — APPROVED
-- ct095 CCFT — APPROVED
-- ct096 Neck flexor endurance — APPROVED
-- ct097 Cervical extensor activation — APPROVED
-- ct098 Integrated cervical red-flag screen — APPROVED
+## Locked approved / HD migration policy
+- ct082 Spurling — APPROVED · HD_UPGRADE_REQUIRED
+- ct084 ULNT1 — APPROVED · HD_UPGRADE_REQUIRED
+- ct085 Shoulder abduction relief — APPROVED · **HD_CANONICAL 1024x1536**
+- ct090 Tandem gait — APPROVED · VECTOR_EXEMPT
+- ct093 Greater occipital nerve assessment — APPROVED · VECTOR_EXEMPT
+- ct094 Extension-rotation local pain provocation — APPROVED · VECTOR_EXEMPT
+- ct095 CCFT — APPROVED · HD_UPGRADE_REQUIRED
+- ct096 Neck flexor endurance — APPROVED · HD_UPGRADE_REQUIRED
+- ct097 Cervical extensor activation — APPROVED · HD_UPGRADE_REQUIRED
+- ct098 Integrated cervical red-flag screen — APPROVED · HD_UPGRADE_REQUIRED
 
 ## Active user-review candidate
 1. **ct083 Cervical distraction**
@@ -40,17 +42,14 @@ It does not override explicit user approval/rejection commands.
   - Panel 4 must keep examiner grip on the middle finger while thumb/index involuntary flexion is shown.
   - Do not regenerate now; revisit after the active ct085 → ct086 → ct087 development line.
 
-## Active user-review candidate
-3. **ct085 Shoulder abduction relief**
-   - Candidate 1 generated/internal review PASS on 2026-10-06.
-   - gen_id: `6582ec89-607d-4ce7-bd9a-f7358f9683ff`.
-   - source PNG SHA-256: `0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e`.
-   - local 600x900 WebP SHA-256: `05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce`.
-   - Preview WebP: `./assets/physical-exam-realistic/candidates/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp`.
-   - 240x360 / 9,936 bytes / SHA-256 `83c67093c1573746655b6921bf109b62ed16473422f7fac19168cfb70a1cb46e`.
-   - local Git blob SHA-1 = GitHub blob SHA: `95624edb2711997d3bcbff4759402d9cc6d8c3c4`.
-   - internal gates PASS; user Preview PENDING.
-   - **Do not regenerate or canonical-promote ct085 until explicit user approval.**
+## ct085 completed
+- **ct085 Shoulder abduction relief — USER APPROVED / canonical APPROVED / HD_CANONICAL**
+- gen_id: `1db0cd0f-8b06-4d13-acf2-072ee5de3351`
+- canonical: `./assets/physical-exam-realistic/approved/ct085-shoulder-abduction-relief-gen-1db0cd0f-approved-hd.webp`
+- 1024x1536 / 122,218 bytes
+- SHA-256: `a9d7e97588283739117a1e36d74994b8604c66e37d01b3ed4749cdd7d9fb7de2`
+- Git blob SHA-1: `685beeb1c4b52a36514db4ab76ce7e11f2688176`
+- Do not regenerate without a new explicit user replacement request.
 
 ## Generation-ready next
 4. **ct086 Cervical rotation ROM**
