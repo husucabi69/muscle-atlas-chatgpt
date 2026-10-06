@@ -30,14 +30,13 @@ check('Cervical pilot remaining generation-ready queue is ct086 -> ct087',
   JSON.stringify(generationReadyIds)===JSON.stringify(['ct086','ct087']),
   JSON.stringify(generationReadyIds));
 const ct085=manifest.profiles?.find(x=>x.clinical_test_id==='ct085');
-check('ct085 Candidate 1 is Preview-connected and regeneration-locked',
-  ct085?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
-  ct085?.brief_status==='CANDIDATE_READY_USER_PREVIEW'&&
-  ct085?.gen_id==='6582ec89-607d-4ce7-bd9a-f7358f9683ff'&&
-  ct085?.binary_handoff?.state==='MATERIALIZED_VERIFIED_PREVIEW_CONNECTED'&&
-  ct085?.binary_handoff?.blocks_generation_queue===false&&
-  ct085?.preview_candidate?.preview_webp_sha256==='83c67093c1573746655b6921bf109b62ed16473422f7fac19168cfb70a1cb46e'&&
-  !ct085?.composite_url&&ct085?.review?.user_preview==='PENDING');
+check('ct085 latest HD asset is user-approved and regeneration-locked during binary transfer',
+  ct085?.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'&&
+  ct085?.brief_status==='USER_APPROVED_HD_BINARY_TRANSFER_PENDING'&&
+  ct085?.review?.user_preview==='PASS'&&
+  ct085?.approved_binary_handoff?.gen_id==='1db0cd0f-8b06-4d13-acf2-072ee5de3351'&&
+  ct085?.approved_binary_handoff?.expected_dimensions==='1024x1536'&&
+  !ct085?.composite_url);
 const ct083=manifest.profiles?.find(x=>x.clinical_test_id==='ct083');
 const ct084=manifest.profiles?.find(x=>x.clinical_test_id==='ct084');
 const ct092=manifest.profiles?.find(x=>x.clinical_test_id==='ct092');
@@ -99,6 +98,13 @@ for(const id of generationReadyIds){
       prompt.includes('모델 배정: 환자')&&prompt.includes('검사자')&&prompt.includes('서로 다른 검사에서 같은 인물 이미지를 재사용하지 않는다.'));
   }
 }
+
+check('Generation-ready prompts demand HD output',
+  generationReadyIds.every(id=>{
+    const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
+    const prompt=buildPhysicalExamPrompt(manifest,id);
+    return prompt.includes('최소 1024×1536')||prompt.includes('1024x1536');
+  }));
 
 const ct095=manifest.profiles?.find(x=>x.clinical_test_id==='ct095');
 const ct095SafeApprovalLifecycle=(
