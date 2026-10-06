@@ -65,6 +65,10 @@ Generation brief version: 2026-10-06-ct085-v1
 - 사용자 Preview 승인 전 기존 EXAM-001 Stable-ID schematic을 교체하지 않는다.
 ```
 
+## Evidence lock
+- 2026 systematic review/meta-analysis — PMID 41680685: shoulder abduction relief test pooled sensitivity 0.49 and specificity 0.76; evidence certainty very low.
+- 2026 independent CPR validation — PMID 42070317: original 2003 four-test cluster was revalidated; a separate new cluster used a modified passive shoulder abduction test, which must not be substituted for ct085's classic active hand-overhead relief sign.
+
 ## Candidate registration requirements
 
 When a fresh candidate is generated:

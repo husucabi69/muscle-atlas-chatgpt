@@ -63,6 +63,10 @@ Generation brief version: 2026-10-06-ct086-v1
 - 사용자 Preview 승인 전 기존 EXAM-001 Stable-ID schematic을 교체하지 않는다.
 ```
 
+## Evidence lock
+- 2026 independent CPR validation — PMID 42070317: the original four-test cluster included symptomatic-side cervical rotation <60° and showed diagnostic values comparable to the original study.
+- 2026 systematic review/meta-analysis — PMID 41680685: physical-test evidence remains sparse/low-certainty overall, so 60° must remain cluster context rather than a universal standalone abnormal cutoff.
+
 ## Candidate registration requirements
 - new `gen_id`;
 - source dimensions + SHA-256;

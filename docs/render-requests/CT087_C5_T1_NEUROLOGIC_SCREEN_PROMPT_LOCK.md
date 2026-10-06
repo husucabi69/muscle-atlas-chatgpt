@@ -63,6 +63,10 @@ Generation brief version: 2026-10-06-ct087-v1
 - 사용자 Preview 승인 전 기존 EXAM-001 Stable-ID schematic을 교체하지 않는다.
 ```
 
+## Evidence lock
+- 2026 cervical radiculopathy physical-test systematic review — PMID 41680685: individual physical-test evidence is limited; neurologic findings must be integrated with history and other tests.
+- DCM sign evidence locks remain linked through `dcm_signs_2024` and `dcm_scoping_2025` so multi-level/UMN patterns are not mislabeled as isolated radiculopathy.
+
 ## Candidate registration requirements
 - new `gen_id`;
 - source dimensions + SHA-256;
