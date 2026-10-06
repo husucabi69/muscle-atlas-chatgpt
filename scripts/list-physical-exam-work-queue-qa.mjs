@@ -21,13 +21,15 @@ check('remaining generation queue carries exact brief versions',
 check('no active binary handoff blocks generation after ct085 materialization',
   Array.isArray(q.blocking_binary_handoff)&&q.blocking_binary_handoff.length===0,
   JSON.stringify(q.blocking_binary_handoff));
-check('ct085 is now a connected user-review candidate, not binary recovery or generation-ready',
-  q.user_review.some(x=>x.clinical_test_id==='ct085'&&x.gen_id==='6582ec89-607d-4ce7-bd9a-f7358f9683ff')&&
-  !q.binary_recovery.some(x=>x.clinical_test_id==='ct085')&&
+const ct085InBinaryTransfer=q.binary_recovery.some(x=>x.clinical_test_id==='ct085'&&x.user_preview==='PASS');
+const ct085IsApproved=q.approved.includes('ct085');
+check('ct085 is locked outside generation across HD approval transfer lifecycle',
+  (ct085InBinaryTransfer||ct085IsApproved)&&
+  !q.user_review.some(x=>x.clinical_test_id==='ct085')&&
   !q.generation_ready.some(x=>x.clinical_test_id==='ct085'),
-  JSON.stringify({binary:q.binary_recovery,user_review:q.user_review,generation:q.generation_ready}));
-check('ct083 and ct085 are active user-review candidates',
-  JSON.stringify(q.user_review.map(x=>x.clinical_test_id))===JSON.stringify(['ct083','ct085']),
+  JSON.stringify({binary:q.binary_recovery,user_review:q.user_review,approved:q.approved,generation:q.generation_ready}));
+check('ct083 remains the only active user-review candidate after ct085 approval',
+  JSON.stringify(q.user_review.map(x=>x.clinical_test_id))===JSON.stringify(['ct083']),
   JSON.stringify(q.user_review));
 check('ct088 is mandatory deferred, not user-review or generation-ready',
   q.mandatory_deferred.some(x=>x.clinical_test_id==='ct088')&&
