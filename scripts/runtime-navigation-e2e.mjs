@@ -634,6 +634,41 @@ try{
   pass('A13 ct088 deferred visual + explicit status note + schematic fallback + rich interpretation',
     JSON.stringify({interpretation:{width:hoffInterpretation.width,height:hoffInterpretation.height},deferred:hoffDeferredText}));
 
+  for(const spec of [
+    {
+      id:'ct085',
+      required:['어깨 외전 완화 검사','쉽게 이해하기','익숙한 팔','modified passive shoulder abduction','단독 rule-in/rule-out'],
+      passName:'A14 ct085 shoulder-abduction relief teaching + schematic fallback'
+    },
+    {
+      id:'ct086',
+      required:['경추 회전 ROM 평가','쉽게 이해하기','60°','독립 정상/병적 경계로 쓰는 근거는 아니다','능동'],
+      passName:'A15 ct086 cervical rotation ROM teaching + schematic fallback'
+    },
+    {
+      id:'ct087',
+      required:['C5–T1 신경학적 선별','쉽게 이해하기','T1','손가락 벌림','motor·sensory·reflex'],
+      passName:'A16 ct087 C5–T1 neurologic teaching + schematic fallback'
+    }
+  ]){
+    const p=await context.newPage();
+    const u=new URL('?page=clinical&module=cervical&topic=exam&item='+spec.id,base).toString();
+    await p.goto(u,{waitUntil:'domcontentloaded',timeout:30000});
+    await p.waitForFunction(()=>document.documentElement.dataset.appPage==='clinical'&&!document.querySelector('#clinicalDetailView')?.hidden,{timeout:20000});
+    const textContent=(await p.locator('#clinicalDetailContent').textContent()||'').trim();
+    for(const required of spec.required){
+      if(!textContent.includes(required))fail(spec.id+' teaching contains '+required,textContent.slice(0,2200));
+    }
+    if(await p.locator('#clinicalDetailContent [data-exam-realistic-candidate]').count()!==0){
+      fail(spec.id+' has no realistic candidate before generation');
+    }
+    if(await p.locator('#clinicalDetailContent [data-exam-illustration]').count()!==1){
+      fail(spec.id+' keeps Stable-ID schematic fallback before realistic candidate approval');
+    }
+    await p.close();
+    pass(spec.passName);
+  }
+
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
   pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral, learning and home/search click sweep');
