@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-cervical-wave2-evidence-hardened",
+  "dataset_version": "2026.10.06-exam-real-wave2-render-clarified",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3417,8 +3417,8 @@
         "examiner_maneuver": "환자가 스스로 증상측 어깨를 외전해 손 또는 전완을 머리 위에 편안히 올린다. 검사자는 옆에서 관찰하고 필요하면 팔꿈치를 가볍게 지지하지만 끝범위까지 억지로 들어 올리지 않는다.",
         "positive_finding": "같은 증상측 팔의 기존 방사통·저림 overlay가 머리 위 자세에서 명확히 약해지거나 짧아지는 변화를 보여준다. 어깨 국소통증 완화만을 양성으로 표현하지 않는다.",
         "interpretation": "Shoulder abduction relief sign은 cervical radiculopathy를 지지하는 보조 소견이며 단독 확진·배제 또는 root-level 결정용이 아니다.",
-        "limitation_safety": "급성 외상, 진행성 신경학적 결손, myelopathy red flag가 있는 환자에서 일반적인 단순 provocation/relief illustration로 과장하지 않는다.",
-        "overlay_policy": "1번 패널에는 증상측 팔의 익숙한 방사통/저림을 제한적으로 표시하고 3번에서는 같은 overlay가 약해지는 변화만 표현. 임의 통증 숫자·각도·root label 금지.",
+        "limitation_safety": "급성 외상, 진행성 신경학적 결손, myelopathy red flag가 있는 환자에서 일반적인 단순 provocation/relief illustration로 과장하지 않는다. 2026 validation study의 modified passive shoulder abduction test와 혼동하지 말고, 본 Stable ID에서는 환자가 스스로 손/전완을 머리 위에 올렸을 때 익숙한 radicular arm symptom이 완화되는 고전적 shoulder abduction relief sign을 그린다.",
+        "overlay_policy": "1번 패널에는 증상측 팔의 익숙한 방사통/저림을 제한적으로 표시하고 3번에서는 같은 overlay가 약해지는 변화만 표현. 임의 통증 숫자·각도·root label 금지. 검사자가 팔을 수동으로 들어 올리는 modified passive variant로 보이게 만들지 않는다.",
         "text_policy": "이미지 내부는 '1 시작 자세', '2 손을 머리 위에', '3 팔 증상 감소' 정도의 최소 한국어만 사용.",
         "evidence_lock": [
           "radic_review_2026",
@@ -3465,10 +3465,10 @@
         "patient_setup": "환자는 등받이 있는 의자에 앉고 어깨를 이완하며 머리는 중립. 몸통과 어깨가 따라 돌지 않게 한다.",
         "examiner_maneuver": "환자가 스스로 머리를 왼쪽과 오른쪽으로 천천히 회전한다. 검사자는 정면 또는 뒤에서 몸통 회전, 어깨 보상, 턱 들기/숙이기를 관찰한다. 강한 수동 끝범위 회전은 하지 않는다.",
         "positive_finding": "한쪽 회전 arc가 반대쪽보다 뚜렷하게 짧거나 익숙한 목/팔 증상이 재현되는 모습을 표현한다. 특정 각도 숫자를 병적 cut-off처럼 표시하지 않는다.",
-        "interpretation": "Cervical rotation ROM is a nonspecific functional finding. In radiculopathy it is interpreted with neurologic exam, Spurling, distraction and ULNT rather than used alone.",
+        "interpretation": "Cervical rotation ROM is a nonspecific functional finding. In the historical radiculopathy cluster, symptomatic-side rotation <60° is one component and was independently revalidated in 2026, but it is not a universal standalone abnormal cutoff. Interpret with neurologic exam, Spurling, distraction and ULNT.",
         "limitation_safety": "급성 외상·불안정성·새로운 신경학적 이상·비전형적 심한 두통/목통증이 있으면 끝범위 검사보다 원인평가를 우선한다.",
         "overlay_policy": "좌우 회전 방향은 작은 arc 화살표로만 표시. 제한 패널은 한쪽 arc가 짧게 보이게 하되 임의 빨간 통증표시와 숫자 cut-off 금지.",
-        "text_policy": "이미지 내부는 '1 중립 자세', '2 좌우 회전', '3 제한 / 보상' 정도의 최소 한국어만 사용.",
+        "text_policy": "이미지 내부는 '1 중립 자세', '2 좌우 회전', '3 제한 / 보상' 정도의 최소 한국어만 사용. 60° 또는 다른 수치 cutoff를 이미지에 넣지 않는다.",
         "evidence_lock": [
           "radic_cluster_2026",
           "radic_review_2026"
