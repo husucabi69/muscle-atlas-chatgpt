@@ -1,5 +1,7 @@
 # EXAM-REAL cervical queue — 2026-10-06
 
+Preview release: `v12.03 · Cervical Exam Wave 2`
+
 This checkpoint is the current execution order for cervical Physical Examination realistic assets.
 It does not override explicit user approval/rejection commands.
 
@@ -40,15 +42,18 @@ It does not override explicit user approval/rejection commands.
 ## Generation-ready next
 3. **ct085 Shoulder abduction relief**
    - Clinical teaching expanded 2026-10-06.
-   - Generation brief locked.
+   - Generation brief locked: `2026-10-06-ct085-v1`.
+   - Frozen packet: `docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_PROMPT_LOCK.md`.
 4. **ct086 Cervical rotation ROM**
    - Clinical teaching expanded 2026-10-06.
    - Historical ~60° value explicitly kept as cluster context, not universal cutoff.
-   - Generation brief locked.
+   - Generation brief locked: `2026-10-06-ct086-v1`.
+   - Frozen packet: `docs/render-requests/CT086_CERVICAL_ROTATION_ROM_PROMPT_LOCK.md`.
 5. **ct087 C5–T1 neurologic screen**
    - Motor/sensory/reflex integration expanded 2026-10-06.
    - Root overlap and myelopathy differentiation locked.
-   - Generation brief locked.
+   - Generation brief locked: `2026-10-06-ct087-v1`.
+   - Frozen packet: `docs/render-requests/CT087_C5_T1_NEUROLOGIC_SCREEN_PROMPT_LOCK.md`.
 
 ## Binary/recovery backlog
 6. **ct089 Babinski/clonus**
