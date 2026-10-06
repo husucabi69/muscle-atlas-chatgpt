@@ -43,6 +43,14 @@ const conditionIdSet=new Set(ids);
 const regionIds=[...new Set((rehab.conditions||[]).map(x=>x.region_id).filter(Boolean))];
 pass('Disease rehab Stable IDs unique',dup.length===0,dup.join(','));
 pass('Disease rehab content integrity',errors.length===0,errors.slice(0,30).join(','));
+const illustrationContractErrors=[];
+for(const c of rehab.conditions||[]){
+  const declared=new Set(c.illustration_asset_ids||[]);
+  const used=[...(c.stretching?.asset_slots||[]),...(c.strengthening?.asset_slots||[])];
+  for(const aid of used) if(!declared.has(aid)) illustrationContractErrors.push(c.stable_id+':slot_not_declared:'+aid);
+  for(const aid of declared) if(!used.includes(aid)) illustrationContractErrors.push(c.stable_id+':declared_not_used:'+aid);
+}
+pass('Disease rehab illustration slot contract',illustrationContractErrors.length===0,illustrationContractErrors.join(','));
 pass('Shoulder seed coverage >= 2',(rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length>=2,String((rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length));
 pass('Multiregion disease rehab coverage >= 6',regionIds.length>=6,`${regionIds.length}: ${regionIds.join(',')}`);
 pass('Cervical nonspecific neck pain seed is evidence-linked and dose-safe',(()=>{
