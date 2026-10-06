@@ -1,3 +1,20 @@
+# CURRENT OVERRIDE — 2026-10-07 ct086 Candidate 5 structured render/connection gate
+
+> This block is authoritative for the current ct086 workline.
+
+- ct085 remains USER APPROVED / canonical APPROVED / HD_CANONICAL. Do not regenerate.
+- ct086 remains the only next permitted generation target; Candidates 1–4 remain internal REJECT and are not user-facing.
+- Candidate 5 render contract is now machine-readable at `generation_brief.image_render_contract.contract_version = 2026-10-07-ct086-v2`.
+- Candidate 5 hard requirements: 1024x1536 minimum, female patient, female examiner, same identities across panels, examiner visible in every panel, active rotation only, trunk/shoulders fixed, exactly three allowed Korean headers, no degree/cutoff, no red pain overlay, no infographic copy.
+- New `scripts/physical-exam-candidate-preflight.mjs` rejects a candidate before registry connection if any required visual axis fails.
+- New `scripts/physical-exam-preview-connect.mjs` refuses Preview connection unless preflight passes and source/preview hashes, Git blob identity, dimensions and candidate asset path metadata are valid.
+- Global QA now includes both candidate-preflight and guarded-Preview-connector QA.
+- Detailed textbook interpretation remains app HTML only and must not be fed into the image render payload.
+- ct087 remains OUT_OF_ORDER until ct086 has a valid connected candidate.
+- ct088 Hoffmann remains INCOMPLETE_DEFERRED_MUST_REVISIT.
+- Final development reports must end with an explicit `한국시간 YYYY-MM-DD HH:MM:SS KST` line.
+- Production main remains frozen.
+
 # CURRENT OVERRIDE — 2026-10-07 Stage 23B independent QA wiring checkpoint
 
 > This block records the latest independent Stage 23B work completed while ct086 binary-capable image generation remains the visual mainline.
