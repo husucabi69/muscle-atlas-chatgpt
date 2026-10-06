@@ -43,6 +43,13 @@ const inOrder = text => {
 check('AGENTS timing fields are documented in required order', inOrder(files.agents));
 check('Constitution timing fields are documented in required order', inOrder(files.constitution));
 check('Principles timing fields are documented in required order', inOrder(files.principles));
+
+for (const [name,text] of [['agents',files.agents],['constitution',files.constitution],['principles',files.principles]]) {
+  check(name+': KST final-line rule is locked',
+    text.includes('최종보고 한국시간 마지막 줄 규칙')&&
+    text.includes('마지막 줄')&&
+    text.includes('한국시간 YYYY-MM-DD HH:MM:SS KST'));
+}
 check('AGENTS preserves explicit user-stop override', files.agents.includes('USER_STOP_OVERRIDE'));
 check('Constitution preserves explicit user-stop override', files.constitution.includes('USER_STOP_OVERRIDE'));
 check('Principles preserves explicit user-stop override', files.principles.includes('USER_STOP_OVERRIDE'));
