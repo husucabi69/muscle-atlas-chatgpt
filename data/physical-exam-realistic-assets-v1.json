@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-wave2-brief-versioned",
+  "dataset_version": "2026.10.06-exam-real-ct088-deferred-korean-blockers",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3596,10 +3596,10 @@
         "note": "Systematic review/meta-analysis and subsequent scoping review show substantial variability in Hoffmann sensitivity/specificity. Treat as one UMN sign; neither positive nor negative result is diagnostic alone."
       },
       "approval_blockers": [
-        "MANDATORY BACKLOG: Hoffmann remains incomplete and must be revisited later",
-        "Panel 3 must clearly show examiner-controlled middle-finger DIP flexion and rebound direction",
-        "Panel 4 must retain examiner grip on the middle finger while thumb/index involuntary flexion is shown",
-        "Fresh user Preview approval required before any canonical promotion"
+        "필수 보류 항목: Hoffmann 실사 그림은 미완성이므로 나중에 다시 제작·검수",
+        "3번 패널: 검사자가 환자의 중지를 잡고 DIP를 손바닥 쪽으로 빠르게 굴곡시키는 동작과 위로 반동되는 화살표가 명확해야 함",
+        "4번 패널: 검사자 손은 중지를 계속 잡은 상태를 유지하고 환자의 엄지·검지 비자발적 굴곡만 명확히 보여야 함",
+        "새 후보는 사용자 Preview 승인을 받은 뒤에만 정식 승인 가능"
       ],
       "review_note": "USER DEFERRED AS INCOMPLETE on 2026-10-06. Preserve Candidate 13 only as audit history; do not expose or approve. Revisit later.",
       "candidate_history": [
