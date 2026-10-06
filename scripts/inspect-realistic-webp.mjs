@@ -45,7 +45,9 @@ export function inspectWebP(file){
   if(!width||!height)fail('DIMENSIONS_NOT_FOUND');
   if(width<100||height<100)fail('DIMENSIONS_IMPLAUSIBLE '+width+'x'+height);
   const sha256=crypto.createHash('sha256').update(b).digest('hex');
-  return{file,bytes:b.length,width,height,primaryChunk,sha256};
+  const gitBlobHeader=Buffer.from('blob '+b.length+'\0','utf8');
+  const git_blob_sha1=crypto.createHash('sha1').update(gitBlobHeader).update(b).digest('hex');
+  return{file,bytes:b.length,width,height,primaryChunk,sha256,git_blob_sha1};
 }
 
 if(process.argv[1]&&process.argv[1].endsWith('inspect-realistic-webp.mjs')){
