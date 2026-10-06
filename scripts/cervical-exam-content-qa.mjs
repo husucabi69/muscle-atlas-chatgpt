@@ -117,7 +117,7 @@ check('ct086 evidence records 2026 independent MRI-referenced cluster validation
   /MRI/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
   /독립 검증/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
 check('ct086 all evidence refs resolve to source registry',
-  (tests.get('ct086')?.evidence_refs||[]).every(id=>Boolean(data.source_refs?.[id]))&&
+  (tests.get('ct086')?.evidence_refs||[]).every(id=>Boolean(exam.source_refs?.[id]))&&
   (tests.get('ct086')?.evidence_refs||[]).length>=4,
   JSON.stringify(tests.get('ct086')?.evidence_refs||[]));
 
