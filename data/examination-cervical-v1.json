@@ -251,7 +251,8 @@
         "d093"
       ],
       "evidence_refs": [
-        "radic_cluster_2026"
+        "radic_cluster_2026",
+        "radic_review_2026"
       ],
       "interpretation_detail": {
         "plain_language_explanation": "쉽게 말하면, 앉은 자세에서 몸통은 그대로 두고 머리만 왼쪽과 오른쪽으로 돌려 어느 쪽이 얼마나 잘 돌아가는지와 익숙한 증상이 생기는지를 비교하는 검사다.",
@@ -310,7 +311,9 @@
         "d090"
       ],
       "evidence_refs": [
-        "radic_review_2026"
+        "radic_review_2026",
+        "dcm_signs_2024",
+        "dcm_scoping_2025"
       ],
       "interpretation_detail": {
         "plain_language_explanation": "쉽게 말하면, 목에서 나오는 C5부터 T1 신경뿌리가 팔과 손까지 제대로 기능하는지 근력·감각·반사를 좌우 비교하는 기본 검사다. 한 가지 동작만 보는 것이 아니라 세 종류의 정보가 같은 분절을 가리키는지 본다.",
