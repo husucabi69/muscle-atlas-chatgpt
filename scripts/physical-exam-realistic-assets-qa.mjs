@@ -4,6 +4,11 @@ import crypto from 'node:crypto';
 const read=p=>fs.readFileSync(p,'utf8');
 const json=p=>JSON.parse(read(p));
 const sha256=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const gitBlobSha1=p=>{
+  const b=fs.readFileSync(p);
+  const header=Buffer.from('blob '+b.length+'\0','utf8');
+  return crypto.createHash('sha1').update(header).update(b).digest('hex');
+};
 const webpIntegrity=p=>{
   const b=fs.readFileSync(p);
   if(b.length<20||b.subarray(0,4).toString('ascii')!=='RIFF'||b.subarray(8,12).toString('ascii')!=='WEBP'){
@@ -123,8 +128,16 @@ for(const p of candidatePending){
   check(p.clinical_test_id+' pending candidate asset exists',fs.existsSync(path),path);
   if(fs.existsSync(path)){
     const expected=p.preview_candidate?.preview_webp_sha256||'';
+    const expectedBytes=p.preview_candidate?.preview_bytes;
+    const expectedGitBlob=p.preview_candidate?.git_blob_sha1||'';
     const hash=sha256(path);
+    const actualBytes=fs.statSync(path).size;
     if(expected)check(p.clinical_test_id+' pending candidate hash matches registry',hash===expected,hash);
+    if(Number.isInteger(expectedBytes))check(p.clinical_test_id+' pending candidate byte count matches registry',actualBytes===expectedBytes,String(actualBytes));
+    if(expectedGitBlob){
+      const actualGitBlob=gitBlobSha1(path);
+      check(p.clinical_test_id+' pending candidate Git blob identity matches registry',actualGitBlob===expectedGitBlob,actualGitBlob);
+    }
     if(path.endsWith('.webp')){
       const wi=webpIntegrity(path);
       check(p.clinical_test_id+' pending candidate WebP RIFF length is complete',wi.ok,JSON.stringify(wi));
