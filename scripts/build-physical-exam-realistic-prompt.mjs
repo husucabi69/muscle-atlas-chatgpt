@@ -94,6 +94,50 @@ export function buildPhysicalExamPrompt(manifest,clinicalTestId){
   ].join('\n');
 }
 
+
+export function buildPhysicalExamImageOnlyPrompt(manifest,clinicalTestId){
+  if(manifest.status!=='EXAM_REAL_001_IN_PROGRESS')fail('EXAM-REAL-001 registry is not active.');
+  const profile=manifest.profiles?.find(x=>x.clinical_test_id===clinicalTestId);
+  if(!profile)fail('Unknown clinical test: '+clinicalTestId);
+  const pilotIds=manifest.pilot?.clinical_test_ids||[];
+  if(!pilotIds.includes(clinicalTestId))fail(clinicalTestId+' is not in the active realistic Physical Examination pilot.');
+  if(profile.pilot_batch!==manifest.pilot?.batch_id)fail(clinicalTestId+' pilot batch mismatch.');
+  if(profile.status!=='PENDING_GENERATION'||profile.brief_status!=='GENERATION_READY')fail(clinicalTestId+' is not generation-ready.');
+  const b=profile.generation_brief;
+  if(!b)fail(clinicalTestId+' has no locked generation brief.');
+  const casting=modelCastingForClinicalTestId(clinicalTestId);
+  if(!casting)fail(clinicalTestId+' has no model casting.');
+  return [
+    '[IMAGE-ONLY RENDER PAYLOAD — DO NOT TURN INTO AN INFOGRAPHIC]',
+    `Stable ID: ${profile.clinical_test_id} · ${profile.title_ko}`,
+    `Generation brief version: ${profile.generation_brief_version||'UNVERSIONED'}`,
+    '',
+    'HARD COMPOSITION RULES',
+    '- Create ONLY the clinical illustration scenes. No educational page, no infographic layout, no lower text cards, no bullet lists, no references, no diagnosis list, no English title.',
+    `- Use exactly this panel structure: ${b.panel_structure}`,
+    `- Locked models: patient ${casting.patient}; examiner ${casting.examiner}. The same patient and same examiner must remain across all panels.`,
+    '- The examiner must be visibly present as an observer in every panel unless the maneuver itself makes that anatomically impossible.',
+    '- Use a clean neutral clinic background and realistic medical-education illustration style.',
+    '',
+    'VISUAL MANEUVER ONLY',
+    `- Patient setup: ${b.patient_setup}`,
+    `- Motion/observation: ${b.examiner_maneuver}`,
+    `- Finding to depict: ${b.positive_finding}`,
+    `- Overlay: ${b.overlay_policy}`,
+    '',
+    'TEXT HARD LIMIT',
+    `- ${b.text_policy}`,
+    '- Do not print any other words, paragraphs, labels, numbers, degree symbols, references, diagnoses, safety notes, or explanatory copy inside the image.',
+    '- All detailed clinical interpretation belongs in app HTML outside the image and must NOT be rendered into the artwork.',
+    '',
+    'OUTPUT',
+    '- Portrait 1024×1536 minimum.',
+    '- Full canvas is devoted to the clinical scenes.',
+    '- No passive force if the locked maneuver is active ROM.',
+    '- Return one high-resolution candidate for internal human review; it is not approved merely by generation.'
+  ].join('\n');
+}
+
 export function loadRegistry(path=REGISTRY_PATH){
   return JSON.parse(fs.readFileSync(path,'utf8'));
 }
@@ -102,9 +146,13 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   try{
     const manifest=loadRegistry();
     const arg=process.argv[2]||'--next';
-    const profile=arg==='--next'?nextPilotProfile(manifest):manifest.profiles?.find(x=>x.clinical_test_id===arg);
+    const imageOnly=arg==='--image-only';
+    const requested=imageOnly?(process.argv[3]||'--next'):arg;
+    const profile=requested==='--next'?nextPilotProfile(manifest):manifest.profiles?.find(x=>x.clinical_test_id===requested);
     if(!profile)fail('No generation-ready Physical Examination pilot profile.');
-    console.log(buildPhysicalExamPrompt(manifest,profile.clinical_test_id));
+    console.log(imageOnly
+      ?buildPhysicalExamImageOnlyPrompt(manifest,profile.clinical_test_id)
+      :buildPhysicalExamPrompt(manifest,profile.clinical_test_id));
   }catch(error){
     console.error('PHYSICAL EXAM PROMPT BUILD FAIL | '+error.message);
     process.exit(1);
