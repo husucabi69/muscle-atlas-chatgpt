@@ -1,3 +1,14 @@
+# CURRENT QUEUE OVERRIDE — 2026-10-06 23:28 KST
+
+- ct085 = APPROVED / HD_CANONICAL 1024x1536.
+- ct086 remains the only next generation-ready target.
+- ct086 Candidates 1–4 were all rejected internally before Preview; no user-facing candidate exists.
+- Rejection causes repeated across attempts: locked female/female casting not honored; examiner omitted in main scenes; long infographic text rendered inside artwork; numeric degree/cutoff text appeared; red symptom/pain overlay appeared.
+- Root-cause mitigation: visual rendering is now separated from textbook narrative with `buildPhysicalExamImageOnlyPrompt()`; detailed clinical interpretation remains in app HTML only.
+- Do not weaken the frozen ct086 visual contract to fit a generated image.
+- ct087 remains OUT_OF_ORDER until ct086 has a valid connected Preview candidate.
+- ct088 Hoffmann remains DEFERRED / mandatory revisit later.
+
 # EXAM-REAL cervical queue — 2026-10-06
 
 Preview release: `v12.05 · HD Exam + Textbook Interpretation`
