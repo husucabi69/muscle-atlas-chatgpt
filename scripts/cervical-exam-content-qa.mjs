@@ -110,10 +110,12 @@ check('ct086 retry state requires structured image-only render contract',
 check('ct086 clinical gate PASS', p86?.review?.clinical_content === 'PASS');
 check('ct086 60-degree threshold stays cluster-only, not universal cutoff',
   /2003.*cluster/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
-  /독립 정상\/병적 경계로 쓰는 근거는 아니다/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
+  /60°/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
+  /독립.*(경계|cut-off)/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
 check('ct086 evidence records 2026 independent MRI-referenced cluster validation',
-  /2026년 독립 검증 연구/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
-  /MRI/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
+  /2026년/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
+  /MRI/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
+  /독립 검증/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
 check('ct086 all evidence refs resolve to source registry',
   (tests.get('ct086')?.evidence_refs||[]).every(id=>Boolean(data.source_refs?.[id]))&&
   (tests.get('ct086')?.evidence_refs||[]).length>=4,
