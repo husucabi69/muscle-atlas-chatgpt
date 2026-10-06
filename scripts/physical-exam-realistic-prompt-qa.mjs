@@ -30,13 +30,24 @@ check('Cervical pilot remaining generation-ready queue is ct086 -> ct087',
   JSON.stringify(generationReadyIds)===JSON.stringify(['ct086','ct087']),
   JSON.stringify(generationReadyIds));
 const ct085=manifest.profiles?.find(x=>x.clinical_test_id==='ct085');
-check('ct085 latest HD asset is user-approved and regeneration-locked during binary transfer',
+const ct085HdTransferPending=(
   ct085?.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'&&
   ct085?.brief_status==='USER_APPROVED_HD_BINARY_TRANSFER_PENDING'&&
   ct085?.review?.user_preview==='PASS'&&
   ct085?.approved_binary_handoff?.gen_id==='1db0cd0f-8b06-4d13-acf2-072ee5de3351'&&
   ct085?.approved_binary_handoff?.expected_dimensions==='1024x1536'&&
-  !ct085?.composite_url);
+  !ct085?.composite_url
+);
+const ct085HdApproved=(
+  ct085?.status==='APPROVED'&&
+  ct085?.brief_status==='APPROVED'&&
+  ct085?.review?.user_preview==='PASS'&&
+  String(ct085?.composite_url||'').includes('ct085-shoulder-abduction-relief-gen-1db0cd0f-approved-hd.webp')&&
+  (ct085?.user_approved_asset?.dimensions==='1024x1536'||ct085?.approved_asset?.dimensions==='1024x1536')
+);
+check('ct085 latest HD asset is user-approved and regeneration-locked across transfer lifecycle',
+  ct085HdTransferPending||ct085HdApproved,
+  JSON.stringify({status:ct085?.status,brief_status:ct085?.brief_status,composite_url:ct085?.composite_url}));
 const ct083=manifest.profiles?.find(x=>x.clinical_test_id==='ct083');
 const ct084=manifest.profiles?.find(x=>x.clinical_test_id==='ct084');
 const ct092=manifest.profiles?.find(x=>x.clinical_test_id==='ct092');
