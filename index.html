@@ -2567,7 +2567,7 @@ function clinicalExamInterpretationDetailHtml(test){
     '</div>';
 }
 function clinicalExamEvidenceHtml(test,moduleKey){
-  const sourceMap=clinicalModuleData(moduleKey)?.source_refs||{};
+  const sourceMap=clinicalModuleData(moduleKey)?.exam?.source_refs||{};
   const refs=(test?.evidence_refs||[]).map(id=>({id,url:sourceMap[id]})).filter(x=>x.url);
   if(!refs.length)return '';
   return '<div class="clinical-exam-section" data-exam-evidence="'+esc(test.clinical_test_id||'')+'"><h4>근거</h4><div class="clinical-exam-links">'+
