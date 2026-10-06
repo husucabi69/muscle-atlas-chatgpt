@@ -15,6 +15,35 @@
 - Production `main` remains frozen.
 - Manual development governance: 25~30 min actual development / 30~35 min wrap-up only / 35 min HARD STOP.
 
+## 2026-10-06 cervical wave 2 implementation update
+
+- Preview release: `v12.03 · Cervical Exam Wave 2` / cache key `20261006-stage23-75`.
+- ct088 Hoffmann: **USER-DEFERRED INCOMPLETE**; no realistic candidate is exposed. App shows a Korean deferred-status note and keeps the existing Stable-ID schematic fallback.
+- ct085 is the only next generation target.
+- Generation permission gate now blocks:
+  - ct088 while user-deferred,
+  - duplicate generation of user-review candidates,
+  - regeneration of approved assets,
+  - ct086/ct087 from skipping ahead of ct085,
+  - image generation when binary materialization is unavailable.
+- Deterministic work queue reporter: `scripts/list-physical-exam-work-queue.mjs`.
+- Active generation order: **ct085 → ct086 → ct087**.
+- Frozen generation brief versions:
+  - ct085: `2026-10-06-ct085-v1`
+  - ct086: `2026-10-06-ct086-v1`
+  - ct087: `2026-10-06-ct087-v1`
+- Frozen prompt packets:
+  - `docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_PROMPT_LOCK.md`
+  - `docs/render-requests/CT086_CERVICAL_ROTATION_ROM_PROMPT_LOCK.md`
+  - `docs/render-requests/CT087_C5_T1_NEUROLOGIC_SCREEN_PROMPT_LOCK.md`
+- 2026 evidence nuance locked:
+  - ct085 classic active hand-overhead relief sign is distinct from the 2026 validation study's modified passive shoulder abduction test;
+  - ct086 <60° remains a CPR cluster component, not a universal standalone abnormal cutoff;
+  - ct087 keeps radiculopathy localization separate from UMN/myelopathy patterns.
+- Runtime E2E now covers ct085/ct086/ct087 teaching pages before realistic image generation.
+- Production `main` remains frozen.
+
+
 # HISTORICAL — 2026-10-06 ct088 Candidate 13 restoration (SUPERSEDED BY USER DEFERRAL)
 
 > This block supersedes the older statement that no valid ct088 candidate exists.
