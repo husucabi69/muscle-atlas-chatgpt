@@ -126,16 +126,34 @@ for (const id of ['ct091', 'ct092']) {
   check(`${id} has no false canonical composite before binary connection`, !p?.composite_url);
 }
 
-const ct085PromptLock='docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_PROMPT_LOCK.md';
-check('ct085 frozen generation packet exists',fs.existsSync(ct085PromptLock));
-if(fs.existsSync(ct085PromptLock)){
-  const packet=fs.readFileSync(ct085PromptLock,'utf8');
-  check('ct085 frozen packet carries exact brief version',
-    packet.includes('2026-10-06-ct085-v1'));
+const promptLocks=[
+  ['ct085','docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_PROMPT_LOCK.md','2026-10-06-ct085-v1'],
+  ['ct086','docs/render-requests/CT086_CERVICAL_ROTATION_ROM_PROMPT_LOCK.md','2026-10-06-ct086-v1'],
+  ['ct087','docs/render-requests/CT087_C5_T1_NEUROLOGIC_SCREEN_PROMPT_LOCK.md','2026-10-06-ct087-v1']
+];
+for(const [id,file,version] of promptLocks){
+  check(id+' frozen generation packet exists',fs.existsSync(file));
+  if(fs.existsSync(file)){
+    const packet=fs.readFileSync(file,'utf8');
+    check(id+' frozen packet carries exact brief version',packet.includes(version));
+  }
+}
+if(fs.existsSync(promptLocks[0][1])){
+  const packet=fs.readFileSync(promptLocks[0][1],'utf8');
   check('ct085 frozen packet forbids modified passive substitution',
-    packet.includes('Do not')&&
     packet.includes('modified passive shoulder abduction test')&&
     packet.includes('patient actively places the symptomatic hand/forearm overhead'));
+}
+if(fs.existsSync(promptLocks[1][1])){
+  const packet=fs.readFileSync(promptLocks[1][1],'utf8');
+  check('ct086 frozen packet forbids numeric cutoff in image',
+    packet.includes('Do not print 60°')&&packet.includes('cluster context only'));
+}
+if(fs.existsSync(promptLocks[2][1])){
+  const packet=fs.readFileSync(promptLocks[2][1],'utf8');
+  check('ct087 frozen packet keeps four domains distinct',
+    packet.includes('motor / sensory / reflex / segment pattern')&&
+    packet.includes('one-to-one root mapping'));
 }
 
 for (const doc of [
