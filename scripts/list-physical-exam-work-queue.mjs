@@ -15,7 +15,7 @@ export function buildPhysicalExamWorkQueue(manifest){
   const generation_ready=pilotIds
     .map(id=>byId.get(id))
     .filter(p=>p?.status==='PENDING_GENERATION'&&p?.brief_status==='GENERATION_READY')
-    .map(p=>({clinical_test_id:p.clinical_test_id,title_ko:p.title_ko,pilot_batch:p.pilot_batch}));
+    .map(p=>({clinical_test_id:p.clinical_test_id,title_ko:p.title_ko,pilot_batch:p.pilot_batch,generation_brief_version:p.generation_brief_version||null}));
 
   const mandatory_deferred=profiles
     .filter(p=>String(p.status||'').startsWith('INCOMPLETE_DEFERRED'))
