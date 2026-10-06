@@ -3450,7 +3450,7 @@
       "binary_handoff": {
         "state": "MATERIALIZED_VERIFIED_PREVIEW_CONNECTED",
         "blocks_generation_queue": false,
-        "reason": "CURRENT_SESSION_BINARY_NOT_YET_MATERIALIZED_TO_REPOSITORY",
+        "reason": "CLEARED_EXACT_BINARY_MATERIALIZED_AND_PREVIEW_CONNECTED",
         "gen_id": "6582ec89-607d-4ce7-bd9a-f7358f9683ff",
         "source_session_path": "/mnt/data/a_vertical_triptych_comic_style_instructional_medi.png",
         "source_png_dimensions": "1024x1536",
