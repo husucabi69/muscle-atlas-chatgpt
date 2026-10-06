@@ -25,10 +25,11 @@ Clinical lock:
 - source_session_path: /mnt/data/a_vertical_triptych_comic_style_instructional_medi.png
 - source_dimensions: 1024x1536
 - source_png_sha256: 0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e
-- local_preview_path: /mnt/data/ct085-shoulder-abduction-relief-gen-6582ec89-preview.webp
-- local_preview_dimensions: 600x900
-- local_preview_bytes: 71776
-- local_preview_webp_sha256: 05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce
+- local_preview_path: /mnt/data/ct085_240x360_q70.webp
+- local_preview_dimensions: 240x360
+- local_preview_bytes: 9936
+- local_preview_webp_sha256: 83c67093c1573746655b6921bf109b62ed16473422f7fac19168cfb70a1cb46e
+- local_preview_git_blob_sha1: 95624edb2711997d3bcbff4759402d9cc6d8c3c4
 
 ## Gate
 State: MATERIALIZED_VERIFIED_PREVIEW_CONNECTED
