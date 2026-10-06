@@ -618,12 +618,21 @@ try{
   if(await hoffPage.locator('#clinicalDetailContent [data-exam-realistic-candidate]').count()!==0){
     fail('ct088 user-deferred incomplete realistic candidate is not exposed');
   }
+  const hoffDeferred=hoffPage.locator('#clinicalDetailContent [data-exam-realistic-deferred="ct088"]');
+  if(await hoffDeferred.count()!==1){
+    fail('ct088 deferred status note is visibly exposed exactly once');
+  }
+  const hoffDeferredText=(await hoffDeferred.textContent()||'').trim();
+  if(!hoffDeferredText.includes('실사형 일러스트 · 미완성 보류')||
+     !hoffDeferredText.includes('기존 Stable-ID 교육 도해')){
+    fail('ct088 deferred status note explains fallback clearly',hoffDeferredText);
+  }
   if(await hoffPage.locator('#clinicalDetailContent [data-exam-illustration]').count()!==1){
     fail('ct088 Stable-ID schematic fallback remains visible while realistic visual is deferred');
   }
   await hoffPage.close();
-  pass('A13 ct088 deferred visual + schematic fallback + rich interpretation',
-    JSON.stringify({interpretation:{width:hoffInterpretation.width,height:hoffInterpretation.height}}));
+  pass('A13 ct088 deferred visual + explicit status note + schematic fallback + rich interpretation',
+    JSON.stringify({interpretation:{width:hoffInterpretation.width,height:hoffInterpretation.height},deferred:hoffDeferredText}));
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
