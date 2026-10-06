@@ -1,3 +1,14 @@
+# CURRENT QUEUE OVERRIDE — 2026-10-07 ct086 Candidate 5 structured gate
+
+- ct085 = APPROVED / HD_CANONICAL.
+- ct086 = next and only generation target.
+- ct086 Candidates 1–4 = REJECTED_INTERNAL_NOT_FOR_PREVIEW.
+- Candidate 5 must use render contract `2026-10-07-ct086-v2`.
+- Candidate 5 cannot enter Preview unless the machine preflight passes every locked axis and the guarded connector verifies asset identity metadata.
+- ct087 = OUT_OF_ORDER until ct086 has a valid connected candidate.
+- ct088 = DEFERRED / mandatory revisit later.
+- Production main = frozen.
+
 # CURRENT QUEUE OVERRIDE — 2026-10-06 23:28 KST
 
 - ct085 = APPROVED / HD_CANONICAL 1024x1536.
