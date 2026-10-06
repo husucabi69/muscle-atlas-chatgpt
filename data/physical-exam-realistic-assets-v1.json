@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct085-hd-approved-ct086-087-hd-locked",
+  "dataset_version": "2026.10.06-exam-real-ct086-candidates1-2-internal-rejected",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3563,7 +3563,7 @@
         "embedded_text": "PENDING",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-06",
-        "note": "ct086 clinical content expanded. Historical ~60° cluster value is explicitly treated as a cluster item, not a universal abnormal cutoff. Fresh realistic candidate required."
+        "note": "Candidate 1 and 2 rejected internally before Preview for frozen prompt violations. ct086 remains generation-ready for a corrected fresh candidate."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3573,12 +3573,53 @@
       },
       "approval_blockers": [
         "Fresh realistic candidate generation required",
+        "Female patient and female examiner must match locked model assignment and remain the same across all panels",
         "Patient trunk and shoulders must remain fixed while head rotates",
         "Must depict active rotation rather than forceful passive end-range rotation",
-        "Do not present 60° as a universal diagnostic cutoff",
+        "Image text limited to the three short Korean panel headers only",
+        "No numeric degrees/cutoffs anywhere in the image",
+        "No red pain overlay; show movement restriction/compensation with neutral arrows/guide lines only",
         "User Preview approval required before canonical promotion"
       ],
-      "generation_brief_version": "2026-10-06-ct086-v1"
+      "generation_brief_version": "2026-10-06-ct086-v1",
+      "candidate_history": [
+        {
+          "candidate_no": 1,
+          "gen_id": "ac5296c2-767c-47ce-82d0-c7a4315e6ce4",
+          "generated_on": "2026-10-06",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "850f48f06bf2482f0d1868eba785cf0b3d1695e4d850a26fbd263af77b82d03a",
+          "source_session_path": "/mnt/data/a_tall_infographic_in_a_clinical_medical_instructi.png",
+          "disposition": "REJECTED_INTERNAL_NOT_FOR_PREVIEW",
+          "failed_axes": [
+            "model_assignment",
+            "examiner_visibility",
+            "embedded_text",
+            "numeric_cutoff",
+            "overlay_policy"
+          ],
+          "note": "Rejected before Preview: male patient instead of locked female patient; examiner not visible; long infographic copy embedded in image; numeric 70–90° range printed; red pain overlay used. No registry Preview connection and no user approval requested."
+        },
+        {
+          "candidate_no": 2,
+          "gen_id": "dfb7d375-f43e-493e-a5e3-724c7ede503b",
+          "generated_on": "2026-10-06",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "01292202ae05a2ecc1492f2b58e96cc40d6cb9b2f714a2ff2cf298c5f1a4bfdf",
+          "source_session_path": "/mnt/data/a_clean_instructional_medical_infographic_poster_w.png",
+          "disposition": "REJECTED_INTERNAL_NOT_FOR_PREVIEW",
+          "failed_axes": [
+            "model_assignment",
+            "examiner_visibility",
+            "embedded_text",
+            "numeric_cutoff",
+            "overlay_policy"
+          ],
+          "note": "Rejected before Preview: repeated male patient/no examiner; long infographic copy; explicit 60° text; red pain overlay. High-resolution dimensions passed but frozen clinical visual/text contract failed. No Preview connection."
+        }
+      ]
     },
     {
       "clinical_test_id": "ct087",
