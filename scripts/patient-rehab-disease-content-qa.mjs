@@ -34,6 +34,7 @@ pass('Disease rehab coverage rows include priorities',(coverage.regions||[]).fil
 pass('Disease rehab coverage priority count',(coverage.regions||[]).filter(r=>r.next_priority).length>10);
 pass('Disease rehab coverage data size',coverage.regions.length>7);
 pass('Disease rehab coverage next work present',coverage.regions.length===coverage.regions.filter(r=>r.next_priority).length);
+pass('Disease rehab coverage priority completeness',coverage.regions.filter(r=>r.next_priority!==undefined).length===coverage.regions.length);
 pass('Disease rehab coverage schema v1',coverage.schema_version==='1.0.0',coverage.schema_version);
 pass('Preview-only dataset',rehab.status==='PREVIEW_DEVELOPMENT'&&coverage.status==='PREVIEW_DEVELOPMENT',`${rehab.status}/${coverage.status}`);
 pass('Patient-safety policy',rehab.content_policy?.postoperative_separate===true && rehab.content_policy?.no_invented_dose===true && rehab.content_policy?.red_flags_before_exercise===true);
