@@ -62,7 +62,7 @@ check('ct088 preserves clinical PASS while visual gates reset for later revisit'
   ct088?.review?.force_direction==='PENDING'&&
   ct088?.review?.embedded_text==='PENDING'&&
   Array.isArray(ct088?.approval_blockers)&&
-  ct088.approval_blockers.some(x=>String(x).includes('MANDATORY BACKLOG')));
+  ct088.approval_blockers.some(x=>String(x).includes('필수 보류 항목')));
 
 for(const id of generationReadyIds){
   const profile=manifest.profiles?.find(x=>x.clinical_test_id===id);
