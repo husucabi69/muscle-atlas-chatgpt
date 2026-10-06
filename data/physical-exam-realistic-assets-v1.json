@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.07-exam-real-ct086-structured-render-contract-v2",
+  "dataset_version": "2026.10.07-exam-real-ct086-permission-requires-structured-contract",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3643,7 +3643,9 @@
             "NO_RED_PAIN_OVERLAY",
             "NO_INFOGRAPHIC_COPY"
           ]
-        }
+        },
+        "render_contract_required": true,
+        "required_render_mode": "IMAGE_ONLY_STRUCTURED_CONTRACT"
       },
       "review": {
         "clinical_content": "PASS",
