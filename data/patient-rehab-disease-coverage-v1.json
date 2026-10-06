@@ -1,20 +1,101 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.09.30-stage23b-coverage-a",
+  "dataset_version": "2026.10.07-stage23b-coverage-cervical-a",
   "status": "PREVIEW_DEVELOPMENT",
   "minimum_region_gate": 10,
   "regions": [
-    {"region_id":"shoulder","label_ko":"어깨","status":"SEEDED","condition_ids":["rehab_shoulder_adhesive_capsulitis_v1","rehab_shoulder_rotator_cuff_tendinopathy_v1"],"next_priority":"회전근개 파열 보존적 교육과 수술 후 경로 분리"},
-    {"region_id":"elbow","label_ko":"팔꿈치","status":"SEEDED","condition_ids":["rehab_elbow_lateral_elbow_pain_v1"],"next_priority":"내측 팔꿈치 통증 후보 검토"},
-    {"region_id":"hip_pelvis","label_ko":"고관절·골반","status":"SEEDED","condition_ids":["rehab_hip_gluteal_tendinopathy_v1"],"next_priority":"고관절 골관절염"},
-    {"region_id":"knee_thigh","label_ko":"무릎·대퇴","status":"SEEDED","condition_ids":["rehab_knee_patellofemoral_pain_v1"],"next_priority":"무릎 골관절염"},
-    {"region_id":"ankle_foot","label_ko":"발목","status":"SEEDED","condition_ids":["rehab_ankle_lateral_sprain_v1"],"next_priority":"아킬레스 건병증"},
-    {"region_id":"foot","label_ko":"발","status":"SEEDED","condition_ids":["rehab_foot_plantar_heel_pain_v1"],"next_priority":"전족부 대표 질환 검토"},
-    {"region_id":"cervical","label_ko":"경추","status":"PENDING","condition_ids":[],"next_priority":"비특이적 기계적 경부통"},
-    {"region_id":"wrist_hand","label_ko":"손목·손","status":"PENDING","condition_ids":[],"next_priority":"손목터널증후군 또는 드퀘르벵 건초염"},
-    {"region_id":"lumbar_sacral","label_ko":"요추·천추","status":"PENDING","condition_ids":[],"next_priority":"비특이적 만성 요통"},
-    {"region_id":"thoracic_back","label_ko":"흉추·등","status":"PENDING","condition_ids":[],"next_priority":"기계적 흉추통; red flag 우선 구조"},
-    {"region_id":"abdominal_core","label_ko":"복벽·코어","status":"PENDING","condition_ids":[],"next_priority":"복직근 이개; 탈장 감별 우선"}
+    {
+      "region_id": "shoulder",
+      "label_ko": "어깨",
+      "status": "SEEDED",
+      "condition_ids": [
+        "rehab_shoulder_adhesive_capsulitis_v1",
+        "rehab_shoulder_rotator_cuff_tendinopathy_v1"
+      ],
+      "next_priority": "회전근개 파열 보존적 교육과 수술 후 경로 분리"
+    },
+    {
+      "region_id": "elbow",
+      "label_ko": "팔꿈치",
+      "status": "SEEDED",
+      "condition_ids": [
+        "rehab_elbow_lateral_elbow_pain_v1"
+      ],
+      "next_priority": "내측 팔꿈치 통증 후보 검토"
+    },
+    {
+      "region_id": "hip_pelvis",
+      "label_ko": "고관절·골반",
+      "status": "SEEDED",
+      "condition_ids": [
+        "rehab_hip_gluteal_tendinopathy_v1"
+      ],
+      "next_priority": "고관절 골관절염"
+    },
+    {
+      "region_id": "knee_thigh",
+      "label_ko": "무릎·대퇴",
+      "status": "SEEDED",
+      "condition_ids": [
+        "rehab_knee_patellofemoral_pain_v1"
+      ],
+      "next_priority": "무릎 골관절염"
+    },
+    {
+      "region_id": "ankle_foot",
+      "label_ko": "발목",
+      "status": "SEEDED",
+      "condition_ids": [
+        "rehab_ankle_lateral_sprain_v1"
+      ],
+      "next_priority": "아킬레스 건병증"
+    },
+    {
+      "region_id": "foot",
+      "label_ko": "발",
+      "status": "SEEDED",
+      "condition_ids": [
+        "rehab_foot_plantar_heel_pain_v1"
+      ],
+      "next_priority": "전족부 대표 질환 검토"
+    },
+    {
+      "region_id": "cervical",
+      "label_ko": "경추",
+      "status": "SEEDED",
+      "condition_ids": [
+        "rehab_cervical_nonspecific_neck_pain_v1"
+      ],
+      "next_priority": "경추 신경근병증 보존적 재활"
+    },
+    {
+      "region_id": "wrist_hand",
+      "label_ko": "손목·손",
+      "status": "PENDING",
+      "condition_ids": [],
+      "next_priority": "손목터널증후군 또는 드퀘르벵 건초염"
+    },
+    {
+      "region_id": "lumbar_sacral",
+      "label_ko": "요추·천추",
+      "status": "PENDING",
+      "condition_ids": [],
+      "next_priority": "비특이적 만성 요통"
+    },
+    {
+      "region_id": "thoracic_back",
+      "label_ko": "흉추·등",
+      "status": "PENDING",
+      "condition_ids": [],
+      "next_priority": "기계적 흉추통; red flag 우선 구조"
+    },
+    {
+      "region_id": "abdominal_core",
+      "label_ko": "복벽·코어",
+      "status": "PENDING",
+      "condition_ids": [],
+      "next_priority": "복직근 이개; 탈장 감별 우선"
+    }
   ],
   "gate_rule": "Stage 23C 진입 전 최소 10개 해부학 영역에 대표 질환 1개 이상과 safety/evidence/print/asset-slot 구조가 있어야 한다."
 }
