@@ -6,7 +6,7 @@ It does not override explicit user approval/rejection commands.
 ## Registry snapshot
 - Cervical profiles: 17 total.
 - Canonical APPROVED: **9** — ct082, ct084, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
-- Connected user-review candidates: **2** — ct083 Candidate 2, ct088 Candidate 13.
+- Connected user-review candidates: **1** — ct083 Candidate 2.
 - Generation-ready in active pilot: **3** — ct085 → ct086 → ct087.
 - User-approved exact-binary recovery: **1** — ct089.
 - Historical candidate metadata without connected app binary: ct091, ct092.
@@ -23,18 +23,19 @@ It does not override explicit user approval/rejection commands.
 - ct098 Integrated cervical red-flag screen — APPROVED
 
 ## Active user-review candidate
-1. **ct088 Hoffmann sign**
-   - Candidate 13 restored as active Preview target.
-   - Asset: `./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-64db8f81-derived-4panel.svg`
-   - Internal clinical/visual audit PASS.
-   - User Preview PENDING.
-   - Do not regenerate while Candidate 13 awaits review.
-
-2. **ct083 Cervical distraction**
+1. **ct083 Cervical distraction**
    - Candidate 2 is already connected to Preview.
    - Internal gates PASS.
    - User Preview PENDING.
    - Do not regenerate unless user rejects/corrects it.
+
+## Mandatory deferred backlog
+- **ct088 Hoffmann sign**
+  - User explicitly marked it incomplete and deferred on 2026-10-06.
+  - Candidate 13 is audit history only and is not an active Preview target.
+  - Panel 3 must later be corrected to show examiner-controlled middle-finger DIP palmward flexion plus rebound-up arrow.
+  - Panel 4 must keep examiner grip on the middle finger while thumb/index involuntary flexion is shown.
+  - Do not regenerate now; revisit after the active ct085 → ct086 → ct087 development line.
 
 ## Generation-ready next
 3. **ct085 Shoulder abduction relief**
