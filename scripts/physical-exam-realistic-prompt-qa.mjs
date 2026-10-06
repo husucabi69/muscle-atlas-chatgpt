@@ -216,6 +216,18 @@ check('Frozen ct087 packet preserves motor-sensory-reflex pattern integration',
   frozenCt087.includes('motor / sensory / reflex / segment pattern')&&
   frozenCt087.includes('one-to-one root mapping'));
 
+const ct086ImageOnly=buildPhysicalExamImageOnlyPrompt(manifest,'ct086');
+check('Image-only ct086 payload excludes clinical prose',
+  !ct086ImageOnly.includes('임상 해석:')&&
+  !ct086ImageOnly.includes('systematic review')&&
+  !ct086ImageOnly.includes('radiculopathy cluster')&&
+  ct086ImageOnly.includes('All detailed clinical interpretation belongs in app HTML outside the image'));
+check('Image-only ct086 payload carries locked female/female casting',
+  ct086ImageOnly.includes('patient 여성형; examiner 여성형'));
+check('Image-only ct086 payload forbids infographic copy and degree symbols',
+  ct086ImageOnly.includes('No educational page, no infographic layout')&&
+  ct086ImageOnly.includes('degree symbols'));
+
 const failed=checks.filter(x=>!x.pass);
 console.log('\nPhysical Examination realistic prompt QA: '+(checks.length-failed.length)+'/'+checks.length+' PASS');
 if(failed.length)process.exit(1);
