@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct088-user-deferred",
+  "dataset_version": "2026.10.06-exam-real-cervical-wave2-evidence-hardened",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3520,7 +3520,8 @@
         "text_policy": "이미지 내부는 '1 근력', '2 감각', '3 반사', '4 분절 패턴' 정도의 최소 한국어만 사용. 장문 설명은 앱 HTML에 둔다.",
         "evidence_lock": [
           "radic_review_2026",
-          "dcm_signs_2024"
+          "dcm_signs_2024",
+          "dcm_scoping_2025"
         ]
       },
       "review": {
