@@ -216,6 +216,20 @@ check('Frozen ct087 packet preserves motor-sensory-reflex pattern integration',
   frozenCt087.includes('motor / sensory / reflex / segment pattern')&&
   frozenCt087.includes('one-to-one root mapping'));
 
+const ct086Profile=manifest.profiles?.find(x=>x.clinical_test_id==='ct086');
+const ct086Render=ct086Profile?.generation_brief?.image_render_contract;
+check('ct086 structured image render contract is machine-locked',
+  ct086Render?.contract_version==='2026-10-07-ct086-v2'&&
+  ct086Render?.render_mode==='ILLUSTRATION_PLATE_NOT_INFOGRAPHIC'&&
+  ct086Render?.output?.min_width_px===1024&&
+  ct086Render?.output?.min_height_px===1536&&
+  JSON.stringify(ct086Render?.allowed_text_exact)===JSON.stringify(['1 중립 자세','2 좌우 회전','3 제한 / 보상'])&&
+  ct086Render?.casting?.patient==='female'&&ct086Render?.casting?.examiner==='female'&&
+  ct086Render?.casting?.examiner_visible_all_panels===true&&
+  ct086Render?.forbidden_text_patterns?.includes('°')&&
+  ct086Render?.forbidden_text_patterns?.includes('60')&&
+  ct086Render?.acceptance_axes?.includes('NO_INFOGRAPHIC_COPY'));
+
 const ct086ImageOnly=buildPhysicalExamImageOnlyPrompt(manifest,'ct086');
 check('Image-only ct086 payload excludes clinical prose',
   !ct086ImageOnly.includes('임상 해석:')&&
@@ -223,10 +237,18 @@ check('Image-only ct086 payload excludes clinical prose',
   !ct086ImageOnly.includes('radiculopathy cluster')&&
   ct086ImageOnly.includes('All detailed clinical interpretation belongs in app HTML outside the image'));
 check('Image-only ct086 payload carries locked female/female casting',
-  ct086ImageOnly.includes('patient 여성형; examiner 여성형'));
-check('Image-only ct086 payload forbids infographic copy and degree symbols',
-  ct086ImageOnly.includes('No educational page, no infographic layout')&&
-  ct086ImageOnly.includes('degree symbols'));
+  ct086ImageOnly.includes('- patient: female')&&
+  ct086ImageOnly.includes('- examiner: female')&&
+  ct086ImageOnly.includes('examiner must be visibly present in EVERY panel'));
+check('Image-only ct086 payload forbids infographic copy and numeric cutoff',
+  ct086ImageOnly.includes('this is NOT an infographic')&&
+  ct086ImageOnly.includes('no degree symbol, no angle value, no cutoff')&&
+  ct086ImageOnly.includes('visible text/pattern forbidden: 60')&&
+  ct086ImageOnly.includes('allowed visible text only: "1 중립 자세" / "2 좌우 회전" / "3 제한 / 보상"'));
+check('Image-only ct086 payload explicitly fixes active ROM and body compensation',
+  ct086ImageOnly.includes('actively rotates head left and right')&&
+  ct086ImageOnly.includes('trunk and shoulders stay facing forward')&&
+  ct086ImageOnly.includes('no manual force'));
 
 const failed=checks.filter(x=>!x.pass);
 console.log('\nPhysical Examination realistic prompt QA: '+(checks.length-failed.length)+'/'+checks.length+' PASS');
