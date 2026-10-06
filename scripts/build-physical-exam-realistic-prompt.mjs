@@ -107,6 +107,54 @@ export function buildPhysicalExamImageOnlyPrompt(manifest,clinicalTestId){
   if(!b)fail(clinicalTestId+' has no locked generation brief.');
   const casting=modelCastingForClinicalTestId(clinicalTestId);
   if(!casting)fail(clinicalTestId+' has no model casting.');
+
+  const rc=b.image_render_contract||null;
+  if(rc){
+    const headers=(rc.allowed_text_exact||[]).map(x=>JSON.stringify(x)).join(' / ');
+    const panelLines=(rc.panels||[]).flatMap(panel=>[
+      `PANEL ${panel.panel} — ${panel.header}`,
+      `- patient: ${panel.patient_pose}`,
+      `- examiner: ${panel.examiner_pose}`,
+      `- arrows: ${panel.arrows}`
+    ]);
+    return [
+      '[IMAGE-ONLY RENDER CONTRACT — CLINICAL ILLUSTRATION PLATE]',
+      `Stable ID: ${profile.clinical_test_id}`,
+      `Render contract: ${rc.contract_version}`,
+      '',
+      'OUTPUT',
+      `- portrait, minimum ${rc.output?.min_width_px||1024}×${rc.output?.min_height_px||1536} px`,
+      '- realistic medical-education illustration, clean neutral clinic background',
+      '- use the entire canvas for the clinical scenes; this is NOT an infographic',
+      '',
+      'LOCKED CASTING',
+      `- patient: ${rc.casting?.patient||casting.patient}`,
+      `- examiner: ${rc.casting?.examiner||casting.examiner}`,
+      '- same patient identity, face, hair and clothing across every panel',
+      '- same examiner identity, face, hair and clothing across every panel',
+      '- examiner must be visibly present in EVERY panel',
+      '',
+      'PANELS',
+      ...panelLines,
+      '',
+      'TEXT — ABSOLUTE LIMIT',
+      `- allowed visible text only: ${headers}`,
+      '- no other visible text of any kind',
+      '- no numbers except the panel numbers already contained in the three allowed headers',
+      '- no degree symbol, no angle value, no cutoff, no diagnosis, no English title',
+      '',
+      'FORBIDDEN',
+      ...(rc.forbidden_visuals||[]).map(x=>'- '+x),
+      ...(rc.forbidden_text_patterns||[]).map(x=>'- visible text/pattern forbidden: '+x),
+      '',
+      'FINAL SELF-CHECK BEFORE RETURNING',
+      ...(rc.acceptance_axes||[]).map(x=>'- must pass: '+x),
+      '',
+      '- Return exactly one high-resolution illustration plate for internal review.',
+      '- Do not add educational explanations; those are rendered separately in app HTML.'
+    ].join('\n');
+  }
+
   return [
     '[IMAGE-ONLY RENDER PAYLOAD — DO NOT TURN INTO AN INFOGRAPHIC]',
     `Stable ID: ${profile.clinical_test_id} · ${profile.title_ko}`,
@@ -137,7 +185,6 @@ export function buildPhysicalExamImageOnlyPrompt(manifest,clinicalTestId){
     '- Return one high-resolution candidate for internal human review; it is not approved merely by generation.'
   ].join('\n');
 }
-
 export function loadRegistry(path=REGISTRY_PATH){
   return JSON.parse(fs.readFileSync(path,'utf8'));
 }
