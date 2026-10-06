@@ -31,6 +31,12 @@ const generationReadyIds=pilotIds.filter(id=>{
 check('Cervical pilot remaining generation-ready queue is ct086 -> ct087',
   JSON.stringify(generationReadyIds)===JSON.stringify(['ct086','ct087']),
   JSON.stringify(generationReadyIds));
+check('Generation-ready profiles lock HD source and HD app Preview policy',
+  generationReadyIds.every(id=>{
+    const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
+    return p?.generation_brief?.source_quality_policy==='HD_RASTER_REQUIRED_PORTRAIT_MIN_1024x1536' &&
+      String(p?.generation_brief?.app_preview_policy||'').includes('PRIMARY_PREVIEW_MUST_USE_HD_SOURCE');
+  }));
 const ct085=manifest.profiles?.find(x=>x.clinical_test_id==='ct085');
 const ct085HdTransferPending=(
   ct085?.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'&&
