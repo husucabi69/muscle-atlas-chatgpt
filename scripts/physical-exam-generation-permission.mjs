@@ -52,7 +52,8 @@ export function canGeneratePhysicalExamProfile(manifest,clinicalTestId,options={
     allowed:true,
     reason:'READY',
     clinical_test_id:clinicalTestId,
-    pilot_batch:profile.pilot_batch
+    pilot_batch:profile.pilot_batch,
+    generation_brief_version:profile.generation_brief_version||null
   };
 }
 
