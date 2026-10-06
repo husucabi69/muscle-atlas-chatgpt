@@ -1,3 +1,15 @@
+# CURRENT OVERRIDE — 2026-10-07 Stage 23B independent QA wiring checkpoint
+
+> This block records the latest independent Stage 23B work completed while ct086 binary-capable image generation remains the visual mainline.
+
+- Active visual workline remains **ct086 Cervical rotation ROM**. Candidates 1–4 remain internally rejected and must not be connected to Preview.
+- ct085 remains USER APPROVED / canonical APPROVED / HD_CANONICAL. Do not regenerate.
+- IP provenance vocabulary is now aligned: `PATIENT_EXERCISE_REALISTIC` and `PHYSICAL_EXAM_REALISTIC` are accepted by `scripts/ip-provenance-qa.mjs`, matching `data/ip-provenance-v1.json`.
+- Global QA now explicitly runs `scripts/disease-rehab-roadmap-contract-qa.mjs` after the existing disease-rehab roadmap/content integrity checks.
+- No Production/main promotion was performed.
+- Next safe independent work if ct086 binary-capable generation is unavailable: verify Global QA for the two commits above, then continue Stage 23B registry/print/mobile/IP consistency work without generating duplicate image candidates.
+- When a binary-capable generation session is available, resume ct086 Candidate 5 from the frozen image-only contract; do not weaken the HARD FAIL criteria.
+
 # CURRENT OVERRIDE — 2026-10-06 ct086 generation retry after four internal rejects
 
 > This block is authoritative for the current ct086 workline.
