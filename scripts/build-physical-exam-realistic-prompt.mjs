@@ -87,6 +87,7 @@ export function buildPhysicalExamPrompt(manifest,clinicalTestId){
     '',
     '출력·후속 검수',
     '- 세로형 clinical teaching poster 비율.',
+    '- 최종 생성 원본 해상도: 세로형 최소 1024×1536 px. 600×900 이하 축소본을 canonical 후보로 사용하지 않는다.',
     '- 모바일에서도 손 위치와 화살표가 읽혀야 한다.',
     '- 생성 원본은 최종 승인품이 아니다. 새로운 gen_id로 보존하고 인간이 임상내용·자세·손위치·힘방향·텍스트를 교정한 뒤에만 앱 후보가 된다.',
     '- 사용자 Preview 승인 전 기존 EXAM-001 Stable-ID schematic을 교체하지 않는다.'
