@@ -3142,7 +3142,8 @@
         "disposition": "USER_APPROVED_PREVIEW_ASSET",
         "ip_vault": "husucabi69/muscle-atlas-ip-vault",
         "note": "Preferred realistic teaching asset. User explicitly corrected and approved ipsilateral laterality. This 400x600 WebP is the verified derived app asset; the source PNG hash refers to the mounted reviewed source file."
-      }
+      },
+      "hd_migration_status": "HD_UPGRADE_REQUIRED"
     },
     {
       "clinical_test_id": "ct083",
@@ -3398,7 +3399,8 @@
         "source_png_sha256": "0ffc8fdba0f93285323c758324339634d205be04afcc94fe75648bdfa6c75d9b",
         "disposition": "USER_APPROVED_PASS",
         "note": "Final user-approved ct084 ULNT1 source. 600x900 WebP app derivative from the exact approved 1024x1536 PNG."
-      }
+      },
+      "hd_migration_status": "HD_UPGRADE_REQUIRED"
     },
     {
       "clinical_test_id": "ct085",
@@ -3523,7 +3525,8 @@
         "source_review_png_sha256": "2505f83d482675469d0c1a7b0fa29108708cba662214b74ee40fd88e425f84da",
         "quality_policy": "HIGH_RESOLUTION_1024x1536_WEBP_Q80",
         "disposition": "USER_APPROVED_PASS"
-      }
+      },
+      "hd_migration_status": "HD_CANONICAL"
     },
     {
       "clinical_test_id": "ct086",
@@ -4176,7 +4179,8 @@
         "disposition": "USER_APPROVED_PASS"
       },
       "preview_candidate": null,
-      "review_note": "USER PASS locked and app asset connected. Do not regenerate ct090 unless user explicitly reopens."
+      "review_note": "USER PASS locked and app asset connected. Do not regenerate ct090 unless user explicitly reopens.",
+      "hd_migration_status": "VECTOR_EXEMPT"
     },
     {
       "clinical_test_id": "ct091",
@@ -4433,7 +4437,8 @@
         "dimensions": "480x720",
         "disposition": "USER_APPROVED_PASS"
       },
-      "review_note": "USER PASS locked. Do not regenerate ct093 unless the user explicitly reopens it."
+      "review_note": "USER PASS locked. Do not regenerate ct093 unless the user explicitly reopens it.",
+      "hd_migration_status": "VECTOR_EXEMPT"
     },
     {
       "clinical_test_id": "ct094",
@@ -4530,7 +4535,8 @@
         "dimensions": "320x294",
         "disposition": "USER_APPROVED_PASS"
       },
-      "review_note": "USER PASS locked. Do not regenerate ct094 unless the user explicitly reopens it."
+      "review_note": "USER PASS locked. Do not regenerate ct094 unless the user explicitly reopens it.",
+      "hd_migration_status": "VECTOR_EXEMPT"
     },
     {
       "clinical_test_id": "ct095",
@@ -4634,7 +4640,8 @@
         "dimensions": "400x713",
         "source_review_png_sha256": "0ef8c5fb6081bd4781defc60e4cfbc306cde1a720b6db1183c6185fa9bb5229c",
         "disposition": "USER_APPROVED_PASS"
-      }
+      },
+      "hd_migration_status": "HD_UPGRADE_REQUIRED"
     },
     {
       "clinical_test_id": "ct096",
@@ -4727,7 +4734,8 @@
         "source_preview_asset_path": "./assets/physical-exam-realistic/candidates/ct096-neck-flexor-endurance-gen-a49d9c8f-preview.webp",
         "disposition": "USER_APPROVED_PASS",
         "note": "Canonical ct096 asset is byte-identical to the user-approved Candidate 1 Preview derivative."
-      }
+      },
+      "hd_migration_status": "HD_UPGRADE_REQUIRED"
     },
     {
       "clinical_test_id": "ct097",
@@ -4831,7 +4839,8 @@
         "derivative_dimensions": "240x360",
         "derivative_sha256": "e6ff0b3b2cd593bad4aea743557c099cdcb1ea71e684e1cd59531aedc8ed5dbf",
         "disposition": "USER_FINAL_APPROVAL_PASS_AND_MATERIALIZED"
-      }
+      },
+      "hd_migration_status": "HD_UPGRADE_REQUIRED"
     },
     {
       "clinical_test_id": "ct098",
@@ -4926,7 +4935,8 @@
         "source_preview_asset_path": "./assets/physical-exam-realistic/candidates/ct098-cervical-red-flag-gen-4be8f319-preview.webp",
         "disposition": "USER_APPROVED_PASS",
         "note": "Canonical ct098 asset is byte-identical to the user-approved Candidate 1 Preview derivative."
-      }
+      },
+      "hd_migration_status": "HD_UPGRADE_REQUIRED"
     },
     {
       "clinical_test_id": "ct099",
@@ -6728,5 +6738,27 @@
         "copyright_evidence_required": true
       }
     }
-  ]
+  ],
+  "hd_migration": {
+    "policy_version": "2026-10-06",
+    "raster_minimum_portrait": "1024x1536",
+    "raster_minimum_landscape": "1536x1024",
+    "canonical_hd": [
+      "ct085"
+    ],
+    "upgrade_required": [
+      "ct082",
+      "ct084",
+      "ct095",
+      "ct096",
+      "ct097",
+      "ct098"
+    ],
+    "vector_exempt": [
+      "ct090",
+      "ct093",
+      "ct094"
+    ],
+    "rule": "Do not mark simple pixel-only upscales as HD complete; replace with genuinely high-resolution source-quality assets."
+  }
 }
