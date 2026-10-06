@@ -60,7 +60,7 @@
 
 권장 폴더:
 - `docs/ip-evidence/`
-- `data/ip-asset-registry-v1.json`
+- `data/ip-provenance-v1.json`
 
 ## 4. 인간 창작기여 최소 Gate
 
@@ -221,4 +221,4 @@ Filing 2/3의 별도 등록 또는 묶음 등록 여부를 다시 사용자에�
 7. 3D Viewer / Layer / Motion 완성에 따라 Filing 2/3
 8. Stage 23C PASS 후 앱 source-code Filing 4 후보 보존
 
-`ANATOMY-KNOWLEDGE-001` 시작 시 `data/ip-asset-registry-v1.json`과 `docs/ip-evidence/`를 동시에 시작한다.
+`ANATOMY-KNOWLEDGE-001` 시작 시 `data/ip-provenance-v1.json`과 `docs/ip-evidence/`를 동시에 시작한다.
