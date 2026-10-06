@@ -48,13 +48,16 @@ try{
   fs.writeFileSync(outputPath,assembled.binary);
   const info=inspectWebP(outputPath);
   if(info.sha256!==expectedSha||info.bytes!==expectedBytes)fail('strict WebP inspection identity mismatch');
+  const expectedDimensions=profile.approved_binary_handoff?.expected_dimensions||'';
+  if(expectedDimensions&&expectedDimensions!==info.width+'x'+info.height)fail('dimension mismatch expected='+expectedDimensions+' actual='+info.width+'x'+info.height);
+  if(info.width<1024||info.height<1024)fail('HD canonical minimum not met: '+info.width+'x'+info.height);
 
   profile.status='APPROVED';
   profile.brief_status='APPROVED';
   profile.composite_url='./'+outputPath.replace(/^\.\//,'');
   profile.user_approved_asset={
     gen_id:genId,
-    source_review_path:'/mnt/data/ct095_ccft_realistic_candidate_3panel_v4.png',
+    source_review_path:profile.approved_binary_handoff.source_review_path,
     approved_asset_path:profile.composite_url,
     approved_webp_sha256:info.sha256,
     dimensions:info.width+'x'+info.height,
@@ -70,8 +73,8 @@ try{
     materialized_dimensions:info.width+'x'+info.height,
     materialized_git_blob_sha1:info.git_blob_sha1
   };
-  manifest.dataset_version='2026.10.04-exam-real-007-ct095-materialized';
-  manifest.pilot.next_action='ct095 approved binary materialized and locked. ct083 remains current user-review target; do not regenerate internally passed candidates; Production remains frozen.';
+  manifest.dataset_version='2026.10.06-exam-real-'+testId+'-hd-materialized';
+  manifest.pilot.next_action=testId+' approved HD binary materialized and locked. Continue the canonical work queue; do not regenerate approved assets; Production remains frozen.';
   fs.writeFileSync(manifestPath,JSON.stringify(manifest,null,2)+'\n');
   console.log('EXAM-REAL CHUNKED BINARY MATERIALIZATION PASS',testId,assembled.parts.length,JSON.stringify(info));
 }catch(e){
