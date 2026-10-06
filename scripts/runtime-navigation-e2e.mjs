@@ -637,18 +637,18 @@ try{
   for(const spec of [
     {
       id:'ct085',
-      required:['어깨 외전 완화 검사','쉽게 이해하기','익숙한 팔','modified passive shoulder abduction','단독 rule-in/rule-out'],
+      required:['어깨 외전 완화 검사','쉽게 이해하기','익숙한 팔','modified passive shoulder abduction','단독 rule-in/rule-out','교과서식 상세 해석'],
       hdApprovalLifecycle:true,
       passName:'A14 ct085 shoulder-abduction relief teaching + HD approval lifecycle + schematic fallback'
     },
     {
       id:'ct086',
-      required:['경추 회전 ROM 평가','쉽게 이해하기','60°','독립 정상/병적 경계로 쓰는 근거는 아니다','능동'],
+      required:['경추 회전 ROM 평가','쉽게 이해하기','60°','독립 정상/병적 경계로 쓰는 근거는 아니다','능동','교과서식 상세 해석'],
       passName:'A15 ct086 cervical rotation ROM teaching + schematic fallback'
     },
     {
       id:'ct087',
-      required:['C5–T1 신경학적 선별','쉽게 이해하기','T1','손가락 벌림','motor·sensory·reflex'],
+      required:['C5–T1 신경학적 선별','쉽게 이해하기','T1','손가락 벌림','motor·sensory·reflex','교과서식 상세 해석'],
       passName:'A16 ct087 C5–T1 neurologic teaching + schematic fallback'
     }
   ]){
