@@ -73,32 +73,28 @@ for (const id of ['ct085','ct086','ct087']) {
 
 const ct088 = tests.get('ct088');
 const p88 = profiles.get('ct088');
-const pc88 = p88?.preview_candidate;
 check('ct088 clinical maneuver fixes third digit', /제3수지|중지/.test(ct088?.maneuver ?? ''));
 check('ct088 clinical maneuver fixes PIP support and DIP flick',
   /PIP/.test(ct088?.maneuver ?? '') && /DIP/.test(ct088?.maneuver ?? '') && /손바닥 쪽/.test(ct088?.maneuver ?? ''));
 check('ct088 positive response is thumb/index on same hand',
   /엄지/.test(ct088?.positive_definition ?? '') && /검지/.test(ct088?.positive_definition ?? ''));
-check('ct088 lifecycle restored to user Preview pending',
-  p88?.status === 'CANDIDATE_GENERATED_USER_PREVIEW_PENDING' &&
-  p88?.review?.user_preview === 'PENDING');
-check('ct088 active candidate is Candidate 13', pc88?.candidate_no === 13);
-check('ct088 active candidate gen_id locked',
-  pc88?.gen_id === '64db8f81-b5e0-460a-8b41-046895643b0b');
-
-const ct088Path = String(pc88?.preview_asset_path ?? '').replace(/^\.\//, '');
-check('ct088 active candidate asset exists', ct088Path && fs.existsSync(ct088Path), ct088Path);
-if (ct088Path && fs.existsSync(ct088Path)) {
-  const bytes = fs.readFileSync(ct088Path);
-  const sha = crypto.createHash('sha256').update(bytes).digest('hex');
-  check('ct088 SVG sha256 matches locked metadata',
-    sha === pc88?.preview_svg_sha256,
-    `actual=${sha} expected=${pc88?.preview_svg_sha256 ?? 'missing'}`);
-  const svg = bytes.toString('utf8');
-  check('ct088 SVG is 900x1053', /width="900"/.test(svg) && /height="1053"/.test(svg));
-  check('ct088 SVG embeds WebP and no external raster dependency',
-    /data:image\/webp;base64,/.test(svg) && !/<image[^>]+href="https?:\/\//.test(svg));
-}
+check('ct088 is explicitly user-deferred incomplete',
+  p88?.status === 'INCOMPLETE_DEFERRED_MUST_REVISIT' &&
+  p88?.brief_status === 'LOCKED_BUT_VISUAL_NOT_APPROVED' &&
+  p88?.review?.user_preview === 'DEFERRED' &&
+  !p88?.preview_candidate &&
+  !p88?.composite_url);
+check('ct088 clinical teaching stays PASS while visual gates reset',
+  p88?.review?.clinical_content === 'PASS' &&
+  p88?.review?.visual_pose === 'PENDING' &&
+  p88?.review?.examiner_hand_position === 'PENDING' &&
+  p88?.review?.force_direction === 'PENDING' &&
+  p88?.review?.embedded_text === 'PENDING');
+check('ct088 deferred blockers preserve unresolved panel 3/4 requirements',
+  Array.isArray(p88?.approval_blockers) &&
+  p88.approval_blockers.some(x=>String(x).includes('Panel 3')) &&
+  p88.approval_blockers.some(x=>String(x).includes('Panel 4')) &&
+  p88.approval_blockers.some(x=>String(x).includes('Fresh user Preview approval')));
 
 const p89 = profiles.get('ct089');
 check('ct089 remains user-approved binary-transfer pending',

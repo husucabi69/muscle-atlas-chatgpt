@@ -49,23 +49,20 @@ check('ct092 stays in user-preview queue, not generation queue',
   ct092?.review?.user_preview==='PENDING');
 
 const ct088=manifest.profiles?.find(x=>x.clinical_test_id==='ct088');
-check('ct088 Candidate 13 is restored as the only active user-review target',
-  ct088?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
-  ct088?.brief_status==='CANDIDATE_READY_USER_PREVIEW'&&
-  ct088?.review?.user_preview==='PENDING'&&
-  ct088?.preview_candidate?.candidate_no===13&&
-  ct088?.preview_candidate?.gen_id==='64db8f81-b5e0-460a-8b41-046895643b0b'&&
-  ct088?.preview_candidate?.preview_asset_path==='./assets/physical-exam-realistic/candidates/ct088-hoffmann-gen-64db8f81-derived-4panel.svg'&&
+check('ct088 is explicitly deferred incomplete and removed from active Preview',
+  ct088?.status==='INCOMPLETE_DEFERRED_MUST_REVISIT'&&
+  ct088?.brief_status==='LOCKED_BUT_VISUAL_NOT_APPROVED'&&
+  ct088?.review?.user_preview==='DEFERRED'&&
+  !ct088?.preview_candidate&&
   !ct088?.approved_asset&&!ct088?.user_approved_asset&&!ct088?.composite_url);
-check('ct088 Candidate 13 preserves all internal clinical/visual PASS gates',
+check('ct088 preserves clinical PASS while visual gates reset for later revisit',
   ct088?.review?.clinical_content==='PASS'&&
-  ct088?.review?.visual_pose==='PASS'&&
-  ct088?.review?.examiner_hand_position==='PASS'&&
-  ct088?.review?.force_direction==='PASS'&&
-  ct088?.review?.embedded_text==='PASS'&&
+  ct088?.review?.visual_pose==='PENDING'&&
+  ct088?.review?.examiner_hand_position==='PENDING'&&
+  ct088?.review?.force_direction==='PENDING'&&
+  ct088?.review?.embedded_text==='PENDING'&&
   Array.isArray(ct088?.approval_blockers)&&
-  ct088.approval_blockers.length===1&&
-  ct088.approval_blockers[0].includes('User Preview approval'));
+  ct088.approval_blockers.some(x=>String(x).includes('MANDATORY BACKLOG')));
 
 for(const id of generationReadyIds){
   const profile=manifest.profiles?.find(x=>x.clinical_test_id===id);

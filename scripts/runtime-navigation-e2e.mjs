@@ -615,27 +615,15 @@ try{
   if(hoffInterpretation.width<250||hoffInterpretation.height<200||hoffInterpretation.display==='none'||hoffInterpretation.visibility==='hidden'){
     fail('ct088 interpretation block is visibly rendered',JSON.stringify(hoffInterpretation));
   }
-  const hoffCandidate=hoffPage.locator('#clinicalDetailContent [data-exam-realistic-candidate="preview"]');
-  if(await hoffCandidate.count()!==1){
-    fail('ct088 Candidate 13 realistic Preview is exposed exactly once');
-  }
-  const hoffCandidateImg=hoffCandidate.locator('img');
-  const hoffCandidateSize=await hoffCandidateImg.evaluate(img=>({
-    complete:img.complete,
-    naturalWidth:img.naturalWidth,
-    naturalHeight:img.naturalHeight,
-    currentSrc:img.currentSrc
-  }));
-  if(!hoffCandidateSize.complete||hoffCandidateSize.naturalWidth<800||hoffCandidateSize.naturalHeight<1000||
-     !hoffCandidateSize.currentSrc.includes('ct088-hoffmann-gen-64db8f81-derived-4panel.svg')){
-    fail('ct088 Candidate 13 Preview binary is visibly materialized',JSON.stringify(hoffCandidateSize));
+  if(await hoffPage.locator('#clinicalDetailContent [data-exam-realistic-candidate]').count()!==0){
+    fail('ct088 user-deferred incomplete realistic candidate is not exposed');
   }
   if(await hoffPage.locator('#clinicalDetailContent [data-exam-illustration]').count()!==1){
-    fail('ct088 Stable-ID schematic fallback remains visible');
+    fail('ct088 Stable-ID schematic fallback remains visible while realistic visual is deferred');
   }
   await hoffPage.close();
-  pass('A13 ct088 Candidate 13 Preview + schematic fallback + rich interpretation',
-    JSON.stringify({candidate:hoffCandidateSize,interpretation:{width:hoffInterpretation.width,height:hoffInterpretation.height}}));
+  pass('A13 ct088 deferred visual + schematic fallback + rich interpretation',
+    JSON.stringify({interpretation:{width:hoffInterpretation.width,height:hoffInterpretation.height}}));
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
