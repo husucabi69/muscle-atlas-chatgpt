@@ -35,19 +35,24 @@ if (ct083Path && fs.existsSync(ct083Path)) {
 }
 
 const ct085 = tests.get('ct085');
+check('ct085 textbook narrative is detailed prose',
+  String(tests.get('ct085')?.interpretation_detail?.textbook_interpretation_narrative||'').length>=1200 &&
+  String(tests.get('ct085')?.interpretation_detail?.textbook_interpretation_narrative||'').includes('검사'),
+  String(tests.get('ct085')?.interpretation_detail?.textbook_interpretation_narrative||'').length);
 const p85 = profiles.get('ct085');
 check('ct085 clinical teaching is expanded', Boolean(ct085?.interpretation_detail?.plain_language_explanation));
 check('ct085 positive definition requires familiar radicular symptom relief',
   /익숙한.*(통증|저림)|방사통.*저림/.test(ct085?.positive_definition ?? ''));
-check('ct085 Candidate 1 exact binary is materialized and connected to Preview',
-  p85?.status === 'CANDIDATE_GENERATED_USER_PREVIEW_PENDING' &&
-  p85?.brief_status === 'CANDIDATE_READY_USER_PREVIEW' &&
-  p85?.gen_id === '6582ec89-607d-4ce7-bd9a-f7358f9683ff' &&
-  p85?.binary_handoff?.state === 'MATERIALIZED_VERIFIED_PREVIEW_CONNECTED' &&
-  p85?.binary_handoff?.blocks_generation_queue === false &&
-  p85?.preview_candidate?.preview_webp_sha256 === '83c67093c1573746655b6921bf109b62ed16473422f7fac19168cfb70a1cb46e' &&
-  p85?.review?.user_preview === 'PENDING' && !p85?.composite_url);
-check('ct085 internal clinical and visual gates PASS before user review',
+check('ct085 latest high-resolution illustration is explicitly user-approved and awaits exact binary transfer',
+  p85?.status === 'USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING' &&
+  p85?.brief_status === 'USER_APPROVED_HD_BINARY_TRANSFER_PENDING' &&
+  p85?.review?.user_preview === 'PASS' &&
+  p85?.approved_binary_handoff?.gen_id === '1db0cd0f-8b06-4d13-acf2-072ee5de3351' &&
+  p85?.approved_binary_handoff?.source_review_dimensions === '1024x1536' &&
+  p85?.approved_binary_handoff?.expected_dimensions === '1024x1536' &&
+  p85?.approved_binary_handoff?.expected_webp_sha256 === 'a9d7e97588283739117a1e36d74994b8604c66e37d01b3ed4749cdd7d9fb7de2' &&
+  !p85?.composite_url);
+check('ct085 approved HD asset remains clinically locked',
   p85?.review?.clinical_content === 'PASS' &&
   p85?.review?.visual_pose === 'PASS' &&
   p85?.review?.examiner_hand_position === 'PASS' &&
@@ -62,6 +67,10 @@ check('ct085 2026 pooled diagnostic values are preserved conservatively',
   /근거 확실성은 매우 낮/.test(ct085?.interpretation_detail?.diagnostic_weight ?? ''));
 
 const ct086 = tests.get('ct086');
+check('ct086 textbook narrative is detailed prose',
+  String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').length>=1200 &&
+  String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').includes('검사'),
+  String(tests.get('ct086')?.interpretation_detail?.textbook_interpretation_narrative||'').length);
 const p86 = profiles.get('ct086');
 check('ct086 teaching warns 60 degrees is not universal cutoff',
   /60°.*(보편|cut-off|cutoff)|보편.*60°/.test(
@@ -78,6 +87,10 @@ check('ct086 evidence records 2026 independent MRI-referenced cluster validation
   /MRI/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
 
 const ct087 = tests.get('ct087');
+check('ct087 textbook narrative is detailed prose',
+  String(tests.get('ct087')?.interpretation_detail?.textbook_interpretation_narrative||'').length>=1200 &&
+  String(tests.get('ct087')?.interpretation_detail?.textbook_interpretation_narrative||'').includes('검사'),
+  String(tests.get('ct087')?.interpretation_detail?.textbook_interpretation_narrative||'').length);
 const p87 = profiles.get('ct087');
 check('ct087 includes T1 finger abduction/adduction',
   /T1.*(벌림|모음)/.test(
