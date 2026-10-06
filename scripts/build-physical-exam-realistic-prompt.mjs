@@ -10,7 +10,17 @@ export function modelCastingForClinicalTestId(clinicalTestId){
   return realisticModelCastingForStableId(clinicalTestId);
 }
 
+export function blockingPhysicalExamBinaryHandoff(manifest){
+  const ids=manifest.pilot?.clinical_test_ids||[];
+  for(const id of ids){
+    const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
+    if(p?.binary_handoff?.state==='BLOCKED'&&p?.binary_handoff?.blocks_generation_queue===true)return p;
+  }
+  return null;
+}
+
 export function nextPilotProfile(manifest){
+  if(blockingPhysicalExamBinaryHandoff(manifest))return null;
   const ids=manifest.pilot?.clinical_test_ids||[];
   for(const id of ids){
     const p=manifest.profiles?.find(x=>x.clinical_test_id===id);
