@@ -24,3 +24,8 @@ English: Cervical rotation range-of-motion assessment
 
 ## Safety / style
 No forceful end-range rotation. No arbitrary diagnostic angle label. Independent realistic asset, same patient/examiner, mobile readable.
+## 2026 evidence distinction
+- Symptomatic-side rotation <60° belongs to the historical 2003 cervical radiculopathy clinical prediction rule and was revalidated as a **cluster component** in 2026.
+- Do not put “60°” or any cutoff number inside the illustration.
+- ct086 remains a visual comparison of active left/right rotation, compensation and symptom reproduction; it is not a standalone radiculopathy diagnostic threshold image.
+
