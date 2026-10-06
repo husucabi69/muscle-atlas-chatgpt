@@ -62,6 +62,17 @@ check('Master roadmap no longer declares 20-minute manual HARD STOP', !files.mas
 check('Handoff records latest governance lock', files.handoff.includes('development governance timing/reporting lock'));
 check('Handoff records ct098 approval clarification', files.handoff.includes('ct098 approval clarification'));
 
+
+for (const [name,text] of [['agents',files.agents],['constitution',files.constitution],['principles',files.principles]]) {
+  check(name+': three-layer reporting has coding expert explanation', text.includes('코딩 전문가 설명'));
+  check(name+': three-layer reporting has plain-language explanation', text.includes('쉬운 설명'));
+  check(name+': three-layer reporting has actual app-use change', text.includes('실제 앱 사용 시 변화'));
+  check(name+': three-layer reporting distinguishes no-screen-change work', text.includes('실제 앱 화면 변화 없음'));
+}
+check('AGENTS three-layer reporting applies to next work', files.agents.includes('② 앞으로 뭘 할 건가')&&files.agents.includes('같은 3단 방식'));
+check('Constitution three-layer reporting applies to next work', files.constitution.includes('② 앞으로 뭘 할 건가')&&files.constitution.includes('같은 3단 방식'));
+check('Principles three-layer reporting applies to next work', files.principles.includes('② 앞으로 뭘 할 건가')&&files.principles.includes('같은 3단 방식'));
+
 const failed = checks.filter(x => !x.pass);
 console.log(`SUMMARY | ${checks.length - failed.length}/${checks.length} PASS`);
 if (failed.length) process.exit(1);
