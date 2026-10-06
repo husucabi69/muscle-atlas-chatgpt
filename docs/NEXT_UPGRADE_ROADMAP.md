@@ -990,9 +990,14 @@ Stage 23C를 닫기 전에는 Google Play Production Release로 넘어가지 않
 
 ## EXAM-REAL-001 cervical wave 2 checkpoint — 2026-10-06
 
+Preview release for this checkpoint: `v12.03 · Cervical Exam Wave 2`
+
 - ct083: Candidate 2 internal PASS / user Preview PENDING.
 - ct088: **USER-DEFERRED INCOMPLETE / mandatory revisit later**. Candidate 13 is audit history only and is not an active Preview target. Do not regenerate now.
-- ct085 → ct086 → ct087: clinical teaching and realistic generation briefs locked; all three are now inside the active cervical pilot in that order.
+- ct085 → ct086 → ct087: clinical teaching and realistic generation briefs locked; all three are inside the active cervical pilot in that order.
+  - ct085 brief `2026-10-06-ct085-v1` / frozen prompt packet ready.
+  - ct086 brief `2026-10-06-ct086-v1` / frozen prompt packet ready.
+  - ct087 brief `2026-10-06-ct087-v1` / frozen prompt packet ready.
 - ct089: user-approved exact-binary recovery backlog; preserve approved source hashes and do not substitute a new image as if it were the approved original.
 - ct091/ct092: clinical content preserved; exact binary recovery or fresh independently reviewed candidate still required before canonical promotion.
 - ct084/ct090/ct093/ct094/ct095/ct096/ct097/ct098: approved assets locked; no regeneration without explicit user request.
