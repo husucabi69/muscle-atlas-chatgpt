@@ -638,8 +638,8 @@ try{
     {
       id:'ct085',
       required:['어깨 외전 완화 검사','쉽게 이해하기','익숙한 팔','modified passive shoulder abduction','단독 rule-in/rule-out'],
-      realisticPreview:true,
-      passName:'A14 ct085 shoulder-abduction relief teaching + realistic Preview candidate + schematic fallback'
+      hdApprovalLifecycle:true,
+      passName:'A14 ct085 shoulder-abduction relief teaching + HD approval lifecycle + schematic fallback'
     },
     {
       id:'ct086',
@@ -661,18 +661,25 @@ try{
       if(!textContent.includes(required))fail(spec.id+' teaching contains '+required,textContent.slice(0,2200));
     }
     const realistic=p.locator('#clinicalDetailContent [data-exam-realistic-candidate]');
-    if(spec.realisticPreview){
-      if(await realistic.count()!==1)fail(spec.id+' renders one realistic Preview candidate');
-      const img=realistic.locator('img');
-      await img.waitFor({state:'visible',timeout:10000});
-      const size=await img.evaluate(async el=>{
-        try{await el.decode();}catch{}
-        const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
-        return{naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,clientWidth:Math.round(r.width),clientHeight:Math.round(r.height),display:cs.display,visibility:cs.visibility,opacity:cs.opacity,complete:el.complete,currentSrc:el.currentSrc};
-      });
-      if(size.naturalWidth!==240||size.naturalHeight!==360||!size.complete||!size.currentSrc||size.clientWidth<180||size.clientHeight<260||size.display==='none'||size.visibility==='hidden'||Number(size.opacity)===0){
-        fail(spec.id+' realistic Preview candidate is visibly rendered at registered dimensions',JSON.stringify(size));
+    if(spec.hdApprovalLifecycle){
+      const count=await realistic.count();
+      if(count>1)fail(spec.id+' renders at most one realistic HD asset during approval transfer');
+      if(count===1){
+        const state=await realistic.getAttribute('data-exam-realistic-candidate');
+        if(state!=='approved')fail(spec.id+' connected realistic asset must be approved after HD materialization',String(state));
+        const img=realistic.locator('img');
+        await img.waitFor({state:'visible',timeout:10000});
+        const size=await img.evaluate(async el=>{
+          try{await el.decode();}catch{}
+          const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+          return{naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,clientWidth:Math.round(r.width),clientHeight:Math.round(r.height),display:cs.display,visibility:cs.visibility,opacity:cs.opacity,complete:el.complete,currentSrc:el.currentSrc};
+        });
+        if(size.naturalWidth!==1024||size.naturalHeight!==1536||!size.complete||!size.currentSrc||size.clientWidth<180||size.clientHeight<260||size.display==='none'||size.visibility==='hidden'||Number(size.opacity)===0){
+          fail(spec.id+' approved HD asset is visibly rendered at 1024x1536 source dimensions',JSON.stringify(size));
+        }
       }
+    }else if(spec.realisticPreview){
+      if(await realistic.count()!==1)fail(spec.id+' renders one realistic Preview candidate');
     }else if(await realistic.count()!==0){
       fail(spec.id+' has no realistic candidate before generation');
     }
