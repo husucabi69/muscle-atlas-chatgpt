@@ -14,6 +14,10 @@ check('next generation is ct085',q.next_generation==='ct085',q.next_generation||
 check('generation queue is ct085 -> ct086 -> ct087',
   JSON.stringify(q.generation_ready.map(x=>x.clinical_test_id))===JSON.stringify(['ct085','ct086','ct087']),
   JSON.stringify(q.generation_ready));
+check('generation queue carries exact brief versions',
+  JSON.stringify(q.generation_ready.map(x=>x.generation_brief_version))===
+    JSON.stringify(['2026-10-06-ct085-v1','2026-10-06-ct086-v1','2026-10-06-ct087-v1']),
+  JSON.stringify(q.generation_ready));
 check('only ct083 is active user-review candidate',
   JSON.stringify(q.user_review.map(x=>x.clinical_test_id))===JSON.stringify(['ct083']),
   JSON.stringify(q.user_review));
