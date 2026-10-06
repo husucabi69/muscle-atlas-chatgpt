@@ -10,7 +10,13 @@ export function buildPhysicalExamWorkQueue(manifest){
 
   const user_review=profiles
     .filter(p=>p.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&p.review?.user_preview==='PENDING'&&p.preview_candidate)
-    .map(p=>({clinical_test_id:p.clinical_test_id,title_ko:p.title_ko,candidate_no:p.preview_candidate.candidate_no,asset:p.preview_candidate.preview_asset_path}));
+    .map(p=>({
+      clinical_test_id:p.clinical_test_id,
+      title_ko:p.title_ko,
+      candidate_no:p.preview_candidate.candidate_no,
+      gen_id:p.preview_candidate.gen_id||p.gen_id||null,
+      asset:p.preview_candidate.preview_asset_path
+    }));
 
   const generation_ready=pilotIds
     .map(id=>byId.get(id))

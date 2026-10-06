@@ -14,8 +14,8 @@ const c84=modelCastingForClinicalTestId('ct084');
 check('ct084 balanced casting rule is deterministic',
   c84?.patient==='여성형'&&c84?.examiner==='남성형'&&c84?.rule_version==='2026-10-03',
   JSON.stringify(c84));
-check('Next cervical pilot generation is intentionally blocked by ct085 binary handoff',
-  next===null,next?.clinical_test_id||'blocked');
+check('Next cervical pilot generation target is ct086 after ct085 Preview connection',
+  next?.clinical_test_id==='ct086',next?.clinical_test_id||'none');
 
 const pilotIds=manifest.pilot?.clinical_test_ids||[];
 check('Pilot contains nine locked cervical tests including ct085-ct087 wave 2',
@@ -30,14 +30,14 @@ check('Cervical pilot remaining generation-ready queue is ct086 -> ct087',
   JSON.stringify(generationReadyIds)===JSON.stringify(['ct086','ct087']),
   JSON.stringify(generationReadyIds));
 const ct085=manifest.profiles?.find(x=>x.clinical_test_id==='ct085');
-check('ct085 Candidate 1 binary handoff blocks the generation queue without regeneration',
+check('ct085 Candidate 1 is Preview-connected and regeneration-locked',
   ct085?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
-  ct085?.brief_status==='CANDIDATE_GENERATED_BINARY_HANDOFF_BLOCKED'&&
+  ct085?.brief_status==='CANDIDATE_READY_USER_PREVIEW'&&
   ct085?.gen_id==='6582ec89-607d-4ce7-bd9a-f7358f9683ff'&&
-  ct085?.binary_handoff?.state==='BLOCKED'&&
-  ct085?.binary_handoff?.blocks_generation_queue===true&&
-  !ct085?.preview_candidate&&!ct085?.composite_url&&
-  ct085?.review?.user_preview==='PENDING');
+  ct085?.binary_handoff?.state==='MATERIALIZED_VERIFIED_PREVIEW_CONNECTED'&&
+  ct085?.binary_handoff?.blocks_generation_queue===false&&
+  ct085?.preview_candidate?.preview_webp_sha256==='83c67093c1573746655b6921bf109b62ed16473422f7fac19168cfb70a1cb46e'&&
+  !ct085?.composite_url&&ct085?.review?.user_preview==='PENDING');
 const ct083=manifest.profiles?.find(x=>x.clinical_test_id==='ct083');
 const ct084=manifest.profiles?.find(x=>x.clinical_test_id==='ct084');
 const ct092=manifest.profiles?.find(x=>x.clinical_test_id==='ct092');

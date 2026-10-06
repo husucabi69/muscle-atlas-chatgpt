@@ -638,7 +638,8 @@ try{
     {
       id:'ct085',
       required:['어깨 외전 완화 검사','쉽게 이해하기','익숙한 팔','modified passive shoulder abduction','단독 rule-in/rule-out'],
-      passName:'A14 ct085 shoulder-abduction relief teaching + schematic fallback'
+      realisticPreview:true,
+      passName:'A14 ct085 shoulder-abduction relief teaching + realistic Preview candidate + schematic fallback'
     },
     {
       id:'ct086',
@@ -659,7 +660,20 @@ try{
     for(const required of spec.required){
       if(!textContent.includes(required))fail(spec.id+' teaching contains '+required,textContent.slice(0,2200));
     }
-    if(await p.locator('#clinicalDetailContent [data-exam-realistic-candidate]').count()!==0){
+    const realistic=p.locator('#clinicalDetailContent [data-exam-realistic-candidate]');
+    if(spec.realisticPreview){
+      if(await realistic.count()!==1)fail(spec.id+' renders one realistic Preview candidate');
+      const img=realistic.locator('img');
+      await img.waitFor({state:'visible',timeout:10000});
+      const size=await img.evaluate(async el=>{
+        try{await el.decode();}catch{}
+        const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+        return{naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,clientWidth:Math.round(r.width),clientHeight:Math.round(r.height),display:cs.display,visibility:cs.visibility,opacity:cs.opacity,complete:el.complete,currentSrc:el.currentSrc};
+      });
+      if(size.naturalWidth!==240||size.naturalHeight!==360||!size.complete||!size.currentSrc||size.clientWidth<180||size.clientHeight<260||size.display==='none'||size.visibility==='hidden'||Number(size.opacity)===0){
+        fail(spec.id+' realistic Preview candidate is visibly rendered at registered dimensions',JSON.stringify(size));
+      }
+    }else if(await realistic.count()!==0){
       fail(spec.id+' has no realistic candidate before generation');
     }
     if(await p.locator('#clinicalDetailContent [data-exam-illustration]').count()!==1){
