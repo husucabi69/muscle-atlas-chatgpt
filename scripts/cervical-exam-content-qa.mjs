@@ -114,6 +114,11 @@ check('ct086 60-degree threshold stays cluster-only, not universal cutoff',
 check('ct086 evidence records 2026 independent MRI-referenced cluster validation',
   /2026년 독립 검증 연구/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
   /MRI/.test(ct086?.interpretation_detail?.diagnostic_weight ?? ''));
+check('ct086 all evidence refs resolve to source registry',
+  (tests.get('ct086')?.evidence_refs||[]).every(id=>Boolean(data.source_refs?.[id]))&&
+  (tests.get('ct086')?.evidence_refs||[]).length>=4,
+  JSON.stringify(tests.get('ct086')?.evidence_refs||[]));
+
 
 const ct087 = tests.get('ct087');
 check('ct087 textbook narrative is detailed prose',
