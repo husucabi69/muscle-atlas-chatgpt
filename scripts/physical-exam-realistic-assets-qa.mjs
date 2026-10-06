@@ -92,6 +92,30 @@ check('Approved profiles have user PASS, canonical URL and approval metadata',
   approved.every(p=>p.review?.user_preview==='PASS'&&Boolean(p.composite_url)&&Boolean(p.approved_asset||p.user_approved_asset)),
   approved.map(p=>p.clinical_test_id).join(','));
 
+const approvedRaster=approved.filter(p=>String(p.composite_url||'').endsWith('.webp'));
+const approvedVector=approved.filter(p=>String(p.composite_url||'').endsWith('.svg'));
+check('Approved raster HD migration states are explicit',
+  approvedRaster.every(p=>['HD_CANONICAL','HD_UPGRADE_REQUIRED'].includes(p.hd_migration_status)),
+  approvedRaster.map(p=>p.clinical_test_id+':'+p.hd_migration_status).join(','));
+check('Approved vector assets are explicitly resolution-independent',
+  approvedVector.every(p=>p.hd_migration_status==='VECTOR_EXEMPT'),
+  approvedVector.map(p=>p.clinical_test_id+':'+p.hd_migration_status).join(','));
+const hdCanonical=approvedRaster.filter(p=>p.hd_migration_status==='HD_CANONICAL');
+check('HD canonical raster metadata meets minimum source dimensions',
+  hdCanonical.every(p=>{
+    const meta=p.approved_asset||p.user_approved_asset||{};
+    const m=String(meta.dimensions||'').match(/^(\d+)x(\d+)$/);
+    if(!m)return false;
+    const w=Number(m[1]),h=Number(m[2]);
+    return Math.min(w,h)>=1024&&Math.max(w,h)>=1536;
+  }),
+  hdCanonical.map(p=>p.clinical_test_id+':'+(p.approved_asset||p.user_approved_asset||{}).dimensions).join(','));
+const ct085hd=profiles.find(p=>p.clinical_test_id==='ct085');
+check('ct085 is locked as 1024x1536 HD canonical approval',
+  ct085hd?.hd_migration_status==='HD_CANONICAL'&&
+  ct085hd?.user_approved_asset?.dimensions==='1024x1536'&&
+  ct085hd?.user_approved_asset?.bytes===122218);
+
 for(const p of approved){
   const meta=p.approved_asset||p.user_approved_asset||{};
   const path=String(p.composite_url||meta.preview_asset_path||meta.approved_asset_path||'').replace(/^\.\//,'');
