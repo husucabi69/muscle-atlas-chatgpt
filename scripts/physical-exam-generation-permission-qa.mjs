@@ -16,7 +16,8 @@ check('ct085 is next but blocked without binary materialization',
 
 const c85Yes=canGeneratePhysicalExamProfile(manifest,'ct085',{binaryMaterializationAvailable:true});
 check('ct085 is permitted when binary materialization is available',
-  c85Yes.allowed&&c85Yes.reason==='READY',
+  c85Yes.allowed&&c85Yes.reason==='READY'&&
+  c85Yes.generation_brief_version==='2026-10-06-ct085-v1',
   JSON.stringify(c85Yes));
 
 const c86=canGeneratePhysicalExamProfile(manifest,'ct086',{binaryMaterializationAvailable:true});
