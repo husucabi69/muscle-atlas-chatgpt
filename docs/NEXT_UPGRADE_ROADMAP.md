@@ -270,6 +270,15 @@
 - 최종 Physical Examination illustration은 모바일/PC에서 실제 강의자료로 바로 쓸 수 있는 품질을 목표로 한다.
 - 상세 정본: `docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md`
 
+#### C2-HD. 고해상도 canonical 승격 LOCK — 2026-10-06
+- 모든 신규 raster 실사형 교육 일러스트는 세로형 최소 **1024×1536 px**, 가로형 최소 **1536×1024 px**의 실제 고해상도 원본을 canonical/Preview 주 이미지로 사용한다.
+- 240×360 / 320×480 / 600×900 파생본은 thumbnail/cache 용도로만 허용한다. 단순 pixel upscaling은 HD 완료로 인정하지 않는다.
+- ct085 Shoulder abduction relief는 **1024×1536 HD_CANONICAL** 완료.
+- 기존 저해상도 승인 raster **ct082, ct084, ct095, ct096, ct097, ct098**은 `HD_UPGRADE_REQUIRED`로 잠그고 실제 고해상도 품질로 재제작·사용자 검수 후 교체한다.
+- ct090, ct093, ct094는 SVG vector이므로 `VECTOR_EXEMPT`.
+- 현재 실행 순서: **ct086 HD 생성 → ct087 HD 생성 → 기존 6개 저해상도 raster HD migration → ct088 Hoffmann deferred revisit**.
+- Physical Examination 해석은 각 항목에 `textbook_interpretation_narrative` 교과서형 연결 서술을 제공하며, 새로 건드리는 항목부터 강제하고 전 148개를 순차 보강한다.
+
 ### D. 진찰검사 상세 + 일러스트
 - **2026-10-01 Batch 1 완료:** 어깨 canonical 11개(ct001–ct011)를 Stable ID 맞춤 도해로 교체했다. Jobe/Full can의 엄지 방향, painful arc 능동 거상, ER lag 지지 해제, lift-off 후면, belly-press 팔꿈치 보상, bear-hug 저항, Speed/Yergason 저항 방향, Neer 견갑 고정, Hawkins-Kennedy 90/90 내회전을 개별 preset으로 분리했다.
 - 검사별 preset은 `data/clinical-exam-illustration-presets-v1.json`에서 관리하며, 각 항목에 환자 자세 좌표, 검사자 손 위치, 힘/움직임 방향, 양성 marker, 흔한 시행 오류를 Stable ID로 연결한다.
