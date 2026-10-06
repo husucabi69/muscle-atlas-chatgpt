@@ -89,6 +89,16 @@ check('ct086 teaching warns 60 degrees is not universal cutoff',
   ));
 check('ct086 defaults to active ROM', /능동/.test(ct086?.maneuver ?? ''));
 check('ct086 generation brief is ready', p86?.brief_status === 'GENERATION_READY');
+check('ct086 rejected candidates stay audit-only with no Preview connection',
+  Array.isArray(p86?.candidate_history)&&p86.candidate_history.length>=4&&
+  p86.candidate_history.slice(-4).every(x=>x.disposition==='REJECTED_INTERNAL_NOT_FOR_PREVIEW')&&
+  !p86?.preview_candidate&&!p86?.composite_url&&p86?.review?.user_preview==='PENDING',
+  JSON.stringify({history:p86?.candidate_history?.length,preview:p86?.preview_candidate,composite:p86?.composite_url}));
+check('ct086 retry state requires image-only prompt pipeline',
+  p86?.generation_retry_state?.state==='IMAGE_ONLY_PROMPT_PIPELINE_HARDENED_RETRY_REQUIRED'&&
+  p86?.generation_retry_state?.rejected_candidate_count===4&&
+  p86?.generation_retry_state?.preview_connected===false,
+  JSON.stringify(p86?.generation_retry_state));
 check('ct086 clinical gate PASS', p86?.review?.clinical_content === 'PASS');
 check('ct086 60-degree threshold stays cluster-only, not universal cutoff',
   /2003.*cluster/.test(ct086?.interpretation_detail?.diagnostic_weight ?? '') &&
