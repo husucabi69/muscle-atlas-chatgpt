@@ -25,6 +25,8 @@ jobs:
         run: node scripts/development-governance-policy-qa.mjs
       - name: Validate cervical EXAM-REAL content locks
         run: node scripts/cervical-exam-content-qa.mjs
+      - name: Enforce Physical Examination generation permission gate
+        run: node scripts/physical-exam-generation-permission-qa.mjs
       - name: Run Muscle Atlas global QA
         run: node scripts/global-qa.mjs
       - name: Run Cloudflare Pages portability QA
