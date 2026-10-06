@@ -21,7 +21,7 @@ English: Hoffmann sign
 - It does **not** diagnose or exclude degenerative cervical myelopathy by itself.
 - Interpret with hand dexterity, deep tendon reflexes, other pathologic reflexes, gait, strength/sensation, and cervical MRI when clinically indicated.
 
-## Active realistic candidate
+## Historical Candidate 13 — audit only, not active
 
 - Candidate: 13
 - gen_id: `64db8f81-b5e0-460a-8b41-046895643b0b`
@@ -31,7 +31,7 @@ English: Hoffmann sign
 - Embedded WebP SHA-256: `bf7531b377fa800cf123552379bd507d770ded9f9286ef52a8b409d60c184c85`
 - Git blob: `08c4d361d5faccac4de8cb22b2ea3492fa782d4b`
 - Internal re-audit: PASS on 2026-10-06
-- User Preview: PENDING
+- Historical review state before deferral: internal PASS; **user did not approve**
 
 ## Internal visual audit — 2026-10-06
 
@@ -46,8 +46,7 @@ PASS:
 - no pain-radiation overlay
 - repository binary is present and renderable as an embedded-WebP SVG
 
-Do not regenerate ct088 while Candidate 13 awaits user review.
-Do not promote to APPROVED until explicit user approval.
+Candidate 13 is not the active user-review target after the 2026-10-06 deferral. Do not promote it. Do not regenerate ct088 now; revisit later according to the mandatory backlog.
 Production `main` remains unchanged.
 
 ## User decision — 2026-10-06
