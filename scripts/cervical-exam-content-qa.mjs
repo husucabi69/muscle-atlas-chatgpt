@@ -43,7 +43,7 @@ const p85 = profiles.get('ct085');
 check('ct085 clinical teaching is expanded', Boolean(ct085?.interpretation_detail?.plain_language_explanation));
 check('ct085 positive definition requires familiar radicular symptom relief',
   /익숙한.*(통증|저림)|방사통.*저림/.test(ct085?.positive_definition ?? ''));
-check('ct085 latest high-resolution illustration is explicitly user-approved and awaits exact binary transfer',
+const ct085HdTransferPending=(
   p85?.status === 'USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING' &&
   p85?.brief_status === 'USER_APPROVED_HD_BINARY_TRANSFER_PENDING' &&
   p85?.review?.user_preview === 'PASS' &&
@@ -51,7 +51,18 @@ check('ct085 latest high-resolution illustration is explicitly user-approved and
   p85?.approved_binary_handoff?.source_review_dimensions === '1024x1536' &&
   p85?.approved_binary_handoff?.expected_dimensions === '1024x1536' &&
   p85?.approved_binary_handoff?.expected_webp_sha256 === 'a9d7e97588283739117a1e36d74994b8604c66e37d01b3ed4749cdd7d9fb7de2' &&
-  !p85?.composite_url);
+  !p85?.composite_url
+);
+const ct085HdApproved=(
+  p85?.status === 'APPROVED' &&
+  p85?.brief_status === 'APPROVED' &&
+  p85?.review?.user_preview === 'PASS' &&
+  String(p85?.composite_url||'').includes('ct085-shoulder-abduction-relief-gen-1db0cd0f-approved-hd.webp') &&
+  (p85?.user_approved_asset?.dimensions === '1024x1536' || p85?.approved_asset?.dimensions === '1024x1536')
+);
+check('ct085 latest high-resolution illustration stays valid across transfer lifecycle',
+  ct085HdTransferPending || ct085HdApproved,
+  JSON.stringify({status:p85?.status,brief_status:p85?.brief_status,composite_url:p85?.composite_url}));
 check('ct085 approved HD asset remains clinically locked',
   p85?.review?.clinical_content === 'PASS' &&
   p85?.review?.visual_pose === 'PASS' &&
