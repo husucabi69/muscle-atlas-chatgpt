@@ -10,13 +10,13 @@ const check=(name,pass,detail='')=>{
 };
 
 const c85NoBinary=canGeneratePhysicalExamProfile(manifest,'ct085',{binaryMaterializationAvailable:false});
-check('ct085 generated candidate cannot be duplicate-generated without binary materialization',
-  !c85NoBinary.allowed&&c85NoBinary.reason==='USER_PREVIEW_PENDING_NO_DUPLICATE_GENERATION',
+check('ct085 user-approved HD binary transfer cannot be regenerated',
+  !c85NoBinary.allowed&&c85NoBinary.reason==='USER_APPROVED_BINARY_TRANSFER_PENDING',
   JSON.stringify(c85NoBinary));
 
 const c85Yes=canGeneratePhysicalExamProfile(manifest,'ct085',{binaryMaterializationAvailable:true});
-check('ct085 generated candidate cannot be duplicate-generated even when binary materialization is available',
-  !c85Yes.allowed&&c85Yes.reason==='USER_PREVIEW_PENDING_NO_DUPLICATE_GENERATION',
+check('ct085 remains regeneration-locked even when binary materialization is available',
+  !c85Yes.allowed&&c85Yes.reason==='USER_APPROVED_BINARY_TRANSFER_PENDING',
   JSON.stringify(c85Yes));
 
 const c86=canGeneratePhysicalExamProfile(manifest,'ct086',{binaryMaterializationAvailable:true});
