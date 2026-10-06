@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct085-hd-approved",
+  "dataset_version": "2026.10.06-exam-real-ct085-hd-approved-ct086-087-hd-locked",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3551,7 +3551,9 @@
         "evidence_lock": [
           "radic_cluster_2026",
           "radic_review_2026"
-        ]
+        ],
+        "source_quality_policy": "HD_RASTER_REQUIRED_PORTRAIT_MIN_1024x1536",
+        "app_preview_policy": "PRIMARY_PREVIEW_MUST_USE_HD_SOURCE_OR_HD_QUALITY_ASSET; THUMBNAIL_ONLY_FOR_CACHE"
       },
       "review": {
         "clinical_content": "PASS",
@@ -3602,7 +3604,9 @@
           "radic_review_2026",
           "dcm_signs_2024",
           "dcm_scoping_2025"
-        ]
+        ],
+        "source_quality_policy": "HD_RASTER_REQUIRED_PORTRAIT_MIN_1024x1536",
+        "app_preview_policy": "PRIMARY_PREVIEW_MUST_USE_HD_SOURCE_OR_HD_QUALITY_ASSET; THUMBNAIL_ONLY_FOR_CACHE"
       },
       "review": {
         "clinical_content": "PASS",
