@@ -94,10 +94,11 @@ check('ct086 rejected candidates stay audit-only with no Preview connection',
   p86.candidate_history.slice(-4).every(x=>x.disposition==='REJECTED_INTERNAL_NOT_FOR_PREVIEW')&&
   !p86?.preview_candidate&&!p86?.composite_url&&p86?.review?.user_preview==='PENDING',
   JSON.stringify({history:p86?.candidate_history?.length,preview:p86?.preview_candidate,composite:p86?.composite_url}));
-check('ct086 retry state requires image-only prompt pipeline',
-  p86?.generation_retry_state?.state==='IMAGE_ONLY_PROMPT_PIPELINE_HARDENED_RETRY_REQUIRED'&&
+check('ct086 retry state requires structured image-only render contract',
+  p86?.generation_retry_state?.state==='STRUCTURED_IMAGE_RENDER_CONTRACT_READY_FOR_CANDIDATE5'&&
   p86?.generation_retry_state?.rejected_candidate_count===4&&
-  p86?.generation_retry_state?.preview_connected===false,
+  p86?.generation_retry_state?.preview_connected===false&&
+  p86?.generation_brief?.image_render_contract?.contract_version==='2026-10-07-ct086-v2',
   JSON.stringify(p86?.generation_retry_state));
 check('ct086 clinical gate PASS', p86?.review?.clinical_content === 'PASS');
 check('ct086 60-degree threshold stays cluster-only, not universal cutoff',
