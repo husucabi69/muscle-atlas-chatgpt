@@ -79,3 +79,31 @@ Generate a fresh Candidate 5 using the image-only visual payload.
 Do not connect any candidate to Preview unless all frozen acceptance axes pass.  
 Do not advance to ct087 before ct086 has a valid connected candidate.  
 Do not touch ct088 Hoffmann; it remains deferred.
+
+## Candidate 5 structured generation contract — 2026-10-07
+
+Candidate 5 is not generated/connected yet.
+
+The previous prose-heavy image prompt is no longer the accepted generation path for ct086. The registry now carries machine-readable contract:
+
+- `generation_brief.image_render_contract.contract_version = 2026-10-07-ct086-v2`
+- `required_render_mode = IMAGE_ONLY_STRUCTURED_CONTRACT`
+- portrait minimum 1024×1536
+- female patient + female examiner
+- same identities across all panels
+- examiner visible in every panel
+- active cervical rotation only
+- trunk and shoulders fixed
+- exactly three allowed Korean headers
+- no numeric angle/cutoff or degree symbol
+- no red pain overlay
+- no infographic copy
+
+New gates:
+1. `scripts/physical-exam-candidate-preflight.mjs` — evaluates the human visual audit against the structured contract.
+2. `scripts/physical-exam-preview-connect.mjs` — refuses registry Preview connection unless the visual preflight passes and binary identity metadata are valid.
+3. Both QA scripts are wired into Global QA.
+
+The detailed ct086 clinical interpretation was expanded to textbook prose and remains in app HTML only. It now cites the 2026 independent cervical radiculopathy cluster validation, the 2026 systematic review/meta-analysis, and CROM/active-ROM measurement reliability reviews. The runtime now exposes test `evidence_refs` as clickable source links in a dedicated **근거** section.
+
+Next required action remains: generate a fresh Candidate 5 using only the structured image-only render contract, perform visual audit, save the exact HD binary, verify SHA-256/Git blob identity, and connect it through the guarded Preview connector. Do not advance to ct087 before this succeeds.
