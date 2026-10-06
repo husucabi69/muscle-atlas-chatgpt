@@ -3,10 +3,18 @@
 Stable ID: ct085  
 Generation brief version: `2026-10-06-ct085-v1`  
 Pilot batch: `PILOT_CERVICAL_01`  
-Current state: GENERATION_READY  
-Next-generation priority: 1
+Current state: CANDIDATE1_BINARY_HANDOFF_BLOCKED  
+Next-generation priority: BLOCKED — DO NOT REGENERATE
 
-This file is a frozen human-readable packet for the next image-generation session. The executable source of truth remains `data/physical-exam-realistic-assets-v1.json` + `scripts/build-physical-exam-realistic-prompt.mjs`.
+This file preserves the frozen generation brief. Candidate 1 has already been generated; do **not** use this packet to regenerate while its exact binary handoff is blocked. The executable source of truth remains `data/physical-exam-realistic-assets-v1.json` + `scripts/build-physical-exam-realistic-prompt.mjs`.
+
+## Candidate 1 receipt
+- gen_id: `6582ec89-607d-4ce7-bd9a-f7358f9683ff`
+- source PNG SHA-256: `0990827c298c5c7471a74e0159700ba820059ad9c953b6855efcae2a4d871a1e`
+- local 600x900 WebP SHA-256: `05a46466fdc930d2f70d44e1db8ab4bd6e18130296e9a91b2193cbd65fd71cce`
+- internal clinical/visual review: PASS
+- user Preview: PENDING
+- repository binary handoff: BLOCKED
 
 ## Critical distinction
 
