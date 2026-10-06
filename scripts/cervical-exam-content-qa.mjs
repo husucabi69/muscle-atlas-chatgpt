@@ -155,6 +155,21 @@ if(fs.existsSync(promptLocks[2][1])){
     packet.includes('motor / sensory / reflex / segment pattern')&&
     packet.includes('one-to-one root mapping'));
 }
+if(fs.existsSync(promptLocks[0][1])){
+  const packet=fs.readFileSync(promptLocks[0][1],'utf8');
+  check('ct085 frozen packet carries 2026 pooled diagnostic evidence',
+    packet.includes('PMID 41680685')&&packet.includes('sensitivity 0.49')&&packet.includes('specificity 0.76'));
+}
+if(fs.existsSync(promptLocks[1][1])){
+  const packet=fs.readFileSync(promptLocks[1][1],'utf8');
+  check('ct086 frozen packet carries 2026 CPR validation evidence',
+    packet.includes('PMID 42070317')&&packet.includes('rotation <60°')&&packet.includes('cluster context'));
+}
+if(fs.existsSync(promptLocks[2][1])){
+  const packet=fs.readFileSync(promptLocks[2][1],'utf8');
+  check('ct087 frozen packet carries radiculopathy and DCM evidence locks',
+    packet.includes('PMID 41680685')&&packet.includes('dcm_signs_2024')&&packet.includes('dcm_scoping_2025'));
+}
 
 for (const doc of [
   'docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_RENDER_REQUEST.md',
