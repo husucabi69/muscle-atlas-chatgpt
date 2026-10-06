@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import {buildPhysicalExamPrompt,nextPilotProfile,modelCastingForClinicalTestId} from './build-physical-exam-realistic-prompt.mjs';
 
 const manifest=JSON.parse(fs.readFileSync('data/physical-exam-realistic-assets-v1.json','utf8'));
+const frozenCt086=fs.readFileSync('docs/render-requests/CT086_CERVICAL_ROTATION_ROM_PROMPT_LOCK.md','utf8');
+const frozenCt087=fs.readFileSync('docs/render-requests/CT087_C5_T1_NEUROLOGIC_SCREEN_PROMPT_LOCK.md','utf8');
 const checks=[];
 const check=(name,pass,detail='')=>{
   checks.push({name,pass:Boolean(pass),detail});
@@ -195,6 +197,18 @@ check('Runtime supports approved realistic asset while retaining schematic fallb
 let nonPilotBlocked=false;
 try{buildPhysicalExamPrompt(manifest,'ct001')}catch(e){nonPilotBlocked=String(e.message).includes('not in the active realistic Physical Examination pilot')}
 check('Non-pilot generation is blocked during cervical pilot',nonPilotBlocked);
+
+check('Frozen ct086/ct087 packets lock HD Preview source',
+  [frozenCt086,frozenCt087].every(t=>
+    t.includes('1024×1536')&&
+    t.includes('thumbnail')&&
+    t.includes('고해상도 후보')
+  ));
+check('Frozen ct086 packet forbids numeric cutoff in image',
+  frozenCt086.includes('Do not print 60°')&&frozenCt086.includes('숫자 cut-off 금지'));
+check('Frozen ct087 packet preserves motor-sensory-reflex pattern integration',
+  frozenCt087.includes('motor / sensory / reflex / segment pattern')&&
+  frozenCt087.includes('one-to-one root mapping'));
 
 const failed=checks.filter(x=>!x.pass);
 console.log('\nPhysical Examination realistic prompt QA: '+(checks.length-failed.length)+'/'+checks.length+' PASS');
