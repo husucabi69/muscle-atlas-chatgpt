@@ -1,4 +1,21 @@
-# CURRENT OVERRIDE — 2026-10-06 ct088 restoration
+# CURRENT OVERRIDE — 2026-10-06 ct088 user-deferred incomplete
+
+> This block is authoritative for the current handoff and supersedes the earlier ct088 restoration block below.
+
+- User explicitly marked ct088 Hoffmann **incomplete and deferred** on 2026-10-06.
+- ct088 status: `INCOMPLETE_DEFERRED_MUST_REVISIT`.
+- Candidate 13 is preserved only as audit history; it is not exposed as the active Preview candidate.
+- Unresolved visual requirement for later revisit:
+  - panel 3: examiner-controlled middle-finger DIP palmward flexion + rebound-up arrow;
+  - panel 4: examiner grip remains on middle finger while thumb/index involuntary flexion is shown.
+- Do not regenerate ct088 now.
+- Active development line continues **ct085 → ct086 → ct087**.
+- ct083 Candidate 2 remains user Preview PENDING.
+- ct084/ct096/ct097/ct098 remain APPROVED and locked.
+- Production `main` remains frozen.
+- Manual development governance: 25~30 min actual development / 30~35 min wrap-up only / 35 min HARD STOP.
+
+# HISTORICAL — 2026-10-06 ct088 Candidate 13 restoration (SUPERSEDED BY USER DEFERRAL)
 
 > This block supersedes the older statement that no valid ct088 candidate exists.
 
@@ -17,7 +34,7 @@
 
 - Cervical EXAM-REAL profiles: 17 total.
 - APPROVED canonical: 9 — ct082, ct084, ct090, ct093, ct094, ct095, ct096, ct097, ct098.
-- Connected user-review candidates: ct083 Candidate 2 and ct088 Candidate 13.
+- Connected user-review candidates: ct083 Candidate 2 only; ct088 is user-deferred incomplete.
 - Active generation-ready queue: ct085 → ct086 → ct087.
 - ct089 is user-approved but exact approved binaries remain unrecovered; preserve the locked source hashes and do not substitute a new visual as the old approved original.
 - ct091 and ct092 exact historical source filenames were searched in conversation/Library and current runtime on 2026-10-06; no exact file was recovered. Their historical metadata remains preserved and no false canonical asset has been declared.
@@ -30,14 +47,14 @@
 - Prompt builder now respects each test's own `panel_structure` instead of forcing every test into a 3-panel template.
 - Expected generation order: **ct085 → ct086 → ct087**.
 - ct087 may use a 4-panel layout because motor / sensory / reflex / pattern interpretation must remain distinct.
-- ct083, ct088 Candidate 13 and ct092 are review queues, not regeneration queues.
+- ct083 and ct092 are review/recovery queues; ct088 is a mandatory deferred backlog item and is not active now.
 - Approved assets remain regeneration-locked.
 - Production `main` remains frozen.
 
 ## 2026-10-06 cervical EXAM-REAL development checkpoint
 
 - Canonical execution queue: `docs/checkpoints/EXAM_REAL_CERVICAL_QUEUE_2026-10-06.md`.
-- ct088 Candidate 13 restored and connected as active user Preview target; internal PASS, user PENDING.
+- ct088 is now user-deferred incomplete; Candidate 13 remains audit history only.
 - ct085 Shoulder abduction relief: clinical teaching PASS, realistic generation brief READY.
 - ct086 Cervical rotation ROM: clinical teaching PASS, realistic generation brief READY; ~60° is not treated as a universal diagnostic cutoff.
 - ct087 C5–T1 neurologic screen: clinical teaching PASS, realistic generation brief READY; motor/sensory/reflex integration and root overlap cautions locked.
