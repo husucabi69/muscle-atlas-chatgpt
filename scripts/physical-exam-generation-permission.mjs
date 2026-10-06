@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {pathToFileURL} from 'node:url';
-import {nextPilotProfile} from './build-physical-exam-realistic-prompt.mjs';
+import {nextPilotProfile,blockingPhysicalExamBinaryHandoff} from './build-physical-exam-realistic-prompt.mjs';
 
 export const REGISTRY_PATH='data/physical-exam-realistic-assets-v1.json';
 
@@ -27,6 +27,17 @@ export function canGeneratePhysicalExamProfile(manifest,clinicalTestId,options={
   }
   if(profile.pilot_batch!==pilot.batch_id){
     return{allowed:false,reason:'PILOT_BATCH_MISMATCH',clinical_test_id:clinicalTestId,pilot_batch:profile.pilot_batch,active_batch:pilot.batch_id};
+  }
+
+  const blockedHandoff=blockingPhysicalExamBinaryHandoff(manifest);
+  if(blockedHandoff&&blockedHandoff.clinical_test_id!==clinicalTestId){
+    return{
+      allowed:false,
+      reason:'PRIOR_BINARY_HANDOFF_BLOCKED',
+      clinical_test_id:clinicalTestId,
+      blocking_clinical_test_id:blockedHandoff.clinical_test_id,
+      required_next_action:blockedHandoff.binary_handoff?.next_required_action||'Recover and materialize the prior exact binary before generating another profile.'
+    };
   }
 
   const next=nextPilotProfile(manifest);
