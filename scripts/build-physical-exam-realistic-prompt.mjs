@@ -39,6 +39,7 @@ export function buildPhysicalExamPrompt(manifest,clinicalTestId){
     '[이윤석정형외과 근육 · Physical Examination 실사형 의료교육 일러스트 정본 프롬프트]',
     `Stable ID: ${profile.clinical_test_id} · ${profile.title_ko} / ${profile.title_en}`,
     `Pilot batch: ${profile.pilot_batch}`,
+    `Generation brief version: ${profile.generation_brief_version||'UNVERSIONED'}`,
     '',
     '목표',
     '- 실제 사람처럼 보이는 고품질 임상교육용 디지털 일러스트를 만든다.',
