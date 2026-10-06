@@ -1,7 +1,7 @@
 # CT088 Hoffmann sign — realistic render request / active Preview record
 
 Stable ID: ct088  
-Status: CANDIDATE_13_INTERNAL_PASS_USER_PREVIEW_PENDING  
+Status: INCOMPLETE_DEFERRED_MUST_REVISIT  
 User-facing title: Hoffmann 징후  
 English: Hoffmann sign
 
@@ -49,3 +49,14 @@ PASS:
 Do not regenerate ct088 while Candidate 13 awaits user review.
 Do not promote to APPROVED until explicit user approval.
 Production `main` remains unchanged.
+
+## User decision — 2026-10-06
+
+- User explicitly marked Hoffmann as **incomplete and deferred**.
+- Candidate 13 is preserved only as audit history.
+- It is **not** an active Preview candidate and must not be promoted.
+- The unresolved visual requirements are:
+  1. Panel 3: examiner must visibly control the patient's middle finger, flex the DIP palmward, and show rebound upward with a clear arrow.
+  2. Panel 4: examiner hand must remain holding the middle finger while only the patient's thumb/index involuntary flexion is emphasized.
+- Do not regenerate now. Return to this mandatory backlog later in roadmap order.
+- Production `main` remains unchanged.
