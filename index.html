@@ -2567,11 +2567,13 @@ function clinicalExamInterpretationDetailHtml(test){
     '</div>';
 }
 function clinicalExamEvidenceHtml(test,moduleKey){
-  const sourceMap=clinicalModuleData(moduleKey)?.exam?.source_refs||{};
-  const refs=(test?.evidence_refs||[]).map(id=>({id,url:sourceMap[id]})).filter(x=>x.url);
+  const examData=clinicalModuleData(moduleKey)?.exam||{};
+  const sourceMap=examData.source_refs||{};
+  const sourceLabels=examData.source_labels||{};
+  const refs=(test?.evidence_refs||[]).map(id=>({id,url:sourceMap[id],label:sourceLabels[id]||id})).filter(x=>x.url);
   if(!refs.length)return '';
   return '<div class="clinical-exam-section" data-exam-evidence="'+esc(test.clinical_test_id||'')+'"><h4>근거</h4><div class="clinical-exam-links">'+
-    refs.map(x=>'<a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.id)+'</a>').join('')+
+    refs.map(x=>'<a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.label)+'</a>').join('')+
     '</div><p style="margin-top:8px;color:var(--muted);font-size:.9rem">근거 문헌은 검사 결과를 단독 확진·배제로 사용하지 않고 병력·신경학적 진찰·다른 검사와 함께 해석하기 위한 참고자료입니다.</p></div>';
 }
 function clinicalExamDetailHtml(test,moduleKey){
