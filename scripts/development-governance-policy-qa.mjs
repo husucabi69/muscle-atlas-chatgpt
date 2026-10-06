@@ -83,6 +83,8 @@ const interpretationContract=read('docs/PHYSICAL_EXAM_INTERPRETATION_CONTRACT.md
 check('Realistic style contract locks HD canonical dimensions',styleContract.includes('1024×1536')&&styleContract.includes('600×900')&&styleContract.includes('thumbnail'));
 check('Physical Examination interpretation contract locks textbook narrative field',interpretationContract.includes('textbook_interpretation_narrative')&&interpretationContract.includes('교과서식 상세 해석'));
 
+check('Constitution preserves scheduled automation override', files.constitution.includes('예약 자동개발의 별도 45~50분 규칙은 해당 예약 프롬프트를 따른다.'));
+
 const failed = checks.filter(x => !x.pass);
 console.log(`SUMMARY | ${checks.length - failed.length}/${checks.length} PASS`);
 if (failed.length) process.exit(1);
