@@ -2,7 +2,7 @@ import fs from 'node:fs';
 
 const REGISTRY='data/ip-provenance-v1.json';
 const allowedStatus=new Set(['DRAFT','HUMAN_REVIEWED','REGISTRATION_READY','REGISTERED','RETIRED']);
-const allowedFamily=new Set(['ANATOMY_2D','ANATOMY_3D','MUSCLE_ACTION_ANIMATION','SOFTWARE_INTERACTION']);
+const allowedFamily=new Set(['ANATOMY_2D','ANATOMY_3D','MUSCLE_ACTION_ANIMATION','SOFTWARE_INTERACTION','PATIENT_EXERCISE_REALISTIC','PHYSICAL_EXAM_REALISTIC']);
 const blockedPublicKeys=new Set(['address','home_address','resident_registration_number','rrn','signature','seal_image','private_email','private_phone']);
 
 const fail=(message)=>{ throw new Error(message); };
