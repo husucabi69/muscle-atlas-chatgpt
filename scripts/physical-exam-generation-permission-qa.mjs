@@ -20,9 +20,20 @@ check('ct085 remains regeneration-locked across binary materialization lifecycle
   JSON.stringify(c85Yes));
 
 const c86=canGeneratePhysicalExamProfile(manifest,'ct086',{binaryMaterializationAvailable:true});
-check('ct086 is the next permitted generation target after ct085 Preview connection',
-  c86.allowed&&c86.reason==='READY'&&c86.generation_brief_version==='2026-10-06-ct086-v1',
+check('ct086 is the next permitted generation target with structured image-only mode',
+  c86.allowed&&c86.reason==='READY'&&
+  c86.generation_brief_version==='2026-10-06-ct086-v1'&&
+  c86.required_render_mode==='IMAGE_ONLY_STRUCTURED_CONTRACT'&&
+  c86.render_contract_version==='2026-10-07-ct086-v2',
   JSON.stringify(c86));
+
+const noContract=structuredClone(manifest);
+const noContract86=noContract.profiles.find(x=>x.clinical_test_id==='ct086');
+delete noContract86.generation_brief.image_render_contract;
+const c86NoContract=canGeneratePhysicalExamProfile(noContract,'ct086',{binaryMaterializationAvailable:true});
+check('ct086 missing structured render contract is hard-blocked',
+  !c86NoContract.allowed&&c86NoContract.reason==='STRUCTURED_RENDER_CONTRACT_REQUIRED',
+  JSON.stringify(c86NoContract));
 
 const c87=canGeneratePhysicalExamProfile(manifest,'ct087',{binaryMaterializationAvailable:true});
 check('ct087 cannot skip ahead of ct086',
