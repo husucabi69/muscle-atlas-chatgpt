@@ -24,3 +24,9 @@ English: Shoulder abduction relief test
 
 ## Safety / style
 Independent realistic medical-education visual. Same patient/examiner across panels. No arbitrary pain numbers, no diagnostic certainty language, no copied external composition.
+## 2026 evidence distinction
+- The 2026 independent validation paper also studied a **modified passive shoulder abduction test** in a new three-test cluster.
+- That is **not** the visual target of ct085.
+- ct085 must depict the classic **shoulder abduction relief sign**: the patient actively places the symptomatic hand/forearm overhead and the familiar radicular arm symptom decreases.
+- Do not show the examiner passively lifting the arm and do not label the 2026 modified passive variant as if it were the same test.
+
