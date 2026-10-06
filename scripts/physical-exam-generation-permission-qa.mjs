@@ -20,13 +20,13 @@ check('ct085 generated candidate cannot be duplicate-generated even when binary 
   JSON.stringify(c85Yes));
 
 const c86=canGeneratePhysicalExamProfile(manifest,'ct086',{binaryMaterializationAvailable:true});
-check('ct086 is blocked by ct085 exact-binary handoff',
-  !c86.allowed&&c86.reason==='PRIOR_BINARY_HANDOFF_BLOCKED'&&c86.blocking_clinical_test_id==='ct085',
+check('ct086 is the next permitted generation target after ct085 Preview connection',
+  c86.allowed&&c86.reason==='READY'&&c86.generation_brief_version==='2026-10-06-ct086-v1',
   JSON.stringify(c86));
 
 const c87=canGeneratePhysicalExamProfile(manifest,'ct087',{binaryMaterializationAvailable:true});
-check('ct087 is blocked by ct085 exact-binary handoff',
-  !c87.allowed&&c87.reason==='PRIOR_BINARY_HANDOFF_BLOCKED'&&c87.blocking_clinical_test_id==='ct085',
+check('ct087 cannot skip ahead of ct086',
+  !c87.allowed&&c87.reason==='OUT_OF_ORDER'&&c87.required_next_clinical_test_id==='ct086',
   JSON.stringify(c87));
 
 const c88=canGeneratePhysicalExamProfile(manifest,'ct088',{binaryMaterializationAvailable:true});
