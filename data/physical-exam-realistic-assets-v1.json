@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct085-user-approved-hd-transfer",
+  "dataset_version": "2026.10.06-exam-real-ct085-hd-approved",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -53,7 +53,7 @@
       "ct092",
       "ct095"
     ],
-    "next_action": "ct085 new 1024x1536 illustration explicitly user-approved; materialize exact HD binary, then continue ct086 as next generation-ready target. All new illustration canonical assets must be high-resolution; textbook narrative interpretation is required for touched Physical Examination items."
+    "next_action": "ct085 approved HD canonical binary materialized and locked. ct086 is the next generation-ready target; all new raster illustrations must remain HD and all touched Physical Examination items require textbook narrative interpretation."
   },
   "profiles": [
     {
@@ -3405,10 +3405,10 @@
       "region": "cervical",
       "title_ko": "어깨 외전 완화 검사",
       "title_en": "Shoulder abduction relief test",
-      "status": "USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING",
+      "status": "APPROVED",
       "pilot_batch": "PILOT_CERVICAL_01",
-      "brief_status": "USER_APPROVED_HD_BINARY_TRANSFER_PENDING",
-      "composite_url": null,
+      "brief_status": "APPROVED",
+      "composite_url": "./assets/physical-exam-realistic/approved/ct085-shoulder-abduction-relief-gen-1db0cd0f-approved-hd.webp",
       "generator": "OpenAI image generation",
       "generation_brief": {
         "visual_style": "clinical photoreal medical-education illustration; realistic adult patient and clinician; clean neutral clinic; same people across panels; mobile readable",
@@ -3441,9 +3441,7 @@
         "human_edit_required": true,
         "copyright_evidence_required": true
       },
-      "approval_blockers": [
-        "Exact approved 1024x1536 high-resolution WebP must be materialized and hash-verified before canonical promotion"
-      ],
+      "approval_blockers": [],
       "generation_brief_version": "2026-10-06-ct085-v1",
       "gen_id": "6582ec89-607d-4ce7-bd9a-f7358f9683ff",
       "candidate_checkpoint_path": "docs/checkpoints/CT085_CANDIDATE1_BINARY_HANDOFF_2026-10-06.md",
@@ -3498,7 +3496,7 @@
       ],
       "preview_candidate": null,
       "approved_binary_handoff": {
-        "state": "PENDING_CHUNKED_MATERIALIZATION",
+        "state": "MATERIALIZED_VERIFIED",
         "gen_id": "1db0cd0f-8b06-4d13-acf2-072ee5de3351",
         "source_review_path": "/mnt/data/어깨_외전_완화_검사_3단계.png",
         "source_review_dimensions": "1024x1536",
@@ -3508,7 +3506,23 @@
         "expected_dimensions": "1024x1536",
         "quality_policy": "HIGH_RESOLUTION_1024x1536_WEBP_Q80",
         "output_path": "assets/physical-exam-realistic/approved/ct085-shoulder-abduction-relief-gen-1db0cd0f-approved-hd.webp",
-        "chunk_dir": "ops/exam-real-binary-handoff/ct085"
+        "chunk_dir": "ops/exam-real-binary-handoff/ct085",
+        "materialized_sha256": "a9d7e97588283739117a1e36d74994b8604c66e37d01b3ed4749cdd7d9fb7de2",
+        "materialized_bytes": 122218,
+        "materialized_dimensions": "1024x1536",
+        "materialized_git_blob_sha1": "685beeb1c4b52a36514db4ab76ce7e11f2688176"
+      },
+      "user_approved_asset": {
+        "gen_id": "1db0cd0f-8b06-4d13-acf2-072ee5de3351",
+        "source_review_path": "/mnt/data/어깨_외전_완화_검사_3단계.png",
+        "approved_asset_path": "./assets/physical-exam-realistic/approved/ct085-shoulder-abduction-relief-gen-1db0cd0f-approved-hd.webp",
+        "approved_webp_sha256": "a9d7e97588283739117a1e36d74994b8604c66e37d01b3ed4749cdd7d9fb7de2",
+        "dimensions": "1024x1536",
+        "bytes": 122218,
+        "git_blob_sha1": "685beeb1c4b52a36514db4ab76ce7e11f2688176",
+        "source_review_png_sha256": "2505f83d482675469d0c1a7b0fa29108708cba662214b74ee40fd88e425f84da",
+        "quality_policy": "HIGH_RESOLUTION_1024x1536_WEBP_Q80",
+        "disposition": "USER_APPROVED_PASS"
       }
     },
     {
