@@ -23,11 +23,31 @@ export function buildPhysicalExamWorkQueue(manifest){
 
   const binary_recovery=profiles
     .filter(p=>p.status==='USER_APPROVED_ASSETS_BINARY_TRANSFER_PENDING'||(
-      ['ct091','ct092'].includes(p.clinical_test_id)&&
       p.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
-      !p.preview_candidate
+      !p.preview_candidate&&
+      (
+        p.binary_handoff?.state==='BLOCKED'||
+        ['ct091','ct092'].includes(p.clinical_test_id)
+      )
     ))
-    .map(p=>({clinical_test_id:p.clinical_test_id,title_ko:p.title_ko,status:p.status,user_preview:p.review?.user_preview||null}));
+    .map(p=>({
+      clinical_test_id:p.clinical_test_id,
+      title_ko:p.title_ko,
+      status:p.status,
+      user_preview:p.review?.user_preview||null,
+      gen_id:p.gen_id||p.binary_handoff?.gen_id||null,
+      blocks_generation_queue:p.binary_handoff?.blocks_generation_queue===true
+    }));
+
+  const blocking_binary_handoff=profiles
+    .filter(p=>p.binary_handoff?.state==='BLOCKED'&&p.binary_handoff?.blocks_generation_queue===true)
+    .map(p=>({
+      clinical_test_id:p.clinical_test_id,
+      title_ko:p.title_ko,
+      gen_id:p.gen_id||p.binary_handoff?.gen_id||null,
+      reason:p.binary_handoff?.reason||null,
+      next_required_action:p.binary_handoff?.next_required_action||null
+    }));
 
   const approved=profiles
     .filter(p=>p.status==='APPROVED')
@@ -36,11 +56,12 @@ export function buildPhysicalExamWorkQueue(manifest){
   return{
     generated_at_policy:'runtime-derived-no-stale-timestamp',
     pilot_batch:manifest.pilot?.batch_id||null,
-    next_generation:generation_ready[0]?.clinical_test_id||null,
+    next_generation:blocking_binary_handoff.length?null:(generation_ready[0]?.clinical_test_id||null),
     user_review,
     generation_ready,
     mandatory_deferred,
     binary_recovery,
+    blocking_binary_handoff,
     approved
   };
 }
