@@ -660,6 +660,17 @@ try{
     for(const required of spec.required){
       if(!textContent.includes(required))fail(spec.id+' teaching contains '+required,textContent.slice(0,2200));
     }
+    if(spec.id==='ct086'){
+      const evidence=p.locator('#clinicalDetailContent [data-exam-evidence="ct086"] a');
+      const hrefs=await evidence.evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')||''));
+      if(hrefs.length<4||
+         !hrefs.some(x=>x.includes('42070317'))||
+         !hrefs.some(x=>x.includes('41680685'))||
+         !hrefs.some(x=>x.includes('20170780'))||
+         !hrefs.some(x=>x.includes('29187311'))){
+        fail('ct086 evidence links include 2026 cluster and ROM measurement sources',JSON.stringify(hrefs));
+      }
+    }
     const realistic=p.locator('#clinicalDetailContent [data-exam-realistic-candidate]');
     if(spec.hdApprovalLifecycle){
       const count=await realistic.count();
