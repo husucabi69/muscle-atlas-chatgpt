@@ -18,6 +18,7 @@ pass('Disease rehab condition count remains populated',(rehab.conditions||[]).le
 pass('Disease rehab conditions have print IDs',(rehab.conditions||[]).every(c=>Boolean(c.print_template_id)));
 pass('Disease rehab print IDs are consistent',new Set((rehab.conditions||[]).map(c=>c.print_template_id)).size===1);
 pass('Disease rehab print ID remains named',(rehab.conditions||[]).every(c=>c.print_template_id.length>=8));
+pass('Disease rehab print references do not drift',(rehab.conditions||[]).every(c=>c.print_template_id===(rehab.conditions||[])[0].print_template_id));
 pass('Disease rehab coverage schema v1',coverage.schema_version==='1.0.0',coverage.schema_version);
 pass('Preview-only dataset',rehab.status==='PREVIEW_DEVELOPMENT'&&coverage.status==='PREVIEW_DEVELOPMENT',`${rehab.status}/${coverage.status}`);
 pass('Patient-safety policy',rehab.content_policy?.postoperative_separate===true && rehab.content_policy?.no_invented_dose===true && rehab.content_policy?.red_flags_before_exercise===true);
