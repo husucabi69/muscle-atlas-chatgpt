@@ -14,6 +14,7 @@ const exercise=json('data/patient-exercise-library-v1.json');
 const realistic=json('data/patient-exercise-realistic-assets-v1.json');
 
 pass('Disease rehab schema v1',rehab.schema_version==='1.0.0',rehab.schema_version);
+pass('Disease rehab condition count remains populated',(rehab.conditions||[]).length>=8,String((rehab.conditions||[]).length));
 pass('Disease rehab coverage schema v1',coverage.schema_version==='1.0.0',coverage.schema_version);
 pass('Preview-only dataset',rehab.status==='PREVIEW_DEVELOPMENT'&&coverage.status==='PREVIEW_DEVELOPMENT',`${rehab.status}/${coverage.status}`);
 pass('Patient-safety policy',rehab.content_policy?.postoperative_separate===true && rehab.content_policy?.no_invented_dose===true && rehab.content_policy?.red_flags_before_exercise===true);
