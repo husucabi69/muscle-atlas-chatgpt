@@ -2268,6 +2268,14 @@ function physicalExamRealisticCandidateHtml(test){
   const isApproved=Boolean(p?.status==='APPROVED'&&p?.composite_url&&review.user_preview==='PASS'&&approvedMeta);
   const candidate=isApproved?approvedMeta:p?.preview_candidate;
   const assetPath=isApproved?p.composite_url:(candidate?.preview_asset_path||candidate?.asset_path||candidate?.composite_url);
+  const isDeferred=String(p?.status||'').startsWith('INCOMPLETE_DEFERRED')||review.user_preview==='DEFERRED';
+  if(!assetPath&&isDeferred){
+    return '<div class="note" data-exam-realistic-deferred="'+esc(test.clinical_test_id)+'" style="margin-bottom:14px">'+
+      '<b>실사형 일러스트 · 미완성 보류</b><br>'+
+      '현재 실사형 후보는 승인되지 않았습니다. 기존 Stable-ID 교육 도해를 유지하며, 정확한 검사 자세가 완성된 뒤 다시 검수합니다.'+
+      (blockers.length?'<br><span style="color:var(--muted)">남은 교정: '+esc(blockers.join(' / '))+'</span>':'')+
+      '</div>';
+  }
   if(!assetPath)return'';
   const failed=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text']
     .filter(k=>review[k]==='FAIL');
