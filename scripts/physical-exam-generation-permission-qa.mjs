@@ -10,24 +10,23 @@ const check=(name,pass,detail='')=>{
 };
 
 const c85NoBinary=canGeneratePhysicalExamProfile(manifest,'ct085',{binaryMaterializationAvailable:false});
-check('ct085 is next but blocked without binary materialization',
-  !c85NoBinary.allowed&&c85NoBinary.reason==='BINARY_MATERIALIZATION_UNAVAILABLE',
+check('ct085 generated candidate cannot be duplicate-generated without binary materialization',
+  !c85NoBinary.allowed&&c85NoBinary.reason==='USER_PREVIEW_PENDING_NO_DUPLICATE_GENERATION',
   JSON.stringify(c85NoBinary));
 
 const c85Yes=canGeneratePhysicalExamProfile(manifest,'ct085',{binaryMaterializationAvailable:true});
-check('ct085 is permitted when binary materialization is available',
-  c85Yes.allowed&&c85Yes.reason==='READY'&&
-  c85Yes.generation_brief_version==='2026-10-06-ct085-v1',
+check('ct085 generated candidate cannot be duplicate-generated even when binary materialization is available',
+  !c85Yes.allowed&&c85Yes.reason==='USER_PREVIEW_PENDING_NO_DUPLICATE_GENERATION',
   JSON.stringify(c85Yes));
 
 const c86=canGeneratePhysicalExamProfile(manifest,'ct086',{binaryMaterializationAvailable:true});
-check('ct086 cannot skip ahead of ct085',
-  !c86.allowed&&c86.reason==='OUT_OF_ORDER'&&c86.required_next_clinical_test_id==='ct085',
+check('ct086 is blocked by ct085 exact-binary handoff',
+  !c86.allowed&&c86.reason==='PRIOR_BINARY_HANDOFF_BLOCKED'&&c86.blocking_clinical_test_id==='ct085',
   JSON.stringify(c86));
 
 const c87=canGeneratePhysicalExamProfile(manifest,'ct087',{binaryMaterializationAvailable:true});
-check('ct087 cannot skip ahead of ct085',
-  !c87.allowed&&c87.reason==='OUT_OF_ORDER'&&c87.required_next_clinical_test_id==='ct085',
+check('ct087 is blocked by ct085 exact-binary handoff',
+  !c87.allowed&&c87.reason==='PRIOR_BINARY_HANDOFF_BLOCKED'&&c87.blocking_clinical_test_id==='ct085',
   JSON.stringify(c87));
 
 const c88=canGeneratePhysicalExamProfile(manifest,'ct088',{binaryMaterializationAvailable:true});
