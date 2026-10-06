@@ -135,6 +135,10 @@ for(const p of candidatePending){
 check('Runtime supports canonical approved composite_url',index.includes("p?.status==='APPROVED'&&p?.composite_url"));
 check('Runtime supports both approval metadata schemas',index.includes("p?.approved_asset||p?.user_approved_asset"));
 check('Runtime renders approved asset from composite_url',index.includes("const assetPath=isApproved?p.composite_url"));
+check('Runtime explains deferred realistic assets without exposing incomplete candidates',
+  index.includes('data-exam-realistic-deferred')&&
+  index.includes('실사형 일러스트 · 미완성 보류')&&
+  index.includes('기존 Stable-ID 교육 도해'));
 
 check('Runtime exposes plain-language and protocol teaching blocks',
   index.includes('쉽게 이해하기')&&index.includes('표준 시행 순서')&&index.includes('잘못된 보상 / 기능 저하 패턴'));
