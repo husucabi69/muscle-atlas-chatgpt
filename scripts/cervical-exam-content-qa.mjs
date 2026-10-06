@@ -126,6 +126,18 @@ for (const id of ['ct091', 'ct092']) {
   check(`${id} has no false canonical composite before binary connection`, !p?.composite_url);
 }
 
+const ct085PromptLock='docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_PROMPT_LOCK.md';
+check('ct085 frozen generation packet exists',fs.existsSync(ct085PromptLock));
+if(fs.existsSync(ct085PromptLock)){
+  const packet=fs.readFileSync(ct085PromptLock,'utf8');
+  check('ct085 frozen packet carries exact brief version',
+    packet.includes('2026-10-06-ct085-v1'));
+  check('ct085 frozen packet forbids modified passive substitution',
+    packet.includes('Do not')&&
+    packet.includes('modified passive shoulder abduction test')&&
+    packet.includes('patient actively places the symptomatic hand/forearm overhead'));
+}
+
 for (const doc of [
   'docs/render-requests/CT085_SHOULDER_ABDUCTION_RELIEF_RENDER_REQUEST.md',
   'docs/render-requests/CT086_CERVICAL_ROTATION_ROM_RENDER_REQUEST.md',
