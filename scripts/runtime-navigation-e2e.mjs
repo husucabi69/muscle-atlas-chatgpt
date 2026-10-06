@@ -670,6 +670,11 @@ try{
          !hrefs.some(x=>x.includes('29187311'))){
         fail('ct086 evidence links include 2026 cluster and ROM measurement sources',JSON.stringify(hrefs));
       }
+      const labels=await evidence.allTextContents();
+      if(!labels.some(x=>x.includes('Cervical radiculopathy cluster 독립 검증'))||
+         !labels.some(x=>x.includes('Cervical ROM 측정 신뢰도·타당도'))){
+        fail('ct086 evidence links use readable labels',JSON.stringify(labels));
+      }
     }
     const realistic=p.locator('#clinicalDetailContent [data-exam-realistic-candidate]');
     if(spec.hdApprovalLifecycle){
