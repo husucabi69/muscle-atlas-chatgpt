@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct086-candidates1-2-internal-rejected",
+  "dataset_version": "2026.10.06-exam-real-ct086-four-internal-rejections-image-only-pipeline",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3563,7 +3563,7 @@
         "embedded_text": "PENDING",
         "user_preview": "PENDING",
         "reviewed_on": "2026-10-06",
-        "note": "Candidate 1 and 2 rejected internally before Preview for frozen prompt violations. ct086 remains generation-ready for a corrected fresh candidate."
+        "note": "Candidates 1–4 all rejected internally before Preview. No candidate is user-facing. Root cause response: image-only prompt builder added so detailed textbook interpretation remains in HTML and is not intentionally fed to the visual render payload."
       },
       "provenance": {
         "source": "canonical clinical examination dataset + Stable-ID schematic baseline",
@@ -3618,8 +3618,48 @@
             "overlay_policy"
           ],
           "note": "Rejected before Preview: repeated male patient/no examiner; long infographic copy; explicit 60° text; red pain overlay. High-resolution dimensions passed but frozen clinical visual/text contract failed. No Preview connection."
+        },
+        {
+          "candidate_no": 3,
+          "gen_id": "b5857649-e764-49b5-903a-613fb0b00cef",
+          "generated_on": "2026-10-06",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "1846c9515cd8941a0bc5c3b503fca555805ff9f5146b4fb643e4d8951dada062",
+          "source_session_path": "/mnt/data/a_clean_clinical_instructional_infographic_collage.png",
+          "disposition": "REJECTED_INTERNAL_NOT_FOR_PREVIEW",
+          "failed_axes": [
+            "model_assignment",
+            "embedded_text",
+            "overlay_policy"
+          ],
+          "note": "Rejected before Preview: patient remained male rather than locked female; large explanatory text blocks persisted; red symptom/pain overlay appeared. Examiner identity was visible in some scenes but not consistently across every panel."
+        },
+        {
+          "candidate_no": 4,
+          "gen_id": "67a9abcc-9800-4e2f-9faf-b3d512d1afc8",
+          "generated_on": "2026-10-06",
+          "generator": "OpenAI image generation",
+          "raw_generation_dimensions": "1024x1536",
+          "raw_generation_sha256": "f58bae585b9063b9664b328cf58b35b63f2a71914e1ffb639e917b53fc78f271",
+          "source_session_path": "/mnt/data/a_large_instructional_medical_infographic_poster_i.png",
+          "disposition": "REJECTED_INTERNAL_NOT_FOR_PREVIEW",
+          "failed_axes": [
+            "model_assignment",
+            "examiner_visibility",
+            "embedded_text",
+            "numeric_cutoff"
+          ],
+          "note": "Rejected before Preview: male patient/no visible examiner in the main three scenes; infographic text blocks and explicit 60° text remained despite image-only hard rules. High-resolution dimension itself passed."
         }
-      ]
+      ],
+      "generation_retry_state": {
+        "state": "IMAGE_ONLY_PROMPT_PIPELINE_HARDENED_RETRY_REQUIRED",
+        "rejected_candidate_count": 4,
+        "last_rejected_gen_id": "67a9abcc-9800-4e2f-9faf-b3d512d1afc8",
+        "preview_connected": false,
+        "next_required_action": "Generate a fresh ct086 candidate using the image-only visual payload; require locked female patient/female examiner, three short Korean headers only, no numeric degree/cutoff, no red pain overlay, active ROM with fixed trunk/shoulders."
+      }
     },
     {
       "clinical_test_id": "ct087",
