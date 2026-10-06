@@ -15,6 +15,7 @@ for(const p of approved){
   if(info){
     check(p.profile_id+' approved WebP has useful dimensions',info.width>=200&&info.height>=200,info.width+'x'+info.height);
     check(p.profile_id+' approved WebP has SHA-256 fingerprint',/^[0-9a-f]{64}$/.test(info.sha256||''),info.sha256||'');
+    check(p.profile_id+' approved WebP has Git blob SHA-1 fingerprint',/^[0-9a-f]{40}$/.test(info.git_blob_sha1||''),info.git_blob_sha1||'');
   }
 }
 
