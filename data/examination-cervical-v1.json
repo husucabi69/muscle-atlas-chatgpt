@@ -223,7 +223,7 @@
           "지속되거나 진행하는 객관적 근력저하, 감각저하, 반사 변화가 있으면 영상 또는 전기진단검사 필요성을 판단한다.",
           "척수병증 징후가 있으면 경추 MRI와 전문평가를 우선한다."
         ],
-        "diagnostic_weight": "2026년 cervical radiculopathy physical-test systematic review는 개별 검사들의 진단정확도 근거가 전반적으로 제한적이고 확실성이 낮다고 평가했다. Shoulder abduction relief sign도 단독 rule-in/rule-out 검사보다 여러 임상소견 중 하나로 사용하는 것이 적절하다.",
+        "diagnostic_weight": "2026년 systematic review/meta-analysis에서는 shoulder abduction relief test의 pooled sensitivity 0.49, specificity 0.76으로 보고됐지만 근거 확실성은 매우 낮았다. 같은 해 독립 검증 연구는 2003 cervical radiculopathy cluster를 MRI 기준으로 재검증했고, 별도의 새 3-test cluster에서는 'modified passive shoulder abduction test'를 사용했다. 이 modified passive test는 여기의 고전적 손-머리위 relief sign과 완전히 같은 검사로 취급하면 안 된다. 따라서 본 검사는 단독 rule-in/rule-out이 아니라 병력·신경학적 검사·Spurling·distraction·ULNT와 함께 해석한다.",
         "common_errors": [
           "팔을 검사자가 억지로 끝범위 외전시키기",
           "어깨 국소통증 감소를 radicular symptom relief와 혼동하기",
@@ -280,7 +280,7 @@
           "객관적 근력저하·감각저하·반사 변화가 지속/진행하면 영상 또는 전기진단 평가를 고려한다.",
           "척수병증 또는 다른 red flag가 있으면 단순 ROM 평가보다 MRI/전문의 평가를 우선한다."
         ],
-        "diagnostic_weight": "약 60° 미만의 증상측 회전은 고전적 cervical radiculopathy clinical prediction cluster의 한 구성요소로 알려져 있지만, 최신 진단정확도 검토에서는 개별 physical test와 cluster의 근거 확실성이 제한적이다. 따라서 숫자 하나를 독립적인 정상/병적 경계처럼 쓰지 않는다.",
+        "diagnostic_weight": "증상측 cervical rotation <60°는 고전적 2003 cervical radiculopathy clinical prediction rule의 한 구성요소다. 2026년 독립 검증 연구는 MRI와 임상소견을 기준으로 이 원래 4-test cluster(distraction, Spurling, ULNT1, rotation <60°)의 진단값이 원 연구와 비슷함을 확인했다. 하지만 60° 자체를 모든 연령·환자의 독립 정상/병적 경계로 쓰는 근거는 아니다. 2026 systematic review도 개별 physical test 근거가 sparse하고 certainty가 낮다고 평가했으므로, ROM 숫자 하나보다 전체 cluster와 신경학적 패턴이 중요하다.",
         "common_errors": [
           "몸통이 같이 돌아가는데 경추 ROM으로 기록하기",
           "턱을 들거나 숙여 다른 움직임으로 범위를 보상하기",
