@@ -45,6 +45,12 @@ pass('Disease rehab Stable IDs unique',dup.length===0,dup.join(','));
 pass('Disease rehab content integrity',errors.length===0,errors.slice(0,30).join(','));
 pass('Shoulder seed coverage >= 2',(rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length>=2,String((rehab.conditions||[]).filter(x=>x.region_id==='shoulder').length));
 pass('Multiregion disease rehab coverage >= 6',regionIds.length>=6,`${regionIds.length}: ${regionIds.join(',')}`);
+pass('Cervical nonspecific neck pain seed is evidence-linked and dose-safe',(()=>{
+  const c=(rehab.conditions||[]).find(x=>x.stable_id==='rehab_cervical_nonspecific_neck_pain_v1');
+  return c?.region_id==='cervical' && c?.evidence_source_ids?.includes('src_neck_2025_cpg') &&
+    /특정 운동|고정된 운동량|임의의 반복/.test(String(c?.progression_or_phase||'')) &&
+    (c?.do_not_exercise_or_seek_care||[]).some(x=>/근력저하|보행|균형/.test(x));
+})());
 
 const roadmap=JSON.parse(fs.readFileSync('data/patient-rehab-disease-roadmap-v1.json','utf8'));
 const canonicalRegionIds=new Set((roadmap.regions||[]).map(x=>x.region_id));
