@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-wave2-render-clarified",
+  "dataset_version": "2026.10.06-exam-real-wave2-brief-versioned",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3447,7 +3447,8 @@
         "Relief must refer to familiar radicular arm symptoms, not generic shoulder comfort",
         "No forced end-range shoulder elevation",
         "User Preview approval required before canonical promotion"
-      ]
+      ],
+      "generation_brief_version": "2026-10-06-ct085-v1"
     },
     {
       "clinical_test_id": "ct086",
@@ -3496,7 +3497,8 @@
         "Must depict active rotation rather than forceful passive end-range rotation",
         "Do not present 60° as a universal diagnostic cutoff",
         "User Preview approval required before canonical promotion"
-      ]
+      ],
+      "generation_brief_version": "2026-10-06-ct086-v1"
     },
     {
       "clinical_test_id": "ct087",
@@ -3546,7 +3548,8 @@
         "Do not depict one-to-one absolute root mapping without overlap caution",
         "Reflex hand/hammer placement must be anatomically plausible",
         "User Preview approval required before canonical promotion"
-      ]
+      ],
+      "generation_brief_version": "2026-10-06-ct087-v1"
     },
     {
       "clinical_test_id": "ct088",
