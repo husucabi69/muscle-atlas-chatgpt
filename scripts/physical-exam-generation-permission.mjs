@@ -24,6 +24,16 @@ export function canGeneratePhysicalExamProfile(manifest,clinicalTestId,options={
     return{allowed:false,reason:'TARGET_NOT_GENERATION_READY',clinical_test_id:clinicalTestId,status:profile.status,brief_status:profile.brief_status};
   }
 
+  if(profile.generation_brief?.render_contract_required===true){
+    const rc=profile.generation_brief?.image_render_contract;
+    if(!rc?.contract_version){
+      return{allowed:false,reason:'STRUCTURED_RENDER_CONTRACT_REQUIRED',clinical_test_id:clinicalTestId};
+    }
+    if(profile.generation_brief?.required_render_mode!=='IMAGE_ONLY_STRUCTURED_CONTRACT'){
+      return{allowed:false,reason:'IMAGE_ONLY_RENDER_MODE_REQUIRED',clinical_test_id:clinicalTestId};
+    }
+  }
+
   const pilot=manifest.pilot||{};
   if(!Array.isArray(pilot.clinical_test_ids)||!pilot.clinical_test_ids.includes(clinicalTestId)){
     return{allowed:false,reason:'NOT_IN_ACTIVE_PILOT',clinical_test_id:clinicalTestId};
@@ -67,7 +77,9 @@ export function canGeneratePhysicalExamProfile(manifest,clinicalTestId,options={
     reason:'READY',
     clinical_test_id:clinicalTestId,
     pilot_batch:profile.pilot_batch,
-    generation_brief_version:profile.generation_brief_version||null
+    generation_brief_version:profile.generation_brief_version||null,
+    required_render_mode:profile.generation_brief?.required_render_mode||null,
+    render_contract_version:profile.generation_brief?.image_render_contract?.contract_version||null
   };
 }
 
