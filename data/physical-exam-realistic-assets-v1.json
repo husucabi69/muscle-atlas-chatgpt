@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.06-exam-real-ct086-four-internal-rejections-image-only-pipeline",
+  "dataset_version": "2026.10.07-exam-real-ct086-structured-render-contract-v2",
   "status": "EXAM_REAL_001_IN_PROGRESS",
   "style_contract": "docs/REALISTIC_HUMAN_ILLUSTRATION_STYLE_CONTRACT.md",
   "copyright_contract": "docs/COPYRIGHT_REGISTRATION_STRATEGY.md",
@@ -3553,7 +3553,97 @@
           "radic_review_2026"
         ],
         "source_quality_policy": "HD_RASTER_REQUIRED_PORTRAIT_MIN_1024x1536",
-        "app_preview_policy": "PRIMARY_PREVIEW_MUST_USE_HD_SOURCE_OR_HD_QUALITY_ASSET; THUMBNAIL_ONLY_FOR_CACHE"
+        "app_preview_policy": "PRIMARY_PREVIEW_MUST_USE_HD_SOURCE_OR_HD_QUALITY_ASSET; THUMBNAIL_ONLY_FOR_CACHE",
+        "image_render_contract": {
+          "contract_version": "2026-10-07-ct086-v2",
+          "render_mode": "ILLUSTRATION_PLATE_NOT_INFOGRAPHIC",
+          "output": {
+            "orientation": "portrait",
+            "min_width_px": 1024,
+            "min_height_px": 1536,
+            "primary_preview_must_use_hd_source": true
+          },
+          "casting": {
+            "patient": "female",
+            "examiner": "female",
+            "same_patient_all_panels": true,
+            "same_examiner_all_panels": true,
+            "examiner_visible_all_panels": true
+          },
+          "panels": [
+            {
+              "panel": 1,
+              "header": "1 중립 자세",
+              "patient_pose": "seated upright in a backed chair, shoulders relaxed, head neutral",
+              "examiner_pose": "female examiner visibly observing near patient without touching or forcing the head",
+              "arrows": "none"
+            },
+            {
+              "panel": 2,
+              "header": "2 좌우 회전",
+              "patient_pose": "same seated patient actively rotates head left and right while trunk and shoulders stay facing forward",
+              "examiner_pose": "same female examiner visibly observes trunk, shoulder and chin compensation; no manual force",
+              "arrows": "small neutral gray/blue arc arrows showing left/right active head rotation only"
+            },
+            {
+              "panel": 3,
+              "header": "3 제한 / 보상",
+              "patient_pose": "same seated patient demonstrates visibly shorter rotation arc on one side while trunk and shoulders remain fixed; subtle compensation may be shown without implying diagnosis",
+              "examiner_pose": "same female examiner visibly observes; no passive end-range force",
+              "arrows": "one neutral shorter arc compared with the opposite direction; no pain glow"
+            }
+          ],
+          "allowed_text_exact": [
+            "1 중립 자세",
+            "2 좌우 회전",
+            "3 제한 / 보상"
+          ],
+          "forbidden_visuals": [
+            "male patient",
+            "male examiner",
+            "missing examiner",
+            "examiner hands forcing the head",
+            "passive end-range rotation",
+            "trunk rotating with head",
+            "shoulders rotating with head",
+            "red pain glow",
+            "red pain heatmap",
+            "red symptom flare",
+            "diagnosis label",
+            "reference list",
+            "teaching paragraph",
+            "bullet list",
+            "legend box",
+            "safety card",
+            "table",
+            "English title"
+          ],
+          "forbidden_text_patterns": [
+            "°",
+            "60",
+            "70",
+            "80",
+            "90",
+            "radiculopathy",
+            "cervical rotation range of motion",
+            "reference",
+            "evidence",
+            "diagnosis"
+          ],
+          "acceptance_axes": [
+            "HD_DIMENSIONS",
+            "FEMALE_PATIENT",
+            "FEMALE_EXAMINER",
+            "SAME_IDENTITIES_ALL_PANELS",
+            "EXAMINER_VISIBLE_ALL_PANELS",
+            "ACTIVE_ROTATION_ONLY",
+            "TRUNK_SHOULDERS_FIXED",
+            "THREE_ALLOWED_HEADERS_ONLY",
+            "NO_NUMERIC_ANGLE_OR_CUTOFF",
+            "NO_RED_PAIN_OVERLAY",
+            "NO_INFOGRAPHIC_COPY"
+          ]
+        }
       },
       "review": {
         "clinical_content": "PASS",
@@ -3654,11 +3744,11 @@
         }
       ],
       "generation_retry_state": {
-        "state": "IMAGE_ONLY_PROMPT_PIPELINE_HARDENED_RETRY_REQUIRED",
+        "state": "STRUCTURED_IMAGE_RENDER_CONTRACT_READY_FOR_CANDIDATE5",
         "rejected_candidate_count": 4,
         "last_rejected_gen_id": "67a9abcc-9800-4e2f-9faf-b3d512d1afc8",
         "preview_connected": false,
-        "next_required_action": "Generate a fresh ct086 candidate using the image-only visual payload; require locked female patient/female examiner, three short Korean headers only, no numeric degree/cutoff, no red pain overlay, active ROM with fixed trunk/shoulders."
+        "next_required_action": "Generate Candidate 5 using image_render_contract contract_version 2026-10-07-ct086-v2. Reject internally if any acceptance axis fails."
       }
     },
     {
