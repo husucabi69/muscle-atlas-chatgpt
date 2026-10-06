@@ -24,6 +24,7 @@ pass('Disease rehab print ref values',(rehab.conditions||[]).every(c=>!!c.print_
 pass('Disease rehab print ref count',(rehab.conditions||[]).filter(c=>Boolean(c.print_template_id)).length>=8);
 pass('Disease rehab print refs baseline',(rehab.conditions||[]).filter(c=>Boolean(c.print_template_id)).length>7);
 pass('Disease rehab print refs exact current coverage',(rehab.conditions||[]).filter(c=>Boolean(c.print_template_id)).length===(rehab.conditions||[]).length);
+pass('Disease rehab print refs all present',(rehab.conditions||[]).filter(c=>Boolean(c.print_template_id)).length>7);
 pass('Disease rehab coverage schema v1',coverage.schema_version==='1.0.0',coverage.schema_version);
 pass('Preview-only dataset',rehab.status==='PREVIEW_DEVELOPMENT'&&coverage.status==='PREVIEW_DEVELOPMENT',`${rehab.status}/${coverage.status}`);
 pass('Patient-safety policy',rehab.content_policy?.postoperative_separate===true && rehab.content_policy?.no_invented_dose===true && rehab.content_policy?.red_flags_before_exercise===true);
