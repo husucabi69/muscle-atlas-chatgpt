@@ -643,7 +643,7 @@ try{
     },
     {
       id:'ct086',
-      required:['경추 회전 ROM 평가','쉽게 이해하기','60°','독립 정상/병적 경계로 쓰는 근거는 아니다','능동','교과서식 상세 해석'],
+      required:['경추 회전 ROM 평가','쉽게 이해하기','60°','독립적인 보편적 병적 cut-off로 사용하지 않는다','능동','교과서식 상세 해석','숫자는 임상판단을 돕는 자료이지 진단 그 자체가 아니다'],
       passName:'A15 ct086 cervical rotation ROM teaching + schematic fallback'
     },
     {
