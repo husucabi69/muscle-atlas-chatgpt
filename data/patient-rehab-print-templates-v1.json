@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.10.08-stage23b-disease-rehab-print-a",
+  "status": "PREVIEW_DEVELOPMENT",
+  "purpose": "Machine-readable A4 print contract registry for disease-based patient rehabilitation education.",
+  "templates": [
+    {
+      "template_id": "rehab_print_a4_v1",
+      "label_ko": "질환별 재활 환자교육 A4",
+      "page_size": "A4",
+      "orientation": "portrait",
+      "audience": "adult patient education",
+      "required_sections": [
+        "plain_language_overview",
+        "who_this_is_for",
+        "do_not_exercise_or_seek_care",
+        "stretching",
+        "strengthening",
+        "lifestyle_activity_modification",
+        "common_errors",
+        "progression_or_phase",
+        "return_or_reassessment_criteria",
+        "evidence_sources",
+        "last_reviewed"
+      ],
+      "safety_contract": {
+        "red_flags_before_exercise": true,
+        "postoperative_separate": true,
+        "no_invented_dose": true,
+        "preserve_evidence_attribution": true
+      },
+      "asset_contract": {
+        "illustration_ids_from_condition": true,
+        "missing_asset_behavior": "render_text_without_inventing_or_substituting_unapproved_media"
+      },
+      "mobile_print_contract": {
+        "source_of_truth": "same_condition_record",
+        "print_action": "one_click_a4_pdf",
+        "no_clinical_content_drift": true
+      }
+    }
+  ]
+}
