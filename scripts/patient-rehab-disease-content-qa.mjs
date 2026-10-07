@@ -12,6 +12,7 @@ const rehab=json('data/patient-rehab-disease-content-v1.json');
 const coverage=json('data/patient-rehab-disease-coverage-v1.json');
 const exercise=json('data/patient-exercise-library-v1.json');
 const realistic=json('data/patient-exercise-realistic-assets-v1.json');
+const printRegistry=json('data/patient-rehab-print-templates-v1.json');
 
 pass('Disease rehab schema v1',rehab.schema_version==='1.0.0',rehab.schema_version);
 pass('Disease rehab condition count remains populated',(rehab.conditions||[]).length>=8,String((rehab.conditions||[]).length));
@@ -27,6 +28,17 @@ pass('Disease rehab print refs exact current coverage',(rehab.conditions||[]).fi
 pass('Disease rehab print refs all present',(rehab.conditions||[]).filter(c=>Boolean(c.print_template_id)).length>7);
 pass('Disease rehab missing print refs zero',(rehab.conditions||[]).filter(c=>!Boolean(c.print_template_id)).length===0);
 pass('Disease rehab print refs count positive',(rehab.conditions||[]).length>0);
+const printTemplates=printRegistry.templates||[];
+const printTemplateIds=new Set(printTemplates.map(t=>t.template_id).filter(Boolean));
+const printReferenceErrors=[];
+for(const condition of rehab.conditions||[]){
+  if(!printTemplateIds.has(condition.print_template_id)) printReferenceErrors.push(condition.stable_id+':unknown_print_template:'+condition.print_template_id);
+}
+pass('Disease rehab print registry schema v1',printRegistry.schema_version==='1.0.0',printRegistry.schema_version);
+pass('Disease rehab print template IDs unique',printTemplateIds.size===printTemplates.length,String(printTemplates.length));
+pass('Disease rehab print references resolve to registry',printReferenceErrors.length===0,printReferenceErrors.join(','));
+const activePrintTemplate=printTemplates.find(t=>t.template_id===(rehab.conditions||[])[0]?.print_template_id);
+pass('Disease rehab A4 print safety contract',Boolean(activePrintTemplate)&&activePrintTemplate.page_size==='A4'&&activePrintTemplate.orientation==='portrait'&&activePrintTemplate.safety_contract?.red_flags_before_exercise===true&&activePrintTemplate.safety_contract?.postoperative_separate===true&&activePrintTemplate.safety_contract?.no_invented_dose===true&&activePrintTemplate.mobile_print_contract?.source_of_truth==='same_condition_record'&&activePrintTemplate.mobile_print_contract?.no_clinical_content_drift===true);
 pass('Disease rehab coverage rows present',(coverage.regions||[]).length>5);
 pass('Disease rehab coverage rows stay broad',(coverage.regions||[]).length>=8);
 pass('Disease rehab coverage row count floor',(coverage.regions||[]).length>7);
