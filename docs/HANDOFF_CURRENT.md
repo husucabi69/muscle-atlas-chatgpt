@@ -9,9 +9,18 @@
 - `scripts/claude-library-runtime-qa.mjs` validates each self-hosted HTML byte count, SHA-256, original Artifact fallback and original relative `2_음성` MP4 path, plus immutable six-volume source identity. New `scripts/runtime-navigation-e2e.mjs` clicks six original volumes and checks iframe contents, audio-pending message, media route and browser back.
 - `scripts/sync-claude-original-html.mjs` provides an exact-source ingestion tool (dry run by default, explicit `--write`), with `scripts/claude-original-sync-qa.mjs` covering six source round trips and fail-close on wrong filename, source drift, and Drive ID mismatch. This prepares further Drive-derived expansion without hand-coding each lecture screen.
 - Current new Preview display version `v12.15 · Claude Original Six Volumes`, build `2026.10.09-stage23.87`, cache `20261009-stage23-87`.
-- **Not done:** R2 private bucket binding, MP4 pilot upload and real audio player validation. Lecture 28 has known MP4 identity. Lectures 29–33 have `audio_source_verification=DRIVE_MP4_IDENTITY_PENDING`. They MUST NOT be called audio-ready, even though original playback buttons exist in HTML.
+- **2026-10-09 Drive MP4 verification:** Original MP4s for all 24 disease-trauma lectures were found in Drive. MP4 source ID, bytes and SHA-256 for lectures 28–33 are verified and stored in manifest/QA. **Not done:** R2 bucket binding, pilot upload, real playback. All six must remain MEDIA_PENDING.
 - Next first step: recheck exact latest HEAD/Global QA/Playwright/Deploy Safety and Cloudflare Preview, then restore authenticated Cloudflare R2 write/binding session for MP4 pilot. Do not run TinyFish without new preapproval of purpose/steps/cost. Original next HTML volume = lecture 34 / Hand Disease, but keep media rollout blocker visible.
 - USER APPROVED ct085 / ct086 pending structured candidate / ct088 Hoffmann deferred are untouched. Do not change `main` without explicit approval.
+
+## 2026-10-09 additional QA and iframe history checkpoint
+
+- Six original HTMLs: Playwright mobile/desktop screenshots recorded as GitHub Actions artifacts via scripts/claude-original-visual-e2e.mjs, pending latest run confirmation.
+- Live exact Cloudflare Preview bytes/SHA-256 verified by scripts/claude-live-original-fidelity-qa.mjs in Deploy Safety Gate. This is separate from GitHub/local byte checks.
+- Browser-back issue: nested iframe navigation polluted joint session history. index.html now uses iframe.contentWindow.location.replace for loading and clearing the frame, avoiding iframe history entries while leaving original HTML untouched.
+- Browser E2E now checks actual frame browsing-context URL rather than iframe src attribute (location.replace does not rewrite the src attribute), and asserts history.back/popstate.
+- First six Drive MP4 source hashes are known and locked; private R2 upload/binding and actual audio controls still NOT READY.
+- Final latest HEAD CI/E2E/Cloudflare checks must be re-read before declaring PASS. main must remain frozen.
 
 ## CURRENT LIVE INCIDENT — 2026-10-08 Cloudflare MP4 routing
 
