@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.08-odt-native-a",
+  "dataset_version": "2026.10.08-odt-native-b",
   "module_id": "orthopedic_disease_trauma_v1",
   "status": "PREVIEW_PROTOTYPE",
   "workline": "ORTHOPEDIC_DISEASE_TRAUMA_MODULE",
   "migration_policy": {
     "source_archive": "클로드_정형외과_강의실_모든작업물.zip",
     "total_volumes": 24,
-    "native_preview_volumes": 1,
-    "source_verified_pending_volumes": 23,
+    "native_preview_volumes": 2,
+    "source_verified_pending_volumes": 22,
     "claude_runtime_dependency": false,
     "external_artifact_dependency": false,
     "audio_policy": "Source MP4 files were not included; keep audio disabled until independent migration.",
@@ -39,7 +39,7 @@
       "title_en": "Shoulder Trauma",
       "source_filename": "클로드_질환외상_02권_어깨_외상.html",
       "source_status": "ARCHIVE_SOURCE_VERIFIED",
-      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "native_status": "NATIVE_PREVIEW",
       "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
     },
     {
@@ -737,6 +737,613 @@
           "citation": "van Alfen & van Engelen. Neuralgic amyotrophy 246 cases. Brain 2006.",
           "doi": "10.1093/brain/awh722",
           "url": "https://doi.org/10.1093/brain/awh722"
+        }
+      ]
+    },
+    "odt002": {
+      "stable_id": "odt002",
+      "source_sha256": "47b0b42a12f7d1e509d17e8ef8cc97a8ffb27d1930ba08e32b37073589d4d2ef",
+      "source_bytes": 604728,
+      "title_ko": "어깨 외상",
+      "title_en": "Shoulder Trauma",
+      "edition": "1판",
+      "source_authored_by": "Claude",
+      "source_artifact_audio": "SOURCE_REFERENCED_AUDIO_BLOB_NOT_MIGRATED",
+      "native_review_status": "SOURCE_MIGRATED_EVIDENCE_REFRESHED_2026",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE",
+      "chapter_count": 10,
+      "numbered_figure_count": 8,
+      "visual_provenance_count": 10,
+      "reference_count": 17,
+      "chapters": [
+        {
+          "id": "odt002-s0",
+          "order": 0,
+          "title": "어깨 외상의 큰 그림 — 신경혈관, 세 방향 X-ray, 놓치기 쉬운 손상",
+          "summary": "외상 어깨는 정복·처치 전에 신경혈관 상태를 기록하고, 적절한 다방향 영상으로 탈구 방향과 골절을 확인하는 것에서 시작합니다.",
+          "paragraphs": [
+            "응급 평가의 첫 단계는 신경혈관 검사입니다. 특히 액와신경 기능을 어깨 외측 감각만으로 끝내지 말고 삼각근 수축까지 확인하며, 맥박과 손의 관류도 처치 전후에 다시 기록합니다.",
+            "외상성 탈구와 골절의 기본 영상은 정면(AP)만으로 끝내지 않습니다. scapular Y와 axillary 또는 이에 준하는 orthogonal view를 확보해 탈구 방향, 대결절 골절, 전위를 확인하고, 통증 때문에 표준 axillary view가 어렵다면 대체 view나 CT를 사용합니다.",
+            "고령의 탈구 뒤 팔을 들지 못하는 경우에는 단순 통증으로 설명하지 말고 회전근개 파열과 액와신경 손상이 함께 존재할 수 있음을 염두에 둡니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [
+            {
+              "type": "muscle",
+              "id": "m069",
+              "label": "삼각근 해부학"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d014",
+              "label": "액와신경병증 감별"
+            }
+          ],
+          "red_flags": [
+            "처치 전후 맥박·관류 변화",
+            "진행하는 신경학적 결손",
+            "고에너지 손상에서 흉부·경추 동반 손상"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt002-s1",
+          "order": 1,
+          "title": "Anterior shoulder dislocation — 전방 견관절 탈구",
+          "summary": "전방 탈구의 Bankart/Hill-Sachs 병변, 연령별 재발 위험, 고령의 동반 손상, 첫 탈구 수술 논의를 최신 근거와 함께 봅니다.",
+          "paragraphs": [
+            "전방 탈구는 팔이 외전·외회전된 상태에서 힘이 가해질 때 흔히 발생하며, Bankart lesion과 Hill-Sachs lesion이 이후 재발성 불안정성의 구조적 배경이 될 수 있습니다. 골성 Bankart와 의미 있는 glenoid bone loss는 수술 전략에 특히 중요합니다.",
+            "재발 위험은 젊을수록 높고 첫 2년 안에 재발이 집중되는 경향이 있습니다. 다만 모든 젊은 환자가 재발하는 것은 아니므로 나이, 성별, 접촉·overhead sport, bone loss, 환자의 목표를 함께 놓고 재발 위험과 수술의 이득을 공유의사결정합니다.",
+            "원본은 2007년 외회전 고정 RCT를 소개했지만 이후 근거는 일관되지 않았습니다. 2026년 메타분석에서는 내회전과 외회전 고정 사이 재발·기능·복귀에 의미 있는 우월성이 확인되지 않아 routine external-rotation brace를 정답처럼 권할 근거는 부족합니다.",
+            "반면 2025년 Arthroscopy Association of Canada position statement는 젊은 첫 전방탈구에서 조기 arthroscopic Bankart repair가 비수술 치료보다 재발성 불안정성·재탈구·추가 안정화 수술을 줄였다고 정리했습니다. 따라서 특히 고위험 젊은 환자에서는 첫 탈구부터 수술 상담을 합리적으로 제시할 수 있습니다.",
+            "고령 환자에서는 재발보다 회전근개 파열, 대결절 골절, 액와신경·상완신경총 손상이 진료의 중심이 될 수 있습니다. 정복 뒤 지속되는 능동 거상 불능은 회전근개와 신경을 함께 재평가합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_011",
+            "odt_ref_012",
+            "odt_ref_013",
+            "odt_ref_014",
+            "odt_ref_021",
+            "odt_ref_022"
+          ],
+          "cross_links": [
+            {
+              "type": "muscle",
+              "id": "m069",
+              "label": "삼각근 해부학"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d014",
+              "label": "액와신경병증 감별"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d008",
+              "label": "회전근개 전층파열 감별"
+            }
+          ],
+          "red_flags": [
+            "정복 전후 신경혈관 상태 악화",
+            "골절-탈구 또는 정복 불가",
+            "정복 뒤에도 지속되는 심한 근력저하"
+          ],
+          "clinical_takeaways": [
+            "젊은 고위험 첫 탈구는 재발 위험과 조기 안정화 수술을 함께 설명",
+            "외회전 보조기를 routine 정답으로 고정하지 않기"
+          ]
+        },
+        {
+          "id": "odt002-s2",
+          "order": 2,
+          "title": "Posterior shoulder dislocation — 놓치기 쉬운 후방 탈구",
+          "summary": "경련·감전 뒤 내회전 고정과 외회전 불가를 핵심 단서로 보고 AP 한 장의 함정을 피합니다.",
+          "paragraphs": [
+            "후방 탈구는 빈도는 낮지만 진단 지연이 흔합니다. seizure나 electric shock처럼 강한 동시성 근수축 뒤 발생할 수 있고 양측성일 수도 있습니다.",
+            "팔이 내회전된 채 고정되고 수동 외회전이 거의 되지 않는 소견은 매우 중요한 단서입니다. 젊은 환자가 갑자기 '동결견'처럼 외회전 0도에 가깝게 보이면 후방 탈구를 먼저 배제해야 합니다.",
+            "AP X-ray는 거의 정상처럼 보일 수 있고 lightbulb sign은 보조 단서일 뿐입니다. axillary view 또는 CT로 골두가 관절와 뒤에 걸린 것을 확인하고 reverse Hill-Sachs 크기와 동반 골절을 평가합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_015"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "경련·감전 뒤 심한 양측 어깨 통증",
+            "외회전이 사실상 불가능한 고정된 내회전",
+            "골절-탈구 또는 신경혈관 이상"
+          ],
+          "clinical_takeaways": [
+            "경련·감전 문맥에서는 후방 탈구를 먼저 떠올리고 orthogonal imaging을 확보"
+          ]
+        },
+        {
+          "id": "odt002-s3",
+          "order": 3,
+          "title": "Traumatic rotator cuff tear — 외상성 회전근개 파열",
+          "summary": "명확한 외상 뒤 새로 생긴 근력저하는 조기에 영상화하되, '몇 주 안에 반드시 수술' 같은 단일 시간 기준은 피합니다.",
+          "paragraphs": [
+            "명확한 외상 뒤 갑자기 팔을 들지 못하거나 외회전·내회전 힘이 뚜렷하게 떨어지면 급성 회전근개 파열을 생각합니다. 특히 고령 전방탈구 뒤에는 파열과 신경손상이 함께 있을 수 있습니다.",
+            "진찰에서는 통증 때문에 생긴 억제와 진짜 근력저하를 구분하고, 외회전 lag, supraspinatus weakness, subscapularis 기능검사와 초음파·MRI를 조합합니다.",
+            "원본의 '3주~3개월' 같은 수술 기한은 현재 근거에서 보편적 cut-off로 고정하기 어렵습니다. 2025 메타분석은 조기 repair에서 retear 감소와 기능 개선 신호를 보였지만, 2026 학회 systematic review는 early 정의가 제각각이고 기능 차이는 제한적이라고 평가했습니다. 핵심은 수개월 방치하지 않고 조기에 진단·전문 평가하여 tear size, retraction, fatty change, 기능 요구도에 맞춰 시기를 결정하는 것입니다.",
+            "외회전 강제 손상 뒤 subscapularis tear가 의심되면 외회전 증가, belly-press/lift-off/bear-hug 약화, long-head biceps instability를 함께 봅니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_023",
+            "odt_ref_024"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d008",
+              "label": "회전근개 전층파열"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct001",
+              "label": "Jobe / Empty Can"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct004",
+              "label": "External Rotation Lag"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct005",
+              "label": "Lift-off"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct006",
+              "label": "Belly-press"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct007",
+              "label": "Bear-hug"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv001",
+              "label": "극상건 장축 초음파"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv005",
+              "label": "견갑하건 장축 초음파"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv007",
+              "label": "후방 회전근개 초음파"
+            }
+          ],
+          "red_flags": [
+            "외상 직후 새 pseudoparalysis 또는 현저한 근력저하",
+            "탈구와 동반된 신경학적 결손"
+          ],
+          "clinical_takeaways": [
+            "급성 외상성 파열은 조기 진단이 핵심",
+            "수술 시기를 단일 숫자로 고정하지 않고 tear/retraction/환자 요인으로 결정"
+          ]
+        },
+        {
+          "id": "odt002-s4",
+          "order": 4,
+          "title": "Proximal humerus fracture — 상완골 근위부 골절",
+          "summary": "골다공증성 손상의 대표 유형이며 분류보다 환자·골절 형태·혈류·기능 요구도를 함께 봅니다.",
+          "paragraphs": [
+            "고령 여성의 저에너지 낙상에서 흔하고 fragility fracture로서 골다공증 평가와 낙상 예방까지 연결해야 합니다.",
+            "Neer classification은 골두·대결절·소결절·골간부의 네 부분을 전위 기준으로 분류하지만 관찰자 간 일치도가 제한적입니다. 따라서 분류 번호만으로 수술을 결정하지 않습니다.",
+            "ProFHER RCT와 이후 축적된 근거는 많은 고령 전위 골절에서 수술이 비수술 치료보다 일관되게 우월하지 않음을 보여줍니다. 2025 메타분석도 고령 환자 전체에서 수술의 명확한 우월성을 지지하지 않아, 골절-탈구·head-split·개방성 손상·혈관 손상·일부 젊은 고수요 환자처럼 선택된 상황을 구분해야 합니다.",
+            "비수술 치료에서는 골절 안정성과 통증에 맞춘 짧은 보호 후 점진적 운동범위 회복을 계획하고 추적 영상으로 전위 변화를 확인합니다. 장기간 고정은 강직 위험을 높입니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_016",
+            "odt_ref_017",
+            "odt_ref_025"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "개방성 골절 또는 혈관 손상",
+            "fracture-dislocation",
+            "head-split 또는 심한 골두 손상"
+          ],
+          "clinical_takeaways": [
+            "고령 전위 골절=자동 수술이라는 사고를 피하고 기능·골질·골절패턴으로 선택"
+          ]
+        },
+        {
+          "id": "odt002-s5",
+          "order": 5,
+          "title": "Clavicle fracture — 쇄골 골절",
+          "summary": "중간부 전위 골절의 수술·비수술 장단점과 nonunion 위험을 현재 AAOS CPG와 연결합니다.",
+          "paragraphs": [
+            "중간 1/3 골절이 가장 흔하며 피부 tenting, 개방성 위험, 상완신경총·쇄골하혈관, 기흉 같은 동반 손상을 먼저 확인합니다.",
+            "nonunion 위험은 전위·분쇄·연령 등과 연관될 수 있습니다. 특히 뼈끝 접촉이 없는 심한 전위에서는 비수술 치료의 불유합 위험을 환자에게 설명합니다.",
+            "AAOS 2022 CPG는 성인 displaced midshaft clavicle fracture의 수술이 더 높은 유합률과 더 좋은 초기 patient-reported outcome과 연관된다는 강한 근거를 제시하지만, 장기 기능과 만족도는 수술·비수술이 유사할 수 있다고 정리합니다. 즉 '무조건 수술'이 아니라 조기 회복·불유합 감소의 이점과 implant irritation·재수술 가능성을 함께 설명합니다.",
+            "성인 불안정성 distal clavicle fracture에서는 수술을 고려할 수 있으며, AAOS는 Neer type II에서 hook plate보다 lateral locking plate가 합병증과 기능 측면에서 유리할 수 있다는 중등도 근거를 제시합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_018",
+            "odt_ref_019",
+            "odt_ref_026"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "피부 tenting/개방성 위험",
+            "신경혈관 손상",
+            "호흡곤란 또는 기흉 의심"
+          ],
+          "clinical_takeaways": [
+            "전위 중간부 성인에서는 union·초기회복 이점과 장기 기능 유사성을 함께 설명"
+          ]
+        },
+        {
+          "id": "odt002-s6",
+          "order": 6,
+          "title": "AC joint injury — 견봉쇄골관절 손상",
+          "summary": "Rockwood 분류를 사용하되 특히 type III는 기능·직업·스포츠 요구도에 따른 공유의사결정이 중요합니다.",
+          "paragraphs": [
+            "직접 어깨 상부 충격으로 AC ligament와 coracoclavicular ligament가 손상되며 Rockwood I~VI로 분류합니다. I–II는 일반적으로 비수술 치료, IV–VI는 큰 전위 때문에 수술 고려가 흔하고 III는 가장 논쟁적입니다.",
+            "원본의 2015 캐나다 RCT는 수술이 방사선 정렬은 개선하지만 초기 기능에서는 비수술군이 빠르고 장기 기능 차이는 크지 않음을 보여줬습니다.",
+            "2026 RCT 기반 systematic review/meta-analysis에서도 Rockwood III–V의 장기 patient-reported outcome은 수술과 비수술이 대체로 비슷했고 초기에는 비수술이 유리한 신호가 있었으며 수술군의 minor complication이 더 많았습니다. 따라서 type III를 모양만 보고 자동 수술하지 않습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_020",
+            "odt_ref_027"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d010",
+              "label": "AC joint 병변 감별"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv009",
+              "label": "AC joint 초음파"
+            }
+          ],
+          "red_flags": [
+            "피부 위협 또는 개방성 손상",
+            "신경혈관 이상",
+            "다발성 어깨고리 손상 의심"
+          ],
+          "clinical_takeaways": [
+            "Rockwood III는 환자의 기능 요구도와 증상으로 판단하고 방사선 모양만으로 수술 결정 금지"
+          ]
+        },
+        {
+          "id": "odt002-s7",
+          "order": 7,
+          "title": "드물지만 위험한 손상 — 흉쇄관절, 견갑골, SLAP",
+          "summary": "흉쇄관절 후방 탈구의 종격동 위험과 고에너지 견갑골 골절의 동반 손상을 우선합니다.",
+          "paragraphs": [
+            "posterior sternoclavicular dislocation은 기관·식도·대혈관을 압박할 수 있어 호흡곤란, 연하곤란, 음성 변화, 팔 부종·저림이 있으면 응급입니다. CT가 핵심이며 정복은 적절한 수술 지원 하에 시행합니다.",
+            "scapula fracture는 높은 에너지가 필요한 경우가 많아 갈비뼈 골절, 기흉, 폐좌상, 두부·척추 손상을 함께 찾는 것이 골절 자체보다 먼저입니다. glenoid involvement나 불안정한 shoulder girdle 패턴은 별도 수술 평가가 필요합니다.",
+            "SLAP lesion은 외상 또는 반복 overhead load에서 생길 수 있지만 중년 이후 MRI의 superior labral change는 무증상 퇴행성 소견일 수 있습니다. imaging alone으로 수술을 결정하지 않고 증상·진찰·연령·biceps pathology를 함께 봅니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d007",
+              "label": "Biceps-labrum complex 병변"
+            },
+            {
+              "type": "muscle",
+              "id": "m075",
+              "label": "상완이두근 장두"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct008",
+              "label": "Speed 검사"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct009",
+              "label": "Yergason 검사"
+            }
+          ],
+          "red_flags": [
+            "호흡곤란·연하곤란·음성변화를 동반한 내측 쇄골 손상",
+            "고에너지 scapula fracture의 흉부·척추 동반 손상"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt002-s8",
+          "order": 8,
+          "title": "외래 실전 — Shoulder trauma 진료 순서",
+          "summary": "기전→신경혈관→orthogonal imaging→손상별 치료→2~3주 기능 재평가→골다공증/낙상 관리의 흐름으로 정리합니다.",
+          "paragraphs": [
+            "손상기전에서 낙상 방향, 경련·감전, 고에너지 여부를 확인하고 신경혈관 상태를 정복 전후 기록합니다.",
+            "정면·scapular Y·axillary 또는 대체 orthogonal view를 확보해 탈구 방향, 대결절 골절, fracture displacement를 확인합니다.",
+            "치료는 나이만이 아니라 활동도, 골절·bone loss, 스포츠·직업, 신경손상과 cuff status를 함께 고려합니다. 고령 골절은 fragility fracture pathway로 연결합니다.",
+            "초기 치료 뒤 팔을 들지 못하거나 현저한 근력저하가 남으면 회전근개와 신경을 재평가합니다. 경련·감전 뒤 외회전 불가, 호흡·연하 증상을 동반한 SC injury, scapula fracture의 동반 흉부손상은 즉시 우선순위를 높입니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_021",
+            "odt_ref_025",
+            "odt_ref_026",
+            "odt_ref_027"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d014",
+              "label": "액와신경병증"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d008",
+              "label": "회전근개 전층파열"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv001",
+              "label": "극상건 초음파"
+            }
+          ],
+          "red_flags": [
+            "경련/감전 뒤 외회전 불가",
+            "고령 탈구 후 지속 능동거상 불가",
+            "외상 후 새 현저한 근력저하",
+            "호흡·연하 증상이 동반된 내측 쇄골 손상",
+            "고에너지 scapula fracture"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt002-s9",
+          "order": 9,
+          "title": "참고문헌과 근거 상태",
+          "summary": "Claude 원본의 핵심 문헌 10개를 보존하고 2025–2026 근거를 추가해 중요한 치료 판단을 재검증했습니다.",
+          "paragraphs": [
+            "SOURCE_VERIFIED 문헌은 원본 Shoulder Trauma HTML에서 인용된 연구를 보존한 것입니다. CURRENT_GUIDELINE 및 EVIDENCE_REFRESH_2026 문헌은 이번 native migration에서 새로 확인한 최신 근거입니다.",
+            "이번 refresh에서 특히 전방탈구 외회전 고정, 젊은 첫 탈구 조기 Bankart repair, traumatic cuff repair timing, 고령 proximal humerus fracture, displaced midshaft clavicle fracture, Rockwood III–V AC injury의 치료 설명을 업데이트했습니다.",
+            "여전히 환자별 골절 형태·bone loss·신경혈관 상태·기능 요구도가 치료를 좌우하므로, 이 모듈은 단일 수치나 분류만으로 수술 여부를 자동 결정하지 않습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_011",
+            "odt_ref_012",
+            "odt_ref_013",
+            "odt_ref_014",
+            "odt_ref_015",
+            "odt_ref_016",
+            "odt_ref_017",
+            "odt_ref_018",
+            "odt_ref_019",
+            "odt_ref_020",
+            "odt_ref_021",
+            "odt_ref_022",
+            "odt_ref_023",
+            "odt_ref_024",
+            "odt_ref_025",
+            "odt_ref_026",
+            "odt_ref_027"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        }
+      ],
+      "figures": [
+        {
+          "id": "odt002_fig01a",
+          "chapter_id": "odt002-s1",
+          "figure_no": "1A",
+          "title": "Anterior shoulder dislocation — AP view",
+          "provenance": "Wikimedia Commons · Mikael Häggström",
+          "license": "CC0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shoulder_dislocation,_anteroposterior_before_reduction.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt002_fig01b",
+          "chapter_id": "odt002-s1",
+          "figure_no": "1B",
+          "title": "Anterior shoulder dislocation — scapular Y view",
+          "provenance": "Wikimedia Commons · Mikael Häggström",
+          "license": "CC0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shoulder_dislocation,_Y-projection_before_reduction.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt002_fig02",
+          "chapter_id": "odt002-s1",
+          "figure_no": "2",
+          "title": "Bankart and Hill-Sachs lesions",
+          "provenance": "Wikimedia Commons · Mikael Häggström",
+          "license": "CC0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shoulder_dislocation_with_Bankart_and_Hill-Sachs_lesion,_before_and_after_reduction.svg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt002_fig03a",
+          "chapter_id": "odt002-s2",
+          "figure_no": "3A",
+          "title": "Posterior dislocation — lightbulb sign",
+          "provenance": "Wikimedia Commons · Hellerhoff",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Lightbulb_sign_-_posterior_shoulder_dislocation_-_Roe_vor_und_nach_Reposition_001_-_Annotation.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt002_fig03b",
+          "chapter_id": "odt002-s2",
+          "figure_no": "3B",
+          "title": "Posterior dislocation — axillary view",
+          "provenance": "Wikimedia Commons · Doc James",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:AxillaryViewPostDislocation.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt002_fig04",
+          "chapter_id": "odt002-s4",
+          "figure_no": "4",
+          "title": "Comminuted proximal humerus fracture X-ray",
+          "provenance": "Wikimedia Commons · article authors",
+          "license": "CC BY 2.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:X-ray_of_complex_fracture_of_proximal_humerus.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt002_fig05",
+          "chapter_id": "odt002-s4",
+          "figure_no": "5",
+          "title": "Neer four-part schematic",
+          "provenance": "Claude source-authored schematic summarizing textbook classification; not a copied paper figure",
+          "license_status": "HUMAN_REDRAW_REQUIRED_FOR_OWN_CANONICAL_ASSET",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt002_fig06",
+          "chapter_id": "odt002-s5",
+          "figure_no": "6",
+          "title": "Midshaft clavicle fracture X-ray",
+          "provenance": "Wikimedia Commons · Majorkev",
+          "license": "CC BY 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Clavicle_Fracture_Left.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt002_fig07",
+          "chapter_id": "odt002-s6",
+          "figure_no": "7",
+          "title": "Acromioclavicular separation X-ray",
+          "provenance": "Wikimedia Commons · Root4(one)",
+          "license": "CC BY 2.5",
+          "source_page": "https://commons.wikimedia.org/wiki/File:AC_Separation_XRAY_(enhanced).png",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt002_fig08",
+          "chapter_id": "odt002-s7",
+          "figure_no": "8",
+          "title": "Scapular fracture X-ray and CT volume rendering",
+          "provenance": "Wikimedia Commons · Hellerhoff",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Scapulafraktur_32jm_-_Roe_CT_Volumen_Rendering_-_Annotation_-_001.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        }
+      ],
+      "references": [
+        {
+          "id": "odt_ref_011",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Robinson CM, Howes J, Murdoch H, et al. Functional outcome and risk of recurrent instability after primary traumatic anterior shoulder dislocation in young patients. J Bone Joint Surg Am. 2006;88:2326–2336.",
+          "doi": "10.2106/JBJS.E.01327",
+          "url": "https://doi.org/10.2106/JBJS.E.01327"
+        },
+        {
+          "id": "odt_ref_012",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Hovelius L, Olofsson A, Sandström B, et al. Nonoperative treatment of primary anterior shoulder dislocation in patients forty years of age and younger: a prospective twenty-five-year follow-up. J Bone Joint Surg Am. 2008;90:945–952.",
+          "doi": "10.2106/JBJS.G.00070",
+          "url": "https://doi.org/10.2106/JBJS.G.00070"
+        },
+        {
+          "id": "odt_ref_013",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Itoi E, Hatakeyama Y, Sato T, et al. Immobilization in external rotation after shoulder dislocation reduces the risk of recurrence. J Bone Joint Surg Am. 2007;89:2124–2131.",
+          "doi": "10.2106/JBJS.F.00654",
+          "url": "https://doi.org/10.2106/JBJS.F.00654"
+        },
+        {
+          "id": "odt_ref_014",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Robinson CM, Shur N, Sharpe T, et al. Injuries associated with traumatic anterior glenohumeral dislocations. J Bone Joint Surg Am. 2012;94:18–26.",
+          "doi": "10.2106/JBJS.J.01795",
+          "url": "https://doi.org/10.2106/JBJS.J.01795"
+        },
+        {
+          "id": "odt_ref_015",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Robinson CM, Aderinto J. Posterior shoulder dislocations and fracture-dislocations. J Bone Joint Surg Am. 2005;87:639–650.",
+          "doi": "10.2106/JBJS.D.02371",
+          "url": "https://doi.org/10.2106/JBJS.D.02371"
+        },
+        {
+          "id": "odt_ref_016",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Sidor ML, Zuckerman JD, Lyon T, et al. The Neer classification system for proximal humeral fractures: interobserver reliability and intraobserver reproducibility. J Bone Joint Surg Am. 1993;75:1745–1750.",
+          "doi": "10.2106/00004623-199312000-00002",
+          "url": "https://doi.org/10.2106/00004623-199312000-00002"
+        },
+        {
+          "id": "odt_ref_017",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Rangan A, Handoll H, Brealey S, et al. Surgical vs nonsurgical treatment of adults with displaced fractures of the proximal humerus: the PROFHER randomized clinical trial. JAMA. 2015;313:1037–1047.",
+          "doi": "10.1001/jama.2015.1629",
+          "url": "https://doi.org/10.1001/jama.2015.1629"
+        },
+        {
+          "id": "odt_ref_018",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Robinson CM, Court-Brown CM, McQueen MM, Wakefield AE. Estimating the risk of nonunion following nonoperative treatment of a clavicular fracture. J Bone Joint Surg Am. 2004;86:1359–1365.",
+          "doi": "10.2106/00004623-200407000-00002",
+          "url": "https://doi.org/10.2106/00004623-200407000-00002"
+        },
+        {
+          "id": "odt_ref_019",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Canadian Orthopaedic Trauma Society. Nonoperative treatment compared with plate fixation of displaced midshaft clavicular fractures: a multicenter randomized clinical trial. J Bone Joint Surg Am. 2007;89:1–10.",
+          "doi": "10.2106/JBJS.F.00020",
+          "url": "https://doi.org/10.2106/JBJS.F.00020"
+        },
+        {
+          "id": "odt_ref_020",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Canadian Orthopaedic Trauma Society. Multicenter randomized clinical trial of nonoperative versus operative treatment of acute acromioclavicular joint dislocation. J Orthop Trauma. 2015;29:479–487.",
+          "doi": "10.1097/BOT.0000000000000437",
+          "url": "https://doi.org/10.1097/BOT.0000000000000437"
+        },
+        {
+          "id": "odt_ref_021",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Arthroscopy Association of Canada Position Statement. Management of First-Time Anterior Shoulder Dislocation—systematic review and meta-analysis. 2025.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39968414/"
+        },
+        {
+          "id": "odt_ref_022",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Comparing external vs internal rotation immobilization following primary anterior shoulder dislocation: meta-analysis. 2026.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41843404/"
+        },
+        {
+          "id": "odt_ref_023",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Early Rotator Cuff Repair Yields Lower Retear Rates and Superior Functional Outcomes: systematic review and meta-analysis. J Clin Med. 2025.",
+          "doi": "10.3390/jcm14155552",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40807174/"
+        },
+        {
+          "id": "odt_ref_024",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Evidence-based review from the Brazilian Society of Shoulder and Elbow Surgery: early versus late repair for traumatic rotator cuff tears. 2026.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42662982/"
+        },
+        {
+          "id": "odt_ref_025",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Meta-analysis/meta-regression of surgical versus conservative treatment for proximal humeral fracture in elderly people. 2025.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39775965/"
+        },
+        {
+          "id": "odt_ref_026",
+          "status": "CURRENT_GUIDELINE",
+          "citation": "American Academy of Orthopaedic Surgeons Clinical Practice Guideline: Treatment of Clavicle Fractures. Published 2022.",
+          "url": "https://www.aaos.org/quality/quality-programs/clavicle-fractures/"
+        },
+        {
+          "id": "odt_ref_027",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Outcomes after operative versus nonoperative management of Rockwood type III to V acromioclavicular joint dislocations: systematic review and meta-analysis of randomized controlled trials. 2026.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42433472/"
         }
       ]
     }
