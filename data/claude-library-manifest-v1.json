@@ -316,7 +316,12 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_04권_팔꿈치_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/M8t12eUku1v14cmNan3Fkf",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1FKnUrTQc8Z4Mb3rC5Br0GFJcJusvwCb7",
+      "source_bytes": 572548,
+      "source_sha256": "890b804c6319860a728bff047a6904f2887d8f563e7bd8fb158bd403b60531a2",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_04권_팔꿈치_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
     },
     {
       "number": 32,
@@ -325,7 +330,12 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_05권_손목_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/Aco8cH5CLMhLhYcLbA3KZM",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1YyzgbOlfGogsnhie9slvmjzrvs26JioR",
+      "source_bytes": 508134,
+      "source_sha256": "8b55d687e9fd7b17cc59448bfbed09dfb629e45d66e0e741fce97bb4c9d6e012",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_05권_손목_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
     },
     {
       "number": 33,
@@ -334,7 +344,12 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_06권_손목_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/KP3WJYZXacK5ZZhu9TttvZ",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1KOjt3F-GaJe4SkWSv8WGKiw7qQnCUrhd",
+      "source_bytes": 592896,
+      "source_sha256": "f78b2f7c9b8dd55b15767951b625bcf631e15b0cb32d13c484accf1dabe94955",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_06권_손목_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
     },
     {
       "number": 34,
