@@ -1,15 +1,17 @@
 # CURRENT HANDOFF — 2026-10-08 Disease/Trauma active · EXAM-REAL ct086 preserved
 
-## CURRENT OVERRIDE — 2026-10-08 ORTHOPEDIC_DISEASE_TRAUMA_MODULE shoulder + elbow native
+## CURRENT OVERRIDE — 2026-10-08 ORTHOPEDIC_DISEASE_TRAUMA_MODULE shoulder + elbow + wrist native
 
 - Workline: **ORTHOPEDIC_DISEASE_TRAUMA_MODULE**.
 - User archive: `클로드_정형외과_강의실_모든작업물.zip`.
 - 24 Disease/Trauma standalone HTML sources remain inventoried; Claude runtime/TinyFish is not a production dependency.
-- Native Preview now covers **4/24 volumes**:
+- Native Preview now covers **6/24 volumes**:
   - `odt001 Shoulder Disease` — 10 chapters.
   - `odt002 Shoulder Trauma` — 10 chapters.
   - `odt003 Elbow Disease` — 12 chapters; source SHA-256 `641f9fbb92a5a725793fdab2f0584380901653fc76724c718d23a306b5c27d33`; 8 visual provenance records; 13 references.
   - `odt004 Elbow Trauma` — 11 chapters; source SHA-256 `026934ff318c8a74f2f155fdc3ded997a440bd1b17913d5096933e332bee0bff`; 7 visual provenance records / 6 numbered figures; 15 references.
+  - `odt005 Wrist Disease` — 11 chapters; source SHA-256 `2c75d909bbbb671ea4e3017a7d5557beb68521a041f50f8867d6c3a7a319479d`; 8 visual provenance records; 12 references.
+  - `odt006 Wrist Trauma` — 11 chapters; source SHA-256 `f420b236d54e47a32275f888da9db62afa9ad705357ebe978ee75db825ff001d`; 7 visual provenance records / 6 numbered figures; 10 references.
 - Elbow Disease selective evidence refresh: lateral elbow injection evidence and cubital tunnel decompression-vs-transposition.
 - Elbow Trauma selective evidence refresh: simple dislocation early mobilization, isolated Mason II radial head fracture treatment, elderly olecranon fracture, delayed distal-biceps repair viability, and adult traumatic acute compartment syndrome.
 - Material corrections: lateral elbow steroid injection is not presented as durable first-line benefit; PRP evidence is time-dependent/heterogeneous; simple elbow dislocation favors early functional recovery when stable; isolated Mason II is not automatic ORIF; displaced olecranon fracture in low-demand elderly may be managed nonoperatively; distal-biceps repair is not hard-coded to a universal 2–3 week cutoff.
@@ -18,7 +20,7 @@
 - Third-party/Claude figures remain provenance-only until license/HD/IP gates pass.
 - Existing patient Disease Rehab, EXAM-REAL ct086, and ct088 DEFERRED states remain separate and unchanged.
 - Production `main` remains frozen.
-- Next after elbow-pair Preview review: migrate `odt005 Wrist Disease` and `odt006 Wrist Trauma` under the same source-lock/evidence-refresh/cross-link contract.
+- Next after wrist-pair Preview review: migrate `odt007 Hand Disease` and `odt008 Hand Trauma` under the same source-lock/evidence-refresh/cross-link contract.
 
 
 > This block is authoritative for the current ct086 workline.
