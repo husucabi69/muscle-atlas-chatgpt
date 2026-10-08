@@ -290,7 +290,8 @@ const cacheNeedles=['patient-exercise-library-v1.json','knowledge-core-v1.json',
 const missingCache=cacheNeedles.filter(x=>!sw.includes(x));
 check('PWA clinical cache coverage', missingCache.length===0, missingCache.join(','));
 const odtIds=(odt.volumes||[]).map(v=>v.stable_id),odtNative=odt.native_content?.odt001;
-const odtUnsafe=JSON.stringify(odt).match(/claude\\.ai\\/artifact|\\/_blob\\//g)||[];
+const odtSerialized=JSON.stringify(odt);
+const odtUnsafe=['claude.ai/artifact','/_blob/'].filter(x=>odtSerialized.includes(x));
 check('Disease/Trauma inventory = 24 volumes',odtIds.length===24,String(odtIds.length));
 check('Disease/Trauma Stable IDs unique',new Set(odtIds).size===24,String(new Set(odtIds).size));
 check('Shoulder Disease native prototype = 10 chapters',odtNative?.chapters?.length===10,String(odtNative?.chapters?.length||0));
