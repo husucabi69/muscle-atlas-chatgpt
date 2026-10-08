@@ -300,7 +300,7 @@ check('Shoulder Disease provenance = 9 figures / 10 references',odtDisease?.figu
 check('Shoulder Disease source SHA locked',odtDisease?.source_sha256==='b03b94bae595417e792f89825e7223935271c8c484b8afeb458fefbfea68e172',odtDisease?.source_sha256||'');
 check('Shoulder Trauma native = 10 chapters',odtTrauma?.chapters?.length===10,String(odtTrauma?.chapters?.length||0));
 check('Shoulder Trauma visual provenance = 10 / source numbered figures = 8',odtTrauma?.figures?.length===10&&odtTrauma?.numbered_figure_count===8,(odtTrauma?.figures?.length||0)+'/'+(odtTrauma?.numbered_figure_count||0));
-check('Shoulder Trauma evidence refresh = 17 references',odtTrauma?.references?.length===17&&odtTrauma?.native_review_status==='SOURCE_MIGRATED_EVIDENCE_REFRESHED_2026',(odtTrauma?.references?.length||0)+'/'+(odtTrauma?.native_review_status||''));
+check('Shoulder Trauma evidence refresh = 17 references',odtTrauma?.references?.length===17&&odtTrauma?.native_review_status==='SOURCE_MIGRATED_SELECTIVE_EVIDENCE_REFRESH_2026_CANONICAL_REVIEW_PENDING',(odtTrauma?.references?.length||0)+'/'+(odtTrauma?.native_review_status||''));
 check('Shoulder Trauma source SHA locked',odtTrauma?.source_sha256==='47b0b42a12f7d1e509d17e8ef8cc97a8ffb27d1930ba08e32b37073589d4d2ef',odtTrauma?.source_sha256||'');
 const odtTraumaLinks=new Set((odtTrauma?.chapters||[]).flatMap(ch=>(ch.cross_links||[]).map(x=>x.type+':'+x.id)));
 for(const required of ['diagnosis_concept:d008','diagnosis_concept:d014','clinical_test:ct004','clinical_test:ct005','ultrasound_view:usv001','ultrasound_view:usv005','ultrasound_view:usv007','ultrasound_view:usv009'])check('Shoulder Trauma cross-link '+required,odtTraumaLinks.has(required));
