@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.08-odt-native-c",
+  "dataset_version": "2026.10.08-odt-native-d",
   "module_id": "orthopedic_disease_trauma_v1",
   "status": "PREVIEW_PROTOTYPE",
   "workline": "ORTHOPEDIC_DISEASE_TRAUMA_MODULE",
   "migration_policy": {
     "source_archive": "클로드_정형외과_강의실_모든작업물.zip",
     "total_volumes": 24,
-    "native_preview_volumes": 4,
-    "source_verified_pending_volumes": 20,
+    "native_preview_volumes": 6,
+    "source_verified_pending_volumes": 18,
     "claude_runtime_dependency": false,
     "external_artifact_dependency": false,
     "audio_policy": "Source MP4 files were not included; keep audio disabled until independent migration.",
@@ -78,7 +78,7 @@
       "title_en": "Wrist Disease",
       "source_filename": "클로드_질환외상_05권_손목_질환.html",
       "source_status": "ARCHIVE_SOURCE_VERIFIED",
-      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "native_status": "NATIVE_PREVIEW",
       "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
     },
     {
@@ -91,7 +91,7 @@
       "title_en": "Wrist Trauma",
       "source_filename": "클로드_질환외상_06권_손목_외상.html",
       "source_status": "ARCHIVE_SOURCE_VERIFIED",
-      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "native_status": "NATIVE_PREVIEW",
       "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
     },
     {
@@ -2520,6 +2520,1007 @@
           "status": "CURRENT_GUIDELINE",
           "citation": "American Academy of Orthopaedic Surgeons. Management of Acute Compartment Syndrome Evidence-Based Clinical Practice Guideline. 2025.",
           "url": "https://www.aaos.org/quality/quality-programs/acute-compartment-syndrome/"
+        }
+      ]
+    },
+    "odt005": {
+      "stable_id": "odt005",
+      "source_sha256": "2c75d909bbbb671ea4e3017a7d5557beb68521a041f50f8867d6c3a7a319479d",
+      "source_bytes": 508096,
+      "title_ko": "손목 질환",
+      "title_en": "Wrist Disease",
+      "edition": "1판",
+      "source_authored_by": "Claude",
+      "native_review_status": "SOURCE_MIGRATED_SELECTIVE_EVIDENCE_REFRESH_2026_CANONICAL_REVIEW_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE",
+      "chapter_count": 11,
+      "numbered_figure_count": 8,
+      "visual_provenance_count": 8,
+      "reference_count": 12,
+      "evidence_refresh": {
+        "verified_on": "2026-10-08",
+        "status": "SELECTIVE_REFRESH_COMPLETE_CANONICAL_REVIEW_PENDING",
+        "refreshed_topics": [
+          "carpal tunnel syndrome long-term injection/surgical approach evidence",
+          "de Quervain corticosteroid injection versus immobilization",
+          "Kienböck disease imaging and treatment uncertainty"
+        ],
+        "refreshed_reference_ids": [
+          "odt_ref_064",
+          "odt_ref_065",
+          "odt_ref_066",
+          "odt_ref_067"
+        ],
+        "canonical_review_pending_topics": [
+          "TFCC operative indications",
+          "SLAC/SNAC salvage procedure selection",
+          "ganglion intervention strategy",
+          "wrist septic/crystal arthritis pathway details",
+          "ulnar impaction operative thresholds"
+        ]
+      },
+      "chapters": [
+        {
+          "id": "odt005-s0",
+          "order": 0,
+          "title": "손목 질환의 큰 그림 — 요측·척측·배측·장측",
+          "summary": "통증 위치, 저림 분포, 종창·기계적 증상을 네 구역으로 나누면 감별이 빨라집니다.",
+          "paragraphs": [
+            "요측 손목에는 de Quervain tenosynovitis, thumb CMC arthritis, intersection syndrome, scaphoid pathology가 겹칩니다. 척측에는 TFCC, DRUJ, ECU, ulnar impaction이, 배측에는 ganglion·scapholunate disease·Kienböck disease가, 장측 저림에는 carpal tunnel과 더 근위부 median neuropathy가 중요합니다.",
+            "손목 전체가 붓고 뜨겁고 모든 방향의 수동운동이 아프면 감염·결정관절염을 우선합니다. 저림 환자는 환자가 직접 감각이상 분포를 그리게 하고, 기계적 click/locking이 있으면 인대·연골·loose body 가능성을 올립니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "열감·발적과 전반적 수동 ROM 제한",
+            "진행하는 thenar/intrinsic 위축",
+            "지속 야간통·빠르게 커지는 단단한 종괴"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s1",
+          "order": 1,
+          "title": "Carpal tunnel syndrome — 손목터널증후군",
+          "summary": "증상분포와 motor deficit을 중심으로 진단하고, 단일 유발검사나 초음파 숫자 하나로 확진하지 않습니다.",
+          "paragraphs": [
+            "Median nerve가 carpal tunnel 안에서 압박되어 엄지·검지·중지·약지 요측 절반에 저림이 생깁니다. thenar 피부까지 저리거나 소지가 포함되면 병변 위치가 손목보다 근위부이거나 다른 신경병증일 수 있습니다.",
+            "Phalen, Tinel, Durkan은 진단을 보조하지만 단독 확진·배제 검사가 아닙니다. 임상증상, 감각분포, thenar motor function, 필요 시 전기진단·초음파를 통합합니다.",
+            "AAOS 2024 CPG는 corticosteroid injection이 장기 개선을 제공하지 않으며 PRP도 장기 이득이 없다고 정리합니다. 따라서 주사는 단기 증상완화 선택지로 설명하고, 진행성 thenar weakness/atrophy나 지속 기능장애에서는 수술평가를 미루지 않습니다.",
+            "Mini-open과 endoscopic release는 장기 patient-reported outcome이 유사하므로, 수술법 선택을 하나의 절대 우월기법처럼 설명하지 않습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_056",
+            "odt_ref_057",
+            "odt_ref_058",
+            "odt_ref_059",
+            "odt_ref_064"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d029",
+              "label": "손목터널증후군"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct024",
+              "label": "Phalen 검사"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct025",
+              "label": "Carpal Tinel"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct026",
+              "label": "Durkan 압박검사"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv022",
+              "label": "정중신경 단축 초음파"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv023",
+              "label": "정중신경 장축·동적 초음파"
+            }
+          ],
+          "red_flags": [
+            "진행하는 thenar weakness/atrophy",
+            "급성 외상 뒤 빠르게 악화되는 median nerve 증상"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s2",
+          "order": 2,
+          "title": "De Quervain tenosynovitis — 드퀘르벵 건초염",
+          "summary": "APL/EPB 첫째 신전구획의 건초병증으로, 진찰과 첫째 구획 해부 변이를 함께 봅니다.",
+          "paragraphs": [
+            "요골경상돌기 부근의 국소 압통과 엄지 사용 시 통증이 특징입니다. True Finkelstein과 WHAT test는 보조수단이며, 엄지를 주먹 안에 넣는 Eichhoff 변형은 정상인에서도 불편을 만들 수 있습니다.",
+            "초음파는 APL/EPB의 건초 비후와 EPB subcompartment septum을 확인해 주사 정확도를 높이는 데 유용합니다.",
+            "2024 메타분석에서는 corticosteroid injection이 immobilization보다 치료성공률이 높았고, injection+immobilization 병합이 각각 단독보다 우수했습니다. 다만 환자 선호·증상강도·해부학적 septum·피부위축/색소변화 위험을 고려해 적용합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_060",
+            "odt_ref_065"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d027",
+              "label": "드퀘르벵 건초염"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct022",
+              "label": "True Finkelstein"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct023",
+              "label": "WHAT 검사"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv018",
+              "label": "제1·2 신전구획 초음파"
+            },
+            {
+              "type": "muscle",
+              "id": "m098",
+              "label": "장무지외전근"
+            },
+            {
+              "type": "muscle",
+              "id": "m099",
+              "label": "단무지신근"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s3",
+          "order": 3,
+          "title": "Ganglion cyst — 결절종",
+          "summary": "전형적 ganglion은 양성 자연경과를 설명하고, 비전형적 종괴는 다른 종양을 먼저 배제합니다.",
+          "paragraphs": [
+            "Dorsal ganglion은 흔히 scapholunate 부위에서 생기며 크기가 활동·손목자세에 따라 달라질 수 있습니다. 무증상이면 관찰이 가능합니다.",
+            "흡인은 간단하지만 재발이 흔하고, 수술도 재발·흉터·신경손상 가능성이 있습니다. Volar ganglion은 radial artery와 가까워 초음파 유도 없이 무리하게 흡인하지 않습니다.",
+            "단단하고 고정돼 있거나 빠르게 커지고 전형적 위치가 아니면 ganglion으로 단정하지 말고 초음파/MRI 등으로 다른 종양을 배제합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_061"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s4",
+          "order": 4,
+          "title": "Ulnar wrist pain — TFCC, DRUJ, ulnar impaction, ECU",
+          "summary": "척측 손목은 구조가 겹치므로 fovea 통증·DRUJ 안정성·ECU 동적검사를 조합합니다.",
+          "paragraphs": [
+            "Ulnar fovea sign은 TFCC foveal attachment/ulnotriquetral ligament 병변을 시사하지만 단독으로 병변을 확정하지 않습니다. 반대쪽과 DRUJ ballottement를 비교하고 임상문맥과 영상소견을 결합합니다.",
+            "Positive ulnar variance는 ulnar impaction과 관련될 수 있지만 X-ray 숫자 하나만으로 통증원인을 정하지 않습니다. 중년 이후 TFCC degenerative changes는 무증상일 수 있습니다.",
+            "ECU snapping은 동적초음파에서 직접 볼 수 있으나 무증상 이동도 존재하므로 통증·불안정감과 일치해야 병적 의미가 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_062"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d032",
+              "label": "TFCC 관련 병변"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d033",
+              "label": "ECU 건병증·불안정성"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct030",
+              "label": "Ulnar fovea sign"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct031",
+              "label": "DRUJ ballottement"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct032",
+              "label": "ECU synergy"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv021",
+              "label": "TFCC 초음파"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv019",
+              "label": "ECU 포함 신전구획 초음파"
+            },
+            {
+              "type": "muscle",
+              "id": "m096",
+              "label": "척측수근신근"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s5",
+          "order": 5,
+          "title": "Kienböck disease — 월상골 골괴사",
+          "summary": "초기 X-ray가 정상일 수 있고, 치료는 Lichtman stage 하나보다 lunate의 구조적 salvageability까지 봅니다.",
+          "paragraphs": [
+            "젊은 성인의 설명되지 않는 배측 중앙 손목통증과 grip weakness가 지속되면 X-ray가 정상이더라도 MRI를 고려합니다. 진행하면 lunate sclerosis·collapse와 carpal arthritis가 생깁니다.",
+            "과거에는 negative ulnar variance와 stage에 따라 radial shortening, vascularized graft, salvage procedure를 비교적 단순하게 연결했지만 현재 근거는 훨씬 복잡합니다.",
+            "2024 decision-making review는 CT로 lunate cortex integrity와 salvageability를 평가하는 접근을 강조했고, 2026 review에서도 decompression 계열의 임상개선 신호는 있으나 근거 대부분이 관찰연구이고 비교근거가 제한됩니다. 특정 수술을 모든 같은 stage의 환자에게 자동 적용하지 않습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_066",
+            "odt_ref_067"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s6",
+          "order": 6,
+          "title": "Wrist arthritis — SLAC/SNAC, inflammatory, crystal",
+          "summary": "퇴행 패턴의 원인을 구분하고 radiolunate 보존 여부와 환자 요구도를 함께 봅니다.",
+          "paragraphs": [
+            "Scapholunate ligament failure는 SLAC, scaphoid nonunion은 SNAC pattern으로 이어질 수 있습니다. 방사선상 단계와 실제 통증·기능장애의 정도를 함께 평가합니다.",
+            "Rheumatoid wrist에서는 distal ulna 주변 synovitis와 extensor tendon rupture를 놓치지 않습니다. 고령의 급성 열성 wrist swelling에서는 CPPD와 septic arthritis가 임상적으로 겹칠 수 있어 aspiration이 필요할 수 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_063"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d037",
+              "label": "주상월상인대 손상"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct035",
+              "label": "Watson 검사"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv020",
+              "label": "주상월상인대 초음파"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s7",
+          "order": 7,
+          "title": "그 밖의 tendon·vascular disorders",
+          "summary": "FCR, EPL, pisotriquetral joint와 hypothenar hammer syndrome을 위치별로 구분합니다.",
+          "paragraphs": [
+            "FCR tendinopathy는 volar-radial wrist에서 resisted flexion으로 통증이 재현될 수 있고 STT osteophyte와 연관되기도 합니다.",
+            "Distal radius fracture 뒤 늦게 EPL rupture가 생길 수 있으므로 fracture 회복 중 새로 엄지 IP extension이 안 되면 tendon continuity를 확인합니다.",
+            "Hypothenar hammer syndrome은 반복 타격 뒤 ulnar artery injury로 4–5지 냉감·창백이 나타날 수 있어 단순 tendon pain과 구분합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d034",
+              "label": "FCR 건병증"
+            },
+            {
+              "type": "muscle",
+              "id": "m084",
+              "label": "요측수근굴근"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s8",
+          "order": 8,
+          "title": "놓치면 안 되는 질환 — infection, crystal, tumor, referred pain",
+          "summary": "관절 전체 종창·비기계적 통증·신경학적 불일치는 흔한 건초염보다 먼저 중대병리를 배제합니다.",
+          "paragraphs": [
+            "Septic wrist와 crystal arthritis는 급성 종창·열감·전반적 ROM pain이 겹칠 수 있어 aspiration이 중요합니다.",
+            "Distal radius giant-cell tumor처럼 뼈끝 종양은 처음에 염좌나 arthritis처럼 보일 수 있습니다. 휴식·야간통, 빠른 종창, 단단한 종괴가 있으면 영상으로 확인합니다.",
+            "양손 저림, hand clumsiness, hyperreflexia, gait imbalance는 cervical myelopathy를 시사할 수 있어 손목터널로만 설명하지 않습니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "열감·전반적 수동 ROM 제한",
+            "야간 지속통·빠른 종괴 성장",
+            "양손 저림과 보행장애/과반사"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s9",
+          "order": 9,
+          "title": "외래 실전 — Wrist disease 진료 순서",
+          "summary": "통증지도→감각지도→유발검사→기본영상→동적초음파→중증도별 치료 순으로 정리합니다.",
+          "paragraphs": [
+            "통증 위치를 네 구역으로 나누고 감각이상은 환자가 직접 표시하게 합니다. 요측에서는 de Quervain/CMC/scaphoid, 척측에서는 TFCC/ECU/DRUJ, 배측에서는 ganglion/SL/Kienböck, 장측 저림에서는 CTS와 proximal neuropathy를 봅니다.",
+            "유발검사는 단독확진이 아니라 사전확률을 조정하는 도구입니다. X-ray는 arthritis·ulnar variance·lunate·calcification을 보고, 초음파는 tendon, median nerve, ganglion, dynamic snapping과 주사경로를 봅니다.",
+            "진행성 motor deficit, infection/tumor red flag, cervical myelopathy 가능성은 단순 주사·보조기보다 추가평가와 전문치료를 우선합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_064",
+            "odt_ref_065",
+            "odt_ref_066"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d029",
+              "label": "손목터널증후군"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d027",
+              "label": "드퀘르벵 건초염"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d032",
+              "label": "TFCC 관련 병변"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt005-s10",
+          "order": 10,
+          "title": "참고문헌과 근거 상태",
+          "summary": "원본 8개 문헌을 보존하고 CTS, De Quervain, Kienböck의 치료 민감 문장을 선택적으로 최신화했습니다.",
+          "paragraphs": [
+            "SOURCE_VERIFIED는 원본 Claude HTML의 직접 인용 문헌이며 CURRENT_GUIDELINE/EVIDENCE_REFRESH_2026은 이번 migration에서 추가한 근거입니다.",
+            "이번 선택적 갱신은 CTS 장기 비수술 효과, De Quervain injection/immobilization, Kienböck imaging·treatment uncertainty에 집중했습니다. TFCC 수술 적응, SLAC/SNAC salvage, ganglion intervention 등은 전체 canonical review가 남아 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_056",
+            "odt_ref_057",
+            "odt_ref_058",
+            "odt_ref_059",
+            "odt_ref_060",
+            "odt_ref_061",
+            "odt_ref_062",
+            "odt_ref_063",
+            "odt_ref_064",
+            "odt_ref_065",
+            "odt_ref_066",
+            "odt_ref_067"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        }
+      ],
+      "figures": [
+        {
+          "id": "odt005_fig01",
+          "chapter_id": "odt005-s0",
+          "figure_no": "1",
+          "title": "Carpal tunnel cross-section",
+          "provenance": "Wikimedia Commons · OpenStax College",
+          "license": "CC BY 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:815_The_Carpal_Tunnel.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt005_fig02",
+          "chapter_id": "odt005-s1",
+          "figure_no": "2",
+          "title": "CTS sensory-distribution schematic",
+          "provenance": "Claude source-authored schematic; not a copied paper figure",
+          "license_status": "HUMAN_REDRAW_REQUIRED_FOR_OWN_CANONICAL_ASSET",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt005_fig03",
+          "chapter_id": "odt005-s1",
+          "figure_no": "3",
+          "title": "Thenar atrophy in carpal tunnel syndrome",
+          "provenance": "Wikimedia Commons",
+          "license": "SOURCE_LICENSE_RECHECK_BEFORE_PROMOTION",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Carpal_Tunnel_Syndrome,_thenar_atrophy.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt005_fig04",
+          "chapter_id": "odt005-s2",
+          "figure_no": "4",
+          "title": "Finkelstein-type maneuver",
+          "provenance": "Wikimedia Commons · InvictaHOG",
+          "license": "Public domain",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Finkelstein%27s_test.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt005_fig05",
+          "chapter_id": "odt005-s3",
+          "figure_no": "5",
+          "title": "Dorsal wrist ganglion",
+          "provenance": "Wikimedia Commons · Esturcke",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ganglion-cyst.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt005_fig06",
+          "chapter_id": "odt005-s4",
+          "figure_no": "6",
+          "title": "Ulnar variance schematic",
+          "provenance": "Claude source-authored schematic; not a copied paper figure",
+          "license_status": "HUMAN_REDRAW_REQUIRED_FOR_OWN_CANONICAL_ASSET",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt005_fig07",
+          "chapter_id": "odt005-s5",
+          "figure_no": "7",
+          "title": "Kienböck disease X-ray",
+          "provenance": "Wikimedia Commons · Muzichick",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Left_hand_x-ray_with_Kienbock%27s_Disease_top_view.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt005_fig08",
+          "chapter_id": "odt005-s6",
+          "figure_no": "8",
+          "title": "SLAC wrist progression",
+          "provenance": "Wikimedia Commons · Brian T. Tischler et al.",
+          "license": "CC BY 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Coronal_illustrations_of_the_wrist_depicting_the_progressive_osteoarthritic_changes_of_SLAC_arthropathy.png",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        }
+      ],
+      "references": [
+        {
+          "id": "odt_ref_056",
+          "status": "SOURCE_VERIFIED",
+          "citation": "D'Arcy CA, McGee S. Does this patient have carpal tunnel syndrome? JAMA. 2000;283:3110–3117.",
+          "doi": "10.1001/jama.283.23.3110",
+          "url": "https://doi.org/10.1001/jama.283.23.3110"
+        },
+        {
+          "id": "odt_ref_057",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Atroshi I, Flondell M, Hofer M, Ranstam J. Methylprednisolone injections for carpal tunnel syndrome: randomized placebo-controlled trial. Ann Intern Med. 2013;159:309–317.",
+          "doi": "10.7326/0003-4819-159-5-201309030-00004",
+          "url": "https://doi.org/10.7326/0003-4819-159-5-201309030-00004"
+        },
+        {
+          "id": "odt_ref_058",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Gerritsen AAM, de Vet HCW, Scholten RJPM, et al. Splinting vs surgery in carpal tunnel syndrome. JAMA. 2002;288:1245–1251.",
+          "doi": "10.1001/jama.288.10.1245",
+          "url": "https://doi.org/10.1001/jama.288.10.1245"
+        },
+        {
+          "id": "odt_ref_059",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Jarvik JG, Comstock BA, Kliot M, et al. Surgery versus non-surgical therapy for carpal tunnel syndrome. Lancet. 2009;374:1074–1081.",
+          "doi": "10.1016/S0140-6736(09)61517-8",
+          "url": "https://doi.org/10.1016/S0140-6736(09)61517-8"
+        },
+        {
+          "id": "odt_ref_060",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Richie CA, Briner WW. Corticosteroid injection for de Quervain tenosynovitis: pooled quantitative evaluation. J Am Board Fam Pract. 2003;16:102–106.",
+          "doi": "10.3122/jabfm.16.2.102",
+          "url": "https://doi.org/10.3122/jabfm.16.2.102"
+        },
+        {
+          "id": "odt_ref_061",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Dias JJ, Dhukaram V, Kumar P. Natural history of untreated dorsal wrist ganglia and outcomes after intervention. J Hand Surg Eur Vol. 2007;32:502–508.",
+          "doi": "10.1016/J.JHSE.2007.05.007",
+          "url": "https://doi.org/10.1016/J.JHSE.2007.05.007"
+        },
+        {
+          "id": "odt_ref_062",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Tay SC, Tomita K, Berger RA. The ulnar fovea sign for defining ulnar wrist pain. J Hand Surg Am. 2007;32:438–444.",
+          "doi": "10.1016/j.jhsa.2007.01.022",
+          "url": "https://doi.org/10.1016/j.jhsa.2007.01.022"
+        },
+        {
+          "id": "odt_ref_063",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Watson HK, Ballet FL. The SLAC wrist: scapholunate advanced collapse pattern of degenerative arthritis. J Hand Surg Am. 1984;9:358–365.",
+          "doi": "10.1016/s0363-5023(84)80223-3",
+          "url": "https://doi.org/10.1016/s0363-5023(84)80223-3"
+        },
+        {
+          "id": "odt_ref_064",
+          "status": "CURRENT_GUIDELINE",
+          "citation": "American Academy of Orthopaedic Surgeons. Management of Carpal Tunnel Syndrome Clinical Practice Guideline. 2024.",
+          "url": "https://www.aaos.org/quality/quality-programs/carpal-tunnel-syndrome/"
+        },
+        {
+          "id": "odt_ref_065",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Cevik J, Keating N, Hornby A, et al. Corticosteroid injection versus immobilisation for de Quervain tenosynovitis: systematic review and meta-analysis. Hand Surg Rehabil. 2024;43:101694.",
+          "doi": "10.1016/j.hansur.2024.101694",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38642740/"
+        },
+        {
+          "id": "odt_ref_066",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Tee R, Butler S, Ek ET, Tham SK. Simplifying the decision-making process in the treatment of Kienböck disease. J Wrist Surg. 2024;13:294–301.",
+          "doi": "10.1055/s-0043-1778064",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39027019/"
+        },
+        {
+          "id": "odt_ref_067",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Shojaie B, TaheryNejad M, Saremi H, et al. Clinical, functional, and radiological outcomes of core decompression in Kienböck disease: comprehensive review. Arch Bone Jt Surg. 2026;14:3–15.",
+          "doi": "10.22038/ABJS.2025.89723.4065",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42005410/"
+        }
+      ]
+    },
+    "odt006": {
+      "stable_id": "odt006",
+      "source_sha256": "f420b236d54e47a32275f888da9db62afa9ad705357ebe978ee75db825ff001d",
+      "source_bytes": 592858,
+      "title_ko": "손목 외상",
+      "title_en": "Wrist Trauma",
+      "edition": "1판",
+      "source_authored_by": "Claude",
+      "native_review_status": "SOURCE_MIGRATED_SELECTIVE_EVIDENCE_REFRESH_2026_CANONICAL_REVIEW_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE",
+      "chapter_count": 11,
+      "numbered_figure_count": 6,
+      "visual_provenance_count": 7,
+      "reference_count": 10,
+      "evidence_refresh": {
+        "verified_on": "2026-10-08",
+        "status": "SELECTIVE_REFRESH_COMPLETE_CANONICAL_REVIEW_PENDING",
+        "refreshed_topics": [
+          "elderly distal radius fracture operative versus nonoperative outcomes",
+          "acute minimally displaced scaphoid waist fracture cast versus early fixation",
+          "pediatric distal-radius torus fracture minimal immobilization"
+        ],
+        "refreshed_reference_ids": [
+          "odt_ref_075",
+          "odt_ref_076",
+          "odt_ref_077",
+          "odt_ref_074"
+        ],
+        "canonical_review_pending_topics": [
+          "perilunate definitive operative sequencing",
+          "acute traumatic carpal tunnel decompression timing",
+          "pediatric physeal reduction thresholds",
+          "CRPS prophylaxis",
+          "scapholunate acute repair timing"
+        ]
+      },
+      "chapters": [
+        {
+          "id": "odt006-s0",
+          "order": 0,
+          "title": "손목 외상의 큰 그림 — 연령, 정렬, median nerve",
+          "summary": "연령별 손상패턴과 신경혈관 상태, orthogonal X-ray 정렬을 먼저 봅니다.",
+          "paragraphs": [
+            "소아는 distal radius buckle/growth-plate injury, 젊은 성인은 scaphoid·carpal ligament injury, 고령은 fragility distal radius fracture가 흔합니다.",
+            "엄지·검지·중지의 감각이 정복 전후로 악화되면 median nerve compression을 의심합니다. 특히 distal radius fracture나 perilunate/lunate injury 뒤 진행성 통증·감각이상은 급성 carpal tunnel syndrome 가능성이 있어 응급평가가 필요합니다.",
+            "AP/lateral에 필요 시 scaphoid view를 추가하고, lateral에서 radius–lunate–capitate alignment가 유지되는지 확인합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "진행하는 median nerve deficit",
+            "관류저하·개방성 손상",
+            "고에너지 손상에서 carpal malalignment"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s1",
+          "order": 1,
+          "title": "Distal radius fracture — 원위 요골 골절",
+          "summary": "연령·활동도·불안정성·관절면 손상과 환자 목표를 함께 보고 수술 여부를 정합니다.",
+          "paragraphs": [
+            "중년 이후의 저에너지 distal radius fracture는 골다공증 평가와 낙상예방으로 연결합니다. X-ray에서는 radial height/inclination, volar tilt, articular congruity, DRUJ를 봅니다.",
+            "젊고 활동적인 환자의 불안정·관절내 전위는 정복유지와 장기 기능을 고려해 수술을 적극 검토할 수 있지만, 숫자 하나를 모든 연령의 자동수술 기준으로 쓰지 않습니다.",
+            "고령 환자 RCT 메타분석에서는 volar plate가 방사선 정렬과 일부 점수에서 우세했지만 12개월 DASH/PRWE 차이는 임상적으로 중요한 차이에 못 미쳤고, ≥2년 분석도 명확한 장기 임상 우월성을 지지하지 않았습니다. '사진이 더 예쁘다'와 '환자가 장기적으로 더 잘 쓴다'를 분리해 설명합니다.",
+            "Vitamin C의 CRPS 예방효과는 RCT 결과가 일관되지 않아 routine 정답으로 고정하지 않습니다. 대신 cast pressure, swelling, finger motion, early follow-up을 철저히 관리합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_068",
+            "odt_ref_069",
+            "odt_ref_070",
+            "odt_ref_071",
+            "odt_ref_075",
+            "odt_ref_076"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "급성 median nerve 악화",
+            "관절면/정렬 유지 실패와 심한 불안정성",
+            "관류저하·개방성 손상"
+          ],
+          "clinical_takeaways": [
+            "고령에서 방사선 정렬 우월성과 장기 임상효과를 동일시하지 않기"
+          ]
+        },
+        {
+          "id": "odt006-s2",
+          "order": 2,
+          "title": "Scaphoid fracture — 주상골 골절",
+          "summary": "초기 X-ray 음성의 occult fracture와 nonunion 위험을 놓치지 않되, minimally displaced waist fracture를 자동수술하지 않습니다.",
+          "paragraphs": [
+            "Snuffbox/scaphoid tubercle tenderness와 축성부하 통증은 의심을 높이지만 개별검사의 특이도는 낮습니다. 초기 X-ray가 정상이어도 임상적으로 의심되면 immobilization 후 재평가하거나 조기 MRI를 사용합니다.",
+            "SWIFFT는 ≤2 mm waist fracture에서 즉시수술과 cast-first strategy의 1년 기능차이가 없음을 보여줬습니다. 2026 메타분석에서는 조기수술이 nonunion의 상대위험을 낮췄지만 cast군도 약 94%의 높은 absolute union을 보였고 장기 patient-reported function 이득은 뚜렷하지 않았습니다.",
+            "따라서 minimally displaced waist fracture는 cast-first가 여전히 합리적이며, proximal pole, 명확한 불안정/전위, perilunate injury 동반, confirmed nonunion, 환자별 직업·복귀 요구도에 따라 수술을 개별화합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_072",
+            "odt_ref_077"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s3",
+          "order": 3,
+          "title": "Scapholunate ligament injury — 주상월상인대 손상",
+          "summary": "X-ray가 정상이어도 동적 불안정이 있을 수 있어 지속되는 dorsal pain/click을 재평가합니다.",
+          "paragraphs": [
+            "FOOSH 뒤 scapholunate interval tenderness, Watson test 통증/clunk, grip weakness가 단서입니다. Watson test는 정상인에서도 양성일 수 있어 반대쪽과 비교합니다.",
+            "Clenched-fist/stress view나 MRI가 도움될 수 있고, 불명확한 경우 arthroscopy가 진단·치료 판단에 쓰입니다. 시간이 지나 chronic instability와 SLAC progression으로 이어질 수 있어 지속 증상을 단순 sprain으로 방치하지 않습니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d037",
+              "label": "주상월상인대 손상"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct035",
+              "label": "Watson 주상골 이동 검사"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv020",
+              "label": "주상월상인대 초음파"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s4",
+          "order": 4,
+          "title": "Perilunate / lunate dislocation",
+          "summary": "측면 X-ray 정렬과 median nerve 상태를 반드시 확인하고 응급 정복·수술평가를 지연하지 않습니다.",
+          "paragraphs": [
+            "Perilunate injury는 고에너지 hyperextension injury이며 transscaphoid fracture-dislocation이 흔합니다. 초기 진단 누락이 많아 AP만 보고 'sprain'으로 넘기지 않습니다.",
+            "Lateral view에서 capitate가 lunate cup을 벗어나거나 lunate 자체가 volar로 회전되면 진단을 강하게 시사합니다. CT는 fracture pattern과 carpal alignment를 구체화하는 데 유용합니다.",
+            "Median nerve compression이 동반될 수 있으므로 감각·motor를 반복 확인하며, closed reduction으로 pressure를 낮춘 뒤 definitive ligament/bone stabilization을 신속히 계획합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_073"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "진행성 median nerve 증상",
+            "정복 실패 또는 open injury",
+            "고에너지 carpal fracture-dislocation"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s5",
+          "order": 5,
+          "title": "Traumatic TFCC tear와 DRUJ instability",
+          "summary": "젊은 외상성 TFCC 손상은 퇴행성 MRI 소견과 구분하고 DRUJ stability를 함께 봅니다.",
+          "paragraphs": [
+            "FOOSH와 rotational load 뒤 ulnar-sided pain, fovea tenderness, clicking, DRUJ instability가 나타날 수 있습니다. Distal radius fracture 치료 뒤에도 DRUJ instability를 반드시 재평가합니다.",
+            "MRI/초음파의 TFCC abnormality는 증상·DRUJ stability와 맞아야 임상적 의미가 있습니다. Galeazzi pattern처럼 radius shaft injury와 DRUJ disruption이 동반된 경우에는 손목만 따로 보지 않습니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d032",
+              "label": "TFCC 관련 병변"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct030",
+              "label": "Ulnar fovea sign"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct031",
+              "label": "DRUJ ballottement"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv021",
+              "label": "TFCC 초음파"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s6",
+          "order": 6,
+          "title": "Other carpal fractures — triquetrum, hook of hamate 등",
+          "summary": "흔한 정면 X-ray에 안 보이는 수근골 손상을 기전과 국소압통으로 찾습니다.",
+          "paragraphs": [
+            "Triquetral dorsal chip fracture는 lateral view에서 보이는 경우가 많고 대개 보호·증상치료로 회복합니다.",
+            "Hook of hamate fracture는 bat/racket/club handle trauma 뒤 hypothenar deep pain과 grip weakness로 나타나며 표준 X-ray에서 놓치기 쉽습니다. CT나 carpal-tunnel view가 필요할 수 있습니다.",
+            "고에너지 손상에서는 capitate·trapezium·CMC dislocation을 함께 확인합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s7",
+          "order": 7,
+          "title": "Pediatric wrist trauma — torus와 growth plate",
+          "summary": "진짜 buckle fracture에는 과도한 고정·반복영상이 필요하지 않지만 다른 소아골절과 구분이 먼저입니다.",
+          "paragraphs": [
+            "FORCE RCT는 4–15세 distal-radius torus fracture에서 soft bandage offer와 immediate discharge가 rigid immobilization/follow-up과 통증·기능에서 동등함을 보여줬습니다.",
+            "이 결과는 true torus/buckle injury에만 적용합니다. 반대쪽 cortex disruption, physeal injury, angulated complete fracture는 같은 경로로 처리하지 않습니다.",
+            "Physeal injury는 age, displacement, remodeling potential, delayed presentation을 고려하고 불필요한 늦은 manipulation으로 성장판 손상을 늘리지 않도록 합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_074"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "비전형적 buckle appearance",
+            "신경혈관 이상",
+            "성장판 손상 후 진행성 deformity"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s8",
+          "order": 8,
+          "title": "위험한 합병증 — acute CTS, CRPS, EPL rupture",
+          "summary": "신경 압박과 cast-related deterioration을 시간 민감하게 다시 봅니다.",
+          "paragraphs": [
+            "Distal radius/perilunate injury 뒤 median-distribution paresthesia와 pain이 진행하면 acute carpal tunnel syndrome을 의심합니다. 정복·고정 후에도 악화되면 응급 hand-surgery 평가가 필요합니다.",
+            "Cast 후 손가락 통증·부종·색 변화가 심해지면 단순한 '정상 붓기'로 넘기지 않고 고정 상태와 compartment/nerve 문제를 확인합니다.",
+            "Distal radius fracture 수주~수개월 뒤 EPL rupture가 생길 수 있어 새 thumb IP extension loss는 tendon rupture를 확인합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "진행성 median nerve deficit",
+            "cast 후 악화되는 통증·부종·관류이상",
+            "새 thumb extension loss"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s9",
+          "order": 9,
+          "title": "외래 실전 — Wrist trauma 진료 순서",
+          "summary": "연령/기전→신경혈관→tenderness map→3-view X-ray→alignment→손상별 추적 순으로 봅니다.",
+          "paragraphs": [
+            "Snuffbox, scaphoid tubercle, scapholunate interval, ulnar fovea, hook of hamate를 국소적으로 확인하고 필요 시 forearm/elbow까지 확장합니다.",
+            "X-ray에서는 fracture뿐 아니라 radius–lunate–capitate alignment를 반드시 확인합니다. X-ray 음성인데 scaphoid suspicion이 높으면 immobilize+reimage 또는 MRI로 확인합니다.",
+            "고령 distal radius는 osteoporosis pathway, 소아 torus는 최소고정 pathway, progressive median nerve symptom은 emergency pathway로 분기합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_075",
+            "odt_ref_077",
+            "odt_ref_074"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d037",
+              "label": "주상월상인대 손상"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d032",
+              "label": "TFCC 관련 병변"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt006-s10",
+          "order": 10,
+          "title": "참고문헌과 근거 상태",
+          "summary": "원본 7개 핵심 문헌을 보존하고 distal radius, scaphoid, pediatric torus의 치료 민감 문장을 최신화했습니다.",
+          "paragraphs": [
+            "SOURCE_VERIFIED는 Claude 원본의 직접 인용 문헌이며 EVIDENCE_REFRESH_2026은 이번 migration에서 추가한 최신 근거입니다.",
+            "이번 선택적 갱신은 elderly distal radius, minimally displaced scaphoid waist fracture, pediatric torus fracture에 집중했습니다. Perilunate definitive surgery details, acute CTS decompression timing, pediatric physeal reduction thresholds, CRPS prophylaxis는 전체 canonical review가 남아 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_068",
+            "odt_ref_069",
+            "odt_ref_070",
+            "odt_ref_071",
+            "odt_ref_072",
+            "odt_ref_073",
+            "odt_ref_074",
+            "odt_ref_075",
+            "odt_ref_076",
+            "odt_ref_077"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        }
+      ],
+      "figures": [
+        {
+          "id": "odt006_fig01",
+          "chapter_id": "odt006-s1",
+          "figure_no": "1",
+          "title": "Distal radius dorsal tilt",
+          "provenance": "Wikimedia Commons · Mikael Häggström / Lucien Monfils",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Dorsal_tilt_of_distal_radius_fracture.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt006_fig02",
+          "chapter_id": "odt006-s2",
+          "figure_no": "2",
+          "title": "Scaphoid waist fracture X-ray",
+          "provenance": "Wikimedia Commons · Gilo1969",
+          "license": "CC BY 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:X-ray_of_scaphoid_fracture.png",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt006_fig03",
+          "chapter_id": "odt006-s3",
+          "figure_no": "3",
+          "title": "Scapholunate dissociation",
+          "provenance": "Wikimedia Commons · James Heilman, MD",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:ScaphoLuncateDisoMark.png",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt006_fig04",
+          "chapter_id": "odt006-s4",
+          "figure_no": "4",
+          "title": "Radius–lunate–capitate alignment schematic",
+          "provenance": "Claude source-authored schematic; not a copied paper figure",
+          "license_status": "HUMAN_REDRAW_REQUIRED_FOR_OWN_CANONICAL_ASSET",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt006_fig05a",
+          "chapter_id": "odt006-s4",
+          "figure_no": "5A",
+          "title": "Lunate dislocation lateral X-ray",
+          "provenance": "Wikimedia Commons · James Heilman, MD",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:LunatedislocationL.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt006_fig05b",
+          "chapter_id": "odt006-s4",
+          "figure_no": "5B",
+          "title": "Transscaphoid perilunate fracture-dislocation CT",
+          "provenance": "Wikimedia Commons · Hellerhoff",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Transscaphoid_perilunate_fracture-dislocation_-_39jm_-_CT_Volumen_Rendering_-_001_-_01.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt006_fig06",
+          "chapter_id": "odt006-s7",
+          "figure_no": "6",
+          "title": "Pediatric distal-radius torus fracture",
+          "provenance": "Wikimedia Commons · Hellerhoff",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Wulstfraktur_des_distalen_Radius_6M_-_CR_2_Ebenen_-_001.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        }
+      ],
+      "references": [
+        {
+          "id": "odt_ref_068",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Arora R, Lutz M, Deml C, et al. Nonoperative treatment versus volar locking plate fixation for displaced unstable distal radial fractures in patients ≥65 years. J Bone Joint Surg Am. 2011;93:2146–2153.",
+          "doi": "10.2106/JBJS.J.01597",
+          "url": "https://doi.org/10.2106/JBJS.J.01597"
+        },
+        {
+          "id": "odt_ref_069",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Costa ML, Achten J, Parsons NR, et al. Percutaneous K-wires versus volar locking plate fixation for dorsally displaced distal radius fracture: DRAFFT trial. BMJ. 2014;349:g4807.",
+          "doi": "10.1136/bmj.g4807",
+          "url": "https://doi.org/10.1136/bmj.g4807"
+        },
+        {
+          "id": "odt_ref_070",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Zollinger PE, Tuinebreijer WE, Breederveld RS, Kreis RW. Vitamin C to prevent CRPS after wrist fractures. J Bone Joint Surg Am. 2007;89:1424–1431.",
+          "doi": "10.2106/JBJS.F.01147",
+          "url": "https://doi.org/10.2106/JBJS.F.01147"
+        },
+        {
+          "id": "odt_ref_071",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Ekrol I, Duckworth AD, Ralston SH, Court-Brown CM, McQueen MM. Vitamin C and outcomes after distal radial fracture. J Bone Joint Surg Am. 2014;96:1451–1459.",
+          "doi": "10.2106/JBJS.M.00268",
+          "url": "https://doi.org/10.2106/JBJS.M.00268"
+        },
+        {
+          "id": "odt_ref_072",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Dias JJ, Brealey SD, Fairhurst C, et al. Surgery versus cast immobilisation for scaphoid waist fracture: SWIFFT. Lancet. 2020;396:390–401.",
+          "doi": "10.1016/S0140-6736(20)30931-4",
+          "url": "https://doi.org/10.1016/S0140-6736(20)30931-4"
+        },
+        {
+          "id": "odt_ref_073",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Herzberg G, Comtet JJ, Linscheid RL, et al. Perilunate dislocations and fracture-dislocations: multicenter study. J Hand Surg Am. 1993;18:768–779.",
+          "doi": "10.1016/0363-5023(93)90041-Z",
+          "url": "https://doi.org/10.1016/0363-5023(93)90041-Z"
+        },
+        {
+          "id": "odt_ref_074",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Perry DC, Achten J, Knight R, et al. Immobilisation of torus fractures of the wrist in children (FORCE): randomized equivalence trial. Lancet. 2022;400:39–47.",
+          "doi": "10.1016/S0140-6736(22)01015-7",
+          "url": "https://doi.org/10.1016/S0140-6736(22)01015-7"
+        },
+        {
+          "id": "odt_ref_075",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Volar locking plate versus closed reduction and immobilization for distal radius fracture in the elderly: systematic review/meta-analysis of RCTs. 2024.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39619453/"
+        },
+        {
+          "id": "odt_ref_076",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Meta-analysis of ≥2-year outcomes after volar locking plate versus casting for displaced distal radius fractures in older adults. 2024.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39593102/"
+        },
+        {
+          "id": "odt_ref_077",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Effectiveness and outcomes of cast immobilization versus surgical fixation for acute minimally displaced scaphoid waist fractures: systematic review/meta-analysis. 2026.",
+          "doi": "10.7759/cureus.108089",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42226878/"
         }
       ]
     }
