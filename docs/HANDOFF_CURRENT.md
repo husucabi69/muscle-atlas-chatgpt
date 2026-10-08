@@ -1,4 +1,4 @@
-# CURRENT OVERRIDE — 2026-10-07 ct086 Candidate 5 pipeline + textbook/evidence UI checkpoint
+# CURRENT HANDOFF — 2026-10-08 Disease/Trauma active · EXAM-REAL ct086 preserved
 
 ## CURRENT OVERRIDE — 2026-10-08 ORTHOPEDIC_DISEASE_TRAUMA_MODULE shoulder + elbow native
 
