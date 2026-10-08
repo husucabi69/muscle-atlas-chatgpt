@@ -50,15 +50,17 @@ if(row.source_sha256&&row.source_sha256!==bytes_sha256&&
 if(row.source_drive_file_id&&row.source_drive_file_id!==sourceId&&!argv.includes('--replace-verified')){
   fail('Source Drive ID drift from canonical manifest requires explicit review');
 }
-const updated={...row,hosting_status:row.audio==='없음'?'SELF_HOSTED_HTML_MEDIA_READY':'SELF_HOSTED_HTML_MEDIA_PENDING',
+const updated={...row,hosting_status:same&&row.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'SELF_HOSTED_HTML_MEDIA_READY':(row.audio==='없음'?'SELF_HOSTED_HTML_MEDIA_READY':'SELF_HOSTED_HTML_MEDIA_PENDING'),
  source_drive_file_id:sourceId,source_bytes:bytes.length,source_sha256:bytes_sha256};
 if(media.length===1){updated.r2_object_key=media[0];delete updated.r2_object_keys;}
 if(media.length>1){updated.r2_object_keys=media;delete updated.r2_object_key;}
-if(media.length){updated.audio_source_verification='DRIVE_MP4_IDENTITY_PENDING';delete updated.audio_sha256;delete updated.audio_bytes;delete updated.audio_drive_file_id;}
+if(media.length&&!(same&&row.audio_source_verification==='DRIVE_MP4_SHA256_VERIFIED'&&row.audio_sha256&&row.audio_bytes&&row.audio_drive_file_id)){
+  updated.audio_source_verification='DRIVE_MP4_IDENTITY_PENDING';delete updated.audio_sha256;delete updated.audio_bytes;delete updated.audio_drive_file_id;
+}
 // Audio-free HTML may be marked self-hosted/ready; do not use the audio-ready status for unverified audio.
 if(row.audio==='없음')delete updated.audio_source_verification;
 const result={lecture:n,title:row.title,mode:write?'WRITE':'DRY_RUN',target,source_bytes:bytes.length,
- source_sha256:bytes_sha256,media_keys:media,existing_matches_source:same};
+ source_sha256:bytes_sha256,media_keys:media,existing_matches_source:same,projected_audio_verification:updated.audio_source_verification||null};
 if(write){
   fs.mkdirSync(path.dirname(target),{recursive:true});
   if(!same)fs.writeFileSync(target,bytes);
