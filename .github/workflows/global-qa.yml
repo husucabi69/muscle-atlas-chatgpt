@@ -31,6 +31,8 @@ jobs:
         run: node scripts/list-physical-exam-work-queue-qa.mjs
       - name: Run Muscle Atlas global QA
         run: node scripts/global-qa.mjs
+      - name: Run Disease Trauma native integrity QA
+        run: node scripts/disease-trauma-native-qa.mjs
       - name: Run Cloudflare Pages portability QA
         run: node scripts/cloudflare-pages-qa.mjs
       - name: Run OrthoOS read-only integration contract QA
