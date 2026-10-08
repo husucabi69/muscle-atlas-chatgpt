@@ -722,9 +722,9 @@ try{
   const third=page.locator('[data-claude-lecture="30"]');
   const thirdText=(await third.textContent()||'').trim();
   if(!thirdText.includes('팔꿈치 질환')||!thirdText.includes('우리 서버 원본'))fail('Elbow Disease self-hosted badge',thirdText);
-  const pending=page.locator('[data-claude-lecture="31"]');
+  const pending=page.locator('[data-claude-lecture="34"]');
   const pendingText=(await pending.textContent()||'').trim();
-  if(!pendingText.includes('Claude 원본 fallback'))fail('Elbow Trauma fallback badge',pendingText);
+  if(!pendingText.includes('Claude 원본 fallback'))fail('Hand Disease fallback badge',pendingText);
 
   await first.click();
   await page.waitForTimeout(150);
@@ -785,7 +785,34 @@ try{
   if(elbowFallback!=='https://claude.ai/artifact/9T4P6RATmwZCj6HEwngLe7')fail('Elbow Disease Artifact fallback preserved',String(elbowFallback||''));
   await page.goBack();await page.waitForTimeout(100);
   if(!await visible('#diseaseTraumaRootView'))fail('Elbow Disease browser back -> root');
-  pass('Claude Original Classroom: 24 Disease/Trauma + 3 exact self-hosted originals + 2 evidence updates + fallback + browser back');
+
+  // Verify the other three exact original courses use one scalable navigation path.
+  const additional=[
+    {num:31,file:'클로드_질환외상_04권_팔꿈치_외상',title:'팔꿈치 외상',fallback:'https://claude.ai/artifact/M8t12eUku1v14cmNan3Fkf'},
+    {num:32,file:'클로드_질환외상_05권_손목_질환',title:'손목 질환',fallback:'https://claude.ai/artifact/Aco8cH5CLMhLhYcLbA3KZM'},
+    {num:33,file:'클로드_질환외상_06권_손목_외상',title:'손목 외상',fallback:'https://claude.ai/artifact/KP3WJYZXacK5ZZhu9TttvZ'}
+  ];
+  for(const lecture of additional){
+    const choice=page.locator('[data-claude-lecture="'+lecture.num+'"]');
+    const badge=(await choice.textContent()||'').trim();
+    if(!badge.includes('우리 서버 원본'))fail(lecture.title+' self-hosted badge',badge);
+    await choice.click();
+    if(!await visible('#diseaseTraumaOriginalView'))fail(lecture.title+' original lecture visible');
+    const lectureSrc=await iframe.getAttribute('src');
+    if(!String(lectureSrc||'').includes('claude-library/1_강의페이지/03_질환외상/'+lecture.file+'.html'))fail(lecture.title+' original iframe path',String(lectureSrc||''));
+    await sourceFrame.locator('body').waitFor({state:'visible',timeout:20000});
+    const lectureText=(await sourceFrame.locator('body').textContent()||'').trim();
+    if(!lectureText.includes(lecture.title.split(' ')[0]))fail(lecture.title+' original HTML loaded',lectureText.slice(0,300));
+    const media=await sourceFrame.locator('body').evaluate(()=>window.__AUD__?.urls?.[0]||'');
+    if(media!=='../../2_음성/03_질환외상/'+lecture.file+'.mp4')fail(lecture.title+' exact relative media preserved',media);
+    const status=(await page.locator('#diseaseTraumaOriginalStatus').textContent()||'').trim();
+    if(!status.includes('음성 연결 대기'))fail(lecture.title+' remains audio-pending',status);
+    const link=await page.locator('#diseaseTraumaClaudeFallback').getAttribute('href');
+    if(link!==lecture.fallback)fail(lecture.title+' fallback URL preserved',String(link||''));
+    await page.goBack();await page.waitForTimeout(100);
+    if(!await visible('#diseaseTraumaRootView'))fail(lecture.title+' back to root');
+  }
+  pass('Claude Original Classroom: 24 Disease/Trauma + 6 exact self-hosted originals + 2 evidence updates + fallback + browser back');
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
