@@ -706,6 +706,24 @@ try{
     pass(spec.passName);
   }
 
+
+  await page.locator('.tab[data-page="diseaseTrauma"]').click();
+  await page.waitForFunction(()=>document.querySelectorAll('#diseaseTraumaVolumeChooser [data-odt-volume]').length===24,{timeout:20000});
+  if(!await visible('#diseaseTraumaRootView'))fail('Disease/Trauma root view visible');
+  if(await page.locator('#diseaseTraumaVolumeChooser [data-odt-volume]').count()!==24)fail('Disease/Trauma 24-volume inventory rendered');
+  await page.locator('[data-odt-volume="odt001"]').click();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaVolumeView'))fail('Shoulder Disease volume view visible');
+  if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==10)fail('Shoulder Disease has 10 native chapters');
+  await page.locator('[data-odt-chapter="odt001-s1"]').click();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaChapterView'))fail('Shoulder Disease chapter detail visible');
+  const odtText=(await page.locator('#diseaseTraumaChapterContent').textContent()||'').trim();
+  for(const token of ['Rotator cuff disease','영상 소견 하나만','극상근 해부학','Jobe / Empty Can','근거·참고문헌'])if(!odtText.includes(token))fail('Shoulder Disease chapter contains '+token,odtText.slice(0,1600));
+  if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="muscle:m070"]').count()!==1)fail('Disease/Trauma cross-link to supraspinatus');
+  if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="clinical_test:ct001"]').count()!==1)fail('Disease/Trauma cross-link to Jobe test');
+  await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaVolumeView'))fail('Disease/Trauma browser back chapter -> volume');
+  await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaRootView'))fail('Disease/Trauma browser back volume -> root');
+  pass('Disease/Trauma native prototype: 24-volume inventory + Shoulder Disease 10 chapters + cross-links + browser back');
+
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
   pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral, learning and home/search click sweep');
