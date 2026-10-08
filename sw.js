@@ -16,6 +16,7 @@ const CORE=[
   './data/ultrasound-probe-guidance-v2.json',
   './data/knowledge-core-v1.json',
   './data/orthopedic-disease-trauma-v1.json',
+  './data/claude-library-manifest-v1.json',
   './data/regions-v1.json',
   './data/schema/msk-knowledge-schema-v1.json',
   './data/examination-shoulder-v1.json',
