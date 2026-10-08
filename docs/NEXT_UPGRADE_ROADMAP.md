@@ -15,7 +15,9 @@
 - 확장 계약: **Drive에 새/수정 HTML+MP4 → 연결목록 갱신 → manifest/원본 sync → QA → Preview**. 이후 새 강의 추가는 화면 코드를 권별로 다시 만들지 않는다.
 - 상세 계약: `docs/CLAUDE_ORIGINAL_CLASSROOM_SYNC.md`.
 - **2026-10-08 단계 보강:** private R2 Pages Function 원본 MP4 상대경로 프록시, whitelist, GET/HEAD+Range 206/416, SW MP4 bypass, 전용 회귀 QA, 음성 pending UI 명시를 Preview 개발 브랜치에 구현했다. 원본 HTML 해시는 변경하지 않았다.
-- **여전히 BLOCKED:** R2 bucket write/binding 인증 경로가 없어 실제 MP4 업로드·음성 재생 검증은 미완료. mock tests ≠ real audio READY.
+- **2026-10-09 원본 6권 확장:** 질환·외상 01–06권(어깨 질환/외상, 팔꿈치 질환/외상, 손목 질환/외상) 원본 HTML을 Drive에서 바이트 단위로 복사해 Preview 자체호스팅. 76강 전체 manifest 중 24권 질환·외상에서 6권 = HTML 자체호스팅 진행 25%. 각 소스 byte/SHA256/Drive ID 잠금, 원본 상대 MP4 경로·버튼·그림 보존; R2 MP4 Ready 수량은 아직 0.
+- **확장도구:** `scripts/sync-claude-original-html.mjs`는 Drive에서 정확히 내려받은 HTML을 `--lecture`, `--source`, `--drive-id`로 사전검증하고, 승인된 `--write`일 때만 원본 복사+manifest 갱신. 원본 파일명/Drive ID/해시 바뀌면 무단 덮어쓰기 차단. `scripts/claude-original-sync-qa.mjs`로 소스 6권 identity 회귀검사 CI 연결.
+- **여전히 BLOCKED:** R2 bucket write/binding 인증 경로가 없어 실제 MP4 업로드·음성 재생 검증은 미완료. mock tests ≠ real audio READY. 02–06권 MP4는 원본 파일 ID/해시도 아직 확인하지 않아 audio identity pending.
 - 다음 순서: **Cloudflare R2 로그인 복구 → private bucket 확인/생성 → Preview-only `CLAUDE_MEDIA_R2` binding + pilot MP4 upload → exact SHA/Range/player QA → Shoulder Disease 원본 화면+음성 사용자 검수 → 질환외상 24권 batch sync → 76강 전체 강의실 확대**.
 
 
