@@ -1,5 +1,16 @@
 # CURRENT HANDOFF — 2026-10-08 Claude Original Classroom active · EXAM-REAL preserved
 
+## CURRENT OVERRIDE — 2026-10-09 04:28 KST scheduled QA and Hand Disease/Trauma source-lock checkpoint
+
+- Workline: **CLAUDE_ORIGINAL_CLASSROOM** on `preview/development`. Production `main` remains frozen.
+- New verified code commit `0cb0b4a052fbb0bd310b5cce22daefa4125a1041`: `scripts/claude-live-media-probe.mjs` now verifies **both immutable exact-SHA Cloudflare Preview and stable branch Preview**, sourced from same-SHA PASS Deploy Safety Gate evidence; rejects HTML fallback, wrong Range, wrong source hash, untrusted origin, and CI URL override.
+- This commit's Global QA, Runtime Navigation E2E, Deploy Safety Gate and Cloudflare Pages checks all **SUCCESS**. Immutable Preview: `https://089b48bc.muscle-atlas-chatgpt.pages.dev`. Both MP4 paths correctly return HTTP 503 pending private R2 binding. Live original HTML source fidelity 13/13 PASS.
+- Independent Drive source audit for lecture **34 Hand Disease** and **35 Hand Trauma** completed: exact original HTML bytes, SHA-256, Artifact fallback, relative MP4 route, and exact AAC MP4 source bytes/SHA-256 verified. Original source files and 17/17 QA are in local handoff bundle `CGTP_261009_Claude_Hand_34_35_SourceLock.zip`; **NOT yet committed or deployed**.
+- Attempted GitHub write of 34 manifest source-lock and separate 13-case media probe regression QA was BLOCKED by platform safety checks. Do not claim these changes landed. Browser E2E for unhosted 34/35 was blocked locally; Cloudflare E2E remains pending.
+- Next first action: re-read latest HEAD, CI, Preview; then safely ingest lecture 34 and 35 original HTML using the canonical sync script and source-lock bundle; preserve `SELF_HOSTED_HTML_MEDIA_PENDING` until authenticated private R2 upload/binding + 206 seek/full SHA/browser playback succeed.
+- Stage 23B ct085 HD canonical approved, ct086 Candidate 5 pending, ct088 deferred; no image re-generation or main promotion.
+
+
 ## CURRENT OVERRIDE — 2026-10-09 Claude Original 6-volume source sync
 
 - Active workline remains **CLAUDE_ORIGINAL_CLASSROOM**, Preview branch `preview/development`, Production `main` frozen.
