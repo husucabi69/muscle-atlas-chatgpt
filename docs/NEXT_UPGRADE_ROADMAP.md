@@ -1,5 +1,19 @@
 # LYS Ortho Muscle Atlas — Next Upgrade Roadmap
 
+
+## ORTHOPEDIC_DISEASE_TRAUMA_MODULE — Claude 24권 native 흡수 / ACTIVE 2026-10-08
+
+상태: **ACTIVE / PREVIEW PROTOTYPE / MAIN FROZEN**
+
+- 24권 원본 inventory를 앱에 등록하고, `odt001 Shoulder Disease` 10개 장을 첫 native 표준형으로 이식한다.
+- 외부 Artifact/iframe/`/_blob` 의존성을 만들지 않는다.
+- 기존 근육·Physical Examination Stable ID와 교차연결하고 환자 Disease Rehab는 덮어쓰지 않는다.
+- 그림은 provenance/license를 보존하되 low-resolution/base64/제3자 자료를 canonical asset으로 자동 승격하지 않는다.
+- 음성 MP4 미포함은 fail-closed migration pending으로 유지한다.
+- source citation은 보존하되 치료효과·수치·권고는 evidence freshness gate 후 canonical 승격한다.
+- 순서: **odt001 사용자 Preview 검수 → odt002 Shoulder Trauma → shoulder 2권 정교화 → 23권 batch migration → 전 부위 확대**.
+
+
 기준일: 2026-10-02  
 앱 이름: 이윤석정형외과 근육  
 정본 원칙: Stage 1–15의 완성 기능을 유지하면서, 실제 사용 흐름과 교육 품질을 우선 개선한다.
