@@ -35,6 +35,8 @@ jobs:
         run: node scripts/disease-trauma-native-qa.mjs
       - name: Run Claude Original Classroom QA
         run: node scripts/claude-library-runtime-qa.mjs
+      - name: Run Claude private R2 audio proxy QA
+        run: node scripts/claude-r2-proxy-qa.mjs
       - name: Run Cloudflare Pages portability QA
         run: node scripts/cloudflare-pages-qa.mjs
       - name: Run OrthoOS read-only integration contract QA
