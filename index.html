@@ -5542,8 +5542,8 @@ function openClaudeOriginalLecture(number,record=true){
    status.innerHTML='<b>Claude 원본 HTML 자체호스팅</b><br>화면·그림·목차·재생 UI는 원본 그대로입니다. 음성 미디어는 R2 연결 상태를 manifest에서 관리합니다.';
    frame.src=claudeSelfHostedUrl(item);
  }else{
-   status.innerHTML='<b>원본 동기화 대기</b><br>현재 이 권은 Claude Artifact 원본을 엽니다. Drive HTML/MP4 동기화가 끝나면 같은 버튼이 자동으로 우리 서버 원본으로 전환됩니다.';
-   frame.removeAttribute('src');window.open(item.claude_artifact_url,'_blank','noopener');
+   window.open(item.claude_artifact_url,'_blank','noopener');
+   return;
  }
  setDiseaseTraumaView('original');
  if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'original',lectureNumber:item.number});
