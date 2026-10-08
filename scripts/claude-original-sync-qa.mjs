@@ -18,6 +18,7 @@ const check=(name,ok)=>{
 for(const n of [28,29,30,31,32,33]){
  const row=manifest.lectures.find(x=>x.number===n);
  const result=run(['--lecture',String(n),'--source','claude-library/'+row.source_path,'--drive-id',row.source_drive_file_id]);
+ if(result.status!==0)console.error('SYNC_DIAGNOSTIC | lecture '+n+' | '+result.stderr.slice(0,1600));
  check('Claude sync dry-run original lecture '+n+' source identity',result.status===0&&
   (()=>{try{const j=JSON.parse(result.stdout);return j.mode==='DRY_RUN'&&j.existing_matches_source===true&&j.source_bytes===row.source_bytes&&j.source_sha256===row.source_sha256&&j.projected_audio_verification===(row.audio_source_verification||null);}catch{return false;}})());
 }
