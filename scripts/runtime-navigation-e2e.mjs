@@ -716,9 +716,12 @@ try{
   const first=page.locator('[data-claude-lecture="28"]');
   const firstText=(await first.textContent()||'').trim();
   if(!firstText.includes('어깨 질환')||!firstText.includes('우리 서버 원본'))fail('Shoulder Disease self-hosted original badge',firstText);
-  const pending=page.locator('[data-claude-lecture="29"]');
+  const second=page.locator('[data-claude-lecture="29"]');
+  const secondText=(await second.textContent()||'').trim();
+  if(!secondText.includes('어깨 외상')||!secondText.includes('우리 서버 원본'))fail('Shoulder Trauma self-hosted badge',secondText);
+  const pending=page.locator('[data-claude-lecture="30"]');
   const pendingText=(await pending.textContent()||'').trim();
-  if(!pendingText.includes('Claude 원본 fallback'))fail('Shoulder Trauma fallback badge',pendingText);
+  if(!pendingText.includes('Claude 원본 fallback'))fail('Elbow Disease fallback badge',pendingText);
 
   await first.click();
   await page.waitForTimeout(150);
@@ -749,7 +752,22 @@ try{
 
   await page.goBack();await page.waitForTimeout(100);
   if(!await visible('#diseaseTraumaRootView'))fail('Claude original browser back -> root');
-  pass('Claude Original Classroom: 24 Disease/Trauma + self-hosted Shoulder Disease original + 2 evidence updates + fallback + browser back');
+  await second.click();
+  if(!await visible('#diseaseTraumaOriginalView'))fail('Shoulder Trauma original lecture view visible');
+  const traumaSrc=await iframe.getAttribute('src');
+  if(!String(traumaSrc||'').includes('claude-library/1_강의페이지/03_질환외상/클로드_질환외상_02권_어깨_외상.html'))fail('Shoulder Trauma original iframe self-hosted',String(traumaSrc||''));
+  await sourceFrame.locator('body').waitFor({state:'visible',timeout:20000});
+  const traumaText=(await sourceFrame.locator('body').textContent()||'').trim();
+  if(!traumaText.includes('어깨'))fail('Shoulder Trauma original HTML body loaded',traumaText.slice(0,500));
+  const traumaStatus=(await page.locator('#diseaseTraumaOriginalStatus').textContent()||'').trim();
+  if(!traumaStatus.includes('음성 연결 대기'))fail('Shoulder Trauma audio correctly marked pending',traumaStatus);
+  const traumaAudio=await sourceFrame.locator('body').evaluate(()=>window.__AUD__?.urls?.[0]||'');
+  if(traumaAudio!=='../../2_음성/03_질환외상/클로드_질환외상_02권_어깨_외상.mp4')fail('Shoulder Trauma original relative audio route preserved',traumaAudio);
+  const traumaFallback=await page.locator('#diseaseTraumaClaudeFallback').getAttribute('href');
+  if(traumaFallback!=='https://claude.ai/artifact/Mjr4yDAvaZAsKYzkL7Nx5s')fail('Shoulder Trauma Artifact fallback preserved',String(traumaFallback||''));
+  await page.goBack();await page.waitForTimeout(100);
+  if(!await visible('#diseaseTraumaRootView'))fail('Shoulder Trauma browser back -> root');
+  pass('Claude Original Classroom: 24 Disease/Trauma + 2 exact self-hosted Shoulder originals + 2 evidence updates + fallback + browser back');
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
