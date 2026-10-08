@@ -38,7 +38,7 @@ Important figure provenance:
 - Fig 5 dorsal ganglion — Wikimedia Commons / CC BY-SA 3.0
 - Fig 6 ulnar variance schematic — Claude-authored, human-redraw required before canonical own asset
 - Fig 7 Kienböck X-ray — Wikimedia Commons / CC BY-SA 4.0
-- Fig 8 SLAC progression — Wikimedia Commons; exact license/source-page metadata must be re-extracted during migration before promotion.
+- Fig 8 SLAC progression — Wikimedia Commons, Brian T. Tischler et al., CC BY 4.0; source page `Coronal_illustrations_of_the_wrist_depicting_the_progressive_osteoarthritic_changes_of_SLAC_arthropathy.png`.
 
 ## odt006 — Wrist Trauma
 
@@ -65,6 +65,16 @@ Chapter inventory:
 8. rare dangerous injury / complications
 9. outpatient workflow
 10. references
+
+### Wrist Trauma source-image provenance
+
+- Fig 1 distal-radius dorsal tilt — Wikimedia Commons, Mikael Häggström / original Lucien Monfils, CC BY-SA 3.0.
+- Fig 2 scaphoid waist fracture — Wikimedia Commons, Gilo1969, CC BY 3.0.
+- Fig 3 scapholunate dissociation — Wikimedia Commons, James Heilman, MD, CC BY-SA 4.0.
+- Fig 5A lunate dislocation — Wikimedia Commons, James Heilman, MD, CC BY-SA 3.0.
+- Fig 5B transscaphoid perilunate fracture-dislocation CT — Wikimedia Commons, Hellerhoff, CC BY-SA 3.0.
+- Fig 6 pediatric torus fracture — Wikimedia Commons, Hellerhoff, CC BY-SA 4.0.
+- Any Claude-authored alignment schematic remains `HUMAN_REDRAW_REQUIRED_FOR_OWN_CANONICAL_ASSET`.
 
 Treatment-sensitive evidence-refresh targets for migration:
 - distal radius fracture: age/function-based operative thresholds and current distal-radius guideline evidence;
