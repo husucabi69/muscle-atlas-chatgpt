@@ -214,7 +214,8 @@ button,input{font:inherit} button{cursor:pointer}
       <button class="tab patient-tab" data-page="education">환자 운동·스트레칭</button>
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
       <button class="tab" data-page="regions">해부학 부위</button>
-      <button class="tab" data-page="clinical">임상 모듈</button>\n      <button class="tab" data-page="diseaseTrauma">질환·외상</button>
+      <button class="tab" data-page="clinical">임상 모듈</button>
+      <button class="tab" data-page="diseaseTrauma">질환·외상</button>
       <button class="tab" data-page="ultrasound">초음파</button>
       <button class="tab" data-page="quiz">퀴즈</button>
       <button class="tab" data-page="learning">내 학습</button>
@@ -3870,7 +3871,8 @@ function activatePage(pageId){
   cleanupLearningOverlays();
   if(pageId==='education')showEducationRegions(false);
   if(pageId==='symptoms')showSymptomGroups(false);
-  if(pageId==='clinical')showClinicalModules(false);\n  if(pageId==='diseaseTrauma')showDiseaseTraumaRoot(false);
+  if(pageId==='clinical')showClinicalModules(false);
+  if(pageId==='diseaseTrauma')showDiseaseTraumaRoot(false);
   if(pageId==='ultrasound')showUltrasoundAtlasRegions(false);
   if(pageId==='quiz')showQuizSetup(false);
   if(pageId==='oral')showOralSetup(false,false);
