@@ -293,7 +293,10 @@
       "source_bytes": 604766,
       "source_sha256": "e8b5b8dce8a1ebfb7c02cf62495515787f10597e83fd5c2ac28747ec6488d4b1",
       "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_02권_어깨_외상.mp4",
-      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
+      "audio_source_verification": "DRIVE_MP4_SHA256_VERIFIED",
+      "audio_drive_file_id": "1hp56nqlgzinLo6-VRyDM_LJfPNkNBd0M",
+      "audio_bytes": 11690224,
+      "audio_sha256": "24d01731ba8389c87ab0a92f12e7bd97a631d1a1d56f771ef097c52948f3a4cf"
     },
     {
       "number": 30,
@@ -307,7 +310,10 @@
       "source_bytes": 398461,
       "source_sha256": "b36ffb364a763f25d5055be3bfb211029183637dfc0bc904204fd1b50a86164d",
       "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_03권_팔꿈치_질환.mp4",
-      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
+      "audio_source_verification": "DRIVE_MP4_SHA256_VERIFIED",
+      "audio_drive_file_id": "1B99fjUhLEiHoa8we2tYKgvl7vlnr84Tp",
+      "audio_bytes": 17375944,
+      "audio_sha256": "2b4837f7d6573258b16bc6beae709248fbf0db640dbd8b3f0576d393e2dad52d"
     },
     {
       "number": 31,
@@ -321,7 +327,10 @@
       "source_bytes": 572548,
       "source_sha256": "890b804c6319860a728bff047a6904f2887d8f563e7bd8fb158bd403b60531a2",
       "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_04권_팔꿈치_외상.mp4",
-      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
+      "audio_source_verification": "DRIVE_MP4_SHA256_VERIFIED",
+      "audio_drive_file_id": "10v9F4VmeygX6lU7poyF8bCZ_kGtrcVQH",
+      "audio_bytes": 12525527,
+      "audio_sha256": "8ce6fddade476e4bfcb652dc008e15688b703a897e440422744a50a1dc4831d2"
     },
     {
       "number": 32,
@@ -335,7 +344,10 @@
       "source_bytes": 508134,
       "source_sha256": "8b55d687e9fd7b17cc59448bfbed09dfb629e45d66e0e741fce97bb4c9d6e012",
       "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_05권_손목_질환.mp4",
-      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
+      "audio_source_verification": "DRIVE_MP4_SHA256_VERIFIED",
+      "audio_drive_file_id": "1lNqFsPc9pk_9iFmv5GXu5fr1KQsNp8rA",
+      "audio_bytes": 12662848,
+      "audio_sha256": "e763f76380ddab687a3e9d44f27c46871084a7f8b182e0e574aea4065cd0a579"
     },
     {
       "number": 33,
@@ -349,7 +361,10 @@
       "source_bytes": 592896,
       "source_sha256": "f78b2f7c9b8dd55b15767951b625bcf631e15b0cb32d13c484accf1dabe94955",
       "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_06권_손목_외상.mp4",
-      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
+      "audio_source_verification": "DRIVE_MP4_SHA256_VERIFIED",
+      "audio_drive_file_id": "1nkVvQh8yuT-_bwJwKfrg9O-4bfVLAzvd",
+      "audio_bytes": 10877433,
+      "audio_sha256": "4be0988fbb4277e1811c861c022f8f9d6f746cee5e4a769d4f36fa34828636af"
     },
     {
       "number": 34,
