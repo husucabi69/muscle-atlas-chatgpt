@@ -146,4 +146,15 @@ await test('Manifest errors fail closed', async () => {
   const x = context({ manifestError: true });
   assert.equal((await onRequest(x.ctx)).status, 404);
 });
+await test('Service worker bypasses MP4 requests to protect partial-content seek', () => {
+  const sw = fs.readFileSync('sw.js', 'utf8');
+  assert.ok(sw.includes("decodedPath.startsWith('/claude-library/2_음성/')"));
+  assert.ok(sw.includes("decodedPath.toLowerCase().endsWith('.mp4')"));
+  assert.ok(sw.includes('Range requests reach the Pages R2 streaming Function directly'));
+});
+await test('Private bucket remains unexposed and media is not mislabeled READY', () => {
+  assert.equal(manifest.media.public_base_url, null);
+  assert.equal(manifest.media.provider, 'cloudflare_r2');
+  assert.equal(pilot.hosting_status, 'SELF_HOSTED_HTML_MEDIA_PENDING');
+});
 console.log('CLAUDE R2 PROXY QA | ' + tests + '/' + tests + ' PASS');
