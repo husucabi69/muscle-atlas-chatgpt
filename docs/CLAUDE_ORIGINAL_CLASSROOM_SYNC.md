@@ -51,6 +51,31 @@ Lecture 28 — `질환외상 01권 어깨 질환`
 - MP4: AAC audio-only, 1780.982 seconds.
 - R2 status: **PENDING** until authenticated R2 write path is restored.
 
+## Private R2 playback bridge — 2026-10-08 / Preview only
+
+- GitHub Preview contains `functions/claude-library/2_음성/[[path]].js`, serving the unchanged relative original-HTML media path from a private R2 bucket.
+- Required Cloudflare Pages **Preview environment** R2 binding name: `CLAUDE_MEDIA_R2`. R2 bucket name: `muscle-atlas-claude-media`. Do not expose the bucket via public R2.dev or a public bucket domain.
+- The Function reads `/data/claude-library-manifest-v1.json` using the Pages `ASSETS` binding. It returns objects only when their key is exactly listed in `r2_object_key` or `r2_object_keys`. Adding a lecture requires a manifest/source update before its media can be fetched.
+- GET and HEAD are the only supported methods. Byte-range GET/HEAD, `206 Partial Content`, `Content-Range`, and `416 Range Not Satisfiable` are implemented for seek/pause/speed controls. No upload/write/DELETE endpoint is exposed.
+- `sw.js` explicitly bypasses `/claude-library/2_음성/*.mp4`, preventing PWA caching from serving wrong partial-content fragments.
+- `scripts/claude-r2-proxy-qa.mjs` runs in Global QA with mock R2: manifest whitelist, path traversal blocking, full GET, range variants, HEAD, malformed/out-of-bounds range, missing bucket, missing object, and service-worker bypass.
+- UI marks `SELF_HOSTED_HTML_MEDIA_PENDING` as **음성 연결 대기**. Never claim actual playback works until a real MP4 has been uploaded and full/Range/interactive player tests pass.
+- **Current operational blocker:** no authenticated Cloudflare R2 write/binding session. The Function is staged as code, but no R2 object or binding has been created/verified in this session. CI simulation does not prove live R2 playback.
+
+### R2 operator checklist — first real MP4
+
+1. Sign in to Cloudflare independently (never provide passwords to the chat). Confirm or create **private** R2 bucket `muscle-atlas-claude-media`.
+2. Upload the exact MP4 from Drive ID `1sP66rCVNFCdfZB0IswULPsVGyk-ap0Ev` to object key `2_음성/03_질환외상/클로드_질환외상_01권_어깨_질환.mp4`.
+3. Before declaring success, compare bytes `14629413` and SHA-256 `2662e3f37daf7daef28c97b1141f18489baf64ad2c82a4bc5a1c79a87eae3538` against the source (R2 ETag alone is **not** a SHA-256 verifier).
+4. Cloudflare Workers & Pages → `muscle-atlas-chatgpt` → Settings → Bindings → **Preview** R2 bucket: variable `CLAUDE_MEDIA_R2` → bucket `muscle-atlas-claude-media`. Deploy Preview again after binding.
+5. Test original URL on the exact Preview origin:
+   `/claude-library/2_음성/03_질환외상/클로드_질환외상_01권_어깨_질환.mp4`.
+   A `GET` with `Range: bytes=0-1023` must return **206** and `Content-Range: bytes 0-1023/14629413`. `HEAD` must report `Accept-Ranges: bytes`. Verify real MP4 bytes and hash separately, not just HTTP 200.
+6. In the same Preview, open **질환·외상 → 01 · 어깨 질환**. Verify play/pause, `이 장 듣기`, seek, speed, chapter tracking, and browser back on desktop/mobile; record exact SHA and Preview URL.
+7. Only after actual verification, update manifest media READY evidence and advance to full 24-volume sync. Never touch `main` without user authorization.
+
+Cloudflare reference: https://developers.cloudflare.com/pages/functions/bindings/ and https://developers.cloudflare.com/r2/api/workers/workers-api-reference/.
+
 ## User-facing policy
 
 The previous ODT native-summary data may remain as an internal/archive dataset for provenance and comparison, but it is not the primary user-facing Disease/Trauma experience.
