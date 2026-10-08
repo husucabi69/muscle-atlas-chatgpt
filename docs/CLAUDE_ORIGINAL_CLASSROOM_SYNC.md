@@ -51,6 +51,19 @@ Lecture 28 — `질환외상 01권 어깨 질환`
 - MP4: AAC audio-only, 1780.982 seconds.
 - R2 status: **PENDING** until authenticated R2 write path is restored.
 
+## Exact-original HTML expansion — 2026-10-09 / Preview
+
+- **Six original Disease/Trauma lectures** are now self-hosted directly from Drive HTML in `claude-library/1_강의페이지/03_질환외상/`. The original contents, styles, buttons, figures, embedded script/audio UI and relative media links remain byte-identical; no native-summary re-authoring.
+- Lecture 28, Shoulder Disease: Drive `1n_21CEYrri6rw0LqeyqZER7PeihnounD`, 366718 bytes, SHA-256 `d1a77bdf96328193aa9a5ce6bbeaa6c5dd76ec98fbd5a4d94a66c4427de9a5fe`.
+- Lecture 29, Shoulder Trauma: Drive `1_LgGCYaJGL_jBQZPHo8hQwwEizzZ5ptD`, 604766 bytes, SHA-256 `e8b5b8dce8a1ebfb7c02cf62495515787f10597e83fd5c2ac28747ec6488d4b1`.
+- Lecture 30, Elbow Disease: Drive `1RPvoJe6Mga8OslVutO7CU1BWR8xr2xvM`, 398461 bytes, SHA-256 `b36ffb364a763f25d5055be3bfb211029183637dfc0bc904204fd1b50a86164d`.
+- Lecture 31, Elbow Trauma: Drive `1FKnUrTQc8Z4Mb3rC5Br0GFJcJusvwCb7`, 572548 bytes, SHA-256 `890b804c6319860a728bff047a6904f2887d8f563e7bd8fb158bd403b60531a2`.
+- Lecture 32, Wrist Disease: Drive `1YyzgbOlfGogsnhie9slvmjzrvs26JioR`, 508134 bytes, SHA-256 `8b55d687e9fd7b17cc59448bfbed09dfb629e45d66e0e741fce97bb4c9d6e012`.
+- Lecture 33, Wrist Trauma: Drive `1KOjt3F-GaJe4SkWSv8WGKiw7qQnCUrhd`, 592896 bytes, SHA-256 `f78b2f7c9b8dd55b15767951b625bcf631e15b0cb32d13c484accf1dabe94955`.
+- Original media keys in manifest match each relative `../../2_음성/03_질환외상/*.mp4` link. **Only lecture 28 has verified Drive MP4 bytes/hash**; lectures 29–33 have `audio_source_verification: DRIVE_MP4_IDENTITY_PENDING`. All six continue `SELF_HOSTED_HTML_MEDIA_PENDING` until private R2 objects and byte-range/audio playback are verified; do not claim audio Ready.
+- Generic QA checks every self-hosted HTML against `source_bytes`, `source_sha256`, original Artifact fallback and unchanged MP4 logical path; specific immutable source locks cover 28–33. Browser E2E opens each of the six, verifies iframe content, pending media, fallback, and browser back.
+- Next original HTML sync starts at lecture **34 / Disease-Trauma 07 Hand Disease**, but R2 audio pilot and source-identity verification remain mandatory before media READY. New lectures must enter the same manifest-driven path, not hard-coded replacement UI.
+
 ## Deployment incident and routing correction — 2026-10-08
 
 - Real HTTP Preview probe detected **HTTP 200 app index HTML for a .mp4 path**. This meant Cloudflare Pages deployed static files but **did not invoke** the newly added filesystem `functions/` route. Prior mock unit tests and base deploy smoke were insufficient; the new `scripts/claude-live-media-probe.mjs` intentionally fails this condition and blocks the deploy safety gate.
