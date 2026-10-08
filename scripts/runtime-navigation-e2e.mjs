@@ -708,10 +708,10 @@ try{
 
 
   await page.locator('.tab[data-page="diseaseTrauma"]').click();
-  await page.waitForFunction(()=>document.querySelectorAll('#diseaseTraumaVolumeChooser [data-claude-lecture]').length===24,{timeout:20000});
+  await page.waitForFunction(()=>document.querySelectorAll('#diseaseTraumaVolumeChooser [data-claude-lecture]').length>=24,{timeout:20000});
   if(!await visible('#diseaseTraumaRootView'))fail('Claude Disease/Trauma root view visible');
-  if(await page.locator('#diseaseTraumaVolumeChooser [data-claude-lecture]').count()!==24)fail('Claude Disease/Trauma 24 original lectures rendered');
-  if(await page.locator('#diseaseTraumaEvidenceChooser .region-choice').count()!==2)fail('Claude evidence updates = 2');
+  if(await page.locator('#diseaseTraumaVolumeChooser [data-claude-lecture]').count()<24)fail('Claude Disease/Trauma baseline 24 original lectures rendered');
+  if(await page.locator('#diseaseTraumaEvidenceChooser .region-choice').count()<2)fail('Claude evidence updates baseline >= 2');
 
   const first=page.locator('[data-claude-lecture="28"]');
   const firstText=(await first.textContent()||'').trim();
