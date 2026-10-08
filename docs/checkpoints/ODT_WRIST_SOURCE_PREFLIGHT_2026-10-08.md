@@ -82,3 +82,34 @@ Before either source becomes `NATIVE_PREVIEW`:
 4. perform selective evidence refresh for treatment-sensitive claims and keep remaining topics canonical-review-pending;
 5. connect only to existing valid Stable IDs;
 6. pass `scripts/disease-trauma-native-qa.mjs`, Global QA, Runtime E2E, and exact-SHA Cloudflare Preview.
+
+## Existing Stable-ID cross-link map
+
+Use these existing IDs during odt005/006 migration; do not invent a new ID merely to make a link.
+
+### Disease-side direct links
+
+- Carpal tunnel syndrome: `d029`; Physical Examination `ct024 Phalen`, `ct025 carpal Tinel`, `ct026 Durkan`; Ultrasound `usv022 median nerve SAX`, `usv023 median nerve longitudinal/dynamic`.
+- De Quervain: `d027`; Physical Examination `ct022 True Finkelstein`, `ct023 WHAT`; Ultrasound `usv018 first/second extensor compartments`; relevant muscles `m098 APL`, `m099 EPB`.
+- TFCC/DRUJ: `d032`; Physical Examination `ct030 ulnar fovea`, `ct031 DRUJ ballottement`; Ultrasound `usv021 TFCC`.
+- ECU tendinopathy/instability: `d033`; Physical Examination `ct032 ECU synergy`; Ultrasound `usv019 3rd–6th extensor compartments`; muscle `m096 ECU`.
+- FCR tendinopathy: `d034`; muscle `m084 FCR`.
+- Scapholunate ligament injury: `d037`; Physical Examination `ct035 Watson`; Ultrasound `usv020 scapholunate ligament`.
+- Guyon canal neuropathy: `d030`; Physical Examination `ct027–ct029`; Ultrasound `usv024`.
+- Thumb CMC OA: `d035`; Physical Examination `ct033–ct034`.
+- Trigger digit: `d036`; Ultrasound `usv025–usv028`.
+
+### Trauma-side ID gaps to preserve
+
+The current canonical wrist/hand diagnosis registry does **not** contain dedicated diagnosis concept IDs for:
+- distal radius fracture,
+- scaphoid fracture,
+- perilunate dislocation,
+- most other carpal fractures,
+- pediatric torus/growth-plate fractures,
+- acute traumatic carpal tunnel syndrome as a separate concept.
+
+Do not alias these fractures to an unrelated existing diagnosis concept just to create a link. During odt006 migration:
+1. use valid examination/ultrasound cross-links where clinically applicable;
+2. leave diagnosis link absent when no matching Stable ID exists;
+3. if a dedicated diagnosis concept is later required, add it through the canonical diagnosis registry workflow and global integrity gate first.
