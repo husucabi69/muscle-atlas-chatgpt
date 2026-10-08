@@ -14,7 +14,7 @@ Purpose: lock the next Disease/Trauma source pair before native migration.
 - source img tags: **6**
 - source numbered figures: **8** (includes 2 Claude-authored schematics)
 - source references: **8 verified papers + textbook standard block**
-- source contains Claude Artifact/audio runtime dependency: **yes** (artifact link 1, `/_blob` 1)
+- source contains Claude Artifact/audio runtime dependency: **yes** (the same Artifact target appears in multiple HTML link/text forms; `/_blob` audio runtime reference present)
 - native policy: do not migrate Claude Artifact or `/_blob`; audio stays fail-closed until independent media bytes exist.
 
 Chapter inventory:
@@ -50,7 +50,7 @@ Important figure provenance:
 - source img tags: **6**
 - source numbered figures: **6** (includes 1 Claude-authored alignment schematic and paired source images in Fig 5)
 - source references: **7 verified papers + textbook standard block**
-- source contains Claude Artifact/audio runtime dependency: **yes** (artifact link 1, `/_blob` 1)
+- source contains Claude Artifact/audio runtime dependency: **yes** (the same Artifact target appears in multiple HTML link/text forms; `/_blob` audio runtime reference present)
 - native policy: same fail-closed audio and provenance rules as odt001–odt004.
 
 Chapter inventory:
