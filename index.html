@@ -200,6 +200,11 @@ button,input{font:inherit} button{cursor:pointer}
 .odt-bullet{border-left:4px solid #b7d8d0;background:#f7fbfa;border-radius:10px;padding:12px 14px;line-height:1.7;margin-top:8px}
 .odt-ref-list{display:grid;gap:9px;margin-top:12px}.odt-ref-list a{display:block;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;text-decoration:none;color:inherit;line-height:1.6}
 .odt-crosslinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.odt-source-path{word-break:break-all;color:var(--muted);font-size:12px;margin-top:10px}
+.claude-original-toolbar{position:sticky;top:0;z-index:6;background:var(--bg);padding:8px 0}
+.claude-original-frame{width:100%;min-height:78vh;height:calc(100vh - 190px);border:1px solid var(--line);border-radius:16px;background:#fff}
+.claude-hosting-badge{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:12px;font-weight:800;margin-top:6px}
+.claude-hosting-badge.local{background:#f2fffb;border-color:#8bd3c1;color:#086b53}
+.claude-hosting-badge.pending{background:#fff8e8;border-color:#ead49b;color:#7b5a00}
 @media(max-width:720px){.odt-summary{grid-template-columns:1fr 1fr}}
 
 </style>
@@ -391,18 +396,21 @@ button,input{font:inherit} button{cursor:pointer}
 
 <section id="diseaseTrauma" class="page">
   <div id="diseaseTraumaRootView" class="drill-screen" data-drill-group="diseaseTrauma" data-drill-view="root">
-    <div class="section-title"><h3>질환·외상</h3><span>Claude 24권 원본 → 앱 native 이전</span></div>
-    <div class="card" style="margin-bottom:16px"><h3>Orthopedic Disease & Trauma Library</h3><p>외부 Artifact 링크나 iframe이 아니라 앱 내부 데이터와 화면으로 옮깁니다. 현재 어깨 질환 1권을 native prototype으로 연결했고 나머지 23권은 원본 확보 상태에서 순차 이전합니다.</p></div>
-    <div id="diseaseTraumaMigrationNote" class="note">질환·외상 데이터를 불러오는 중입니다.</div>
+    <div class="section-title"><h3>질환·외상</h3><span>Claude 원본 강의 24권</span></div>
+    <div class="card" style="margin-bottom:16px"><h3>Claude Original Classroom</h3><p>요약·재작성 화면이 아니라 Claude가 만든 원본 HTML을 그대로 실행합니다. 원본 그림·표·목차·재생 UI를 보존하고 음성은 대용량 미디어 저장소로 분리해 연결합니다.</p></div>
+    <div id="diseaseTraumaMigrationNote" class="note">Claude 원본 강의 목록을 불러오는 중입니다.</div>
     <div id="diseaseTraumaVolumeChooser" class="region-chooser" style="margin-top:18px"></div>
+    <div class="section-title" style="margin-top:22px"><h3>최신 학술자료</h3><span>Claude 근거 업데이트</span></div>
+    <div id="diseaseTraumaEvidenceChooser" class="region-chooser"></div>
   </div>
-  <div id="diseaseTraumaVolumeView" class="drill-screen" data-drill-group="diseaseTrauma" data-drill-view="volume" hidden>
-    <div class="anatomy-nav"><button class="region-back" type="button" onclick="diseaseTraumaBack('root')">← 질환·외상 24권</button><span class="crumb" id="diseaseTraumaVolumeBreadcrumb"></span></div>
-    <div id="diseaseTraumaVolumeHead" class="anatomy-detail-head"></div><div id="diseaseTraumaVolumeMeta"></div><div id="diseaseTraumaChapterList" class="region-list" style="margin-top:16px"></div>
-  </div>
-  <div id="diseaseTraumaChapterView" class="drill-screen" data-drill-group="diseaseTrauma" data-drill-view="chapter" hidden>
-    <div class="anatomy-nav"><button class="region-back" type="button" onclick="diseaseTraumaBack('volume')">← 이 권 목차</button><button class="pill" type="button" onclick="showDiseaseTraumaRoot()">24권 전체</button><span class="crumb" id="diseaseTraumaChapterBreadcrumb"></span></div>
-    <div id="diseaseTraumaChapterContent"></div>
+  <div id="diseaseTraumaOriginalView" class="drill-screen" data-drill-group="diseaseTrauma" data-drill-view="original" hidden>
+    <div class="anatomy-nav claude-original-toolbar">
+      <button class="region-back" type="button" onclick="showDiseaseTraumaRoot()">← 질환·외상 24권</button>
+      <a id="diseaseTraumaClaudeFallback" class="pill" target="_blank" rel="noopener">Claude 원본 ↗</a>
+      <span class="crumb" id="diseaseTraumaOriginalBreadcrumb"></span>
+    </div>
+    <div id="diseaseTraumaOriginalStatus" class="note"></div>
+    <iframe id="diseaseTraumaOriginalFrame" class="claude-original-frame" title="Claude 원본 강의"></iframe>
   </div>
 </section>
 
@@ -5496,45 +5504,52 @@ window.addEventListener('focus',()=>requestAppUpdateCheck('focus'));
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')requestAppUpdateCheck('resume');});
 window.addEventListener('load',()=>{initPullToRefresh();initAppServiceWorker();});
 
-let orthopedicDiseaseTraumaRegistry=null,selectedDiseaseTraumaVolumeId=null,selectedDiseaseTraumaChapterId=null,restoringDiseaseTraumaHistory=false;
+let claudeLibraryManifest=null,selectedClaudeLectureNumber=null;
 function setDiseaseTraumaView(v){return setDrillView('diseaseTrauma',v)}
-function diseaseTraumaRecordHistory(level,mode='push'){if(restoringDiseaseTraumaHistory)return;const state={lysPage:'diseaseTrauma',odtLevel:level,odtVolumeId:selectedDiseaseTraumaVolumeId,odtChapterId:selectedDiseaseTraumaChapterId};mode==='replace'?replaceAppNavigationState(state):pushAppNavigationState(state)}
-function diseaseTraumaVolumeById(id){return(orthopedicDiseaseTraumaRegistry?.volumes||[]).find(v=>v.stable_id===id)||null}
-function diseaseTraumaNativeById(id){return orthopedicDiseaseTraumaRegistry?.native_content?.[id]||null}
+function diseaseTraumaLectures(){return(claudeLibraryManifest?.lectures||[]).filter(x=>x.series==='질환·외상')}
+function claudeEvidenceLectures(){return(claudeLibraryManifest?.lectures||[]).filter(x=>x.series==='근거 업데이트')}
+function claudeSelfHostedUrl(item){return './claude-library/'+item.source_path}
 function renderDiseaseTraumaRoot(){
- const chooser=document.getElementById('diseaseTraumaVolumeChooser'),note=document.getElementById('diseaseTraumaMigrationNote');if(!chooser||!note)return;
- if(!orthopedicDiseaseTraumaRegistry){note.innerHTML='<b>데이터를 불러오는 중입니다.</b>';chooser.innerHTML='';return}
- const volumes=orthopedicDiseaseTraumaRegistry.volumes||[],ready=volumes.filter(v=>v.native_status==='NATIVE_PREVIEW').length;
- note.innerHTML='<b>'+volumes.length+'권 원본 inventory 확인 · '+ready+'권 native Preview</b><br>나머지 '+(volumes.length-ready)+'권은 원본을 잃지 않고 순차 포팅합니다. 음성 MP4는 업로드 ZIP에 없어 아직 재생 기능을 열지 않았습니다.';
- chooser.innerHTML=volumes.map(v=>{const ok=v.native_status==='NATIVE_PREVIEW';return '<button type="button" class="region-choice" data-odt-volume="'+esc(v.stable_id)+'" onclick="openDiseaseTraumaVolume(\''+esc(v.stable_id)+'\')"><span><b>'+String(v.number).padStart(2,'0')+' · '+esc(v.title_ko)+'</b><br><small>'+esc(v.title_en)+'</small><br><span class="odt-status '+(ok?'ready':'pending')+'">'+(ok?'NATIVE PREVIEW':'원본 확보 · 이전 대기')+'</span></span><span class="arrow">›</span></button>'}).join('');
+ const chooser=document.getElementById('diseaseTraumaVolumeChooser'),note=document.getElementById('diseaseTraumaMigrationNote'),evidence=document.getElementById('diseaseTraumaEvidenceChooser');
+ if(!chooser||!note||!evidence)return;
+ if(!claudeLibraryManifest){note.innerHTML='<b>Claude 원본 manifest를 불러오는 중입니다.</b>';chooser.innerHTML='';evidence.innerHTML='';return}
+ const rows=diseaseTraumaLectures(),local=rows.filter(x=>x.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'||x.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING').length;
+ note.innerHTML='<b>'+rows.length+'권 Claude 원본 등록 · '+local+'권 자체호스팅 파일럿</b><br>사용자 화면에서는 단순화 native 요약을 사용하지 않습니다. 자체호스팅 전 강의는 Claude Artifact를 임시 fallback으로 열고, Drive 원본 동기화 후 동일 화면을 우리 서버에서 실행합니다.';
+ chooser.innerHTML=rows.map(item=>{const local=item.hosting_status?.startsWith('SELF_HOSTED');const no=item.number-27;return '<button type="button" class="region-choice" data-claude-lecture="'+item.number+'" onclick="openClaudeOriginalLecture('+item.number+')"><span><b>'+String(no).padStart(2,'0')+' · '+esc(item.title.replace(/^질환외상\s*\d+권\s*/,''))+'</b><br><small>Claude 원본 HTML · '+esc(item.audio)+'</small><br><span class="claude-hosting-badge '+(local?'local':'pending')+'">'+(local?'우리 서버 원본':'Claude 원본 fallback')+'</span></span><span class="arrow">›</span></button>'}).join('');
+ evidence.innerHTML=claudeEvidenceLectures().map(item=>'<button type="button" class="region-choice" onclick="openClaudeOriginalLecture('+item.number+')"><span><b>'+esc(item.title)+'</b><br><small>학술자료 원본 · '+esc(item.audio)+'</small></span><span class="arrow">›</span></button>').join('');
 }
-async function loadOrthopedicDiseaseTrauma(){try{const r=await fetch('./data/orthopedic-disease-trauma-v1.json',{cache:'no-cache'});if(!r.ok)throw new Error('registry unavailable');orthopedicDiseaseTraumaRegistry=await r.json();renderDiseaseTraumaRoot();return true}catch(e){console.warn('Disease/Trauma registry unavailable',e);const n=document.getElementById('diseaseTraumaMigrationNote');if(n)n.innerHTML='<b>질환·외상 데이터를 불러오지 못했습니다.</b>';return false}}
-function showDiseaseTraumaRoot(record=true){selectedDiseaseTraumaVolumeId=null;selectedDiseaseTraumaChapterId=null;renderDiseaseTraumaRoot();setDiseaseTraumaView('root');if(record)diseaseTraumaRecordHistory('root')}
-function openDiseaseTraumaVolume(id,record=true){
- const v=diseaseTraumaVolumeById(id);if(!v)return;selectedDiseaseTraumaVolumeId=id;selectedDiseaseTraumaChapterId=null;const n=diseaseTraumaNativeById(id);
- document.getElementById('diseaseTraumaVolumeBreadcrumb').textContent='질환·외상 › '+v.title_ko;
- document.getElementById('diseaseTraumaVolumeHead').innerHTML='<h2>'+esc(v.title_ko)+'</h2><div class="sub">'+esc(v.title_en)+'</div><div class="tagrow"><span class="tag">'+(v.kind==='DISEASE'?'질환':'외상')+'</span><span class="tag">'+esc(v.stable_id)+'</span></div>';
- const evidenceState=n?.native_review_status==='SOURCE_MIGRATED_SELECTIVE_EVIDENCE_REFRESH_2026_CANONICAL_REVIEW_PENDING'?'2026 핵심 근거 갱신 · canonical review pending':n?'최신 근거 갱신 대기':'native 이전 대기';
- document.getElementById('diseaseTraumaVolumeMeta').innerHTML='<div class="odt-summary"><div class="box"><h4>원본</h4><p>확보 완료</p></div><div class="box"><h4>Native</h4><p>'+(n?'Preview 연결':'이전 대기')+'</p></div><div class="box"><h4>음성</h4><p>MP4 이전 대기</p></div><div class="box"><h4>근거상태</h4><p>'+esc(evidenceState)+'</p></div></div><div class="note"><b>Claude 런타임 독립</b><br>'+(n?'원본 HTML을 앱 native 데이터로 옮겼습니다. 근거상태 배지는 migration과 canonical 임상 검증을 구분합니다.':'실제 HTML 원문은 확보됐지만 아직 native 임상 화면으로 옮기지 않았습니다.')+'</div><div class="odt-source-path">원본: '+esc(v.source_filename)+' · '+esc(v.stable_id)+'</div>';
- const host=document.getElementById('diseaseTraumaChapterList');
- host.innerHTML=n?(n.chapters||[]).sort((a,b)=>a.order-b.order).map(ch=>'<button type="button" class="region-muscle" data-odt-chapter="'+esc(ch.id)+'" onclick="openDiseaseTraumaChapter(\''+esc(ch.id)+'\')"><b>'+esc(ch.order+'. '+ch.title.replace(/^\d+\.\s*/,''))+'</b><small>'+esc(ch.summary||'')+'</small></button>').join(''):'<div class="note"><b>원본 확보 완료 · native 이전 대기</b><br>잘못된 임상 요약을 자동 생성해 채우지 않습니다. 다음 migration batch에서 실제 원문을 구조화한 뒤 활성화합니다.</div>';
- setDiseaseTraumaView('volume');if(record)diseaseTraumaRecordHistory('volume');
+async function loadClaudeLibrary(){
+ try{
+  const r=await fetch('./data/claude-library-manifest-v1.json',{cache:'no-cache'});if(!r.ok)throw new Error('manifest unavailable');
+  claudeLibraryManifest=await r.json();renderDiseaseTraumaRoot();return true;
+ }catch(e){console.warn('Claude library manifest unavailable',e);const n=document.getElementById('diseaseTraumaMigrationNote');if(n)n.innerHTML='<b>Claude 원본 강의 목록을 불러오지 못했습니다.</b>';return false}
 }
-function odtRefs(n,ids){const m=Object.fromEntries((n.references||[]).map(r=>[r.id,r])),rows=(ids||[]).map(id=>m[id]).filter(Boolean);return rows.length?'<div class="section-title" style="margin-top:18px"><h3 style="font-size:19px">근거·참고문헌</h3><span>원본 citation 보존</span></div><div class="odt-ref-list">'+rows.map(r=>'<a href="'+esc(r.url)+'" target="_blank" rel="noopener"><b>'+esc(r.status)+'</b><br>'+esc(r.citation)+'</a>').join('')+'</div>':''}
-function odtLinks(rows){return rows?.length?'<div class="section-title" style="margin-top:18px"><h3 style="font-size:19px">앱 안에서 이어서 보기</h3><span>근육·이학검사 교차연결</span></div><div class="odt-crosslinks">'+rows.map(x=>'<button class="pill" type="button" data-odt-link="'+esc(x.type+':'+x.id)+'" onclick="openSearchEntity(\''+esc(x.type)+'\',\''+esc(x.id)+'\')">'+esc(x.label)+'</button>').join('')+'</div>':''}
-function odtFigures(n,id){const rows=(n.figures||[]).filter(f=>f.chapter_id===id);return rows.length?'<div class="section-title" style="margin-top:18px"><h3 style="font-size:19px">그림·출처</h3><span>canonical 승격 전 provenance</span></div>'+rows.map(f=>'<div class="card" style="margin-top:8px"><b>'+esc(f.title)+'</b><p>'+esc(f.provenance||'')+(f.license?' · '+esc(f.license):'')+'</p>'+(f.source_page?'<a href="'+esc(f.source_page)+'" target="_blank" rel="noopener">원 출처 열기</a>':'<small>자체 재제작·HD 검수 대기</small>')+'</div>').join(''):''}
-function openDiseaseTraumaChapter(id,record=true){
- const n=diseaseTraumaNativeById(selectedDiseaseTraumaVolumeId);if(!n)return;const ch=(n.chapters||[]).find(x=>x.id===id);if(!ch)return;selectedDiseaseTraumaChapterId=id;
- document.getElementById('diseaseTraumaChapterBreadcrumb').textContent='질환·외상 › '+n.title_ko+' › '+ch.title;
- const reviewTag=n.native_review_status==='SOURCE_MIGRATED_SELECTIVE_EVIDENCE_REFRESH_2026_CANONICAL_REVIEW_PENDING'?'source migrated · 2026 핵심근거 갱신 · canonical review pending':'source migrated · evidence refresh pending';
- let body='<div class="anatomy-detail-head"><h2>'+esc(ch.title)+'</h2><div class="sub">'+esc(ch.summary||'')+'</div><div class="tagrow"><span class="tag">'+esc(ch.id)+'</span><span class="tag">'+esc(reviewTag)+'</span></div></div><div class="card odt-chapter-body" style="margin-top:14px">'+(ch.paragraphs||[]).map(p=>'<p>'+esc(p)+'</p>').join('')+'</div>';
- if(ch.clinical_takeaways?.length)body+='<div class="section-title" style="margin-top:18px"><h3 style="font-size:19px">임상 핵심</h3></div>'+ch.clinical_takeaways.map(x=>'<div class="odt-bullet">'+esc(x)+'</div>').join('');
- if(ch.red_flags?.length)body+='<div class="section-title" style="margin-top:18px"><h3 style="font-size:19px">Red flag</h3></div>'+ch.red_flags.map(x=>'<div class="odt-bullet">'+esc(x)+'</div>').join('');
- body+=odtLinks(ch.cross_links)+odtFigures(n,ch.id)+odtRefs(n,ch.evidence_ref_ids);document.getElementById('diseaseTraumaChapterContent').innerHTML=body;setDiseaseTraumaView('chapter');if(record)diseaseTraumaRecordHistory('chapter');
+function showDiseaseTraumaRoot(record=true){
+ selectedClaudeLectureNumber=null;
+ const frame=document.getElementById('diseaseTraumaOriginalFrame');if(frame)frame.removeAttribute('src');
+ renderDiseaseTraumaRoot();setDiseaseTraumaView('root');
+ if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'root'});
 }
-function diseaseTraumaBack(fallback){const st=history.state;if(st?.lysPage==='diseaseTrauma'&&['volume','chapter'].includes(st.odtLevel)){history.back();return}if(fallback==='volume'&&selectedDiseaseTraumaVolumeId)openDiseaseTraumaVolume(selectedDiseaseTraumaVolumeId,false);else showDiseaseTraumaRoot(false)}
-window.addEventListener('popstate',e=>{const st=e.state;if(!st||st.lysPage!=='diseaseTrauma')return;restoringDiseaseTraumaHistory=true;showPage('diseaseTrauma');if(st.odtLevel==='chapter'&&st.odtVolumeId&&st.odtChapterId){selectedDiseaseTraumaVolumeId=st.odtVolumeId;openDiseaseTraumaVolume(st.odtVolumeId,false);openDiseaseTraumaChapter(st.odtChapterId,false)}else if(st.odtLevel==='volume'&&st.odtVolumeId)openDiseaseTraumaVolume(st.odtVolumeId,false);else showDiseaseTraumaRoot(false);restoringDiseaseTraumaHistory=false});
-loadOrthopedicDiseaseTrauma();
+function openClaudeOriginalLecture(number,record=true){
+ const item=(claudeLibraryManifest?.lectures||[]).find(x=>x.number===Number(number));if(!item)return;
+ selectedClaudeLectureNumber=item.number;
+ const local=item.hosting_status?.startsWith('SELF_HOSTED');
+ document.getElementById('diseaseTraumaOriginalBreadcrumb').textContent=item.series+' › '+item.title;
+ const fallback=document.getElementById('diseaseTraumaClaudeFallback');fallback.href=item.claude_artifact_url;
+ const status=document.getElementById('diseaseTraumaOriginalStatus');
+ const frame=document.getElementById('diseaseTraumaOriginalFrame');
+ if(local){
+   status.innerHTML='<b>Claude 원본 HTML 자체호스팅</b><br>화면·그림·목차·재생 UI는 원본 그대로입니다. 음성 미디어는 R2 연결 상태를 manifest에서 관리합니다.';
+   frame.src=claudeSelfHostedUrl(item);
+ }else{
+   status.innerHTML='<b>원본 동기화 대기</b><br>현재 이 권은 Claude Artifact 원본을 엽니다. Drive HTML/MP4 동기화가 끝나면 같은 버튼이 자동으로 우리 서버 원본으로 전환됩니다.';
+   frame.removeAttribute('src');window.open(item.claude_artifact_url,'_blank','noopener');
+ }
+ setDiseaseTraumaView('original');
+ if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'original',lectureNumber:item.number});
+}
+window.addEventListener('popstate',e=>{const st=e.state;if(!st||st.lysPage!=='diseaseTrauma')return;showPage('diseaseTrauma');if(st.claudeLevel==='original'&&st.lectureNumber)openClaudeOriginalLecture(st.lectureNumber,false);else showDiseaseTraumaRoot(false)});
+loadClaudeLibrary();
 
 </script>
 </body>
