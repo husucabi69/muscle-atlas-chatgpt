@@ -3,16 +3,19 @@
 
 ## ORTHOPEDIC_DISEASE_TRAUMA_MODULE — Claude 24권 native 흡수 / ACTIVE 2026-10-08
 
-상태: **ACTIVE / SHOULDER 2/2 NATIVE / MAIN FROZEN**
+상태: **ACTIVE / SHOULDER 2/2 + ELBOW 2/2 NATIVE / 4 OF 24 / MAIN FROZEN**
 
-- 24권 원본 inventory 유지. `odt001 Shoulder Disease`와 `odt002 Shoulder Trauma`가 모두 10개 장 native Preview로 동작한다.
-- Shoulder Trauma 원본은 604,728 bytes / SHA-256 `47b0b42a12f7d1e509d17e8ef8cc97a8ffb27d1930ba08e32b37073589d4d2ef`로 잠근다.
+- 24권 원본 inventory 유지. `odt001~odt004`가 native Preview로 동작하고 `odt005~odt024`는 원본확보·이전대기 상태다.
+- Elbow Disease 원본은 398,420 bytes / SHA-256 `641f9fbb92a5a725793fdab2f0584380901653fc76724c718d23a306b5c27d33`.
+- Elbow Trauma 원본은 572,507 bytes / SHA-256 `026934ff318c8a74f2f155fdc3ded997a440bd1b17913d5096933e332bee0bff`.
 - 외부 Artifact/iframe/`/_blob` 의존성을 만들지 않는다.
 - 기존 근육·Physical Examination·Ultrasound Stable ID와 교차연결하고 환자 Disease Rehab는 덮어쓰지 않는다.
-- 그림은 provenance/license를 보존하되 low-resolution/base64/제3자 자료를 canonical asset으로 자동 승격하지 않는다.
-- 음성 MP4 미포함은 fail-closed migration pending으로 유지한다.\n- `scripts/disease-trauma-native-qa.mjs`를 24권 공통 gate로 사용해 native status↔content 일치, SHA/bytes, chapter/ref/figure 무결성, Stable-ID cross-link, 외부 그림 license, unsafe Claude URL 0을 자동 검사한다.
-- Shoulder Trauma는 source citation 10개에 더해 2025–2026 **핵심 선택적 evidence refresh**를 적용한다. 특히 first-dislocation stabilization, ER-vs-IR immobilization, traumatic cuff timing, proximal humerus fracture, clavicle CPG, AC injury를 재검증하며 전체 canonical review는 별도 gate로 남긴다.
-- 순서: **shoulder 2권 사용자 Preview 검수 → odt003 Elbow Disease → odt004 Elbow Trauma → elbow 2권 정교화 → 나머지 20권 batch migration**.
+- 외부 그림은 provenance/license를 보존하되 canonical asset으로 자동 승격하지 않는다. Claude 자체 도식은 human redraw gate를 거친다.
+- 음성 MP4 미포함은 fail-closed migration pending으로 유지한다.
+- `scripts/disease-trauma-native-qa.mjs`를 24권 공통 gate로 유지한다.
+- Elbow Disease는 lateral tendinopathy injection과 cubital tunnel 수술법을 선택적으로 2025–2026 근거 갱신했고 나머지 영역은 canonical review pending이다.
+- Elbow Trauma는 simple dislocation, Mason II radial head, elderly olecranon, delayed distal biceps, acute compartment syndrome을 선택적으로 최신 근거 갱신했다.
+- 순서: **elbow 2권 사용자 Preview 검수 → odt005 Wrist Disease → odt006 Wrist Trauma → wrist 2권 정교화 → 나머지 18권 batch migration**.
 
 
 기준일: 2026-10-02  
