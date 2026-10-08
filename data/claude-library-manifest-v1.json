@@ -8,10 +8,12 @@
   },
   "runtime_policy": {
     "html": "SELF_HOSTED_ORIGINAL_BYTE_PRESERVING",
-    "media": "CLOUDFLARE_R2",
+    "media": "CLOUDFLARE_R2_REQUIRED_BEFORE_AUDIO_READY",
     "claude_artifact": "FALLBACK_ONLY",
     "native_summary_ui": "DEPRECATED_USER_FACING",
-    "expansion": "ADD_OR_UPDATE_DRIVE_HTML_MP4_AND_MANIFEST_SYNC"
+    "expansion": "ADD_OR_UPDATE_DRIVE_HTML_MP4_AND_MANIFEST_SYNC",
+    "drive": "SOURCE_OF_TRUTH_NOT_RUNTIME_DEPENDENCY",
+    "update_flow": "DRIVE_SOURCE_CHANGE -> SYNC_ORIGINAL_HTML_MEDIA -> MANIFEST_STATUS -> QA -> PREVIEW"
   },
   "counts": {
     "lectures": 76,
@@ -268,7 +270,16 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_01권_어깨_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/SGzig6jhFXL2Q6rtrwyyGh",
       "audio": "있음",
-      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1n_21CEYrri6rw0LqeyqZER7PeihnounD",
+      "source_sha256": "d1a77bdf96328193aa9a5ce6bbeaa6c5dd76ec98fbd5a4d94a66c4427de9a5fe",
+      "source_bytes": 366718,
+      "audio_drive_file_id": "1sP66rCVNFCdfZB0IswULPsVGyk-ap0Ev",
+      "audio_sha256": "2662e3f37daf7daef28c97b1141f18489baf64ad2c82a4bc5a1c79a87eae3538",
+      "audio_bytes": 14629413,
+      "audio_duration_seconds": 1780.982,
+      "audio_codec": "aac",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_01권_어깨_질환.mp4"
     },
     {
       "number": 29,
@@ -702,5 +713,11 @@
       "audio": "있음",
       "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
     }
-  ]
+  ],
+  "media": {
+    "provider": "cloudflare_r2",
+    "bucket": "muscle-atlas-claude-media",
+    "public_base_url": null,
+    "status": "R2_WRITE_PATH_PENDING"
+  }
 }
