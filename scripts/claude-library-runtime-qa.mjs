@@ -67,13 +67,9 @@ for(const row of hosted){
 const trauma=rows.find(x=>x.number===29);
 check('Shoulder Trauma exact source lock',trauma?.source_drive_file_id==='1_LgGCYaJGL_jBQZPHo8hQwwEizzZ5ptD'&&
   trauma?.source_bytes===604766&&trauma?.source_sha256==='e8b5b8dce8a1ebfb7c02cf62495515787f10597e83fd5c2ac28747ec6488d4b1');
-check('Shoulder Trauma MP4 source not falsely verified',trauma?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
-  trauma?.audio_source_verification==='DRIVE_MP4_IDENTITY_PENDING'&&!trauma.audio_sha256&&!trauma.audio_bytes);
 const elbow=rows.find(x=>x.number===30);
 check('Elbow Disease exact source lock',elbow?.source_drive_file_id==='1RPvoJe6Mga8OslVutO7CU1BWR8xr2xvM'&&
   elbow?.source_bytes===398461&&elbow?.source_sha256==='b36ffb364a763f25d5055be3bfb211029183637dfc0bc904204fd1b50a86164d');
-check('Elbow Disease MP4 source not falsely verified',elbow?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
-  elbow?.audio_source_verification==='DRIVE_MP4_IDENTITY_PENDING'&&!elbow.audio_sha256&&!elbow.audio_bytes);
 const additionalLocked=[
  [31,'1FKnUrTQc8Z4Mb3rC5Br0GFJcJusvwCb7',572548,'890b804c6319860a728bff047a6904f2887d8f563e7bd8fb158bd403b60531a2'],
  [32,'1YyzgbOlfGogsnhie9slvmjzrvs26JioR',508134,'8b55d687e9fd7b17cc59448bfbed09dfb629e45d66e0e741fce97bb4c9d6e012'],
@@ -83,8 +79,21 @@ for(const [number,driveId,size,digest] of additionalLocked){
  const row=rows.find(x=>x.number===number);
  check('Claude lecture '+number+' source immutable lock',row?.source_drive_file_id===driveId&&
    row?.source_bytes===size&&row?.source_sha256===digest);
- check('Claude lecture '+number+' MP4 identity not falsely verified',row?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
-   row?.audio_source_verification==='DRIVE_MP4_IDENTITY_PENDING'&&!row.audio_sha256&&!row.audio_bytes);
+}
+const lockedAudio=[
+ [29,'1hp56nqlgzinLo6-VRyDM_LJfPNkNBd0M',11690224,'24d01731ba8389c87ab0a92f12e7bd97a631d1a1d56f771ef097c52948f3a4cf'],
+ [30,'1B99fjUhLEiHoa8we2tYKgvl7vlnr84Tp',17375944,'2b4837f7d6573258b16bc6beae709248fbf0db640dbd8b3f0576d393e2dad52d'],
+ [31,'10v9F4VmeygX6lU7poyF8bCZ_kGtrcVQH',12525527,'8ce6fddade476e4bfcb652dc008e15688b703a897e440422744a50a1dc4831d2'],
+ [32,'1lNqFsPc9pk_9iFmv5GXu5fr1KQsNp8rA',12662848,'e763f76380ddab687a3e9d44f27c46871084a7f8b182e0e574aea4065cd0a579'],
+ [33,'1nkVvQh8yuT-_bwJwKfrg9O-4bfVLAzvd',10877433,'4be0988fbb4277e1811c861c022f8f9d6f746cee5e4a769d4f36fa34828636af']
+];
+for(const [number,driveId,size,digest] of lockedAudio){
+ const row=rows.find(x=>x.number===number);
+ check('Claude lecture '+number+' Drive MP4 exact source identity',row?.audio_drive_file_id===driveId&&
+   row?.audio_bytes===size&&row?.audio_sha256===digest&&
+   row?.audio_source_verification==='DRIVE_MP4_SHA256_VERIFIED');
+ check('Claude lecture '+number+' audio still NOT ready on R2',row?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
+   manifest.media?.status==='R2_WRITE_PATH_PENDING');
 }
 check('No Cloudflare R2 object keys collide',new Set(rows.filter(x=>x.r2_object_key).map(x=>x.r2_object_key)).size===rows.filter(x=>x.r2_object_key).length);
 
