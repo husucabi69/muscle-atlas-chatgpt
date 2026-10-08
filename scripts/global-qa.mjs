@@ -25,6 +25,7 @@ const modules = {
 const core = json('data/knowledge-core-v1.json');
 const lib = json('data/patient-exercise-library-v1.json');
 const odt = json('data/orthopedic-disease-trauma-v1.json');
+const claudeLibrary = json('data/claude-library-manifest-v1.json');
 const mediaGlobal = json('data/media-license-global-audit-v1.json');
 const html = read('index.html');
 const manifest = json('manifest.webmanifest');
@@ -284,7 +285,7 @@ check('PWA portable start_url', manifest.start_url==='./?source=pwa', manifest.s
 check('PWA portable scope', manifest.scope==='./', manifest.scope);
 check('PWA fullscreen', manifest.display==='fullscreen' && manifest.display_override?.includes('standalone'), manifest.display);
 
-const cacheNeedles=['patient-exercise-library-v1.json','knowledge-core-v1.json','orthopedic-disease-trauma-v1.json','symptom-groups-v1.json','symptoms-v1.json',...Object.keys(modules).flatMap(m=>[
+const cacheNeedles=['patient-exercise-library-v1.json','knowledge-core-v1.json','orthopedic-disease-trauma-v1.json','claude-library-manifest-v1.json','symptom-groups-v1.json','symptoms-v1.json',...Object.keys(modules).flatMap(m=>[
   `examination-${m}-v1.json`,`ultrasound-${m}-v1.json`,`quiz-${m}-v1.json`,`differential-${m}-v1.json`,`media-audit-${m}-v1.json`
 ])];
 const missingCache=cacheNeedles.filter(x=>!sw.includes(x));
@@ -331,7 +332,8 @@ for(const required of ['diagnosis_concept:d037','diagnosis_concept:d032','clinic
 check('Disease/Trauma audio fail-closed',[odtDisease,odtTrauma,odtElbowDisease,odtElbowTrauma,odtWristDisease,odtWristTrauma].every(x=>x?.audio_status==='MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE'));
 check('Disease/Trauma Claude runtime dependency = 0',odt.migration_policy?.claude_runtime_dependency===false&&odt.migration_policy?.external_artifact_dependency===false);
 check('Disease/Trauma unsafe Claude URLs = 0',odtUnsafe.length===0,odtUnsafe.join(','));
-check('Disease/Trauma native UI present',html.includes('data-page="diseaseTrauma">질환·외상</button>')&&html.includes('<section id="diseaseTrauma" class="page">')&&html.includes('loadOrthopedicDiseaseTrauma')&&html.includes('data-odt-volume')&&html.includes('data-odt-chapter'));
+check('Disease/Trauma native archive retained but user-facing UI deprecated',claudeLibrary.runtime_policy?.native_summary_ui==='DEPRECATED_USER_FACING'&&!html.includes('loadOrthopedicDiseaseTrauma')&&!html.includes('data-odt-volume')&&!html.includes('data-odt-chapter'));
+check('Claude Original Classroom user-facing UI present',html.includes('Claude Original Classroom')&&html.includes('loadClaudeLibrary')&&html.includes('data-claude-lecture')&&html.includes('diseaseTraumaOriginalFrame')&&html.includes('diseaseTraumaEvidenceChooser'));
 
 
 const phiNeedles=['patient_name','patient_id','encounter_id','resident_registration','주민등록번호'];
