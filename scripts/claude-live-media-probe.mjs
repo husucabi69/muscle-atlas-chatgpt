@@ -1,11 +1,31 @@
-// Live Cloudflare Pages probe: prove that original HTML's MP4 relative path
-// routes to the private R2 Pages Function, without requiring bucket credentials.
+// Live Cloudflare Pages probe: verify original HTML MP4 routes on BOTH
+// the immutable commit Preview and stable branch Preview. Evidence is SHA-locked.
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 const manifest = JSON.parse(fs.readFileSync('data/claude-library-manifest-v1.json', 'utf8'));
 const pilot = manifest.lectures.find(row => row.number === 28);
 if (!pilot?.r2_object_key) throw new Error('Missing pilot media object key');
-const base = process.argv[2] || 'https://preview-development.muscle-atlas-chatgpt.pages.dev';
+const canonicalBranch = 'https://preview-development.muscle-atlas-chatgpt.pages.dev';
+const evidencePath = process.env.DEPLOY_GATE_EVIDENCE || '/tmp/deploy-safety-evidence.json';
+const isCI = process.env.GITHUB_ACTIONS === 'true';
+const evidence = fs.existsSync(evidencePath) ? JSON.parse(fs.readFileSync(evidencePath, 'utf8')) : null;
+const exact = evidence?.cloudflare?.exact_preview_url;
+const branch = evidence?.cloudflare?.branch_preview_url;
+
+if (isCI && (!evidence || evidence.result !== 'PASS' || evidence.sha !== process.env.GITHUB_SHA)) {
+  throw new Error('Live media probe requires PASS evidence from the same exact GitHub SHA');
+}
+if (evidence) {
+  if (evidence.result !== 'PASS' ||
+      !/^https:\/\/[0-9a-f]{8}\.muscle-atlas-chatgpt\.pages\.dev\/?$/i.test(exact || '') ||
+      (branch || '').replace(/\/$/, '') !== canonicalBranch) {
+    throw new Error('Invalid immutable/branch Cloudflare Preview evidence');
+  }
+}
+if (isCI && process.argv[2]) throw new Error('CI must not override exact Preview with CLI URL');
+const origins = evidence ? [exact, branch] : [process.argv[2] || canonicalBranch];
+
+async function probe(base) {
 const url = new URL('/claude-library/' + pilot.r2_object_key, base);
 const res = await fetch(url, {
   headers: { Range: 'bytes=0-1023' },
@@ -48,4 +68,9 @@ if (res.status === 503 && /Audio storage not connected/.test(text) &&
   }
 } else {
   fail('Unexpected route, missing Function, incorrect Range or media status: ' + text.replace(/\\s+/g, ' ').slice(0,160));
+}
+
+}
+for (const origin of [...new Set(origins.map(value => new URL(value).origin))]) {
+  await probe(origin);
 }
