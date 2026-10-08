@@ -181,6 +181,8 @@ jobs:
           DEPLOY_GATE_REF_NAME: ${{ github.ref_name }}
           DEPLOY_GATE_EVIDENCE: /tmp/deploy-safety-evidence.json
         run: node scripts/deploy-safety-gate.mjs
+      - name: Verify live Claude R2 media route without exposing bucket
+        run: node scripts/claude-live-media-probe.mjs
       - name: Upload deploy-safety evidence
         if: always()
         uses: actions/upload-artifact@v4
