@@ -157,4 +157,35 @@ await test('Private bucket remains unexposed and media is not mislabeled READY',
   assert.equal(manifest.media.provider, 'cloudflare_r2');
   assert.equal(pilot.hosting_status, 'SELF_HOSTED_HTML_MEDIA_PENDING');
 });
+await test('Advanced Pages Worker serves untouched static application via ASSETS', async () => {
+  const workerText = fs.readFileSync('_worker.js', 'utf8');
+  const oldImport = "from './functions/claude-library/2_음성/[[path]].js'";
+  const moduleUrl = 'data:text/javascript;base64,' + Buffer.from(source).toString('base64');
+  assert.ok(workerText.includes(oldImport));
+  const workerModuleUrl = 'data:text/javascript;base64,' + Buffer.from(workerText.replace(oldImport, "from '" + moduleUrl + "'")).toString('base64');
+  const worker = (await import(workerModuleUrl)).default;
+  let passedStatic = 0;
+  const env = { ASSETS: { async fetch(request) {
+    passedStatic++;
+    assert.equal(new URL(request.url).pathname, '/index.html');
+    return new Response('unchanged static app');
+  } } };
+  const response = await worker.fetch(new Request('https://preview.example/index.html'), env);
+  assert.equal(response.status, 200);
+  assert.equal(await response.text(), 'unchanged static app');
+  assert.equal(passedStatic, 1);
+});
+await test('Advanced Pages Worker dispatches the original MP4 URL to real R2 handler', async () => {
+  const workerText = fs.readFileSync('_worker.js', 'utf8');
+  const oldImport = "from './functions/claude-library/2_음성/[[path]].js'";
+  const moduleUrl = 'data:text/javascript;base64,' + Buffer.from(source).toString('base64');
+  const workerModuleUrl = 'data:text/javascript;base64,' + Buffer.from(workerText.replace(oldImport, "from '" + moduleUrl + "'")).toString('base64');
+  const worker = (await import(workerModuleUrl)).default;
+  const x = context({ range: 'bytes=7-10' });
+  x.ctx.request = new Request(new URL('/claude-library/' + key,'https://preview.example'),{headers:{Range:'bytes=7-10'}});
+  const res = await worker.fetch(x.ctx.request,x.ctx.env);
+  assert.equal(res.status,206);
+  assert.equal(res.headers.get('content-range'),'bytes 7-10/32');
+  assert.deepEqual([...new Uint8Array(await res.arrayBuffer())],[7,8,9,10]);
+});
 console.log('CLAUDE R2 PROXY QA | ' + tests + '/' + tests + ' PASS');
