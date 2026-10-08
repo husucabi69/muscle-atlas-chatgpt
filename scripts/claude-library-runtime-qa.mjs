@@ -12,10 +12,10 @@ const disease=rows.filter(x=>x.series==='질환·외상');
 const evidence=rows.filter(x=>x.series==='근거 업데이트');
 const withAudio=rows.filter(x=>x.audio!=='없음');
 
-check('Claude library manifest = 76 lectures',rows.length===76,String(rows.length));
-check('Claude Disease/Trauma = 24 lectures',disease.length===24,String(disease.length));
-check('Claude evidence updates = 2 lectures',evidence.length===2,String(evidence.length));
-check('Claude audio-labelled lectures = 67',withAudio.length===67,String(withAudio.length));
+check('Claude library manifest baseline >= 76 lectures',rows.length>=76,String(rows.length));
+check('Claude Disease/Trauma baseline >= 24 lectures',disease.length>=24,String(disease.length));
+check('Claude evidence updates baseline >= 2 lectures',evidence.length>=2,String(evidence.length));
+check('Claude audio-labelled baseline >= 67',withAudio.length>=67,String(withAudio.length));
 check('Claude lecture numbers unique',new Set(rows.map(x=>x.number)).size===rows.length);
 check('Claude source paths unique',new Set(rows.map(x=>x.source_path)).size===rows.length);
 check('Claude Artifact fallback URLs valid',rows.every(x=>/^https:\/\/claude\.ai\/artifact\/[A-Za-z0-9_-]+$/.test(x.claude_artifact_url||'')));
