@@ -1,0 +1,981 @@
+{
+  "schema_version": "2.0.0",
+  "snapshot_date": "2026-10-09",
+  "source_root": "정형외과 학술자료 / 09_전체백업_음성포함 / 1_강의페이지",
+  "source_root_drive_id": "1o6ulpD68sAZdtfnHo7k5tR3NEFVF_kig",
+  "legacy_sheet_id": "1U2a6punp1zt9V4vE-N4wUpL8ziivFbSpnmiWWggk-Z0",
+  "legacy_sheet_rows": 76,
+  "totals": {
+    "html_files": 83,
+    "new_lectures": 7,
+    "rehabilitation_lectures": 6,
+    "sports_medicine_lectures": 1
+  },
+  "folders": [
+    {
+      "name": "00_근육총람",
+      "drive_folder_id": "1vOI3yJp495qDOsEdfrOerDea9xFdegzL",
+      "html_files": 2
+    },
+    {
+      "name": "01_근육학",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "html_files": 11
+    },
+    {
+      "name": "02_이학적검진·연관통",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "html_files": 14
+    },
+    {
+      "name": "03_질환외상",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "html_files": 24
+    },
+    {
+      "name": "04_골종양·소아",
+      "drive_folder_id": "1PPJuKbezo4AAMULmrZPGP9iobMWzVp2z",
+      "html_files": 7
+    },
+    {
+      "name": "05_분류·문제은행",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "html_files": 9
+    },
+    {
+      "name": "06_증례·음성모음",
+      "drive_folder_id": "1TJcro_8QDGWzbJrcUHTEeHC_03frdd_0",
+      "html_files": 7
+    },
+    {
+      "name": "07_근거업데이트",
+      "drive_folder_id": "1SI7ZkI37CFtD2wQiWYrEK55TTChOhYMN",
+      "html_files": 2
+    },
+    {
+      "name": "08_재활·운동처방",
+      "drive_folder_id": "1IoBED0_g_RmX_AfYq5wnCPs8N2bzdS1v",
+      "html_files": 6
+    },
+    {
+      "name": "09_스포츠의학",
+      "drive_folder_id": "1FGbVOcO_hZ1R481xdsLEDkrR4Pi1AkEH",
+      "html_files": 1
+    }
+  ],
+  "lectures": [
+    {
+      "number": 1,
+      "series": "근육총람",
+      "name": "클로드_근육총람_대화형.html",
+      "source_path": "1_강의페이지/00_근육총람/클로드_근육총람_대화형.html",
+      "drive_file_id": "1cgUbi0AuQDaipXqDdFEoGYVC0FMWpkwv",
+      "drive_folder_id": "1vOI3yJp495qDOsEdfrOerDea9xFdegzL",
+      "bytes": 3194396,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 2,
+      "series": "근육총람",
+      "name": "클로드_근육총람_표지·목록.html",
+      "source_path": "1_강의페이지/00_근육총람/클로드_근육총람_표지·목록.html",
+      "drive_file_id": "1Fl3yOsYV8qR4V6sNGJfxduH405FI9eCG",
+      "drive_folder_id": "1vOI3yJp495qDOsEdfrOerDea9xFdegzL",
+      "bytes": 3195425,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 3,
+      "series": "근육학",
+      "name": "클로드_근육학_01권_어깨·견갑대.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_01권_어깨·견갑대.html",
+      "drive_file_id": "1jF-YfryO3C0DpYK0M9yZRR2TRAwwqjUq",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 1104600,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 4,
+      "series": "근육학",
+      "name": "클로드_근육학_02권_상박부.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_02권_상박부.html",
+      "drive_file_id": "1ZgJGNNt9OHWul1MWsgO85JZLrXCOYN_k",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 428041,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 5,
+      "series": "근육학",
+      "name": "클로드_근육학_03권_전완부.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_03권_전완부.html",
+      "drive_file_id": "1oQVoHopEQjzv-G0GvJPf1Dsqw_oyrL5R",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 813115,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 6,
+      "series": "근육학",
+      "name": "클로드_근육학_04권_손.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_04권_손.html",
+      "drive_file_id": "1IeyECcYQqq0IN8udtUvUTkZ2VYNNxveg",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 698999,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 7,
+      "series": "근육학",
+      "name": "클로드_근육학_05권_대퇴부.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_05권_대퇴부.html",
+      "drive_file_id": "1lVmvMJGMMvO7bYFglL1kO6mAVhUoyrag",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 1505385,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 8,
+      "series": "근육학",
+      "name": "클로드_근육학_06권_하퇴부.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_06권_하퇴부.html",
+      "drive_file_id": "13Uh_eRPHvmta2TvT8SwBK1_SD9D0DqIj",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 775557,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 9,
+      "series": "근육학",
+      "name": "클로드_근육학_07권_발목·발.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_07권_발목·발.html",
+      "drive_file_id": "1wCKwmUNatXx7Us8_hO9vP8Xcu5b0uVtg",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 1245235,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 10,
+      "series": "근육학",
+      "name": "클로드_근육학_08권_경추.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_08권_경추.html",
+      "drive_file_id": "1hKJNbP1K3qwvQZSOKSmZItEmDiRvO0BW",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 1464118,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 11,
+      "series": "근육학",
+      "name": "클로드_근육학_09권_흉추.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_09권_흉추.html",
+      "drive_file_id": "1cuvPTn44LCtfpUS3i5iVo8nDJ3tdnZjJ",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 1323007,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 12,
+      "series": "근육학",
+      "name": "클로드_근육학_10권_요추.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_10권_요추.html",
+      "drive_file_id": "1IoYY09AZ21kbZ9U-eTCKn-FQc-Fgsxfs",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 1174208,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 13,
+      "series": "근육학",
+      "name": "클로드_근육학_11권_골반.html",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_11권_골반.html",
+      "drive_file_id": "1959uMrXyDV2utIENDEAQaGY_fj218NW5",
+      "drive_folder_id": "1jareoxoHL_X5fG59EU7JgFmXvN6PWIQA",
+      "bytes": 1446878,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 14,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_연관통_부위별.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_연관통_부위별.html",
+      "drive_file_id": "13MuRZCgIkBOIeh_mfI0rDMfcbZCzFmUy",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 55272,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 15,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_01권_어깨.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_01권_어깨.html",
+      "drive_file_id": "1oXuqls-ZhoHlQszVgxOwVfMS3UNTb884",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 499368,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 16,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_02권_팔꿈치.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_02권_팔꿈치.html",
+      "drive_file_id": "1PdAo0osPw2V9L9Q5ATy6MA6cGhND9xhP",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 360609,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 17,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_03권_손목.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_03권_손목.html",
+      "drive_file_id": "1O_al214M-zsMPyzl1C5XA63cdCASVrO1",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 438936,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 18,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_04권_손·손가락.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_04권_손·손가락.html",
+      "drive_file_id": "1Ww6kFyZoYFDSBUsNQjSkVWWGRW4uKUA0",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 193996,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 19,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_05권_경추·상지_신경.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_05권_경추·상지_신경.html",
+      "drive_file_id": "1FGRqIjeU0RyRkSlecgLKa_nmoOELwr5r",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 263583,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 20,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_06권_흉추·흉곽·복부.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_06권_흉추·흉곽·복부.html",
+      "drive_file_id": "1z_daZzcZIGEQ8PzjSZe5AairJ_kZQ3Ij",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 52463,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 21,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_07권_요추·하지_신경.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_07권_요추·하지_신경.html",
+      "drive_file_id": "1WPIkRSQC5M0SPp4ur2kfK0qur7abaU1I",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 91244,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 22,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_08권_골반·천장관절.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_08권_골반·천장관절.html",
+      "drive_file_id": "1reifwebfnvhWV5fqPdXgfkkNitH87-rJ",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 72480,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 23,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_09권_고관절.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_09권_고관절.html",
+      "drive_file_id": "1_PIPZ_qnxqy7wXcNBh2qHLz5zNyaWSgl",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 64479,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 24,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_10권_무릎.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_10권_무릎.html",
+      "drive_file_id": "1n-6SUbQLF1aJynRDtd0OD_2S-rhHSrwz",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 60911,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 25,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_11권_발목.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_11권_발목.html",
+      "drive_file_id": "1Kith6EAVMv_nRyAhfpewL2lyDCu_tipR",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 52627,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 26,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_12권_발·발가락.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_12권_발·발가락.html",
+      "drive_file_id": "1rgxjOpcM47KIwfufhB8qS5oQ627ix_yW",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 56273,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 27,
+      "series": "이학적 검진·연관통",
+      "name": "클로드_이학적검진_13권_전신_종합.html",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_13권_전신_종합.html",
+      "drive_file_id": "1PqZPpY9-WS_Q6BwTmobPP1phX12X4H6v",
+      "drive_folder_id": "136qTTN00wlTsk6yqacOvD6KFuZrhkcE_",
+      "bytes": 50049,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 28,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_01권_어깨_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_01권_어깨_질환.html",
+      "drive_file_id": "1BAGe1B--TQGOSP3nGPPhqbNqbsxMuxyW",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 366718,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 29,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_02권_어깨_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_02권_어깨_외상.html",
+      "drive_file_id": "1CYm9rkKXZoTnjDp-wvKP5wLKahRgx8pN",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 604766,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 30,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_03권_팔꿈치_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_03권_팔꿈치_질환.html",
+      "drive_file_id": "1GuO7Qb0QKDAvw7dZq-P7s1p1LykkOfil",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 398461,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 31,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_04권_팔꿈치_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_04권_팔꿈치_외상.html",
+      "drive_file_id": "1CbzcjpZoqsDDsvvkGaIymamdwNyTtMIB",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 572548,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 32,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_05권_손목_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_05권_손목_질환.html",
+      "drive_file_id": "1uVBPghQ_NaH-O85OJKDFCvga9yiBJ9q8",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 508134,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 33,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_06권_손목_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_06권_손목_외상.html",
+      "drive_file_id": "1F2K5kYwODWaxrrZg6j7b_bp0U4_AmgNU",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 592896,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 34,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_07권_손_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_07권_손_질환.html",
+      "drive_file_id": "1HfGvAbrg1Udd1Tpc31U-MLHYy9r3tRGR",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 809743,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 35,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_08권_손_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_08권_손_외상.html",
+      "drive_file_id": "1HswuhoMYtwljeroWfDc_YkHIzPFHLgUL",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 666226,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 36,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_09권_경추_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_09권_경추_질환.html",
+      "drive_file_id": "1UU6G15KhLtRlg36ZmKHNdYUDpcY6c87o",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 423656,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 37,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_10권_경추_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_10권_경추_외상.html",
+      "drive_file_id": "1Aw1bu8--wxAZaIZUxI_qujuRYzJ0npa-",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 411323,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 38,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_11권_흉추_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_11권_흉추_질환.html",
+      "drive_file_id": "13Jj8F1NONQ7wcjvG5qYCFBMkWtH6tHB7",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 625777,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 39,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_12권_흉추_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_12권_흉추_외상.html",
+      "drive_file_id": "16AZJzPJfrdZntSQ8VDybxfYblDdT0jyc",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 320921,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 40,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_13권_요추_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_13권_요추_질환.html",
+      "drive_file_id": "1aMsfnUYEGwhoYC3Yj_9xh8CYFAV546Fh",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 273687,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 41,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_14권_요추_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_14권_요추_외상.html",
+      "drive_file_id": "1Cz92zU40N3XvOtSJh2n7F7ppnjwBJfjb",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 201507,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 42,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_15권_골반·천장관절_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_15권_골반·천장관절_질환.html",
+      "drive_file_id": "13QqaxJbS6xn4Q9ZwjaHDTkVCl8LJiGwM",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 211295,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 43,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_16권_골반·천장관절_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_16권_골반·천장관절_외상.html",
+      "drive_file_id": "1MLJAZqoqoytwoqly_HsEV9o1wJu0juIG",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 97864,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 44,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_17권_고관절_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_17권_고관절_질환.html",
+      "drive_file_id": "1xqX8K0GEeq48Cyu_CYYKVT5rkUorM8Ll",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 223777,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 45,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_18권_고관절_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_18권_고관절_외상.html",
+      "drive_file_id": "10ieAtvhSiLASNgseHwfDR1Cq3zM6j3AC",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 79917,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 46,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_19권_무릎_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_19권_무릎_질환.html",
+      "drive_file_id": "1bGBV9pdVpSqs50Gtj0YeOh0ZNj1NYqDU",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 188160,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 47,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_20권_무릎_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_20권_무릎_외상.html",
+      "drive_file_id": "1m3c99C9BZ25TynsAQRUXWUPOIfbvlvud",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 197392,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 48,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_21권_발목_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_21권_발목_질환.html",
+      "drive_file_id": "1OxcUwB108vs_PXIw7DWGPR2emtYEVHgs",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 141645,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 49,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_22권_발목_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_22권_발목_외상.html",
+      "drive_file_id": "1z3VWJDhFsXwfWYfNflF2Q5IGhEA4UHra",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 131973,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 50,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_23권_발_질환.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_23권_발_질환.html",
+      "drive_file_id": "1MUAOzoJ7lwiEm0AvS6W3trpyPICxC_EO",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 700236,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 51,
+      "series": "질환·외상",
+      "name": "클로드_질환외상_24권_발_외상.html",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_24권_발_외상.html",
+      "drive_file_id": "1uGP7TYDvVaOJlAhBjx-Adm-OBAqDQgmr",
+      "drive_folder_id": "1enXLeBTsKVbq_f8yQ0jWOG823EWVArYw",
+      "bytes": 781482,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 52,
+      "series": "골종양·소아",
+      "name": "클로드_골종양_01권_원칙·양성.html",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_01권_원칙·양성.html",
+      "drive_file_id": "1eNzD5k7HS0pF4vAm5FYbR0-TxNrvP-xL",
+      "drive_folder_id": "1PPJuKbezo4AAMULmrZPGP9iobMWzVp2z",
+      "bytes": 1366707,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 53,
+      "series": "골종양·소아",
+      "name": "클로드_골종양_02권_악성.html",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_02권_악성.html",
+      "drive_file_id": "1wdRFx1kbF8x2U3FlWIp5LJrrJXGeIkdt",
+      "drive_folder_id": "1PPJuKbezo4AAMULmrZPGP9iobMWzVp2z",
+      "bytes": 613639,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 54,
+      "series": "골종양·소아",
+      "name": "클로드_골종양_03권_연부조직_종양.html",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_03권_연부조직_종양.html",
+      "drive_file_id": "1E2-XASfpeiliasXt6vnqfhbjBXCgBL56",
+      "drive_folder_id": "1PPJuKbezo4AAMULmrZPGP9iobMWzVp2z",
+      "bytes": 131358,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 55,
+      "series": "골종양·소아",
+      "name": "클로드_소아_01권_신생아·영아.html",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_01권_신생아·영아.html",
+      "drive_file_id": "16xwwm3iikxZvv9NZXTcWQZq6WV1-YWxd",
+      "drive_folder_id": "1PPJuKbezo4AAMULmrZPGP9iobMWzVp2z",
+      "bytes": 287052,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 56,
+      "series": "골종양·소아",
+      "name": "클로드_소아_02권_고관절·하지_정렬.html",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_02권_고관절·하지_정렬.html",
+      "drive_file_id": "1noj_2mZR1JkMhbB9m7rXP9T3hFm7R0se",
+      "drive_folder_id": "1PPJuKbezo4AAMULmrZPGP9iobMWzVp2z",
+      "bytes": 416328,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 57,
+      "series": "골종양·소아",
+      "name": "클로드_소아_03권_골절·성장판·학대.html",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_03권_골절·성장판·학대.html",
+      "drive_file_id": "1BLyM4azw8oRKBQyBTx2yXmSnZzKgbNp6",
+      "drive_folder_id": "1PPJuKbezo4AAMULmrZPGP9iobMWzVp2z",
+      "bytes": 48313,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 58,
+      "series": "골종양·소아",
+      "name": "클로드_소아_04권_척추·신경근육·골계통.html",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_04권_척추·신경근육·골계통.html",
+      "drive_file_id": "1fGy1oUsw4WhQ9sCgjsAvu0xf8OxO1nup",
+      "drive_folder_id": "1PPJuKbezo4AAMULmrZPGP9iobMWzVp2z",
+      "bytes": 42190,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 59,
+      "series": "분류·문제은행",
+      "name": "클로드_문제은행_01권_상지_30문항.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_01권_상지_30문항.html",
+      "drive_file_id": "1vcsOYNsyZAkTEB92Rv9WD62Dhu8cl-RD",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 23542,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 60,
+      "series": "분류·문제은행",
+      "name": "클로드_문제은행_02권_하지_30문항.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_02권_하지_30문항.html",
+      "drive_file_id": "1-LznQrSDNYurxSLIMV2iw8LvXhTWFJya",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 22423,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 61,
+      "series": "분류·문제은행",
+      "name": "클로드_문제은행_03권_척추_30문항.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_03권_척추_30문항.html",
+      "drive_file_id": "1BT4REhEjOupLx5bF6jFsn6w8D97pm9g_",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 21534,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 62,
+      "series": "분류·문제은행",
+      "name": "클로드_문제은행_04권_종합_30문항.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_04권_종합_30문항.html",
+      "drive_file_id": "11kbH4cNvoPrMwV8rqEDsDioRvleGqGn_",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 21721,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 63,
+      "series": "분류·문제은행",
+      "name": "클로드_문제은행_05권_모의고사_160문항.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_05권_모의고사_160문항.html",
+      "drive_file_id": "1N1ybPpTDIL6JRXkqc2QS_xVXkTvRp_Mz",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 87335,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 64,
+      "series": "분류·문제은행",
+      "name": "클로드_분류_01권_상지_외상.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_01권_상지_외상.html",
+      "drive_file_id": "1H3BWJq0y5ZOSKNOjsJp78hBgjG-PGjuv",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 37043,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 65,
+      "series": "분류·문제은행",
+      "name": "클로드_분류_02권_하지_외상.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_02권_하지_외상.html",
+      "drive_file_id": "14W6LtbuHgjKEPR2tAoUBDxQ9olRlnEcw",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 38236,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 66,
+      "series": "분류·문제은행",
+      "name": "클로드_분류_03권_척추.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_03권_척추.html",
+      "drive_file_id": "1XNcWWVA_p6RKGFWO9zAMuOud8_caXNGT",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 36711,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 67,
+      "series": "분류·문제은행",
+      "name": "클로드_분류_04권_스포츠·관절·종양·소아.html",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_04권_스포츠·관절·종양·소아.html",
+      "drive_file_id": "103-Tza28XxGLE7lPryPooQCw9wZ1lDP0",
+      "drive_folder_id": "1MnkSiViTBzFBBOqtw2mdWikc3EDmAs-P",
+      "bytes": 33853,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 68,
+      "series": "증례·음성모음",
+      "name": "클로드_정형외과_강의_음성_모음.html",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_정형외과_강의_음성_모음.html",
+      "drive_file_id": "1YbXnUkoyBRIDCSZlPt-Dt5Dr8BOv0u7R",
+      "drive_folder_id": "1TJcro_8QDGWzbJrcUHTEeHC_03frdd_0",
+      "bytes": 32185,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 69,
+      "series": "증례·음성모음",
+      "name": "클로드_증례_01권_어깨.html",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_01권_어깨.html",
+      "drive_file_id": "1HX6NuU9BFrSgKA49Gqy7e6yS2p6DDbUg",
+      "drive_folder_id": "1TJcro_8QDGWzbJrcUHTEeHC_03frdd_0",
+      "bytes": 38897,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 70,
+      "series": "증례·음성모음",
+      "name": "클로드_증례_02권_팔꿈치·손목·손.html",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_02권_팔꿈치·손목·손.html",
+      "drive_file_id": "1o1DAOhA29wU6TG5Ut0quLlU9CwkV2YjD",
+      "drive_folder_id": "1TJcro_8QDGWzbJrcUHTEeHC_03frdd_0",
+      "bytes": 36852,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 71,
+      "series": "증례·음성모음",
+      "name": "클로드_증례_03권_목과_허리.html",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_03권_목과_허리.html",
+      "drive_file_id": "1DrnHrdU5pxJdz0i6Zd8tByhugYIGWrvj",
+      "drive_folder_id": "1TJcro_8QDGWzbJrcUHTEeHC_03frdd_0",
+      "bytes": 37067,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 72,
+      "series": "증례·음성모음",
+      "name": "클로드_증례_04권_고관절·무릎.html",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_04권_고관절·무릎.html",
+      "drive_file_id": "1ixkHcswZavdIBn9znN0whz2OypbRdTCd",
+      "drive_folder_id": "1TJcro_8QDGWzbJrcUHTEeHC_03frdd_0",
+      "bytes": 37281,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 73,
+      "series": "증례·음성모음",
+      "name": "클로드_증례_05권_발목·발·소아·종양.html",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_05권_발목·발·소아·종양.html",
+      "drive_file_id": "1q77CW8e1lVxl5h1VwygfjQB6Kh2MHVH9",
+      "drive_folder_id": "1TJcro_8QDGWzbJrcUHTEeHC_03frdd_0",
+      "bytes": 38315,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 74,
+      "series": "증례·음성모음",
+      "name": "클로드_증례_구술시험장.html",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_구술시험장.html",
+      "drive_file_id": "1l9-Cu_j2bJIZDxloA9mMwC7--_wEBPiU",
+      "drive_folder_id": "1TJcro_8QDGWzbJrcUHTEeHC_03frdd_0",
+      "bytes": 73605,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 75,
+      "series": "근거 업데이트",
+      "name": "클로드_근거업데이트_01권_2025-2026.html",
+      "source_path": "1_강의페이지/07_근거업데이트/클로드_근거업데이트_01권_2025-2026.html",
+      "drive_file_id": "1mJAj6-Q_Xa0y3n2sUWOQCj7Xe2c4HGxg",
+      "drive_folder_id": "1SI7ZkI37CFtD2wQiWYrEK55TTChOhYMN",
+      "bytes": 39422,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 76,
+      "series": "근거 업데이트",
+      "name": "클로드_근거업데이트_02권_전문학술지.html",
+      "source_path": "1_강의페이지/07_근거업데이트/클로드_근거업데이트_02권_전문학술지.html",
+      "drive_file_id": "19ozE5_H7ndrUHQwGaAdKa8HYtVdxkoZn",
+      "drive_folder_id": "1SI7ZkI37CFtD2wQiWYrEK55TTChOhYMN",
+      "bytes": 38224,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 77,
+      "series": "재활·운동처방",
+      "name": "클로드_재활운동처방_01권_원칙과_처방_기초.html",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_01권_원칙과_처방_기초.html",
+      "drive_file_id": "1wrvJHTIOM1dbGk29gWmiNMdafRfsgC7_",
+      "drive_folder_id": "1IoBED0_g_RmX_AfYq5wnCPs8N2bzdS1v",
+      "bytes": 55909,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 78,
+      "series": "재활·운동처방",
+      "name": "클로드_재활운동처방_02권_어깨.html",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_02권_어깨.html",
+      "drive_file_id": "13IASFEfGCIVtTbcercz8tDxR2rgSIuIe",
+      "drive_folder_id": "1IoBED0_g_RmX_AfYq5wnCPs8N2bzdS1v",
+      "bytes": 48539,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 79,
+      "series": "재활·운동처방",
+      "name": "클로드_재활운동처방_03권_척추.html",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_03권_척추.html",
+      "drive_file_id": "1qGojcjfMBXRGgPgX10oHZg0gzXecDAEZ",
+      "drive_folder_id": "1IoBED0_g_RmX_AfYq5wnCPs8N2bzdS1v",
+      "bytes": 41633,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 80,
+      "series": "재활·운동처방",
+      "name": "클로드_재활운동처방_04권_고관절·무릎.html",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_04권_고관절·무릎.html",
+      "drive_file_id": "1JtmJ95W_0pBGomW9_7fSsFIrxZpt0MH4",
+      "drive_folder_id": "1IoBED0_g_RmX_AfYq5wnCPs8N2bzdS1v",
+      "bytes": 41668,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 81,
+      "series": "재활·운동처방",
+      "name": "클로드_재활운동처방_05권_발목·발.html",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_05권_발목·발.html",
+      "drive_file_id": "1wNOufa_RUhlr0OytwvLfLlIX-JIkz4RI",
+      "drive_folder_id": "1IoBED0_g_RmX_AfYq5wnCPs8N2bzdS1v",
+      "bytes": 42402,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 82,
+      "series": "재활·운동처방",
+      "name": "클로드_재활운동처방_06권_팔꿈치·손목·손과_수술후재활.html",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_06권_팔꿈치·손목·손과_수술후재활.html",
+      "drive_file_id": "1KoDgs9uReFDKe4jR5imBpTcE7SKLjCJL",
+      "drive_folder_id": "1IoBED0_g_RmX_AfYq5wnCPs8N2bzdS1v",
+      "bytes": 43816,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 83,
+      "series": "스포츠의학",
+      "name": "클로드_스포츠의학_01권_예방·부하·복귀의_원칙.html",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_01권_예방·부하·복귀의_원칙.html",
+      "drive_file_id": "16fPNwt9JPigk1_RFELsvYoMAKZXSBOrr",
+      "drive_folder_id": "1FGbVOcO_hZ1R481xdsLEDkrR4Pi1AkEH",
+      "bytes": 35580,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    }
+  ]
+}

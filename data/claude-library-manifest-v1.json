@@ -4,7 +4,10 @@
     "type": "google_sheet",
     "spreadsheet_id": "1U2a6punp1zt9V4vE-N4wUpL8ziivFbSpnmiWWggk-Z0",
     "sheet": "Untitled",
-    "last_synced": "2026-10-08"
+    "last_synced": "2026-10-09",
+    "current_drive_inventory": "data/claude-drive-inventory-v2.json",
+    "current_drive_html_root_id": "1o6ulpD68sAZdtfnHo7k5tR3NEFVF_kig",
+    "legacy_sheet_coverage": 76
   },
   "runtime_policy": {
     "html": "SELF_HOSTED_ORIGINAL_BYTE_PRESERVING",
@@ -13,11 +16,11 @@
     "native_summary_ui": "DEPRECATED_USER_FACING",
     "expansion": "ADD_OR_UPDATE_DRIVE_HTML_MP4_AND_MANIFEST_SYNC",
     "drive": "SOURCE_OF_TRUTH_NOT_RUNTIME_DEPENDENCY",
-    "update_flow": "DRIVE_SOURCE_CHANGE -> SYNC_ORIGINAL_HTML_MEDIA -> MANIFEST_STATUS -> QA -> PREVIEW"
+    "update_flow": "DRIVE_FOLDER_SNAPSHOT -> VERBATIM_HTML_MP4_SYNC -> MANIFEST_QA -> PREVIEW"
   },
   "counts": {
-    "lectures": 76,
-    "with_audio": 67
+    "lectures": 83,
+    "with_audio": 74
   },
   "lectures": [
     {
@@ -752,6 +755,104 @@
       "claude_artifact_url": "https://claude.ai/artifact/RM7J53dy3WiQjtsUcfNAUX",
       "audio": "있음",
       "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 77,
+      "series": "재활·운동처방",
+      "title": "재활·운동처방 01권 원칙과 처방 기초",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_01권_원칙과_처방_기초.html",
+      "claude_artifact_url": "https://claude.ai/artifact/R2Nv5CbUfAxS5BbUhXSokf",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1wrvJHTIOM1dbGk29gWmiNMdafRfsgC7_",
+      "source_bytes": 55909,
+      "source_sha256": "47afa02a9ef757435dca959ae4543ab598ed1973602391b25195d5d8f036d503",
+      "r2_object_key": "2_음성/08_재활·운동처방/클로드_재활운동처방_01권_원칙과_처방_기초.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 78,
+      "series": "재활·운동처방",
+      "title": "재활·운동처방 02권 어깨",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_02권_어깨.html",
+      "claude_artifact_url": "https://claude.ai/artifact/DJpnHRjMvYPEJk36Efeo8N",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "13IASFEfGCIVtTbcercz8tDxR2rgSIuIe",
+      "source_bytes": 48539,
+      "source_sha256": "184dc1ab95455f8eb45e6781831f762113abb89da034ec0cbb7151d87a45737b",
+      "r2_object_key": "2_음성/08_재활·운동처방/클로드_재활운동처방_02권_어깨.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 79,
+      "series": "재활·운동처방",
+      "title": "재활·운동처방 03권 척추",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_03권_척추.html",
+      "claude_artifact_url": "https://claude.ai/artifact/7PvtvwuXMDHgVi922qqeSb",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1qGojcjfMBXRGgPgX10oHZg0gzXecDAEZ",
+      "source_bytes": 41633,
+      "source_sha256": "be3ee6db3e6e24247496ba171e0f657f990c86fe1d27f3b02cc4dc2e58b991b7",
+      "r2_object_key": "2_음성/08_재활·운동처방/클로드_재활운동처방_03권_척추.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 80,
+      "series": "재활·운동처방",
+      "title": "재활·운동처방 04권 고관절·무릎",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_04권_고관절·무릎.html",
+      "claude_artifact_url": "https://claude.ai/artifact/LhefzwL5ysi44KS2ru2m4U",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1JtmJ95W_0pBGomW9_7fSsFIrxZpt0MH4",
+      "source_bytes": 41668,
+      "source_sha256": "f1d87ecb1116bb153abe52424d085ea58c1afac6b8dcd9d1bbf8f4fb63091591",
+      "r2_object_key": "2_음성/08_재활·운동처방/클로드_재활운동처방_04권_고관절·무릎.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 81,
+      "series": "재활·운동처방",
+      "title": "재활·운동처방 05권 발목·발",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_05권_발목·발.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Dt5D5FS3KfcyjtWWJZ9dZd",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1wNOufa_RUhlr0OytwvLfLlIX-JIkz4RI",
+      "source_bytes": 42402,
+      "source_sha256": "2111e78945e7342d60718fd45a445631b36dea2f09bbbec38e1aaf48e8cd462a",
+      "r2_object_key": "2_음성/08_재활·운동처방/클로드_재활운동처방_05권_발목·발.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 82,
+      "series": "재활·운동처방",
+      "title": "재활·운동처방 06권 팔꿈치·손목·손·수술 후",
+      "source_path": "1_강의페이지/08_재활·운동처방/클로드_재활운동처방_06권_팔꿈치·손목·손과_수술후재활.html",
+      "claude_artifact_url": "https://claude.ai/artifact/4peJCMugpA3UeNrzUqFmZw",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1KoDgs9uReFDKe4jR5imBpTcE7SKLjCJL",
+      "source_bytes": 43816,
+      "source_sha256": "9a4c9e3f2c51d6ea25ee4711e1785981d161144e9da42cadc844b3e8033a584d",
+      "r2_object_key": "2_음성/08_재활·운동처방/클로드_재활운동처방_06권_팔꿈치·손목·손과_수술후재활.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 83,
+      "series": "스포츠의학",
+      "title": "스포츠의학 01권 예방·부하·복귀의 원칙",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_01권_예방·부하·복귀의_원칙.html",
+      "claude_artifact_url": "https://claude.ai/artifact/H9uja5sbELLqf5shMExTep",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "16fPNwt9JPigk1_RFELsvYoMAKZXSBOrr",
+      "source_bytes": 35580,
+      "source_sha256": "144d62513a4698cbd2d6e412d5aad6c7dd5f0c1ef8eb9c7dae3b4250232788e0",
+      "r2_object_key": "2_음성/09_스포츠의학/클로드_스포츠의학_01권_예방·부하·복귀의_원칙.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     }
   ],
   "media": {
