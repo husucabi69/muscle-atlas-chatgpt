@@ -220,7 +220,7 @@ button,input{font:inherit} button{cursor:pointer}
       <button class="tab" data-page="symptoms">증상으로 찾기</button>
       <button class="tab" data-page="regions">해부학 부위</button>
       <button class="tab" data-page="clinical">임상 모듈</button>
-      <button class="tab" data-page="diseaseTrauma">질환·외상</button>
+      <button class="tab" data-page="diseaseTrauma">학술 강의실</button>
       <button class="tab" data-page="ultrasound">초음파</button>
       <button class="tab" data-page="quiz">퀴즈</button>
       <button class="tab" data-page="learning">내 학습</button>
@@ -396,8 +396,12 @@ button,input{font:inherit} button{cursor:pointer}
 
 <section id="diseaseTrauma" class="page">
   <div id="diseaseTraumaRootView" class="drill-screen" data-drill-group="diseaseTrauma" data-drill-view="root">
-    <div class="section-title"><h3>질환·외상</h3><span>Claude 원본 강의 24권</span></div>
-    <div class="card" style="margin-bottom:16px"><h3>Claude Original Classroom</h3><p>요약·재작성 화면이 아니라 Claude가 만든 원본 HTML을 그대로 실행합니다. 원본 그림·표·목차·재생 UI를 보존하고 음성은 대용량 미디어 저장소로 분리해 연결합니다.</p></div>
+    <div class="section-title"><h3>Claude 정형외과 학술 강의실</h3><span id="claudeAcademicTotalCount">원본 강의 목록 확인 중</span></div>
+    <div class="card" style="margin-bottom:16px"><h3>Claude Original Classroom</h3><p>Claude가 만든 전문 학술자료 원본을 그대로 엽니다. 본문·표·그림·목차·재생 버튼을 요약하거나 바꿔 그리지 않습니다. 음성파일은 별도로 연결하며 미확인 자료는 재생 완료로 표시하지 않습니다.</p></div>
+    <div class="note"><b>1단계 · 학술 분야 선택</b><br>근육학·이학적 검사·질환·외상·골종양·소아정형외과·재활·스포츠의학을 포함한 강의실입니다. 분야를 누르면 해당 강의 목록이 펼쳐집니다.</div>
+    <div id="claudeAcademicCategoryChooser" class="region-chooser" style="margin-top:16px" aria-label="Claude 학술 분야"></div>
+    <div id="claudeAcademicCourseList" class="region-chooser" style="margin:14px 0 18px" aria-label="선택 학술 분야 강의"></div>
+    <div class="section-title" style="margin-top:24px"><h3>질환·외상 24권</h3><span>기존 Claude 원본 강의 목록</span></div>
     <div id="diseaseTraumaMigrationNote" class="note">Claude 원본 강의 목록을 불러오는 중입니다.</div>
     <div id="diseaseTraumaVolumeChooser" class="region-chooser" style="margin-top:18px"></div>
     <div class="section-title" style="margin-top:22px"><h3>최신 학술자료</h3><span>Claude 근거 업데이트</span></div>
@@ -405,7 +409,7 @@ button,input{font:inherit} button{cursor:pointer}
   </div>
   <div id="diseaseTraumaOriginalView" class="drill-screen" data-drill-group="diseaseTrauma" data-drill-view="original" hidden>
     <div class="anatomy-nav claude-original-toolbar">
-      <button class="region-back" type="button" onclick="showDiseaseTraumaRoot()">← 질환·외상 24권</button>
+      <button class="region-back" type="button" onclick="showDiseaseTraumaRoot()">← 학술 강의실 전체</button>
       <a id="diseaseTraumaClaudeFallback" class="pill" target="_blank" rel="noopener">Claude 원본 ↗</a>
       <span class="crumb" id="diseaseTraumaOriginalBreadcrumb"></span>
     </div>
@@ -5509,10 +5513,56 @@ function setDiseaseTraumaView(v){return setDrillView('diseaseTrauma',v)}
 function diseaseTraumaLectures(){return(claudeLibraryManifest?.lectures||[]).filter(x=>x.series==='질환·외상')}
 function claudeEvidenceLectures(){return(claudeLibraryManifest?.lectures||[]).filter(x=>x.series==='근거 업데이트')}
 function claudeSelfHostedUrl(item){return './claude-library/'+item.source_path}
+
+const claudeAcademicCategories=[
+ {label:'근육학',matches:x=>x.series==='근육총람'||x.series==='근육학'},
+ {label:'이학적 검사·연관통',matches:x=>x.series==='이학적 검진·연관통'},
+ {label:'질환·외상',matches:x=>x.series==='질환·외상'},
+ {label:'골종양',matches:x=>x.series==='골종양·소아'&&x.title.startsWith('골종양')},
+ {label:'소아정형외과',matches:x=>x.series==='골종양·소아'&&x.title.startsWith('소아')},
+ {label:'재활·운동처방',matches:x=>x.series==='재활·운동처방'},
+ {label:'스포츠의학',matches:x=>x.series==='스포츠의학'},
+ {label:'분류·문제은행',matches:x=>x.series==='분류·문제은행'},
+ {label:'증례·구술시험',matches:x=>x.series==='증례·음성모음'},
+ {label:'근거 업데이트',matches:x=>x.series==='근거 업데이트'}
+];
+let selectedClaudeAcademicCategoryIndex=6;
+function claudeAcademicRows(index){
+ const def=claudeAcademicCategories[index];
+ return def?(claudeLibraryManifest?.lectures||[]).filter(def.matches):[];
+}
+function renderClaudeAcademicCategories(){
+ const categories=document.getElementById('claudeAcademicCategoryChooser');
+ const list=document.getElementById('claudeAcademicCourseList');
+ const total=document.getElementById('claudeAcademicTotalCount');
+ if(!categories||!list||!total)return;
+ const rows=claudeLibraryManifest?.lectures||[];
+ if(!rows.length){total.textContent='원본 강의 목록을 불러오는 중';categories.innerHTML='';list.innerHTML='';return}
+ if(selectedClaudeAcademicCategoryIndex>=claudeAcademicCategories.length)selectedClaudeAcademicCategoryIndex=0;
+ total.textContent=rows.length+'개 원본 강의 · '+claudeAcademicCategories.length+'개 분야';
+ categories.innerHTML=claudeAcademicCategories.map((def,index)=>{
+   const count=claudeAcademicRows(index).length,selected=index===selectedClaudeAcademicCategoryIndex;
+   return '<button type="button" class="region-choice" data-claude-academic-category="'+index+'" aria-pressed="'+(selected?'true':'false')+'" onclick="showClaudeAcademicCategory('+index+')"><span><b>'+esc(def.label)+'</b><br><small>원본 강의 '+count+'개</small></span><span class="arrow">'+(selected?'✓':'›')+'</span></button>'
+ }).join('');
+ const current=claudeAcademicCategories[selectedClaudeAcademicCategoryIndex],items=claudeAcademicRows(selectedClaudeAcademicCategoryIndex);
+ list.innerHTML='<div class="note"><b>2단계 · '+esc(current.label)+' ('+items.length+'강)</b><br>강의를 선택하면 원본을 엽니다. 파일 이식 전 자료는 Claude 원본 링크로 연결됩니다.</div>'+
+ items.map(item=>{
+  const local=String(item.hosting_status||'').startsWith('SELF_HOSTED_');
+  return '<button type="button" class="region-choice" data-claude-academic-lecture="'+item.number+'" onclick="openClaudeOriginalLecture('+item.number+')"><span><b>'+esc(item.title)+'</b><br><small>Claude 원본 HTML · 음성 '+(item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'재생 확인':local?'연결 대기':esc(item.audio))+'</small><br><span class="claude-hosting-badge '+(local?'local':'pending')+'">'+(local?'우리 서버 원본':'Claude 원본 링크')+'</span></span><span class="arrow">›</span></button>';
+ }).join('');
+}
+function showClaudeAcademicCategory(index){
+ const v=Number(index);
+ if(!Number.isInteger(v)||v<0||v>=claudeAcademicCategories.length)return;
+ selectedClaudeAcademicCategoryIndex=v;
+ renderClaudeAcademicCategories();
+}
+
 function renderDiseaseTraumaRoot(){
  const chooser=document.getElementById('diseaseTraumaVolumeChooser'),note=document.getElementById('diseaseTraumaMigrationNote'),evidence=document.getElementById('diseaseTraumaEvidenceChooser');
  if(!chooser||!note||!evidence)return;
  if(!claudeLibraryManifest){note.innerHTML='<b>Claude 원본 manifest를 불러오는 중입니다.</b>';chooser.innerHTML='';evidence.innerHTML='';return}
+ renderClaudeAcademicCategories();
  const rows=diseaseTraumaLectures(),local=rows.filter(x=>x.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'||x.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING').length;
  note.innerHTML='<b>'+rows.length+'권 Claude 원본 등록 · '+local+'권 자체호스팅 파일럿</b><br>사용자 화면에서는 단순화 native 요약을 사용하지 않습니다. 자체호스팅 전 강의는 Claude Artifact를 임시 fallback으로 열고, Drive 원본 동기화 후 동일 화면을 우리 서버에서 실행합니다.';
  chooser.innerHTML=rows.map(item=>{const local=item.hosting_status?.startsWith('SELF_HOSTED');const no=item.number-27;return '<button type="button" class="region-choice" data-claude-lecture="'+item.number+'" onclick="openClaudeOriginalLecture('+item.number+')"><span><b>'+String(no).padStart(2,'0')+' · '+esc(item.title.replace(/^질환외상\s*\d+권\s*/,''))+'</b><br><small>Claude 원본 HTML · '+esc(item.audio)+'</small><br><span class="claude-hosting-badge '+(local?'local':'pending')+'">'+(local?'우리 서버 원본':'Claude 원본 fallback')+'</span></span><span class="arrow">›</span></button>'}).join('');
