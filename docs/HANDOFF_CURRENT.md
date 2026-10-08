@@ -1,5 +1,18 @@
 # CURRENT HANDOFF — 2026-10-08 Claude Original Classroom active · EXAM-REAL preserved
 
+## CURRENT OVERRIDE — 2026-10-09 Claude Original 6-volume source sync
+
+- Active workline remains **CLAUDE_ORIGINAL_CLASSROOM**, Preview branch `preview/development`, Production `main` frozen.
+- 2026-10-09 manual session started 00:40:39 KST. Previous exact HEAD `5e197c25e25dfec610014944cdb4fd6dcf9519d8` and Global QA #1534 SUCCESS were verified before work. No overnight branch drift was found at start.
+- New source-locked original HTML volumes **29 Shoulder Trauma, 30 Elbow Disease, 31 Elbow Trauma, 32 Wrist Disease, 33 Wrist Trauma** added from the user's Google Drive. Original 28 Shoulder Disease is unchanged. Now **6/24 Disease/Trauma original HTML** self-hosted; all six continue **MEDIA_PENDING**.
+- Exact source Drive IDs, bytes and SHA-256 are locked in `docs/CLAUDE_ORIGINAL_CLASSROOM_SYNC.md` and `data/claude-library-manifest-v1.json`; GitHub blob SHA matched independently for volume 29–33. No source original was summarized, redrawn or rewritten.
+- `scripts/claude-library-runtime-qa.mjs` validates each self-hosted HTML byte count, SHA-256, original Artifact fallback and original relative `2_음성` MP4 path, plus immutable six-volume source identity. New `scripts/runtime-navigation-e2e.mjs` clicks six original volumes and checks iframe contents, audio-pending message, media route and browser back.
+- `scripts/sync-claude-original-html.mjs` provides an exact-source ingestion tool (dry run by default, explicit `--write`), with `scripts/claude-original-sync-qa.mjs` covering six source round trips and fail-close on wrong filename, source drift, and Drive ID mismatch. This prepares further Drive-derived expansion without hand-coding each lecture screen.
+- Current new Preview display version `v12.15 · Claude Original Six Volumes`, build `2026.10.09-stage23.87`, cache `20261009-stage23-87`.
+- **Not done:** R2 private bucket binding, MP4 pilot upload and real audio player validation. Lecture 28 has known MP4 identity. Lectures 29–33 have `audio_source_verification=DRIVE_MP4_IDENTITY_PENDING`. They MUST NOT be called audio-ready, even though original playback buttons exist in HTML.
+- Next first step: recheck exact latest HEAD/Global QA/Playwright/Deploy Safety and Cloudflare Preview, then restore authenticated Cloudflare R2 write/binding session for MP4 pilot. Do not run TinyFish without new preapproval of purpose/steps/cost. Original next HTML volume = lecture 34 / Hand Disease, but keep media rollout blocker visible.
+- USER APPROVED ct085 / ct086 pending structured candidate / ct088 Hoffmann deferred are untouched. Do not change `main` without explicit approval.
+
 ## CURRENT LIVE INCIDENT — 2026-10-08 Cloudflare MP4 routing
 
 - Additional **real live HTTP** probe, not only mock QA, found Cloudflare Preview served HTTP 200 root app HTML at original MP4 URL. This is a RELEASE BLOCKER even though Global QA, local E2E and the preexisting 32/32 deploy checks passed.
