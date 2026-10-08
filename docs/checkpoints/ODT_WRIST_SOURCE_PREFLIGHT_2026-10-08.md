@@ -113,3 +113,31 @@ Do not alias these fractures to an unrelated existing diagnosis concept just to 
 1. use valid examination/ultrasound cross-links where clinically applicable;
 2. leave diagnosis link absent when no matching Stable ID exists;
 3. if a dedicated diagnosis concept is later required, add it through the canonical diagnosis registry workflow and global integrity gate first.
+
+## Selective evidence-refresh preflight
+
+These are **preflight sources for the next migration**, not yet proof that odt005/006 is canonical-reviewed.
+
+- Carpal tunnel syndrome — AAOS CPG, published 2024:
+  - corticosteroid injection may improve symptoms short-term but does not provide long-term improvement;
+  - PRP injection does not provide long-term benefit;
+  - mini-open and endoscopic release have similar patient-reported outcomes.
+  - source: AAOS Management of Carpal Tunnel Syndrome CPG (2024).
+
+- De Quervain tenosynovitis — 2024 systematic review/meta-analysis, PMID 38642740:
+  - corticosteroid injection had higher treatment success than immobilization;
+  - injection + immobilization outperformed either alone in pooled results.
+  - migration rule: do not convert this into an unconditional procedure mandate; preserve patient context and technique/anatomic variation.
+
+- Distal radius fracture in older adults — 2024 RCT meta-analyses, PMID 39593102 and PMID 39619453:
+  - volar locking plate improves radiographic alignment and may improve some scores;
+  - pooled patient-reported differences at 12 months did not clearly reach clinically important thresholds in one review, and ≥2-year review did not show a clear long-term clinical advantage.
+  - migration rule: do not equate better X-ray alignment with automatic long-term clinical superiority.
+
+- Acute minimally displaced scaphoid waist fracture — 2026 systematic review/meta-analysis, PMID 42226878:
+  - early fixation reduced relative nonunion risk, but cast treatment still achieved high absolute union and long-term patient-reported function was not clearly better with surgery.
+  - migration rule: preserve displacement/instability/patient-demand context; do not state routine surgery for every nondisplaced/minimally displaced fracture.
+
+- Pediatric distal-radius torus fracture — FORCE equivalence RCT, Lancet 2022, PMID 35780790:
+  - soft bandage/immediate discharge strategy was tested against rigid immobilization/follow-up in children 4–15 years.
+  - migration rule: distinguish true torus/buckle injury from other pediatric physeal/metaphyseal fractures before applying minimalist immobilization pathways.
