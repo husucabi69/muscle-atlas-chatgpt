@@ -5539,7 +5539,7 @@ function openClaudeOriginalLecture(number,record=true){
  const status=document.getElementById('diseaseTraumaOriginalStatus');
  const frame=document.getElementById('diseaseTraumaOriginalFrame');
  if(local){
-   status.innerHTML='<b>Claude 원본 HTML 자체호스팅</b><br>화면·그림·목차·재생 UI는 원본 그대로입니다. 음성 미디어는 R2 연결 상태를 manifest에서 관리합니다.';
+   status.innerHTML='<b>Claude 원본 HTML 자체호스팅</b><br>원본 화면·그림·목차·재생 UI를 보존합니다.<br>'+(item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'<b>음성 재생 검증 완료</b>':'<b>음성 연결 대기:</b> 원본 MP4가 아직 우리 서버에 준비되지 않아 재생 버튼은 작동하지 않습니다. 원본 HTML과 그림은 지금 열람할 수 있습니다.');
    frame.src=claudeSelfHostedUrl(item);
  }else{
    window.open(item.claude_artifact_url,'_blank','noopener');
