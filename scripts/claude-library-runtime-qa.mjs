@@ -41,7 +41,7 @@ check('Pilot audio is fail-closed pending R2',pilot?.hosting_status==='SELF_HOST
 // All currently self-hosted originals (and all future synced originals) must
 // preserve exact source bytes and the original audio/player relative URLs.
 const hosted=rows.filter(x=>String(x.hosting_status||'').startsWith('SELF_HOSTED_'));
-check('Self-hosted Claude original count >= 2',hosted.length>=2,String(hosted.length));
+check('Self-hosted Claude original count >= 3',hosted.length>=3,String(hosted.length));
 check('Lecture hosting statuses are known',rows.every(x=>['SOURCE_VERIFIED_SYNC_PENDING','SELF_HOSTED_HTML_MEDIA_PENDING','SELF_HOSTED_HTML_MEDIA_READY'].includes(x.hosting_status)));
 for(const row of hosted){
   const label='Claude original '+row.number;
@@ -69,6 +69,11 @@ check('Shoulder Trauma exact source lock',trauma?.source_drive_file_id==='1_LgGC
   trauma?.source_bytes===604766&&trauma?.source_sha256==='e8b5b8dce8a1ebfb7c02cf62495515787f10597e83fd5c2ac28747ec6488d4b1');
 check('Shoulder Trauma MP4 source not falsely verified',trauma?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
   trauma?.audio_source_verification==='DRIVE_MP4_IDENTITY_PENDING'&&!trauma.audio_sha256&&!trauma.audio_bytes);
+const elbow=rows.find(x=>x.number===30);
+check('Elbow Disease exact source lock',elbow?.source_drive_file_id==='1RPvoJe6Mga8OslVutO7CU1BWR8xr2xvM'&&
+  elbow?.source_bytes===398461&&elbow?.source_sha256==='b36ffb364a763f25d5055be3bfb211029183637dfc0bc904204fd1b50a86164d');
+check('Elbow Disease MP4 source not falsely verified',elbow?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
+  elbow?.audio_source_verification==='DRIVE_MP4_IDENTITY_PENDING'&&!elbow.audio_sha256&&!elbow.audio_bytes);
 check('No Cloudflare R2 object keys collide',new Set(rows.filter(x=>x.r2_object_key).map(x=>x.r2_object_key)).size===rows.filter(x=>x.r2_object_key).length);
 
 console.log(`SUMMARY | ${passes.length}/${passes.length+failures.length} PASS`);
