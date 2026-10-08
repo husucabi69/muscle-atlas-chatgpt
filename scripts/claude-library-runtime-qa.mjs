@@ -95,6 +95,33 @@ for(const [number,driveId,size,digest] of lockedAudio){
  check('Claude lecture '+number+' audio still NOT ready on R2',row?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
    manifest.media?.status==='R2_WRITE_PATH_PENDING');
 }
+// 2026-10-09 refreshed Drive inventory: 76 prior + 6 rehabilitation + 1 sports.
+const inventory=json('data/claude-drive-inventory-v2.json');
+check('Fresh Claude Drive inventory has exactly 83 original HTML courses',inventory.lectures?.length===83&&rows.length===83);
+check('Fresh Drive inventory represents 10 source HTML folders',inventory.folders?.length===10);
+check('New rehabilitation 6 and sports medicine 1 registered',rows.filter(x=>x.series==='재활·운동처방').length===6&&rows.filter(x=>x.series==='스포츠의학').length===1);
+check('Drive inventory and app manifest agree on every path/number',
+ inventory.lectures?.length===rows.length&&inventory.lectures.every(i=>{
+  const row=rows.find(x=>x.number===i.number);
+  return row?.source_path===i.source_path&&row?.series===i.series;
+ }));
+check('Every Drive inventory ID unique',new Set(inventory.lectures.map(x=>x.drive_file_id)).size===83);
+const newExactSources=[
+ [77,'1wrvJHTIOM1dbGk29gWmiNMdafRfsgC7_',55909,'47afa02a9ef757435dca959ae4543ab598ed1973602391b25195d5d8f036d503'],
+ [78,'13IASFEfGCIVtTbcercz8tDxR2rgSIuIe',48539,'184dc1ab95455f8eb45e6781831f762113abb89da034ec0cbb7151d87a45737b'],
+ [79,'1qGojcjfMBXRGgPgX10oHZg0gzXecDAEZ',41633,'be3ee6db3e6e24247496ba171e0f657f990c86fe1d27f3b02cc4dc2e58b991b7'],
+ [80,'1JtmJ95W_0pBGomW9_7fSsFIrxZpt0MH4',41668,'f1d87ecb1116bb153abe52424d085ea58c1afac6b8dcd9d1bbf8f4fb63091591'],
+ [81,'1wNOufa_RUhlr0OytwvLfLlIX-JIkz4RI',42402,'2111e78945e7342d60718fd45a445631b36dea2f09bbbec38e1aaf48e8cd462a'],
+ [82,'1KoDgs9uReFDKe4jR5imBpTcE7SKLjCJL',43816,'9a4c9e3f2c51d6ea25ee4711e1785981d161144e9da42cadc844b3e8033a584d'],
+ [83,'16fPNwt9JPigk1_RFELsvYoMAKZXSBOrr',35580,'144d62513a4698cbd2d6e412d5aad6c7dd5f0c1ef8eb9c7dae3b4250232788e0']
+];
+for(const [n,id,bytes,digest] of newExactSources){
+ const row=rows.find(x=>x.number===n),entry=inventory.lectures.find(x=>x.number===n);
+ check('Claude lecture '+n+' new original source identity locked',row?.source_drive_file_id===id&&
+ row?.source_bytes===bytes&&row?.source_sha256===digest&&entry?.drive_file_id===id&&entry?.bytes===bytes);
+ check('Claude lecture '+n+' honest unresolved MP4 status',row?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
+ row?.audio_source_verification==='DRIVE_MP4_UNLOCATED'&&!row.audio_sha256&&!row.audio_bytes);
+}
 check('No Cloudflare R2 object keys collide',new Set(rows.filter(x=>x.r2_object_key).map(x=>x.r2_object_key)).size===rows.filter(x=>x.r2_object_key).length);
 
 console.log(`SUMMARY | ${passes.length}/${passes.length+failures.length} PASS`);
