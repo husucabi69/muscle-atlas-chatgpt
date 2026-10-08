@@ -7,10 +7,10 @@
 - 24 Disease/Trauma standalone HTML sources are inventoried; Claude runtime/TinyFish is not a production dependency.
 - `odt001 Shoulder Disease`: native Preview, 10 chapters, source SHA locked.
 - `odt002 Shoulder Trauma`: native Preview, 10 chapters, source SHA-256 `47b0b42a12f7d1e509d17e8ef8cc97a8ffb27d1930ba08e32b37073589d4d2ef`, 10 visual provenance records, 17 references.
-- Shoulder Trauma evidence refresh adds 2025–2026 evidence for first anterior dislocation stabilization, IR-vs-ER immobilization, traumatic cuff repair timing, elderly proximal humerus fracture, clavicle CPG, and AC injury.
+- Shoulder Trauma selective evidence refresh adds 2025–2026 evidence for first anterior dislocation stabilization, IR-vs-ER immobilization, traumatic cuff repair timing, elderly proximal humerus fracture, clavicle CPG, and AC injury; full canonical clinical review remains pending.
 - Material corrections: routine external-rotation brace is not presented as superior; young high-risk first dislocation may reasonably discuss early Bankart repair; traumatic cuff repair timing is not hard-coded to one universal cutoff.
 - Audio MP4 was not included; audio remains **MIGRATION_PENDING** and broken `/_blob` playback is forbidden.
-- Third-party/Claude figures remain provenance-only until license/HD/IP gates pass.
+- Third-party/Claude figures remain provenance-only until license/HD/IP gates pass.\n- `scripts/disease-trauma-native-qa.mjs` is the scalable migration gate for all 24 volumes: source lock, counts, evidence refs, cross-links, figure license metadata, audio fail-closed, and Claude runtime URL absence.
 - Existing patient Disease Rehab, EXAM-REAL ct086, and ct088 DEFERRED states remain separate and unchanged.
 - Production `main` remains frozen.
 - Next after shoulder-pair Preview review: migrate `odt003 Elbow Disease` and `odt004 Elbow Trauma` with the same source-lock/evidence-refresh/cross-link contract.
