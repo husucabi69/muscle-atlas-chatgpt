@@ -719,9 +719,12 @@ try{
   const second=page.locator('[data-claude-lecture="29"]');
   const secondText=(await second.textContent()||'').trim();
   if(!secondText.includes('어깨 외상')||!secondText.includes('우리 서버 원본'))fail('Shoulder Trauma self-hosted badge',secondText);
-  const pending=page.locator('[data-claude-lecture="30"]');
+  const third=page.locator('[data-claude-lecture="30"]');
+  const thirdText=(await third.textContent()||'').trim();
+  if(!thirdText.includes('팔꿈치 질환')||!thirdText.includes('우리 서버 원본'))fail('Elbow Disease self-hosted badge',thirdText);
+  const pending=page.locator('[data-claude-lecture="31"]');
   const pendingText=(await pending.textContent()||'').trim();
-  if(!pendingText.includes('Claude 원본 fallback'))fail('Elbow Disease fallback badge',pendingText);
+  if(!pendingText.includes('Claude 원본 fallback'))fail('Elbow Trauma fallback badge',pendingText);
 
   await first.click();
   await page.waitForTimeout(150);
@@ -767,7 +770,22 @@ try{
   if(traumaFallback!=='https://claude.ai/artifact/Mjr4yDAvaZAsKYzkL7Nx5s')fail('Shoulder Trauma Artifact fallback preserved',String(traumaFallback||''));
   await page.goBack();await page.waitForTimeout(100);
   if(!await visible('#diseaseTraumaRootView'))fail('Shoulder Trauma browser back -> root');
-  pass('Claude Original Classroom: 24 Disease/Trauma + 2 exact self-hosted Shoulder originals + 2 evidence updates + fallback + browser back');
+  await third.click();
+  if(!await visible('#diseaseTraumaOriginalView'))fail('Elbow Disease original lecture visible');
+  const elbowSrc=await iframe.getAttribute('src');
+  if(!String(elbowSrc||'').includes('claude-library/1_강의페이지/03_질환외상/클로드_질환외상_03권_팔꿈치_질환.html'))fail('Elbow Disease original self-hosted URL',String(elbowSrc||''));
+  await sourceFrame.locator('body').waitFor({state:'visible',timeout:20000});
+  const elbowText=(await sourceFrame.locator('body').textContent()||'').trim();
+  if(!elbowText.includes('팔꿈치'))fail('Elbow Disease original HTML body loaded',elbowText.slice(0,500));
+  const elbowStatus=(await page.locator('#diseaseTraumaOriginalStatus').textContent()||'').trim();
+  if(!elbowStatus.includes('음성 연결 대기'))fail('Elbow Disease audio correctly marked pending',elbowStatus);
+  const elbowAudio=await sourceFrame.locator('body').evaluate(()=>window.__AUD__?.urls?.[0]||'');
+  if(elbowAudio!=='../../2_음성/03_질환외상/클로드_질환외상_03권_팔꿈치_질환.mp4')fail('Elbow Disease original relative audio path preserved',elbowAudio);
+  const elbowFallback=await page.locator('#diseaseTraumaClaudeFallback').getAttribute('href');
+  if(elbowFallback!=='https://claude.ai/artifact/9T4P6RATmwZCj6HEwngLe7')fail('Elbow Disease Artifact fallback preserved',String(elbowFallback||''));
+  await page.goBack();await page.waitForTimeout(100);
+  if(!await visible('#diseaseTraumaRootView'))fail('Elbow Disease browser back -> root');
+  pass('Claude Original Classroom: 24 Disease/Trauma + 3 exact self-hosted originals + 2 evidence updates + fallback + browser back');
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
