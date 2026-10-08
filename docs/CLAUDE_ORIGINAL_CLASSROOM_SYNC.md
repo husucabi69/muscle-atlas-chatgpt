@@ -51,6 +51,15 @@ Lecture 28 — `질환외상 01권 어깨 질환`
 - MP4: AAC audio-only, 1780.982 seconds.
 - R2 status: **PENDING** until authenticated R2 write path is restored.
 
+## Deployment incident and routing correction — 2026-10-08
+
+- Real HTTP Preview probe detected **HTTP 200 app index HTML for a .mp4 path**. This meant Cloudflare Pages deployed static files but **did not invoke** the newly added filesystem `functions/` route. Prior mock unit tests and base deploy smoke were insufficient; the new `scripts/claude-live-media-probe.mjs` intentionally fails this condition and blocks the deploy safety gate.
+- Cloudflare Pages documents Advanced Mode `_worker.js`, which bypasses filesystem-Functions compilation and uses `env.ASSETS.fetch(request)` for every non-media/static route. Preview branch now includes `_worker.js`, importing the original private R2 media handler and routing only `/claude-library/2_음성/*.mp4` to it.
+- `scripts/claude-r2-proxy-qa.mjs` also tests the Advanced Mode handler while ensuring unchanged static/PWA routes still go through `ASSETS`.
+- Real live route proof is **not yet PASS** until the latest exact-SHA GitHub Actions deploy-safety job shows the MP4 path returns fail-closed HTTP 503 with no R2 binding, 404 with empty R2 bucket, or correct 206 and full-source SHA-256 once uploaded. **HTTP 200 HTML is FAIL**.
+- If Advanced Mode does not activate, check Cloudflare Pages project Build Command `exit 0`, project root/output folder and Functions mode in the authenticated Dashboard (official documentation recommends non-empty `exit 0` command for static sites wishing to use Pages Functions). Do not infer settings from a static deploy success.
+- No authenticated R2 binding, bucket creation or MP4 upload has been performed. Production is frozen.
+
 ## Private R2 playback bridge — 2026-10-08 / Preview only
 
 - GitHub Preview contains `functions/claude-library/2_음성/[[path]].js`, serving the unchanged relative original-HTML media path from a private R2 bucket.
