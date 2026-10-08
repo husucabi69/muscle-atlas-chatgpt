@@ -724,6 +724,29 @@ try{
   await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaRootView'))fail('Disease/Trauma browser back volume -> root');
   pass('Disease/Trauma native prototype: 24-volume inventory + Shoulder Disease 10 chapters + cross-links + browser back');
 
+  const nativeCards=page.locator('#diseaseTraumaVolumeChooser .odt-status.ready');
+  if(await nativeCards.count()!==2)fail('Disease/Trauma renders exactly two native Preview volumes',String(await nativeCards.count()));
+  await page.locator('[data-odt-volume="odt002"]').click();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaVolumeView'))fail('Shoulder Trauma volume view visible');
+  if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==10)fail('Shoulder Trauma has 10 native chapters');
+  const traumaMeta=(await page.locator('#diseaseTraumaVolumeMeta').textContent()||'').trim();
+  if(!traumaMeta.includes('Preview 연결')||!traumaMeta.includes('MP4 이전 대기'))fail('Shoulder Trauma native/audio status visible',traumaMeta);
+
+  await page.locator('[data-odt-chapter="odt002-s1"]').click();await page.waitForTimeout(80);
+  const traumaDislocation=(await page.locator('#diseaseTraumaChapterContent').textContent()||'').trim();
+  for(const token of ['Anterior shoulder dislocation','routine external-rotation brace','Arthroscopy Association of Canada','액와신경병증 감별','근거·참고문헌'])if(!traumaDislocation.includes(token))fail('Shoulder Trauma anterior-dislocation chapter contains '+token,traumaDislocation.slice(0,2200));
+  if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="diagnosis_concept:d014"]').count()!==1)fail('Shoulder Trauma cross-link to axillary neuropathy');
+
+  await page.goBack();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaVolumeView'))fail('Shoulder Trauma browser back chapter -> volume');
+  await page.locator('[data-odt-chapter="odt002-s3"]').click();await page.waitForTimeout(80);
+  const traumaCuff=(await page.locator('#diseaseTraumaChapterContent').textContent()||'').trim();
+  for(const token of ['Traumatic rotator cuff tear','수술 시기를 단일 숫자로 고정하지 않고','External Rotation Lag','극상건 장축 초음파','견갑하건 장축 초음파','후방 회전근개 초음파'])if(!traumaCuff.includes(token))fail('Shoulder Trauma cuff chapter contains '+token,traumaCuff.slice(0,2600));
+  for(const link of ['diagnosis_concept:d008','clinical_test:ct004','clinical_test:ct005','ultrasound_view:usv001','ultrasound_view:usv005','ultrasound_view:usv007'])if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="'+link+'"]').count()!==1)fail('Shoulder Trauma cuff cross-link '+link);
+  await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaVolumeView'))fail('Shoulder Trauma cuff browser back -> volume');
+  await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaRootView'))fail('Shoulder Trauma browser back volume -> root');
+  pass('Shoulder Trauma native: 10 chapters + 2026 evidence refresh + cuff/neuro/ultrasound cross-links + browser back');
+
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
   pass('No runtime errors during anatomy, clinical, ultrasound, quiz, Oral, learning and home/search click sweep');
