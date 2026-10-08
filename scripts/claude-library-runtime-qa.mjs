@@ -41,7 +41,7 @@ check('Pilot audio is fail-closed pending R2',pilot?.hosting_status==='SELF_HOST
 // All currently self-hosted originals (and all future synced originals) must
 // preserve exact source bytes and the original audio/player relative URLs.
 const hosted=rows.filter(x=>String(x.hosting_status||'').startsWith('SELF_HOSTED_'));
-check('Self-hosted Claude original count >= 3',hosted.length>=3,String(hosted.length));
+check('Self-hosted Claude original count >= 6',hosted.length>=6,String(hosted.length));
 check('Lecture hosting statuses are known',rows.every(x=>['SOURCE_VERIFIED_SYNC_PENDING','SELF_HOSTED_HTML_MEDIA_PENDING','SELF_HOSTED_HTML_MEDIA_READY'].includes(x.hosting_status)));
 for(const row of hosted){
   const label='Claude original '+row.number;
@@ -74,6 +74,18 @@ check('Elbow Disease exact source lock',elbow?.source_drive_file_id==='1RPvoJe6M
   elbow?.source_bytes===398461&&elbow?.source_sha256==='b36ffb364a763f25d5055be3bfb211029183637dfc0bc904204fd1b50a86164d');
 check('Elbow Disease MP4 source not falsely verified',elbow?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
   elbow?.audio_source_verification==='DRIVE_MP4_IDENTITY_PENDING'&&!elbow.audio_sha256&&!elbow.audio_bytes);
+const additionalLocked=[
+ [31,'1FKnUrTQc8Z4Mb3rC5Br0GFJcJusvwCb7',572548,'890b804c6319860a728bff047a6904f2887d8f563e7bd8fb158bd403b60531a2'],
+ [32,'1YyzgbOlfGogsnhie9slvmjzrvs26JioR',508134,'8b55d687e9fd7b17cc59448bfbed09dfb629e45d66e0e741fce97bb4c9d6e012'],
+ [33,'1KOjt3F-GaJe4SkWSv8WGKiw7qQnCUrhd',592896,'f78b2f7c9b8dd55b15767951b625bcf631e15b0cb32d13c484accf1dabe94955']
+];
+for(const [number,driveId,size,digest] of additionalLocked){
+ const row=rows.find(x=>x.number===number);
+ check('Claude lecture '+number+' source immutable lock',row?.source_drive_file_id===driveId&&
+   row?.source_bytes===size&&row?.source_sha256===digest);
+ check('Claude lecture '+number+' MP4 identity not falsely verified',row?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&
+   row?.audio_source_verification==='DRIVE_MP4_IDENTITY_PENDING'&&!row.audio_sha256&&!row.audio_bytes);
+}
 check('No Cloudflare R2 object keys collide',new Set(rows.filter(x=>x.r2_object_key).map(x=>x.r2_object_key)).size===rows.filter(x=>x.r2_object_key).length);
 
 console.log(`SUMMARY | ${passes.length}/${passes.length+failures.length} PASS`);
