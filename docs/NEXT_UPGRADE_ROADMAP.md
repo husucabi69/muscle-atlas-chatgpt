@@ -10,8 +10,8 @@
 - 외부 Artifact/iframe/`/_blob` 의존성을 만들지 않는다.
 - 기존 근육·Physical Examination·Ultrasound Stable ID와 교차연결하고 환자 Disease Rehab는 덮어쓰지 않는다.
 - 그림은 provenance/license를 보존하되 low-resolution/base64/제3자 자료를 canonical asset으로 자동 승격하지 않는다.
-- 음성 MP4 미포함은 fail-closed migration pending으로 유지한다.
-- Shoulder Trauma는 source citation 10개에 더해 2025–2026 evidence refresh를 적용한다. 특히 first-dislocation stabilization, ER-vs-IR immobilization, traumatic cuff timing, proximal humerus fracture, clavicle CPG, AC injury를 재검증한다.
+- 음성 MP4 미포함은 fail-closed migration pending으로 유지한다.\n- `scripts/disease-trauma-native-qa.mjs`를 24권 공통 gate로 사용해 native status↔content 일치, SHA/bytes, chapter/ref/figure 무결성, Stable-ID cross-link, 외부 그림 license, unsafe Claude URL 0을 자동 검사한다.
+- Shoulder Trauma는 source citation 10개에 더해 2025–2026 **핵심 선택적 evidence refresh**를 적용한다. 특히 first-dislocation stabilization, ER-vs-IR immobilization, traumatic cuff timing, proximal humerus fracture, clavicle CPG, AC injury를 재검증하며 전체 canonical review는 별도 gate로 남긴다.
 - 순서: **shoulder 2권 사용자 Preview 검수 → odt003 Elbow Disease → odt004 Elbow Trauma → elbow 2권 정교화 → 나머지 20권 batch migration**.
 
 
