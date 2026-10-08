@@ -1,0 +1,706 @@
+{
+  "schema_version": "1.0.0",
+  "source_of_truth": {
+    "type": "google_sheet",
+    "spreadsheet_id": "1U2a6punp1zt9V4vE-N4wUpL8ziivFbSpnmiWWggk-Z0",
+    "sheet": "Untitled",
+    "last_synced": "2026-10-08"
+  },
+  "runtime_policy": {
+    "html": "SELF_HOSTED_ORIGINAL_BYTE_PRESERVING",
+    "media": "CLOUDFLARE_R2",
+    "claude_artifact": "FALLBACK_ONLY",
+    "native_summary_ui": "DEPRECATED_USER_FACING",
+    "expansion": "ADD_OR_UPDATE_DRIVE_HTML_MP4_AND_MANIFEST_SYNC"
+  },
+  "counts": {
+    "lectures": 76,
+    "with_audio": 67
+  },
+  "lectures": [
+    {
+      "number": 1,
+      "series": "근육총람",
+      "title": "근육총람 대화형",
+      "source_path": "1_강의페이지/00_근육총람/클로드_근육총람_대화형.html",
+      "claude_artifact_url": "https://claude.ai/artifact/M1ytAeYVG3MykqRBFtomuZ",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 2,
+      "series": "근육총람",
+      "title": "근육총람 표지·목록",
+      "source_path": "1_강의페이지/00_근육총람/클로드_근육총람_표지·목록.html",
+      "claude_artifact_url": "https://claude.ai/artifact/9TgeQSbLbxxAkSvPnCGvq7",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 3,
+      "series": "근육학",
+      "title": "근육학 01권 어깨·견갑대",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_01권_어깨·견갑대.html",
+      "claude_artifact_url": "https://claude.ai/artifact/PCY9jsSx6fBnnuceZSjWrW",
+      "audio": "있음(2부)",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 4,
+      "series": "근육학",
+      "title": "근육학 02권 상박부",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_02권_상박부.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Qmq7djuzHsXqsTcu6K2o2m",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 5,
+      "series": "근육학",
+      "title": "근육학 03권 전완부",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_03권_전완부.html",
+      "claude_artifact_url": "https://claude.ai/artifact/KA6Y3aHRWPu9Y6HGGeg9sy",
+      "audio": "있음(2부)",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 6,
+      "series": "근육학",
+      "title": "근육학 04권 손",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_04권_손.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Q5hNtDAvd4wEGeoAFfYtUg",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 7,
+      "series": "근육학",
+      "title": "근육학 05권 대퇴부",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_05권_대퇴부.html",
+      "claude_artifact_url": "https://claude.ai/artifact/EFutUQPd8QRaNVRX3AUwEL",
+      "audio": "있음(2부)",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 8,
+      "series": "근육학",
+      "title": "근육학 06권 하퇴부",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_06권_하퇴부.html",
+      "claude_artifact_url": "https://claude.ai/artifact/15gmemUqEGy9NdZs1GLME4",
+      "audio": "있음(2부)",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 9,
+      "series": "근육학",
+      "title": "근육학 07권 발목·발",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_07권_발목·발.html",
+      "claude_artifact_url": "https://claude.ai/artifact/8fdw5bN2zGidQPoHZCrEDB",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 10,
+      "series": "근육학",
+      "title": "근육학 08권 경추",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_08권_경추.html",
+      "claude_artifact_url": "https://claude.ai/artifact/4mWpUECGfLgWCGUmLiETYj",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 11,
+      "series": "근육학",
+      "title": "근육학 09권 흉추",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_09권_흉추.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Km7FqeEfewJAjc2v5vESKh",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 12,
+      "series": "근육학",
+      "title": "근육학 10권 요추",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_10권_요추.html",
+      "claude_artifact_url": "https://claude.ai/artifact/4mxUD1NFyaSmABFfra3Qnh",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 13,
+      "series": "근육학",
+      "title": "근육학 11권 골반",
+      "source_path": "1_강의페이지/01_근육학/클로드_근육학_11권_골반.html",
+      "claude_artifact_url": "https://claude.ai/artifact/XBPWdmNaypkTMPM9KeGk3r",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 14,
+      "series": "이학적 검진·연관통",
+      "title": "연관통 부위별",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_연관통_부위별.html",
+      "claude_artifact_url": "https://claude.ai/artifact/FqWvwezPbrpajWpXTLHnuZ",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 15,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 01권 어깨",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_01권_어깨.html",
+      "claude_artifact_url": "https://claude.ai/artifact/2cYm3MPURzyBVXnZXeUten",
+      "audio": "있음(2부)",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 16,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 02권 팔꿈치",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_02권_팔꿈치.html",
+      "claude_artifact_url": "https://claude.ai/artifact/HLFWW2LeZsZGQnFGRaDcp1",
+      "audio": "있음(2부)",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 17,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 03권 손목",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_03권_손목.html",
+      "claude_artifact_url": "https://claude.ai/artifact/3pPc9e31wmYfFX9xUrSvUs",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 18,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 04권 손·손가락",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_04권_손·손가락.html",
+      "claude_artifact_url": "https://claude.ai/artifact/KMFqKHGcDpRQdGKZHPnrYo",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 19,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 05권 경추·상지 신경",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_05권_경추·상지_신경.html",
+      "claude_artifact_url": "https://claude.ai/artifact/6uEN3czYi2RwMkEwAAUEDq",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 20,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 06권 흉추·흉곽·복부",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_06권_흉추·흉곽·복부.html",
+      "claude_artifact_url": "https://claude.ai/artifact/XYJ9wjx51AtyoouH2bEN7F",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 21,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 07권 요추·하지 신경",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_07권_요추·하지_신경.html",
+      "claude_artifact_url": "https://claude.ai/artifact/53Vf8XjNYR6k9Airhg7Y7T",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 22,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 08권 골반·천장관절",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_08권_골반·천장관절.html",
+      "claude_artifact_url": "https://claude.ai/artifact/YQpBNYPofBzo2b4qK7TK52",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 23,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 09권 고관절",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_09권_고관절.html",
+      "claude_artifact_url": "https://claude.ai/artifact/KRwgA6KsPftAH5iVQafNUk",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 24,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 10권 무릎",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_10권_무릎.html",
+      "claude_artifact_url": "https://claude.ai/artifact/NwajhB68UTmqdq1sAbuxTk",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 25,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 11권 발목",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_11권_발목.html",
+      "claude_artifact_url": "https://claude.ai/artifact/1dJKtGEPcnSfz7XmJRdRs7",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 26,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 12권 발·발가락",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_12권_발·발가락.html",
+      "claude_artifact_url": "https://claude.ai/artifact/4x7uqtDQjE7kybUJS6Acmq",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 27,
+      "series": "이학적 검진·연관통",
+      "title": "이학적검진 13권 전신 종합",
+      "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_13권_전신_종합.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Rg3bwkWicwi5bFzkkvvUug",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 28,
+      "series": "질환·외상",
+      "title": "질환외상 01권 어깨 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_01권_어깨_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/SGzig6jhFXL2Q6rtrwyyGh",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING"
+    },
+    {
+      "number": 29,
+      "series": "질환·외상",
+      "title": "질환외상 02권 어깨 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_02권_어깨_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Mjr4yDAvaZAsKYzkL7Nx5s",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 30,
+      "series": "질환·외상",
+      "title": "질환외상 03권 팔꿈치 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_03권_팔꿈치_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/9T4P6RATmwZCj6HEwngLe7",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 31,
+      "series": "질환·외상",
+      "title": "질환외상 04권 팔꿈치 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_04권_팔꿈치_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/M8t12eUku1v14cmNan3Fkf",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 32,
+      "series": "질환·외상",
+      "title": "질환외상 05권 손목 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_05권_손목_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Aco8cH5CLMhLhYcLbA3KZM",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 33,
+      "series": "질환·외상",
+      "title": "질환외상 06권 손목 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_06권_손목_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/KP3WJYZXacK5ZZhu9TttvZ",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 34,
+      "series": "질환·외상",
+      "title": "질환외상 07권 손 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_07권_손_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/RJ4AV3Y9cCgKnMSHfFBA46",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 35,
+      "series": "질환·외상",
+      "title": "질환외상 08권 손 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_08권_손_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/VkfC2B4FWHRMGTeMW7echK",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 36,
+      "series": "질환·외상",
+      "title": "질환외상 09권 경추 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_09권_경추_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Tx3SjF3p6zyK3bDaRhUTg3",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 37,
+      "series": "질환·외상",
+      "title": "질환외상 10권 경추 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_10권_경추_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/C4nDoXzsURV4fBwVdhQvjb",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 38,
+      "series": "질환·외상",
+      "title": "질환외상 11권 흉추 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_11권_흉추_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/GxUTrpC15BAjtGa7B8nQQn",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 39,
+      "series": "질환·외상",
+      "title": "질환외상 12권 흉추 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_12권_흉추_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/LGj2Zn6pEoHC5kaVwx8h4e",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 40,
+      "series": "질환·외상",
+      "title": "질환외상 13권 요추 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_13권_요추_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/YJraXLWyR9n3V9obQDgH4y",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 41,
+      "series": "질환·외상",
+      "title": "질환외상 14권 요추 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_14권_요추_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/TuLEEnfqgkXGzG4thx1vQ7",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 42,
+      "series": "질환·외상",
+      "title": "질환외상 15권 골반·천장관절 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_15권_골반·천장관절_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/EyJ5d7nTZVzGEmKUvbVwEY",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 43,
+      "series": "질환·외상",
+      "title": "질환외상 16권 골반·천장관절 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_16권_골반·천장관절_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/DkdV8QRZtqGZs5WKCwupJR",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 44,
+      "series": "질환·외상",
+      "title": "질환외상 17권 고관절 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_17권_고관절_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/VcosZiWjEtwEKRFfrDrJST",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 45,
+      "series": "질환·외상",
+      "title": "질환외상 18권 고관절 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_18권_고관절_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/CPnaiCmY1nLChrwiDfsrzR",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 46,
+      "series": "질환·외상",
+      "title": "질환외상 19권 무릎 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_19권_무릎_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/RU71xXXBzMZUdiZW955xna",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 47,
+      "series": "질환·외상",
+      "title": "질환외상 20권 무릎 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_20권_무릎_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/1VVq53RUTdUaip5JUkUL4Q",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 48,
+      "series": "질환·외상",
+      "title": "질환외상 21권 발목 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_21권_발목_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/72hxSD93N7ZDPyoSa3rgKx",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 49,
+      "series": "질환·외상",
+      "title": "질환외상 22권 발목 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_22권_발목_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/3zfw4PQH6rcWeuw3BVBaSv",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 50,
+      "series": "질환·외상",
+      "title": "질환외상 23권 발 질환",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_23권_발_질환.html",
+      "claude_artifact_url": "https://claude.ai/artifact/AswT16c95NwYKS5HUy6j2F",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 51,
+      "series": "질환·외상",
+      "title": "질환외상 24권 발 외상",
+      "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_24권_발_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/MNFdZdkRiw7XmVdF9ho875",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 52,
+      "series": "골종양·소아",
+      "title": "골종양 01권 원칙·양성",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_01권_원칙·양성.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Tx5Pwa3AGcWaVkCctS5Zv4",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 53,
+      "series": "골종양·소아",
+      "title": "골종양 02권 악성",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_02권_악성.html",
+      "claude_artifact_url": "https://claude.ai/artifact/D91HSEZQ4rg8ozuEZHuX5z",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 54,
+      "series": "골종양·소아",
+      "title": "골종양 03권 연부조직 종양",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_03권_연부조직_종양.html",
+      "claude_artifact_url": "https://claude.ai/artifact/R5eiCGi7SxG8YssPjQF3iU",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 55,
+      "series": "골종양·소아",
+      "title": "소아 01권 신생아·영아",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_01권_신생아·영아.html",
+      "claude_artifact_url": "https://claude.ai/artifact/J1nVfTCK6HxRxCN6p7vqgQ",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 56,
+      "series": "골종양·소아",
+      "title": "소아 02권 고관절·하지 정렬",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_02권_고관절·하지_정렬.html",
+      "claude_artifact_url": "https://claude.ai/artifact/WQYKQDH7GWDRtCvmGwo9g1",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 57,
+      "series": "골종양·소아",
+      "title": "소아 03권 골절·성장판·학대",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_03권_골절·성장판·학대.html",
+      "claude_artifact_url": "https://claude.ai/artifact/L66M97X2w5v6p486thhuDX",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 58,
+      "series": "골종양·소아",
+      "title": "소아 04권 척추·신경근육·골계통",
+      "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_04권_척추·신경근육·골계통.html",
+      "claude_artifact_url": "https://claude.ai/artifact/9ch7qFdnmRaDwXuNNK6LpZ",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 59,
+      "series": "분류·문제은행",
+      "title": "문제은행 01권 상지 30문항",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_01권_상지_30문항.html",
+      "claude_artifact_url": "https://claude.ai/artifact/JcwmhHuCvnkuUGjHY6Pb93",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 60,
+      "series": "분류·문제은행",
+      "title": "문제은행 02권 하지 30문항",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_02권_하지_30문항.html",
+      "claude_artifact_url": "https://claude.ai/artifact/WxbGWdQQjuEmFVT8MJa1Uc",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 61,
+      "series": "분류·문제은행",
+      "title": "문제은행 03권 척추 30문항",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_03권_척추_30문항.html",
+      "claude_artifact_url": "https://claude.ai/artifact/MeSzCtB2VEf78LuVUXZd44",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 62,
+      "series": "분류·문제은행",
+      "title": "문제은행 04권 종합 30문항",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_04권_종합_30문항.html",
+      "claude_artifact_url": "https://claude.ai/artifact/L15kVCTy9SafqKncHN95Dp",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 63,
+      "series": "분류·문제은행",
+      "title": "문제은행 05권 모의고사 160문항",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_05권_모의고사_160문항.html",
+      "claude_artifact_url": "https://claude.ai/artifact/MeDmyvYt1aGERoS9XjYRDu",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 64,
+      "series": "분류·문제은행",
+      "title": "분류 01권 상지 외상",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_01권_상지_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/1JE6AddfMtu5K1LL2eNgWL",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 65,
+      "series": "분류·문제은행",
+      "title": "분류 02권 하지 외상",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_02권_하지_외상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/WfB8rwnW5gUezpJJoXFzqr",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 66,
+      "series": "분류·문제은행",
+      "title": "분류 03권 척추",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_03권_척추.html",
+      "claude_artifact_url": "https://claude.ai/artifact/5ghVxAg7AwYzF85MhNmNST",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 67,
+      "series": "분류·문제은행",
+      "title": "분류 04권 스포츠·관절·종양·소아",
+      "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_04권_스포츠·관절·종양·소아.html",
+      "claude_artifact_url": "https://claude.ai/artifact/ENwiy1ZrG3UDH43erhrF4R",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 68,
+      "series": "증례·음성모음",
+      "title": "정형외과 강의 음성 모음",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_정형외과_강의_음성_모음.html",
+      "claude_artifact_url": "https://claude.ai/artifact/RVHVxcwCKo5SbwfXDicWSG",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 69,
+      "series": "증례·음성모음",
+      "title": "증례 01권 어깨",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_01권_어깨.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Exm9KMc5TnP9qQZfRSFWPY",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 70,
+      "series": "증례·음성모음",
+      "title": "증례 02권 팔꿈치·손목·손",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_02권_팔꿈치·손목·손.html",
+      "claude_artifact_url": "https://claude.ai/artifact/HekcykwUGcKkg95E8D9mA9",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 71,
+      "series": "증례·음성모음",
+      "title": "증례 03권 목과 허리",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_03권_목과_허리.html",
+      "claude_artifact_url": "https://claude.ai/artifact/A1R1e5tnMUTFBS9GL7bwV7",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 72,
+      "series": "증례·음성모음",
+      "title": "증례 04권 고관절·무릎",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_04권_고관절·무릎.html",
+      "claude_artifact_url": "https://claude.ai/artifact/T4gpvYacKX2gnmKrMkKPcN",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 73,
+      "series": "증례·음성모음",
+      "title": "증례 05권 발목·발·소아·종양",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_05권_발목·발·소아·종양.html",
+      "claude_artifact_url": "https://claude.ai/artifact/G1Dtqq8PmHzoVd5aundfRe",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 74,
+      "series": "증례·음성모음",
+      "title": "증례 구술시험장",
+      "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_구술시험장.html",
+      "claude_artifact_url": "https://claude.ai/artifact/QZyTthpDtsePakWTYq2Ayi",
+      "audio": "없음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 75,
+      "series": "근거 업데이트",
+      "title": "근거업데이트 01권 2025-2026",
+      "source_path": "1_강의페이지/07_근거업데이트/클로드_근거업데이트_01권_2025-2026.html",
+      "claude_artifact_url": "https://claude.ai/artifact/4ZH7W5MKgMkQBKG6z48VXK",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    },
+    {
+      "number": 76,
+      "series": "근거 업데이트",
+      "title": "근거업데이트 02권 전문학술지",
+      "source_path": "1_강의페이지/07_근거업데이트/클로드_근거업데이트_02권_전문학술지.html",
+      "claude_artifact_url": "https://claude.ai/artifact/RM7J53dy3WiQjtsUcfNAUX",
+      "audio": "있음",
+      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+    }
+  ]
+}
