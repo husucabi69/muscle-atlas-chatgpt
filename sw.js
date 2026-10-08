@@ -167,6 +167,44 @@ self.addEventListener('message',event=>{
   }
 });
 
+
+// Canonical-source gate for original Claude HTML. Never cache or display an app-shell
+// fallback as if it were a lecture, including when an older cache was poisoned.
+async function verifiedClaudeOriginal(request){
+  const unavailable=()=>new Response(
+    '<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>원본 강의 확인 필요</title></head><body><h1>원본 강의 확인 필요</h1><p>이 원본 강의는 현재 확인할 수 없습니다. 인터넷 연결 후 다시 열어 주세요.</p></body></html>',
+    {status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}});
+  let row;
+  try{
+    const cachedManifest=await caches.match('./data/claude-library-manifest-v1.json');
+    if(!cachedManifest?.ok)return unavailable();
+    const manifest=await cachedManifest.json();
+    const pathname=decodeURI(new URL(request.url).pathname);
+    const sourcePath=pathname.slice('/claude-library/'.length);
+    row=(manifest.lectures||[]).find(x=>x.source_path===sourcePath);
+    if(!row||!String(row.hosting_status).startsWith('SELF_HOSTED_')||
+       !Number.isSafeInteger(row.source_bytes)||row.source_bytes<1||
+       !/^[0-9a-f]{64}$/.test(row.source_sha256||''))return unavailable();
+  }catch{return unavailable();}
+  async function valid(response){
+    if(!response?.ok||!/^text\/html\b/i.test(response.headers.get('Content-Type')||''))return false;
+    const bytes=await response.clone().arrayBuffer();
+    if(bytes.byteLength!==row.source_bytes)return false;
+    const digest=await crypto.subtle.digest('SHA-256',bytes);
+    const hex=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');
+    return hex===row.source_sha256;
+  }
+  try{
+    const live=await fetch(request,{cache:'no-store'});
+    if(await valid(live))return await putIfUsable(RUNTIME_CACHE,request,live);
+  }catch{}
+  try{
+    const cached=await caches.match(request);
+    if(await valid(cached))return cached;
+  }catch{}
+  return unavailable();
+}
+
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;
   const url=new URL(event.request.url);
@@ -192,14 +230,11 @@ self.addEventListener('fetch',event=>{
     path.endsWith('/manifest.webmanifest')||
     path.endsWith('/privacy.html');
 
+  if(decodedPath.startsWith('/claude-library/1_강의페이지/')&&decodedPath.toLowerCase().endsWith('.html')){
+    event.respondWith(verifiedClaudeOriginal(event.request));
+    return;
+  }
   if(isNavigation){
-    // Never render the root app shell inside an offline original-lecture iframe.
-    if(decodedPath.startsWith('/claude-library/1_강의페이지/')&&decodedPath.toLowerCase().endsWith('.html')){
-      event.respondWith(networkFirst(event.request).catch(()=>new Response(
-        '<!doctype html><html lang="ko"><meta charset="utf-8"><title>원본 강의 오프라인</title><body><p>이 원본 강의는 오프라인에 저장되지 않았습니다. 인터넷 연결 후 다시 열어 주세요.</p></body></html>',
-        {status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}})));
-      return;
-    }
     event.respondWith(networkFirst(event.request,'./index.html'));
     return;
   }
