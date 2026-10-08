@@ -1345,7 +1345,35 @@
           "citation": "Outcomes after operative versus nonoperative management of Rockwood type III to V acromioclavicular joint dislocations: systematic review and meta-analysis of randomized controlled trials. 2026.",
           "url": "https://pubmed.ncbi.nlm.nih.gov/42433472/"
         }
-      ]
+      ],
+      "evidence_refresh": {
+        "verified_on": "2026-10-08",
+        "status": "SELECTIVE_REFRESH_COMPLETE_CANONICAL_REVIEW_PENDING",
+        "refreshed_topics": [
+          "first-time anterior shoulder dislocation: early stabilization in high-risk young patients",
+          "external-rotation versus internal-rotation immobilization",
+          "traumatic rotator cuff repair timing",
+          "proximal humerus fracture: operative versus nonoperative treatment in older adults",
+          "adult displaced midshaft clavicle fracture",
+          "Rockwood III-V acromioclavicular joint injury"
+        ],
+        "refreshed_reference_ids": [
+          "odt_ref_021",
+          "odt_ref_022",
+          "odt_ref_023",
+          "odt_ref_024",
+          "odt_ref_025",
+          "odt_ref_026",
+          "odt_ref_027"
+        ],
+        "canonical_review_pending_topics": [
+          "posterior shoulder dislocation detailed treatment thresholds",
+          "sternoclavicular dislocation reduction pathway details",
+          "scapular fracture operative thresholds",
+          "SLAP lesion age-specific operative strategy",
+          "all numerical recurrence and complication estimates not explicitly refreshed above"
+        ]
+      }
     }
   }
 }
