@@ -193,6 +193,13 @@ self.addEventListener('fetch',event=>{
     path.endsWith('/privacy.html');
 
   if(isNavigation){
+    // Never render the root app shell inside an offline original-lecture iframe.
+    if(decodedPath.startsWith('/claude-library/1_강의페이지/')&&decodedPath.toLowerCase().endsWith('.html')){
+      event.respondWith(networkFirst(event.request).catch(()=>new Response(
+        '<!doctype html><html lang="ko"><meta charset="utf-8"><title>원본 강의 오프라인</title><body><p>이 원본 강의는 오프라인에 저장되지 않았습니다. 인터넷 연결 후 다시 열어 주세요.</p></body></html>',
+        {status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}})));
+      return;
+    }
     event.respondWith(networkFirst(event.request,'./index.html'));
     return;
   }
