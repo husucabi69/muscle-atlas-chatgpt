@@ -749,7 +749,7 @@
       "edition": "1판",
       "source_authored_by": "Claude",
       "source_artifact_audio": "SOURCE_REFERENCED_AUDIO_BLOB_NOT_MIGRATED",
-      "native_review_status": "SOURCE_MIGRATED_EVIDENCE_REFRESHED_2026",
+      "native_review_status": "SOURCE_MIGRATED_SELECTIVE_EVIDENCE_REFRESH_2026_CANONICAL_REVIEW_PENDING",
       "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE",
       "chapter_count": 10,
       "numbered_figure_count": 8,
