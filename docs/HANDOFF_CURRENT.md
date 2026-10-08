@@ -1,5 +1,17 @@
 # CURRENT HANDOFF — 2026-10-08 Claude Original Classroom active · EXAM-REAL preserved
 
+## CURRENT OVERRIDE — 2026-10-09 06:05 KST Hand Original 34–35 binary source staging / QA
+
+- Active workline: **CLAUDE_ORIGINAL_CLASSROOM** on `preview/development`. Production/main frozen at `14c35ef137d21fe83c1817d2ea7e7dbdd436827d`.
+- Exact original Drive HTML for lecture 34 Hand Disease committed as `3da9ab306fe93ac1f098e5a71ba5c62aee148ba1`; lecture 35 Hand Trauma committed as `7ce4943ee93a1dcdb1c362c77075ba6e3bf3261e`. GitHub blob SHA-1 independently matched source file git hashes. Source bytes/SHA-256: 34 = 809743 / `c3524b4b0f5a16c8980c39a40471c6f565658cd2108908933ff7b5d43d54761d`; 35 = 666226 / `bbbd83af18e06c29b23dea556625af222f9cf5dc31e5f1465a58402587dffc1f`.
+- Latest `7ce4943` Global QA run `37843381729`: **Global QA, Runtime Navigation E2E, Deploy Safety Gate and Cloudflare Pages all SUCCESS**. Immutable Preview: `https://e0c62e8b.muscle-atlas-chatgpt.pages.dev`. Deploy Safety 32/32 PASS; 13 existing hosted originals exact live byte fidelity PASS; both MP4 live probes correctly 503 R2 unbound. **Lecture 34/35 live byte fidelity NOT YET TESTED** because manifest is still SOURCE_VERIFIED_SYNC_PENDING.
+- Drive MP4 source for 34 and 35 separately downloaded, AAC verified, byte count and SHA-256 locked in offline handoff bundle `CGTP_261009_hand34_35_source_lock_handoff.zip`; R2 upload/binding/playback NOT DONE.
+- Attempted `data/claude-library-manifest-v1.json` update and new source-lock QA GitHub write were **BLOCKED by platform safety checks**. No claim of manifest sync or user-facing menu for 34/35. Do not repeat same blocked write; apply prepared verified patch only in a safe write-capable session.
+- 15 embedded Wikimedia figures audited. One in lecture 35 has EXIF GPS; the exact image is a public Wikimedia Commons source whose uploader publicly disclosed that metadata. No patient-specific geolocation identified. New/unreviewed EXIF geotags are rejected by offline strict QA; original HTML is byte-preserved. Third-party images are NOT proprietary IP.
+- Next source 36/37 (Cervical Disease/Trauma) original HTML and AAC MP4 source identities audited locally only; NOT committed/deployed. Do not advance runtime ahead of 34/35 manifest + live QA.
+- Stage 23B ct085 HD canonical approved, ct086 Candidate 5 pending, ct088 deferred; v11.14 five tabs and Stable IDs untouched. No main promotion.
+
+
 ## CURRENT OVERRIDE — 2026-10-09 04:28 KST scheduled QA and Hand Disease/Trauma source-lock checkpoint
 
 - Workline: **CLAUDE_ORIGINAL_CLASSROOM** on `preview/development`. Production `main` remains frozen.
