@@ -26,8 +26,20 @@ try{
       if(!(await item.textContent()).includes('우리 서버 원본'))throw new Error('Not self-hosted '+lecture.number);
       await item.click();
       const frame=page.frameLocator('#diseaseTraumaOriginalFrame');
-      await frame.locator('body').waitFor({state:'visible',timeout:20000});
       const expectedMedia=lecture.r2_object_key;
+      await page.waitForFunction(sourcePath=>{
+        try{
+          const f=document.getElementById('diseaseTraumaOriginalFrame');
+          return decodeURI(f.contentWindow.location.pathname).includes('/claude-library/'+sourcePath);
+        }catch{return false}
+      },lecture.source_path,{timeout:20000});
+      await page.waitForFunction(mediaPath=>{
+        try{
+          const f=document.getElementById('diseaseTraumaOriginalFrame');
+          return (f.contentWindow.__AUD__?.urls||[]).includes('../../'+mediaPath);
+        }catch{return false}
+      },expectedMedia,{timeout:20000});
+      await frame.locator('body').waitFor({state:'visible',timeout:20000});
       const state=await frame.locator('body').evaluate(()=>{
         return {
           title:document.title,
