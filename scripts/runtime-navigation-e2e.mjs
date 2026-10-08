@@ -730,8 +730,17 @@ try{
   await page.waitForTimeout(150);
   if(!await visible('#diseaseTraumaOriginalView'))fail('Claude original lecture view visible');
   const iframe=page.locator('#diseaseTraumaOriginalFrame');
-  const src=await iframe.getAttribute('src');
+  const currentClaudeFramePath=async expectedPath=>{
+    // location.replace() intentionally leaves iframe[src] unchanged, preventing
+    // nested-history pollution; inspect the actual browsing-context URL.
+    await page.waitForFunction(fragment=>{
+      const frame=document.getElementById('diseaseTraumaOriginalFrame');
+      try{return decodeURI(frame.contentWindow.location.pathname).includes(fragment)}catch{return false}
+    },expectedPath,{timeout:20000});
+    return iframe.evaluate(el=>decodeURI(el.contentWindow.location.pathname));
+  };
   const expected='claude-library/1_강의페이지/03_질환외상/클로드_질환외상_01권_어깨_질환.html';
+  const src=await currentClaudeFramePath(expected);
   if(!String(src||'').includes(expected))fail('Claude original iframe uses self-hosted Drive HTML',String(src||''));
   const fallback=await page.locator('#diseaseTraumaClaudeFallback').getAttribute('href');
   if(fallback!=='https://claude.ai/artifact/SGzig6jhFXL2Q6rtrwyyGh')fail('Claude Artifact fallback preserved',String(fallback||''));
@@ -757,7 +766,7 @@ try{
   if(!await visible('#diseaseTraumaRootView'))fail('Claude original browser back -> root');
   await second.click();
   if(!await visible('#diseaseTraumaOriginalView'))fail('Shoulder Trauma original lecture view visible');
-  const traumaSrc=await iframe.getAttribute('src');
+  const traumaSrc=await currentClaudeFramePath('claude-library/1_강의페이지/03_질환외상/클로드_질환외상_02권_어깨_외상.html');
   if(!String(traumaSrc||'').includes('claude-library/1_강의페이지/03_질환외상/클로드_질환외상_02권_어깨_외상.html'))fail('Shoulder Trauma original iframe self-hosted',String(traumaSrc||''));
   await sourceFrame.locator('body').waitFor({state:'visible',timeout:20000});
   const traumaText=(await sourceFrame.locator('body').textContent()||'').trim();
@@ -772,7 +781,7 @@ try{
   if(!await visible('#diseaseTraumaRootView'))fail('Shoulder Trauma browser back -> root');
   await third.click();
   if(!await visible('#diseaseTraumaOriginalView'))fail('Elbow Disease original lecture visible');
-  const elbowSrc=await iframe.getAttribute('src');
+  const elbowSrc=await currentClaudeFramePath('claude-library/1_강의페이지/03_질환외상/클로드_질환외상_03권_팔꿈치_질환.html');
   if(!String(elbowSrc||'').includes('claude-library/1_강의페이지/03_질환외상/클로드_질환외상_03권_팔꿈치_질환.html'))fail('Elbow Disease original self-hosted URL',String(elbowSrc||''));
   await sourceFrame.locator('body').waitFor({state:'visible',timeout:20000});
   const elbowText=(await sourceFrame.locator('body').textContent()||'').trim();
@@ -798,7 +807,7 @@ try{
     if(!badge.includes('우리 서버 원본'))fail(lecture.title+' self-hosted badge',badge);
     await choice.click();
     if(!await visible('#diseaseTraumaOriginalView'))fail(lecture.title+' original lecture visible');
-    const lectureSrc=await iframe.getAttribute('src');
+    const lectureSrc=await currentClaudeFramePath('claude-library/1_강의페이지/03_질환외상/'+lecture.file+'.html');
     if(!String(lectureSrc||'').includes('claude-library/1_강의페이지/03_질환외상/'+lecture.file+'.html'))fail(lecture.title+' original iframe path',String(lectureSrc||''));
     await sourceFrame.locator('body').waitFor({state:'visible',timeout:20000});
     const lectureText=(await sourceFrame.locator('body').textContent()||'').trim();
