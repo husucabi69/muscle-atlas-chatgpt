@@ -23,7 +23,8 @@ const modules = {
 };
 
 const core = json('data/knowledge-core-v1.json');
-const lib = json('data/patient-exercise-library-v1.json');\nconst odt = json('data/orthopedic-disease-trauma-v1.json');
+const lib = json('data/patient-exercise-library-v1.json');
+const odt = json('data/orthopedic-disease-trauma-v1.json');
 const mediaGlobal = json('data/media-license-global-audit-v1.json');
 const html = read('index.html');
 const manifest = json('manifest.webmanifest');
