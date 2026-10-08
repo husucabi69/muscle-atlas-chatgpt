@@ -1,6 +1,7 @@
 // Live Cloudflare Pages probe: prove that original HTML's MP4 relative path
 // routes to the private R2 Pages Function, without requiring bucket credentials.
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 const manifest = JSON.parse(fs.readFileSync('data/claude-library-manifest-v1.json', 'utf8'));
 const pilot = manifest.lectures.find(row => row.number === 28);
 if (!pilot?.r2_object_key) throw new Error('Missing pilot media object key');
@@ -26,7 +27,25 @@ if (res.status === 503 && /Audio storage not connected/.test(text) &&
 } else if (res.status === 206 &&
            res.headers.get('content-range') === 'bytes 0-1023/' + pilot.audio_bytes &&
            Number(res.headers.get('content-length')) === 1024) {
-  console.log('PASS | Live R2 audio byte-range route verified (source SHA-256 still needs independent upload verification)');
+  const rangeBytes = new Uint8Array(await res.arrayBuffer());
+  if (rangeBytes.length !== 1024) fail('206 body must contain exactly 1,024 bytes');
+  else {
+    const complete = await fetch(url, {
+      cache: 'no-store',
+      redirect: 'manual',
+      signal: AbortSignal.timeout(60000)
+    });
+    if (complete.status !== 200) fail('Full source MP4 GET must return HTTP 200; received ' + complete.status);
+    else {
+      const body = Buffer.from(await complete.arrayBuffer());
+      const sha = crypto.createHash('sha256').update(body).digest('hex');
+      if (body.byteLength !== pilot.audio_bytes || sha !== pilot.audio_sha256) {
+        fail('Full MP4 does not match locked Drive source identity: ' + body.byteLength + ' bytes, SHA-256 ' + sha);
+      } else {
+        console.log('PASS | Live R2 audio: HTTP 206 exact range, full MP4 byte count and source SHA-256 verified');
+      }
+    }
+  }
 } else {
   fail('Unexpected route, missing Function, incorrect Range or media status: ' + text.replace(/\\s+/g, ' ').slice(0,160));
 }
