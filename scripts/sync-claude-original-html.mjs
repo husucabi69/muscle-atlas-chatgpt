@@ -54,7 +54,10 @@ const updated={...row,hosting_status:same&&row.hosting_status==='SELF_HOSTED_HTM
  source_drive_file_id:sourceId,source_bytes:bytes.length,source_sha256:bytes_sha256};
 if(media.length===1){updated.r2_object_key=media[0];delete updated.r2_object_keys;}
 if(media.length>1){updated.r2_object_keys=media;delete updated.r2_object_key;}
-if(media.length&&!(same&&row.audio_source_verification==='DRIVE_MP4_SHA256_VERIFIED'&&row.audio_sha256&&row.audio_bytes&&row.audio_drive_file_id)){
+const sameVerifiedAudio=same&&media.length===1&&row.r2_object_key===media[0]&&
+  /^[0-9a-f]{64}$/.test(row.audio_sha256||'')&&Number.isSafeInteger(row.audio_bytes)&&row.audio_bytes>0&&
+  typeof row.audio_drive_file_id==='string'&&row.audio_drive_file_id.length>12;
+if(media.length&&!sameVerifiedAudio){
   updated.audio_source_verification='DRIVE_MP4_IDENTITY_PENDING';delete updated.audio_sha256;delete updated.audio_bytes;delete updated.audio_drive_file_id;
 }
 // Audio-free HTML may be marked self-hosted/ready; do not use the audio-ready status for unverified audio.
