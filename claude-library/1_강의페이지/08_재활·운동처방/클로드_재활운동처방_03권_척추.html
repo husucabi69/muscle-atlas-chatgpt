@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_재활·운동처방 3권_척추(목·허리) Spine Rehabilitation 1판</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{overflow-wrap:anywhere;font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}h4{font-size:15.5px;margin:10px 0 2px;color:var(--accent2)}figure.fig{margin:10px 0 14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px;text-align:center}
+figure.fig img{max-width:100%;max-height:420px;height:auto;border-radius:6px}
+figure.fig figcaption{font-size:12.5px;color:#5a5245;margin-top:4px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.onepage{font-size:14px;color:var(--muted);margin:6px 0}figure.svgfig{background:#FFFDF5}figure.svgfig svg{display:block;margin:0 auto}.legend{font-size:14px;color:var(--muted)}</style><style id="figcss">
+figure.fig{margin:22px 0 26px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+figure.fig img,figure.fig svg{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+figure.fig .pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+figure.fig .pair img{flex:1 1 140px;max-width:48%}
+figure.fig figcaption{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+figure.fig figcaption b{color:var(--accent)}
+figure.fig .src{display:block;margin-top:6px;font-size:12px;color:var(--muted);word-break:break-all}
+figure.fig .src a{color:var(--muted)}
+</style><style>.noaud .player,.noaud #startAll,.noaud #openx{display:none!important}.audpending{margin:14px 0;padding:12px 14px;border:1px dashed var(--warnb);border-radius:10px;background:var(--warn);color:var(--ink);font-size:15px}</style></head><body><div class="wrap"><header class="hero"><div class="kicker">정형외과 강의실 · 재활·운동처방 시리즈 3권 · 음성 강의판</div><h1>클로드_재활·운동처방 3권_척추(목·허리) Spine Rehabilitation 1판</h1><p>급성 요통의 활동 유지(침상 안정 비교) · 만성 요통 운동과 코어 운동 · STarT Back 위험별 치료 · 좌골신경통 조기 수술 대 보존 치료 · 요추 협착증 수술 대 물리 치료 · 목 통증 근력 운동 · 경추 신경근병증 · 척추 운동처방전</p>
+<p>무리마다 근거 연구의 수치 · 단계별 운동 · 외래 적용과 위험 신호 순서로 진행합니다. 문단이나 표의 줄을 누르면 그 자리부터 읽어 드립니다.</p><div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-ios="x-safari-https://claude.ai/artifact/7PvtvwuXMDHgVi922qqeSb" data-url="https://claude.ai/artifact/7PvtvwuXMDHgVi922qqeSb" href="intent://claude.ai/artifact/7PvtvwuXMDHgVi922qqeSb#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/7PvtvwuXMDHgVi922qqeSb</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다(의학 용어는 영어로 읽고 처음 나올 때만 한국어 뜻을 덧붙임) · 전체 약 16분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<p class="onepage">이 페이지는 처음부터 끝까지 한 장으로 이어져 있습니다. 목차를 누르면 해당 장으로 이동하고, 각 장 제목 옆 「▶ 이 장 듣기」로 그 장부터 들을 수 있습니다.</p>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 재활·운동처방 3권 — 목과 허리</a></li><li><a href="#s1">1. 급성 요통 — 눕지 말고 움직이기</a></li><li><a href="#s2">2. 만성 요통 — 어떤 운동이든 꾸준히</a></li><li><a href="#s3">3. 좌골신경통과 요추 추간판 탈출 — 기다릴 수 있는가</a></li><li><a href="#s4">4. 요추 협착증 — 물리 치료와 수술의 비교</a></li><li><a href="#s5">5. 목 통증과 경추 신경근병증</a></li><li><a href="#s6">6. 척추 운동처방전과 환자 설명</a></li><li><a href="#s7">7. 참고문헌</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 재활·운동처방 3권 — 목과 허리</h1>
+<button class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<p data-i="1">3권은 외래에서 가장 흔한 두 통증, 허리 통증과 목 통증의 운동처방을 다룹니다. 척추 통증의 운동처방은 진단 이름보다 환자가 어느 무리에 속하는지가 더 중요합니다. 먼저 위험 신호가 있는 환자를 걸러내고, 그다음 신경근 증상이 있는지, 급성인지 만성인지, 걷기에서 다리 증상이 생기는 협착증인지를 나눕니다.</p>
+<p data-i="2">척추 운동처방에서 기억할 핵심은 세 가지입니다. 첫째, 급성 요통에는 침상 안정이 아니라 평소 활동을 유지하는 것이 낫습니다. 둘째, 만성 요통에는 운동이 효과적이지만 특정 운동이 다른 운동보다 낫다는 근거는 약합니다. 셋째, 신경근병증과 협착증도 수술 전에 운동과 물리 치료를 충분히 시도할 근거가 있습니다.</p>
+<figure class="fig" id="fr3-map"><svg aria-label="척추 통증 분류" role="img" style="font-family:inherit" viewbox="0 0 640 400">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">척추 통증, 운동처방 전에 나누기</text>
+<rect fill="#c0392b" height="70" opacity=".12" rx="10" stroke="#c0392b" width="610" x="15" y="52"></rect>
+<text fill="#a93226" font-size="15" font-weight="700" x="30" y="78">① 위험 신호 먼저 — 있으면 운동처방 보류, 즉시 평가</text>
+<text fill="var(--ink)" font-size="13.5" x="30" y="104">대소변 장애·회음부 감각 저하, 진행하는 근력 약화, 암 병력·체중 감소, 발열, 고령 외상·골다공증</text>
+<g fill="var(--ink)" font-size="14" text-anchor="middle">
+<rect fill="#27ae60" height="110" opacity=".18" rx="8" stroke="#27ae60" width="145" x="15" y="145"></rect><text font-weight="700" x="87" y="175">급성 요통</text><text font-size="13" x="87" y="197">6주 이내</text><text font-size="12.5" x="87" y="225">평소 활동 유지</text>
+<rect fill="#27ae60" height="110" opacity=".18" rx="8" stroke="#27ae60" width="145" x="170" y="145"></rect><text font-weight="700" x="242" y="175">만성 요통</text><text font-size="13" x="242" y="197">12주 이상</text><text font-size="12.5" x="242" y="225">운동이 중심</text>
+<rect fill="#4a90c2" height="110" opacity=".2" rx="8" stroke="#4a90c2" width="145" x="325" y="145"></rect><text font-weight="700" x="397" y="175">신경근병증</text><text font-size="13" x="397" y="197">좌골신경통·팔 저림</text><text font-size="12.5" x="397" y="225">보존 치료 먼저</text>
+<rect fill="#f1c40f" height="110" opacity=".25" rx="8" stroke="#d4ac0d" width="145" x="480" y="145"></rect><text font-weight="700" x="552" y="175">요추 협착증</text><text font-size="13" x="552" y="197">걸으면 다리 증상</text><text font-size="12.5" x="552" y="225">굴곡 운동·걷기</text></g>
+<rect fill="#8e44ad" height="95" opacity=".1" rx="10" stroke="#8e44ad" width="610" x="15" y="275"></rect>
+<text fill="#7d3c98" font-size="15" font-weight="700" x="30" y="302">② 예후도 함께 보기 — STarT Back 방식</text>
+<text fill="var(--ink)" font-size="13.5" x="30" y="328">회복이 늦을 위험(두려움, 우울, 넓게 퍼진 통증)이 낮으면 교육과 간단한 운동,</text>
+<text fill="var(--ink)" font-size="13.5" x="30" y="352">중간이면 물리 치료, 높으면 심리 요소를 함께 다루는 물리 치료로 강도를 나눕니다.</text>
+</svg><figcaption><b>그림 1.</b> 척추 통증 환자를 운동처방 관점에서 나누는 순서. 위험 신호를 먼저 거르고, 증상 무리를 나눈 뒤, 회복 위험에 따라 치료 강도를 정합니다.<span class="src">그림: Claude 작성 분류도(이 권 본문의 근거와 교과서 감별 기준을 정리한 것입니다).</span></figcaption></figure>
+</section><section id="s1"><div class="sechead"><h1 data-i="3">1. 급성 요통 — 눕지 말고 움직이기</h1>
+<button class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<h2 data-i="4">Malmivaara — 침상 안정, 운동, 평소 활동의 비교</h2>
+<p data-i="5">핀란드 헬싱키 시 직원 가운데 급성 비특이적 요통으로 직장 보건 센터를 찾은 환자를 세 군으로 나눈 연구입니다. 2일 침상 안정 67명, 허리 가동 운동 52명, 통증이 허락하는 만큼 평소 활동을 계속한 대조군 67명이었습니다. 3주와 12주에 평소 활동 군이 다른 두 군보다 회복이 빨랐습니다. 통증 기간, 통증 강도, 허리 굴곡, 일할 수 있는 능력, Oswestry 장애 지수, 결근 일수에서 모두 평소 활동 군이 유리했고, 회복이 가장 느린 군은 침상 안정 군이었습니다.<sup>1</sup></p>
+<h2 data-i="6">Cochrane — 침상 안정 권고 대 활동 유지 권고</h2>
+<p data-i="7">10개 무작위 연구를 묶은 Cochrane 고찰에서, 급성 요통 환자는 활동을 유지하라는 권고를 받았을 때 침상 안정 권고보다 통증과 기능이 조금 더 좋았습니다. 좌골신경통 환자에서는 두 권고 사이에 차이가 거의 없었습니다. 급성 요통에서 운동, 침상 안정, 활동 유지 사이의 차이도 거의 없다는 낮은 질의 근거가 있었습니다.<sup>2</sup></p>
+<div class="box" data-i="8"><b>약에 대한 참고:</b> 급성 요통에 흔히 처방하는 파라세타몰(아세트아미노펜)은 하루 4그램을 써도 위약과 통증, 기능, 회복에 차이가 없다는 높은 질의 근거가 있습니다(3개 연구, 1,825명).<sup>3</sup> 약보다 활동 유지 교육이 더 중요한 이유입니다.</div>
+<div class="ok" data-i="9"><b>외래 적용:</b> 급성 요통 환자에게 특별한 운동을 처방하기보다 「누워 있지 마시고, 아픈 범위 안에서 평소처럼 걷고 출근하세요. 일찍 움직일수록 빨리 낫습니다」라고 설명하는 것이 근거에 맞습니다. Malmivaara 연구에서 허리 가동 운동 군도 평소 활동 군보다 느렸습니다. 급성기에는 운동을 많이 주는 것이 오히려 이득이 없을 수 있습니다.</div>
+</section><section id="s2"><div class="sechead"><h1 data-i="10">2. 만성 요통 — 어떤 운동이든 꾸준히</h1>
+<button class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<p data-i="11">1권에서 본 대로 249개 연구를 묶은 Cochrane 고찰에서 운동은 만성 요통의 통증을 100점 만점에서 15.2점 줄였습니다.<sup>4</sup> 그렇다면 어떤 운동이 가장 좋을까요?</p>
+<h2 data-i="12">코어 운동은 다른 운동보다 낫지 않았다</h2>
+<p data-i="13">Motor control exercise(운동 조절 운동), 곧 복횡근과 다열근 같은 깊은 몸통 근육을 먼저 활성화하는 이른바 코어 운동에 대한 Cochrane 고찰은 29개 연구, 2,431명을 분석했습니다. 최소 치료와 비교하면 장기 통증을 100점 만점에서 약 13점 줄였지만, 다른 운동과 비교하면 모든 시점에서 임상적으로 더 낫지 않았고, 도수 치료와도 비슷했습니다. 저자들은 만성 요통의 운동 종류는 환자와 치료자의 선호, 훈련, 비용, 안전에 따라 고르면 된다고 결론지었습니다.<sup>5</sup></p>
+<h2 data-i="14">STarT Back — 위험에 따라 치료 강도를 나누기</h2>
+<p data-i="15">영국 10개 일반 진료소의 STarT Back 연구는 요통 환자 851명을 회복 지연 위험에 따라 낮음, 중간, 높음으로 나누어 치료 강도를 다르게 한 군과, 위험을 나누지 않은 일반 진료 군으로 비교했습니다. 장애 점수(Roland-Morris) 개선은 4개월에 4.7점 대 3.0점, 12개월에 4.3점 대 3.3점으로 위험별 치료 군이 더 좋았고, 비용은 오히려 줄었습니다.<sup>6</sup></p>
+<table><tr><th>단계</th><th>만성 요통 운동</th><th>용량</th></tr>
+<tr data-i="16"><td>시작</td><td>걷기, 누워서 무릎 당기기, 골반 기울이기, 네발 자세에서 팔다리 교대로 들기</td><td>걷기 하루 20분에서 시작, 운동 10회 2세트, 매일</td></tr>
+<tr data-i="17"><td>근력</td><td>엎드려 버티기(플랭크), 옆으로 버티기, 엉덩이 들기(브릿지), 의자 앉았다 일어서기</td><td>버티기 20초에서 시작해 늘림, 12회 3세트, 이틀에 한 번</td></tr>
+<tr data-i="18"><td>기능</td><td>물건 들기 동작 연습, 직업 동작, 좋아하는 운동(수영, 자전거, 필라테스 등)</td><td>통증 감시 모델 안에서 주 150분 활동 목표</td></tr></table>
+<p data-i="19">위 운동 구성은 교과서 표준 처방입니다(표준). 근거가 말해 주는 것은 특정 동작보다 환자가 꾸준히 할 수 있는 운동을 고르는 것이 중요하다는 점입니다.</p>
+<div class="ok" data-i="20"><b>외래 적용:</b> 만성 요통 환자가 「어떤 운동이 제일 좋으냐」고 물으면 「연구에서는 운동 종류보다 꾸준히 하는 것이 중요했습니다. 좋아하고 계속할 수 있는 운동을 고르세요」라고 답합니다. 두려움이 크고 통증이 넓게 퍼진 환자는 회복 위험이 높은 무리이므로, 운동과 함께 통증에 대한 두려움을 다루는 설명에 시간을 더 씁니다.</div>
+</section><section id="s3"><div class="sechead"><h1 data-i="21">3. 좌골신경통과 요추 추간판 탈출 — 기다릴 수 있는가</h1>
+<button class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<h2 data-i="22">Peul — 조기 수술 대 연장된 보존 치료</h2>
+<p data-i="23">네덜란드의 Peul 등은 6주에서 12주 동안 심한 좌골신경통이 있는 환자 283명을 조기 수술과 연장된 보존 치료(필요하면 나중에 수술)로 나누었습니다. 조기 수술 군은 89퍼센트가 평균 2.2주 만에 미세 추간판 절제술을 받았고, 보존 치료 군은 39퍼센트가 평균 18.7주에 수술을 받았습니다. 첫 1년 동안 장애 점수의 전체 차이는 없었고, 다리 통증은 조기 수술 군이 더 빨리 줄었습니다. 1년 시점에 회복했다고 느낀 비율은 두 군 모두 95퍼센트였습니다.<sup>7</sup></p>
+<figure class="fig" id="fr3-peul"><svg aria-label="Peul 연구 결과" role="img" style="font-family:inherit" viewbox="0 0 640 300">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">Peul 2007 — 조기 수술 대 연장된 보존 치료</text>
+<g fill="var(--ink)" font-size="16" font-weight="700"><text x="20" y="72">실제로 수술을 받은 환자</text><text x="20" y="192">1년 시점 회복했다고 느낀 환자</text></g>
+<g fill="var(--ink)" font-size="15">
+<text x="20" y="106">조기 수술 군</text><rect fill="#c0392b" height="20" width="356" x="160" y="92"></rect><text font-weight="700" x="523" y="107">89%</text>
+<text x="20" y="142">보존 치료 군</text><rect fill="#4a90c2" height="20" width="156" x="160" y="128"></rect><text font-weight="700" x="323" y="143">39%</text>
+<text x="20" y="226">조기 수술 군</text><rect fill="#27ae60" height="20" width="380" x="160" y="212"></rect><text font-weight="700" x="547" y="227">95%</text>
+<text x="20" y="262">보존 치료 군</text><rect fill="#27ae60" height="20" width="380" x="160" y="248"></rect><text font-weight="700" x="547" y="263">95%</text></g>
+<text fill="var(--muted)" font-size="14" x="20" y="292">6주에서 12주 된 심한 좌골신경통 283명 · 막대 길이는 수치에 비례(1% = 4픽셀)</text>
+</svg><figcaption><b>그림 2.</b> 보존 치료 군은 수술을 절반 이하로 받고도 1년 회복률이 조기 수술 군과 같았습니다. 다만 다리 통증은 조기 수술 군에서 더 빨리 줄었습니다.<span class="src">그림: Claude 작성 도표(Peul 2007 초록의 수치를 옮긴 것입니다).</span></figcaption></figure>
+<div class="ok" data-i="24"><b>외래 적용:</b> 위험 신호가 없는 좌골신경통 환자에게는 「수술하면 다리 통증이 더 빨리 줄지만, 1년 뒤 결과는 같았습니다. 기다리는 쪽을 택한 환자의 60퍼센트는 끝내 수술 없이 좋아졌습니다」라고 설명하고 함께 결정합니다. 보존 치료 기간에는 침상 안정보다 아픈 범위 안의 활동 유지가 기본이고(Cochrane 고찰에서 좌골신경통의 침상 안정과 활동 유지는 차이가 거의 없었습니다),<sup>2</sup> 통증이 줄면 2장의 운동으로 넘어갑니다.</div>
+<div class="warn" data-i="25"><b>위험 신호:</b> 대소변 장애, 회음부 감각 저하, 발목이나 엄지발가락 근력이 점점 약해짐은 마미 증후군이나 진행하는 신경 손상의 신호이므로 기다리지 않고 즉시 영상 검사와 수술 상담을 합니다.</div>
+</section><section id="s4"><div class="sechead"><h1 data-i="26">4. 요추 협착증 — 물리 치료와 수술의 비교</h1>
+<button class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<h2 data-i="27">Delitto — 수술 대 물리 치료</h2>
+<p data-i="28">미국 다기관 연구에서 Delitto 등은 수술 대상인 50세 이상 요추 협착증 환자 169명을 감압술과 물리 치료로 나누었습니다. 2년 신체 기능 점수(SF-36)는 수술 군이 22.4점, 물리 치료 군이 19.2점 좋아져 차이가 없었습니다. 다만 물리 치료 군의 57퍼센트가 결국 수술로 옮겨 갔고, 이를 고려한 분석에서도 차이는 없었습니다.<sup>8</sup></p>
+<div class="warn" data-i="29"><b>해석:</b> 무치료 대조군이 없어 각 치료의 순수한 효과는 알 수 없습니다. 물리 치료 군의 절반 이상이 수술로 옮겨 간 점도 함께 설명해야 합니다. 저자들은 근거를 모두 알려 주고 함께 결정하라고 권했습니다.</div>
+<table><tr><th>목표</th><th>협착증 운동</th><th>이유</th></tr>
+<tr data-i="30"><td>증상 줄이기</td><td>누워서 무릎 당기기, 앉아서 몸 숙이기</td><td>허리를 굽히면 척추관이 넓어져 다리 증상이 줄어듦</td></tr>
+<tr data-i="31"><td>걷는 거리 늘리기</td><td>고정식 자전거, 손수레나 보행기를 밀며 걷기, 쉬는 간격을 두고 걷기</td><td>몸을 약간 숙인 자세의 유산소 운동</td></tr>
+<tr data-i="32"><td>근력</td><td>엉덩이 들기, 의자 앉았다 일어서기, 고관절 신전근 강화</td><td>고령 환자의 보행 능력 유지</td></tr></table>
+<p data-i="33">위 운동 구성은 교과서 표준 처방입니다(표준). 협착증은 허리를 뒤로 젖히면 증상이 심해지므로, 허리를 과하게 젖히는 운동은 피합니다.</p>
+</section><section id="s5"><div class="sechead"><h1 data-i="34">5. 목 통증과 경추 신경근병증</h1>
+<button class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<h2 data-i="35">Cochrane — 목 통증에는 근력 운동, 스트레칭만으로는 부족</h2>
+<p data-i="36">목 통증 운동에 대한 Cochrane 고찰은 27개 연구를 분석했습니다. 급성 목 통증에는 운동 근거가 없었습니다. 만성 목 통증에서는 목, 견갑골, 팔의 근력 운동이 운동 직후 통증을 중간에서 큰 정도로 줄였고(효과 크기 마이너스 0.71), 목·어깨·견갑골의 근력 운동과 스트레칭을 함께 하면 기능도 좋아졌습니다. 반면 스트레칭만 하거나 일반 체력 운동만 할 때는 통증과 기능에 변화가 없을 수 있다는 낮은 질의 근거가 있었습니다.<sup>9</sup></p>
+<h2 data-i="37">Bronfort — 급성·아급성 목 통증의 가정 운동</h2>
+<p data-i="38">미국에서 2주에서 12주 된 비특이적 목 통증 환자 272명을 12주 동안 척추 도수 치료, 약물, 가정 운동과 조언으로 나눈 연구입니다. 도수 치료는 약물보다 8주부터 52주까지 통증이 더 좋았고, 가정 운동은 26주에 약물보다 좋았습니다. 도수 치료와 가정 운동 사이에는 어느 시점에서도 중요한 차이가 없었습니다. 몇 번의 지도만으로 하는 가정 운동이 대부분의 시점에서 도수 치료와 비슷했습니다.<sup>10</sup></p>
+<h2 data-i="39">Kuijper — 경추 신경근병증 초기의 목 보조기와 물리 치료</h2>
+<p data-i="40">네덜란드의 Kuijper 등은 발생 1개월 이내의 경추 신경근병증 환자 205명을 반경성 목 보조기와 휴식 3주에서 6주, 주 2회 물리 치료와 가정 운동 6주, 그리고 특별한 치료 없이 일상 활동을 유지하는 관찰 군으로 나누었습니다. 6주 동안 관찰 군도 팔 통증이 100밀리미터 척도에서 19밀리미터 줄었지만, 보조기 군과 물리 치료 군은 12밀리미터를 더 줄였습니다. 목 통증은 관찰 군에서 거의 줄지 않았고, 보조기 군은 17밀리미터, 물리 치료 군은 14밀리미터 줄었습니다.<sup>11</sup></p>
+<table><tr><th>단계</th><th>목 운동</th><th>용량</th></tr>
+<tr data-i="41"><td>시작</td><td>턱 당기기(깊은 목 굴곡근), 어깨 으쓱하고 뒤로 돌리기</td><td>10초 버티기 10회, 하루 2번</td></tr>
+<tr data-i="42"><td>근력</td><td>밴드 노 젓기, 밴드 외회전, 엎드려 팔 들기(Y, T)</td><td>12회 3세트, 이틀에 한 번</td></tr>
+<tr data-i="43"><td>지구력과 기능</td><td>책상 자세에서 어깨·견갑골 지구력 운동, 업무 중 30분마다 자세 바꾸기</td><td>통증 감시 모델 안에서 늘림</td></tr></table>
+<p data-i="44">위 운동 구성은 Cochrane 고찰이 효과를 보인 목·견갑골 근력 운동의 원칙을 교과서 표준 동작으로 옮긴 것입니다(표준). 2권 어깨의 견갑골 운동과 겹치므로 함께 처방하기 좋습니다.</p>
+<div class="ok" data-i="45"><b>외래 적용:</b> 목 통증 환자에게 스트레칭만 주면 부족합니다. 견갑골과 목의 근력 운동을 꼭 넣습니다. 초기 경추 신경근병증은 관찰만 해도 좋아지지만, 보조기나 물리 치료가 처음 6주의 통증을 더 줄여 주므로 통증이 심하면 적극적으로 처방합니다. 진행하는 근력 약화나 손 사용이 서툴러지는 척수병증 증상이 있으면 운동보다 영상 검사가 먼저입니다.</div>
+</section><section id="s6"><div class="sechead"><h1 data-i="46">6. 척추 운동처방전과 환자 설명</h1>
+<button class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<p data-i="47">만성 비특이적 요통으로 회복 위험이 중간인 40대 사무직 환자의 처방전 예시입니다.</p>
+<table><tr><th>항목</th><th>예시</th><th>원칙</th></tr>
+<tr data-i="48"><td>진단과 무리</td><td>만성 비특이적 요통, 회복 위험 중간</td><td>STarT Back 방식 분류</td></tr>
+<tr data-i="49"><td>운동 1</td><td>빠르게 걷기 하루 30분, 주 5일</td><td>환자가 꾸준히 할 수 있는 운동</td></tr>
+<tr data-i="50"><td>운동 2</td><td>엉덩이 들기 12회 3세트, 이틀에 한 번</td><td>둔근과 몸통 근력</td></tr>
+<tr data-i="51"><td>운동 3</td><td>네발 자세 팔다리 교대 들기 10회 2세트, 매일</td><td>몸통 조절</td></tr>
+<tr data-i="52"><td>통증 규칙</td><td>운동 중 5점까지, 다음 날 아침 악화 없음</td><td>통증 감시 모델</td></tr>
+<tr data-i="53"><td>재진</td><td>4주 뒤, 걷기 기록 확인</td><td>순응도와 진행 판단</td></tr></table>
+<h2 data-i="54">환자에게 그대로 쓰는 설명</h2>
+<div class="box" data-i="55"><b>급성 요통:</b> 「허리 통증은 대부분 몇 주 안에 좋아집니다. 누워 있으면 오히려 늦게 낫습니다. 아픈 범위 안에서 평소처럼 걷고 생활하세요.」</div>
+<div class="box" data-i="56"><b>만성 요통:</b> 「허리 사진의 변화와 통증은 잘 맞지 않습니다. 허리는 쓸수록 튼튼해집니다. 운동 종류보다 꾸준히 하는 것이 중요하니, 좋아하는 운동을 함께 고릅시다.」</div>
+<div class="box" data-i="57"><b>좌골신경통:</b> 「다리로 뻗치는 통증은 수술하면 더 빨리 줄지만, 1년 뒤 결과는 수술하지 않은 쪽과 같았습니다. 다만 다리 힘이 빠지거나 소변이 이상하면 바로 오셔야 합니다.」</div>
+<h2 data-i="58">운동을 멈추고 다시 볼 신호</h2>
+<div class="warn" data-i="59"><b>위험 신호:</b> 대소변 장애나 회음부 감각 저하, 점점 심해지는 다리나 팔의 근력 약화, 손이 서툴러지고 걸음이 불안해짐, 암 병력과 설명되지 않는 체중 감소, 발열, 고령이나 골다공증 환자의 외상 뒤 통증, 밤에 쉬어도 심해지는 통증은 운동을 멈추고 즉시 다시 평가합니다.</div>
+<p data-i="60">정리합니다. 급성 요통은 누워 있지 말고 평소 활동을 유지합니다. 만성 요통은 어떤 운동이든 꾸준히 하는 것이 중요하고, 회복 위험에 따라 치료 강도를 나눕니다. 좌골신경통과 협착증은 보존 치료와 수술의 결과를 함께 설명하고 결정하며, 목 통증에는 스트레칭만이 아니라 목과 견갑골 근력 운동을 처방합니다. 4권에서는 고관절과 무릎을 다룹니다.</p>
+</section><section id="s7"><div class="sechead"><h1 data-i="61">7. 참고문헌</h1>
+<button class="secplay" data-sec="s7">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="62"><span class="tag">확인</span> Malmivaara A, et al. The treatment of acute low back pain — bed rest, exercises, or ordinary activity? <i>N Engl J Med</i>. 1995;332:351–355. <a href="https://doi.org/10.1056/NEJM199502093320602">doi:10.1056/NEJM199502093320602</a></li>
+<li data-i="63"><span class="tag">확인</span> Dahm KT, et al. Advice to rest in bed versus advice to stay active for acute low-back pain and sciatica. <i>Cochrane Database Syst Rev</i>. 2010;(6):CD007612. <a href="https://doi.org/10.1002/14651858.CD007612.pub2">doi:10.1002/14651858.CD007612.pub2</a></li>
+<li data-i="64"><span class="tag">확인</span> Saragiotto BT, et al. Paracetamol for low back pain. <i>Cochrane Database Syst Rev</i>. 2016;(6):CD012230. <a href="https://doi.org/10.1002/14651858.CD012230">doi:10.1002/14651858.CD012230</a></li>
+<li data-i="65"><span class="tag">확인</span> Hayden JA, et al. Exercise therapy for chronic low back pain. <i>Cochrane Database Syst Rev</i>. 2021;9:CD009790. <a href="https://doi.org/10.1002/14651858.CD009790.pub2">doi:10.1002/14651858.CD009790.pub2</a></li>
+<li data-i="66"><span class="tag">확인</span> Saragiotto BT, et al. Motor control exercise for chronic non-specific low-back pain. <i>Cochrane Database Syst Rev</i>. 2016;(1):CD012004. <a href="https://doi.org/10.1002/14651858.CD012004">doi:10.1002/14651858.CD012004</a></li>
+<li data-i="67"><span class="tag">확인</span> Hill JC, et al. Comparison of stratified primary care management for low back pain with current best practice (STarT Back): a randomised controlled trial. <i>Lancet</i>. 2011;378:1560–1571. <a href="https://doi.org/10.1016/S0140-6736(11)60937-9">doi:10.1016/S0140-6736(11)60937-9</a></li>
+<li data-i="68"><span class="tag">확인</span> Peul WC, et al. Surgery versus prolonged conservative treatment for sciatica. <i>N Engl J Med</i>. 2007;356:2245–2256. <a href="https://doi.org/10.1056/NEJMoa064039">doi:10.1056/NEJMoa064039</a></li>
+<li data-i="69"><span class="tag">확인</span> Delitto A, et al. Surgery versus nonsurgical treatment of lumbar spinal stenosis: a randomized trial. <i>Ann Intern Med</i>. 2015;162:465–473. <a href="https://doi.org/10.7326/M14-1420">doi:10.7326/M14-1420</a></li>
+<li data-i="70"><span class="tag">확인</span> Gross A, et al. Exercises for mechanical neck disorders. <i>Cochrane Database Syst Rev</i>. 2015;1:CD004250. <a href="https://doi.org/10.1002/14651858.CD004250.pub5">doi:10.1002/14651858.CD004250.pub5</a></li>
+<li data-i="71"><span class="tag">확인</span> Bronfort G, et al. Spinal manipulation, medication, or home exercise with advice for acute and subacute neck pain: a randomized trial. <i>Ann Intern Med</i>. 2012;156:1–10. <a href="https://doi.org/10.7326/0003-4819-156-1-201201030-00002">doi:10.7326/0003-4819-156-1-201201030-00002</a></li>
+<li data-i="72"><span class="tag">확인</span> Kuijper B, et al. Cervical collar or physiotherapy versus wait and see policy for recent onset cervical radiculopathy: randomised trial. <i>BMJ</i>. 2009;339:b3883. <a href="https://doi.org/10.1136/bmj.b3883">doi:10.1136/bmj.b3883</a></li>
+</ol>
+</section><p class="note">작성: Claude · 2026년 10월 8일 (1판). 「선희」 음성 녹음 포함. 「확인」 표시 문헌은 PubMed 초록으로 수치를 대조했고, 「표준」 표시는 교과서 서술 기준입니다.</p></div><div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/08_재활·운동처방/클로드_재활운동처방_03권_척추.mp4"], "t": [[0, 0.0, 5.136], [0, 5.486, 30.59], [0, 30.94, 57.076], [0, 57.426, 61.746], [0, 62.096, 67.592], [0, 67.942, 106.678], [0, 107.028, 111.972], [0, 112.322, 137.858], [0, 138.208, 158.032], [0, 158.382, 184.398], [0, 184.748, 189.068], [0, 189.418, 203.002], [0, 203.352, 207.312], [0, 207.662, 244.622], [0, 244.972, 249.076], [0, 249.426, 277.698], [0, 278.048, 294.224], [0, 294.574, 311.806], [0, 312.156, 328.092], [0, 328.442, 340.154], [0, 340.504, 364.264], [0, 364.614, 370.23], [0, 370.58, 374.756], [0, 375.106, 412.57], [0, 412.92, 444.552], [0, 444.902, 459.686], [0, 460.036, 464.644], [0, 464.994, 468.33], [0, 468.68, 497.312], [0, 497.662, 514.006], [0, 514.356, 526.932], [0, 527.282, 541.634], [0, 541.984, 554.2], [0, 554.55, 565.806], [0, 566.156, 570.524], [0, 570.874, 576.466], [0, 576.816, 611.184], [0, 611.534, 616.67], [0, 617.02, 649.036], [0, 649.386, 655.002], [0, 655.352, 692.24], [0, 692.59, 704.662], [0, 705.012, 717.636], [0, 717.986, 731.714], [0, 732.064, 746.464], [0, 746.814, 774.75], [0, 775.1, 779.492], [0, 779.842, 786.754], [0, 787.104, 797.304], [0, 797.654, 806.438], [0, 806.788, 814.876], [0, 815.226, 823.914], [0, 824.264, 834.32], [0, 834.67, 843.574], [0, 843.924, 846.948], [0, 847.298, 859.442], [0, 859.792, 873.88], [0, 874.23, 888.222], [0, 888.572, 891.86], [0, 892.21, 913.786], [0, 914.136, 942.84], [0, 943.19, 946.982], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0]]};</script><script>(function(){
+var D=window.__AUD__;if(!D.urls||!D.urls.length)return;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_스포츠의학 1권_예방·부하·복귀의 원칙 Sports Medicine Principles 1판</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{overflow-wrap:anywhere;font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}h4{font-size:15.5px;margin:10px 0 2px;color:var(--accent2)}figure.fig{margin:10px 0 14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px;text-align:center}
+figure.fig img{max-width:100%;max-height:420px;height:auto;border-radius:6px}
+figure.fig figcaption{font-size:12.5px;color:#5a5245;margin-top:4px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.onepage{font-size:14px;color:var(--muted);margin:6px 0}figure.svgfig{background:#FFFDF5}figure.svgfig svg{display:block;margin:0 auto}.legend{font-size:14px;color:var(--muted)}</style><style id="figcss">
+figure.fig{margin:22px 0 26px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+figure.fig img,figure.fig svg{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+figure.fig .pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+figure.fig .pair img{flex:1 1 140px;max-width:48%}
+figure.fig figcaption{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+figure.fig figcaption b{color:var(--accent)}
+figure.fig .src{display:block;margin-top:6px;font-size:12px;color:var(--muted);word-break:break-all}
+figure.fig .src a{color:var(--muted)}
+</style><style>.noaud .player,.noaud #startAll,.noaud #openx{display:none!important}.audpending{margin:14px 0;padding:12px 14px;border:1px dashed var(--warnb);border-radius:10px;background:var(--warn);color:var(--ink);font-size:15px}</style></head><body><div class="wrap"><header class="hero"><div class="kicker">정형외과 강의실 · 스포츠의학 시리즈 1권 · 음성 강의판</div><h1>클로드_스포츠의학 1권_예방·부하·복귀의 원칙 Sports Medicine Principles 1판</h1><p>부하와 버티는 능력 · 예방 운동 메타 분석(스트레칭 대 근력) · 구조화된 준비 운동(FIFA 11+) · IOC 부하 합의문 · 경기 복귀 합의문(StARRT) · 처방전</p>
+<p>원칙마다 근거 연구의 수치 · 외래 적용 · 한계 순서로 진행합니다. 문단이나 표의 줄을 누르면 그 자리부터 읽어 드립니다.</p><div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-ios="x-safari-https://claude.ai/artifact/H9uja5sbELLqf5shMExTep" data-url="https://claude.ai/artifact/H9uja5sbELLqf5shMExTep" href="intent://claude.ai/artifact/H9uja5sbELLqf5shMExTep#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/H9uja5sbELLqf5shMExTep</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다(의학 용어는 영어로 읽고 처음 나올 때만 한국어 뜻을 덧붙임) · 전체 약 13분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<p class="onepage">이 페이지는 처음부터 끝까지 한 장으로 이어져 있습니다. 목차를 누르면 해당 장으로 이동하고, 각 장 제목 옆 「▶ 이 장 듣기」로 그 장부터 들을 수 있습니다.</p>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 스포츠의학 1권 — 예방, 부하, 복귀의 원칙</a></li><li><a href="#s1">1. 스포츠 손상의 기본 개념 — 부하와 버티는 능력</a></li><li><a href="#s2">2. 예방 운동의 근거 — 스트레칭은 막지 못했고, 근력 운동이 가장 강했다</a></li><li><a href="#s3">3. 구조화된 준비 운동 — 청소년 여자 축구 선수 연구</a></li><li><a href="#s4">4. 부하 관리 — IOC 합의문</a></li><li><a href="#s5">5. 경기 복귀 — 날짜가 아니라 과정이며, 위험 관리다</a></li><li><a href="#s6">6. 외래 처방전과 환자 설명</a></li><li><a href="#s7">7. 참고문헌</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 스포츠의학 1권 — 예방, 부하, 복귀의 원칙</h1>
+<button class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<p data-i="1">스포츠의학 시리즈는 운동하는 사람을 진료하는 외래 의사를 위한 교재입니다. 대상은 프로 선수만이 아닙니다. 학생 선수, 주말 축구 동호인, 마라톤을 준비하는 40대, 골프와 테니스를 즐기는 60대가 모두 포함됩니다.</p>
+<p data-i="2">1권은 부위와 상관없이 쓰는 세 가지 원칙을 다룹니다. 첫째, 어떤 운동이 부상을 실제로 막는가. 둘째, 훈련량을 어떻게 늘리고 관리하는가. 셋째, 다친 뒤 언제 경기로 돌려보내는가. 재활·운동처방 시리즈가 「다친 뒤」를 다뤘다면, 스포츠의학 시리즈는 「다치기 전」과 「다시 뛰기까지」에 무게를 둡니다.</p>
+</section><section id="s1"><div class="sechead"><h1 data-i="3">1. 스포츠 손상의 기본 개념 — 부하와 버티는 능력</h1>
+<button class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<p data-i="4">스포츠 손상은 크게 두 가지입니다. 한 번의 큰 힘으로 생기는 acute injury(급성 손상), 곧 염좌나 근육 파열과, 반복되는 작은 힘이 쌓여 생기는 overuse injury(과사용 손상), 곧 힘줄병증이나 피로 골절입니다(표준).</p>
+<p data-i="5">두 손상을 함께 이해하는 틀이 load and capacity(부하와 버티는 능력)입니다. 조직에 걸리는 부하가 그 조직이 버틸 수 있는 능력을 넘으면 다칩니다. 그래서 예방은 두 방향입니다. 부하를 갑자기 늘리지 않는 것, 그리고 근력과 균형 훈련으로 버티는 능력을 키우는 것입니다(표준).</p>
+<table><tr><th>위험 인자</th><th>예</th><th>바꿀 수 있는가</th></tr>
+<tr data-i="6"><td>이전 부상</td><td>같은 부위의 이전 염좌나 근육 파열</td><td>바꿀 수 없지만, 재활을 끝까지 하면 위험을 줄일 수 있음</td></tr>
+<tr data-i="7"><td>급격한 부하 증가</td><td>시즌 시작, 대회 직전 훈련량 급증, 갑자기 늘린 달리기 거리</td><td>바꿀 수 있음</td></tr>
+<tr data-i="8"><td>근력과 균형 부족</td><td>햄스트링·엉덩이 근력 약화, 한 발 균형 불량</td><td>바꿀 수 있음</td></tr>
+<tr data-i="9"><td>피로와 회복 부족</td><td>잠 부족, 연속 경기, 장거리 이동, 심리적 스트레스</td><td>바꿀 수 있음</td></tr>
+<tr data-i="10"><td>나이와 성별</td><td>성장기 성장판, 여성 선수의 전방 십자 인대 손상 위험</td><td>바꿀 수 없음, 예방 프로그램 대상 선정에 씀</td></tr></table>
+<p data-i="11">위 위험 인자 정리는 교과서 표준 내용입니다(표준). 외래에서 가장 중요한 질문은 「최근에 운동량을 갑자기 늘리셨습니까」입니다.</p>
+</section><section id="s2"><div class="sechead"><h1 data-i="12">2. 예방 운동의 근거 — 스트레칭은 막지 못했고, 근력 운동이 가장 강했다</h1>
+<button class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<h2 data-i="13">Lauersen — 무작위 연구 25편 메타 분석</h2>
+<p data-i="14">덴마크의 Lauersen 등은 부상 예방 운동을 시험한 무작위 연구 25편, 참가자 26,610명, 부상 3,464건을 모아 분석했습니다. 운동 종류별로 나누어 보니 스트레칭은 부상을 줄이지 못했습니다(상대 위험 0.96). 반면 여러 운동을 묶은 프로그램은 0.66, 고유수용감각 곧 균형 훈련은 0.55, 근력 운동은 0.32로, 근력 운동이 부상을 3분의 1 아래로 줄였습니다. 급성 손상은 0.65, 과사용 손상은 0.53으로 둘 다 줄었습니다.<sup>1</sup></p>
+<figure class="fig" id="fs1-prev"><svg aria-label="운동 종류별 스포츠 부상 상대 위험" role="img" style="font-family:inherit" viewbox="0 0 640 300">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">예방 운동 종류별 부상 상대 위험(1.0 = 효과 없음)</text>
+<g fill="var(--ink)" font-size="15">
+<text x="20" y="84">스트레칭</text><rect fill="#95a5a6" height="20" width="288" x="190" y="70"></rect><text font-weight="700" x="500" y="85">0.96 (효과 없음)</text>
+<text x="20" y="128">여러 운동 묶음</text><rect fill="#4a90c2" height="20" width="198" x="190" y="114"></rect><text font-weight="700" x="396" y="129">0.66</text>
+<text x="20" y="172">균형 훈련</text><rect fill="#4a90c2" height="20" width="165" x="190" y="158"></rect><text font-weight="700" x="363" y="173">0.55</text>
+<text x="20" y="216">근력 운동</text><rect fill="#27ae60" height="20" width="95" x="190" y="202"></rect><text font-weight="700" x="293" y="217">0.32</text></g>
+<line stroke="#c0392b" stroke-dasharray="5 4" stroke-width="2" x1="490" x2="490" y1="60" y2="232"></line>
+<text fill="var(--muted)" font-size="14" x="20" y="262">무작위 연구 25편, 26,610명 · 막대가 짧을수록 부상이 적음(1.0 = 300픽셀, 빨간 점선)</text>
+<text fill="var(--muted)" font-size="14" x="20" y="286">급성 손상 0.65 · 과사용 손상 0.53</text>
+</svg><figcaption><b>그림 1.</b> 준비 운동으로 흔히 하는 스트레칭은 부상을 줄이지 못했고, 근력 운동이 가장 큰 효과를 보였습니다.<span class="src">그림: Claude 작성 도표(Lauersen 2014 초록의 상대 위험을 옮긴 것입니다).</span></figcaption></figure>
+<div class="ok" data-i="15"><b>외래 적용:</b> 「운동 전에 스트레칭만 오래 하는 것으로는 부상이 줄지 않았습니다. 일주일에 두세 번 근력 운동과 한 발 균형 운동을 하시는 것이 가장 확실한 예방입니다.」 스트레칭은 유연성이 필요한 종목에서 경기력 목적으로는 할 수 있지만, 부상 예방 수단으로 처방하지는 않습니다.</div>
+</section><section id="s3"><div class="sechead"><h1 data-i="16">3. 구조화된 준비 운동 — 청소년 여자 축구 선수 연구</h1>
+<button class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<h2 data-i="17">Soligard — 125개 클럽, 1892명</h2>
+<p data-i="18">노르웨이의 Soligard 등은 13세에서 17세 여자 축구 선수 1892명이 속한 125개 클럽을 무작위로 나누어, 한쪽은 근력, 균형, 신경근 조절을 묶은 구조화된 준비 운동을 하고, 다른 쪽은 평소대로 하게 한 뒤 한 시즌(8개월)을 관찰했습니다. 이 프로그램은 뒤에 FIFA 11+로 널리 알려졌습니다. 1차 목표였던 하지 부상 감소는 통계적으로 뚜렷하지 않았지만(비율 0.71), 전체 부상은 32퍼센트(0.68), 과사용 손상은 53퍼센트(0.47), 심한 부상은 45퍼센트(0.55) 줄었습니다.<sup>2</sup></p>
+<table><tr><th>구성</th><th>내용 예시</th><th>시간</th></tr>
+<tr data-i="19"><td>1부 달리기</td><td>천천히 달리며 엉덩이 열고 닫기, 짝과 어깨 맞대기, 앞뒤로 달리기</td><td>약 8분</td></tr>
+<tr data-i="20"><td>2부 근력·점프·균형</td><td>플랭크, 옆 플랭크, 노르딕 햄스트링, 한 발 서서 공 주고받기, 스쿼트, 점프와 착지(무릎이 안으로 모이지 않게)</td><td>약 10분</td></tr>
+<tr data-i="21"><td>3부 달리기</td><td>빠르게 달리기, 방향 전환과 착지</td><td>약 2분</td></tr></table>
+<p data-i="22">구성과 시간은 FIFA 11+ 프로그램을 교과서에서 정리하는 표준 형태입니다(표준). 주 2회 이상, 훈련 시작 때 준비 운동을 대신해서 하는 것이 핵심입니다.</p>
+<div class="ok" data-i="23"><b>외래 적용:</b> 학생 선수나 동호회 회원에게 「훈련 전 20분 준비 운동을 이 프로그램으로 바꾸세요」라고 권합니다. 축구가 아닌 농구, 핸드볼, 배구에도 같은 원리(근력, 균형, 착지 자세)가 적용됩니다. 무엇보다 꾸준히 하는 팀에서 효과가 컸으므로, 지도자에게 함께 설명하는 것이 좋습니다.</div>
+</section><section id="s4"><div class="sechead"><h1 data-i="24">4. 부하 관리 — IOC 합의문</h1>
+<button class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<h2 data-i="25">부하와 부상 — Part 1</h2>
+<p data-i="26">국제올림픽위원회(IOC)는 전문가 그룹을 꾸려 부하와 부상의 관계를 검토했습니다. 여기서 부하는 훈련량만이 아니라, 훈련과 경기량의 급격한 변화, 몰려 있는 경기 일정, 심리적 부담, 장거리 이동까지 넓게 정의되었습니다. 합의문은 부하를 잘못 관리하는 것이 부상의 주요 위험 인자라는 근거가 쌓이고 있다고 보고, 부하의 처방과 감시에 대한 실무 지침을 제시했습니다.<sup>3</sup></p>
+<h2 data-i="27">부하와 질병, 과훈련 — Part 2</h2>
+<p data-i="28">두 번째 합의문은 같은 부하 문제가 감기 같은 급성 질병과 overtraining syndrome(과훈련 증후군)의 위험도 높인다고 정리했습니다. 따라서 부하를 관리할 때는 부상뿐 아니라 수면, 기분, 피로, 잦은 감염 같은 선수의 건강 상태를 함께 살펴야 합니다.<sup>4</sup></p>
+<table><tr><th>원칙</th><th>외래에서 쓰는 방법</th></tr>
+<tr data-i="29"><td>점진적으로 늘리기</td><td>주간 훈련량을 갑자기 크게 늘리지 않음. 쉬었다 복귀할 때는 낮은 양에서 다시 시작</td></tr>
+<tr data-i="30"><td>간단히 기록하기</td><td>운동 시간(분) × 힘든 정도(10점 척도)를 매일 적어 주간 합을 봄</td></tr>
+<tr data-i="31"><td>회복도 부하의 일부</td><td>수면, 연속 경기 사이 휴식, 이동 뒤 회복일</td></tr>
+<tr data-i="32"><td>몸의 신호 기록</td><td>피로, 잠, 기분, 근육통을 짧게 매일 점수로</td></tr></table>
+<p data-i="33">기록 방법은 운동 시간과 주관적 강도를 곱하는 교과서 표준 방식입니다(표준). 최근 몇 주와 이번 주의 비율 같은 특정 지표 하나로 위험을 판단하는 방법은 학계에서 논쟁이 있으므로, 숫자 하나보다 「급격한 변화를 피한다」는 원칙으로 씁니다.</p>
+</section><section id="s5"><div class="sechead"><h1 data-i="34">5. 경기 복귀 — 날짜가 아니라 과정이며, 위험 관리다</h1>
+<button class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<h2 data-i="35">Ardern — 2016 베른 합의문</h2>
+<p data-i="36">제1회 세계 스포츠 물리 치료 학회 뒤 17명의 전문가가 모여 경기 복귀 합의문을 냈습니다. 복귀는 재활이 끝날 때 한 번 내리는 결정이 아니라, 회복과 재활과 나란히 진행되는 연속 과정으로 보아야 한다고 했습니다. 선수 개인의 생물학적, 심리적, 사회적 요인을 함께 보고, Strategic Assessment of Risk and Risk Tolerance(StARRT, 위험 평가와 위험 감수 전략) 틀로 정보를 모아 결정하라고 권했습니다. 그리고 복귀 결정을 뒷받침하는 연구 근거는 아직 부족하다고 명시했습니다.<sup>5</sup></p>
+<figure class="fig" id="fs1-rts"><svg aria-label="경기 복귀 연속 과정과 결정 틀" role="img" style="font-family:inherit" viewbox="0 0 640 330">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">경기 복귀 — 연속 과정과 결정 틀</text>
+<g fill="var(--ink)" font-size="14">
+<rect fill="#fef5e7" height="96" rx="8" stroke="#e67e22" width="190" x="20" y="56"></rect>
+<text font-size="16" font-weight="700" x="32" y="80">참여 복귀</text><text x="32" y="104">팀 훈련 일부 참여</text><text x="32" y="126">아직 경기는 아님</text>
+<rect fill="#eaf4fb" height="96" rx="8" stroke="#4a90c2" width="190" x="225" y="56"></rect>
+<text font-size="16" font-weight="700" x="237" y="80">경기 복귀</text><text x="237" y="104">경기 출전</text><text x="237" y="126">기량은 아직 회복 중</text>
+<rect fill="#e9f7ef" height="96" rx="8" stroke="#27ae60" width="190" x="430" y="56"></rect>
+<text font-size="16" font-weight="700" x="442" y="80">기량 복귀</text><text x="442" y="104">다치기 전 수준</text><text x="442" y="126">또는 그 이상</text>
+<path d="M210 104 l15 0" stroke="var(--ink)" stroke-width="2"></path><path d="M415 104 l15 0" stroke="var(--ink)" stroke-width="2"></path>
+<text font-size="16" font-weight="700" x="20" y="190">결정 틀(StARRT)</text>
+<text x="20" y="216">1단계 조직의 건강: 증상, 검사, 영상, 근력과 기능 검사</text>
+<text x="20" y="240">2단계 조직에 걸릴 부하: 종목, 포지션, 경기 수준, 보호 장비</text>
+<text x="20" y="264">3단계 위험 감수 요인: 시즌 시점, 중요한 경기, 선수의 압박, 이해관계</text></g>
+<text fill="var(--muted)" font-size="14" x="20" y="306">결정은 의사 혼자가 아니라 선수·지도자·의료진이 함께</text>
+</svg><figcaption><b>그림 2.</b> 복귀는 세 단계의 연속 과정이며, 각 단계에서 조직 상태, 걸릴 부하, 감수할 수 있는 위험을 함께 따집니다.<span class="src">그림: Claude 작성 도표(Ardern 2016 합의문의 원칙을 교과서 표준 형태로 정리한 것입니다).</span></figcaption></figure>
+<p data-i="37">세 단계 이름과 StARRT 각 단계의 세부 항목은 합의문 원칙을 교과서에서 정리하는 표준 형태로 옮긴 것입니다(표준).</p>
+<div class="ok" data-i="38"><b>외래 적용:</b> 「몇 주 뒤에 뛰어도 됩니까」라는 질문에는 날짜 대신 기준으로 답합니다. 「통증 없이 한 발로 뛰고, 근력이 반대쪽의 90퍼센트 가까이 되고, 팀 훈련을 다 소화하면 경기에 나갑니다.」 결승전이 다가오는 상황처럼 위험 감수가 달라지는 경우에는 그 위험을 선수와 지도자에게 숫자로 설명하고 함께 결정합니다.</div>
+</section><section id="s6"><div class="sechead"><h1 data-i="39">6. 외래 처방전과 환자 설명</h1>
+<button class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<p data-i="40">하프 마라톤을 준비하며 최근 3주 동안 주간 달리기 거리를 두 배로 늘린 뒤 정강이 안쪽이 아픈 40대 남성의 처방전 예시입니다.</p>
+<table><tr><th>항목</th><th>예시</th><th>원칙</th></tr>
+<tr data-i="41"><td>진단</td><td>정강이 안쪽 과사용 통증, 피로 골절 배제 필요</td><td>국소 압통, 뛰기 검사로 감별</td></tr>
+<tr data-i="42"><td>부하 조절</td><td>달리기 거리를 통증이 없던 수준으로 줄이고 매주 조금씩 늘림</td><td>IOC 부하 관리</td></tr>
+<tr data-i="43"><td>대체 운동</td><td>자전거, 수영으로 심폐 지구력 유지</td><td>체력 유지</td></tr>
+<tr data-i="44"><td>근력</td><td>한 발 뒤꿈치 들기, 스쿼트, 엉덩이 근력 운동 주 2회에서 3회</td><td>Lauersen 근력 운동</td></tr>
+<tr data-i="45"><td>기록</td><td>달린 시간 × 힘든 정도, 다음 날 아침 통증</td><td>부하와 통증 감시</td></tr>
+<tr data-i="46"><td>재진</td><td>3주 뒤, 통증과 기록 보고 거리 증가</td><td>기준 기반 진행</td></tr></table>
+<h2 data-i="47">환자에게 그대로 쓰는 설명</h2>
+<div class="box" data-i="48"><b>부하:</b> 「뼈와 힘줄은 운동량에 맞춰 튼튼해지는데, 그 속도보다 빨리 거리를 늘리면 다칩니다. 지금은 몸이 따라오는 속도로 다시 늘려 가겠습니다.」</div>
+<div class="box" data-i="49"><b>예방:</b> 「스트레칭만으로는 부상이 줄지 않았습니다. 일주일에 두세 번 근력과 균형 운동을 하시면 부상이 크게 줄었습니다.」</div>
+<div class="box" data-i="50"><b>복귀:</b> 「날짜로 정하지 않고, 몇 가지 시험을 통과하면 뛰시게 하겠습니다.」</div>
+<h2 data-i="51">운동을 멈추고 다시 볼 신호</h2>
+<div class="warn" data-i="52"><b>위험 신호:</b> 운동 중 가슴 통증이나 실신, 머리를 부딪친 뒤 두통·어지럼·기억 이상, 한 점을 누를 때 아프고 쉬어도 아프거나 밤에 아픈 뼈 통증, 여성 선수의 무월경과 반복되는 피로 골절, 체중 감소와 지속되는 피로·잦은 감염은 운동을 멈추고 다시 평가합니다. 각각 심장 질환, 뇌진탕, 피로 골절, 운동량에 비해 에너지 섭취가 부족한 상태, 과훈련 증후군의 신호일 수 있으며, 5권에서 자세히 다룹니다(표준).</div>
+<p data-i="53">정리합니다. 부상 예방의 가장 강한 근거는 근력 운동이고, 스트레칭만으로는 부상이 줄지 않았습니다. 구조화된 준비 운동은 심한 부상과 과사용 손상을 줄였습니다. 부하는 갑자기 늘리지 말고, 회복과 건강 신호를 함께 봅니다. 복귀는 날짜가 아니라 기준과 위험 관리로 결정합니다. 2권에서는 햄스트링, 사타구니, 종아리의 근육 손상을 다룹니다.</p>
+</section><section id="s7"><div class="sechead"><h1 data-i="54">7. 참고문헌</h1>
+<button class="secplay" data-sec="s7">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="55"><span class="tag">확인</span> Lauersen JB, Bertelsen DM, Andersen LB. The effectiveness of exercise interventions to prevent sports injuries: a systematic review and meta-analysis of randomised controlled trials. <i>Br J Sports Med</i>. 2014;48:871–877. <a href="https://doi.org/10.1136/bjsports-2013-092538">doi:10.1136/bjsports-2013-092538</a></li>
+<li data-i="56"><span class="tag">확인</span> Soligard T, et al. Comprehensive warm-up programme to prevent injuries in young female footballers: cluster randomised controlled trial. <i>BMJ</i>. 2008;337:a2469. <a href="https://doi.org/10.1136/bmj.a2469">doi:10.1136/bmj.a2469</a></li>
+<li data-i="57"><span class="tag">확인</span> Soligard T, et al. How much is too much? (Part 1) International Olympic Committee consensus statement on load in sport and risk of injury. <i>Br J Sports Med</i>. 2016;50:1030–1041. <a href="https://doi.org/10.1136/bjsports-2016-096581">doi:10.1136/bjsports-2016-096581</a></li>
+<li data-i="58"><span class="tag">확인</span> Schwellnus M, et al. How much is too much? (Part 2) International Olympic Committee consensus statement on load in sport and risk of illness. <i>Br J Sports Med</i>. 2016;50:1043–1052. <a href="https://doi.org/10.1136/bjsports-2016-096572">doi:10.1136/bjsports-2016-096572</a></li>
+<li data-i="59"><span class="tag">확인</span> Ardern CL, et al. 2016 Consensus statement on return to sport from the First World Congress in Sports Physical Therapy, Bern. <i>Br J Sports Med</i>. 2016;50:853–864. <a href="https://doi.org/10.1136/bjsports-2016-096278">doi:10.1136/bjsports-2016-096278</a></li>
+</ol>
+</section><p class="note">작성: Claude · 2026년 10월 9일 (1판). 「선희」 음성 녹음 포함. 「확인」 표시 문헌은 PubMed 초록으로 수치를 대조했고, 「표준」 표시는 교과서 서술 기준입니다.</p></div><div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/09_스포츠의학/클로드_스포츠의학_01권_예방·부하·복귀의_원칙.mp4"], "t": [[0, 0.0, 6.048], [0, 6.398, 24.71], [0, 25.06, 51.196], [0, 51.546, 56.778], [0, 57.128, 75.32], [0, 75.67, 98.326], [0, 98.676, 110.46], [0, 110.81, 123.266], [0, 123.616, 134.968], [0, 135.318, 146.982], [0, 147.332, 161.372], [0, 161.722, 172.282], [0, 172.632, 179.256], [0, 179.606, 184.094], [0, 184.444, 222.82], [0, 223.17, 244.458], [0, 244.808, 250.376], [0, 250.726, 255.67], [0, 256.02, 298.572], [0, 298.922, 310.946], [0, 311.296, 328.6], [0, 328.95, 338.334], [0, 338.684, 351.668], [0, 352.018, 375.658], [0, 376.008, 379.92], [0, 380.27, 383.462], [0, 383.812, 413.044], [0, 413.394, 417.402], [0, 417.752, 437.456], [0, 437.806, 449.398], [0, 449.748, 461.1], [0, 461.45, 470.354], [0, 470.704, 479.68], [0, 480.03, 497.838], [0, 498.188, 503.828], [0, 504.178, 507.778], [0, 508.128, 546.168], [0, 546.518, 556.166], [0, 556.516, 581.164], [0, 581.514, 585.282], [0, 585.632, 595.328], [0, 595.678, 607.27], [0, 607.62, 618.804], [0, 619.154, 628.418], [0, 628.768, 640.12], [0, 640.47, 650.958], [0, 651.308, 660.74], [0, 661.09, 664.114], [0, 664.464, 676.296], [0, 676.646, 686.942], [0, 687.292, 693.652], [0, 694.002, 697.29], [0, 697.64, 731.672], [0, 732.022, 762.406], [0, 762.756, 766.548], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0]]};</script><script>(function(){
+var D=window.__AUD__;if(!D.urls||!D.urls.length)return;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>

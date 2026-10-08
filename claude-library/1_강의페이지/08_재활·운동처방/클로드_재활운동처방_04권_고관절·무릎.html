@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_재활·운동처방 4권_고관절·무릎 Hip and Knee Rehabilitation 1판</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{overflow-wrap:anywhere;font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}h4{font-size:15.5px;margin:10px 0 2px;color:var(--accent2)}figure.fig{margin:10px 0 14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px;text-align:center}
+figure.fig img{max-width:100%;max-height:420px;height:auto;border-radius:6px}
+figure.fig figcaption{font-size:12.5px;color:#5a5245;margin-top:4px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.onepage{font-size:14px;color:var(--muted);margin:6px 0}figure.svgfig{background:#FFFDF5}figure.svgfig svg{display:block;margin:0 auto}.legend{font-size:14px;color:var(--muted)}</style><style id="figcss">
+figure.fig{margin:22px 0 26px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+figure.fig img,figure.fig svg{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+figure.fig .pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+figure.fig .pair img{flex:1 1 140px;max-width:48%}
+figure.fig figcaption{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+figure.fig figcaption b{color:var(--accent)}
+figure.fig .src{display:block;margin-top:6px;font-size:12px;color:var(--muted);word-break:break-all}
+figure.fig .src a{color:var(--muted)}
+</style><style>.noaud .player,.noaud #startAll,.noaud #openx{display:none!important}.audpending{margin:14px 0;padding:12px 14px;border:1px dashed var(--warnb);border-radius:10px;background:var(--warn);color:var(--ink);font-size:15px}</style></head><body><div class="wrap"><header class="hero"><div class="kicker">정형외과 강의실 · 재활·운동처방 시리즈 4권 · 음성 강의판</div><h1>클로드_재활·운동처방 4권_고관절·무릎 Hip and Knee Rehabilitation 1판</h1><p>무릎 골관절염(물리 치료 대 주사·치환술 대 비수술) · 고관절 골관절염(운동 Cochrane·가짜 치료 대조 RCT) · 둔근 건병증(LEAP) · 슬개대퇴 통증 · 퇴행성 반월상 파열 · 전방 십자 인대(재활 우선 전략·복귀 기준) · 처방전</p>
+<p>무리마다 근거 연구의 수치 · 단계별 운동 · 외래 적용과 한계 순서로 진행합니다. 문단이나 표의 줄을 누르면 그 자리부터 읽어 드립니다.</p><div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-ios="x-safari-https://claude.ai/artifact/LhefzwL5ysi44KS2ru2m4U" data-url="https://claude.ai/artifact/LhefzwL5ysi44KS2ru2m4U" href="intent://claude.ai/artifact/LhefzwL5ysi44KS2ru2m4U#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/LhefzwL5ysi44KS2ru2m4U</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다(의학 용어는 영어로 읽고 처음 나올 때만 한국어 뜻을 덧붙임) · 전체 약 16분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<p class="onepage">이 페이지는 처음부터 끝까지 한 장으로 이어져 있습니다. 목차를 누르면 해당 장으로 이동하고, 각 장 제목 옆 「▶ 이 장 듣기」로 그 장부터 들을 수 있습니다.</p>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 재활·운동처방 4권 — 고관절과 무릎</a></li><li><a href="#s1">1. 무릎 골관절염 — 운동은 주사보다 오래가고, 수술을 미룰 수 있다</a></li><li><a href="#s2">2. 고관절 골관절염 — 운동은 효과가 있지만, 물리 치료 묶음은 가짜 치료와 같았다</a></li><li><a href="#s3">3. 고관절 바깥쪽 통증 — 둔근 건병증</a></li><li><a href="#s4">4. 슬개대퇴 통증 — 무릎만이 아니라 엉덩이도</a></li><li><a href="#s5">5. 퇴행성 반월상 연골 파열 — 관절경 대신 운동</a></li><li><a href="#s6">6. 전방 십자 인대 — 모두 재건술이 필요한가, 언제 복귀하는가</a></li><li><a href="#s7">7. 고관절·무릎 운동처방전과 환자 설명</a></li><li><a href="#s8">8. 참고문헌</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 재활·운동처방 4권 — 고관절과 무릎</h1>
+<button class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<p data-i="1">4권은 하지의 두 큰 관절, 고관절과 무릎의 운동처방을 다룹니다. 다룰 무리는 여섯입니다. 무릎 골관절염, 고관절 골관절염, 고관절 바깥쪽 통증인 둔근 건병증, 젊은 사람의 무릎 앞쪽 통증인 슬개대퇴 통증, 중년의 퇴행성 반월상 연골 파열, 그리고 전방 십자 인대 손상입니다.</p>
+<p data-i="2">이 여섯 무리에는 공통점이 있습니다. 모두 수술이나 주사와 운동을 직접 비교한 무작위 연구가 있고, 대부분에서 운동이 같거나 더 나은 결과를 보였습니다. 그래서 하지 재활의 핵심은 「수술이나 주사 전에 제대로 된 운동을 충분히 했는가」를 확인하는 것입니다.</p>
+</section><section id="s1"><div class="sechead"><h1 data-i="3">1. 무릎 골관절염 — 운동은 주사보다 오래가고, 수술을 미룰 수 있다</h1>
+<button class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<p data-i="4">1권에서 본 대로 OARSI 지침은 무릎 골관절염의 핵심 치료로 교육과 구조화된 운동을 꼽았고, Cochrane 고찰에서 운동은 통증을 100점 만점에서 약 12점 줄였습니다.<sup>1</sup><sup>2</sup> 여기서는 운동을 주사, 수술과 직접 비교한 연구를 봅니다.</p>
+<h2 data-i="5">Deyle — 물리 치료 대 스테로이드 관절 주사</h2>
+<p data-i="6">미군 의료 체계의 일차 진료에서 무릎 골관절염 환자 156명, 평균 56세를 물리 치료와 스테로이드 관절 주사로 나누었습니다. 시작 시 WOMAC 점수(240점 만점, 높을수록 나쁨)는 두 군 모두 약 108점이었습니다. 1년 뒤 주사 군은 55.8점, 물리 치료 군은 37.0점으로, 물리 치료 군이 18.8점 더 좋았습니다. 보조 지표도 같은 방향이었습니다.<sup>3</sup></p>
+<h2 data-i="7">Skou — 인공 슬관절 치환술 대 비수술 치료</h2>
+<p data-i="8">Skou 등은 한쪽 인공 슬관절 치환술 대상인 중등도에서 중증 골관절염 환자 100명을, 치환술 뒤 12주 비수술 치료와 12주 비수술 치료만 받는 군으로 나누었습니다. 비수술 치료는 운동, 교육, 식이 조언, 깔창, 진통제로 이루어졌습니다. 12개월 KOOS4 점수 개선은 치환술 군 32.5점, 비수술 군 16.0점으로 치환술이 더 좋았습니다. 그러나 심각한 이상 반응은 치환술 군 24건, 비수술 군 6건이었고, 비수술 군 가운데 1년 안에 치환술을 받은 환자는 26퍼센트뿐이었습니다.<sup>4</sup></p>
+<div class="ok" data-i="9"><b>외래 적용:</b> 무릎 골관절염 환자가 주사를 원하면 「주사는 빨리 듣지만, 1년 뒤에는 물리 치료를 받은 쪽이 통증과 기능이 더 좋았습니다」라고 설명합니다. 수술 대상이 되는 진행된 골관절염이라도 「수술이 더 좋아지긴 하지만 합병증도 더 많습니다. 운동과 체중 관리를 12주 해 본 분의 네 명 중 세 명은 1년 동안 수술 없이 지냈습니다」라고 선택지를 함께 보여 줍니다.</div>
+<table><tr><th>단계</th><th>무릎 골관절염 운동</th><th>용량</th></tr>
+<tr data-i="10"><td>시작</td><td>누워서 다리 펴고 들기, 무릎 아래 수건 누르기(대퇴사두근 등척성), 고정식 자전거</td><td>10회 3세트 매일, 자전거 10분에서 20분</td></tr>
+<tr data-i="11"><td>근력</td><td>의자 앉았다 일어서기, 벽 기대 스쿼트(통증 없는 깊이), 옆으로 누워 다리 들기, 계단 오르기</td><td>8에서 12회 3세트, 이틀에 한 번</td></tr>
+<tr data-i="12"><td>기능과 유산소</td><td>한 발 서기 균형, 걷기·수중 운동·자전거</td><td>주 150분 활동, 통증 감시 모델 안에서</td></tr></table>
+<p data-i="13">위 운동 구성은 교과서 표준 처방이며(표준), 1권에서 본 덴마크 GLA:D처럼 교육과 감독 운동을 묶은 프로그램의 원칙과 같습니다.</p>
+</section><section id="s2"><div class="sechead"><h1 data-i="14">2. 고관절 골관절염 — 운동은 효과가 있지만, 물리 치료 묶음은 가짜 치료와 같았다</h1>
+<button class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<h2 data-i="15">Cochrane — 고관절 골관절염 운동</h2>
+<p data-i="16">고관절 골관절염 운동에 대한 Cochrane 고찰은 9개 연구, 549명에서 운동이 통증을 100점 만점에서 8점 줄이고 기능을 7점 개선한다는 높은 질의 근거를 제시했습니다. 한 명이 이득을 보려면 여섯 명을 치료하면 되었고, 효과는 치료가 끝난 뒤 3개월에서 6개월까지 유지되었습니다.<sup>5</sup></p>
+<h2 data-i="17">Bennell — 물리 치료가 가짜 치료보다 낫지 않았다</h2>
+<p data-i="18">호주의 Bennell 등은 통증이 있는 고관절 골관절염 환자 102명을 12주 동안 10회의 실제 물리 치료(교육, 도수 치료, 가정 운동, 필요하면 보행 보조기)와 가짜 치료(작동하지 않는 초음파와 효과 없는 젤)로 나누었습니다. 13주 통증은 실제 치료 군 40.1밀리미터, 가짜 치료 군 35.2밀리미터로 차이가 없었고, 기능도 차이가 없었습니다. 가벼운 이상 반응은 실제 치료 군 41퍼센트, 가짜 치료 군 14퍼센트였습니다.<sup>6</sup></p>
+<div class="warn" data-i="19"><b>해석:</b> 두 근거는 모순처럼 보이지만, 함께 읽으면 메시지가 분명합니다. 운동 자체는 효과가 있지만 그 크기가 작고, 도수 치료를 섞은 물리 치료 묶음이 가짜 치료보다 낫다는 보장은 없습니다. 가짜 치료 군도 크게 좋아진 것은 기대 효과와 자연 경과가 크다는 뜻입니다. 따라서 고관절 골관절염에는 비싼 도수 치료보다 단순한 근력 운동과 활동 유지를 꾸준히 하도록 돕는 것이 합리적입니다.</div>
+</section><section id="s3"><div class="sechead"><h1 data-i="20">3. 고관절 바깥쪽 통증 — 둔근 건병증</h1>
+<button class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<p data-i="21">고관절 바깥쪽, 대전자 주위의 통증은 예전에는 대전자 점액낭염이라 불렀지만, 대부분은 중둔근과 소둔근의 힘줄 문제, 곧 gluteal tendinopathy(둔근 건병증)입니다. 옆으로 눕거나 다리를 꼬고 앉거나 한 발로 설 때 아픕니다.</p>
+<h2 data-i="22">LEAP — 교육과 운동 대 주사 대 관찰</h2>
+<p data-i="23">호주의 Mellor 등은 3개월 넘게 고관절 바깥쪽이 아프고 MRI로 확인된 둔근 건병증 환자 204명을 세 군으로 나누었습니다. 8주 동안 14회의 부하 관리 교육과 운동, 스테로이드 주사 1회, 그리고 관찰만 하는 군이었습니다. 크게 좋아졌다고 답한 비율은 8주에 교육과 운동 군 77퍼센트, 주사 군 58퍼센트, 관찰 군 29퍼센트였고, 52주에는 78퍼센트, 57퍼센트, 52퍼센트였습니다. 교육과 운동은 8주와 52주 모두 주사보다 나았습니다.<sup>7</sup></p>
+<figure class="fig" id="fr4-leap"><svg aria-label="LEAP 연구 결과" role="img" style="font-family:inherit" viewbox="0 0 640 340">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">LEAP — 둔근 건병증, 크게 좋아진 환자 비율</text>
+<g fill="var(--ink)" font-size="16" font-weight="700"><text x="20" y="72">8주</text><text x="20" y="202">52주</text></g>
+<g fill="var(--ink)" font-size="15">
+<text x="20" y="100">교육과 운동</text><rect fill="#27ae60" height="18" width="308" x="160" y="86"></rect><text font-weight="700" x="475" y="100">77%</text>
+<text x="20" y="128">스테로이드 주사</text><rect fill="#4a90c2" height="18" width="232" x="160" y="114"></rect><text font-weight="700" x="399" y="128">58%</text>
+<text x="20" y="156">관찰</text><rect fill="#95a5a6" height="18" width="116" x="160" y="142"></rect><text font-weight="700" x="283" y="156">29%</text>
+<text x="20" y="230">교육과 운동</text><rect fill="#27ae60" height="18" width="312" x="160" y="216"></rect><text font-weight="700" x="479" y="230">78%</text>
+<text x="20" y="258">스테로이드 주사</text><rect fill="#4a90c2" height="18" width="228" x="160" y="244"></rect><text font-weight="700" x="395" y="258">57%</text>
+<text x="20" y="286">관찰</text><rect fill="#95a5a6" height="18" width="208" x="160" y="272"></rect><text font-weight="700" x="375" y="286">52%</text></g>
+<text fill="var(--muted)" font-size="14" x="20" y="322">MRI로 확인된 둔근 건병증 204명 · 막대 길이는 수치에 비례(1% = 4픽셀)</text>
+</svg><figcaption><b>그림 1.</b> 주사는 8주에 관찰보다 나았지만 52주에는 관찰과 비슷해졌고, 교육과 운동은 1년 내내 가장 좋았습니다. 비율은 초록의 인원수로 계산한 것입니다.<span class="src">그림: Claude 작성 도표(Mellor 2018 초록의 인원수를 백분율로 옮긴 것입니다).</span></figcaption></figure>
+<table><tr><th>요소</th><th>둔근 건병증 처방</th><th>이유</th></tr>
+<tr data-i="24"><td>부하 관리 교육</td><td>다리 꼬고 앉기, 아픈 쪽으로 눕기, 한쪽 엉덩이를 빼고 서기를 피함, 누울 때 무릎 사이에 베개</td><td>힘줄을 뼈에 누르는 압박 자세 줄이기</td></tr>
+<tr data-i="25"><td>1단계</td><td>누워서 외전 등척성 버티기, 엉덩이 들기</td><td>압박 없이 부하 시작</td></tr>
+<tr data-i="26"><td>2단계 이후</td><td>옆으로 걷기(밴드), 한 발 서기, 계단 오르기, 한 발 스쿼트</td><td>체중을 싣는 기능적 부하</td></tr></table>
+<p data-i="27">교육 내용과 운동 단계는 LEAP 연구의 원칙을 교과서 표준 동작으로 정리한 것입니다(표준). 옆으로 누워 다리를 높이 드는 운동은 힘줄 압박을 늘려 오히려 아플 수 있어 초기에 피합니다.</p>
+</section><section id="s4"><div class="sechead"><h1 data-i="28">4. 슬개대퇴 통증 — 무릎만이 아니라 엉덩이도</h1>
+<button class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<p data-i="29">계단, 쪼그려 앉기, 오래 앉아 있다 일어날 때 무릎 앞쪽이 아픈 patellofemoral pain(슬개대퇴 통증)은 청소년과 젊은 성인에게 흔합니다.</p>
+<h2 data-i="30">Cochrane — 운동 치료의 효과</h2>
+<p data-i="31">31개 연구, 1,690명을 묶은 Cochrane 고찰에서 운동은 무치료에 비해 활동 중 통증을 10점 만점에서 1.46점 줄였고, 무릎 앞쪽 통증 점수로 환산한 기능을 약 12점 높였습니다. 고관절과 무릎 운동을 함께 한 경우는 무릎 운동만 한 경우보다 활동 중 통증을 2.20점 더 줄였습니다. 다만 근거의 질은 매우 낮았고, 가장 좋은 운동 방식은 정해지지 않았습니다.<sup>8</sup></p>
+<table><tr><th>단계</th><th>슬개대퇴 통증 운동</th><th>용량</th></tr>
+<tr data-i="32"><td>통증이 심할 때</td><td>벽 기대 스쿼트 버티기(통증 없는 각도), 누워서 다리 들기, 옆으로 누워 다리 들기</td><td>버티기 30초에서 45초 5회, 매일</td></tr>
+<tr data-i="33"><td>근력</td><td>밴드 옆으로 걷기, 엉덩이 들기, 얕은 스쿼트에서 점차 깊게, 계단 내려가기 연습</td><td>12회 3세트, 이틀에 한 번</td></tr>
+<tr data-i="34"><td>복귀</td><td>달리기 재개(거리부터 늘리고 속도는 나중에), 점프와 착지</td><td>통증 감시 모델 안에서 주 10퍼센트 정도씩 늘림</td></tr></table>
+<p data-i="35">위 운동 구성은 교과서 표준 처방입니다(표준). 1권의 첫 처방전 예시가 바로 이 무리였습니다.</p>
+<div class="ok" data-i="36"><b>외래 적용:</b> 무릎 앞쪽 통증 환자에게 대퇴사두근 운동만 주지 말고 고관절 외전근과 외회전근 운동을 꼭 함께 넣습니다. 근거의 질은 낮지만 방향은 일관되고, 운동의 해가 거의 없기 때문입니다.</div>
+</section><section id="s5"><div class="sechead"><h1 data-i="37">5. 퇴행성 반월상 연골 파열 — 관절경 대신 운동</h1>
+<button class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<h2 data-i="38">Kise — 운동 치료 대 관절경 부분 절제술</h2>
+<p data-i="39">노르웨이의 Kise 등은 MRI로 확인된 퇴행성 내측 반월상 연골 파열이 있고 X-ray에서 뚜렷한 골관절염이 없는 중년 환자 140명, 평균 49.5세를 12주 감독 운동과 관절경 부분 절제술로 나누었습니다. 2년 KOOS4 점수 변화의 차이는 0.9점에 불과해 임상적으로 의미 있는 차이가 없었습니다. 3개월 허벅지 근력은 운동 군이 더 좋았습니다. 운동 군의 19퍼센트가 2년 동안 수술로 옮겨 갔지만, 수술로 추가 이득을 얻지는 못했습니다.<sup>9</sup></p>
+<div class="ok" data-i="40"><b>외래 적용:</b> 증례 4권과 근거 업데이트 1권(TeMPO)에서 다룬 결론과 같습니다. 무릎이 잠기는 기계적 증상이 없는 중년의 퇴행성 반월상 파열은 12주 운동을 먼저 처방합니다. 운동 구성은 1장의 무릎 운동과 같습니다.</div>
+</section><section id="s6"><div class="sechead"><h1 data-i="41">6. 전방 십자 인대 — 모두 재건술이 필요한가, 언제 복귀하는가</h1>
+<button class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<h2 data-i="42">Frobell — 재활 후 필요할 때만 재건술</h2>
+<p data-i="43">스웨덴의 Frobell 등은 급성 전방 십자 인대 파열이 있는 젊고 활동적인 성인 121명을 체계적 재활과 조기 재건술, 그리고 체계적 재활과 필요하면 나중에 재건술로 나누었습니다. 2년 KOOS4 점수 변화는 39.2점 대 39.4점으로 차이가 없었습니다. 나중 재건술 군 59명 가운데 23명만 재건술을 받았고, 36명은 재활만으로 지냈습니다.<sup>10</sup></p>
+<h2 data-i="44">Grindem — 재건술 후 복귀 시점과 기준</h2>
+<p data-i="45">Delaware-Oslo 코호트에서 Grindem 등은 방향 전환이 많은 운동을 하던 재건술 환자 106명을 2년 추적했습니다. 점프와 방향 전환이 많은 1단계 운동으로 복귀한 환자는 재손상률이 4.32배 높았습니다. 수술 뒤 9개월까지는 복귀를 한 달 늦출 때마다 재손상률이 51퍼센트씩 줄었고, 9개월 이후에는 더 줄지 않았습니다. 복귀 기준(설문, 대퇴사두근 근력, 한 발 뛰기 검사에서 모두 반대쪽의 90퍼센트 초과)을 통과하지 못한 환자의 38.2퍼센트, 통과한 환자의 5.6퍼센트가 재손상을 입었습니다.<sup>11</sup></p>
+<figure class="fig" id="fr4-acl"><svg aria-label="전방 십자 인대 재건술 후 복귀 기준" role="img" style="font-family:inherit" viewbox="0 0 640 330">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">재건술 후 운동 복귀 — 시간과 기준을 모두</text>
+<rect fill="#4a90c2" height="190" opacity=".15" rx="10" stroke="#4a90c2" width="290" x="20" y="56"></rect>
+<text fill="#2c6e9b" font-size="17" font-weight="700" text-anchor="middle" x="165" y="86">시간 기준</text>
+<g fill="var(--ink)" font-size="14.5"><text x="38" y="120">· 수술 뒤 최소 9개월</text><text x="38" y="148">· 9개월까지 한 달 늦출 때마다</text><text x="52" y="172">재손상률 51퍼센트 감소</text><text x="38" y="204">· 9개월 이후는 추가 감소 없음</text></g>
+<rect fill="#27ae60" height="190" opacity=".15" rx="10" stroke="#27ae60" width="290" x="330" y="56"></rect>
+<text fill="#1e8449" font-size="17" font-weight="700" text-anchor="middle" x="475" y="86">기능 기준</text>
+<g fill="var(--ink)" font-size="14.5"><text x="348" y="120">· 무릎 기능 설문 90 초과</text><text x="348" y="148">· 대퇴사두근 근력 대칭 90% 초과</text><text x="348" y="176">· 한 발 뛰기 검사 대칭 90% 초과</text><text x="348" y="204">· 모두 통과해야 복귀</text></g>
+<rect fill="#c0392b" height="50" opacity=".1" rx="10" stroke="#c0392b" width="600" x="20" y="262"></rect>
+<text fill="#a93226" font-size="15" font-weight="700" text-anchor="middle" x="320" y="293">기준 실패 시 재손상 38.2% · 기준 통과 시 5.6%</text>
+</svg><figcaption><b>그림 2.</b> 전방 십자 인대 재건술 후 점프·방향 전환 운동으로 복귀하는 두 조건. 시간과 기능 기준을 모두 채워야 합니다.<span class="src">그림: Claude 작성 도표(Grindem 2016 초록의 기준과 수치를 옮긴 것입니다).</span></figcaption></figure>
+<div class="ok" data-i="46"><b>외래 적용:</b> 급성 전방 십자 인대 파열이라고 모두 바로 재건술이 필요한 것은 아닙니다. 체계적 재활을 먼저 하고, 무릎이 반복해서 빠지는 불안정감이 남거나 방향 전환 운동으로 돌아가야 하는 환자에게 재건술을 권하는 전략도 근거가 있습니다. 재건술을 받았다면 「9개월 전에는 축구나 농구 같은 운동으로 돌아가지 않고, 근력과 한 발 뛰기 검사에서 반대쪽의 90퍼센트를 넘어야 복귀합니다」라고 처음부터 약속합니다.</div>
+<div class="warn" data-i="47"><b>한계:</b> Frobell 연구는 젊고 활동적인 성인이 대상이었고, 프로 선수나 반월상 연골 봉합이 필요한 동반 손상은 따로 판단해야 합니다. Grindem 연구는 106명의 관찰 연구여서 기준 통과와 재손상의 관계가 인과관계라고 단정할 수는 없습니다.</div>
+</section><section id="s7"><div class="sechead"><h1 data-i="48">7. 고관절·무릎 운동처방전과 환자 설명</h1>
+<button class="secplay" data-sec="s7">▶ 이 장 듣기</button></div>
+<p data-i="49">무릎 골관절염(중등도)으로 주사를 원하는 60대 환자의 처방전 예시입니다.</p>
+<table><tr><th>항목</th><th>예시</th><th>원칙</th></tr>
+<tr data-i="50"><td>진단과 단계</td><td>무릎 골관절염, 근력 단계</td><td>단계를 적어 진행 판단</td></tr>
+<tr data-i="51"><td>운동 1</td><td>의자 앉았다 일어서기 10회 3세트, 이틀에 한 번</td><td>대퇴사두근과 둔근</td></tr>
+<tr data-i="52"><td>운동 2</td><td>옆으로 누워 다리 들기 12회 3세트, 이틀에 한 번</td><td>고관절 외전근</td></tr>
+<tr data-i="53"><td>운동 3</td><td>고정식 자전거 20분, 주 5일</td><td>관절에 부담이 적은 유산소</td></tr>
+<tr data-i="54"><td>체중 관리</td><td>식이 상담 연계</td><td>OARSI 핵심 치료</td></tr>
+<tr data-i="55"><td>통증 규칙</td><td>운동 중 5점까지, 다음 날 아침 악화 없음</td><td>통증 감시 모델</td></tr>
+<tr data-i="56"><td>재진</td><td>6주 뒤, 주사 여부 함께 재평가</td><td>Deyle 연구의 근거 설명</td></tr></table>
+<h2 data-i="57">환자에게 그대로 쓰는 설명</h2>
+<div class="box" data-i="58"><b>무릎 관절염:</b> 「주사는 빨리 듣지만 1년 뒤에는 운동을 한 분들이 더 좋았습니다. 허벅지와 엉덩이 근육이 무릎을 받쳐 주는 만큼 덜 아픕니다.」</div>
+<div class="box" data-i="59"><b>고관절 바깥쪽 통증:</b> 「힘줄이 뼈에 눌려서 아픈 것입니다. 다리를 꼬거나 아픈 쪽으로 눕는 자세를 피하고 엉덩이 근육 운동을 하시면, 1년 뒤에도 주사보다 결과가 좋았습니다.」</div>
+<div class="box" data-i="60"><b>반월상 연골:</b> 「무릎이 잠기지 않는 연골 손상은 관절경 수술과 운동의 2년 결과가 같았습니다. 운동이 근력은 더 좋아지게 합니다.」</div>
+<h2 data-i="61">운동을 멈추고 다시 볼 신호</h2>
+<div class="warn" data-i="62"><b>위험 신호:</b> 무릎이 갑자기 잠겨 펴지지 않음, 외상 뒤 바로 크게 붓는 무릎, 열감과 발열을 동반한 관절, 체중을 전혀 실을 수 없는 고관절 통증(특히 고령 낙상 뒤나 장기 스테로이드 사용자), 종아리가 붓고 아픔은 운동을 멈추고 다시 평가합니다. 각각 반월상 연골 전위, 인대 손상과 관절 내 출혈, 감염, 골절이나 대퇴골두 괴사, 혈전의 신호일 수 있습니다.</div>
+<p data-i="63">정리합니다. 무릎 골관절염은 운동이 주사보다 오래가고 수술을 미룰 수 있습니다. 고관절 골관절염은 단순한 운동을 꾸준히, 둔근 건병증은 압박 자세를 피하는 교육과 운동을, 슬개대퇴 통증은 엉덩이 운동을 함께 처방합니다. 퇴행성 반월상 파열은 관절경 대신 운동, 전방 십자 인대 재건술 후에는 9개월과 90퍼센트 기준을 지킵니다. 5권에서는 발목과 발을 다룹니다.</p>
+</section><section id="s8"><div class="sechead"><h1 data-i="64">8. 참고문헌</h1>
+<button class="secplay" data-sec="s8">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="65"><span class="tag">확인</span> Bannuru RR, et al. OARSI guidelines for the non-surgical management of knee, hip, and polyarticular osteoarthritis. <i>Osteoarthritis Cartilage</i>. 2019;27:1578–1589. <a href="https://doi.org/10.1016/j.joca.2019.06.011">doi:10.1016/j.joca.2019.06.011</a></li>
+<li data-i="66"><span class="tag">확인</span> Fransen M, et al. Exercise for osteoarthritis of the knee. <i>Cochrane Database Syst Rev</i>. 2015;1:CD004376. <a href="https://doi.org/10.1002/14651858.CD004376.pub3">doi:10.1002/14651858.CD004376.pub3</a></li>
+<li data-i="67"><span class="tag">확인</span> Deyle GD, et al. Physical therapy versus glucocorticoid injection for osteoarthritis of the knee. <i>N Engl J Med</i>. 2020;382:1420–1429. <a href="https://doi.org/10.1056/NEJMoa1905877">doi:10.1056/NEJMoa1905877</a></li>
+<li data-i="68"><span class="tag">확인</span> Skou ST, et al. A randomized, controlled trial of total knee replacement. <i>N Engl J Med</i>. 2015;373:1597–1606. <a href="https://doi.org/10.1056/NEJMoa1505467">doi:10.1056/NEJMoa1505467</a></li>
+<li data-i="69"><span class="tag">확인</span> Fransen M, et al. Exercise for osteoarthritis of the hip. <i>Cochrane Database Syst Rev</i>. 2014;(4):CD007912. <a href="https://doi.org/10.1002/14651858.CD007912.pub2">doi:10.1002/14651858.CD007912.pub2</a></li>
+<li data-i="70"><span class="tag">확인</span> Bennell KL, et al. Effect of physical therapy on pain and function in patients with hip osteoarthritis: a randomized clinical trial. <i>JAMA</i>. 2014;311:1987–1997. <a href="https://doi.org/10.1001/jama.2014.4591">doi:10.1001/jama.2014.4591</a></li>
+<li data-i="71"><span class="tag">확인</span> Mellor R, et al. Education plus exercise versus corticosteroid injection use versus a wait and see approach on global outcome and pain from gluteal tendinopathy: prospective, single blinded, randomised clinical trial. <i>BMJ</i>. 2018;361:k1662. <a href="https://doi.org/10.1136/bmj.k1662">doi:10.1136/bmj.k1662</a></li>
+<li data-i="72"><span class="tag">확인</span> van der Heijden RA, et al. Exercise for treating patellofemoral pain syndrome. <i>Cochrane Database Syst Rev</i>. 2015;1:CD010387. <a href="https://doi.org/10.1002/14651858.CD010387.pub2">doi:10.1002/14651858.CD010387.pub2</a></li>
+<li data-i="73"><span class="tag">확인</span> Kise NJ, et al. Exercise therapy versus arthroscopic partial meniscectomy for degenerative meniscal tear in middle aged patients: randomised controlled trial with two year follow-up. <i>BMJ</i>. 2016;354:i3740. <a href="https://doi.org/10.1136/bmj.i3740">doi:10.1136/bmj.i3740</a></li>
+<li data-i="74"><span class="tag">확인</span> Frobell RB, et al. A randomized trial of treatment for acute anterior cruciate ligament tears. <i>N Engl J Med</i>. 2010;363:331–342. <a href="https://doi.org/10.1056/NEJMoa0907797">doi:10.1056/NEJMoa0907797</a></li>
+<li data-i="75"><span class="tag">확인</span> Grindem H, et al. Simple decision rules can reduce reinjury risk by 84% after ACL reconstruction: the Delaware-Oslo ACL cohort study. <i>Br J Sports Med</i>. 2016;50:804–808. <a href="https://doi.org/10.1136/bjsports-2016-096031">doi:10.1136/bjsports-2016-096031</a></li>
+</ol>
+</section><p class="note">작성: Claude · 2026년 10월 8일 (1판). 「선희」 음성 녹음 포함. 「확인」 표시 문헌은 PubMed 초록으로 수치를 대조했고, 「표준」 표시는 교과서 서술 기준입니다.</p></div><div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/08_재활·운동처방/클로드_재활운동처방_04권_고관절·무릎.mp4"], "t": [[0, 0.0, 5.424], [0, 5.774, 30.206], [0, 30.556, 49.804], [0, 50.154, 56.85], [0, 57.2, 75.536], [0, 75.886, 79.966], [0, 80.316, 112.14], [0, 112.49, 117.002], [0, 117.352, 158.68], [0, 159.03, 186.774], [0, 187.124, 202.964], [0, 203.314, 219.37], [0, 219.72, 233.976], [0, 234.326, 245.174], [0, 245.524, 253.036], [0, 253.386, 257.418], [0, 257.768, 280.04], [0, 280.39, 284.974], [0, 285.324, 320.46], [0, 320.81, 351.434], [0, 351.784, 356.752], [0, 357.102, 375.846], [0, 376.196, 380.516], [0, 380.866, 420.298], [0, 420.648, 436.464], [0, 436.814, 446.87], [0, 447.22, 460.972], [0, 461.322, 475.698], [0, 476.048, 480.824], [0, 481.174, 492.214], [0, 492.564, 495.996], [0, 496.346, 525.434], [0, 525.784, 541.6], [0, 541.95, 556.878], [0, 557.228, 571.004], [0, 571.354, 579.97], [0, 580.32, 596.208], [0, 596.558, 601.886], [0, 602.236, 606.748], [0, 607.098, 642.882], [0, 643.232, 661.928], [0, 662.278, 668.662], [0, 669.012, 672.948], [0, 673.298, 702.098], [0, 702.448, 706.84], [0, 707.19, 747.774], [0, 748.124, 779.588], [0, 779.938, 798.826], [0, 799.176, 804.408], [0, 804.758, 811.526], [0, 811.876, 821.764], [0, 822.114, 830.97], [0, 831.32, 839.888], [0, 840.238, 848.878], [0, 849.228, 857.772], [0, 858.122, 868.178], [0, 868.528, 877.984], [0, 878.334, 881.358], [0, 881.708, 893.42], [0, 893.77, 907.834], [0, 908.184, 919.416], [0, 919.766, 923.054], [0, 923.404, 952.084], [0, 952.434, 983.778], [0, 984.128, 987.92], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0]]};</script><script>(function(){
+var D=window.__AUD__;if(!D.urls||!D.urls.length)return;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>

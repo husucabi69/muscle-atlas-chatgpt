@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_재활·운동처방 1권_원칙과 처방 기초 Exercise Prescription Principles 1판</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{overflow-wrap:anywhere;font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}h4{font-size:15.5px;margin:10px 0 2px;color:var(--accent2)}figure.fig{margin:10px 0 14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px;text-align:center}
+figure.fig img{max-width:100%;max-height:420px;height:auto;border-radius:6px}
+figure.fig figcaption{font-size:12.5px;color:#5a5245;margin-top:4px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.onepage{font-size:14px;color:var(--muted);margin:6px 0}figure.svgfig{background:#FFFDF5}figure.svgfig svg{display:block;margin:0 auto}.legend{font-size:14px;color:var(--muted)}</style><style id="figcss">
+figure.fig{margin:22px 0 26px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+figure.fig img,figure.fig svg{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+figure.fig .pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+figure.fig .pair img{flex:1 1 140px;max-width:48%}
+figure.fig figcaption{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+figure.fig figcaption b{color:var(--accent)}
+figure.fig .src{display:block;margin-top:6px;font-size:12px;color:var(--muted);word-break:break-all}
+figure.fig .src a{color:var(--muted)}
+</style><style>.noaud .player,.noaud #startAll,.noaud #openx{display:none!important}.audpending{margin:14px 0;padding:12px 14px;border:1px dashed var(--warnb);border-radius:10px;background:var(--warn);color:var(--ink);font-size:15px}</style></head><body><div class="wrap"><header class="hero"><div class="kicker">정형외과 강의실 · 재활·운동처방 시리즈 1권 · 음성 강의판</div><h1>클로드_재활·운동처방 1권_원칙과 처방 기초 Exercise Prescription Principles 1판</h1><p>FITT 운동처방 · 근력 운동 용량(RM과 진행 규칙) · 힘줄 부하와 조직 적응(무거운 느린 저항 운동·등척성 운동) · 통증 감시 모델 · 재활 4단계와 진행 기준 · 순응도 · 외래 운동처방전과 환자 설명</p>
+<p>원칙마다 근거 연구의 수치 · 외래에서 쓰는 방법 · 주의할 점 순서로 진행합니다. 문단이나 표의 줄을 누르면 그 자리부터 읽어 드립니다.</p><div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-ios="x-safari-https://claude.ai/artifact/R2Nv5CbUfAxS5BbUhXSokf" data-url="https://claude.ai/artifact/R2Nv5CbUfAxS5BbUhXSokf" href="intent://claude.ai/artifact/R2Nv5CbUfAxS5BbUhXSokf#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/R2Nv5CbUfAxS5BbUhXSokf</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다(의학 용어는 영어로 읽고 처음 나올 때만 한국어 뜻을 덧붙임) · 전체 약 24분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<p class="onepage">이 페이지는 처음부터 끝까지 한 장으로 이어져 있습니다. 목차를 누르면 해당 장으로 이동하고, 각 장 제목 옆 「▶ 이 장 듣기」로 그 장부터 들을 수 있습니다.</p>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 재활·운동처방 1권 — 왜 운동을 처방하는가</a></li><li><a href="#s1">1. 운동처방의 네 요소 — FITT</a></li><li><a href="#s2">2. 근력 운동의 용량 — RM과 진행 규칙</a></li><li><a href="#s3">3. 부하와 조직 적응 — 힘줄은 쉬게 하면 낫지 않는다</a></li><li><a href="#s4">4. 통증 감시 모델 — 얼마나 아파도 괜찮은가</a></li><li><a href="#s5">5. 단계적 진행 — 다음 단계로 넘어가는 기준</a></li><li><a href="#s6">6. 감독 운동과 가정 운동, 그리고 순응도</a></li><li><a href="#s7">7. 외래 운동처방전 쓰기와 환자 설명</a></li><li><a href="#s8">8. 참고문헌</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 재활·운동처방 1권 — 왜 운동을 처방하는가</h1>
+<button class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<p data-i="1">재활·운동처방 시리즈는 지금까지의 강의와 방향이 다릅니다. 근육학, 이학적 검진, 질환·외상 시리즈가 무슨 병인가를 다뤘다면, 이 시리즈는 그래서 환자에게 어떤 운동을, 얼마나, 언제까지 시킬 것인가를 다룹니다. 1권은 부위와 상관없이 모든 운동처방에 공통으로 쓰는 원칙을 정리하고, 2권부터 어깨, 척추, 고관절과 무릎, 발목과 발, 팔꿈치와 손 순서로 질환별 처방을 다룹니다.</p>
+<p data-i="2">운동처방이 정형외과 외래의 중심이 된 이유는 근거 때문입니다. 2019년 OARSI(국제 골관절염 연구 학회) 지침은 무릎 골관절염의 핵심 치료로 관절염 교육과 구조화된 지상 운동 프로그램을 꼽았고, 고관절 골관절염에서도 교육과 운동을 핵심 치료로 정했습니다. 같은 지침에서 경구 마약성 진통제는 강하게 권하지 않았습니다.<sup>1</sup></p>
+<p data-i="3">무릎 골관절염 운동에 대한 Cochrane 체계적 고찰은 44개 연구, 3,537명을 묶어, 운동이 치료 직후 통증을 100점 만점에서 약 12점 줄인다는 높은 질의 근거를 제시했습니다. 저자들은 이 효과의 크기가 비스테로이드 소염제와 비슷하다고 평가했습니다. 효과는 치료가 끝난 뒤 2개월에서 6개월까지 약 6점으로 줄어든 채 유지되었습니다.<sup>2</sup></p>
+<p data-i="4">만성 요통에서도 마찬가지입니다. 249개 연구를 묶은 2021년 Cochrane 고찰에서 운동은 무치료, 일반 진료, 위약보다 통증을 100점 만점에서 15.2점 더 줄였고, 이는 저자들이 미리 정한 임상적으로 중요한 차이에 해당했습니다. 다만 기능 제한의 개선은 6.8점으로 임상적 기준인 10점에 못 미쳤습니다.<sup>3</sup></p>
+<div class="ok" data-i="5"><b>이 권의 핵심:</b> 운동은 약처럼 처방합니다. 약에 성분, 용량, 횟수, 기간이 있듯이 운동에도 종류, 강도, 빈도, 시간이 있습니다. 이 네 가지를 적지 않은 처방은 처방이 아니라 권유입니다.</div>
+</section><section id="s1"><div class="sechead"><h1 data-i="6">1. 운동처방의 네 요소 — FITT</h1>
+<button class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<p data-i="7">운동처방의 뼈대는 FITT, 곧 Frequency(빈도), Intensity(강도), Time(시간), Type(종류)입니다. 여기에 Volume(총량)과 Progression(진행)을 더해 FITT-VP라고도 부릅니다. 미국 스포츠의학회(ACSM)의 2011년 입장문이 이 틀로 건강한 성인의 운동량을 제시했습니다.<sup>4</sup></p>
+<figure class="fig" id="fr1-fitt"><svg aria-label="FITT-VP 운동처방 요소" role="img" style="font-family:inherit" viewbox="0 0 640 360">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">운동처방 = 약 처방과 같은 구조</text>
+<g fill="var(--ink)" font-size="16">
+<rect fill="#4a90c2" height="120" opacity=".18" rx="10" stroke="#4a90c2" width="140" x="20" y="56"></rect>
+<text fill="#2c6e9b" font-size="26" font-weight="700" text-anchor="middle" x="90" y="92">F</text><text font-weight="700" text-anchor="middle" x="90" y="122">빈도</text><text font-size="14" text-anchor="middle" x="90" y="150">주 몇 회</text>
+<rect fill="#c0392b" height="120" opacity=".14" rx="10" stroke="#c0392b" width="140" x="175" y="56"></rect>
+<text fill="#a93226" font-size="26" font-weight="700" text-anchor="middle" x="245" y="92">I</text><text font-weight="700" text-anchor="middle" x="245" y="122">강도</text><text font-size="14" text-anchor="middle" x="245" y="150">무게·RM·자각 강도</text>
+<rect fill="#27ae60" height="120" opacity=".16" rx="10" stroke="#27ae60" width="140" x="330" y="56"></rect>
+<text fill="#1e8449" font-size="26" font-weight="700" text-anchor="middle" x="400" y="92">T</text><text font-weight="700" text-anchor="middle" x="400" y="122">시간</text><text font-size="14" text-anchor="middle" x="400" y="150">세트·횟수·분</text>
+<rect fill="#8e44ad" height="120" opacity=".15" rx="10" stroke="#8e44ad" width="140" x="485" y="56"></rect>
+<text fill="#7d3c98" font-size="26" font-weight="700" text-anchor="middle" x="555" y="92">T</text><text font-weight="700" text-anchor="middle" x="555" y="122">종류</text><text font-size="14" text-anchor="middle" x="555" y="150">근력·유산소·유연성</text>
+<rect fill="none" height="70" rx="10" stroke="var(--muted)" stroke-dasharray="5 4" width="295" x="20" y="200"></rect>
+<text font-weight="700" text-anchor="middle" x="167" y="230">V — 총량</text><text font-size="14" text-anchor="middle" x="167" y="255">빈도 × 강도 × 시간</text>
+<rect fill="none" height="70" rx="10" stroke="var(--muted)" stroke-dasharray="5 4" width="295" x="330" y="200"></rect>
+<text font-weight="700" text-anchor="middle" x="477" y="230">P — 진행</text><text font-size="14" text-anchor="middle" x="477" y="255">언제, 얼마나 올리는가</text></g>
+<g fill="var(--muted)" font-size="14"><text x="20" y="305">약 처방에 비유하면: 종류 = 성분, 강도 = 1회 용량, 빈도 = 하루 복용 횟수,</text><text x="20" y="328">시간 = 복용 기간, 진행 = 용량 조절 계획입니다.</text></g>
+</svg><figcaption><b>그림 1.</b> <b>FITT-VP</b> 운동처방 요소. 네 칸을 모두 채워야 환자가 집에서 그대로 따라 할 수 있습니다.<span class="src">그림: Claude 작성 도표(ACSM 2011 입장문의 처방 틀을 옮긴 것입니다).</span></figcaption></figure>
+<h2 data-i="8">ACSM 2011 권고 — 건강한 성인의 기본량</h2>
+<p data-i="9">ACSM은 대부분의 성인에게 중강도 유산소 운동을 하루 30분 이상, 주 5일 이상, 합계 주 150분 이상 하거나, 고강도 유산소 운동을 하루 20분 이상, 주 3일 이상, 합계 주 75분 이상 하도록 권했습니다. 여기에 주 2일에서 3일은 주요 근육군마다 저항 운동을 하고, 균형과 협응을 기르는 neuromotor exercise(신경 운동)를 더하도록 했습니다. 유연성 운동은 근육과 힘줄 단위마다 합계 60초씩, 주 2일 이상을 권했습니다.<sup>4</sup></p>
+<table><tr><th>종류</th><th>빈도</th><th>강도와 시간</th></tr>
+<tr data-i="10"><td>유산소 운동</td><td>중강도 주 5일 이상, 또는 고강도 주 3일 이상</td><td>중강도 하루 30분 이상(주 150분), 고강도 하루 20분 이상(주 75분)</td></tr>
+<tr data-i="11"><td>저항 운동</td><td>주 2일에서 3일</td><td>주요 근육군마다</td></tr>
+<tr data-i="12"><td>유연성 운동</td><td>주 2일 이상</td><td>근육·힘줄 단위마다 합계 60초</td></tr>
+<tr data-i="13"><td>신경 운동</td><td>주 2일에서 3일</td><td>균형, 민첩성, 협응</td></tr></table>
+<p data-i="14">이 입장문에서 외래에 특히 중요한 문장이 두 개 있습니다. 첫째, 목표량을 채우지 못하거나 채우려 하지 않는 사람도 권고보다 적은 운동에서 이득을 얻습니다. 둘째, 운동을 감독받고, 행동 변화 전략을 쓰고, 즐겁게 하면 운동을 시작하고 지속하는 비율이 올라갑니다. 또한 운동 전 심장 질환 검사를 모든 사람에게 일괄적으로 할 필요는 없고, 임상적으로 필요할 때 하도록 했습니다.<sup>4</sup></p>
+<div class="warn" data-i="15"><b>주의:</b> 이 수치는 건강한 성인 기준입니다. 통증이 있는 환자에게는 이 양을 처음부터 주지 않고, 견딜 수 있는 양에서 시작해 진행 규칙에 따라 올립니다. 진행 규칙은 3장과 5장에서 다룹니다.</div>
+</section><section id="s2"><div class="sechead"><h1 data-i="16">2. 근력 운동의 용량 — RM과 진행 규칙</h1>
+<button class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<p data-i="17">근력 운동의 강도는 RM, 곧 repetition maximum(최대 반복 횟수)으로 표현합니다. 10 RM은 바른 자세로 딱 10번까지 들 수 있는 무게입니다. 1 RM은 한 번만 들 수 있는 최대 무게입니다. 외래 환자에게 1 RM을 직접 재는 것은 위험하고 불필요하므로, 대개 목표 반복 횟수에서 마지막 두세 번이 힘든 무게를 고르게 합니다.</p>
+<h2 data-i="18">ACSM 2009 진행 모델의 숫자</h2>
+<p data-i="19">ACSM의 2009년 저항 운동 진행 모델 입장문은 운동 경험이 없는 초보자에게 8에서 12 RM에 해당하는 무게를, 주 2일에서 3일 하도록 권했습니다. 진행 규칙도 명확합니다. 정한 반복 횟수보다 한두 번을 더 할 수 있게 되면 무게를 2에서 10퍼센트 올립니다.<sup>5</sup></p>
+<p data-i="20">목표에 따라 용량이 달라집니다. 근지구력이 목표라면 1 RM의 40에서 60퍼센트 정도 가벼운 무게로 15회 넘게 반복하고, 세트 사이 휴식은 90초 미만으로 짧게 합니다. 근비대가 목표라면 6에서 12 RM 구간을 중심으로 세트 사이 1분에서 2분을 쉽니다. 운동 순서는 큰 근육을 작은 근육보다, 여러 관절 운동을 한 관절 운동보다 먼저 합니다.<sup>5</sup></p>
+<table><tr><th>목표</th><th>강도</th><th>반복과 휴식</th></tr>
+<tr data-i="21"><td>초보자 근력</td><td>8에서 12 RM</td><td>주 2일에서 3일</td></tr>
+<tr data-i="22"><td>근지구력</td><td>1 RM의 40에서 60퍼센트</td><td>15회 초과, 휴식 90초 미만</td></tr>
+<tr data-i="23"><td>근비대</td><td>6에서 12 RM 중심</td><td>휴식 1분에서 2분, 여러 세트</td></tr>
+<tr data-i="24"><td>진행</td><td>목표보다 1에서 2회 더 가능</td><td>무게 2에서 10퍼센트 증가</td></tr></table>
+<div class="box" data-i="25"><b>외래에서 쉽게 쓰는 법:</b> 환자에게 「열 번 하면 마지막 두세 번이 힘든 무게로, 세 세트, 이틀에 한 번」이라고 말합니다. 그리고 「열두 번이 쉬워지면 한 단계 무거운 밴드로 바꾸세요」라고 진행 규칙을 같이 알려 줍니다. 이 두 문장이 ACSM 권고의 핵심을 담고 있습니다.</div>
+<h2 data-i="26">무거운 무게를 못 드는 환자 — 혈류 제한 운동</h2>
+<p data-i="27">수술 직후나 관절염이 심해 무거운 무게를 들 수 없는 환자에게는 blood flow restriction training(혈류 제한 운동)이 대안이 될 수 있습니다. 팔이나 다리 위쪽을 압박대로 조여 정맥 귀환을 줄인 채 가벼운 무게로 운동하는 방법입니다. 2017년 메타 분석은 전방 십자 인대 재건술, 무릎 골관절염, 근감소 위험 노인 등 20개 연구를 묶어, 가벼운 무게의 혈류 제한 운동이 근력을 중간 정도로 늘렸고(효과 크기 0.523), 가벼운 무게만의 운동보다 효과적이었지만 무거운 무게 운동보다는 덜 효과적이었다고 보고했습니다.<sup>6</sup></p>
+<div class="warn" data-i="28"><b>주의:</b> 혈류 제한 운동은 압박 압력을 개인에 맞춰 정해야 하고, 저자들도 위험을 줄이는 개별화된 처방 방법이 더 필요하다고 했습니다. 혈전 병력이나 말초 혈관 질환이 있는 환자에게는 쓰지 않는 것이 안전합니다.</div>
+</section><section id="s3"><div class="sechead"><h1 data-i="29">3. 부하와 조직 적응 — 힘줄은 쉬게 하면 낫지 않는다</h1>
+<button class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<p data-i="30">힘줄, 근육, 뼈는 모두 걸리는 부하에 맞춰 적응합니다. 부하가 조직의 감당 능력, 곧 capacity(용량)를 넘으면 통증과 손상이 생기고, 부하가 너무 적으면 용량 자체가 줄어듭니다. 그래서 힘줄병증 환자에게 완전한 휴식을 권하면 통증은 잠시 줄어도 힘줄의 용량이 더 떨어져, 다시 움직일 때 재발하기 쉽습니다. 재활의 목표는 부하를 없애는 것이 아니라, 통증을 감시하며 부하를 조금씩 올려 용량을 키우는 것입니다.</p>
+<figure class="fig" id="fr1-load"><svg aria-label="부하와 조직 용량" role="img" style="font-family:inherit" viewbox="0 0 640 360">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">부하와 조직 용량의 관계</text>
+<line stroke="var(--ink)" stroke-width="2" x1="60" x2="610" y1="300" y2="300"></line><line stroke="var(--ink)" stroke-width="2" x1="60" x2="60" y1="300" y2="60"></line>
+<text fill="var(--muted)" font-size="14" text-anchor="end" x="600" y="325">시간 →</text><text fill="var(--muted)" font-size="14" x="70" y="70">부하</text>
+<path d="M60 230 L200 225 L330 205 L460 175 L600 140" fill="none" stroke="#27ae60" stroke-width="4"></path>
+<text fill="#1e8449" font-size="15" font-weight="700" x="400" y="128">조직 용량(점차 증가)</text>
+<path d="M60 250 L200 245 L330 225 L460 195 L600 160" fill="none" stroke="#4a90c2" stroke-dasharray="8 5" stroke-width="3"></path>
+<text fill="#2c6e9b" font-size="15" font-weight="700" x="330" y="250">처방 부하: 용량 바로 아래</text>
+<rect fill="#c0392b" height="135" opacity=".85" width="14" x="140" y="95"></rect><text fill="#a93226" font-size="15" font-weight="700" x="160" y="110">갑자기 과부하 → 통증·손상</text>
+<path d="M60 230 L120 236 L180 250 L240 262" fill="none" stroke="#7f8c8d" stroke-width="3"></path>
+<text fill="#5d6d7e" font-size="14" x="150" y="285">완전 휴식 → 용량 감소</text>
+</svg><figcaption><b>그림 2.</b> 처방 부하(파란 점선)는 조직 용량(초록 선) 바로 아래에서 시작해 함께 올라갑니다. 갑작스러운 과부하(빨간 막대)는 통증을 일으키고, 완전 휴식(회색)은 용량을 떨어뜨립니다.<span class="src">그림: Claude 작성 개념도(교과서의 부하·용량 개념을 그린 것으로, 특정 연구의 수치가 아닙니다).</span></figcaption></figure>
+<h2 data-i="31">무거운 느린 저항 운동과 편심성 운동 — 아킬레스건</h2>
+<p data-i="32">힘줄병증의 대표 처방은 eccentric training(편심성 운동), 곧 근육이 늘어나며 버티는 운동입니다. 덴마크의 Beyer 등은 3개월 넘게 지속된 아킬레스건 중간부 힘줄병증 환자 58명을 12주 동안 편심성 운동과 heavy slow resistance training(무거운 느린 저항 운동)으로 나누었습니다. 두 군 모두 기능 점수와 통증이 크게 좋아졌고, 52주까지 유지되었으며, 힘줄 두께와 신생 혈관도 줄었습니다. 두 운동 사이에 결과 차이는 없었습니다.<sup>7</sup></p>
+<p data-i="33">차이는 지키기 쉬운 정도에서 나왔습니다. 운동 세션 참여율은 편심성 운동 78퍼센트, 무거운 느린 저항 운동 92퍼센트로 의미 있는 차이가 있었습니다. 12주 만족도는 각각 80퍼센트와 100퍼센트였지만 통계적 유의 수준에는 조금 못 미쳤습니다.<sup>7</sup></p>
+<h2 data-i="34">슬개건병증 — 주사와 운동의 비교</h2>
+<p data-i="35">같은 연구 팀의 Kongsgaard 등은 슬개건병증 남성 39명을 힘줄 주위 스테로이드 주사, 편심성 내리막 스쿼트, 무거운 느린 저항 운동으로 나누었습니다. 12주에는 세 군 모두 좋아졌지만, 반년 추적에서 스테로이드 주사 군만 다시 나빠졌고, 두 운동 군은 좋아진 상태를 유지했습니다. 반년 시점 만족도는 무거운 느린 저항 운동 군이 가장 높았습니다.<sup>8</sup></p>
+<div class="ok" data-i="36"><b>외래 적용:</b> 힘줄병증 환자에게 주사는 단기 통증을 줄이지만 장기 결과를 지켜 주지 못합니다. 운동이 치료의 중심이고, 편심성 운동이 지루하거나 아파서 환자가 잘 안 할 것 같으면, 무겁고 느린 저항 운동을 처방해도 결과는 같으면서 더 잘 지킵니다. 이 연구들의 무거운 느린 저항 운동은 한 번 올리고 내리는 데 각각 3초 정도로 천천히 하는 방식입니다(표준).</div>
+<h2 data-i="37">등척성 운동 — 통증을 바로 줄이는 운동</h2>
+<p data-i="38">Isometric exercise(등척성 운동), 곧 관절을 움직이지 않고 힘만 주며 버티는 운동은 진통 효과로 주목받았습니다. Rio 등은 슬개건병증 배구 선수 6명의 교차 연구에서, 한 번의 등척성 수축 운동 뒤 한 다리 내리막 스쿼트 통증이 10점 만점 7.0점에서 0.17점으로 떨어졌고, 등장성 운동 뒤에는 6.33점에서 3.75점으로 덜 떨어졌다고 보고했습니다. 진통 효과는 45분 뒤에도 유지되었습니다.<sup>9</sup></p>
+<p data-i="39">같은 팀은 시즌 중인 점프 종목 선수 20명을 4주 동안 무릎 60도 굽힘에서 최대 근력의 80퍼센트로 버티는 등척성 운동과, 8 RM의 80퍼센트로 하는 등장성 운동으로 나눈 후속 연구에서도 등척성 운동의 즉각적 진통 효과가 더 컸다고 보고했습니다. 다만 두 방법 모두 통증을 줄였습니다.<sup>10</sup></p>
+<div class="warn" data-i="40"><b>해석:</b> 등척성 운동 연구는 대상자가 6명과 20명으로 작고, 운동선수만 대상으로 했습니다. 등척성 운동은 통증이 심한 시기에 부하를 유지하는 첫 단계 운동으로 쓰기 좋지만, 그것만으로 힘줄의 용량을 키운다는 근거는 아닙니다. 통증이 가라앉으면 무거운 느린 저항 운동으로 넘어갑니다.</div>
+</section><section id="s4"><div class="sechead"><h1 data-i="41">4. 통증 감시 모델 — 얼마나 아파도 괜찮은가</h1>
+<button class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<p data-i="42">환자가 가장 자주 묻는 질문은 운동하다 아프면 멈춰야 하느냐입니다. 이 질문에 대한 실용적인 답이 pain-monitoring model(통증 감시 모델)입니다. 운동을 완전히 멈추게 하지 않고, 운동 중과 다음 날 아침의 통증을 기준으로 부하를 조절합니다.</p>
+<h2 data-i="43">Silbernagel 연구 — 달리기를 멈추지 않아도 된다</h2>
+<p data-i="44">스웨덴의 Silbernagel 등은 아킬레스건병증 환자 38명을 두 군으로 나누었습니다. 한 군은 통증 감시 모델을 지키며 달리기와 점프를 계속했고, 다른 군은 처음 6주 동안 그런 활동을 멈췄습니다. 재활 운동 프로그램은 두 군이 같았습니다. 두 군 사이의 호전 정도에 차이가 없었고, 기능 점수(VISA-A)는 활동을 계속한 군이 57점에서 12개월 85점으로, 쉰 군이 57점에서 91점으로 좋아졌습니다. 활동을 계속해서 생긴 나쁜 영향은 없었습니다.<sup>11</sup></p>
+<p data-i="45">이 연구가 쓴 통증 감시 모델의 규칙은 다음과 같습니다(표준, 원 논문 본문 기준). 운동이나 활동 중 통증은 0에서 10 척도에서 5까지 허용합니다. 운동 뒤 통증은 다음 날 아침까지 가라앉아야 합니다. 통증과 뻣뻣함이 주마다 점점 심해지지 않아야 합니다. 이 조건을 넘으면 부하를 줄이고, 지키면 부하를 유지하거나 올립니다.</p>
+<figure class="fig" id="fr1-pain"><svg aria-label="통증 감시 모델 신호등" role="img" style="font-family:inherit" viewbox="0 0 640 380">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">통증 감시 모델 — 신호등으로 설명하기</text>
+<g fill="var(--ink)" font-size="15">
+<rect fill="#27ae60" height="80" opacity=".16" rx="10" stroke="#27ae60" width="600" x="20" y="58"></rect>
+<circle cx="58" cy="98" fill="#27ae60" r="22"></circle><text fill="#fff" font-weight="700" text-anchor="middle" x="58" y="104">0~2</text>
+<text font-weight="700" x="95" y="90">안전 — 계속 진행</text><text font-size="14" x="95" y="116">운동 중 통증 0~2, 다음 날 아침 평소와 같음 → 부하를 유지하거나 올림</text>
+<rect fill="#f1c40f" height="80" opacity=".22" rx="10" stroke="#d4ac0d" width="600" x="20" y="152"></rect>
+<circle cx="58" cy="192" fill="#d4ac0d" r="22"></circle><text fill="#fff" font-weight="700" text-anchor="middle" x="58" y="198">3~5</text>
+<text font-weight="700" x="95" y="184">허용 — 그대로 유지</text><text font-size="14" x="95" y="210">운동 중 통증 3~5, 다음 날 아침까지 가라앉음 → 같은 부하를 유지</text>
+<rect fill="#c0392b" height="80" opacity=".14" rx="10" stroke="#c0392b" width="600" x="20" y="246"></rect>
+<circle cx="58" cy="286" fill="#c0392b" r="22"></circle><text fill="#fff" font-weight="700" text-anchor="middle" x="58" y="292">6+</text>
+<text font-weight="700" x="95" y="278">과부하 — 줄이기</text><text font-size="14" x="95" y="304">통증 6 이상, 또는 다음 날 아침 더 아픔 → 부하를 줄이고 다시 시작</text></g>
+<text fill="var(--muted)" font-size="14" x="20" y="360">통증 척도 0 = 전혀 안 아픔, 10 = 상상할 수 있는 가장 심한 통증</text>
+</svg><figcaption><b>그림 3.</b> <b>pain-monitoring model</b>을 환자 설명용 신호등으로 바꾼 것. 운동 중 통증 5까지는 허용하고, 다음 날 아침 통증이 핵심 판단 기준입니다.<span class="src">그림: Claude 작성 도표(Silbernagel 2007 연구의 통증 감시 모델 규칙을 신호등으로 옮긴 것입니다).</span></figcaption></figure>
+<h2 data-i="46">아픈 운동과 안 아픈 운동 — 메타 분석</h2>
+<p data-i="47">2017년 Smith 등의 메타 분석은 만성 근골격 통증 환자 385명이 참여한 7개 무작위 연구를 묶어, 통증을 허용하거나 유도하는 운동과 통증 없는 운동을 비교했습니다. 단기 통증에서는 아픈 운동 쪽이 작은 이득(효과 크기 마이너스 0.27)을 보였고, 중기와 장기 통증, 그리고 모든 시점의 기능과 장애에서는 차이가 없었습니다. 저자들은 치료 운동 중 통증이 좋은 결과의 장애물이 될 필요는 없다고 결론지었습니다.<sup>12</sup></p>
+<div class="ok" data-i="48"><b>외래 적용:</b> 만성 통증 환자에게 「아프면 무조건 멈추세요」라고 하면 환자는 운동을 거의 하지 못합니다. 「운동 중 10점 중 5점까지는 괜찮고, 다음 날 아침에 평소보다 더 아프지 않으면 잘하고 계신 겁니다」라고 설명합니다. 다만 급성 골절, 수술 직후 보호 단계, 신경 증상이 악화하는 경우에는 이 모델을 쓰지 않습니다.</div>
+</section><section id="s5"><div class="sechead"><h1 data-i="49">5. 단계적 진행 — 다음 단계로 넘어가는 기준</h1>
+<button class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<p data-i="50">대부분의 정형외과 재활은 네 단계로 나눌 수 있습니다. 단계는 날짜가 아니라 기준으로 넘어갑니다. 수술 후 재활처럼 조직 치유 기간이 정해진 경우에는 최소 기간과 기준을 함께 만족해야 다음 단계로 갑니다. 아래 단계와 기준은 교과서와 임상 지침에서 공통으로 쓰는 틀을 정리한 것입니다(표준).</p>
+<figure class="fig" id="fr1-stage"><svg aria-label="재활 4단계" role="img" style="font-family:inherit" viewbox="0 0 640 330">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">재활 4단계 — 계단처럼 올라갑니다</text>
+<g fill="var(--ink)" font-size="15">
+<rect fill="#4a90c2" height="70" opacity=".22" stroke="#4a90c2" width="140" x="20" y="230"></rect><text font-weight="700" text-anchor="middle" x="90" y="258">1단계</text><text font-size="13" text-anchor="middle" x="90" y="282">보호·통증 조절</text>
+<rect fill="#4a90c2" height="120" opacity=".32" stroke="#4a90c2" width="140" x="170" y="180"></rect><text font-weight="700" text-anchor="middle" x="240" y="208">2단계</text><text font-size="13" text-anchor="middle" x="240" y="232">가동 범위·등척성</text>
+<rect fill="#4a90c2" height="170" opacity=".45" stroke="#4a90c2" width="140" x="320" y="130"></rect><text font-weight="700" text-anchor="middle" x="390" y="158">3단계</text><text font-size="13" text-anchor="middle" x="390" y="182">근력·부하 증가</text>
+<rect fill="#4a90c2" height="220" opacity=".6" stroke="#4a90c2" width="150" x="470" y="80"></rect><text fill="#fff" font-weight="700" text-anchor="middle" x="545" y="108">4단계</text><text fill="#fff" font-size="13" text-anchor="middle" x="545" y="132">기능·복귀</text></g>
+<g fill="var(--muted)" font-size="13"><text x="20" y="220">→ 통증 조절됨</text><text x="170" y="170">→ 가동 범위 거의 정상</text><text x="320" y="120">→ 근력 반대쪽의 80%대</text><text x="470" y="70">→ 기능 검사 통과</text></g>
+</svg><figcaption><b>그림 4.</b> 재활 4단계. 각 계단 위의 글씨가 다음 단계로 넘어가는 기준입니다.<span class="src">그림: Claude 작성 개념도(교과서의 단계적 재활 틀을 그린 것으로, 특정 지침의 수치가 아닙니다).</span></figcaption></figure>
+<table><tr><th>단계</th><th>목표와 운동</th><th>다음 단계로 넘어가는 기준</th></tr>
+<tr data-i="51"><td>1단계 보호·통증 조절</td><td>손상 조직 보호, 통증과 붓기 조절, 다치지 않은 부위 운동 유지, 가벼운 등척성 운동</td><td>휴식 시 통증이 거의 없고 붓기가 가라앉음</td></tr>
+<tr data-i="52"><td>2단계 가동 범위·등척성</td><td>관절 가동 범위 회복, 등척성 근력 운동, 기본 자세 조절</td><td>가동 범위가 거의 정상이고 등척성 운동 중 통증이 5 이하</td></tr>
+<tr data-i="53"><td>3단계 근력·부하 증가</td><td>등장성 저항 운동(8에서 12 RM), 편심성 또는 무거운 느린 저항 운동, 균형 운동</td><td>근력이 반대쪽의 80퍼센트대 이상이고 다음 날 통증 악화가 없음</td></tr>
+<tr data-i="54"><td>4단계 기능·복귀</td><td>일·운동 동작 연습, 속도와 방향 전환, 점프와 착지</td><td>기능 검사(한 발 뛰기 등)에서 반대쪽과 비슷하고 자신감 회복</td></tr></table>
+<div class="box" data-i="55"><b>근력 비교의 실제:</b> 외래에서는 등속성 장비가 없어도 됩니다. 한 발 앉았다 일어서기 횟수, 한 발 발뒤꿈치 들기 횟수, 손으로 버틴 근력을 양쪽 비교합니다. 다친 쪽이 반대쪽의 몇 퍼센트인지를 기록하면, 다음 진료 때 진행 여부를 판단하는 객관적 기준이 됩니다. 구체적인 부위별 검사와 복귀 기준은 2권부터 다룹니다.</div>
+</section><section id="s6"><div class="sechead"><h1 data-i="56">6. 감독 운동과 가정 운동, 그리고 순응도</h1>
+<button class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<p data-i="57">운동처방의 가장 큰 적은 환자가 운동을 하지 않는 것입니다. 무릎 골관절염 Cochrane 고찰에서도 개인별로 지도한 프로그램이 집단 수업이나 가정 프로그램보다 통증과 기능을 더 많이 개선하는 경향이 있었습니다. 다만 개인 지도 연구들 사이의 차이가 커서 결론은 조심스럽습니다.<sup>2</sup></p>
+<h2 data-i="58">순응도를 높이는 방법 — Cochrane 고찰</h2>
+<p data-i="59">만성 근골격 통증 환자의 운동 순응도를 높이는 방법을 다룬 Cochrane 고찰은 42개 연구, 8,243명을 분석했습니다. 운동의 종류 자체는 순응도에 큰 영향을 주지 않았습니다. 반면 운동을 감독하거나, 중간에 다시 확인하는 세션을 두거나, 운동 동영상이나 녹음을 집에 가져가게 하는 등 운동을 전달하는 방법을 바꾼 연구 6개 가운데 5개에서 순응도가 올라갔고, 자기 관리 프로그램 8개 가운데 6개에서도 올라갔습니다. 저자들은 감독하거나 개인에 맞춘 운동 치료와 자기 관리 기법이 순응도를 높일 수 있다고 결론지었습니다.<sup>13</sup></p>
+<h2 data-i="60">교육과 감독 운동의 실제 — 덴마크 GLA:D</h2>
+<p data-i="61">덴마크는 2013년부터 무릎과 고관절 골관절염 환자에게 교육 2회와 감독 신경근 운동 12회로 이루어진 GLA:D 프로그램을 전국에 보급했습니다. 등록 자료 9,825명의 분석에서 통증은 100점 만점에서 3개월에 12.4점, 12개월에 13.7점 줄었고, 진통제를 먹는 환자와 병가를 낸 환자도 줄었습니다.<sup>14</sup> 이 숫자는 무작위 연구가 아니라 등록 자료이므로 자연 경과와 회귀 효과가 섞여 있을 수 있습니다. 교육 횟수와 운동 세션 수는 프로그램 표준 구성 기준입니다(표준).</p>
+<div class="ok" data-i="62"><b>외래 적용:</b> 근거 업데이트 1권에서 다룬 TeMPO 연구는 반월상 연골 파열 환자에게 잘 짜인 가정 운동만으로도 감독 물리 치료와 비슷한 결과를 보였습니다. 두 근거를 합치면 결론은 이렇습니다. 감독이 반드시 매번 필요한 것은 아니지만, 처음 동작을 정확히 가르치고, 중간에 다시 확인하고, 집에서 볼 자료를 주는 것이 순응도를 지키는 핵심입니다.</div>
+<h2 data-i="63">순응도를 높이는 외래 처방 다섯 가지</h2>
+<p data-i="64">① 운동은 두세 가지로 줄입니다. 열 가지를 주면 하나도 하지 않습니다. ② 운동마다 횟수, 세트, 빈도를 종이에 적어 줍니다. ③ 진료실에서 한 번 직접 해 보게 하고 틀린 자세를 고쳐 줍니다. ④ 휴대폰으로 운동 장면을 찍어 가게 하거나 동영상 자료를 줍니다. ⑤ 2주에서 4주 뒤 재진에서 운동 기록을 확인하고 진행 여부를 결정합니다. 이 다섯 가지는 위 Cochrane 고찰의 결과를 외래 상황에 맞게 정리한 것입니다.</p>
+</section><section id="s7"><div class="sechead"><h1 data-i="65">7. 외래 운동처방전 쓰기와 환자 설명</h1>
+<button class="secplay" data-sec="s7">▶ 이 장 듣기</button></div>
+<p data-i="66">이제 앞의 원칙을 한 장의 처방전으로 묶습니다. 아래는 무릎 앞쪽 통증 환자에게 3단계 근력 운동을 처방하는 예시입니다. 질환별 실제 운동 구성은 해당 권에서 다루고, 여기서는 처방전의 형식을 익힙니다.</p>
+<table><tr><th>항목</th><th>예시</th><th>원칙</th></tr>
+<tr data-i="67"><td>진단과 단계</td><td>슬개대퇴 통증, 3단계</td><td>단계를 적어야 다음 진료 때 진행을 판단</td></tr>
+<tr data-i="68"><td>운동 1</td><td>벽 기대 스쿼트 60도 버티기 45초, 5회, 매일</td><td>통증이 심한 날의 등척성 운동</td></tr>
+<tr data-i="69"><td>운동 2</td><td>의자 앉았다 일어서기 12회, 3세트, 이틀에 한 번</td><td>마지막 두세 번이 힘든 강도</td></tr>
+<tr data-i="70"><td>운동 3</td><td>옆으로 누워 다리 들기 12회, 3세트, 이틀에 한 번</td><td>고관절 외전근 강화</td></tr>
+<tr data-i="71"><td>통증 규칙</td><td>운동 중 5점까지, 다음 날 아침 악화 없음</td><td>통증 감시 모델</td></tr>
+<tr data-i="72"><td>진행 규칙</td><td>14회가 쉬우면 무게나 밴드 한 단계 올림</td><td>목표보다 1에서 2회 더 가능하면 증가</td></tr>
+<tr data-i="73"><td>재진</td><td>3주 뒤, 운동 기록지 지참</td><td>순응도 확인과 진행 결정</td></tr></table>
+<h2 data-i="74">환자에게 그대로 쓰는 설명</h2>
+<div class="box" data-i="75"><b>운동이 왜 치료인지:</b> 「힘줄과 근육은 쓰는 만큼 튼튼해집니다. 쉬기만 하면 통증은 잠깐 줄어도 다시 약해져서 재발합니다. 그래서 오늘부터 약 대신, 또는 약과 함께 운동을 처방해 드립니다.」</div>
+<div class="box" data-i="76"><b>통증에 대해:</b> 「운동하다 조금 아픈 것은 괜찮습니다. 10점 중 5점까지는 해도 됩니다. 중요한 것은 다음 날 아침입니다. 아침에 평소보다 더 아프면 양을 줄이시고, 괜찮으면 그대로 하시면 됩니다.」</div>
+<div class="box" data-i="77"><b>기간에 대해:</b> 「운동 효과는 보통 6주에서 12주에 걸쳐 나타납니다. 처음 2주 동안 좋아지지 않았다고 그만두시면 안 됩니다.」 이 기간은 앞에서 본 힘줄 연구들이 12주 프로그램을 쓴 것을 근거로 한 설명입니다.</div>
+<h2 data-i="78">운동처방을 멈추고 다시 볼 신호</h2>
+<div class="warn" data-i="79"><b>위험 신호:</b> 밤에 쉬어도 계속 심해지는 통증, 발열과 함께 붓는 관절, 점점 심해지는 근력 약화나 감각 저하, 대소변 장애, 갑자기 생긴 큰 부종이나 종아리 통증, 운동 중 가슴 통증이나 숨참은 운동을 멈추고 즉시 다시 평가합니다. 이런 증상은 감염, 종양, 신경 압박, 혈전, 심장 질환의 신호일 수 있습니다.</div>
+<p data-i="80">정리합니다. 운동처방은 FITT로 적고, 근력은 8에서 12 RM에서 시작해 목표보다 한두 번 더 하면 올리며, 통증은 운동 중 5점과 다음 날 아침을 기준으로 조절하고, 단계는 날짜가 아니라 기준으로 넘어갑니다. 그리고 운동은 두세 가지로 줄여 적어 주고, 다시 확인합니다. 2권에서는 이 원칙을 어깨 질환에 적용합니다.</p>
+</section><section id="s8"><div class="sechead"><h1 data-i="81">8. 참고문헌</h1>
+<button class="secplay" data-sec="s8">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="82"><span class="tag">확인</span> Bannuru RR, et al. OARSI guidelines for the non-surgical management of knee, hip, and polyarticular osteoarthritis. <i>Osteoarthritis Cartilage</i>. 2019;27:1578–1589. <a href="https://doi.org/10.1016/j.joca.2019.06.011">doi:10.1016/j.joca.2019.06.011</a></li>
+<li data-i="83"><span class="tag">확인</span> Fransen M, et al. Exercise for osteoarthritis of the knee. <i>Cochrane Database Syst Rev</i>. 2015;1:CD004376. <a href="https://doi.org/10.1002/14651858.CD004376.pub3">doi:10.1002/14651858.CD004376.pub3</a></li>
+<li data-i="84"><span class="tag">확인</span> Hayden JA, et al. Exercise therapy for chronic low back pain. <i>Cochrane Database Syst Rev</i>. 2021;9:CD009790. <a href="https://doi.org/10.1002/14651858.CD009790.pub2">doi:10.1002/14651858.CD009790.pub2</a></li>
+<li data-i="85"><span class="tag">확인</span> Garber CE, et al. American College of Sports Medicine position stand. Quantity and quality of exercise for developing and maintaining cardiorespiratory, musculoskeletal, and neuromotor fitness in apparently healthy adults. <i>Med Sci Sports Exerc</i>. 2011;43:1334–1359. <a href="https://doi.org/10.1249/MSS.0b013e318213fefb">doi:10.1249/MSS.0b013e318213fefb</a></li>
+<li data-i="86"><span class="tag">확인</span> American College of Sports Medicine. Position stand. Progression models in resistance training for healthy adults. <i>Med Sci Sports Exerc</i>. 2009;41:687–708. <a href="https://doi.org/10.1249/MSS.0b013e3181915670">doi:10.1249/MSS.0b013e3181915670</a></li>
+<li data-i="87"><span class="tag">확인</span> Hughes L, et al. Blood flow restriction training in clinical musculoskeletal rehabilitation: a systematic review and meta-analysis. <i>Br J Sports Med</i>. 2017;51:1003–1011. <a href="https://doi.org/10.1136/bjsports-2016-097071">doi:10.1136/bjsports-2016-097071</a></li>
+<li data-i="88"><span class="tag">확인</span> Beyer R, et al. Heavy slow resistance versus eccentric training as treatment for Achilles tendinopathy: a randomized controlled trial. <i>Am J Sports Med</i>. 2015;43:1704–1711. <a href="https://doi.org/10.1177/0363546515584760">doi:10.1177/0363546515584760</a></li>
+<li data-i="89"><span class="tag">확인</span> Kongsgaard M, et al. Corticosteroid injections, eccentric decline squat training and heavy slow resistance training in patellar tendinopathy. <i>Scand J Med Sci Sports</i>. 2009;19:790–802. <a href="https://doi.org/10.1111/j.1600-0838.2009.00949.x">doi:10.1111/j.1600-0838.2009.00949.x</a></li>
+<li data-i="90"><span class="tag">확인</span> Rio E, et al. Isometric exercise induces analgesia and reduces inhibition in patellar tendinopathy. <i>Br J Sports Med</i>. 2015;49:1277–1283. <a href="https://doi.org/10.1136/bjsports-2014-094386">doi:10.1136/bjsports-2014-094386</a></li>
+<li data-i="91"><span class="tag">확인</span> Rio E, et al. Isometric contractions are more analgesic than isotonic contractions for patellar tendon pain: an in-season randomized clinical trial. <i>Clin J Sport Med</i>. 2017;27:253–259. <a href="https://doi.org/10.1097/JSM.0000000000000364">doi:10.1097/JSM.0000000000000364</a></li>
+<li data-i="92"><span class="tag">확인</span> Silbernagel KG, et al. Continued sports activity, using a pain-monitoring model, during rehabilitation in patients with Achilles tendinopathy: a randomized controlled study. <i>Am J Sports Med</i>. 2007;35:897–906. <a href="https://doi.org/10.1177/0363546506298279">doi:10.1177/0363546506298279</a></li>
+<li data-i="93"><span class="tag">확인</span> Smith BE, et al. Should exercises be painful in the management of chronic musculoskeletal pain? A systematic review and meta-analysis. <i>Br J Sports Med</i>. 2017;51:1679–1687. <a href="https://doi.org/10.1136/bjsports-2016-097383">doi:10.1136/bjsports-2016-097383</a></li>
+<li data-i="94"><span class="tag">확인</span> Jordan JL, et al. Interventions to improve adherence to exercise for chronic musculoskeletal pain in adults. <i>Cochrane Database Syst Rev</i>. 2010;(1):CD005956. <a href="https://doi.org/10.1002/14651858.CD005956.pub2">doi:10.1002/14651858.CD005956.pub2</a></li>
+<li data-i="95"><span class="tag">확인</span> Skou ST, Roos EM. Good Life with osteoArthritis in Denmark (GLA:D): evidence-based education and supervised neuromuscular exercise delivered by certified physiotherapists nationwide. <i>BMC Musculoskelet Disord</i>. 2017;18:72. <a href="https://doi.org/10.1186/s12891-017-1439-y">doi:10.1186/s12891-017-1439-y</a></li>
+</ol>
+</section><p class="note">작성: Claude · 2026년 10월 8일 (1판). 「선희」 음성 녹음 포함. 「확인」 표시 문헌은 PubMed 초록으로 수치를 대조했고, 「표준」 표시는 교과서 서술 기준입니다.</p></div><div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/08_재활·운동처방/클로드_재활운동처방_01권_원칙과_처방_기초.mp4"], "t": [[0, 0.0, 5.784], [0, 6.134, 39.134], [0, 39.484, 66.196], [0, 66.546, 93.186], [0, 93.536, 118.64], [0, 118.99, 136.702], [0, 137.052, 141.42], [0, 141.77, 168.266], [0, 168.616, 173.608], [0, 173.958, 208.158], [0, 208.508, 224.78], [0, 225.13, 232.906], [0, 233.256, 243.384], [0, 243.734, 253.094], [0, 253.444, 283.276], [0, 283.626, 300.282], [0, 300.632, 305.12], [0, 305.47, 331.846], [0, 332.196, 335.844], [0, 336.194, 356.906], [0, 357.256, 385.312], [0, 385.662, 394.302], [0, 394.652, 405.476], [0, 405.826, 415.738], [0, 416.088, 425.712], [0, 426.062, 446.846], [0, 447.196, 451.444], [0, 451.794, 490.77], [0, 491.12, 507.152], [0, 507.502, 512.71], [0, 513.06, 547.188], [0, 547.538, 552.482], [0, 552.832, 587.992], [0, 588.342, 609.582], [0, 609.932, 613.868], [0, 614.218, 641.794], [0, 642.144, 670.176], [0, 670.526, 674.558], [0, 674.908, 707.476], [0, 707.826, 729.474], [0, 729.824, 752.768], [0, 753.118, 757.774], [0, 758.124, 777.396], [0, 777.746, 782.426], [0, 782.776, 820.168], [0, 820.518, 848.358], [0, 848.708, 852.62], [0, 852.97, 885.586], [0, 885.936, 910.848], [0, 911.198, 916.094], [0, 916.444, 940.372], [0, 940.722, 959.322], [0, 959.672, 977.216], [0, 977.566, 997.558], [0, 997.908, 1016.028], [0, 1016.378, 1042.466], [0, 1042.816, 1047.712], [0, 1048.062, 1069.278], [0, 1069.628, 1073.612], [0, 1073.962, 1114.882], [0, 1115.232, 1120.32], [0, 1120.67, 1160.03], [0, 1160.38, 1187.356], [0, 1187.706, 1191.45], [0, 1191.8, 1229.552], [0, 1229.902, 1234.462], [0, 1234.812, 1252.212], [0, 1252.562, 1263.29], [0, 1263.64, 1274.392], [0, 1274.742, 1284.342], [0, 1284.692, 1294.292], [0, 1294.642, 1304.698], [0, 1305.048, 1315.848], [0, 1316.198, 1325.822], [0, 1326.172, 1329.196], [0, 1329.546, 1346.034], [0, 1346.384, 1363.712], [0, 1364.062, 1381.102], [0, 1381.452, 1385.052], [0, 1385.402, 1411.754], [0, 1412.104, 1438.384], [0, 1438.734, 1442.526], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0]]};</script><script>(function(){
+var D=window.__AUD__;if(!D.urls||!D.urls.length)return;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>
