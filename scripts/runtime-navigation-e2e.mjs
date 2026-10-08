@@ -734,6 +734,15 @@ try{
   await sourceFrame.locator('body').waitFor({state:'visible',timeout:20000});
   const sourceText=(await sourceFrame.locator('body').textContent()||'').trim();
   if(!sourceText.includes('어깨 질환'))fail('Self-hosted Claude original body loaded',sourceText.slice(0,1000));
+  const localStatus=(await page.locator('#diseaseTraumaOriginalStatus').textContent()||'').trim();
+  if(!localStatus.includes('음성 연결 대기'))fail('Claude original pilot reports honestly that R2 MP4 is still pending',localStatus);
+  if(!await sourceFrame.locator('#startAll').isVisible() || !await sourceFrame.locator('#rate').isVisible())fail('Original lecture preserves chapter audio and playback speed UI');
+  const relativeAudio=await sourceFrame.locator('body').evaluate(()=>{
+    const urls=window.__AUD__?.urls||[];
+    return urls.length===1?new URL(urls[0],location.href).pathname:'';
+  });
+  if(relativeAudio!=='/claude-library/2_%EC%9D%8C%EC%84%B1/03_%EC%A7%88%ED%99%98%EC%99%B8%EC%83%81/%ED%81%B4%EB%A1%9C%EB%93%9C_%EC%A7%88%ED%99%98%EC%99%B8%EC%83%81_01%EA%B6%8C_%EC%96%B4%EA%B9%A8_%EC%A7%88%ED%99%98.mp4' &&
+    decodeURI(relativeAudio)!=='/claude-library/2_음성/03_질환외상/클로드_질환외상_01권_어깨_질환.mp4')fail('Original Claude audio URL resolves to Cloudflare R2 Pages Function path',relativeAudio);
   const sourceHtml=await sourceFrame.locator('html').evaluate(el=>el.innerHTML);
   if(!sourceHtml.includes('../../2_음성/03_질환외상/클로드_질환외상_01권_어깨_질환.mp4'))fail('Original relative MP4 reference preserved');
   if(!sourceHtml.includes('https://claude.ai/artifact/SGzig6jhFXL2Q6rtrwyyGh'))fail('Original source Artifact link preserved');
