@@ -1,23 +1,20 @@
 # LYS Ortho Muscle Atlas — Next Upgrade Roadmap
 
 
-## ORTHOPEDIC_DISEASE_TRAUMA_MODULE — Claude 24권 native 흡수 / ACTIVE 2026-10-08
+## CLAUDE_ORIGINAL_CLASSROOM — original HTML + R2 media / ACTIVE 2026-10-08
 
-상태: **ACTIVE / SHOULDER 2/2 + ELBOW 2/2 + WRIST 2/2 NATIVE / 6 OF 24 / MAIN FROZEN**
+상태: **ACTIVE / ORIGINAL HTML PILOT IMPLEMENTED / R2 MEDIA AUTH BLOCKED / MAIN FROZEN**
 
-- 24권 원본 inventory 유지. `odt001~odt006`이 native Preview로 동작하고 `odt007~odt024`는 원본확보·이전대기 상태다.
-- Elbow Disease 원본은 398,420 bytes / SHA-256 `641f9fbb92a5a725793fdab2f0584380901653fc76724c718d23a306b5c27d33`.
-- Elbow Trauma 원본은 572,507 bytes / SHA-256 `026934ff318c8a74f2f155fdc3ded997a440bd1b17913d5096933e332bee0bff`.
-- Wrist Disease 원본은 508,096 bytes / SHA-256 `2c75d909bbbb671ea4e3017a7d5557beb68521a041f50f8867d6c3a7a319479d`.
-- Wrist Trauma 원본은 592,858 bytes / SHA-256 `f420b236d54e47a32275f888da9db62afa9ad705357ebe978ee75db825ff001d`.
-- 외부 Artifact/iframe/`/_blob` 의존성을 만들지 않는다.
-- 기존 근육·Physical Examination·Ultrasound Stable ID와 교차연결하고 환자 Disease Rehab는 덮어쓰지 않는다.
-- 외부 그림은 provenance/license를 보존하되 canonical asset으로 자동 승격하지 않는다. Claude 자체 도식은 human redraw gate를 거친다.
-- 음성 MP4 미포함은 fail-closed migration pending으로 유지한다.
-- `scripts/disease-trauma-native-qa.mjs`를 24권 공통 gate로 유지한다.
-- Elbow Disease는 lateral tendinopathy injection과 cubital tunnel 수술법을 선택적으로 2025–2026 근거 갱신했고 나머지 영역은 canonical review pending이다.
-- Elbow Trauma는 simple dislocation, Mason II radial head, elderly olecranon, delayed distal biceps, acute compartment syndrome을 선택적으로 최신 근거 갱신했다.
-- 순서: **wrist 2권 사용자 Preview 검수 → odt007 Hand Disease → odt008 Hand Trauma → hand 2권 정교화 → 나머지 16권 batch migration**.
+- 기존 `ORTHOPEDIC_DISEASE_TRAUMA_MODULE`의 사용자용 요약 카드 이식은 중단한다. 내부 archive data는 삭제하지 않되 사용자 기본 경로에서는 사용하지 않는다.
+- Google Drive 76강 연결목록을 source-of-truth로 사용한다.
+- 원본 HTML을 재작성하지 않고 `claude-library/<Drive source_path>`에 자체호스팅한다.
+- 대용량 MP4는 Cloudflare R2에 저장하고 원본 상대경로 의미를 보존한다.
+- Claude Artifact는 fallback only.
+- Pilot: 질환외상 01권 어깨 질환 original HTML 자체호스팅 완료. MP4는 source identity까지 잠겼으나 R2 로그인 세션 만료로 업로드 대기.
+- 질환·외상 탭은 manifest 기반 24권, 최신 학술자료는 근거업데이트 2권을 동적으로 표시한다.
+- 확장 계약: **Drive에 새/수정 HTML+MP4 → 연결목록 갱신 → manifest/원본 sync → QA → Preview**. 이후 새 강의 추가는 화면 코드를 권별로 다시 만들지 않는다.
+- 상세 계약: `docs/CLAUDE_ORIGINAL_CLASSROOM_SYNC.md`.
+- 다음 순서: **Cloudflare R2 로그인 복구 → pilot MP4 upload/fetch QA → Shoulder Disease 원본 화면+음성 사용자 검수 → 질환외상 24권 batch sync → 76강 전체 강의실 확대**.
 
 
 기준일: 2026-10-02  
