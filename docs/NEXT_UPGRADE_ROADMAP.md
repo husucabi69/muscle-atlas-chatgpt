@@ -3,15 +3,16 @@
 
 ## ORTHOPEDIC_DISEASE_TRAUMA_MODULE — Claude 24권 native 흡수 / ACTIVE 2026-10-08
 
-상태: **ACTIVE / PREVIEW PROTOTYPE / MAIN FROZEN**
+상태: **ACTIVE / SHOULDER 2/2 NATIVE / MAIN FROZEN**
 
-- 24권 원본 inventory를 앱에 등록하고, `odt001 Shoulder Disease` 10개 장을 첫 native 표준형으로 이식한다.
+- 24권 원본 inventory 유지. `odt001 Shoulder Disease`와 `odt002 Shoulder Trauma`가 모두 10개 장 native Preview로 동작한다.
+- Shoulder Trauma 원본은 604,728 bytes / SHA-256 `47b0b42a12f7d1e509d17e8ef8cc97a8ffb27d1930ba08e32b37073589d4d2ef`로 잠근다.
 - 외부 Artifact/iframe/`/_blob` 의존성을 만들지 않는다.
-- 기존 근육·Physical Examination Stable ID와 교차연결하고 환자 Disease Rehab는 덮어쓰지 않는다.
+- 기존 근육·Physical Examination·Ultrasound Stable ID와 교차연결하고 환자 Disease Rehab는 덮어쓰지 않는다.
 - 그림은 provenance/license를 보존하되 low-resolution/base64/제3자 자료를 canonical asset으로 자동 승격하지 않는다.
 - 음성 MP4 미포함은 fail-closed migration pending으로 유지한다.
-- source citation은 보존하되 치료효과·수치·권고는 evidence freshness gate 후 canonical 승격한다.
-- 순서: **odt001 사용자 Preview 검수 → odt002 Shoulder Trauma → shoulder 2권 정교화 → 23권 batch migration → 전 부위 확대**.
+- Shoulder Trauma는 source citation 10개에 더해 2025–2026 evidence refresh를 적용한다. 특히 first-dislocation stabilization, ER-vs-IR immobilization, traumatic cuff timing, proximal humerus fracture, clavicle CPG, AC injury를 재검증한다.
+- 순서: **shoulder 2권 사용자 Preview 검수 → odt003 Elbow Disease → odt004 Elbow Trauma → elbow 2권 정교화 → 나머지 20권 batch migration**.
 
 
 기준일: 2026-10-02  
