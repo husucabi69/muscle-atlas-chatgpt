@@ -14,7 +14,9 @@
 - 질환·외상 탭은 manifest 기반 24권, 최신 학술자료는 근거업데이트 2권을 동적으로 표시한다.
 - 확장 계약: **Drive에 새/수정 HTML+MP4 → 연결목록 갱신 → manifest/원본 sync → QA → Preview**. 이후 새 강의 추가는 화면 코드를 권별로 다시 만들지 않는다.
 - 상세 계약: `docs/CLAUDE_ORIGINAL_CLASSROOM_SYNC.md`.
-- 다음 순서: **Cloudflare R2 로그인 복구 → pilot MP4 upload/fetch QA → Shoulder Disease 원본 화면+음성 사용자 검수 → 질환외상 24권 batch sync → 76강 전체 강의실 확대**.
+- **2026-10-08 단계 보강:** private R2 Pages Function 원본 MP4 상대경로 프록시, whitelist, GET/HEAD+Range 206/416, SW MP4 bypass, 전용 회귀 QA, 음성 pending UI 명시를 Preview 개발 브랜치에 구현했다. 원본 HTML 해시는 변경하지 않았다.
+- **여전히 BLOCKED:** R2 bucket write/binding 인증 경로가 없어 실제 MP4 업로드·음성 재생 검증은 미완료. mock tests ≠ real audio READY.
+- 다음 순서: **Cloudflare R2 로그인 복구 → private bucket 확인/생성 → Preview-only `CLAUDE_MEDIA_R2` binding + pilot MP4 upload → exact SHA/Range/player QA → Shoulder Disease 원본 화면+음성 사용자 검수 → 질환외상 24권 batch sync → 76강 전체 강의실 확대**.
 
 
 기준일: 2026-10-02  
