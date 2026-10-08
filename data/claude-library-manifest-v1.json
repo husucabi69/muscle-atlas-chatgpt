@@ -288,7 +288,12 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_02권_어깨_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/Mjr4yDAvaZAsKYzkL7Nx5s",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1_LgGCYaJGL_jBQZPHo8hQwwEizzZ5ptD",
+      "source_bytes": 604766,
+      "source_sha256": "e8b5b8dce8a1ebfb7c02cf62495515787f10597e83fd5c2ac28747ec6488d4b1",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_02권_어깨_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_IDENTITY_PENDING"
     },
     {
       "number": 30,
