@@ -1,5 +1,19 @@
 # CURRENT OVERRIDE — 2026-10-07 ct086 Candidate 5 pipeline + textbook/evidence UI checkpoint
 
+## CURRENT OVERRIDE — 2026-10-08 ORTHOPEDIC_DISEASE_TRAUMA_MODULE native prototype
+
+- New workline: **ORTHOPEDIC_DISEASE_TRAUMA_MODULE**.
+- User archive: `클로드_정형외과_강의실_모든작업물.zip`.
+- 24 Disease/Trauma standalone HTML sources are inventoried; Claude runtime/TinyFish is not a production dependency.
+- `odt001` Shoulder Disease is native Preview: 10 chapters, 9 figure provenance records, 10 source citations.
+- Audio MP4 was not included; audio remains **MIGRATION_PENDING** and broken `/_blob` playback is forbidden.
+- Third-party/Claude figures remain provenance-only until license/HD/IP gates pass.
+- Migrated clinical claims are **evidence refresh pending**; migration is not canonical evidence promotion.
+- Existing patient Disease Rehab, EXAM-REAL ct086, and ct088 DEFERRED states remain separate and unchanged.
+- Production `main` remains frozen.
+- Next after Preview review: `odt002` Shoulder Trauma, then batch migration by region.
+
+
 > This block is authoritative for the current ct086 workline.
 
 - ct085 remains USER APPROVED / canonical APPROVED / HD_CANONICAL. Do not regenerate.
