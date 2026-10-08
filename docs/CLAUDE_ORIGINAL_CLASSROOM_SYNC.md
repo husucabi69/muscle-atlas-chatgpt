@@ -29,7 +29,7 @@ A new Claude lecture does not require a new hand-coded screen.
 
 `new/updated Drive HTML + MP4 → update source sheet → sync original bytes → update manifest → QA → Preview`
 
-The app renders matching series dynamically from the manifest. Therefore adding a new row to a supported series can appear without changing the UI code after sync.
+The app renders matching series dynamically from the manifest. Therefore adding a new row to a supported series can appear without changing the UI code after sync. QA uses the current 76 lectures as a minimum baseline, not a maximum; future rows are allowed as long as IDs/paths remain unique and source identity checks pass.
 
 ## Fail-closed states
 
