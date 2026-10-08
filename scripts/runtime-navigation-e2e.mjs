@@ -730,7 +730,7 @@ try{
   if(!await visible('#diseaseTraumaVolumeView'))fail('Shoulder Trauma volume view visible');
   if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==10)fail('Shoulder Trauma has 10 native chapters');
   const traumaMeta=(await page.locator('#diseaseTraumaVolumeMeta').textContent()||'').trim();
-  if(!traumaMeta.includes('Preview 연결')||!traumaMeta.includes('MP4 이전 대기'))fail('Shoulder Trauma native/audio status visible',traumaMeta);
+  if(!traumaMeta.includes('Preview 연결')||!traumaMeta.includes('MP4 이전 대기')||!traumaMeta.includes('2026 핵심 근거 갱신 · canonical review pending'))fail('Shoulder Trauma native/audio/evidence status visible',traumaMeta);
 
   await page.locator('[data-odt-chapter="odt002-s1"]').click();await page.waitForTimeout(80);
   const traumaDislocation=(await page.locator('#diseaseTraumaChapterContent').textContent()||'').trim();
