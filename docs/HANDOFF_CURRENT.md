@@ -1,19 +1,24 @@
 # CURRENT OVERRIDE — 2026-10-07 ct086 Candidate 5 pipeline + textbook/evidence UI checkpoint
 
-## CURRENT OVERRIDE — 2026-10-08 ORTHOPEDIC_DISEASE_TRAUMA_MODULE shoulder pair native
+## CURRENT OVERRIDE — 2026-10-08 ORTHOPEDIC_DISEASE_TRAUMA_MODULE shoulder + elbow native
 
-- New workline: **ORTHOPEDIC_DISEASE_TRAUMA_MODULE**.
+- Workline: **ORTHOPEDIC_DISEASE_TRAUMA_MODULE**.
 - User archive: `클로드_정형외과_강의실_모든작업물.zip`.
-- 24 Disease/Trauma standalone HTML sources are inventoried; Claude runtime/TinyFish is not a production dependency.
-- `odt001 Shoulder Disease`: native Preview, 10 chapters, source SHA locked.
-- `odt002 Shoulder Trauma`: native Preview, 10 chapters, source SHA-256 `47b0b42a12f7d1e509d17e8ef8cc97a8ffb27d1930ba08e32b37073589d4d2ef`, 10 visual provenance records, 17 references.
-- Shoulder Trauma selective evidence refresh adds 2025–2026 evidence for first anterior dislocation stabilization, IR-vs-ER immobilization, traumatic cuff repair timing, elderly proximal humerus fracture, clavicle CPG, and AC injury; full canonical clinical review remains pending.
-- Material corrections: routine external-rotation brace is not presented as superior; young high-risk first dislocation may reasonably discuss early Bankart repair; traumatic cuff repair timing is not hard-coded to one universal cutoff.
+- 24 Disease/Trauma standalone HTML sources remain inventoried; Claude runtime/TinyFish is not a production dependency.
+- Native Preview now covers **4/24 volumes**:
+  - `odt001 Shoulder Disease` — 10 chapters.
+  - `odt002 Shoulder Trauma` — 10 chapters.
+  - `odt003 Elbow Disease` — 12 chapters; source SHA-256 `641f9fbb92a5a725793fdab2f0584380901653fc76724c718d23a306b5c27d33`; 8 visual provenance records; 13 references.
+  - `odt004 Elbow Trauma` — 11 chapters; source SHA-256 `026934ff318c8a74f2f155fdc3ded997a440bd1b17913d5096933e332bee0bff`; 7 visual provenance records / 6 numbered figures; 15 references.
+- Elbow Disease selective evidence refresh: lateral elbow injection evidence and cubital tunnel decompression-vs-transposition.
+- Elbow Trauma selective evidence refresh: simple dislocation early mobilization, isolated Mason II radial head fracture treatment, elderly olecranon fracture, delayed distal-biceps repair viability, and adult traumatic acute compartment syndrome.
+- Material corrections: lateral elbow steroid injection is not presented as durable first-line benefit; PRP evidence is time-dependent/heterogeneous; simple elbow dislocation favors early functional recovery when stable; isolated Mason II is not automatic ORIF; displaced olecranon fracture in low-demand elderly may be managed nonoperatively; distal-biceps repair is not hard-coded to a universal 2–3 week cutoff.
+- `scripts/disease-trauma-native-qa.mjs` is the scalable 24-volume gate: status↔content agreement, source lock, chapter/ref/figure integrity, Stable-ID cross-links, external-image license metadata, selective-evidence scope, audio fail-closed, and unsafe Claude runtime URL absence.
 - Audio MP4 was not included; audio remains **MIGRATION_PENDING** and broken `/_blob` playback is forbidden.
-- Third-party/Claude figures remain provenance-only until license/HD/IP gates pass.\n- `scripts/disease-trauma-native-qa.mjs` is the scalable migration gate for all 24 volumes: source lock, counts, evidence refs, cross-links, figure license metadata, audio fail-closed, and Claude runtime URL absence.
+- Third-party/Claude figures remain provenance-only until license/HD/IP gates pass.
 - Existing patient Disease Rehab, EXAM-REAL ct086, and ct088 DEFERRED states remain separate and unchanged.
 - Production `main` remains frozen.
-- Next after shoulder-pair Preview review: migrate `odt003 Elbow Disease` and `odt004 Elbow Trauma` with the same source-lock/evidence-refresh/cross-link contract.
+- Next after elbow-pair Preview review: migrate `odt005 Wrist Disease` and `odt006 Wrist Trauma` under the same source-lock/evidence-refresh/cross-link contract.
 
 
 > This block is authoritative for the current ct086 workline.
