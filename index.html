@@ -5526,7 +5526,7 @@ async function loadClaudeLibrary(){
 }
 function showDiseaseTraumaRoot(record=true){
  selectedClaudeLectureNumber=null;
- const frame=document.getElementById('diseaseTraumaOriginalFrame');if(frame)frame.removeAttribute('src');
+ const frame=document.getElementById('diseaseTraumaOriginalFrame');if(frame){if(frame.contentWindow)frame.contentWindow.location.replace('about:blank');else frame.removeAttribute('src');}
  renderDiseaseTraumaRoot();setDiseaseTraumaView('root');
  if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'root'});
 }
@@ -5540,7 +5540,9 @@ function openClaudeOriginalLecture(number,record=true){
  const frame=document.getElementById('diseaseTraumaOriginalFrame');
  if(local){
    status.innerHTML='<b>Claude 원본 HTML 자체호스팅</b><br>원본 화면·그림·목차·재생 UI를 보존합니다.<br>'+(item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'<b>음성 재생 검증 완료</b>':'<b>음성 연결 대기:</b> 원본 MP4가 아직 우리 서버에 준비되지 않아 재생 버튼은 작동하지 않습니다. 원본 HTML과 그림은 지금 열람할 수 있습니다.');
-   frame.src=claudeSelfHostedUrl(item);
+   // Avoid creating nested iframe history entries that steal browser-back from the app router.
+   if(frame.contentWindow)frame.contentWindow.location.replace(claudeSelfHostedUrl(item));
+   else frame.src=claudeSelfHostedUrl(item);
  }else{
    window.open(item.claude_artifact_url,'_blank','noopener');
    return;
