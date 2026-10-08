@@ -1,5 +1,14 @@
 # CURRENT HANDOFF — 2026-10-08 Claude Original Classroom active · EXAM-REAL preserved
 
+## CURRENT LIVE INCIDENT — 2026-10-08 Cloudflare MP4 routing
+
+- Additional **real live HTTP** probe, not only mock QA, found Cloudflare Preview served HTTP 200 root app HTML at original MP4 URL. This is a RELEASE BLOCKER even though Global QA, local E2E and the preexisting 32/32 deploy checks passed.
+- Added Pages Advanced Mode `_worker.js` to explicitly forward only the MP4 path to the existing private R2 handler, with `env.ASSETS.fetch(request)` for all regular static routes. Unit regression verifies dispatch + static preservation.
+- A real live-URL probe now runs after the existing deploy safety check. It rejects fake HTTP 200 HTML, and verifies fail-closed 503/404 while media pending; when 206 media becomes available it verifies a real 1,024-byte range, full file size and SHA-256 matching Drive.
+- **Do not claim fully deployed Function or audio READY before latest exact-SHA CI live probe PASS.** Check `scripts/claude-live-media-probe.mjs` output.
+- If Advanced Mode cannot be activated via the Preview deployment, likely an authenticated Cloudflare Pages build configuration update (`exit 0` build command / Pages Functions settings) is required. Access presently unavailable. Do NOT risk changing Production/main or make unverified dashboard claims.
+- Recorded canonical details in `docs/CLAUDE_ORIGINAL_CLASSROOM_SYNC.md`.
+
 ## CURRENT OVERRIDE — 2026-10-08 R2 private audio bridge (newer than older overrides)
 
 - Active workline remains `CLAUDE_ORIGINAL_CLASSROOM`; user requested actual continuation.
