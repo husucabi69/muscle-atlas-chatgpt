@@ -3,11 +3,13 @@
 
 ## ORTHOPEDIC_DISEASE_TRAUMA_MODULE — Claude 24권 native 흡수 / ACTIVE 2026-10-08
 
-상태: **ACTIVE / SHOULDER 2/2 + ELBOW 2/2 NATIVE / 4 OF 24 / MAIN FROZEN**
+상태: **ACTIVE / SHOULDER 2/2 + ELBOW 2/2 + WRIST 2/2 NATIVE / 6 OF 24 / MAIN FROZEN**
 
-- 24권 원본 inventory 유지. `odt001~odt004`가 native Preview로 동작하고 `odt005~odt024`는 원본확보·이전대기 상태다.
+- 24권 원본 inventory 유지. `odt001~odt006`이 native Preview로 동작하고 `odt007~odt024`는 원본확보·이전대기 상태다.
 - Elbow Disease 원본은 398,420 bytes / SHA-256 `641f9fbb92a5a725793fdab2f0584380901653fc76724c718d23a306b5c27d33`.
 - Elbow Trauma 원본은 572,507 bytes / SHA-256 `026934ff318c8a74f2f155fdc3ded997a440bd1b17913d5096933e332bee0bff`.
+- Wrist Disease 원본은 508,096 bytes / SHA-256 `2c75d909bbbb671ea4e3017a7d5557beb68521a041f50f8867d6c3a7a319479d`.
+- Wrist Trauma 원본은 592,858 bytes / SHA-256 `f420b236d54e47a32275f888da9db62afa9ad705357ebe978ee75db825ff001d`.
 - 외부 Artifact/iframe/`/_blob` 의존성을 만들지 않는다.
 - 기존 근육·Physical Examination·Ultrasound Stable ID와 교차연결하고 환자 Disease Rehab는 덮어쓰지 않는다.
 - 외부 그림은 provenance/license를 보존하되 canonical asset으로 자동 승격하지 않는다. Claude 자체 도식은 human redraw gate를 거친다.
@@ -15,7 +17,7 @@
 - `scripts/disease-trauma-native-qa.mjs`를 24권 공통 gate로 유지한다.
 - Elbow Disease는 lateral tendinopathy injection과 cubital tunnel 수술법을 선택적으로 2025–2026 근거 갱신했고 나머지 영역은 canonical review pending이다.
 - Elbow Trauma는 simple dislocation, Mason II radial head, elderly olecranon, delayed distal biceps, acute compartment syndrome을 선택적으로 최신 근거 갱신했다.
-- 순서: **elbow 2권 사용자 Preview 검수 → odt005 Wrist Disease → odt006 Wrist Trauma → wrist 2권 정교화 → 나머지 18권 batch migration**.
+- 순서: **wrist 2권 사용자 Preview 검수 → odt007 Hand Disease → odt008 Hand Trauma → hand 2권 정교화 → 나머지 16권 batch migration**.
 
 
 기준일: 2026-10-02  
