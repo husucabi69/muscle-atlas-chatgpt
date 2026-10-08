@@ -1,0 +1,744 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "2026.10.08-odt-native-a",
+  "module_id": "orthopedic_disease_trauma_v1",
+  "status": "PREVIEW_PROTOTYPE",
+  "workline": "ORTHOPEDIC_DISEASE_TRAUMA_MODULE",
+  "migration_policy": {
+    "source_archive": "클로드_정형외과_강의실_모든작업물.zip",
+    "total_volumes": 24,
+    "native_preview_volumes": 1,
+    "source_verified_pending_volumes": 23,
+    "claude_runtime_dependency": false,
+    "external_artifact_dependency": false,
+    "audio_policy": "Source MP4 files were not included; keep audio disabled until independent migration.",
+    "evidence_policy": "Source citations are preserved; independent evidence refresh is required before canonical promotion.",
+    "asset_policy": "Third-party/base64 images are provenance-only until license/HD/IP gates pass."
+  },
+  "volumes": [
+    {
+      "stable_id": "odt001",
+      "number": 1,
+      "region_id": "shoulder",
+      "region_label": "어깨",
+      "kind": "DISEASE",
+      "title_ko": "어깨 질환",
+      "title_en": "Shoulder Disease",
+      "source_filename": "클로드_질환외상_01권_어깨_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "NATIVE_PREVIEW",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt002",
+      "number": 2,
+      "region_id": "shoulder",
+      "region_label": "어깨",
+      "kind": "TRAUMA",
+      "title_ko": "어깨 외상",
+      "title_en": "Shoulder Trauma",
+      "source_filename": "클로드_질환외상_02권_어깨_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt003",
+      "number": 3,
+      "region_id": "elbow",
+      "region_label": "팔꿈치",
+      "kind": "DISEASE",
+      "title_ko": "팔꿈치 질환",
+      "title_en": "Elbow Disease",
+      "source_filename": "클로드_질환외상_03권_팔꿈치_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt004",
+      "number": 4,
+      "region_id": "elbow",
+      "region_label": "팔꿈치",
+      "kind": "TRAUMA",
+      "title_ko": "팔꿈치 외상",
+      "title_en": "Elbow Trauma",
+      "source_filename": "클로드_질환외상_04권_팔꿈치_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt005",
+      "number": 5,
+      "region_id": "wrist",
+      "region_label": "손목",
+      "kind": "DISEASE",
+      "title_ko": "손목 질환",
+      "title_en": "Wrist Disease",
+      "source_filename": "클로드_질환외상_05권_손목_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt006",
+      "number": 6,
+      "region_id": "wrist",
+      "region_label": "손목",
+      "kind": "TRAUMA",
+      "title_ko": "손목 외상",
+      "title_en": "Wrist Trauma",
+      "source_filename": "클로드_질환외상_06권_손목_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt007",
+      "number": 7,
+      "region_id": "hand",
+      "region_label": "손·손가락",
+      "kind": "DISEASE",
+      "title_ko": "손·손가락 질환",
+      "title_en": "Hand Disease",
+      "source_filename": "클로드_질환외상_07권_손_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt008",
+      "number": 8,
+      "region_id": "hand",
+      "region_label": "손·손가락",
+      "kind": "TRAUMA",
+      "title_ko": "손·손가락 외상",
+      "title_en": "Hand Trauma",
+      "source_filename": "클로드_질환외상_08권_손_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt009",
+      "number": 9,
+      "region_id": "cervical",
+      "region_label": "경추",
+      "kind": "DISEASE",
+      "title_ko": "경추 질환",
+      "title_en": "Cervical Spine Disease",
+      "source_filename": "클로드_질환외상_09권_경추_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt010",
+      "number": 10,
+      "region_id": "cervical",
+      "region_label": "경추",
+      "kind": "TRAUMA",
+      "title_ko": "경추 외상",
+      "title_en": "Cervical Spine Trauma",
+      "source_filename": "클로드_질환외상_10권_경추_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt011",
+      "number": 11,
+      "region_id": "thoracic",
+      "region_label": "흉추",
+      "kind": "DISEASE",
+      "title_ko": "흉추 질환",
+      "title_en": "Thoracic Spine Disease",
+      "source_filename": "클로드_질환외상_11권_흉추_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt012",
+      "number": 12,
+      "region_id": "thoracic",
+      "region_label": "흉추",
+      "kind": "TRAUMA",
+      "title_ko": "흉추 외상",
+      "title_en": "Thoracic Spine Trauma",
+      "source_filename": "클로드_질환외상_12권_흉추_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt013",
+      "number": 13,
+      "region_id": "lumbar",
+      "region_label": "요추",
+      "kind": "DISEASE",
+      "title_ko": "요추 질환",
+      "title_en": "Lumbar Spine Disease",
+      "source_filename": "클로드_질환외상_13권_요추_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt014",
+      "number": 14,
+      "region_id": "lumbar",
+      "region_label": "요추",
+      "kind": "TRAUMA",
+      "title_ko": "요추 외상",
+      "title_en": "Lumbar Spine Trauma",
+      "source_filename": "클로드_질환외상_14권_요추_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt015",
+      "number": 15,
+      "region_id": "pelvis_si",
+      "region_label": "골반·천장관절",
+      "kind": "DISEASE",
+      "title_ko": "골반·천장관절 질환",
+      "title_en": "Pelvis·SI Joint Disease",
+      "source_filename": "클로드_질환외상_15권_골반·천장관절_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt016",
+      "number": 16,
+      "region_id": "pelvis_si",
+      "region_label": "골반·천장관절",
+      "kind": "TRAUMA",
+      "title_ko": "골반·천장관절 외상",
+      "title_en": "Pelvis·SI Joint Trauma",
+      "source_filename": "클로드_질환외상_16권_골반·천장관절_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt017",
+      "number": 17,
+      "region_id": "hip",
+      "region_label": "고관절",
+      "kind": "DISEASE",
+      "title_ko": "고관절 질환",
+      "title_en": "Hip Disease",
+      "source_filename": "클로드_질환외상_17권_고관절_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt018",
+      "number": 18,
+      "region_id": "hip",
+      "region_label": "고관절",
+      "kind": "TRAUMA",
+      "title_ko": "고관절 외상",
+      "title_en": "Hip Trauma",
+      "source_filename": "클로드_질환외상_18권_고관절_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt019",
+      "number": 19,
+      "region_id": "knee",
+      "region_label": "무릎",
+      "kind": "DISEASE",
+      "title_ko": "무릎 질환",
+      "title_en": "Knee Disease",
+      "source_filename": "클로드_질환외상_19권_무릎_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt020",
+      "number": 20,
+      "region_id": "knee",
+      "region_label": "무릎",
+      "kind": "TRAUMA",
+      "title_ko": "무릎 외상",
+      "title_en": "Knee Trauma",
+      "source_filename": "클로드_질환외상_20권_무릎_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt021",
+      "number": 21,
+      "region_id": "ankle",
+      "region_label": "발목",
+      "kind": "DISEASE",
+      "title_ko": "발목 질환",
+      "title_en": "Ankle Disease",
+      "source_filename": "클로드_질환외상_21권_발목_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt022",
+      "number": 22,
+      "region_id": "ankle",
+      "region_label": "발목",
+      "kind": "TRAUMA",
+      "title_ko": "발목 외상",
+      "title_en": "Ankle Trauma",
+      "source_filename": "클로드_질환외상_22권_발목_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt023",
+      "number": 23,
+      "region_id": "foot",
+      "region_label": "발",
+      "kind": "DISEASE",
+      "title_ko": "발 질환",
+      "title_en": "Foot Disease",
+      "source_filename": "클로드_질환외상_23권_발_질환.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    },
+    {
+      "stable_id": "odt024",
+      "number": 24,
+      "region_id": "foot",
+      "region_label": "발",
+      "kind": "TRAUMA",
+      "title_ko": "발 외상",
+      "title_en": "Foot Trauma",
+      "source_filename": "클로드_질환외상_24권_발_외상.html",
+      "source_status": "ARCHIVE_SOURCE_VERIFIED",
+      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
+    }
+  ],
+  "native_content": {
+    "odt001": {
+      "stable_id": "odt001",
+      "source_sha256": "b03b94bae595417e792f89825e7223935271c8c484b8afeb458fefbfea68e172",
+      "source_bytes": 366680,
+      "title_ko": "어깨 질환",
+      "title_en": "Shoulder Disease",
+      "edition": "1판",
+      "native_review_status": "SOURCE_MIGRATED_EVIDENCE_REFRESH_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE",
+      "chapter_count": 10,
+      "figure_count": 9,
+      "reference_count": 10,
+      "chapters": [
+        {
+          "id": "odt001-s0",
+          "order": 0,
+          "title": "어깨 질환의 큰 그림 — 나이, 운동범위, red flag",
+          "summary": "나이·수동 운동범위·위험 신호로 첫 방향을 잡습니다.",
+          "paragraphs": [
+            "회전근개 질환, 동결견, 석회성 건염이 흔한 큰 줄기이며 관절염·신경병증·연관통이 섞입니다.",
+            "환자가 스스로 못 움직여도 수동 운동범위가 보존되면 힘줄·근력·신경 문제를 더 생각합니다. 수동 외회전까지 제한되면 동결견·관절염뿐 아니라 놓친 후방 탈구 같은 구조적 원인을 영상과 함께 확인합니다.",
+            "발열과 급성 종창, 체중감소와 지속 야간통, 운동과 연동되는 비기계적 왼쪽 어깨 통증, 진행하는 광범위 근력저하·감각이상은 red flag입니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "발열·열감·급성 종창",
+            "체중감소와 비기계적 지속 야간통",
+            "운동과 연동되는 왼쪽 어깨 통증",
+            "진행하는 광범위 근력저하·감각이상"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt001-s1",
+          "order": 1,
+          "title": "Rotator cuff disease — tendinopathy에서 파열까지",
+          "summary": "건병증부터 전층 파열·cuff tear arthropathy까지 연속선으로 보고 영상과 증상을 맞춰 해석합니다.",
+          "paragraphs": [
+            "회전근개는 supraspinatus, infraspinatus, teres minor, subscapularis가 상완골두를 안정시키는 구조이며 supraspinatus가 흔히 문제됩니다.",
+            "CSAW와 FIMPACT 위약수술 비교 연구는 단순 기계적 impingement 모델을 재평가하게 했습니다. 통증을 견봉 아래 공간 하나로 설명하기보다 힘줄 부하능력·퇴행·기능을 함께 봅니다.",
+            "무증상 회전근개 파열은 특히 고령에서 흔합니다. MRI나 초음파에서 파열이 보인다는 사실만으로 현재 통증의 원인이나 수술 적응증을 확정하지 않습니다.",
+            "고령의 비외상성 파열은 보존치료로 시작할 수 있지만, 젊은 환자의 명확한 외상 후 급성 근력저하·급성 파열은 조기 수술 평가가 중요할 수 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_001",
+            "odt_ref_002",
+            "odt_ref_003",
+            "odt_ref_004",
+            "odt_ref_005"
+          ],
+          "cross_links": [
+            {
+              "type": "muscle",
+              "id": "m070",
+              "label": "극상근 해부학"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct001",
+              "label": "Jobe / Empty Can"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct002",
+              "label": "Painful Arc"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct003",
+              "label": "Full Can"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": [
+            "영상 소견 하나만으로 증상 원인을 확정하지 않기",
+            "급성 외상 후 새 근력저하는 만성 퇴행성 파열과 다르게 취급"
+          ]
+        },
+        {
+          "id": "odt001-s2",
+          "order": 2,
+          "title": "Calcific tendinitis — 가장 극심한 어깨 통증",
+          "summary": "석회 침착의 흡수기 통증과 초음파 유도 세척술의 위치를 정리합니다.",
+          "paragraphs": [
+            "30~60세에서, 특히 supraspinatus에 흔하며 외상 없이 매우 갑작스럽고 심한 통증으로 나타날 수 있습니다.",
+            "석회가 묽어지고 흡수되는 resorptive phase에서 주변 점액낭 염증과 함께 통증이 가장 심할 수 있습니다.",
+            "급성기는 통증 조절이 우선이며 지속 증상에서는 초음파 유도 needling/lavage(barbotage)나 체외충격파를 고려합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_006"
+          ],
+          "cross_links": [
+            {
+              "type": "muscle",
+              "id": "m070",
+              "label": "극상근 해부학"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt001-s3",
+          "order": 3,
+          "title": "Frozen shoulder — 유착성 관절낭염",
+          "summary": "능동·수동 운동범위가 함께 감소하는 패턴과 자연경과·치료 원칙을 정리합니다.",
+          "paragraphs": [
+            "유착성 관절낭염은 능동 운동뿐 아니라 수동 운동도 제한되며 특히 외회전 제한이 중요합니다.",
+            "40~65세에 흔하고 당뇨와 연관성이 강합니다. freezing, frozen, thawing 단계는 환자마다 겹치고 기간도 다양합니다.",
+            "X-ray를 조합해 관절염·후방 탈구·석회성 건염 등 비슷하게 굳는 질환을 배제합니다. 통증이 심한 초기에는 무리한 끝범위 스트레칭보다 증상 허용 범위의 가동성을 유지합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_007",
+            "odt_ref_008",
+            "odt_ref_009"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt001-s4",
+          "order": 4,
+          "title": "Long head of biceps 질환",
+          "summary": "상완이두근 장두 건병증과 회전근개·견갑하근 병변의 동반관계를 봅니다.",
+          "paragraphs": [
+            "상완이두근 장두 병변은 단독보다 회전근개, 특히 subscapularis 병변과 함께 나타나는 경우가 많습니다.",
+            "전방 어깨 통증과 결절간구 압통이 단서이며 subscapularis 손상에서는 장두가 홈에서 아탈구·탈구될 수 있습니다.",
+            "고령의 자발 파열 후 Popeye sign은 통증이 줄고 기능 손실이 크지 않은 경우 보존적으로 관리할 수 있습니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [
+            {
+              "type": "clinical_test",
+              "id": "ct008",
+              "label": "Speed 검사"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct009",
+              "label": "Yergason 검사"
+            },
+            {
+              "type": "muscle",
+              "id": "m073",
+              "label": "견갑하근 해부학"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt001-s5",
+          "order": 5,
+          "title": "Arthritis와 osteonecrosis — 관절 자체의 질환",
+          "summary": "골관절염·염증성 관절염·무혈성 괴사·AC joint 질환을 구분합니다.",
+          "paragraphs": [
+            "고령 환자에서 외회전 감소와 염발음, X-ray 관절간격 감소·골극이 있으면 glenohumeral osteoarthritis를 생각합니다.",
+            "양측 어깨·고관절대 강직이 뚜렷하면 polymyalgia rheumatica를 감별하고 두통·턱통증·시력증상이 동반되면 giant cell arteritis를 응급으로 배제합니다.",
+            "상완골두 무혈성 괴사는 장기 스테로이드·과음·혈액질환·감압병·골절 후에 생길 수 있고 초기 X-ray가 정상일 수 있어 위험인자에 따라 MRI가 필요합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt001-s6",
+          "order": 6,
+          "title": "신경에서 오는 Shoulder disease",
+          "summary": "Neuralgic amyotrophy, 견갑상신경병증, 날개견갑, 경추 신경근병증을 구분합니다.",
+          "paragraphs": [
+            "Neuralgic amyotrophy는 극심한 통증이 먼저 오고 이후 근력저하·근위축이 나타나는 시간순서가 핵심 단서입니다.",
+            "견갑상신경병증은 병변 위치에 따라 supraspinatus와 infraspinatus 또는 infraspinatus만 약해질 수 있습니다.",
+            "C5–C6 radiculopathy는 목 움직임과 연관된 방사통·저림·반사 이상이 단서이며 어깨 병변과 함께 있을 수도 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_010"
+          ],
+          "cross_links": [
+            {
+              "type": "muscle",
+              "id": "m071",
+              "label": "극하근 해부학"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt001-s7",
+          "order": 7,
+          "title": "놓치면 안 되는 질환 — 감염, 종양, referred pain",
+          "summary": "어깨처럼 보이지만 우선순위를 바꿔야 하는 감염·종양·심장/흉복부 연관통입니다.",
+          "paragraphs": [
+            "당뇨·면역억제·고령·최근 주사/수술 병력이 있고 갑자기 모든 방향에서 심하게 아프다면 septic arthritis를 의심합니다.",
+            "휴식에도 지속되는 야간통, 체중감소, 암 병력은 전이성 골병변을 포함한 종양 평가를 촉구합니다.",
+            "운동과 연동되는 왼쪽 어깨 통증은 심장 허혈을, 호흡·횡격막 자극과 연동되는 어깨끝 통증은 흉복부 원인을 감별합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "최근 주사/수술 후 악화하는 급성 통증",
+            "휴식 야간통+체중감소/암 병력",
+            "운동과 연동되는 비기계적 왼쪽 어깨 통증"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt001-s8",
+          "order": 8,
+          "title": "외래 실전 — Shoulder disease 진료 순서",
+          "summary": "병력→수동 외회전→X-ray→회전근개 검사→경추·신경→치료계획으로 정리합니다.",
+          "paragraphs": [
+            "병력에서 나이, 발병 양상, 야간통, 당뇨, 암 병력, 목 증상과 red flag를 먼저 확인합니다.",
+            "양쪽 passive external rotation을 비교하고, 단순 X-ray로 석회·관절염·탈구·골병변을 확인합니다.",
+            "회전근개 근력과 특수검사를 조합하고 필요 시 초음파로 파열을 평가합니다. 목 움직임, 반사, 감각·근력, 근위축과 날개견갑도 확인합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": [
+            "수동 외회전 제한 패턴은 X-ray로 관절염·후방 탈구 배제",
+            "주사 뒤 악화하는 급성 통증은 감염 우선",
+            "극심한 통증 후 근력저하는 neuralgic amyotrophy도 고려"
+          ]
+        },
+        {
+          "id": "odt001-s9",
+          "order": 9,
+          "title": "참고문헌과 근거 상태",
+          "summary": "원본의 10개 핵심 citation을 보존하고 최신성 재검증을 별도 gate로 둡니다.",
+          "paragraphs": [
+            "이번 native prototype은 Claude 런타임에서 내용을 분리하는 migration 단계입니다.",
+            "각 치료효과 수치와 권고는 앱의 정식 canonical 근거로 승격하기 전에 최신 가이드라인·체계적 문헌고찰과 다시 대조합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_001",
+            "odt_ref_002",
+            "odt_ref_003",
+            "odt_ref_004",
+            "odt_ref_005",
+            "odt_ref_006",
+            "odt_ref_007",
+            "odt_ref_008",
+            "odt_ref_009",
+            "odt_ref_010"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        }
+      ],
+      "figures": [
+        {
+          "id": "odt001_fig01",
+          "chapter_id": "odt001-s0",
+          "title": "어깨 통증 외래 분류 도식",
+          "provenance": "Claude 작성 도식",
+          "license": "",
+          "source_page": "",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt001_fig02",
+          "chapter_id": "odt001-s1",
+          "title": "Rotator cuff muscles",
+          "provenance": "Wikimedia Commons · InjuryMap",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Rotator_cuff_muscles.svg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt001_fig03",
+          "chapter_id": "odt001-s1",
+          "title": "Painful arc 도식",
+          "provenance": "Claude 작성 도식",
+          "license": "",
+          "source_page": "",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt001_fig04",
+          "chapter_id": "odt001-s1",
+          "title": "Supraspinatus 전층 파열 MRI",
+          "provenance": "Wikimedia Commons · RSatUSZ",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:1_MRI._Complete_tear_and_rupture_of_the_supraspinatus_tendon._Wide_transmural_damage_(2.4_x_2.4_cm)..jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt001_fig05",
+          "chapter_id": "odt001-s2",
+          "title": "Calcific tendinitis X-ray",
+          "provenance": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:X-ray_of_supraspinatus_calcified_tendinopathy,_labeled.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt001_fig06",
+          "chapter_id": "odt001-s3",
+          "title": "Frozen shoulder 세 시기 도식",
+          "provenance": "Claude 작성 도식",
+          "license": "",
+          "source_page": "",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt001_fig07",
+          "chapter_id": "odt001-s5",
+          "title": "Glenohumeral osteoarthritis X-ray",
+          "provenance": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:X-ray_of_osteoarthritis_of_the_shoulder.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt001_fig08",
+          "chapter_id": "odt001-s5",
+          "title": "Humeral head osteonecrosis X-ray",
+          "provenance": "Wikimedia Commons · Jmarchn",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Osteonecrosis_humerus_1.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt001_fig09",
+          "chapter_id": "odt001-s6",
+          "title": "Long thoracic nerve palsy winged scapula",
+          "provenance": "Wikimedia Commons · Dwaipayanc",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Scapula_Winging_in_Long_Thoracic_Nerve_Palsy.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        }
+      ],
+      "references": [
+        {
+          "id": "odt_ref_001",
+          "status": "SOURCE_CITATION",
+          "citation": "Beard et al. CSAW. Lancet 2018.",
+          "doi": "10.1016/S0140-6736(17)32457-1",
+          "url": "https://doi.org/10.1016/S0140-6736(17)32457-1"
+        },
+        {
+          "id": "odt_ref_002",
+          "status": "SOURCE_CITATION",
+          "citation": "Paavola et al. FIMPACT. BMJ 2018.",
+          "doi": "10.1136/bmj.k2860",
+          "url": "https://doi.org/10.1136/bmj.k2860"
+        },
+        {
+          "id": "odt_ref_003",
+          "status": "SOURCE_CITATION",
+          "citation": "Sher et al. Asymptomatic shoulder MRI. JBJS 1995.",
+          "doi": "10.2106/00004623-199501000-00002",
+          "url": "https://doi.org/10.2106/00004623-199501000-00002"
+        },
+        {
+          "id": "odt_ref_004",
+          "status": "SOURCE_CITATION",
+          "citation": "Yamamoto et al. Rotator cuff tear prevalence. JSES 2010.",
+          "doi": "10.1016/j.jse.2009.04.006",
+          "url": "https://doi.org/10.1016/j.jse.2009.04.006"
+        },
+        {
+          "id": "odt_ref_005",
+          "status": "SOURCE_CITATION",
+          "citation": "Kukkonen et al. Non-traumatic rotator cuff tear RCT. Bone Joint J 2014.",
+          "doi": "10.1302/0301-620X.96B1.32168",
+          "url": "https://doi.org/10.1302/0301-620X.96B1.32168"
+        },
+        {
+          "id": "odt_ref_006",
+          "status": "SOURCE_CITATION",
+          "citation": "de Witte et al. Calcific tendinitis lavage RCT. AJSM 2013.",
+          "doi": "10.1177/0363546513487066",
+          "url": "https://doi.org/10.1177/0363546513487066"
+        },
+        {
+          "id": "odt_ref_007",
+          "status": "SOURCE_CITATION",
+          "citation": "Zreik et al. Adhesive capsulitis and diabetes meta-analysis. 2016.",
+          "doi": "10.11138/mltj/2016.6.1.026",
+          "url": "https://doi.org/10.11138/mltj/2016.6.1.026"
+        },
+        {
+          "id": "odt_ref_008",
+          "status": "SOURCE_CITATION",
+          "citation": "Kelley et al. Adhesive capsulitis CPG. JOSPT 2013.",
+          "doi": "10.2519/jospt.2013.0302",
+          "url": "https://doi.org/10.2519/jospt.2013.0302"
+        },
+        {
+          "id": "odt_ref_009",
+          "status": "SOURCE_CITATION",
+          "citation": "Challoumas et al. Frozen shoulder systematic review/meta-analysis. JAMA Netw Open 2020.",
+          "doi": "10.1001/jamanetworkopen.2020.29581",
+          "url": "https://doi.org/10.1001/jamanetworkopen.2020.29581"
+        },
+        {
+          "id": "odt_ref_010",
+          "status": "SOURCE_CITATION",
+          "citation": "van Alfen & van Engelen. Neuralgic amyotrophy 246 cases. Brain 2006.",
+          "doi": "10.1093/brain/awh722",
+          "url": "https://doi.org/10.1093/brain/awh722"
+        }
+      ]
+    }
+  }
+}
