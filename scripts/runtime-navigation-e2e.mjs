@@ -753,7 +753,7 @@ try{
   if(!sourceHtml.includes('../../2_음성/03_질환외상/클로드_질환외상_01권_어깨_질환.mp4'))fail('Original relative MP4 reference preserved');
   if(!sourceHtml.includes('https://claude.ai/artifact/SGzig6jhFXL2Q6rtrwyyGh'))fail('Original source Artifact link preserved');
 
-  await page.goBack();await page.waitForTimeout(100);
+  await page.evaluate(()=>history.back());await page.waitForFunction(()=>!document.querySelector('#diseaseTraumaRootView')?.hidden,{timeout:15000});
   if(!await visible('#diseaseTraumaRootView'))fail('Claude original browser back -> root');
   await second.click();
   if(!await visible('#diseaseTraumaOriginalView'))fail('Shoulder Trauma original lecture view visible');
@@ -768,7 +768,7 @@ try{
   if(traumaAudio!=='../../2_음성/03_질환외상/클로드_질환외상_02권_어깨_외상.mp4')fail('Shoulder Trauma original relative audio route preserved',traumaAudio);
   const traumaFallback=await page.locator('#diseaseTraumaClaudeFallback').getAttribute('href');
   if(traumaFallback!=='https://claude.ai/artifact/Mjr4yDAvaZAsKYzkL7Nx5s')fail('Shoulder Trauma Artifact fallback preserved',String(traumaFallback||''));
-  await page.goBack();await page.waitForTimeout(100);
+  await page.evaluate(()=>history.back());await page.waitForFunction(()=>!document.querySelector('#diseaseTraumaRootView')?.hidden,{timeout:15000});
   if(!await visible('#diseaseTraumaRootView'))fail('Shoulder Trauma browser back -> root');
   await third.click();
   if(!await visible('#diseaseTraumaOriginalView'))fail('Elbow Disease original lecture visible');
@@ -783,7 +783,7 @@ try{
   if(elbowAudio!=='../../2_음성/03_질환외상/클로드_질환외상_03권_팔꿈치_질환.mp4')fail('Elbow Disease original relative audio path preserved',elbowAudio);
   const elbowFallback=await page.locator('#diseaseTraumaClaudeFallback').getAttribute('href');
   if(elbowFallback!=='https://claude.ai/artifact/9T4P6RATmwZCj6HEwngLe7')fail('Elbow Disease Artifact fallback preserved',String(elbowFallback||''));
-  await page.goBack();await page.waitForTimeout(100);
+  await page.evaluate(()=>history.back());await page.waitForFunction(()=>!document.querySelector('#diseaseTraumaRootView')?.hidden,{timeout:15000});
   if(!await visible('#diseaseTraumaRootView'))fail('Elbow Disease browser back -> root');
 
   // Verify the other three exact original courses use one scalable navigation path.
@@ -809,7 +809,7 @@ try{
     if(!status.includes('음성 연결 대기'))fail(lecture.title+' remains audio-pending',status);
     const link=await page.locator('#diseaseTraumaClaudeFallback').getAttribute('href');
     if(link!==lecture.fallback)fail(lecture.title+' fallback URL preserved',String(link||''));
-    await page.goBack();await page.waitForTimeout(100);
+    await page.evaluate(()=>history.back());await page.waitForFunction(()=>!document.querySelector('#diseaseTraumaRootView')?.hidden,{timeout:15000});
     if(!await visible('#diseaseTraumaRootView'))fail(lecture.title+' back to root');
   }
   pass('Claude Original Classroom: 24 Disease/Trauma + 6 exact self-hosted originals + 2 evidence updates + fallback + browser back');
