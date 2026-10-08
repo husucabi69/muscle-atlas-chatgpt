@@ -35,6 +35,11 @@ for(const [id,n] of Object.entries(native)){
   check(`${id} source SHA-256`,/^[0-9a-f]{64}$/.test(String(n.source_sha256||'')),String(n.source_sha256||''));
   check(`${id} source bytes positive`,Number(n.source_bytes)>0,String(n.source_bytes||0));
   check(`${id} audio fail-closed`,n.audio_status==='MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE',String(n.audio_status||''));
+  if(String(n.native_review_status||'').includes('SELECTIVE_EVIDENCE_REFRESH')){
+    check(`${id} selective evidence refresh metadata`,n.evidence_refresh?.status==='SELECTIVE_REFRESH_COMPLETE_CANONICAL_REVIEW_PENDING'&&Array.isArray(n.evidence_refresh?.refreshed_topics)&&n.evidence_refresh.refreshed_topics.length>0&&Array.isArray(n.evidence_refresh?.canonical_review_pending_topics)&&n.evidence_refresh.canonical_review_pending_topics.length>0);
+    const refreshedRefs=new Set(n.evidence_refresh?.refreshed_reference_ids||[]);
+    check(`${id} selective evidence refresh refs declared`,refreshedRefs.size>0,String(refreshedRefs.size));
+  }
 
   const chapters=n.chapters||[],chapterIds=chapters.map(x=>x.id);
   check(`${id} chapters present`,chapters.length>0,String(chapters.length));
