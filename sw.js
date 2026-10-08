@@ -180,6 +180,11 @@ self.addEventListener('fetch',event=>{
   }
 
   const path=url.pathname;
+  // Let audio/video Range requests reach the Pages R2 streaming Function directly.
+  // Cache API stale-while-revalidate must not turn a 206 fragment into a stale media response.
+  let decodedPath;
+  try{decodedPath=decodeURI(path)}catch{decodedPath=path}
+  if(decodedPath.startsWith('/claude-library/2_음성/')&&decodedPath.toLowerCase().endsWith('.mp4'))return;
   const isNavigation=event.request.mode==='navigate';
   const isFreshnessCritical=
     path.endsWith('.json')||
