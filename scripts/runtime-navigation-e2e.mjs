@@ -725,7 +725,7 @@ try{
   pass('Disease/Trauma native prototype: 24-volume inventory + Shoulder Disease 10 chapters + cross-links + browser back');
 
   const nativeCards=page.locator('#diseaseTraumaVolumeChooser .odt-status.ready');
-  if(await nativeCards.count()!==4)fail('Disease/Trauma renders exactly four native Preview volumes',String(await nativeCards.count()));
+  if(await nativeCards.count()!==6)fail('Disease/Trauma renders exactly six native Preview volumes',String(await nativeCards.count()));
   await page.locator('[data-odt-volume="odt002"]').click();await page.waitForTimeout(80);
   if(!await visible('#diseaseTraumaVolumeView'))fail('Shoulder Trauma volume view visible');
   if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==10)fail('Shoulder Trauma has 10 native chapters');
@@ -769,6 +769,30 @@ try{
   await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaVolumeView'))fail('Elbow Trauma chapter back -> volume');
   await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaRootView'))fail('Elbow Trauma volume back -> root');
   pass('Elbow native pair: Disease 12 chapters + Trauma 11 chapters + evidence states + Stable-ID cross-links + browser back');
+
+  await page.locator('[data-odt-volume="odt005"]').click();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaVolumeView'))fail('Wrist Disease volume view visible');
+  if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==11)fail('Wrist Disease has 11 native chapters');
+  await page.locator('[data-odt-chapter="odt005-s1"]').click();await page.waitForTimeout(80);
+  const wristDisease=(await page.locator('#diseaseTraumaChapterContent').textContent()||'').trim();
+  for(const token of ['Carpal tunnel syndrome','장기 개선을 제공하지 않으며 PRP도 장기 이득이 없다고','Phalen 검사','정중신경 단축 초음파','근거·참고문헌'])if(!wristDisease.includes(token))fail('Wrist Disease chapter contains '+token,wristDisease.slice(0,2600));
+  for(const link of ['diagnosis_concept:d029','clinical_test:ct024','ultrasound_view:usv022'])if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="'+link+'"]').count()!==1)fail('Wrist Disease cross-link '+link);
+  await page.goBack();await page.waitForTimeout(80);await page.goBack();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaRootView'))fail('Wrist Disease browser back -> root');
+
+  await page.locator('[data-odt-volume="odt006"]').click();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaVolumeView'))fail('Wrist Trauma volume view visible');
+  if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==11)fail('Wrist Trauma has 11 native chapters');
+  await page.locator('[data-odt-chapter="odt006-s3"]').click();await page.waitForTimeout(80);
+  const wristTrauma=(await page.locator('#diseaseTraumaChapterContent').textContent()||'').trim();
+  for(const token of ['Scapholunate ligament injury','Watson 주상골 이동 검사','주상월상인대 초음파'])if(!wristTrauma.includes(token))fail('Wrist Trauma chapter contains '+token,wristTrauma.slice(0,2200));
+  for(const link of ['diagnosis_concept:d037','clinical_test:ct035','ultrasound_view:usv020'])if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="'+link+'"]').count()!==1)fail('Wrist Trauma cross-link '+link);
+  await page.goBack();await page.waitForTimeout(80);
+  await page.locator('[data-odt-chapter="odt006-s5"]').click();await page.waitForTimeout(80);
+  for(const link of ['diagnosis_concept:d032','clinical_test:ct030','clinical_test:ct031','ultrasound_view:usv021'])if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="'+link+'"]').count()!==1)fail('Wrist Trauma TFCC cross-link '+link);
+  await page.goBack();await page.waitForTimeout(80);await page.goBack();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaRootView'))fail('Wrist Trauma browser back -> root');
+  pass('Wrist native pair: Disease 11 chapters + Trauma 11 chapters + CTS/SL/TFCC Stable-ID cross-links + browser back');
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
