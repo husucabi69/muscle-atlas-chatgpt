@@ -60,9 +60,24 @@ Lecture 28 — `질환외상 01권 어깨 질환`
 - Lecture 31, Elbow Trauma: Drive `1FKnUrTQc8Z4Mb3rC5Br0GFJcJusvwCb7`, 572548 bytes, SHA-256 `890b804c6319860a728bff047a6904f2887d8f563e7bd8fb158bd403b60531a2`.
 - Lecture 32, Wrist Disease: Drive `1YyzgbOlfGogsnhie9slvmjzrvs26JioR`, 508134 bytes, SHA-256 `8b55d687e9fd7b17cc59448bfbed09dfb629e45d66e0e741fce97bb4c9d6e012`.
 - Lecture 33, Wrist Trauma: Drive `1KOjt3F-GaJe4SkWSv8WGKiw7qQnCUrhd`, 592896 bytes, SHA-256 `f78b2f7c9b8dd55b15767951b625bcf631e15b0cb32d13c484accf1dabe94955`.
-- Original media keys in manifest match each relative `../../2_음성/03_질환외상/*.mp4` link. **Only lecture 28 has verified Drive MP4 bytes/hash**; lectures 29–33 have `audio_source_verification: DRIVE_MP4_IDENTITY_PENDING`. All six continue `SELF_HOSTED_HTML_MEDIA_PENDING` until private R2 objects and byte-range/audio playback are verified; do not claim audio Ready.
+- Original media keys in manifest match each relative `../../2_음성/03_질환외상/*.mp4` link. **All six lectures 28–33 now have verified Drive MP4 source bytes/hash**; 29–33 source MP4 was independently downloaded and SHA-256 checked on 2026-10-09. All six continue `SELF_HOSTED_HTML_MEDIA_PENDING` until private R2 objects and byte-range/audio playback are verified; do not claim audio Ready.
 - Generic QA checks every self-hosted HTML against `source_bytes`, `source_sha256`, original Artifact fallback and unchanged MP4 logical path; specific immutable source locks cover 28–33. Browser E2E opens each of the six, verifies iframe content, pending media, fallback, and browser back.
 - Next original HTML sync starts at lecture **34 / Disease-Trauma 07 Hand Disease**, but R2 audio pilot and source-identity verification remain mandatory before media READY. New lectures must enter the same manifest-driven path, not hard-coded replacement UI.
+
+## Drive source MP4 provenance verified — 2026-10-09
+
+Drive `클로드 음성강의 / 2_음성 / 03_질환외상` contains all 24 Disease/Trauma MP4 source files, verified by folder metadata. For the first 6, manifest stores exact source file IDs/lengths/SHA-256 and the R2 logical keys remain unchanged:
+
+| Lecture | MP4 Drive ID | bytes | SHA-256 |
+|---|---|---:|---|
+| 28 (01 Shoulder disease) | `1sP66rCVNFCdfZB0IswULPsVGyk-ap0Ev` | 14629413 | `2662e3f37daf7daef28c97b1141f18489baf64ad2c82a4bc5a1c79a87eae3538` |
+| 29 (02 Shoulder trauma) | `1hp56nqlgzinLo6-VRyDM_LJfPNkNBd0M` | 11690224 | `24d01731ba8389c87ab0a92f12e7bd97a631d1a1d56f771ef097c52948f3a4cf` |
+| 30 (03 Elbow disease) | `1B99fjUhLEiHoa8we2tYKgvl7vlnr84Tp` | 17375944 | `2b4837f7d6573258b16bc6beae709248fbf0db640dbd8b3f0576d393e2dad52d` |
+| 31 (04 Elbow trauma) | `10v9F4VmeygX6lU7poyF8bCZ_kGtrcVQH` | 12525527 | `8ce6fddade476e4bfcb652dc008e15688b703a897e440422744a50a1dc4831d2` |
+| 32 (05 Wrist disease) | `1lNqFsPc9pk_9iFmv5GXu5fr1KQsNp8rA` | 12662848 | `e763f76380ddab687a3e9d44f27c46871084a7f8b182e0e574aea4065cd0a579` |
+| 33 (06 Wrist trauma) | `1nkVvQh8yuT-_bwJwKfrg9O-4bfVLAzvd` | 10877433 | `4be0988fbb4277e1811c861c022f8f9d6f746cee5e4a769d4f36fa34828636af` |
+
+**Not a deployment claim:** These are verified Drive sources only. The R2 objects are not uploaded, binding is still not connected, and no user-facing audio playback success is claimed.
 
 ## Deployment incident and routing correction — 2026-10-08
 
