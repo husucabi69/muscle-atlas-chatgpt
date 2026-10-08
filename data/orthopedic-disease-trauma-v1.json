@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026.10.08-odt-native-b",
+  "dataset_version": "2026.10.08-odt-native-c",
   "module_id": "orthopedic_disease_trauma_v1",
   "status": "PREVIEW_PROTOTYPE",
   "workline": "ORTHOPEDIC_DISEASE_TRAUMA_MODULE",
   "migration_policy": {
     "source_archive": "클로드_정형외과_강의실_모든작업물.zip",
     "total_volumes": 24,
-    "native_preview_volumes": 2,
-    "source_verified_pending_volumes": 22,
+    "native_preview_volumes": 4,
+    "source_verified_pending_volumes": 20,
     "claude_runtime_dependency": false,
     "external_artifact_dependency": false,
     "audio_policy": "Source MP4 files were not included; keep audio disabled until independent migration.",
@@ -52,7 +52,7 @@
       "title_en": "Elbow Disease",
       "source_filename": "클로드_질환외상_03권_팔꿈치_질환.html",
       "source_status": "ARCHIVE_SOURCE_VERIFIED",
-      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "native_status": "NATIVE_PREVIEW",
       "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
     },
     {
@@ -65,7 +65,7 @@
       "title_en": "Elbow Trauma",
       "source_filename": "클로드_질환외상_04권_팔꿈치_외상.html",
       "source_status": "ARCHIVE_SOURCE_VERIFIED",
-      "native_status": "SOURCE_VERIFIED_NATIVE_MIGRATION_PENDING",
+      "native_status": "NATIVE_PREVIEW",
       "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE"
     },
     {
@@ -1374,6 +1374,1154 @@
           "all numerical recurrence and complication estimates not explicitly refreshed above"
         ]
       }
+    },
+    "odt003": {
+      "stable_id": "odt003",
+      "source_sha256": "641f9fbb92a5a725793fdab2f0584380901653fc76724c718d23a306b5c27d33",
+      "source_bytes": 398420,
+      "title_ko": "팔꿈치 질환",
+      "title_en": "Elbow Disease",
+      "edition": "1판",
+      "source_authored_by": "Claude",
+      "native_review_status": "SOURCE_MIGRATED_SELECTIVE_EVIDENCE_REFRESH_2026_CANONICAL_REVIEW_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE",
+      "chapter_count": 12,
+      "numbered_figure_count": 8,
+      "visual_provenance_count": 8,
+      "reference_count": 13,
+      "evidence_refresh": {
+        "verified_on": "2026-10-08",
+        "status": "SELECTIVE_REFRESH_COMPLETE_CANONICAL_REVIEW_PENDING",
+        "refreshed_topics": [
+          "lateral elbow tendinopathy: corticosteroid versus PRP time-dependent outcomes",
+          "cubital tunnel syndrome: simple decompression versus anterior transposition"
+        ],
+        "refreshed_reference_ids": [
+          "odt_ref_039",
+          "odt_ref_040"
+        ],
+        "canonical_review_pending_topics": [
+          "medial epicondylitis treatment",
+          "radial tunnel/PIN operative indications",
+          "olecranon bursitis treatment details",
+          "elbow arthritis/stiffness operative thresholds",
+          "capitellar OCD treatment thresholds",
+          "median/AIN neuropathy management",
+          "septic arthritis and crystal arthropathy pathways"
+        ]
+      },
+      "chapters": [
+        {
+          "id": "odt003-s0",
+          "order": 0,
+          "title": "팔꿈치 질환의 큰 그림 — 통증 위치, ROM, 신경",
+          "summary": "바깥·안쪽·뒤·앞쪽 통증 위치와 운동범위, 신경증상을 먼저 분류합니다.",
+          "paragraphs": [
+            "팔꿈치는 뼈의 돌기, 힘줄 부착부, 큰 말초신경이 피부 가까이에 모여 있어 통증 위치 자체가 중요한 단서입니다. 바깥쪽은 외측 건병증·요골터널, 안쪽은 내측 건병증·척골신경·UCL, 뒤쪽은 주두점액낭·삼두건, 앞쪽은 원위 이두건과 정중신경을 우선 생각합니다.",
+            "외측·내측 건병증은 통증이 있어도 관절 운동범위는 대개 보존됩니다. 굽힘·폄이 함께 줄거나 중간 운동범위에서 통증이 심하면 관절염, loose body, 박리성 골연골염, 활막염·감염 같은 관절내 병변을 다시 봅니다.",
+            "제4–5지 저림, 손가락 벌림 약화, finger drop, 감각분포 이상이 있으면 단순 힘줄 통증으로 설명하지 않고 척골·요골·정중신경 포착과 경추 신경근병증을 감별합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "급성 열감·종창과 전반적 ROM 제한",
+            "진행하는 손 근위축·근력저하",
+            "야간 지속통·체중감소 또는 비기계적 통증"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s1",
+          "order": 1,
+          "title": "Lateral epicondylitis — 외측 팔꿈치 건병증",
+          "summary": "ECRB 기시부의 퇴행성 건병증으로 보고, 단기 주사효과와 장기 경과를 구분합니다.",
+          "paragraphs": [
+            "주된 병변은 extensor carpi radialis brevis(ECRB) 기시부이며, 조직학적으로 염증보다 퇴행성 tendinopathy가 중심입니다. 외측상과 전하방의 국소 압통과 저항성 손목 신전·중지 신전에서 익숙한 통증이 재현되는지 봅니다.",
+            "초음파의 저에코·비후·혈류증가는 증상과 맞아야 의미가 있습니다. 무증상 변화도 존재하므로 영상만으로 통증 원인을 확정하지 않습니다.",
+            "고전 RCT에서는 corticosteroid injection이 초기에 빠른 통증완화를 보이지만 재발과 장기 결과에서 불리할 수 있었습니다. 2025 RCT 메타분석에서도 steroid는 단기, PRP는 중장기 통증·기능에서 유리한 경향이 있었지만 근거의 이질성과 편향을 고려해야 하므로 어느 주사도 모든 환자의 정답으로 고정하지 않습니다.",
+            "기본은 질환의 자연경과 설명, 유발 부하 조절, 점진적 손목 신전근 강화입니다. 수술은 충분한 비수술 치료에도 기능장애가 지속되는 소수에서 논의하며 placebo-surgery 연구의 한계까지 설명합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_028",
+            "odt_ref_029",
+            "odt_ref_030",
+            "odt_ref_031",
+            "odt_ref_032",
+            "odt_ref_033",
+            "odt_ref_039"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d017",
+              "label": "외측 팔꿈치 건병증"
+            },
+            {
+              "type": "muscle",
+              "id": "m093",
+              "label": "단요측수근신근"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct012",
+              "label": "Cozen 검사"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct013",
+              "label": "Mill 검사"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct014",
+              "label": "Maudsley 검사"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv010",
+              "label": "공통신근건 장축 초음파"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv011",
+              "label": "공통신근건 단축 초음파"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": [
+            "스테로이드의 빠른 단기효과를 장기 치료효과와 혼동하지 않기",
+            "PRP 근거도 이질성이 있어 자동 권고하지 않기"
+          ]
+        },
+        {
+          "id": "odt003-s2",
+          "order": 2,
+          "title": "Medial epicondylitis — 내측 팔꿈치 건병증",
+          "summary": "굴곡-회내근 기시부를 평가하면서 척골신경과 투구선수 UCL 병변을 반드시 함께 봅니다.",
+          "paragraphs": [
+            "내측상과 전하방의 굴곡-회내근 공동기시부 압통과 저항성 손목굴곡·회내 통증이 핵심입니다. 반복적인 쥐기·손목굴곡 작업에서 흔합니다.",
+            "제4–5지 저림이 있으면 cubital tunnel syndrome을, 투구선수에서 valgus load 시 통증·불안정성이 있으면 ulnar collateral ligament(UCL) 병변을 감별합니다. 통증 위치 하나만으로 내측 건병증을 확정하지 않습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_028"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d018",
+              "label": "내측 팔꿈치 건병증"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d019",
+              "label": "주관 증후군"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d026",
+              "label": "UCL 병변"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct015",
+              "label": "저항성 손목굴곡·회내"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct020",
+              "label": "Moving Valgus Stress"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv012",
+              "label": "공통굴곡-회내건 초음파"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s3",
+          "order": 3,
+          "title": "Cubital tunnel syndrome — 주관 증후군",
+          "summary": "척골신경 감각·운동 소견과 전기진단·동적초음파를 통합하고, 진행성 약화는 오래 기다리지 않습니다.",
+          "paragraphs": [
+            "제4지 척측 절반과 제5지 저림, 손가락 벌림·모음 약화, first dorsal interosseous 위축, Froment/Wartenberg sign이 단서입니다. 손등 척측 감각과 아래팔 내측 감각을 함께 확인해 Guyon canal, C8/T1 radiculopathy 등과 구분합니다.",
+            "Tinel과 elbow-flexion test 같은 단일 유발검사는 완벽하지 않습니다. 압박과 굴곡을 조합한 검사도 작은 연구의 수치에 의존하므로, 임상분포·근력·전기진단·초음파를 함께 해석합니다.",
+            "감각증상만 있고 근력이 보존되면 야간 과굴곡 피하기, 팔꿈치 기대지 않기 등 비수술 치료를 먼저 할 수 있습니다. 근위축·진행성 근력저하 또는 지속되는 기능장애에서는 수술 평가를 늦추지 않습니다.",
+            "2025 업데이트에서도 simple decompression과 subcutaneous anterior transposition 사이 임상결과 차이는 뚜렷하지 않았습니다. 일차 idiopathic case에서 단순 감압은 합리적이며, 신경 불안정성·변형·재수술 같은 문맥에서 전위술을 개별화합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_034",
+            "odt_ref_035",
+            "odt_ref_040"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d019",
+              "label": "주관 증후군"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d020",
+              "label": "척골신경 불안정성"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct016",
+              "label": "Cubital Tinel"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct017",
+              "label": "Pressure-flexion 검사"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv013",
+              "label": "척골신경 동적 초음파"
+            },
+            {
+              "type": "muscle",
+              "id": "m086",
+              "label": "척측수근굴근"
+            }
+          ],
+          "red_flags": [
+            "진행하는 intrinsic muscle 위축·근력저하"
+          ],
+          "clinical_takeaways": [
+            "단일 Tinel 음성으로 주관증후군을 배제하지 않기",
+            "진행성 motor deficit은 장기 관찰보다 조기 수술평가"
+          ]
+        },
+        {
+          "id": "odt003-s4",
+          "order": 4,
+          "title": "Radial tunnel / PIN entrapment",
+          "summary": "통증만 있는 radial tunnel과 감각저하 없이 finger drop이 오는 PIN palsy를 분리합니다.",
+          "paragraphs": [
+            "Radial tunnel syndrome은 외측상과보다 더 원위부의 회외근 부위 통증이 중심이며 뚜렷한 운동마비는 없습니다. 외측 건병증과 증상이 겹치므로 압통 위치와 반복 저항회외를 함께 봅니다.",
+            "Posterior interosseous nerve(PIN) palsy는 손가락·엄지 폄 약화가 핵심이고 감각은 정상입니다. 손목 폄이 일부 남더라도 radial deviation이 동반될 수 있습니다.",
+            "갑작스런 palsy, 종괴, 류마티스 활막염, neuralgic amyotrophy 가능성이 있으면 초음파·MRI·전기진단으로 압박 위치와 다른 원인을 확인합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d021",
+              "label": "요골터널/PIN 포착"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct014",
+              "label": "Maudsley 검사"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv015",
+              "label": "요골신경/PIN 초음파"
+            },
+            {
+              "type": "muscle",
+              "id": "m097",
+              "label": "회외근"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s5",
+          "order": 5,
+          "title": "Olecranon bursitis — 주두 점액낭염",
+          "summary": "비감염성과 감염성을 구분하고, 관절 자체 감염과도 분리합니다.",
+          "paragraphs": [
+            "주두 바로 위 피하 점액낭이 둥글게 붓고 관절운동은 비교적 보존되는 것이 전형적입니다. 반복 압박, 통풍, 류마티스질환, 피부상처 후 감염이 원인이 될 수 있습니다.",
+            "열감·발적·심한 압통·주변 cellulitis가 있거나 감염이 의심되면 aspirate를 이용한 배양·세포검사·결정검사를 고려합니다. 결정을 확인해도 동시 감염 가능성은 남습니다.",
+            "모든 방향의 수동 ROM이 심하게 아프고 제한되면 단순 bursitis보다 septic arthritis를 우선 배제합니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d025",
+              "label": "주두점액낭염"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv016",
+              "label": "삼두건·주두점액낭 초음파"
+            }
+          ],
+          "red_flags": [
+            "열감·발적과 전신증상",
+            "전반적 수동 ROM 제한"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s6",
+          "order": 6,
+          "title": "Elbow arthritis와 stiffness",
+          "summary": "기능적 운동범위와 기계적 충돌·관절면 통증을 구분하고 척골신경을 함께 봅니다.",
+          "paragraphs": [
+            "일상생활에 필요한 전통적 기능범위는 대략 flexion-extension 30–130도와 pronation/supination 각 50도로 알려져 있지만 개인의 직업·스포츠 요구도는 더 큽니다.",
+            "일차성 osteoarthritis는 끝범위에서 osteophyte impingement 통증과 extension/flexion loss가 흔하며, 중간범위 통증은 관절면 자체의 손상을 시사할 수 있습니다. loose body가 있으면 locking이 생깁니다.",
+            "강직과 내측 골극은 척골신경 문제를 동반할 수 있어 감각·근력을 함께 확인합니다. 수술은 기계적 증상과 기능제한의 정도, 환자 요구도를 기준으로 개별화합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_036"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d019",
+              "label": "동반 척골신경병증"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv017",
+              "label": "전방 팔꿈치 관절 초음파"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s7",
+          "order": 7,
+          "title": "성장기·투구 팔꿈치 — OCD, Panner, valgus overload",
+          "summary": "청소년 외측통증과 투구선수 내측·후내측 통증은 성장판과 반복부하 문맥을 함께 봅니다.",
+          "paragraphs": [
+            "Capitellar osteochondritis dissecans(OCD)은 야구·체조 등 반복 압박을 받는 청소년에서 생길 수 있습니다. 성장판이 열려 있고 안정적인 초기 병변은 활동중단으로 치유 가능성이 높지만, 잠김·loose body·불안정 병변은 수술 평가가 필요합니다.",
+            "Panner disease는 더 어린 연령에서 capitellum 전체가 영향을 받는 자기제한적 질환으로 OCD와 구분합니다.",
+            "성장기 투수의 내측통증은 medial epicondylar apophysis, 성숙한 투수는 UCL과 valgus-extension overload를 함께 평가합니다. 단순 osteophyte 절제만으로 숨어 있는 인대부전을 해결하지 못할 수 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_037"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d026",
+              "label": "UCL 병변"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct020",
+              "label": "Moving Valgus Stress"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s8",
+          "order": 8,
+          "title": "Anterior elbow — distal biceps와 median nerve",
+          "summary": "원위 이두건 부분병변과 pronator/AIN neuropathy를 감별합니다.",
+          "paragraphs": [
+            "전방 팔꿈치 깊은 통증과 저항성 회외·굴곡 통증은 distal biceps tendinopathy/partial tear를 시사합니다. 완전파열과 달리 hook test에서 건이 걸리지만 통증이 재현될 수 있습니다.",
+            "초음파와 MRI를 임상소견과 함께 사용하며 완전파열 여부, retraction, 부분파열 범위를 평가합니다.",
+            "Pronator syndrome은 median nerve 감각증상과 전완 통증이 나타날 수 있고, anterior interosseous nerve(AIN) palsy는 감각저하 없이 pinch 'OK sign' 약화가 생깁니다. 갑작스런 AIN palsy는 neuralgic amyotrophy도 감별합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_038"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d022",
+              "label": "원위 이두건 건병증·부분파열"
+            },
+            {
+              "type": "diagnosis_concept",
+              "id": "d023",
+              "label": "원위 이두건 완전파열 감별"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct018",
+              "label": "Distal biceps Hook test"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct019",
+              "label": "Biceps Squeeze"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv014",
+              "label": "원위 이두건 초음파"
+            },
+            {
+              "type": "muscle",
+              "id": "m075",
+              "label": "상완이두근 장두"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s9",
+          "order": 9,
+          "title": "놓치면 안 되는 질환 — septic joint, crystal, tumor, referred pain",
+          "summary": "전반적 관절통·열감·비기계적 통증은 흔한 상과통보다 먼저 중대병리를 배제합니다.",
+          "paragraphs": [
+            "Septic arthritis는 관절 삼출과 모든 방향의 운동통·제한이 핵심이며 의심되면 관절흡인을 지연하지 않습니다. Olecranon bursitis와는 관절 ROM의 양상이 중요한 구분점입니다.",
+            "급성 gout/pseudogout은 감염과 임상적으로 겹칠 수 있어 첫 급성 단관절염에서는 결정과 세균을 함께 확인합니다.",
+            "휴식·야간에도 지속되는 통증, 체중감소, 빠른 파괴성 변화는 종양·Charcot arthropathy를 생각합니다. 외측 팔꿈치 통증은 C6, 후방 통증은 C7 radiculopathy 등 경추 연관통과도 겹칠 수 있습니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "급성 열감·전반적 ROM 제한",
+            "체중감소·지속 야간통",
+            "통증에 비해 심한 관절파괴"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s10",
+          "order": 10,
+          "title": "외래 실전 — Elbow disease 진료 순서",
+          "summary": "통증 위치→ROM→신경학적 분포→저항검사→선별 영상 순서로 진료 흐름을 정리합니다.",
+          "paragraphs": [
+            "1단계 통증 위치를 네 구역으로 나누고, 2단계 능동·수동 ROM을 확인합니다. 3단계 감각분포와 손 intrinsic, wrist/finger extension, pinch를 확인해 말초신경·경추 문제를 찾습니다.",
+            "4단계 Cozen/Mill/Maudsley, resisted flexion-pronation, cubital Tinel/pressure-flexion, hook test, valgus stress 같은 검사를 임상문맥에 맞게 선택합니다.",
+            "5단계 초음파는 건·신경·점액낭을 동적으로 보되 구조적 변화만으로 원인을 확정하지 않습니다. 감염·진행성 motor deficit·tumor red flag가 있으면 단순 보존치료보다 추가검사·전원 우선입니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_039",
+            "odt_ref_040"
+          ],
+          "cross_links": [
+            {
+              "type": "clinical_test",
+              "id": "ct012",
+              "label": "Cozen 검사"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct017",
+              "label": "Pressure-flexion 검사"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv013",
+              "label": "척골신경 동적 초음파"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv014",
+              "label": "원위 이두건 초음파"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt003-s11",
+          "order": 11,
+          "title": "참고문헌과 근거 상태",
+          "summary": "원본 문헌을 보존하고 lateral elbow injection 및 cubital tunnel 수술법만 2025–2026 근거로 우선 갱신했습니다.",
+          "paragraphs": [
+            "SOURCE_VERIFIED는 Claude 원본에서 직접 사용한 문헌이며 EVIDENCE_REFRESH_2026은 이번 native migration에서 새로 확인한 근거입니다.",
+            "이번 선택적 갱신은 lateral epicondylitis injection 비교와 cubital tunnel simple decompression 대 transposition에 집중했습니다. OCD, elbow arthritis, septic bursitis/arthritis 등 다른 주제는 canonical 전체 검토가 남아 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_028",
+            "odt_ref_029",
+            "odt_ref_030",
+            "odt_ref_031",
+            "odt_ref_032",
+            "odt_ref_033",
+            "odt_ref_034",
+            "odt_ref_035",
+            "odt_ref_036",
+            "odt_ref_037",
+            "odt_ref_038",
+            "odt_ref_039",
+            "odt_ref_040"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        }
+      ],
+      "figures": [
+        {
+          "id": "odt003_fig01",
+          "chapter_id": "odt003-s0",
+          "figure_no": "1",
+          "title": "팔꿈치 통증 네 구역 도식",
+          "provenance": "Claude source-authored schematic; not a copied paper figure",
+          "license_status": "HUMAN_REDRAW_REQUIRED_FOR_OWN_CANONICAL_ASSET",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt003_fig02",
+          "chapter_id": "odt003-s1",
+          "figure_no": "2",
+          "title": "Lateral elbow tendinopathy site",
+          "provenance": "Wikimedia Commons · Scientific Animations",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Tennis_Elbow_Tendon_Injury.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt003_fig03",
+          "chapter_id": "odt003-s3",
+          "figure_no": "3",
+          "title": "Compressed ulnar nerve at cubital tunnel",
+          "provenance": "Wikimedia Commons · InjuryMap",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Compressed_ulnar_nerve.svg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt003_fig04",
+          "chapter_id": "odt003-s3",
+          "figure_no": "4",
+          "title": "Ulnar claw hand example",
+          "provenance": "Wikimedia Commons · Mcstrother",
+          "license": "CC BY 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ulnar_claw_hand.JPG",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt003_fig05",
+          "chapter_id": "odt003-s5",
+          "figure_no": "5",
+          "title": "Olecranon bursitis",
+          "provenance": "Wikimedia Commons · Alborz Fallah",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Olecranon_bursitis_(1).jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt003_fig06",
+          "chapter_id": "odt003-s6",
+          "figure_no": "6",
+          "title": "Morrey functional elbow ROM schematic",
+          "provenance": "Claude source-authored schematic summarizing source study",
+          "license_status": "HUMAN_REDRAW_REQUIRED_FOR_OWN_CANONICAL_ASSET",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt003_fig07",
+          "chapter_id": "odt003-s6",
+          "figure_no": "7",
+          "title": "Elbow osteoarthritis lateral X-ray",
+          "provenance": "Wikimedia Commons · Jmarchn",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:XRay_ElbowOsteoarthritis_RL_Lateral.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt003_fig08",
+          "chapter_id": "odt003-s8",
+          "figure_no": "8",
+          "title": "Distal biceps rupture MRI",
+          "provenance": "Wikimedia Commons · RSatUSZ",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:MRI._rupture_of_the_distal_biceps_tendon..jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        }
+      ],
+      "references": [
+        {
+          "id": "odt_ref_028",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Shiri R, Viikari-Juntura E, Varonen H, Heliövaara M. Prevalence and determinants of lateral and medial epicondylitis. Am J Epidemiol. 2006;164:1065–1074.",
+          "doi": "10.1093/aje/kwj325",
+          "url": "https://doi.org/10.1093/aje/kwj325"
+        },
+        {
+          "id": "odt_ref_029",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Smidt N, van der Windt DA, Assendelft WJ, et al. Corticosteroid injections, physiotherapy, or wait-and-see for lateral epicondylitis. Lancet. 2002;359:657–662.",
+          "doi": "10.1016/S0140-6736(02)07811-X",
+          "url": "https://doi.org/10.1016/S0140-6736(02)07811-X"
+        },
+        {
+          "id": "odt_ref_030",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Bisset L, Beller E, Jull G, et al. Mobilisation with movement and exercise, corticosteroid injection, or wait and see for tennis elbow. BMJ. 2006;333:939.",
+          "doi": "10.1136/bmj.38961.584653.AE",
+          "url": "https://doi.org/10.1136/bmj.38961.584653.AE"
+        },
+        {
+          "id": "odt_ref_031",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Coombes BK, Bisset L, Brooks P, et al. Corticosteroid injection, physiotherapy, or both for unilateral lateral epicondylalgia. JAMA. 2013;309:461–469.",
+          "doi": "10.1001/jama.2013.129",
+          "url": "https://doi.org/10.1001/jama.2013.129"
+        },
+        {
+          "id": "odt_ref_032",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Mishra AK, Skrepnik NV, Edwards SG, et al. Platelet-rich plasma for chronic tennis elbow. Am J Sports Med. 2014;42:463–471.",
+          "doi": "10.1177/0363546513494359",
+          "url": "https://doi.org/10.1177/0363546513494359"
+        },
+        {
+          "id": "odt_ref_033",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Kroslak M, Murrell GAC. Surgical treatment of lateral epicondylitis: placebo-controlled trial. Am J Sports Med. 2018;46:1106–1113.",
+          "doi": "10.1177/0363546517753385",
+          "url": "https://doi.org/10.1177/0363546517753385"
+        },
+        {
+          "id": "odt_ref_034",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Novak CB, Lee GW, Mackinnon SE, Lay L. Provocative testing for cubital tunnel syndrome. J Hand Surg Am. 1994;19:817–820.",
+          "doi": "10.1016/0363-5023(94)90193-7",
+          "url": "https://doi.org/10.1016/0363-5023(94)90193-7"
+        },
+        {
+          "id": "odt_ref_035",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Zlowodzki M, Chan S, Bhandari M, et al. Anterior transposition compared with simple decompression for cubital tunnel syndrome. J Bone Joint Surg Am. 2007;89:2591–2598.",
+          "doi": "10.2106/JBJS.G.00183",
+          "url": "https://doi.org/10.2106/JBJS.G.00183"
+        },
+        {
+          "id": "odt_ref_036",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Morrey BF, Askew LJ, Chao EY. A biomechanical study of normal functional elbow motion. J Bone Joint Surg Am. 1981;63:872–877.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/7240327/"
+        },
+        {
+          "id": "odt_ref_037",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Takahara M, Mura N, Sasaki J, Harada M, Ogino T. Osteochondritis dissecans of the humeral capitellum. J Bone Joint Surg Am. 2007;89:1205–1214.",
+          "doi": "10.2106/JBJS.F.00622",
+          "url": "https://doi.org/10.2106/JBJS.F.00622"
+        },
+        {
+          "id": "odt_ref_038",
+          "status": "SOURCE_VERIFIED",
+          "citation": "O'Driscoll SW, Goncalves LB, Dietz P. The hook test for distal biceps tendon avulsion. Am J Sports Med. 2007;35:1865–1869.",
+          "doi": "10.1177/0363546507305016",
+          "url": "https://doi.org/10.1177/0363546507305016"
+        },
+        {
+          "id": "odt_ref_039",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Maroun R, Daher M, Boufadel P, et al. Platelet rich plasma versus corticosteroids for lateral epicondylitis: meta-analysis of randomized clinical trials. Clin Shoulder Elb. 2025;28:40–48.",
+          "doi": "10.5397/cise.2024.00801",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40077872/"
+        },
+        {
+          "id": "odt_ref_040",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Simple decompression vs subcutaneous anterior transposition of the ulnar nerve: 2025 update on cubital tunnel syndrome.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41799871/"
+        }
+      ]
+    },
+    "odt004": {
+      "stable_id": "odt004",
+      "source_sha256": "026934ff318c8a74f2f155fdc3ded997a440bd1b17913d5096933e332bee0bff",
+      "source_bytes": 572507,
+      "title_ko": "팔꿈치 외상",
+      "title_en": "Elbow Trauma",
+      "edition": "1판",
+      "source_authored_by": "Claude",
+      "native_review_status": "SOURCE_MIGRATED_SELECTIVE_EVIDENCE_REFRESH_2026_CANONICAL_REVIEW_PENDING",
+      "audio_status": "MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE",
+      "chapter_count": 11,
+      "numbered_figure_count": 6,
+      "visual_provenance_count": 7,
+      "reference_count": 15,
+      "evidence_refresh": {
+        "verified_on": "2026-10-08",
+        "status": "SELECTIVE_REFRESH_COMPLETE_CANONICAL_REVIEW_PENDING",
+        "refreshed_topics": [
+          "simple elbow dislocation early mobilization",
+          "isolated Mason II radial head fracture operative versus nonoperative treatment",
+          "elderly displaced olecranon fracture management",
+          "delayed distal biceps repair viability",
+          "adult traumatic acute compartment syndrome"
+        ],
+        "refreshed_reference_ids": [
+          "odt_ref_051",
+          "odt_ref_052",
+          "odt_ref_053",
+          "odt_ref_054",
+          "odt_ref_055"
+        ],
+        "canonical_review_pending_topics": [
+          "terrible triad detailed operative sequencing",
+          "distal humerus ORIF versus TEA selection",
+          "pediatric elbow fracture detailed thresholds",
+          "heterotopic ossification prophylaxis"
+        ]
+      },
+      "chapters": [
+        {
+          "id": "odt004-s0",
+          "order": 0,
+          "title": "팔꿈치 외상의 큰 그림 — 신경혈관, fat pad, 연령",
+          "summary": "처치 전 신경혈관 상태와 정확한 AP/lateral 영상을 먼저 확보하고 연령별 흔한 손상을 예측합니다.",
+          "paragraphs": [
+            "팔꿈치 외상은 소아의 supracondylar fracture, 젊은 성인의 dislocation·radial head fracture, 고령의 distal humerus·olecranon fracture처럼 연령에 따라 흔한 패턴이 달라집니다.",
+            "정복·고정 전후에 요골동맥과 손 관류, radial/AIN/ulnar nerve 기능을 기록합니다. AIN은 감각이 없어 pinch 'OK sign'으로 확인해야 놓치지 않습니다.",
+            "측면 X-ray의 posterior fat pad 또는 과도하게 들린 anterior fat pad는 occult intra-articular fracture의 단서입니다. radiocapitellar line과 소아 anterior humeral line도 정렬을 확인하는 기본 도구입니다."
+          ],
+          "evidence_ref_ids": [],
+          "cross_links": [],
+          "red_flags": [
+            "차고 창백한 손 또는 관류 저하",
+            "진행하는 신경학적 결손",
+            "고에너지 개방성 손상"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt004-s1",
+          "order": 1,
+          "title": "Simple elbow dislocation — 단순 팔꿈치 탈구",
+          "summary": "안정적으로 정복되는 단순 탈구는 routine ligament repair보다 짧은 보호와 조기 기능회복이 기본입니다.",
+          "paragraphs": [
+            "골절이 동반되지 않은 simple elbow dislocation은 광범위한 연부조직 손상이 있어도 정복 후 안정성이 확보되면 비수술 치료가 기본입니다. 처치 전후 신경혈관 상태를 기록합니다.",
+            "FuncSiE trial과 이후 systematic review들은 3주 고정보다 조기 mobilization이 초기 ROM·기능·직장복귀를 빠르게 하면서 재탈구를 늘리지 않는 방향을 지지합니다.",
+            "2024 systematic review에서도 early mobilization이 가장 일관되게 만족스러운 결과를 보였습니다. 다만 중등도 이상의 지속 불안정성, 동심원 정복이 유지되지 않는 경우, 복합 골절·불안정 패턴은 수술 평가가 필요합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_041",
+            "odt_ref_042",
+            "odt_ref_051"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "정복 뒤 비동심성 관절",
+            "중등도 이상 지속 불안정성",
+            "신경혈관 손상"
+          ],
+          "clinical_takeaways": [
+            "불필요한 장기 고정을 피하고 안정성 범위에서 조기 운동"
+          ]
+        },
+        {
+          "id": "odt004-s2",
+          "order": 2,
+          "title": "Terrible triad와 complex instability",
+          "summary": "탈구+radial head fracture+coronoid fracture는 안정성 복원이 치료 목표입니다.",
+          "paragraphs": [
+            "Terrible triad는 뼈 안정화 구조와 측부인대가 동시에 손상되어 재탈구와 강직 위험이 높은 복합 손상입니다.",
+            "수술에서는 radial head를 보존·고정하거나 필요 시 대체하고, coronoid와 lateral ligament complex를 복원하며 잔여 불안정성에 따라 medial side 또는 hinged external fixation을 추가할 수 있습니다.",
+            "작은 coronoid fragment도 불안정성의 표지가 될 수 있으므로 단순 X-ray만으로 과소평가하지 말고 CT로 위치·크기를 확인합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_043"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "정복 유지 실패",
+            "복합 골절-탈구",
+            "진행성 신경혈관 이상"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt004-s3",
+          "order": 3,
+          "title": "Radial head fracture — 요골두 골절",
+          "summary": "Mason 분류 자체보다 기계적 회전차단과 동반 instability/Essex-Lopresti를 중요하게 봅니다.",
+          "paragraphs": [
+            "외측 팔꿈치 압통과 회내·회외 통증이 흔하며 X-ray에서는 fat-pad sign만 보이는 occult fracture도 있습니다.",
+            "isolated stable Mason II에서 displacement 숫자만으로 수술을 결정하지 않습니다. 2026 메타분석은 수술의 기능·ROM·합병증상 명확한 우월성을 보여주지 못했습니다. 기계적 block, 관절 불안정성, 다른 골절·인대손상을 함께 봅니다.",
+            "손목 통증·DRUJ tenderness가 있으면 Essex-Lopresti injury를 의심해 forearm/interosseous membrane과 손목까지 평가합니다. radial head를 단순 절제하면 longitudinal instability를 악화시킬 수 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_044",
+            "odt_ref_052"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "기계적 회전차단",
+            "DRUJ/손목 통증을 동반한 radial head fracture",
+            "복합 불안정성"
+          ],
+          "clinical_takeaways": [
+            "Mason II라는 이름만으로 자동 ORIF하지 않기"
+          ]
+        },
+        {
+          "id": "odt004-s4",
+          "order": 4,
+          "title": "Olecranon fracture — 주두 골절",
+          "summary": "extensor mechanism과 관절 안정성을 확인하고, 저수요 고령은 전위가 있어도 비수술 선택지가 될 수 있습니다.",
+          "paragraphs": [
+            "주두 골절에서는 triceps continuity와 중력에 맞선 능동 신전 가능 여부, 관절 안정성, 피부 상태를 확인합니다.",
+            "젊고 활동적인 환자의 전위된 불안정 골절은 고정이 흔하지만 symptomatic hardware·재수술 가능성을 설명합니다.",
+            "2017 RCT와 2025 review는 안정된 전위 골절을 가진 저수요 고령 환자에서 비수술 치료가 좋은 기능을 제공할 수 있음을 지지합니다. radiographic union이 반드시 좋은 일상기능의 전제는 아닙니다. 다만 불안정성·개방성·extensor mechanism 요구도는 별도로 봅니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_045",
+            "odt_ref_053"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "개방성 또는 피부 위협",
+            "불안정한 골절-탈구",
+            "고수요 환자의 extensor mechanism 실패"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt004-s5",
+          "order": 5,
+          "title": "Adult distal humerus fracture",
+          "summary": "젊은 고에너지 손상과 고령 골다공증성 분쇄골절을 구분하고 ORIF와 TEA를 환자 요구도에 맞춰 선택합니다.",
+          "paragraphs": [
+            "관절내 distal humerus fracture는 가능한 조기 motion이 가능할 만큼 안정적인 fixation이 목표이며, 양측 column reconstruction과 ulnar nerve 보호가 중요합니다.",
+            "고령의 심한 분쇄 골절에서 ORIF가 재건 불가능할 정도라면 total elbow arthroplasty(TEA)가 대안이 될 수 있습니다. 그러나 평생 load restriction과 implant-related complication을 고려해야 합니다.",
+            "수술전 CT는 관절면·column fragmentation을 이해하고 수술전략을 세우는 데 도움이 됩니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_046"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "개방성 손상",
+            "혈관 손상",
+            "고령의 재건 불가능한 심한 관절내 분쇄"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt004-s6",
+          "order": 6,
+          "title": "Distal biceps tendon rupture — 원위 이두건 완전파열",
+          "summary": "Hook test와 회외근력 손실을 중심으로 진단하고, 활동적인 환자에서는 조기 수술상담을 하되 2–3주를 절대 cutoff로 만들지 않습니다.",
+          "paragraphs": [
+            "무거운 물건을 버티다 팔꿈치가 강제로 펴질 때 '뚝'하는 느낌, 전방 멍, proximal migration이 단서입니다. 팔꿈치 굴곡은 남을 수 있어 놓치기 쉽습니다.",
+            "Hook test가 중요한 진찰이지만 임상·초음파/MRI와 함께 봅니다. 완전파열의 기능손실은 특히 forearm supination에서 큽니다.",
+            "원본은 활동적인 환자에서 2–3주 이내 수술상담을 강조하지만, 최근 literature는 지연된 direct repair도 residual tendon이 충분하면 만족스러운 결과가 가능함을 보여줍니다. 따라서 '3주가 지나면 직접봉합 불가' 같은 절대 기준보다 retraction, tissue quality, 기능요구도와 수술난이도를 바탕으로 가능한 한 조기 전문평가를 권합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_047",
+            "odt_ref_048",
+            "odt_ref_054"
+          ],
+          "cross_links": [
+            {
+              "type": "diagnosis_concept",
+              "id": "d023",
+              "label": "원위 이두건 완전파열"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct018",
+              "label": "Distal biceps Hook test"
+            },
+            {
+              "type": "clinical_test",
+              "id": "ct019",
+              "label": "Biceps Squeeze"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv014",
+              "label": "원위 이두건 초음파"
+            },
+            {
+              "type": "muscle",
+              "id": "m075",
+              "label": "상완이두근 장두"
+            }
+          ],
+          "red_flags": [
+            "급성 외상 뒤 Hook test 이상과 현저한 회외약화"
+          ],
+          "clinical_takeaways": [
+            "시간 숫자 하나보다 조기 진단·retraction·tissue quality가 중요"
+          ]
+        },
+        {
+          "id": "odt004-s7",
+          "order": 7,
+          "title": "소아 Elbow trauma",
+          "summary": "Supracondylar, lateral condyle, medial epicondyle, pulled elbow, Monteggia를 나이·정렬·신경혈관 상태로 구분합니다.",
+          "paragraphs": [
+            "소아 supracondylar fracture에서는 radial pulse만이 아니라 손의 색·온도·capillary refill과 AIN/radial/ulnar nerve 기능을 반복 기록합니다. 차고 창백한 hand는 응급입니다.",
+            "Lateral condyle fracture는 초기 전위가 작아도 추적 중 벌어질 수 있고, medial epicondyle fragment는 dislocation 정복 뒤 관절 안에 감입될 수 있습니다.",
+            "전형적인 pulled elbow는 붓기·국소 압통이 거의 없고 traction history가 명확합니다. 비전형적 병력, 부종·멍·압통이 있거나 reduction 후 계속 팔을 쓰지 않으면 fracture evaluation이 필요합니다.",
+            "Monteggia injury에서는 ulna fracture/塑性변형만 보고 radial head dislocation을 놓치지 않도록 radiocapitellar alignment를 확인합니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_049",
+            "odt_ref_050"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "창백하고 차가운 손",
+            "정복 후 관절내 감입 fragment 의심",
+            "비전형적 pulled-elbow presentation"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt004-s8",
+          "order": 8,
+          "title": "드물지만 위험한 합병증 — compartment syndrome, PLRI, HO",
+          "summary": "통증·관류·불안정성과 강직 위험을 조기에 인식합니다.",
+          "paragraphs": [
+            "Acute compartment syndrome은 임상적으로 의심될 때 시간 민감한 응급상황입니다. severe escalating pain과 passive stretch pain은 중요한 단서지만, 단일 소견이나 혈청검사 하나로 배제하지 않습니다.",
+            "AAOS 2025 CPG는 adult traumatic extremity acute compartment syndrome의 진단·치료를 다루며, 불확실한 상황에서도 임상 판단과 필요 시 압력평가를 통합해야 함을 강조합니다. 소아에는 이 성인 CPG를 그대로 외삽하지 않습니다.",
+            "후외측 회전 불안정성(PLRI)과 heterotopic ossification은 탈구·복합외상 후 만성 문제를 만들 수 있습니다. 팔꿈치는 강직에 취약하므로 안정성 확보 후 가능한 조기 motion이 반복되는 치료 원칙입니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_055"
+          ],
+          "cross_links": [],
+          "red_flags": [
+            "진통제로 조절되지 않는 진행성 통증",
+            "수동 손가락 신전 시 심한 통증",
+            "관류·신경상태 악화"
+          ],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt004-s9",
+          "order": 9,
+          "title": "외래 실전 — Elbow trauma 진료 순서",
+          "summary": "신경혈관→AP/lateral 정렬→fat pad→기계적 block/불안정성→조기 motion 가능성 순으로 봅니다.",
+          "paragraphs": [
+            "처치 전후 radial pulse·관류와 AIN/radial/ulnar nerve를 기록합니다. X-ray에서 fat pad, radiocapitellar line, 소아 anterior humeral line을 확인합니다.",
+            "탈구는 정복 후 동심원 정렬·안정성, radial head fracture는 기계적 회전차단과 손목/DRUJ, olecranon은 extensor mechanism, distal biceps는 Hook test와 회외근력을 확인합니다.",
+            "소아는 신경혈관 상태와 성장판 손상, 고령은 골질·기능 요구도와 수술 합병증을 함께 고려합니다. compartment syndrome red flag가 있으면 외래 경과관찰보다 응급평가가 우선입니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_051",
+            "odt_ref_052",
+            "odt_ref_053",
+            "odt_ref_055"
+          ],
+          "cross_links": [
+            {
+              "type": "clinical_test",
+              "id": "ct018",
+              "label": "Distal biceps Hook test"
+            },
+            {
+              "type": "ultrasound_view",
+              "id": "usv014",
+              "label": "원위 이두건 초음파"
+            }
+          ],
+          "red_flags": [],
+          "clinical_takeaways": []
+        },
+        {
+          "id": "odt004-s10",
+          "order": 10,
+          "title": "참고문헌과 근거 상태",
+          "summary": "원본 10개 핵심 문헌을 보존하고 simple dislocation, Mason II, elderly olecranon, delayed distal biceps, compartment syndrome을 최신 근거로 선택 갱신했습니다.",
+          "paragraphs": [
+            "SOURCE_VERIFIED는 원본 Claude HTML의 직접 인용 문헌이며 EVIDENCE_REFRESH_2026/CURRENT_GUIDELINE은 이번 migration에서 추가한 최신 근거입니다.",
+            "이번 선택적 갱신은 치료경로가 바뀔 수 있는 다섯 주제에 집중했습니다. Terrible triad 세부 수술기법, distal humerus ORIF-vs-TEA, 소아 fracture 세부 threshold와 HO 예방은 전체 canonical review가 남아 있습니다."
+          ],
+          "evidence_ref_ids": [
+            "odt_ref_041",
+            "odt_ref_042",
+            "odt_ref_043",
+            "odt_ref_044",
+            "odt_ref_045",
+            "odt_ref_046",
+            "odt_ref_047",
+            "odt_ref_048",
+            "odt_ref_049",
+            "odt_ref_050",
+            "odt_ref_051",
+            "odt_ref_052",
+            "odt_ref_053",
+            "odt_ref_054",
+            "odt_ref_055"
+          ],
+          "cross_links": [],
+          "red_flags": [],
+          "clinical_takeaways": []
+        }
+      ],
+      "figures": [
+        {
+          "id": "odt004_fig01a",
+          "chapter_id": "odt004-s0",
+          "figure_no": "1A",
+          "title": "Adult anterior/posterior fat-pad sign",
+          "provenance": "Wikimedia Commons · RSatUSZ",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:CR._Anterior_and_posterior_fat_pad_sign..jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt004_fig01b",
+          "chapter_id": "odt004-s0",
+          "figure_no": "1B",
+          "title": "Pediatric sail sign",
+          "provenance": "Wikimedia Commons · James Heilman, MD",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:AnteriorandPSailSign.png",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt004_fig02",
+          "chapter_id": "odt004-s0",
+          "figure_no": "2",
+          "title": "Radiocapitellar and anterior humeral line schematic",
+          "provenance": "Claude source-authored schematic; not a copied paper figure",
+          "license_status": "HUMAN_REDRAW_REQUIRED_FOR_OWN_CANONICAL_ASSET",
+          "render_mode": "NATIVE_REDRAW_PENDING"
+        },
+        {
+          "id": "odt004_fig03",
+          "chapter_id": "odt004-s1",
+          "figure_no": "3",
+          "title": "Simple posterior elbow dislocation X-ray",
+          "provenance": "Wikimedia Commons · Flibust1er",
+          "license": "CC0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Radiographie_d%E2%80%99une_luxation_post%C3%A9rieur_du_coude_gauche_sans_fracture.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt004_fig04",
+          "chapter_id": "odt004-s3",
+          "figure_no": "4",
+          "title": "Radial head fracture with fat-pad elevation",
+          "provenance": "Wikimedia Commons · James Heilman, MD",
+          "license": "CC BY-SA 4.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:RadHeadFracMark.png",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt004_fig05",
+          "chapter_id": "odt004-s4",
+          "figure_no": "5",
+          "title": "Olecranon fracture pre/post fixation",
+          "provenance": "Wikimedia Commons · Michael Müller-Hillebrand",
+          "license": "CC BY 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Fracture_of_Olecranon_pre_and_post_typical_surgery.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        },
+        {
+          "id": "odt004_fig06",
+          "chapter_id": "odt004-s7",
+          "figure_no": "6",
+          "title": "Pediatric Monteggia fracture",
+          "provenance": "Wikimedia Commons · Hellerhoff",
+          "license": "CC BY-SA 3.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Monteggia-Fraktur_-_Roe_ap_und_seitlich_-_Annotation.jpg",
+          "render_mode": "SOURCE_LINK_ONLY_UNTIL_ASSET_PROMOTION"
+        }
+      ],
+      "references": [
+        {
+          "id": "odt_ref_041",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Josefsson PO, Gentz CF, Johnell O, Wendeberg B. Surgical versus non-surgical treatment of ligamentous injuries following elbow dislocation. J Bone Joint Surg Am. 1987;69:605–608.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3571318/"
+        },
+        {
+          "id": "odt_ref_042",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Iordens GIT, Van Lieshout EMM, Schep NWL, et al. Early mobilisation versus plaster immobilisation of simple elbow dislocations: FuncSiE trial. Br J Sports Med. 2017;51:531–538.",
+          "doi": "10.1136/bjsports-2015-094704",
+          "url": "https://doi.org/10.1136/bjsports-2015-094704"
+        },
+        {
+          "id": "odt_ref_043",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Pugh DMW, Wild LM, Schemitsch EH, King GJW, McKee MD. Standard surgical protocol for terrible-triad elbow injuries. J Bone Joint Surg Am. 2004;86:1122–1130.",
+          "doi": "10.2106/00004623-200406000-00002",
+          "url": "https://doi.org/10.2106/00004623-200406000-00002"
+        },
+        {
+          "id": "odt_ref_044",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Akesson T, Herbertsson P, Josefsson PO, et al. Primary nonoperative treatment of moderately displaced two-part radial head fractures. J Bone Joint Surg Am. 2006;88:1909–1914.",
+          "doi": "10.2106/JBJS.E.01052",
+          "url": "https://doi.org/10.2106/JBJS.E.01052"
+        },
+        {
+          "id": "odt_ref_045",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Duckworth AD, Clement ND, McEachan JE, et al. Non-operative versus operative management of olecranon fractures in the elderly. Bone Joint J. 2017;99-B:964–972.",
+          "doi": "10.1302/0301-620X.99B7.BJJ-2016-1112.R2",
+          "url": "https://doi.org/10.1302/0301-620X.99B7.BJJ-2016-1112.R2"
+        },
+        {
+          "id": "odt_ref_046",
+          "status": "SOURCE_VERIFIED",
+          "citation": "McKee MD, Veillette CJH, Hall JA, et al. ORIF versus total elbow arthroplasty for displaced intra-articular distal humeral fractures in elderly patients. J Shoulder Elbow Surg. 2009;18:3–12.",
+          "doi": "10.1016/j.jse.2008.06.005",
+          "url": "https://doi.org/10.1016/j.jse.2008.06.005"
+        },
+        {
+          "id": "odt_ref_047",
+          "status": "SOURCE_VERIFIED",
+          "citation": "O'Driscoll SW, Goncalves LB, Dietz P. The hook test for distal biceps tendon avulsion. Am J Sports Med. 2007;35:1865–1869.",
+          "doi": "10.1177/0363546507305016",
+          "url": "https://doi.org/10.1177/0363546507305016"
+        },
+        {
+          "id": "odt_ref_048",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Baker BE, Bierwagen D. Rupture of the distal tendon of the biceps brachii: operative versus non-operative treatment. J Bone Joint Surg Am. 1985;67:414–417.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3972865/"
+        },
+        {
+          "id": "odt_ref_049",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Babal JC, Mehlman CT, Klein G. Nerve injuries associated with pediatric supracondylar humeral fractures: meta-analysis. J Pediatr Orthop. 2010;30:253–263.",
+          "doi": "10.1097/BPO.0b013e3181d213a6",
+          "url": "https://doi.org/10.1097/BPO.0b013e3181d213a6"
+        },
+        {
+          "id": "odt_ref_050",
+          "status": "SOURCE_VERIFIED",
+          "citation": "Krul M, van der Wouden JC, et al. Manipulative interventions for reducing pulled elbow in young children. Cochrane Database Syst Rev. 2017;7:CD007759.",
+          "doi": "10.1002/14651858.CD007759.pub4",
+          "url": "https://doi.org/10.1002/14651858.CD007759.pub4"
+        },
+        {
+          "id": "odt_ref_051",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Treatment Outcomes of Simple Elbow Dislocations: A Systematic Review of 1,081 Cases. JBJS Rev. 2024.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38181107/"
+        },
+        {
+          "id": "odt_ref_052",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Operative vs nonoperative treatment in Mason type II radial head fractures: meta-analysis. 2026.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42292030/"
+        },
+        {
+          "id": "odt_ref_053",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Elderly Olecranon Fractures: How and When to Manage Them Operatively and Nonoperatively. Hand Clin. 2025.",
+          "doi": "10.1016/j.hcl.2025.06.006",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41106922/"
+        },
+        {
+          "id": "odt_ref_054",
+          "status": "EVIDENCE_REFRESH_2026",
+          "citation": "Outcomes and Patient Satisfaction of Delayed Distal Biceps Repairs without Graft Augmentation: systematic review. 2023.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37141425/"
+        },
+        {
+          "id": "odt_ref_055",
+          "status": "CURRENT_GUIDELINE",
+          "citation": "American Academy of Orthopaedic Surgeons. Management of Acute Compartment Syndrome Evidence-Based Clinical Practice Guideline. 2025.",
+          "url": "https://www.aaos.org/quality/quality-programs/acute-compartment-syndrome/"
+        }
+      ]
     }
   }
 }
