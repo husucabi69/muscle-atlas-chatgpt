@@ -1,4 +1,21 @@
-# CURRENT HANDOFF — 2026-10-08 Disease/Trauma active · EXAM-REAL ct086 preserved
+# CURRENT HANDOFF — 2026-10-08 Claude Original Classroom active · EXAM-REAL preserved
+
+## CURRENT OVERRIDE — Claude Original Classroom / user directive 2026-10-08
+
+- User rejected the simplified Disease/Trauma native-card experience as too reductive.
+- **New active workline: CLAUDE_ORIGINAL_CLASSROOM.**
+- Google Drive is source-of-truth; production runtime is self-hosted original HTML + Cloudflare R2 MP4.
+- Manifest source index: `data/claude-library-manifest-v1.json`, generated from the 76-row Google Sheet.
+- User-facing Disease/Trauma now renders the 24 Claude original lectures from the manifest; simplified ODT native chapter UI is deprecated user-facing.
+- Latest evidence lectures are exposed in the same root from the two `근거 업데이트` rows.
+- Pilot lecture 28 Shoulder Disease original HTML is self-hosted; exact source identity is locked in `docs/CLAUDE_ORIGINAL_CLASSROOM_SYNC.md`.
+- Pilot MP4 is exact-source verified but **R2 upload is BLOCKED by expired Cloudflare browser authentication**. Do not mark media READY until R2 fetch passes.
+- Claude Artifact URLs are fallback only.
+- New future content must use: Drive HTML/MP4 → source-sheet row → manifest sync → byte identity QA → Preview. No re-authoring into simplified cards.
+- `scripts/claude-library-runtime-qa.mjs` is mandatory.
+- ct085 approval, ct086 state, ct088 deferred state and all existing EXAM-REAL contracts remain untouched.
+- Production `main` remains frozen.
+
 
 ## CURRENT OVERRIDE — 2026-10-08 ORTHOPEDIC_DISEASE_TRAUMA_MODULE shoulder + elbow + wrist native
 
