@@ -725,7 +725,7 @@ try{
   pass('Disease/Trauma native prototype: 24-volume inventory + Shoulder Disease 10 chapters + cross-links + browser back');
 
   const nativeCards=page.locator('#diseaseTraumaVolumeChooser .odt-status.ready');
-  if(await nativeCards.count()!==2)fail('Disease/Trauma renders exactly two native Preview volumes',String(await nativeCards.count()));
+  if(await nativeCards.count()!==4)fail('Disease/Trauma renders exactly four native Preview volumes',String(await nativeCards.count()));
   await page.locator('[data-odt-volume="odt002"]').click();await page.waitForTimeout(80);
   if(!await visible('#diseaseTraumaVolumeView'))fail('Shoulder Trauma volume view visible');
   if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==10)fail('Shoulder Trauma has 10 native chapters');
@@ -746,6 +746,29 @@ try{
   await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaVolumeView'))fail('Shoulder Trauma cuff browser back -> volume');
   await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaRootView'))fail('Shoulder Trauma browser back volume -> root');
   pass('Shoulder Trauma native: 10 chapters + 2026 evidence refresh + cuff/neuro/ultrasound cross-links + browser back');
+
+  await page.locator('[data-odt-volume="odt003"]').click();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaVolumeView'))fail('Elbow Disease volume view visible');
+  if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==12)fail('Elbow Disease has 12 native chapters');
+  const elbowDiseaseMeta=(await page.locator('#diseaseTraumaVolumeMeta').textContent()||'').trim();
+  if(!elbowDiseaseMeta.includes('Preview 연결')||!elbowDiseaseMeta.includes('2026 핵심 근거 갱신 · canonical review pending'))fail('Elbow Disease evidence status visible',elbowDiseaseMeta);
+  await page.locator('[data-odt-chapter="odt003-s1"]').click();await page.waitForTimeout(80);
+  const elbowDisease=(await page.locator('#diseaseTraumaChapterContent').textContent()||'').trim();
+  for(const token of ['Lateral epicondylitis','스테로이드의 빠른 단기효과','Cozen 검사','공통신근건 장축 초음파','근거·참고문헌'])if(!elbowDisease.includes(token))fail('Elbow Disease chapter contains '+token,elbowDisease.slice(0,2300));
+  for(const link of ['diagnosis_concept:d017','clinical_test:ct012','ultrasound_view:usv010'])if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="'+link+'"]').count()!==1)fail('Elbow Disease cross-link '+link);
+  await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaVolumeView'))fail('Elbow Disease chapter back -> volume');
+  await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaRootView'))fail('Elbow Disease volume back -> root');
+
+  await page.locator('[data-odt-volume="odt004"]').click();await page.waitForTimeout(80);
+  if(!await visible('#diseaseTraumaVolumeView'))fail('Elbow Trauma volume view visible');
+  if(await page.locator('#diseaseTraumaChapterList [data-odt-chapter]').count()!==11)fail('Elbow Trauma has 11 native chapters');
+  await page.locator('[data-odt-chapter="odt004-s6"]').click();await page.waitForTimeout(80);
+  const elbowTrauma=(await page.locator('#diseaseTraumaChapterContent').textContent()||'').trim();
+  for(const token of ['Distal biceps tendon rupture','3주가 지나면 직접봉합 불가','Distal biceps Hook test','원위 이두건 초음파','근거·참고문헌'])if(!elbowTrauma.includes(token))fail('Elbow Trauma distal-biceps chapter contains '+token,elbowTrauma.slice(0,2400));
+  for(const link of ['diagnosis_concept:d023','clinical_test:ct018','clinical_test:ct019','ultrasound_view:usv014'])if(await page.locator('#diseaseTraumaChapterContent [data-odt-link="'+link+'"]').count()!==1)fail('Elbow Trauma cross-link '+link);
+  await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaVolumeView'))fail('Elbow Trauma chapter back -> volume');
+  await page.goBack();await page.waitForTimeout(80);if(!await visible('#diseaseTraumaRootView'))fail('Elbow Trauma volume back -> root');
+  pass('Elbow native pair: Disease 12 chapters + Trauma 11 chapters + evidence states + Stable-ID cross-links + browser back');
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
