@@ -23,7 +23,7 @@ const modules = {
 };
 
 const core = json('data/knowledge-core-v1.json');
-const lib = json('data/patient-exercise-library-v1.json');
+const lib = json('data/patient-exercise-library-v1.json');\nconst odt = json('data/orthopedic-disease-trauma-v1.json');
 const mediaGlobal = json('data/media-license-global-audit-v1.json');
 const html = read('index.html');
 const manifest = json('manifest.webmanifest');
@@ -276,18 +276,30 @@ try {
 } catch (e) { jsSyntax=false; jsError=String(e); }
 check('App JavaScript syntax', jsSyntax, jsError);
 check('Stage 10 clinical module present', html.includes("abdominalCore:{label:'복벽·코어',stage:'Stage 10'") && html.includes('loadAbdominalCoreClinicalModule()'));
-const requiredPages=['home','education','symptoms','regions','clinical','ultrasound','quiz','learning','oral'];
+const requiredPages=['home','education','symptoms','regions','clinical','diseaseTrauma','ultrasound','quiz','learning','oral'];
 check('All top-level app pages wired', requiredPages.every(id=>html.includes(`data-page="${id}"`) && html.includes(`<section id="${id}"`)), requiredPages.join(','));
 check('PWA id', manifest.id==='/muscle-atlas-chatgpt/', manifest.id);
 check('PWA portable start_url', manifest.start_url==='./?source=pwa', manifest.start_url);
 check('PWA portable scope', manifest.scope==='./', manifest.scope);
 check('PWA fullscreen', manifest.display==='fullscreen' && manifest.display_override?.includes('standalone'), manifest.display);
 
-const cacheNeedles=['patient-exercise-library-v1.json','knowledge-core-v1.json','symptom-groups-v1.json','symptoms-v1.json',...Object.keys(modules).flatMap(m=>[
+const cacheNeedles=['patient-exercise-library-v1.json','knowledge-core-v1.json','orthopedic-disease-trauma-v1.json','symptom-groups-v1.json','symptoms-v1.json',...Object.keys(modules).flatMap(m=>[
   `examination-${m}-v1.json`,`ultrasound-${m}-v1.json`,`quiz-${m}-v1.json`,`differential-${m}-v1.json`,`media-audit-${m}-v1.json`
 ])];
 const missingCache=cacheNeedles.filter(x=>!sw.includes(x));
 check('PWA clinical cache coverage', missingCache.length===0, missingCache.join(','));
+const odtIds=(odt.volumes||[]).map(v=>v.stable_id),odtNative=odt.native_content?.odt001;
+const odtUnsafe=JSON.stringify(odt).match(/claude\\.ai\\/artifact|\\/_blob\\//g)||[];
+check('Disease/Trauma inventory = 24 volumes',odtIds.length===24,String(odtIds.length));
+check('Disease/Trauma Stable IDs unique',new Set(odtIds).size===24,String(new Set(odtIds).size));
+check('Shoulder Disease native prototype = 10 chapters',odtNative?.chapters?.length===10,String(odtNative?.chapters?.length||0));
+check('Shoulder Disease provenance = 9 figures / 10 references',odtNative?.figures?.length===9&&odtNative?.references?.length===10,(odtNative?.figures?.length||0)+'/'+(odtNative?.references?.length||0));
+check('Shoulder Disease source SHA locked',odtNative?.source_sha256==='b03b94bae595417e792f89825e7223935271c8c484b8afeb458fefbfea68e172',odtNative?.source_sha256||'');
+check('Disease/Trauma audio fail-closed',odtNative?.audio_status==='MIGRATION_PENDING_SOURCE_MP4_NOT_INCLUDED_IN_ARCHIVE',odtNative?.audio_status||'');
+check('Disease/Trauma Claude runtime dependency = 0',odt.migration_policy?.claude_runtime_dependency===false&&odt.migration_policy?.external_artifact_dependency===false);
+check('Disease/Trauma unsafe Claude URLs = 0',odtUnsafe.length===0,odtUnsafe.join(','));
+check('Disease/Trauma native UI present',html.includes('data-page="diseaseTrauma">질환·외상</button>')&&html.includes('<section id="diseaseTrauma" class="page">')&&html.includes('loadOrthopedicDiseaseTrauma')&&html.includes('data-odt-volume')&&html.includes('data-odt-chapter'));
+
 
 const phiNeedles=['patient_name','patient_id','encounter_id','resident_registration','주민등록번호'];
 const scanFiles=['data/knowledge-core-v1.json','data/patient-exercise-library-v1.json',...Object.keys(modules).flatMap(m=>[
