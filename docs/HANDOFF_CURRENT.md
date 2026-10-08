@@ -1,5 +1,20 @@
 # CURRENT HANDOFF — 2026-10-08 Claude Original Classroom active · EXAM-REAL preserved
 
+## CURRENT OVERRIDE — 2026-10-08 R2 private audio bridge (newer than older overrides)
+
+- Active workline remains `CLAUDE_ORIGINAL_CLASSROOM`; user requested actual continuation.
+- On `preview/development`, added Cloudflare Pages Function `functions/claude-library/2_음성/[[path]].js` for original HTML's relative MP4 URLs. Runtime uses **private R2 bucket binding** `CLAUDE_MEDIA_R2` plus manifest whitelist. It implements GET/HEAD, byte ranges 206/416, and denies all mutations.
+- Added `scripts/claude-r2-proxy-qa.mjs` to Global QA; mock-R2 regressions cover exact original relative URL, whitelist, traversal, successful GET, Range/seek, HEAD, invalid range, missing bucket and missing object.
+- Updated `sw.js` to bypass Claude MP4 media requests (no Service Worker stale-while-revalidate of partial MP4 responses).
+- Updated parent course status in `index.html`: pending MP4 is now clearly disclosed as 음성 연결 대기; original HTML remains unchanged.
+- Preview version updated to `v12.14 · Claude R2 Range Proxy` / `2026.10.08-stage23.86`.
+- Actual MP4 upload, real R2 binding and playback **remain BLOCKED** until an authenticated Cloudflare account session is available. Do NOT claim Ready or mark the manifest `SELF_HOSTED_HTML_MEDIA_READY`.
+- Cloudflare bucket must remain private, named `muscle-atlas-claude-media`; bind **Preview** environment only. See `docs/CLAUDE_ORIGINAL_CLASSROOM_SYNC.md` for exact object key, SHA-256, upload steps, 206-range verification and player tests.
+- Exact Preview / Global QA / Playwright / Deploy Safety results MUST be rechecked against final HEAD after all commits finish. Intermediate Deploy Safety failures caused by newer commits are not final verdicts.
+- Next step after credential setup: upload pilot MP4, bind `CLAUDE_MEDIA_R2`, redeploy Preview, verify audio buttons/seek/speed and exact media identity, then sync 24 disease-trauma lectures; afterward extend to 76.
+- Never modify Production `main` without explicit user approval. No new TinyFish browser automation without separately disclosing necessity, step/call count and cost and obtaining approval.
+
+
 ## CURRENT OVERRIDE — Claude Original Classroom / user directive 2026-10-08
 
 - User rejected the simplified Disease/Trauma native-card experience as too reductive.
