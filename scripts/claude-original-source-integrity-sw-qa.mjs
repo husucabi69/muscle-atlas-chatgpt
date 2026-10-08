@@ -15,14 +15,19 @@ const row={source_path:lecture.slice('/claude-library/'.length),source_bytes:Buf
 const abs=x=>new URL(typeof x==='string'?x:x.url,origin+'/sw.js').href;
 let pass=0;
 const check=async(name,fn)=>{await fn();console.log('PASS | '+name);pass++};
-function setup({online=false,cached=null,live=original,mime='text/html',manifest=true,status=200}={}){
+function setup({online=false,cached=null,live=original,mime='text/html',manifest=true,status=200,staleShellManifest=false,freshRuntimeManifest=false}={}){
  const handlers=new Map(),entries=new Map(),requests=[];
  entries.set(abs('/index.html'),new Response(shell));
  if(manifest)entries.set(abs('/data/claude-library-manifest-v1.json'),new Response(JSON.stringify({lectures:[row]}),{status:200}));
  if(cached!==null)entries.set(abs(lecture),new Response(cached,{headers:{'Content-Type':mime}}));
+ const manifestUrl=abs('/data/claude-library-manifest-v1.json');
  const caches={
-  match:async req=>entries.get(abs(req))?.clone(),
-  open:async()=>({put:async(req,res)=>entries.set(abs(req),res.clone()),match:async req=>entries.get(abs(req))?.clone(),addAll:async()=>{}}),
+  match:async req=>abs(req)===manifestUrl&&staleShellManifest?
+    new Response(JSON.stringify({lectures:[]})):entries.get(abs(req))?.clone(),
+  open:async name=>({put:async(req,res)=>entries.set(abs(req),res.clone()),
+    match:async req=>name.includes('-runtime-')&&abs(req)===manifestUrl?
+      (freshRuntimeManifest?new Response(JSON.stringify({lectures:[row]})):undefined):entries.get(abs(req))?.clone(),
+    addAll:async()=>{}}),
   keys:async()=>[],delete:async()=>true
  };
  const self={location:new URL(origin+'/sw.js'),LYS_APP_RELEASE:{cacheKey:'qa'},addEventListener:(event,fn)=>handlers.set(event,fn),skipWaiting(){},clients:{claim(){}}};
@@ -46,4 +51,10 @@ await check('wrong content type rejected',async()=>{const r=await setup({online:
 await check('root navigation still falls back to app shell',async()=>{const r=await setup().request('/regions');assert.equal(await r.response.text(),shell)});
 await check('media request bypasses SW cache to preserve Range',async()=>{const h=setup(),r=await h.request(media,'no-cors');assert.equal(r.intercepted,false);assert.equal(h.requests.length,0)});
 await check('unknown lecture path fails closed',async()=>{const r=await setup().request('/claude-library/1_강의페이지/03_질환외상/없는_강의.html');assert.equal(r.response.status,503)});
+await check('new runtime manifest wins over stale shell precache',async()=>{
+ const h=setup({cached:original,staleShellManifest:true,freshRuntimeManifest:true});
+ const r=await h.request(lecture);
+ assert.equal(r.response.status,200);
+ assert.equal(await r.response.text(),original);
+});
 console.log('CLAUDE ORIGINAL SOURCE-INTEGRITY SW QA | '+pass+'/'+pass+' PASS');

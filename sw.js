@@ -176,7 +176,10 @@ async function verifiedClaudeOriginal(request){
     {status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}});
   let row;
   try{
-    const cachedManifest=await caches.match('./data/claude-library-manifest-v1.json');
+    // The freshness-critical runtime manifest overrides an older install-time shell precache.
+    const runtime=await caches.open(RUNTIME_CACHE);
+    const cachedManifest=(await runtime.match('./data/claude-library-manifest-v1.json')) ||
+      (await caches.match('./data/claude-library-manifest-v1.json'));
     if(!cachedManifest?.ok)return unavailable();
     const manifest=await cachedManifest.json();
     const pathname=decodeURI(new URL(request.url).pathname);
