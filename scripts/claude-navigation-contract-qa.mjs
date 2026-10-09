@@ -37,6 +37,11 @@ check('Original iframe load callback bound after script parse, never inline pre-
  /id="diseaseTraumaOriginalFrame"[^>]*loading="eager" hidden/.test(html) &&
  html.includes("addEventListener('load',handleClaudeOriginalFrameLoad)") &&
  !html.includes('onload="handleClaudeOriginalFrameLoad()'));
+check('A slow original can render at DOM-ready without waiting for external assets to finish',
+ html.includes('function beginClaudeOriginalProbe()')&&
+ html.includes('claudeOriginalProbeTimer=setInterval')&&
+ html.includes('Date.now()-claudeOriginalProbeStartedAt<30000')&&
+ html.includes("!doc.getElementById('appVersionLabel')"));
 check('Source verification error has a genuine retry button',
  html.includes('function retryClaudeOriginalLecture()')&&
  html.includes('내부 원본 다시 불러오기'));
