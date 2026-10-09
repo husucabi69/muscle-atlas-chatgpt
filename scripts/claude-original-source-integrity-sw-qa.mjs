@@ -31,7 +31,13 @@ function setup({online=false,cached=null,live=original,mime='text/html',manifest
   keys:async()=>[],delete:async()=>true
  };
  const self={location:new URL(origin+'/sw.js'),LYS_APP_RELEASE:{cacheKey:'qa'},addEventListener:(event,fn)=>handlers.set(event,fn),skipWaiting(){},clients:{claim(){}}};
- const fetch=async req=>{requests.push(abs(req));if(!online)throw Error('offline');return new Response(live,{status,headers:{'Content-Type':mime}})};
+ const freshLectureRows=[row,...Array.from({length:86},(_,i)=>({...row,source_path:'1_강의페이지/qa-'+i+'.html'}))];
+ const fetch=async req=>{
+  requests.push(abs(req));
+  if(!online)throw Error('offline');
+  if(abs(req)===manifestUrl)return new Response(JSON.stringify({lectures:freshLectureRows}),{status:200,headers:{'Content-Type':'application/json'}});
+  return new Response(live,{status,headers:{'Content-Type':mime}});
+ };
  vm.runInNewContext(source,{self,caches,fetch,Response,URL,console,crypto:webcrypto,Uint8Array,importScripts(){}},{filename:'sw.js',timeout:5000});
  async function request(path,mode='navigate'){
   let pending=null;handlers.get('fetch')({request:{method:'GET',url:abs(path),mode},respondWith:r=>pending=Promise.resolve(r)});
@@ -51,6 +57,12 @@ await check('wrong content type rejected',async()=>{const r=await setup({online:
 await check('root navigation still falls back to app shell',async()=>{const r=await setup().request('/regions');assert.equal(await r.response.text(),shell)});
 await check('media request bypasses SW cache to preserve Range',async()=>{const h=setup(),r=await h.request(media,'no-cors');assert.equal(r.intercepted,false);assert.equal(h.requests.length,0)});
 await check('unknown lecture path fails closed',async()=>{const r=await setup().request('/claude-library/1_강의페이지/03_질환외상/없는_강의.html');assert.equal(r.response.status,503)});
+await check('online fresh 87-course manifest repairs missing install cache before Claude HTML load',async()=>{
+ const h=setup({online:true,manifest:false});
+ const r=await h.request(lecture);
+ assert.equal(r.response.status,200);
+ assert.equal(await r.response.text(),original);
+});
 await check('new runtime manifest wins over stale shell precache',async()=>{
  const h=setup({cached:original,staleShellManifest:true,freshRuntimeManifest:true});
  const r=await h.request(lecture);
