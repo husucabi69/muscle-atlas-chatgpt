@@ -5,7 +5,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
 
-const base = process.env.ATLAS_E2E_BASE_URL || 'http://127.0.0.1:4173';
+const isLive = process.env.CLAUDE_E2E_LIVE === 'true';
+let base = process.env.ATLAS_E2E_BASE_URL || 'http://127.0.0.1:4173';
+if (isLive) {
+  const evidence = JSON.parse(fs.readFileSync(process.env.DEPLOY_GATE_EVIDENCE || '/tmp/deploy-safety-evidence.json', 'utf8'));
+  const exact = evidence.cloudflare?.exact_preview_url;
+  if (evidence.result !== 'PASS' || evidence.sha !== process.env.GITHUB_SHA ||
+      !/^https:\/\/[0-9a-f]{8}\.muscle-atlas-chatgpt\.pages\.dev\/?$/.test(exact || '')) {
+    throw new Error('Live Chromium E2E requires exact-SHA Cloudflare Preview PASS evidence');
+  }
+  base = exact.replace(/\/$/, '');
+}
 const manifest = JSON.parse(fs.readFileSync('data/claude-library-manifest-v1.json', 'utf8'));
 const lectures = manifest.lectures;
 if (lectures.length !== 87 || lectures.some(x => !String(x.hosting_status).startsWith('SELF_HOSTED_'))) {
@@ -14,7 +24,7 @@ if (lectures.length !== 87 || lectures.some(x => !String(x.hosting_status).start
 const byNumber = new Map(lectures.map(x => [x.number, x]));
 if (byNumber.size !== 87) throw new Error('Duplicate lecture numbers');
 
-const outDir = 'qa-artifacts/claude-all-lectures';
+const outDir = isLive ? 'qa-artifacts/claude-preview-live' : 'qa-artifacts/claude-all-lectures';
 fs.mkdirSync(outDir, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const results = [];
@@ -102,13 +112,13 @@ try {
     await context.close();
   }
   const report = {
-    test: 'local Chromium category -> original iframe navigation',
+    test: (isLive ? 'exact-SHA live Cloudflare Preview' : 'local static server') + ' Chromium category -> original iframe navigation',
     sourceCommit: process.env.GITHUB_SHA || null,
     checkedAt: new Date().toISOString(),
     mobileLecturesOpened: results.filter(x => x.viewport === 'mobile390').length,
     desktopRepresentativeLecturesOpened: results.filter(x => x.viewport === 'desktop1280').length,
     categoryCounts,
-    remotePreviewVerified: false,
+    remotePreviewVerified: isLive,
     physicalAndroidVerified: false,
     originalMp4PlaybackVerified: false,
     knownHorizontalOverflows: results.filter(x => x.horizontalOverflow).map(x => ({
