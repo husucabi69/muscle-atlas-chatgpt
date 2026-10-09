@@ -33,8 +33,10 @@ check('Original frame load handler validates real content rather than hyperlink'
  html.includes('function handleClaudeOriginalFrameLoad()')&&
  html.includes("doc.title!=='원본 강의 확인 필요'")&&
  html.includes('frame.hidden=!loaded'));
-check('Original iframe defaults to a loading state',
- /id="diseaseTraumaOriginalFrame"[^>]*onload="handleClaudeOriginalFrameLoad\(\)"[^>]*hidden/.test(html));
+check('Original iframe load callback bound after script parse, never inline pre-init',
+ /id="diseaseTraumaOriginalFrame"[^>]*loading="eager" hidden/.test(html) &&
+ html.includes("addEventListener('load',handleClaudeOriginalFrameLoad)") &&
+ !html.includes('onload="handleClaudeOriginalFrameLoad()'));
 check('Source verification error has a genuine retry button',
  html.includes('function retryClaudeOriginalLecture()')&&
  html.includes('내부 원본 다시 불러오기'));
