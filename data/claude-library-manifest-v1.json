@@ -7,7 +7,8 @@
     "last_synced": "2026-10-09",
     "current_drive_inventory": "data/claude-drive-inventory-v2.json",
     "current_drive_html_root_id": "1o6ulpD68sAZdtfnHo7k5tR3NEFVF_kig",
-    "legacy_sheet_coverage": 76
+    "legacy_sheet_coverage": 76,
+    "verified_source_type": "google_drive_html_folders"
   },
   "runtime_policy": {
     "html": "SELF_HOSTED_ORIGINAL_BYTE_PRESERVING",
@@ -19,8 +20,8 @@
     "update_flow": "DRIVE_FOLDER_SNAPSHOT -> VERBATIM_HTML_MP4_SYNC -> MANIFEST_QA -> PREVIEW"
   },
   "counts": {
-    "lectures": 83,
-    "with_audio": 74
+    "lectures": 87,
+    "with_audio": 78
   },
   "lectures": [
     {
@@ -376,7 +377,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_07권_손_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/RJ4AV3Y9cCgKnMSHfFBA46",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1HfGvAbrg1Udd1Tpc31U-MLHYy9r3tRGR",
+      "source_bytes": 809743,
+      "source_sha256": "c3524b4b0f5a16c8980c39a40471c6f565658cd2108908933ff7b5d43d54761d",
+      "source_git_blob_sha1": "8418b5c1aeeea692bd731e1af32879f1a7d1acb6",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_07권_손_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 35,
@@ -385,7 +392,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_08권_손_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/VkfC2B4FWHRMGTeMW7echK",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1HswuhoMYtwljeroWfDc_YkHIzPFHLgUL",
+      "source_bytes": 666226,
+      "source_sha256": "bbbd83af18e06c29b23dea556625af222f9cf5dc31e5f1465a58402587dffc1f",
+      "source_git_blob_sha1": "9bd1ca1a6aca0c0878ee0bc0ee11b19f27706ac8",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_08권_손_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 36,
@@ -852,6 +865,66 @@
       "source_bytes": 35580,
       "source_sha256": "144d62513a4698cbd2d6e412d5aad6c7dd5f0c1ef8eb9c7dae3b4250232788e0",
       "r2_object_key": "2_음성/09_스포츠의학/클로드_스포츠의학_01권_예방·부하·복귀의_원칙.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 84,
+      "series": "스포츠의학",
+      "title": "스포츠의학 02권 근육 손상·햄스트링·사타구니·종아리",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_02권_근육손상_햄스트링·사타구니·종아리.html",
+      "claude_artifact_url": "https://claude.ai/artifact/BjLcM5j17ZvNEcQ55pg7eR",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1x6gQ2b0dU_-i3g9i5vP4sO3C8SL8cQh2",
+      "source_bytes": 36866,
+      "source_sha256": "0933f7945796eb2eeaf7efefee5cadea0e9ca6c939b0506653d00272bac73d1d",
+      "source_git_blob_sha1": "380d5a4262251171193d83090cabdb3c094c0a9a",
+      "r2_object_key": "2_음성/09_스포츠의학/클로드_스포츠의학_02권_근육손상_햄스트링·사타구니·종아리.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 85,
+      "series": "스포츠의학",
+      "title": "스포츠의학 03권 무릎·하지 스포츠 손상",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_03권_무릎·하지_스포츠손상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Fm2VtqbKuzEBVEgmTLXzDu",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1128_4bBJTXeBIuB2YB4fhvlm-MvcmvHS",
+      "source_bytes": 36183,
+      "source_sha256": "02af6c30a0e9f321678253c86664f1f410f7f2de81c421d6d635f2119af94c98",
+      "source_git_blob_sha1": "ceca9e22b9941c7623db395cbe7c03db48dec1fc",
+      "r2_object_key": "2_음성/09_스포츠의학/클로드_스포츠의학_03권_무릎·하지_스포츠손상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 86,
+      "series": "스포츠의학",
+      "title": "스포츠의학 04권 투구·라켓 종목 상지 손상",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_04권_투구·라켓종목_상지손상.html",
+      "claude_artifact_url": "https://claude.ai/artifact/Pzj1qy62cJb7aCzADVo4n7",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1DDEbVdfAECt7CBu2ObJl97hrINZGEXVr",
+      "source_bytes": 36010,
+      "source_sha256": "f36e6c65b74a7bb071c9830a0d244e75d4fbafca67f854fa652c706e465494f0",
+      "source_git_blob_sha1": "7a9eafbdce9ed288e987ca129d0b904e871241d3",
+      "r2_object_key": "2_음성/09_스포츠의학/클로드_스포츠의학_04권_투구·라켓종목_상지손상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
+    },
+    {
+      "number": 87,
+      "series": "스포츠의학",
+      "title": "스포츠의학 05권 뇌진탕·심장·열 손상·에너지 결핍",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_05권_특수상황_뇌진탕·심장·열·에너지결핍.html",
+      "claude_artifact_url": "https://claude.ai/artifact/27cNncYvXnZn7CLYWcVfLm",
+      "audio": "있음",
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1J6v4_yKTIpYSWAByNF98ubHeoUMYb3wc",
+      "source_bytes": 36102,
+      "source_sha256": "0bf1709914d372e2dbfc807202cb7e094b890b6681136f5a0b7206079900c100",
+      "source_git_blob_sha1": "b48423f3d603982d38d73ac04f5b762158f755da",
+      "r2_object_key": "2_음성/09_스포츠의학/클로드_스포츠의학_05권_특수상황_뇌진탕·심장·열·에너지결핍.mp4",
       "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     }
   ],

@@ -97,15 +97,15 @@ for(const [number,driveId,size,digest] of lockedAudio){
 }
 // 2026-10-09 refreshed Drive inventory: 76 prior + 6 rehabilitation + 1 sports.
 const inventory=json('data/claude-drive-inventory-v2.json');
-check('Fresh Claude Drive inventory has exactly 83 original HTML courses',inventory.lectures?.length===83&&rows.length===83);
+check('Fresh Claude Drive inventory has exactly 87 original HTML courses',inventory.lectures?.length===87&&rows.length===87);
 check('Fresh Drive inventory represents 10 source HTML folders',inventory.folders?.length===10);
-check('New rehabilitation 6 and sports medicine 1 registered',rows.filter(x=>x.series==='재활·운동처방').length===6&&rows.filter(x=>x.series==='스포츠의학').length===1);
+check('New rehabilitation 6 and sports medicine 1 registered',rows.filter(x=>x.series==='재활·운동처방').length===6&&rows.filter(x=>x.series==='스포츠의학').length===5);
 check('Drive inventory and app manifest agree on every path/number',
  inventory.lectures?.length===rows.length&&inventory.lectures.every(i=>{
   const row=rows.find(x=>x.number===i.number);
   return row?.source_path===i.source_path&&row?.series===i.series;
  }));
-check('Every Drive inventory ID unique',new Set(inventory.lectures.map(x=>x.drive_file_id)).size===83);
+check('Every Drive inventory ID unique',new Set(inventory.lectures.map(x=>x.drive_file_id)).size===87);
 const newExactSources=[
  [77,'1wrvJHTIOM1dbGk29gWmiNMdafRfsgC7_',55909,'47afa02a9ef757435dca959ae4543ab598ed1973602391b25195d5d8f036d503'],
  [78,'13IASFEfGCIVtTbcercz8tDxR2rgSIuIe',48539,'184dc1ab95455f8eb45e6781831f762113abb89da034ec0cbb7151d87a45737b'],
@@ -126,3 +126,16 @@ check('No Cloudflare R2 object keys collide',new Set(rows.filter(x=>x.r2_object_
 
 console.log(`SUMMARY | ${passes.length}/${passes.length+failures.length} PASS`);
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1);}
+
+// Sports medicine 02–05 are original, byte-preserved Drive HTML files, not title-only links.
+const sportsAdded=[
+ [84,'1x6gQ2b0dU_-i3g9i5vP4sO3C8SL8cQh2',36866,'0933f7945796eb2eeaf7efefee5cadea0e9ca6c939b0506653d00272bac73d1d','380d5a4262251171193d83090cabdb3c094c0a9a'],
+ [85,'1128_4bBJTXeBIuB2YB4fhvlm-MvcmvHS',36183,'02af6c30a0e9f321678253c86664f1f410f7f2de81c421d6d635f2119af94c98','ceca9e22b9941c7623db395cbe7c03db48dec1fc'],
+ [86,'1DDEbVdfAECt7CBu2ObJl97hrINZGEXVr',36010,'f36e6c65b74a7bb071c9830a0d244e75d4fbafca67f854fa652c706e465494f0','7a9eafbdce9ed288e987ca129d0b904e871241d3'],
+ [87,'1J6v4_yKTIpYSWAByNF98ubHeoUMYb3wc',36102,'0bf1709914d372e2dbfc807202cb7e094b890b6681136f5a0b7206079900c100','b48423f3d603982d38d73ac04f5b762158f755da']
+];
+for(const [n,id,size,digest,blob] of sportsAdded){
+ const row=rows.find(x=>x.number===n),item=inventory.lectures.find(x=>x.number===n);
+ check('Claude sports '+n+' source and app route locked',row?.source_drive_file_id===id&&row?.source_bytes===size&&row?.source_sha256===digest&&row?.source_git_blob_sha1===blob&&item?.drive_file_id===id&&item?.bytes===size&&row?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&row?.audio_source_verification==='DRIVE_MP4_UNLOCATED');
+}
+check('All manifest original HTML files that actually exist can open locally',rows.every(x=>!fs.existsSync('claude-library/'+x.source_path)||x.hosting_status.startsWith('SELF_HOSTED_')));

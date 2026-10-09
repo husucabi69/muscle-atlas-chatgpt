@@ -6,10 +6,10 @@
   "legacy_sheet_id": "1U2a6punp1zt9V4vE-N4wUpL8ziivFbSpnmiWWggk-Z0",
   "legacy_sheet_rows": 76,
   "totals": {
-    "html_files": 83,
-    "new_lectures": 7,
+    "html_files": 87,
+    "new_lectures": 11,
     "rehabilitation_lectures": 6,
-    "sports_medicine_lectures": 1
+    "sports_medicine_lectures": 5
   },
   "folders": [
     {
@@ -60,7 +60,7 @@
     {
       "name": "09_스포츠의학",
       "drive_folder_id": "1FGbVOcO_hZ1R481xdsLEDkrR4Pi1AkEH",
-      "html_files": 1
+      "html_files": 5
     }
   ],
   "lectures": [
@@ -974,6 +974,50 @@
       "drive_file_id": "16fPNwt9JPigk1_RFELsvYoMAKZXSBOrr",
       "drive_folder_id": "1FGbVOcO_hZ1R481xdsLEDkrR4Pi1AkEH",
       "bytes": 35580,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 84,
+      "series": "스포츠의학",
+      "name": "클로드_스포츠의학_02권_근육손상_햄스트링·사타구니·종아리.html",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_02권_근육손상_햄스트링·사타구니·종아리.html",
+      "drive_file_id": "1x6gQ2b0dU_-i3g9i5vP4sO3C8SL8cQh2",
+      "drive_folder_id": "1FGbVOcO_hZ1R481xdsLEDkrR4Pi1AkEH",
+      "bytes": 36866,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 85,
+      "series": "스포츠의학",
+      "name": "클로드_스포츠의학_03권_무릎·하지_스포츠손상.html",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_03권_무릎·하지_스포츠손상.html",
+      "drive_file_id": "1128_4bBJTXeBIuB2YB4fhvlm-MvcmvHS",
+      "drive_folder_id": "1FGbVOcO_hZ1R481xdsLEDkrR4Pi1AkEH",
+      "bytes": 36183,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 86,
+      "series": "스포츠의학",
+      "name": "클로드_스포츠의학_04권_투구·라켓종목_상지손상.html",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_04권_투구·라켓종목_상지손상.html",
+      "drive_file_id": "1DDEbVdfAECt7CBu2ObJl97hrINZGEXVr",
+      "drive_folder_id": "1FGbVOcO_hZ1R481xdsLEDkrR4Pi1AkEH",
+      "bytes": 36010,
+      "mime_type": "text/html",
+      "status": "DRIVE_HTML_METADATA_VERIFIED"
+    },
+    {
+      "number": 87,
+      "series": "스포츠의학",
+      "name": "클로드_스포츠의학_05권_특수상황_뇌진탕·심장·열·에너지결핍.html",
+      "source_path": "1_강의페이지/09_스포츠의학/클로드_스포츠의학_05권_특수상황_뇌진탕·심장·열·에너지결핍.html",
+      "drive_file_id": "1J6v4_yKTIpYSWAByNF98ubHeoUMYb3wc",
+      "drive_folder_id": "1FGbVOcO_hZ1R481xdsLEDkrR4Pi1AkEH",
+      "bytes": 36102,
       "mime_type": "text/html",
       "status": "DRIVE_HTML_METADATA_VERIFIED"
     }
