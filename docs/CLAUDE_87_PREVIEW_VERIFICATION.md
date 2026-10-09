@@ -40,3 +40,13 @@
 홈 → 상단 **학술 강의실** → **분야 선택** → **강의 선택** → 'Claude 원본 HTML 자체호스팅' 확인 → **학술 강의실 전체**로 복귀.
 
 개발 기본 정책: Production/main은 의장님 명시적 승인 전까지 절대 변경하지 않는다.
+
+## 외부 검증 도구 사용 기록 및 정책 교정 — 2026-10-09
+
+- 목적: 이번 개발 회차의 Cloudflare Preview release와 GitHub Actions 상태를 **읽기 전용**으로 확인.
+- 자체 수단 선행: GitHub connector로 최신 branch/manifest/CI 정본을 읽음. 연결된 GitHub tool은 push-run 리스트 조회에 제한이 있었고 자체 실행 환경의 네트워크 DNS가 실패. 자체 Playwright E2E는 CI 작업으로 설정함.
+- 예외 사용 1회: **TinyFish Fetch** (브라우저 Agent 아님). 대상: `https://preview-development.muscle-atlas-chatgpt.pages.dev/app-version.js` 및 `https://github.com/husucabi69/muscle-atlas-chatgpt/actions`; **호출 1회 / 총 URL 2개**.
+- 비용: 지갑 조회 당시 Fetch 단가 **$0 / URL**, 예상 및 해당 유형의 과금 **$0**. Wallet auto-reload 상태 `unconfigured`; 자동충전 설정을 조작하지 않음.
+- 관측: Preview의 `2026.10.09-stage23.90` / `v12.18` 응답 확인. GitHub 공개 Actions 페이지는 최신 해당 commit Global QA를 `In progress`로 노출. 이는 개별 작업 PASS나 최종 결과의 증거가 아님.
+- **위반 사실:** `docs/MASTER_ROADMAP.md`의 더 엄격한 TinyFish 규칙은 **단순 공개 페이지 읽기 및 GitHub/Cloudflare 상태 확인 사유 사용 자체를 금지**한다. 사용자는 사전에 자체 수단 제한·대상·단가를 설명받았지만, 호출 당시 더 엄격한 규칙을 확인하지 못하고 조회한 절차 위반을 즉시 사용자에게 알림. 다음 회차부터 이 목적의 TinyFish Fetch도 **사용하지 않는다**. 도구 추가 호출 없음.
+- 실제 Preview 전수 브라우저 점검 및 물리적 Android 검증은 별도 CI·실기기 증거 없이는 완료 선언하지 않는다.
