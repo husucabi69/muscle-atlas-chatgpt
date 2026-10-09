@@ -5617,6 +5617,7 @@ function handleClaudeOriginalFrameLoad(){
  }catch{}
  frame.hidden=!loaded;
  issue.hidden=loaded;
+ document.getElementById('diseaseTraumaClaudeFallback').hidden=loaded;
  if(loaded){
   status.innerHTML='<b>우리 앱 내부 원본 화면 열림</b><br>원본 HTML과 화면 구성이 우리 서버에서 표시됐습니다. '+
     (item.audio==='없음'?'원본 음성 파일 없음.':item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'원본 MP4 재생은 별도 확인이 필요합니다.':'음성은 연결 대기 중입니다.');
