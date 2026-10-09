@@ -400,21 +400,28 @@ button,input{font:inherit} button{cursor:pointer}
     <div class="card" style="margin-bottom:16px"><h3>Claude Original Classroom</h3><p>Claude가 만든 전문 학술자료 원본을 그대로 엽니다. 본문·표·그림·목차·재생 버튼을 요약하거나 바꿔 그리지 않습니다. 음성파일은 별도로 연결하며 미확인 자료는 재생 완료로 표시하지 않습니다.</p></div>
     <div class="note"><b>1단계 · 학술 분야 선택</b><br>근육학·이학적 검사·질환·외상·골종양·소아정형외과·재활·스포츠의학을 포함한 강의실입니다. 분야를 누르면 해당 강의 목록이 펼쳐집니다.</div>
     <div id="claudeAcademicCategoryChooser" class="region-chooser" style="margin-top:16px" aria-label="Claude 학술 분야"></div>
-    <div id="claudeAcademicCourseList" class="region-chooser" style="margin:14px 0 18px" aria-label="선택 학술 분야 강의"></div>
-    <div class="section-title" style="margin-top:24px"><h3>질환·외상 24권</h3><span>기존 Claude 원본 강의 목록</span></div>
-    <div id="diseaseTraumaMigrationNote" class="note">Claude 원본 강의 목록을 불러오는 중입니다.</div>
-    <div id="diseaseTraumaVolumeChooser" class="region-chooser" style="margin-top:18px"></div>
-    <div class="section-title" style="margin-top:22px"><h3>최신 학술자료</h3><span>Claude 근거 업데이트</span></div>
-    <div id="diseaseTraumaEvidenceChooser" class="region-chooser"></div>
+    <!-- Legacy selectors remain only for QA/data compatibility; never show duplicate long lists. -->
+    <div hidden aria-hidden="true">
+      <div id="diseaseTraumaMigrationNote"></div>
+      <div id="diseaseTraumaVolumeChooser"></div>
+      <div id="diseaseTraumaEvidenceChooser"></div>
+    </div>
+  </div>
+  <div id="diseaseTraumaCategoryView" class="drill-screen" data-drill-group="diseaseTrauma" data-drill-view="category" hidden>
+    <div class="anatomy-nav claude-original-toolbar">
+      <button class="region-back" type="button" onclick="showDiseaseTraumaRoot()">← 전체 학술 분야</button>
+    </div>
+    <div class="drill-screen-title"><h3 id="claudeAcademicCategoryTitle">학술 강의 목록</h3><p>강의를 선택하면 우리 앱 안에서 해당 강의 하나만 바로 열립니다.</p></div>
+    <div id="claudeAcademicCourseList" class="region-chooser" aria-label="선택 학술 분야 강의"></div>
   </div>
   <div id="diseaseTraumaOriginalView" class="drill-screen" data-drill-group="diseaseTrauma" data-drill-view="original" hidden>
     <div class="anatomy-nav claude-original-toolbar">
-      <button class="region-back" type="button" onclick="showDiseaseTraumaRoot()">← 학술 강의실 전체</button>
-      <a id="diseaseTraumaClaudeFallback" class="pill" target="_blank" rel="noopener">Claude 원본 ↗</a>
+      <button class="region-back" type="button" onclick="showClaudeAcademicCategory(selectedClaudeAcademicCategoryIndex)">← 강의 목록으로</button>
+      <a id="diseaseTraumaClaudeFallback" class="pill" target="_blank" rel="noopener" style="font-size:12px">외부 원본(보조) ↗</a>
       <span class="crumb" id="diseaseTraumaOriginalBreadcrumb"></span>
     </div>
     <div id="diseaseTraumaOriginalStatus" class="note"></div>
-    <iframe id="diseaseTraumaOriginalFrame" class="claude-original-frame" title="Claude 원본 강의"></iframe>
+    <div id="diseaseTraumaLoadIssue" class="note" hidden role="alert"></div>\n    <iframe id="diseaseTraumaOriginalFrame" class="claude-original-frame" title="Claude 원본 강의"></iframe>
   </div>
 </section>
 
@@ -5509,7 +5516,13 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
 window.addEventListener('load',()=>{initPullToRefresh();initAppServiceWorker();});
 
 let claudeLibraryManifest=null,selectedClaudeLectureNumber=null;
-function setDiseaseTraumaView(v){return setDrillView('diseaseTrauma',v)}
+function setDiseaseTraumaView(v){
+ const panel=setDrillView('diseaseTrauma',v);
+ // Android/Chrome may restore previous scroll after an iframe activates.
+ // Reset again in next paint, within THIS app page, never scroll to a lower hidden list.
+ requestAnimationFrame(()=>{window.scrollTo(0,0);document.scrollingElement.scrollTop=0;});
+ return panel;
+}
 function diseaseTraumaLectures(){return(claudeLibraryManifest?.lectures||[]).filter(x=>x.series==='질환·외상')}
 function claudeEvidenceLectures(){return(claudeLibraryManifest?.lectures||[]).filter(x=>x.series==='근거 업데이트')}
 function claudeSelfHostedUrl(item){return './claude-library/'+item.source_path}
@@ -5545,17 +5558,20 @@ function renderClaudeAcademicCategories(){
    return '<button type="button" class="region-choice" data-claude-academic-category="'+index+'" aria-pressed="'+(selected?'true':'false')+'" onclick="showClaudeAcademicCategory('+index+')"><span><b>'+esc(def.label)+'</b><br><small>원본 강의 '+count+'개</small></span><span class="arrow">'+(selected?'✓':'›')+'</span></button>'
  }).join('');
  const current=claudeAcademicCategories[selectedClaudeAcademicCategoryIndex],items=claudeAcademicRows(selectedClaudeAcademicCategoryIndex);
- list.innerHTML='<div class="note"><b>2단계 · '+esc(current.label)+' ('+items.length+'강)</b><br>강의를 선택하면 우리 서버에 저장된 Claude 원본 HTML을 엽니다. 원본 음성의 연결 여부는 별도로 안내합니다.</div>'+
+ document.getElementById('claudeAcademicCategoryTitle').textContent=current.label+' · '+items.length+'강';
+ list.innerHTML='<div class="note"><b>'+esc(current.label)+' · '+items.length+'강</b><br>강의를 누르면 독립 강의 화면으로 이동합니다. 목록 아래에 내용을 추가하지 않습니다.</div>'+
  items.map(item=>{
   const local=String(item.hosting_status||'').startsWith('SELF_HOSTED_');
   return '<button type="button" class="region-choice" data-claude-academic-lecture="'+item.number+'" onclick="openClaudeOriginalLecture('+item.number+')"><span><b>'+esc(item.title)+'</b><br><small>Claude 원본 HTML · '+(item.audio==='없음'?'원본 음성 없음':item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'음성 재생 확인':local?'음성 연결 대기':'음성 '+esc(item.audio))+'</small><br><span class="claude-hosting-badge '+(local?'local':'pending')+'">'+(local?'우리 서버 원본':'Claude 원본 링크')+'</span></span><span class="arrow">›</span></button>';
  }).join('');
 }
-function showClaudeAcademicCategory(index){
+function showClaudeAcademicCategory(index,record=true){
  const v=Number(index);
  if(!Number.isInteger(v)||v<0||v>=claudeAcademicCategories.length)return;
  selectedClaudeAcademicCategoryIndex=v;
  renderClaudeAcademicCategories();
+ setDiseaseTraumaView('category');
+ if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'category',categoryIndex:v});
 }
 
 function renderDiseaseTraumaRoot(){
