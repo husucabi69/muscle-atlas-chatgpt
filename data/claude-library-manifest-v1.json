@@ -628,7 +628,12 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_02권_하지_30문항.html",
       "claude_artifact_url": "https://claude.ai/artifact/WxbGWdQQjuEmFVT8MJa1Uc",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1-LznQrSDNYurxSLIMV2iw8LvXhTWFJya",
+      "source_bytes": 22423,
+      "source_sha256": "fc1cdea8712473eb08cb2ed0a54ff19ad69de35f3dfc4ab52c5fd0011d23dd9d",
+      "source_git_blob_sha1": "01d69a3694fafdc55209ac733371b14a3030f659",
+      "source_embedded_artifact": false
     },
     {
       "number": 61,
@@ -637,7 +642,12 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_03권_척추_30문항.html",
       "claude_artifact_url": "https://claude.ai/artifact/MeSzCtB2VEf78LuVUXZd44",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1BT4REhEjOupLx5bF6jFsn6w8D97pm9g_",
+      "source_bytes": 21534,
+      "source_sha256": "5ae4b2608ce30181e986a7871a3cb221875b9e19babac8ab02ffad79ab10e40d",
+      "source_git_blob_sha1": "090bc3ef5607ab1e6343459437efaf5e04a336c2",
+      "source_embedded_artifact": false
     },
     {
       "number": 62,
@@ -646,7 +656,12 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_04권_종합_30문항.html",
       "claude_artifact_url": "https://claude.ai/artifact/L15kVCTy9SafqKncHN95Dp",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "11kbH4cNvoPrMwV8rqEDsDioRvleGqGn_",
+      "source_bytes": 21721,
+      "source_sha256": "1f2e6d814c9f30ce5817c23b5a0ba691b3a45d43cccc42a260074f34c2a54191",
+      "source_git_blob_sha1": "9a45ec7691cbb988fd04f33de8818083365df3e3",
+      "source_embedded_artifact": false
     },
     {
       "number": 63,
@@ -655,7 +670,12 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_05권_모의고사_160문항.html",
       "claude_artifact_url": "https://claude.ai/artifact/MeDmyvYt1aGERoS9XjYRDu",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1N1ybPpTDIL6JRXkqc2QS_xVXkTvRp_Mz",
+      "source_bytes": 87335,
+      "source_sha256": "665255c54eea657bd89a62c61cd32e271071ec02721ec13d25b68173201cba5d",
+      "source_git_blob_sha1": "4ab0e843b657f788c081f27843479ac1e5b262ab",
+      "source_embedded_artifact": false
     },
     {
       "number": 64,
