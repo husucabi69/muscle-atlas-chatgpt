@@ -23,6 +23,14 @@ for (const name of ['agents','constitution','principles','masterRoadmap','handof
   check(`${name}: 35 minute HARD STOP rule`, (text.includes('35분') || text.includes('35 minute')) && text.includes('HARD STOP'));
 }
 
+for (const name of ['agents','constitution','principles']) {
+  check(name+': 2026-10-09 highest priority time lock', files[name].includes('LOCKED 2026-10-09'));
+  check(name+': minute-33 report checkpoint', files[name].includes('33분'));
+  check(name+': report-by-35 lock', files[name].includes('35분 이내'));
+}
+check('Master roadmap: report-by-35 lock', files.masterRoadmap.includes('최종보고도 시작 후 35분 이내'));
+check('Preview policy: highest priority deadline', files.previewPolicy.includes('HIGHEST PRIORITY — LOCKED 2026-10-09'));
+
 const timingFields = ['작업 시작시간','작업 종료시간','보고시간','총 실제 작업시간','작업시간 규칙 준수 여부'];
 for (const field of timingFields) {
   check(`AGENTS requires ${field}`, files.agents.includes(field));
