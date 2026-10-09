@@ -693,7 +693,14 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_02권_하지_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/WfB8rwnW5gUezpJJoXFzqr",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "14W6LtbuHgjKEPR2tAoUBDxQ9olRlnEcw",
+      "source_bytes": 38236,
+      "source_sha256": "c6c911089607013b5a7668164d09745ff6d6715d522183476995ea81087d880e",
+      "source_git_blob_sha1": "94fc8b70f189fe0bac62dc794dc4be90eef55822",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/05_분류·문제은행/클로드_분류_02권_하지_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 66,
@@ -702,7 +709,14 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_03권_척추.html",
       "claude_artifact_url": "https://claude.ai/artifact/5ghVxAg7AwYzF85MhNmNST",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1XNcWWVA_p6RKGFWO9zAMuOud8_caXNGT",
+      "source_bytes": 36711,
+      "source_sha256": "46a3b21b40ad4f335a280e36cca7064f363f43e1a06f4d1191de1e595e591a8a",
+      "source_git_blob_sha1": "0cb9a0f684e03798f54e50759acee3b5c53035aa",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/05_분류·문제은행/클로드_분류_03권_척추.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 67,
@@ -711,7 +725,14 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_04권_스포츠·관절·종양·소아.html",
       "claude_artifact_url": "https://claude.ai/artifact/ENwiy1ZrG3UDH43erhrF4R",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "103-Tza28XxGLE7lPryPooQCw9wZ1lDP0",
+      "source_bytes": 33853,
+      "source_sha256": "39e7a94bab3c664dc4579c032a86b8fe053d8a234cdf19cdc96779b5b2e53b68",
+      "source_git_blob_sha1": "90e8db9b371fd823b60d333043ed49a3340dd462",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/05_분류·문제은행/클로드_분류_04권_스포츠·관절·종양·소아.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 68,
@@ -720,7 +741,12 @@
       "source_path": "1_강의페이지/06_증례·음성모음/클로드_정형외과_강의_음성_모음.html",
       "claude_artifact_url": "https://claude.ai/artifact/RVHVxcwCKo5SbwfXDicWSG",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1YbXnUkoyBRIDCSZlPt-Dt5Dr8BOv0u7R",
+      "source_bytes": 32185,
+      "source_sha256": "0896de75e66a72618fd7c3e9474764ba9cbbe6faeee9aed660758551d5a42461",
+      "source_git_blob_sha1": "68c0a5903a9ac66023b35a475af6891514416705",
+      "source_embedded_artifact": false
     },
     {
       "number": 69,
@@ -729,7 +755,14 @@
       "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_01권_어깨.html",
       "claude_artifact_url": "https://claude.ai/artifact/Exm9KMc5TnP9qQZfRSFWPY",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1HX6NuU9BFrSgKA49Gqy7e6yS2p6DDbUg",
+      "source_bytes": 38897,
+      "source_sha256": "3b3a9992c9c95a47f34bbff1376cfe0c2427cabea4e6cd4fe436bb86a7663951",
+      "source_git_blob_sha1": "87b34d6598385a56202fa09c96b0de445e30627c",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/06_증례·음성모음/클로드_증례_01권_어깨.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 70,
@@ -738,7 +771,14 @@
       "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_02권_팔꿈치·손목·손.html",
       "claude_artifact_url": "https://claude.ai/artifact/HekcykwUGcKkg95E8D9mA9",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1o1DAOhA29wU6TG5Ut0quLlU9CwkV2YjD",
+      "source_bytes": 36852,
+      "source_sha256": "b72d77ec6f41873010f5e17de3823cef9ba5f82059baebc80dc17da1a5220264",
+      "source_git_blob_sha1": "4e871dcef48eda737dc9836ce604dadd522a2257",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/06_증례·음성모음/클로드_증례_02권_팔꿈치·손목·손.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 71,
@@ -747,7 +787,14 @@
       "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_03권_목과_허리.html",
       "claude_artifact_url": "https://claude.ai/artifact/A1R1e5tnMUTFBS9GL7bwV7",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1DrnHrdU5pxJdz0i6Zd8tByhugYIGWrvj",
+      "source_bytes": 37067,
+      "source_sha256": "fbab3d1416c7481f9a1c7b0643631c9de0ee6eb5524470872656eb5b6079ecaf",
+      "source_git_blob_sha1": "b61f36c373add9a2fdb877af2435f2fbcfa6abac",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/06_증례·음성모음/클로드_증례_03권_목과_허리.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 72,
@@ -756,7 +803,14 @@
       "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_04권_고관절·무릎.html",
       "claude_artifact_url": "https://claude.ai/artifact/T4gpvYacKX2gnmKrMkKPcN",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1ixkHcswZavdIBn9znN0whz2OypbRdTCd",
+      "source_bytes": 37281,
+      "source_sha256": "11e68746e0f58b018490b3226ecb1f7eebce43010229d72a0dcc40be0f25ad72",
+      "source_git_blob_sha1": "52968236fb5d42e382439a086c2657100fae423d",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/06_증례·음성모음/클로드_증례_04권_고관절·무릎.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 73,
@@ -765,7 +819,14 @@
       "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_05권_발목·발·소아·종양.html",
       "claude_artifact_url": "https://claude.ai/artifact/G1Dtqq8PmHzoVd5aundfRe",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1q77CW8e1lVxl5h1VwygfjQB6Kh2MHVH9",
+      "source_bytes": 38315,
+      "source_sha256": "77462e90c9436ec489c0cc197991f98183446a2f32c0bf50dca5287a58120403",
+      "source_git_blob_sha1": "6676bf9cc8980c76617e4deb222c9edc0ebcbd47",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/06_증례·음성모음/클로드_증례_05권_발목·발·소아·종양.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 74,
@@ -774,7 +835,12 @@
       "source_path": "1_강의페이지/06_증례·음성모음/클로드_증례_구술시험장.html",
       "claude_artifact_url": "https://claude.ai/artifact/QZyTthpDtsePakWTYq2Ayi",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1l9-Cu_j2bJIZDxloA9mMwC7--_wEBPiU",
+      "source_bytes": 73605,
+      "source_sha256": "bd1cff96965210f0a945fec27dca231c820ebf32048b495d695912de76aeb5ce",
+      "source_git_blob_sha1": "23fea35287077cd68d4985f4425e613f0a787333",
+      "source_embedded_artifact": false
     },
     {
       "number": 75,
@@ -783,7 +849,14 @@
       "source_path": "1_강의페이지/07_근거업데이트/클로드_근거업데이트_01권_2025-2026.html",
       "claude_artifact_url": "https://claude.ai/artifact/4ZH7W5MKgMkQBKG6z48VXK",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1mJAj6-Q_Xa0y3n2sUWOQCj7Xe2c4HGxg",
+      "source_bytes": 39422,
+      "source_sha256": "0f339501de3dd694c86fb7709f2bce51f8c071568b965d7667b50d3fda4a391a",
+      "source_git_blob_sha1": "1acba1a56a253814747df5dc532a5dbe099c5fe8",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/07_근거업데이트/클로드_근거업데이트_01권_2025-2026.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 76,
@@ -792,7 +865,14 @@
       "source_path": "1_강의페이지/07_근거업데이트/클로드_근거업데이트_02권_전문학술지.html",
       "claude_artifact_url": "https://claude.ai/artifact/RM7J53dy3WiQjtsUcfNAUX",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "19ozE5_H7ndrUHQwGaAdKa8HYtVdxkoZn",
+      "source_bytes": 38224,
+      "source_sha256": "b4746b37d8dfbfb7a85b98b885a8110c4f4e64f32070e3730d691d3d8606f563",
+      "source_git_blob_sha1": "850a684816bd8deee8f7f8b5e6cc1b0026bf9429",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/07_근거업데이트/클로드_근거업데이트_02권_전문학술지.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 77,
