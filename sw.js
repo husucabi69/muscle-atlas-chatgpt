@@ -176,12 +176,27 @@ async function verifiedClaudeOriginal(request){
     {status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}});
   let row;
   try{
-    // The freshness-critical runtime manifest overrides an older install-time shell precache.
+    // Installed PWAs can retain an outdated install-time manifest although the
+    // top-level app has already shown the current 87-course list. Refresh the
+    // source identity on the NETWORK before judging an iframe's original HTML.
+    // fetch() inside a Service Worker goes to the network, not back into this
+    // fetch event. Verified offline fallback still uses the cached manifest.
+    const manifestUrl=new URL('./data/claude-library-manifest-v1.json',self.location.href);
     const runtime=await caches.open(RUNTIME_CACHE);
-    const cachedManifest=(await runtime.match('./data/claude-library-manifest-v1.json')) ||
-      (await caches.match('./data/claude-library-manifest-v1.json'));
-    if(!cachedManifest?.ok)return unavailable();
-    const manifest=await cachedManifest.json();
+    let response=null;
+    try{
+      const fresh=await fetch(manifestUrl.href,{cache:'no-store',signal:AbortSignal.timeout(8000)});
+      if(fresh.ok&&/application\/json/i.test(fresh.headers.get('Content-Type')||'')){
+        const verified=await fresh.clone().json();
+        if(Array.isArray(verified.lectures)&&verified.lectures.length>=87){
+          response=fresh;
+          await runtime.put(manifestUrl.href,fresh.clone());
+        }
+      }
+    }catch{}
+    if(!response)response=(await runtime.match(manifestUrl.href))||(await caches.match(manifestUrl.href));
+    if(!response?.ok)return unavailable();
+    const manifest=await response.json();
     const pathname=decodeURI(new URL(request.url).pathname);
     const sourcePath=pathname.slice('/claude-library/'.length);
     row=(manifest.lectures||[]).find(x=>x.source_path===sourcePath);
