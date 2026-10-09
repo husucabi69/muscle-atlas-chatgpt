@@ -422,7 +422,7 @@ button,input{font:inherit} button{cursor:pointer}
     </div>
     <div id="diseaseTraumaOriginalStatus" class="note"></div>
     <div id="diseaseTraumaLoadIssue" class="note" hidden role="alert"></div>
-    <iframe id="diseaseTraumaOriginalFrame" class="claude-original-frame" title="우리 서버에 저장된 Claude 학술 원본" loading="eager" onload="handleClaudeOriginalFrameLoad()" hidden></iframe>
+    <iframe id="diseaseTraumaOriginalFrame" class="claude-original-frame" title="우리 서버에 저장된 Claude 학술 원본" loading="eager" hidden></iframe>
   </div>
 </section>
 
@@ -5600,6 +5600,9 @@ function showDiseaseTraumaRoot(record=true){
 // Do not announce that a lecture is readable until the ORIGINAL HTML loaded,
 // not merely because its manifest entry exists. The Service Worker returns its
 // own fail-closed document when a stale PWA cannot verify source identity.
+// Register after the main script is parsed: initial about:blank iframe load can
+// fire before global declarations exist and poison unrelated page QA.
+document.getElementById('diseaseTraumaOriginalFrame')?.addEventListener('load',handleClaudeOriginalFrameLoad);
 function handleClaudeOriginalFrameLoad(){
  const frame=document.getElementById('diseaseTraumaOriginalFrame');
  const issue=document.getElementById('diseaseTraumaLoadIssue');
