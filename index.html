@@ -5548,7 +5548,7 @@ function renderClaudeAcademicCategories(){
  list.innerHTML='<div class="note"><b>2단계 · '+esc(current.label)+' ('+items.length+'강)</b><br>강의를 선택하면 우리 서버에 저장된 Claude 원본 HTML을 엽니다. 원본 음성의 연결 여부는 별도로 안내합니다.</div>'+
  items.map(item=>{
   const local=String(item.hosting_status||'').startsWith('SELF_HOSTED_');
-  return '<button type="button" class="region-choice" data-claude-academic-lecture="'+item.number+'" onclick="openClaudeOriginalLecture('+item.number+')"><span><b>'+esc(item.title)+'</b><br><small>Claude 원본 HTML · 음성 '+(item.audio==='없음'?'원본에 음성 없음':item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'재생 확인':local?'연결 대기':esc(item.audio))+'</small><br><span class="claude-hosting-badge '+(local?'local':'pending')+'">'+(local?'우리 서버 원본':'Claude 원본 링크')+'</span></span><span class="arrow">›</span></button>';
+  return '<button type="button" class="region-choice" data-claude-academic-lecture="'+item.number+'" onclick="openClaudeOriginalLecture('+item.number+')"><span><b>'+esc(item.title)+'</b><br><small>Claude 원본 HTML · '+(item.audio==='없음'?'원본 음성 없음':item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'음성 재생 확인':local?'음성 연결 대기':'음성 '+esc(item.audio))+'</small><br><span class="claude-hosting-badge '+(local?'local':'pending')+'">'+(local?'우리 서버 원본':'Claude 원본 링크')+'</span></span><span class="arrow">›</span></button>';
  }).join('');
 }
 function showClaudeAcademicCategory(index){
