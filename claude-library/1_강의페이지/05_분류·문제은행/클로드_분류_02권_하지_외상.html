@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_분류문제 2권_Lower Limb Trauma Classification 1판</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}h4{font-size:15.5px;margin:10px 0 2px;color:var(--accent2)}figure.fig{margin:10px 0 14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px;text-align:center}
+figure.fig img{max-width:100%;max-height:420px;height:auto;border-radius:6px}
+figure.fig figcaption{font-size:12.5px;color:#5a5245;margin-top:4px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.onepage{font-size:14px;color:var(--muted);margin:6px 0}figure.svgfig{background:#FFFDF5}figure.svgfig svg{display:block;margin:0 auto}.legend{font-size:14px;color:var(--muted)}</style><style id="figcss">
+figure.fig{margin:22px 0 26px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+figure.fig img,figure.fig svg{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+figure.fig .pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+figure.fig .pair img{flex:1 1 140px;max-width:48%}
+figure.fig figcaption{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+figure.fig figcaption b{color:var(--accent)}
+figure.fig .src{display:block;margin-top:6px;font-size:12px;color:var(--muted);word-break:break-all}
+figure.fig .src a{color:var(--muted)}
+</style><style>.noaud .player,.noaud #startAll,.noaud #openx{display:none!important}.audpending{margin:14px 0;padding:12px 14px;border:1px dashed var(--warnb);border-radius:10px;background:var(--warn);color:var(--ink);font-size:15px}</style></head><body><div class="wrap"><header class="hero"><div class="kicker">정형외과 강의실 · 분류 총정리 + 문제은행 시리즈 2권 · 음성 강의판</div><h1>클로드_분류문제 2권_Lower Limb Trauma Classification 1판</h1><p>하지 외상 분류 총정리 · Young-Burgess와 Tile · Letournel · 고관절 탈구와 Pipkin · Garden·Pauwels와 FAITH·HEALTH · 전자간 골절과 tip-apex distance · Schatzker · Gustilo-Anderson · Weber·Lauge-Hansen과 AIM · Hawkins · Sanders와 UK HeFT · Lisfranc · 구술 대비 문장</p>
+<p>부위마다 분류 · 치료 기준 · 근거 · 구술용 한 문장 순서로 정리했습니다. 짝이 되는 문제은행 2권에서 바로 풀어 보세요. 문단이나 표의 줄을 누르면 그 자리부터 읽어 드립니다.</p><div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-ios="x-safari-https://claude.ai/artifact/WfB8rwnW5gUezpJJoXFzqr" data-url="https://claude.ai/artifact/WfB8rwnW5gUezpJJoXFzqr" href="intent://claude.ai/artifact/WfB8rwnW5gUezpJJoXFzqr#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/WfB8rwnW5gUezpJJoXFzqr</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다(의학 용어는 영어로 읽고 처음 나올 때만 한국어 뜻을 덧붙임) · 전체 약 14분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<p class="onepage">이 페이지는 처음부터 끝까지 한 장으로 이어져 있습니다. 목차를 누르면 해당 장으로 이동하고, 각 장 제목 옆 「▶ 이 장 듣기」로 그 장부터 들을 수 있습니다.</p>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 2권의 범위</a></li><li><a href="#s1">1. 골반과 비구</a></li><li><a href="#s2">2. 고관절 — 탈구와 넙다리뼈 근위부</a></li><li><a href="#s3">3. 무릎과 정강뼈</a></li><li><a href="#s4">4. 발목과 발</a></li><li><a href="#s5">5. 구술 대비 — 한 문장으로 말하기</a></li><li><a href="#s6">6. 참고문헌</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 2권의 범위</h1>
+<button class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<p data-i="1">분류 총정리와 문제은행 시리즈 2권은 <b>하지 외상 분류</b>입니다. 골반과 비구, 고관절, 넙다리뼈, 무릎 주위, 정강뼈, 발목, 발 순서로 내려갑니다. 각 분류는 구술 시험에서 소리 내어 설명할 수 있도록 무엇을 기준으로 나누는가, 그리고 치료를 어떻게 바꾸는가의 두 가지로 정리했습니다. 근거는 고관절 골절 두 연구, 고령자 발목 골절 연구, 종골 골절 연구입니다.</p>
+</section><section id="s1"><div class="sechead"><h1 data-i="2">1. 골반과 비구</h1>
+<button class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<h2 data-i="3">골반환 손상 — Young-Burgess와 Tile</h2>
+<p data-i="4">Young-Burgess classification(영-버제스 분류)은 손상을 일으킨 힘의 방향으로 나눕니다. lateral compression(측방 압박), anteroposterior compression(전후방 압박), vertical shear(수직 전단), combined mechanism(복합 기전)입니다. Tile classification(타일 분류)은 안정성으로 나누어, A형은 안정, B형은 회전 불안정하지만 수직 안정, C형은 회전과 수직 모두 불안정입니다. 이 부분은 교과서 기준입니다.</p>
+<div class="tbl"><table><tr><th>유형</th><th>소견</th><th>의미</th></tr>
+<tr data-i="5"><td>APC I</td><td>치골 결합 2.5센티미터 미만 벌어짐</td><td>안정</td></tr>
+<tr data-i="6"><td>APC II</td><td>치골 결합 2.5센티미터 초과, 앞쪽 천장 관절 벌어짐</td><td>회전 불안정, 책 펼치듯 열린 open book</td></tr>
+<tr data-i="7"><td>APC III</td><td>천장 관절 앞뒤 인대 모두 파열</td><td>회전과 수직 불안정, 출혈 위험 가장 큼</td></tr>
+<tr data-i="8"><td>LC I에서 III</td><td>치골지 가로 골절과 천골 압박 골절</td><td>3형은 반대쪽이 열리는 windswept pelvis</td></tr>
+<tr data-i="9"><td>VS</td><td>반골반이 위로 밀려 올라감</td><td>수직 불안정</td></tr>
+</table></div>
+<div class="warn" data-i="10"><b>응급 처치 순서:</b> 혈역학적으로 불안정한 골반 골절은 대전자 높이에서 골반 결속대(pelvic binder)를 감고, 수액과 혈액 소생과 함께 혈관 색전술이나 골반 패킹, 외고정을 결정합니다. 결속대는 장골능이 아니라 대전자 높이에 감는 것이 핵심입니다.</div>
+<h2 data-i="11">비구 골절 — Letournel 분류</h2>
+<p data-i="12">Letournel classification(르투르넬 분류)은 다섯 가지 기본형과 다섯 가지 복합형, 모두 열 가지입니다. 기본형은 후벽, 후주, 전벽, 전주, 횡 골절입니다. 복합형은 후주와 후벽, 횡 골절과 후벽, T자형, 전주와 후방 반횡 골절, 양주 골절입니다. 가장 흔한 것은 양주 골절과 횡 골절과 후벽 골절이며, 양주 골절은 비구가 모든 기둥에서 떨어져 나가 폐쇄 사위 사진에서 spur sign(박차 징후)이 보입니다. 이 부분은 교과서 기준입니다.</p>
+</section><section id="s2"><div class="sechead"><h1 data-i="13">2. 고관절 — 탈구와 넙다리뼈 근위부</h1>
+<button class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<p data-i="14">외상성 고관절 탈구는 무릎이 계기판에 부딪히는 기전의 후방 탈구가 대부분입니다. 다리가 짧아지고 굴곡, 내전, 내회전된 자세가 특징이며, 좌골 신경 손상을 확인하고 가능한 빨리, 교과서에서는 6시간 안에 정복하도록 권합니다. 대퇴골두 골절이 함께 있으면 Pipkin classification(핍킨 분류)으로 나눕니다. 1형은 원형 인대 오목 아래, 2형은 오목 위, 3형은 경부 골절 동반, 4형은 비구 골절 동반입니다.</p>
+<h2 data-i="15">대퇴 경부 골절 — Garden과 Pauwels</h2>
+<p data-i="16">Garden classification(가든 분류)은 정면 사진에서 어긋남 정도로 나눕니다. 1형은 불완전하거나 외반으로 박힌 골절, 2형은 완전하지만 어긋나지 않은 골절, 3형은 부분 전위로 골두와 비구의 골소주 방향이 어긋난 골절, 4형은 완전 전위로 골두가 비구 안에서 제자리로 돌아가 골소주가 다시 나란해 보이는 골절입니다. 실제로는 1, 2형을 비전위, 3, 4형을 전위로 묶어 치료를 정합니다. Pauwels classification(파월스 분류)은 골절선이 수평선과 이루는 각도로 30도 미만, 30에서 50도, 50도 초과로 나누며, 수직에 가까울수록 전단력이 커져 젊은 고에너지 골절에서 불유합이 많습니다.</p>
+<figure class="fig" id="fq2-garden"><svg aria-label="Garden 분류" role="img" style="font-family:inherit" viewbox="0 0 640 380"><text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">Garden 분류(정면, 오른쪽 고관절 도식)</text><g transform="translate(0 50)"><path d="M64 52 A40 40 0 0 1 140 70" fill="none" stroke="var(--muted)" stroke-width="5"></path><g transform="translate(0 0)"><path d="M28 95 L48 90 L88 80 L100 96 L82 150 L78 175 L72 230 L34 230 L30 150 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2.5"></path></g><g transform="rotate(-14 94 88)"><path d="M88 80 L100 96 L110 92 A28 28 0 1 0 84 66 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2.5"></path><line stroke="var(--accent)" stroke-width="2.5" x1="90" x2="114" y1="96" y2="52"></line></g><line stroke="#c0392b" stroke-width="4" x1="86" x2="94" y1="78" y2="88"></line><text fill="var(--ink)" font-size="17" font-weight="700" text-anchor="middle" x="70" y="284">I 외반 감입</text></g><g transform="translate(160 50)"><path d="M64 52 A40 40 0 0 1 140 70" fill="none" stroke="var(--muted)" stroke-width="5"></path><g transform="translate(0 0)"><path d="M28 95 L48 90 L88 80 L100 96 L82 150 L78 175 L72 230 L34 230 L30 150 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2.5"></path></g><g transform="rotate(0 94 88)"><path d="M88 80 L100 96 L110 92 A28 28 0 1 0 84 66 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2.5"></path><line stroke="var(--accent)" stroke-width="2.5" x1="90" x2="114" y1="96" y2="52"></line></g><line stroke="#c0392b" stroke-width="4" x1="86" x2="102" y1="78" y2="98"></line><text fill="var(--ink)" font-size="17" font-weight="700" text-anchor="middle" x="70" y="284">II 완전·비전위</text></g><g transform="translate(320 50)"><path d="M64 52 A40 40 0 0 1 140 70" fill="none" stroke="var(--muted)" stroke-width="5"></path><g transform="translate(-4 10)"><path d="M28 95 L48 90 L88 80 L100 96 L82 150 L78 175 L72 230 L34 230 L30 150 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2.5"></path></g><g transform="rotate(22 94 88)"><path d="M88 80 L100 96 L110 92 A28 28 0 1 0 84 66 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2.5"></path><line stroke="var(--accent)" stroke-width="2.5" x1="90" x2="114" y1="96" y2="52"></line></g><line stroke="#c0392b" stroke-width="4" x1="86" x2="102" y1="78" y2="98"></line><text fill="var(--ink)" font-size="17" font-weight="700" text-anchor="middle" x="70" y="284">III 부분 전위</text></g><g transform="translate(480 50)"><path d="M64 52 A40 40 0 0 1 140 70" fill="none" stroke="var(--muted)" stroke-width="5"></path><g transform="translate(-16 26)"><path d="M28 95 L48 90 L88 80 L100 96 L82 150 L78 175 L72 230 L34 230 L30 150 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2.5"></path></g><g transform="rotate(0 94 88)"><path d="M88 80 L100 96 L110 92 A28 28 0 1 0 84 66 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2.5"></path><line stroke="var(--accent)" stroke-width="2.5" x1="90" x2="114" y1="96" y2="52"></line></g><line stroke="#c0392b" stroke-width="4" x1="86" x2="102" y1="78" y2="98"></line><text fill="var(--ink)" font-size="17" font-weight="700" text-anchor="middle" x="70" y="284">IV 완전 전위</text></g><text fill="var(--muted)" font-size="15" x="20" y="352">회색 호 = 비구 · 파란 선 = 골두 압박 골소주 · 빨간 선 = 골절</text><text fill="var(--muted)" font-size="15" x="20" y="372">III은 골두가 내반으로 기울고, IV는 골두가 제자리로 돌아가 골소주가 다시 나란함</text></svg><figcaption><b>그림 1.</b> 대퇴 경부 골절의 <b>Garden 분류</b>. 치료는 1·2형(비전위)과 3·4형(전위)으로 나누어 정합니다.<span class="src">그림: Claude 작성 도식(교과서 분류를 요약한 것으로, 원 논문의 그림이 아닙니다).</span></figcaption></figure>
+<p data-i="17">FAITH 연구는 고정이 필요한 50세 이상 저에너지 고관절 골절 1108명을 활강 고관절 나사와 여러 개의 해면골 나사로 나누었습니다. 24개월 안의 재수술은 20퍼센트 대 22퍼센트로 차이가 없었고, 무혈성 괴사는 활강 고관절 나사군에서 9퍼센트 대 5퍼센트로 더 많았습니다. 흡연자와 전위 골절, 경부 기저부 골절은 활강 고관절 나사가 나을 수 있다고 했습니다.<sup>1</sup></p>
+<p data-i="18">HEALTH 연구는 혼자 걷던 50세 이상의 전위 대퇴 경부 골절 1495명을 인공 고관절 전치환술과 반치환술로 나누었습니다. 24개월 안의 2차 수술은 7.9퍼센트 대 8.3퍼센트로 차이가 없었고, 탈구는 전치환술 4.7퍼센트, 반치환술 2.4퍼센트였습니다. 기능은 전치환술이 조금 나았지만 임상적으로 중요하지 않은 차이였습니다.<sup>2</sup></p>
+<h2 data-i="19">전자간 골절과 전자하 골절</h2>
+<p data-i="20">전자간 골절은 안정성으로 나눕니다. 후내측 피질 분쇄, 역사선 골절, 바깥쪽 벽 손상, 전자하부로의 연장은 불안정 소견으로, 골수강 내 정을 씁니다. 나사의 위치는 골두 끝에서 나사 끝까지의 거리를 정면과 측면에서 더한 tip-apex distance(팁-정점 거리)가 25밀리미터 미만이 되도록 해 나사가 골두를 뚫고 나가는 컷아웃을 줄입니다. 이 부분은 교과서 기준입니다.</p>
+</section><section id="s3"><div class="sechead"><h1 data-i="21">3. 무릎과 정강뼈</h1>
+<button class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<h2 data-i="22">경골 고평부 골절 — Schatzker 분류</h2>
+<div class="tbl"><table><tr><th>유형</th><th>모양</th><th>특징</th></tr>
+<tr data-i="23"><td>I</td><td>외측 쪼개짐</td><td>젊은 사람, 외측 반월상 연골이 틈에 낄 수 있음</td></tr>
+<tr data-i="24"><td>II</td><td>외측 쪼개짐과 함몰</td><td>가장 흔함</td></tr>
+<tr data-i="25"><td>III</td><td>외측 순수 함몰</td><td>골다공증 노인</td></tr>
+<tr data-i="26"><td>IV</td><td>내측 고평부</td><td>고에너지, 무릎 탈구 동반 가능, 혈관과 비골 신경 확인</td></tr>
+<tr data-i="27"><td>V</td><td>양측 고평부</td><td>골간단과 골간은 연결</td></tr>
+<tr data-i="28"><td>VI</td><td>골간단과 골간 분리</td><td>구획 증후군 주의</td></tr>
+</table></div>
+<h2 data-i="29">개방성 골절 — Gustilo-Anderson 분류</h2>
+<div class="tbl"><table><tr><th>유형</th><th>기준</th></tr>
+<tr data-i="30"><td>I</td><td>상처 1센티미터 미만, 깨끗함</td></tr>
+<tr data-i="31"><td>II</td><td>상처 1에서 10센티미터, 연부 조직 손상 중등도</td></tr>
+<tr data-i="32"><td>IIIA</td><td>고에너지 손상이지만 연부 조직으로 뼈를 덮을 수 있음</td></tr>
+<tr data-i="33"><td>IIIB</td><td>골막 박리, 피판이 필요함</td></tr>
+<tr data-i="34"><td>IIIC</td><td>혈관 복원이 필요한 동맥 손상</td></tr>
+</table></div>
+<p data-i="35">최종 분류는 수술실에서 변연 절제를 마친 뒤 정하며, 상처 크기보다 손상 에너지와 오염이 더 중요합니다. 항생제는 가능한 빨리 투여하고 파상풍 예방을 확인합니다. 원위 경골의 관절면 골절인 pilon fracture(필론 골절)는 Rüedi-Allgöwer classification(뤼에디-알괴버 분류)으로 나누며, 붓기가 빠질 때까지 외고정을 한 뒤 내고정하는 단계적 치료가 원칙입니다. 이 부분은 교과서 기준입니다.</p>
+</section><section id="s4"><div class="sechead"><h1 data-i="36">4. 발목과 발</h1>
+<button class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<h2 data-i="37">발목 골절 — Weber와 Lauge-Hansen</h2>
+<p data-i="38">Danis-Weber classification(다니스-베버 분류)은 비골 골절선의 높이로 나눕니다. A형은 원위 경비 인대 결합 아래, B형은 결합 높이, C형은 결합 위로 결합 손상 가능성이 큽니다. Lauge-Hansen classification(라우게-한센 분류)은 발의 자세와 힘의 방향으로 나누며, supination-external rotation(회외-외회전)형이 가장 흔합니다. 4단계에서는 내과 골절이나 삼각 인대 파열이 생겨 불안정해집니다. 비골 근위부 골절과 결합 손상이 함께 있는 Maisonneuve fracture(메종뇌브 골절)는 발목만 찍으면 놓치므로 비골 전체를 만져 봅니다.</p>
+<figure class="fig" id="fq2-weber"><svg aria-label="Weber 분류" role="img" style="font-family:inherit" viewbox="0 0 640 320">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">Weber 분류 — 비골 골절선의 높이(정면 도식)</text>
+<g fill="var(--box)" stroke="var(--ink)" stroke-width="2.5">
+<path d="M60 60 L120 60 L125 210 L150 240 L60 240 Z"></path><path d="M160 60 L180 60 L182 225 L168 262 L156 225 Z"></path>
+<path d="M260 60 L320 60 L325 210 L350 240 L260 240 Z"></path><path d="M360 60 L380 60 L382 225 L368 262 L356 225 Z"></path>
+<path d="M460 60 L520 60 L525 210 L550 240 L460 240 Z"></path><path d="M560 60 L580 60 L582 225 L568 262 L556 225 Z"></path></g>
+<g fill="#4a90c2" opacity=".5"><rect height="22" width="32" x="125" y="196"></rect><rect height="22" width="32" x="325" y="196"></rect><rect height="22" width="32" x="525" y="196"></rect></g>
+<g stroke="#c0392b" stroke-width="5"><line x1="155" x2="186" y1="240" y2="232"></line><line x1="354" x2="384" y1="214" y2="196"></line><line x1="554" x2="584" y1="140" y2="124"></line></g>
+<g fill="var(--ink)" font-size="19" text-anchor="middle">
+<text font-weight="700" x="120" y="292">A — 결합 아래</text><text font-weight="700" x="320" y="292">B — 결합 높이</text><text font-weight="700" x="520" y="292">C — 결합 위</text></g>
+<text fill="var(--muted)" font-size="15" x="20" y="316">파란 띠 = 원위 경비 인대 결합 · 빨간 선 = 비골 골절 · C형은 결합 손상 가능성이 큼</text>
+</svg><figcaption><b>그림 2.</b> 발목 골절의 <b>Weber 분류</b>. 골절선이 높을수록 경비 인대 결합 손상 가능성이 커집니다.<span class="src">그림: Claude 작성 도식(교과서 분류를 요약한 것으로, 원 논문의 그림이 아닙니다).</span></figcaption></figure>
+<p data-i="39">AIM 연구는 60세가 넘은 불안정 발목 골절 620명을 수술과, 마취 아래 정교하게 몰딩한 밀착 석고로 나누었습니다. 6개월 발목 점수는 66.0점 대 64.5점으로 동등했습니다. 감염과 상처 문제는 수술군 10퍼센트, 석고군 1퍼센트였지만, 방사선상 부정유합은 석고군 15퍼센트, 수술군 3퍼센트였고, 석고군의 19퍼센트는 정복 소실로 나중에 수술로 바꿨습니다.<sup>3</sup></p>
+<h2 data-i="40">거골, 종골, 중족부</h2>
+<div class="tbl"><table><tr><th>분류</th><th>대상</th><th>핵심</th></tr>
+<tr data-i="41"><td>Hawkins(호킨스)</td><td>거골 경부 골절</td><td>1형 비전위에서 4형 거주상 관절 탈구까지, 유형이 높을수록 무혈성 괴사 증가</td></tr>
+<tr data-i="42"><td>Hawkins sign</td><td>거골 체부</td><td>6에서 8주에 연골하 방사선 투과 띠가 보이면 혈류가 살아 있다는 좋은 징후</td></tr>
+<tr data-i="43"><td>Sanders(샌더스)</td><td>종골 관절 내 골절</td><td>관상면 CT에서 후관절면 조각 수로 1에서 4형</td></tr>
+<tr data-i="44"><td>Böhler angle(뵐러 각)</td><td>종골 측면 사진</td><td>정상 약 20에서 40도, 감소하면 후관절면 함몰</td></tr>
+<tr data-i="45"><td>Lisfranc(리스프랑)</td><td>족근중족 관절</td><td>첫째와 둘째 중족골 기저부 사이 fleck sign, 체중 부하 사진</td></tr>
+<tr data-i="46"><td>5중족골 기저부</td><td>1구역 결절 견열, 2구역 Jones 골절, 3구역 피로 골절</td><td>2·3구역은 불유합이 많음</td></tr>
+</table></div>
+<p data-i="47">UK Heel Fracture Trial은 전위된 관절 내 종골 골절 151명을 관혈적 정복과 내고정, 보존 치료로 나누었습니다. 2년 통증과 기능 점수는 69.8점 대 65.7점으로 차이가 없었고, 합병증과 재수술은 수술군에서 더 많았습니다. 연구진은 전형적인 전위 관절 내 종골 골절에 수술을 권하지 않았습니다.<sup>4</sup></p>
+</section><section id="s5"><div class="sechead"><h1 data-i="48">5. 구술 대비 — 한 문장으로 말하기</h1>
+<button class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<div class="box" data-i="49"><b>소리 내어 연습할 문장</b><br/>Young-Burgess — 힘의 방향, APC II는 2.5센티미터 넘게 열린 open book.<br/>Tile — A 안정, B 회전 불안정, C 회전과 수직 불안정.<br/>Letournel — 기본형 다섯, 복합형 다섯, 양주 골절은 spur sign.<br/>Garden — 1·2 비전위, 3·4 전위, 4형은 골소주가 다시 나란함.<br/>Pauwels — 50도 초과는 수직 전단, 불유합.<br/>tip-apex distance — 25밀리미터 미만.<br/>Schatzker — 2형 가장 흔함, 4형 내측은 무릎 탈구 의심.<br/>Gustilo — IIIB 피판, IIIC 혈관 복원.<br/>Weber — A 아래, B 높이, C 위.<br/>Hawkins sign — 6에서 8주 연골하 투과 띠는 좋은 징후.<br/>Sanders — 관상면 CT 후관절면 조각 수.</div>
+<h2 data-i="50">근거가 바꾼 하지 외상 진료</h2>
+<p data-i="51">네 연구를 한 줄로 요약합니다. 대퇴 경부 골절 고정에서 활강 고관절 나사는 재수술을 줄이지 못했습니다. 혼자 걷던 환자의 전위 경부 골절에서 전치환술은 반치환술보다 2차 수술을 줄이지 못하고 탈구가 더 많았습니다. 60세 넘은 불안정 발목 골절은 잘 만든 석고가 수술과 동등했지만 부정유합이 더 많았습니다. 전위 관절 내 종골 골절은 수술의 이득이 없고 합병증이 많았습니다.</p>
+<p data-i="52">이제 짝을 이루는 문제은행 2권에서 직접 풀어 보시기 바랍니다.</p>
+</section><section id="s6"><div class="sechead"><h1 data-i="53">6. 참고문헌</h1>
+<button class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="54"><span class="tag">확인</span> Fixation using Alternative Implants for the Treatment of Hip fractures (FAITH) Investigators. Fracture fixation in the operative management of hip fractures (FAITH): an international, multicentre, randomised controlled trial. <i>Lancet</i>. 2017;389:1519–1527. <a href="https://doi.org/10.1016/S0140-6736(17)30066-1">doi:10.1016/S0140-6736(17)30066-1</a></li>
+<li data-i="55"><span class="tag">확인</span> HEALTH Investigators; Bhandari M, Einhorn TA, Guyatt G, et al. Total hip arthroplasty or hemiarthroplasty for hip fracture. <i>N Engl J Med</i>. 2019;381:2199–2208. <a href="https://doi.org/10.1056/NEJMoa1906190">doi:10.1056/NEJMoa1906190</a></li>
+<li data-i="56"><span class="tag">확인</span> Willett K, Keene DJ, Mistry D, et al. Close contact casting vs surgery for initial treatment of unstable ankle fractures in older adults: a randomized clinical trial. <i>JAMA</i>. 2016;316:1455–1463. <a href="https://doi.org/10.1001/jama.2016.14719">doi:10.1001/jama.2016.14719</a></li>
+<li data-i="57"><span class="tag">확인</span> Griffin D, Parsons N, Shaw E, et al. Operative versus non-operative treatment for closed, displaced, intra-articular fractures of the calcaneus: randomised controlled trial. <i>BMJ</i>. 2014;349:g4483. <a href="https://doi.org/10.1136/bmj.g4483">doi:10.1136/bmj.g4483</a></li>
+<li data-i="58"><span class="tag2">표준</span> Rockwood and Green's Fractures in Adults, 9th ed.; Campbell's Operative Orthopaedics, 14th ed.; Skeletal Trauma, 6th ed. — Young-Burgess·Tile 골반, 결속대, Letournel 비구, 고관절 탈구와 Pipkin, Garden·Pauwels, 전자간 골절 안정성과 tip-apex distance, Schatzker, Gustilo-Anderson, 필론과 단계적 치료, Weber·Lauge-Hansen·Maisonneuve, Hawkins와 Hawkins sign, Sanders와 Böhler 각, Lisfranc, 5중족골 구역의 일반 서술 기준</li>
+<li data-i="59"><span class="tag2">짝</span> 문제은행 2권 — <a href="https://claude.ai/artifact/WxbGWdQQjuEmFVT8MJa1Uc">클로드_문제은행 2권_Lower Limb 30문항 1판</a> (바로 풀고 해설 확인)</li>
+</ol>
+<h2 data-i="60">읽는 법</h2>
+<p data-i="61">「확인」 표시는 PubMed 초록으로 본문 수치를 직접 대조한 문헌, 「표준」 표시는 교과서 서술 기준입니다. HEALTH와 FAITH는 혼자 걷거나 고정이 필요한 환자로 대상을 정했으므로, 치매나 보행 불능 환자에게 그대로 적용하기 어렵습니다. AIM의 석고는 수술실에서 숙련된 외과의가 마취 아래 만든 밀착 석고로, 일반 석고와 같지 않습니다. tip-apex distance 25밀리미터와 Böhler 각 정상 범위는 교과서 기준이며, 원 논문 수치는 이번 권에서 직접 대조하지 않았습니다.</p>
+</section><p class="note">작성: Claude · 2026년 10월 7일 (1판). 「선희」 음성 녹음 포함. 「확인」 표시 문헌은 PubMed 초록으로 수치를 대조했고, 「표준」 표시는 교과서 서술 기준입니다.</p></div><div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/05_분류·문제은행/클로드_분류_02권_하지_외상.mp4"], "t": [[0, 0.0, 2.616], [0, 2.966, 34.742], [0, 35.092, 37.9], [0, 38.25, 42.162], [0, 42.512, 76.184], [0, 76.534, 84.598], [0, 84.948, 98.22], [0, 98.57, 108.986], [0, 109.336, 121.504], [0, 121.854, 129.942], [0, 130.292, 150.692], [0, 151.042, 154.426], [0, 154.776, 193.056], [0, 193.406, 197.87], [0, 198.22, 232.588], [0, 232.938, 236.85], [0, 237.2, 284.696], [0, 285.046, 313.654], [0, 314.004, 342.66], [0, 343.01, 346.49], [0, 346.84, 377.176], [0, 377.526, 380.454], [0, 380.804, 384.812], [0, 385.162, 394.258], [0, 394.608, 401.04], [0, 401.39, 408.374], [0, 408.724, 418.612], [0, 418.962, 426.306], [0, 426.656, 433.568], [0, 433.918, 438.046], [0, 438.396, 443.484], [0, 443.834, 449.882], [0, 450.232, 457.624], [0, 457.974, 463.974], [0, 464.324, 469.58], [0, 469.93, 501.754], [0, 502.104, 504.816], [0, 505.166, 508.814], [0, 509.164, 552.244], [0, 552.594, 583.962], [0, 584.312, 587.864], [0, 588.214, 601.87], [0, 602.22, 614.004], [0, 614.354, 625.946], [0, 626.296, 637.672], [0, 638.022, 650.022], [0, 650.372, 663.62], [0, 663.97, 689.458], [0, 689.808, 694.008], [0, 694.358, 756.422], [0, 756.772, 759.796], [0, 760.146, 791.418], [0, 791.768, 797.072], [0, 797.422, 801.214], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 801.564, 803.436], [0, 803.786, 839.234]]};</script><script>(function(){
+var D=window.__AUD__;if(!D.urls||!D.urls.length)return;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>

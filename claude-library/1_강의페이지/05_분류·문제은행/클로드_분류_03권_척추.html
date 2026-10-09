@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_분류문제 3권_Spine Trauma·Disease Classification 1판</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}h4{font-size:15.5px;margin:10px 0 2px;color:var(--accent2)}figure.fig{margin:10px 0 14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px;text-align:center}
+figure.fig img{max-width:100%;max-height:420px;height:auto;border-radius:6px}
+figure.fig figcaption{font-size:12.5px;color:#5a5245;margin-top:4px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.onepage{font-size:14px;color:var(--muted);margin:6px 0}figure.svgfig{background:#FFFDF5}figure.svgfig svg{display:block;margin:0 auto}.legend{font-size:14px;color:var(--muted)}</style><style id="figcss">
+figure.fig{margin:22px 0 26px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+figure.fig img,figure.fig svg{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+figure.fig .pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+figure.fig .pair img{flex:1 1 140px;max-width:48%}
+figure.fig figcaption{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+figure.fig figcaption b{color:var(--accent)}
+figure.fig .src{display:block;margin-top:6px;font-size:12px;color:var(--muted);word-break:break-all}
+figure.fig .src a{color:var(--muted)}
+</style><style>.noaud .player,.noaud #startAll,.noaud #openx{display:none!important}.audpending{margin:14px 0;padding:12px 14px;border:1px dashed var(--warnb);border-radius:10px;background:var(--warn);color:var(--ink);font-size:15px}</style></head><body><div class="wrap"><header class="hero"><div class="kicker">정형외과 강의실 · 분류 총정리 + 문제은행 시리즈 3권 · 음성 강의판</div><h1>클로드_분류문제 3권_Spine Trauma·Disease Classification 1판</h1><p>척추 외상과 질환 분류 총정리 · NEXUS와 캐나다 경추 규칙(Stiell) · Jefferson·치돌기·교수형 골절 · SLIC와 TLICS · Chance 골절 · ASIA와 불완전 척수 증후군 · 조기 감압(STASCIS) · 디스크 위치와 신경근 · 좌골 신경통 조기 수술(Peul) · Wiltse · 척수증 · SINS·Bilsky와 Patchell · 구술 대비 문장</p>
+<p>부위마다 분류 · 치료 기준 · 근거 · 구술용 한 문장 순서로 정리했습니다. 짝이 되는 문제은행 3권에서 바로 풀어 보세요. 문단이나 표의 줄을 누르면 그 자리부터 읽어 드립니다.</p><div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-ios="x-safari-https://claude.ai/artifact/5ghVxAg7AwYzF85MhNmNST" data-url="https://claude.ai/artifact/5ghVxAg7AwYzF85MhNmNST" href="intent://claude.ai/artifact/5ghVxAg7AwYzF85MhNmNST#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/5ghVxAg7AwYzF85MhNmNST</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다(의학 용어는 영어로 읽고 처음 나올 때만 한국어 뜻을 덧붙임) · 전체 약 13분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<p class="onepage">이 페이지는 처음부터 끝까지 한 장으로 이어져 있습니다. 목차를 누르면 해당 장으로 이동하고, 각 장 제목 옆 「▶ 이 장 듣기」로 그 장부터 들을 수 있습니다.</p>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 3권의 범위</a></li><li><a href="#s1">1. 경추 손상 — 영상 결정과 상부 경추</a></li><li><a href="#s2">2. 하부 경추와 흉요추 — 점수로 정하는 수술</a></li><li><a href="#s3">3. 척수 손상 — ASIA와 불완전 척수 증후군</a></li><li><a href="#s4">4. 척추 질환 — 디스크, 협착, 척수증, 종양</a></li><li><a href="#s5">5. 구술 대비 — 한 문장으로 말하기</a></li><li><a href="#s6">6. 참고문헌</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 3권의 범위</h1>
+<button class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<p data-i="1">분류 총정리와 문제은행 시리즈 3권은 <b>척추 외상과 척추 질환</b>입니다. 경추 손상 영상 결정 규칙에서 시작해 상부 경추, 하부 경추, 흉요추 골절 분류, 척수 손상의 신경학적 분류, 그리고 디스크 탈출, 협착, 척수증, 전이성 척추 종양까지 다룹니다. 근거는 경추 영상 결정 규칙 비교, 조기 감압 수술, 좌골 신경통의 조기 수술, 전이성 척수 압박의 수술 연구 네 편입니다.</p>
+</section><section id="s1"><div class="sechead"><h1 data-i="2">1. 경추 손상 — 영상 결정과 상부 경추</h1>
+<button class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<p data-i="3">의식이 명료하고 안정된 외상 환자에서 경추 영상을 찍을지 결정하는 규칙은 두 가지입니다. NEXUS criteria(넥서스 기준)는 정중선 압통, 국소 신경 결손, 의식 변화, 중독, 주의를 빼앗는 다른 손상이 모두 없으면 영상이 필요 없다고 봅니다. Canadian C-spine rule(캐나다 경추 규칙)은 65세 이상, 위험한 기전, 사지 감각 이상 같은 고위험 요소를 먼저 묻고, 저위험 요소가 있으면 목을 좌우로 45도 돌려 보게 합니다.</p>
+<p data-i="4">Stiell 등은 캐나다 9개 응급실의 외상 환자 8283명에서 두 규칙을 직접 비교했습니다. 중요한 경추 손상은 169명, 2.0퍼센트였습니다. 판정 불가 사례를 뺀 분석에서 캐나다 규칙의 민감도는 99.4퍼센트로 넥서스 기준의 90.7퍼센트보다 높았고, 특이도도 45.1퍼센트 대 36.8퍼센트로 높았으며, 영상 촬영률은 더 낮았습니다. 놓친 손상은 캐나다 규칙 1명, 넥서스 16명이었습니다.<sup>1</sup></p>
+<div class="tbl"><table><tr><th>손상</th><th>분류와 핵심</th></tr>
+<tr data-i="5"><td>Jefferson fracture(제퍼슨 골절)</td><td>C1 고리의 파열 골절, 축성 부하. 개구 사진에서 C1 외측괴가 C2 바깥으로 합쳐 6.9밀리미터 넘게 벗어나면 횡인대 파열 의심(Spence 규칙)</td></tr>
+<tr data-i="6"><td>odontoid fracture(치돌기 골절)</td><td>Anderson-D'Alonzo 1형 끝부분, 2형 기저부로 가장 흔하고 불유합 많음, 3형 C2 몸통으로 연장</td></tr>
+<tr data-i="7"><td>Hangman's fracture(교수형 골절)</td><td>C2 양측 관절 간부 골절, Levine-Edwards 1, 2, 2A, 3형. 2A형은 견인하면 벌어지므로 견인 금지</td></tr>
+<tr data-i="8"><td>occipitocervical dissociation(후두경추 해리)</td><td>Powers 비율 1 초과는 전방 해리 의심, 대부분 치명적</td></tr>
+</table></div>
+<p data-i="9">치돌기 2형 골절의 불유합 위험 요인은 고령, 6밀리미터 이상의 전위, 뒤쪽 전위, 늦은 치료입니다. 고령자는 보조기만으로는 불유합이 많아 나사 고정이나 후방 유합을 고려합니다. 이 부분은 교과서 기준입니다.</p>
+</section><section id="s2"><div class="sechead"><h1 data-i="10">2. 하부 경추와 흉요추 — 점수로 정하는 수술</h1>
+<button class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<h2 data-i="11">하부 경추 — SLIC</h2>
+<p data-i="12">Subaxial Cervical Spine Injury Classification(하부 경추 손상 분류, SLIC)은 세 항목의 점수를 더합니다. 손상 형태는 압박 1점, 파열 2점, 신연 3점, 회전이나 전위 4점입니다. 디스크와 인대 복합체는 정상 0점, 불확실 1점, 파열 2점입니다. 신경 상태는 정상 0점, 신경근 손상 1점, 완전 척수 손상 2점, 불완전 척수 손상 3점이며, 신경 결손이 있으면서 계속 압박되면 1점을 더합니다. 합계 3점 이하는 보존, 5점 이상은 수술, 4점은 판단이 필요합니다.</p>
+<h2 data-i="13">흉요추 — Denis, TLICS, AO Spine</h2>
+<p data-i="14">Denis three-column theory(데니스 삼주 이론)는 척추를 앞, 가운데, 뒤 기둥으로 나누어, 가운데 기둥이 손상된 파열 골절을 불안정 가능성이 있는 손상으로 봅니다. Thoracolumbar Injury Classification and Severity score(흉요추 손상 분류 및 중증도 점수, TLICS)는 형태, 후방 인대 복합체, 신경 상태를 더해 3점 이하는 보존, 5점 이상은 수술합니다. 형태는 압박 1점, 파열 2점, 전위나 회전 3점, 신연 4점입니다. 후방 인대 복합체는 정상 0점, 불확실 2점, 손상 3점입니다. 신경 상태는 정상 0점, 신경근 2점, 완전 척수 손상 2점, 불완전 척수 손상이나 마미 손상 3점입니다. AO Spine classification(AO 척추 분류)은 A형 압박, B형 긴장대 손상, C형 전위나 이동으로 나눕니다.</p>
+<div class="box" data-i="15"><b>Chance fracture(챈스 골절)</b><br/>안전벨트를 맨 채 몸이 앞으로 꺾이는 굴곡-신연 손상으로, 뒤쪽 구조물부터 앞으로 수평으로 찢어집니다. 흉요추 이행부에 많고, 소장과 장간막 손상이 흔히 동반되므로 복부 CT를 확인합니다. AO Spine B형에 해당합니다.</div>
+</section><section id="s3"><div class="sechead"><h1 data-i="16">3. 척수 손상 — ASIA와 불완전 척수 증후군</h1>
+<button class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<p data-i="17">ASIA Impairment Scale(미국 척수 손상 학회 장애 척도)은 A에서 E로 나눕니다. A는 천수 4–5 분절까지 감각과 운동이 모두 없는 완전 손상입니다. B는 운동은 없고 감각만 천수 분절까지 남은 경우, C는 손상 아래 핵심 근육의 절반 넘게 근력이 3 미만, D는 절반 이상이 3 이상, E는 정상입니다. 완전 손상 여부는 천수 보존, 즉 항문 주위 감각과 깊은 항문 압박감, 자발적 항문 수축으로 판정합니다. 척수 쇼크가 끝난 것은 구해면체 반사가 돌아오는 것으로 알며, 그 전에는 완전 손상으로 확정하지 않습니다. 저혈압과 서맥이 함께 있으면 출혈성 쇼크가 아닌 neurogenic shock(신경성 쇼크)를 의심합니다.</p>
+<figure class="fig" id="fq3-cord"><svg aria-label="불완전 척수 증후군" role="img" style="font-family:inherit" viewbox="0 0 640 330">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">불완전 척수 증후군(척수 단면 도식, 위가 앞쪽)</text>
+<g id="c1" transform="translate(115 150)">
+<ellipse fill="var(--box)" rx="85" ry="68" stroke="var(--ink)" stroke-width="2.5"></ellipse>
+<ellipse fill="#c0392b" opacity=".55" rx="34" ry="30"></ellipse>
+<path d="M-8 -6 C-30 -50 -48 -40 -40 -10 C-48 20 -30 45 -8 8 Z M8 -6 C30 -50 48 -40 40 -10 C48 20 30 45 8 8 Z" fill="none" stroke="var(--ink)" stroke-width="2"></path>
+</g>
+<g transform="translate(320 150)">
+<ellipse fill="var(--box)" rx="85" ry="68" stroke="var(--ink)" stroke-width="2.5"></ellipse>
+<path d="M0 -68 A85 68 0 0 1 0 68 Z" fill="#c0392b" opacity=".55"></path>
+<path d="M-8 -6 C-30 -50 -48 -40 -40 -10 C-48 20 -30 45 -8 8 Z M8 -6 C30 -50 48 -40 40 -10 C48 20 30 45 8 8 Z" fill="none" stroke="var(--ink)" stroke-width="2"></path>
+</g>
+<g transform="translate(525 150)">
+<ellipse fill="var(--box)" rx="85" ry="68" stroke="var(--ink)" stroke-width="2.5"></ellipse>
+<path d="M-81 20 A85 68 0 1 1 81 20 Z" fill="#c0392b" opacity=".55"></path>
+<path d="M-8 -6 C-30 -50 -48 -40 -40 -10 C-48 20 -30 45 -8 8 Z M8 -6 C30 -50 48 -40 40 -10 C48 20 30 45 8 8 Z" fill="none" stroke="var(--ink)" stroke-width="2"></path>
+</g>
+<g fill="var(--ink)" font-size="18" text-anchor="middle">
+<text font-weight="700" x="115" y="250">중심 척수 증후군</text><text font-size="15" x="115" y="274">팔 &gt; 다리 약화</text><text font-size="15" x="115" y="294">고령, 과신전 · 가장 흔함</text>
+<text font-weight="700" x="320" y="250">Brown-Séquard</text><text font-size="15" x="320" y="274">같은 쪽 운동·고유감각 소실</text><text font-size="15" x="320" y="294">반대쪽 통각·온도 · 예후 가장 좋음</text>
+<text font-weight="700" x="525" y="250">전방 척수 증후군</text><text font-size="15" x="525" y="274">운동·통각 소실, 후주 보존</text><text font-size="15" x="525" y="294">예후 가장 나쁨</text></g>
+<text fill="var(--muted)" font-size="15" x="20" y="322">빨간 부분 = 손상 범위 · 나비 모양 = 회색질 · 뒤쪽(아래) 후주는 고유감각과 진동감각</text>
+</svg><figcaption><b>그림 1.</b> 세 가지 <b>불완전 척수 증후군</b>의 손상 범위. 중심 척수 증후군에서 팔이 더 약한 이유는 교과서에서 피질척수로의 배열로 설명하지만, 최근에는 이 설명에 이견이 있습니다.<span class="src">그림: Claude 작성 도식(교과서 서술을 요약한 것으로, 원 논문의 그림이 아닙니다).</span></figcaption></figure>
+<p data-i="18">STASCIS 연구는 16세에서 80세 경추 척수 손상 환자 313명을 손상 24시간 안에 감압한 군과 24시간 이후에 감압한 군으로 비교한 전향적 코호트입니다. 6개월에 ASIA 등급이 2단계 이상 좋아진 비율은 조기 감압군 19.8퍼센트, 늦은 감압군 8.8퍼센트였고, 합병증은 24.2퍼센트 대 30.5퍼센트로 차이가 없었습니다.<sup>2</sup> 무작위 연구가 아니므로 인과를 단정할 수는 없지만, 가능한 24시간 안에 감압하는 근거로 쓰입니다.</p>
+</section><section id="s4"><div class="sechead"><h1 data-i="19">4. 척추 질환 — 디스크, 협착, 척수증, 종양</h1>
+<button class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<h2 data-i="20">요추 디스크 탈출과 신경근</h2>
+<p data-i="21">요추에서는 신경근이 같은 번호 척추뼈의 아래 추간공으로 나갑니다. 그래서 가장 흔한 후외측, 즉 paracentral(정중 옆) 탈출은 그 디스크 높이를 지나 내려가는 아래 신경근을 누릅니다. 요추 4–5번 디스크의 정중 옆 탈출은 요추 5번 신경근, 추간공 바깥의 far lateral(극외측) 탈출은 이미 빠져나온 요추 4번 신경근을 누릅니다. 이 부분은 교과서 기준입니다.</p>
+<figure class="fig" id="fq3-disc"><svg aria-label="디스크 탈출 위치와 신경근" role="img" style="font-family:inherit" viewbox="0 0 640 330">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">요추 4–5번 디스크 탈출 위치와 눌리는 신경근(뒤에서 본 도식)</text>
+<rect fill="var(--box)" height="70" rx="12" stroke="var(--ink)" stroke-width="2.5" width="220" x="210" y="60"></rect>
+<rect fill="#e8d7a8" height="30" rx="8" stroke="var(--ink)" stroke-width="2" width="220" x="210" y="150"></rect>
+<rect fill="var(--box)" height="70" rx="12" stroke="var(--ink)" stroke-width="2.5" width="220" x="210" y="200"></rect>
+<text fill="var(--ink)" font-size="18" text-anchor="middle" x="320" y="102">L4</text><text fill="var(--ink)" font-size="18" text-anchor="middle" x="320" y="242">L5</text><text fill="var(--ink)" font-size="15" text-anchor="middle" x="385" y="171">L4–5 디스크</text>
+<rect fill="#4a90c2" height="270" opacity=".18" width="60" x="290" y="45"></rect>
+<path d="M300 60 C285 120 250 140 175 150" fill="none" stroke="#e8a33d" stroke-width="7"></path>
+<path d="M305 90 C300 170 285 210 175 290" fill="none" stroke="#4a90c2" stroke-width="7"></path>
+<ellipse cx="282" cy="168" fill="#c0392b" opacity=".85" rx="20" ry="13"></ellipse>
+<ellipse cx="192" cy="150" fill="#c0392b" opacity=".45" rx="18" ry="12" stroke="#c0392b" stroke-dasharray="4 3" stroke-width="2"></ellipse>
+<g fill="var(--ink)" font-size="17">
+<text fill="#c0392b" font-weight="700" x="445" y="160">● 정중 옆 탈출</text><text x="445" y="182">→ L5 (지나가는 뿌리)</text>
+<text fill="#c0392b" font-weight="700" x="445" y="222">◌ 극외측 탈출</text><text x="445" y="244">→ L4 (나간 뿌리)</text>
+<text fill="#b07a1e" font-weight="700" x="40" y="140">L4 신경근</text><text fill="#24507a" font-weight="700" x="40" y="300">L5 신경근</text></g>
+<text fill="var(--muted)" font-size="15" x="20" y="324">파란 띠 = 경막낭 · 탈출 위치는 단순화했으며 한쪽만 그림</text>
+</svg><figcaption><b>그림 2.</b> 같은 요추 4–5번 디스크라도 <b>탈출 위치</b>에 따라 눌리는 신경근이 다릅니다.<span class="src">그림: Claude 작성 도식(교과서 서술을 요약한 것으로, 원 논문의 그림이 아닙니다).</span></figcaption></figure>
+<div class="tbl"><table><tr><th>신경근</th><th>근력</th><th>감각</th><th>반사</th></tr>
+<tr data-i="22"><td>L4</td><td>전경골근, 발목 배굴</td><td>종아리 안쪽, 안쪽 복사</td><td>무릎 반사</td></tr>
+<tr data-i="23"><td>L5</td><td>장무지신근, 엄지발가락 신전, 중둔근</td><td>발등, 첫째 물갈퀴</td><td>특이 반사 없음, 내측 슬괵 반사</td></tr>
+<tr data-i="24"><td>S1</td><td>비복근, 발목 저굴, 장·단비골근</td><td>발 바깥쪽, 발바닥</td><td>발목 반사</td></tr>
+</table></div>
+<p data-i="25">Peul 등은 6에서 12주 동안 심한 좌골 신경통이 있던 283명을 조기 수술과 장기 보존 치료로 무작위 배정했습니다. 조기 수술군은 평균 2.2주 뒤 89퍼센트가 수술을 받았고, 보존군은 39퍼센트가 평균 18.7주 뒤 수술로 바꿨습니다. 다리 통증과 회복은 조기 수술군이 더 빨랐지만, 1년 장애 점수는 차이가 없었고 1년 회복 확률은 두 군 모두 95퍼센트였습니다.<sup>3</sup></p>
+<div class="warn" data-i="26"><b>응급 — cauda equina syndrome(마미 증후군):</b> 안장 부위 감각 저하, 소변 저류나 실금, 양쪽 다리 신경 증상은 응급 MRI와 감압 수술의 적응입니다. 배뇨 후 잔뇨량 측정이 선별에 도움이 됩니다.</div>
+<h2 data-i="27">협착, 척추 전방 전위증, 척수증</h2>
+<p data-i="28">신경성 파행은 서 있거나 허리를 펴면 심해지고, 앞으로 숙이거나 앉으면 좋아지며, 자전거 타기는 견딜 수 있습니다. 혈관성 파행은 자세와 관계없이 걷는 거리에 비례해 생기고 서기만 해도 좋아지며, 발등 맥박이 약합니다. 척추 전방 전위증은 Wiltse classification(윌트세 분류)으로 원인을 나누어, 1형 이형성, 2형 협부, 3형 퇴행성, 4형 외상성, 5형 병적, 6형 수술 후입니다. 퇴행성은 50세 이상 여성의 요추 4–5번에 많습니다.</p>
+<p data-i="29">경추 척수증은 손놀림이 서툴러지고 걸음이 불안정해지며, Hoffmann sign(호프만 징후), 역요골 반사, 손가락 탈출 징후, 강직성 보행이 보입니다. 중증도는 mJOA score(수정 일본 정형외과 학회 점수)로 평가합니다. 후종인대 골화증에서는 K-line(K선)을 그어 골화가 선을 넘으면 후방 단독 감압의 효과가 떨어집니다. 이 부분은 교과서 기준입니다.</p>
+<h2 data-i="30">전이성 척추 종양</h2>
+<p data-i="31">Spinal Instability Neoplastic Score(종양성 척추 불안정 점수, SINS)는 0에서 6점 안정, 7에서 12점 불확정, 13에서 18점 불안정으로 나눕니다. Bilsky grade(빌스키 등급)는 MRI에서 척수 압박 정도를 0에서 3등급으로 나누며, 2, 3등급은 고위험 척수 압박입니다. 이 부분은 교과서 기준입니다.</p>
+<p data-i="32">Patchell 등은 전이암에 의한 척수 압박 환자 101명을 감압 수술 후 방사선 치료와 방사선 치료 단독으로 무작위 배정했습니다. 치료 후 걸을 수 있었던 비율은 84퍼센트 대 57퍼센트였고, 보행을 유지한 기간의 중앙값은 122일 대 13일이었습니다. 처음에 걷지 못했던 32명 중 다시 걷게 된 비율은 62퍼센트 대 19퍼센트였습니다. 중간 분석에서 미리 정한 기준을 충족해 연구가 조기 종료되었습니다.<sup>4</sup></p>
+</section><section id="s5"><div class="sechead"><h1 data-i="33">5. 구술 대비 — 한 문장으로 말하기</h1>
+<button class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<div class="box" data-i="34"><b>소리 내어 연습할 문장</b><br/>캐나다 경추 규칙 — 넥서스보다 민감도와 특이도가 높고 영상이 적다.<br/>Spence 규칙 — C1 외측괴가 합쳐 6.9밀리미터 넘게 벗어나면 횡인대 파열.<br/>치돌기 2형 — 가장 흔하고 불유합 많음, 고령은 수술 고려.<br/>교수형 골절 2A형 — 견인 금지.<br/>SLIC와 TLICS — 3점 이하 보존, 5점 이상 수술.<br/>챈스 골절 — 굴곡-신연, 장 손상 확인.<br/>ASIA A — 천수 보존 없음, 척수 쇼크는 구해면체 반사로 종료 판단.<br/>중심 척수 증후군 — 가장 흔함, 팔이 더 약함. Brown-Séquard — 예후 가장 좋음. 전방 척수 — 가장 나쁨.<br/>L4–5 정중 옆은 L5, 극외측은 L4.<br/>SINS 13점 이상 불안정, Bilsky 2·3 고위험 압박.</div>
+<p data-i="35">이제 짝을 이루는 문제은행 3권에서 직접 풀어 보시기 바랍니다.</p>
+</section><section id="s6"><div class="sechead"><h1 data-i="36">6. 참고문헌</h1>
+<button class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="37"><span class="tag">확인</span> Stiell IG, Clement CM, McKnight RD, et al. The Canadian C-spine rule versus the NEXUS low-risk criteria in patients with trauma. <i>N Engl J Med</i>. 2003;349:2510–2518. <a href="https://doi.org/10.1056/NEJMoa031375">doi:10.1056/NEJMoa031375</a></li>
+<li data-i="38"><span class="tag">확인</span> Fehlings MG, Vaccaro A, Wilson JR, et al. Early versus delayed decompression for traumatic cervical spinal cord injury: results of the Surgical Timing in Acute Spinal Cord Injury Study (STASCIS). <i>PLoS One</i>. 2012;7:e32037. <a href="https://doi.org/10.1371/journal.pone.0032037">doi:10.1371/journal.pone.0032037</a></li>
+<li data-i="39"><span class="tag">확인</span> Peul WC, van Houwelingen HC, van den Hout WB, et al. Surgery versus prolonged conservative treatment for sciatica. <i>N Engl J Med</i>. 2007;356:2245–2256. <a href="https://doi.org/10.1056/NEJMoa064039">doi:10.1056/NEJMoa064039</a></li>
+<li data-i="40"><span class="tag">확인</span> Patchell RA, Tibbs PA, Regine WF, et al. Direct decompressive surgical resection in the treatment of spinal cord compression caused by metastatic cancer: a randomised trial. <i>Lancet</i>. 2005;366:643–648. <a href="https://doi.org/10.1016/S0140-6736(05)66954-1">doi:10.1016/S0140-6736(05)66954-1</a></li>
+<li data-i="41"><span class="tag2">표준</span> Rothman-Simeone and Herkowitz's The Spine, 7th ed.; Rockwood and Green's Fractures in Adults, 9th ed.; International Standards for Neurological Classification of Spinal Cord Injury(ISNCSCI) — NEXUS와 캐나다 규칙의 항목, Jefferson과 Spence 규칙, Anderson-D'Alonzo, Levine-Edwards, Powers 비율, SLIC와 TLICS 점수, Denis와 AO Spine, Chance 골절, ASIA 척도와 척수 쇼크, 신경성 쇼크, 불완전 척수 증후군, 요추 신경근 진찰, 마미 증후군, 신경성·혈관성 파행, Wiltse 분류, 척수증 징후와 K-line, SINS와 Bilsky 등급의 일반 서술 기준</li>
+<li data-i="42"><span class="tag2">짝</span> 문제은행 3권 — <a href="https://claude.ai/artifact/MeSzCtB2VEf78LuVUXZd44">클로드_문제은행 3권_Spine 30문항 1판</a> (바로 풀고 해설 확인)</li>
+</ol>
+<h2 data-i="43">읽는 법</h2>
+<p data-i="44">「확인」 표시는 PubMed 초록으로 본문 수치를 직접 대조한 문헌, 「표준」 표시는 교과서 서술 기준입니다. STASCIS는 무작위 연구가 아닌 전향적 코호트이고, Peul 연구는 보존군의 39퍼센트가 수술로 넘어가 의향 분석의 차이가 줄었습니다. Patchell 연구는 교과서에 인용된 대상 기준상 방사선에 매우 민감한 종양과 마비가 48시간을 넘은 환자를 제외했으므로(초록에는 없는 내용) 모든 전이성 척수 압박에 그대로 적용할 수는 없습니다. SLIC, TLICS, SINS의 점수 항목은 교과서 기준이며 원 논문 수치는 이번 권에서 직접 대조하지 않았습니다.</p>
+</section><p class="note">작성: Claude · 2026년 10월 7일 (1판). 「선희」 음성 녹음 포함. 「확인」 표시 문헌은 PubMed 초록으로 수치를 대조했고, 「표준」 표시는 교과서 서술 기준입니다.</p></div><div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/05_분류·문제은행/클로드_분류_03권_척추.mp4"], "t": [[0, 0.0, 2.616], [0, 2.966, 34.718], [0, 35.068, 39.916], [0, 40.266, 74.778], [0, 75.128, 110.696], [0, 111.046, 128.374], [0, 128.724, 141.468], [0, 141.818, 157.634], [0, 157.984, 168.52], [0, 168.87, 186.438], [0, 186.788, 191.804], [0, 192.154, 195.298], [0, 195.648, 237.84], [0, 238.19, 242.99], [0, 243.34, 304.084], [0, 304.434, 325.938], [0, 326.288, 331.424], [0, 331.774, 381.982], [0, 382.332, 418.212], [0, 418.562, 424.682], [0, 425.032, 428.272], [0, 428.622, 458.118], [0, 458.468, 469.124], [0, 469.474, 484.45], [0, 484.8, 498.024], [0, 498.374, 528.374], [0, 528.724, 544.996], [0, 545.346, 549.714], [0, 550.064, 586.76], [0, 587.11, 617.062], [0, 617.412, 619.956], [0, 620.306, 648.074], [0, 648.424, 681.352], [0, 681.702, 685.902], [0, 686.252, 749.66], [0, 750.01, 755.314], [0, 755.664, 759.456], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 759.806, 761.678], [0, 762.028, 805.78]]};</script><script>(function(){
+var D=window.__AUD__;if(!D.urls||!D.urls.length)return;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>

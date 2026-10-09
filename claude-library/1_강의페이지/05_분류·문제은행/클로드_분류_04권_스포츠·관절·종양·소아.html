@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_분류문제 4권_Sports·Joint·Tumor·Pediatric Classification 1판</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{overflow-wrap:anywhere;font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}h4{font-size:15.5px;margin:10px 0 2px;color:var(--accent2)}figure.fig{margin:10px 0 14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px;text-align:center}
+figure.fig img{max-width:100%;max-height:420px;height:auto;border-radius:6px}
+figure.fig figcaption{font-size:12.5px;color:#5a5245;margin-top:4px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.onepage{font-size:14px;color:var(--muted);margin:6px 0}figure.svgfig{background:#FFFDF5}figure.svgfig svg{display:block;margin:0 auto}.legend{font-size:14px;color:var(--muted)}</style><style id="figcss">
+figure.fig{margin:22px 0 26px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+figure.fig img,figure.fig svg{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+figure.fig .pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+figure.fig .pair img{flex:1 1 140px;max-width:48%}
+figure.fig figcaption{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+figure.fig figcaption b{color:var(--accent)}
+figure.fig .src{display:block;margin-top:6px;font-size:12px;color:var(--muted);word-break:break-all}
+figure.fig .src a{color:var(--muted)}
+</style><style>.noaud .player,.noaud #startAll,.noaud #openx{display:none!important}.audpending{margin:14px 0;padding:12px 14px;border:1px dashed var(--warnb);border-radius:10px;background:var(--warn);color:var(--ink);font-size:15px}</style></head><body><div class="wrap"><header class="hero"><div class="kicker">정형외과 강의실 · 분류 총정리 + 문제은행 시리즈 4권 · 음성 강의판</div><h1>클로드_분류문제 4권_Sports·Joint·Tumor·Pediatric Classification 1판</h1><p>스포츠·관절·종양·소아 분류 총정리 · DeOrio-Cofield·Goutallier·Patte · Snyder SLAP · Outerbridge · 반월상 연골 · KANON·FIDELITY·CSAW · Kellgren-Lawrence · Ficat·ARCO · Enneking · Mirels · Campanacci · Graf·Herring·Loder·Gartland·Risser·GMFCS · Kocher 기준 · 구술 대비 문장</p>
+<p>분류 · 치료 기준 · 근거 · 구술용 한 문장 순서로 정리했습니다. 짝이 되는 문제은행 4권에서 바로 풀어 보세요. 문단이나 표의 줄을 누르면 그 자리부터 읽어 드립니다.</p><div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-ios="x-safari-https://claude.ai/artifact/ENwiy1ZrG3UDH43erhrF4R" data-url="https://claude.ai/artifact/ENwiy1ZrG3UDH43erhrF4R" href="intent://claude.ai/artifact/ENwiy1ZrG3UDH43erhrF4R#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/ENwiy1ZrG3UDH43erhrF4R</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다(의학 용어는 영어로 읽고 처음 나올 때만 한국어 뜻을 덧붙임) · 전체 약 12분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<p class="onepage">이 페이지는 처음부터 끝까지 한 장으로 이어져 있습니다. 목차를 누르면 해당 장으로 이동하고, 각 장 제목 옆 「▶ 이 장 듣기」로 그 장부터 들을 수 있습니다.</p>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 4권의 범위</a></li><li><a href="#s1">1. 스포츠 — 어깨와 무릎</a></li><li><a href="#s2">2. 관절 질환 — 골관절염과 무혈성 괴사</a></li><li><a href="#s3">3. 종양 — 병기와 병적 골절 위험</a></li><li><a href="#s4">4. 소아 종합 — 다시 보는 분류</a></li><li><a href="#s5">5. 구술 대비 — 한 문장으로 말하기</a></li><li><a href="#s6">6. 참고문헌</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 4권의 범위</h1>
+<button class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<p data-i="1">분류 총정리와 문제은행 시리즈 4권은 <b>스포츠, 관절 질환, 종양, 소아 종합</b>입니다. 외상 밖에서 시험에 자주 나오는 분류와 점수를 한데 모았습니다. 스포츠에서는 회전근개, 관절와순, 연골, 반월상 연골을, 관절 질환에서는 골관절염과 대퇴골두 무혈성 괴사를, 종양에서는 병기와 병적 골절 위험 점수를, 소아에서는 앞선 소아 심화 시리즈의 분류를 다시 정리합니다. 근거는 십자 인대 파열, 퇴행성 반월상 연골 파열, 견봉하 감압술, 소아 화농성 고관절염 감별의 네 연구입니다.</p>
+</section><section id="s1"><div class="sechead"><h1 data-i="2">1. 스포츠 — 어깨와 무릎</h1>
+<button class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<div class="tbl"><table><tr><th>분류</th><th>대상</th><th>핵심</th></tr>
+<tr data-i="3"><td>DeOrio-Cofield(데오리오-코필드)</td><td>회전근개 전층 파열 크기</td><td>소 1센티미터 미만, 중 1에서 3, 대 3에서 5, 광범위 5센티미터 초과</td></tr>
+<tr data-i="4"><td>Goutallier(구탈리에)</td><td>회전근개 지방 변성</td><td>0에서 4단계, 3단계 이상(지방이 근육과 같거나 많음)은 봉합 후 결과 나쁨</td></tr>
+<tr data-i="5"><td>Patte(파테)</td><td>파열 힘줄의 퇴축</td><td>1단계 부착부 근처, 2단계 상완골두 위, 3단계 관절와 높이</td></tr>
+<tr data-i="6"><td>Snyder(스나이더)</td><td>SLAP 병변</td><td>1형 닳음, 2형 이두근-관절와순 복합체 분리로 가장 흔함, 3형 양동이 손잡이, 4형 이두근 장두까지 연장</td></tr>
+<tr data-i="7"><td>Outerbridge(아우터브리지)</td><td>관절 연골 손상</td><td>1 연화, 2 1.5센티미터 미만 균열, 3 1.5센티미터 이상 균열, 4 연골하골 노출</td></tr>
+<tr data-i="8"><td>반월상 연골 파열 형태</td><td>무릎</td><td>종 파열, 수평, 방사형, 양동이 손잡이, 뿌리 파열. 바깥 3분의 1 적색 구역은 혈류가 있어 봉합 가능</td></tr>
+</table></div>
+<p data-i="9">Frobell 등의 KANON 연구는 급성 전방 십자 인대 파열의 젊고 활동적인 성인 121명을 구조화된 재활과 조기 재건술, 그리고 재활 후 필요하면 늦게 재건하는 전략으로 나누었습니다. 2년 무릎 점수 변화는 39.2점 대 39.4점으로 차이가 없었고, 지연 재건 전략군 59명 중 23명만 재건술을 받았으며 36명은 재활만으로 지냈습니다.<sup>1</sup></p>
+<p data-i="10">Sihvonen 등의 핀란드 FIDELITY 연구는 골관절염이 없는 35에서 65세의 퇴행성 내측 반월상 연골 파열 환자 146명을 관절경 부분 절제술과 가짜 수술로 무작위 배정한 이중 맹검 연구입니다. 12개월 Lysholm 점수, WOMET 점수, 운동 후 통증 어느 것도 차이가 없었습니다.<sup>2</sup></p>
+<p data-i="11">Beard 등의 CSAW 연구는 회전근개가 온전하고 운동 치료와 주사에도 3개월 이상 아픈 견봉하 통증 환자 313명을 견봉하 감압술, 진단 관절경만 하는 군, 무치료 군으로 나누었습니다. 6개월 옥스퍼드 어깨 점수는 감압술 32.7점, 관절경만 34.2점으로 차이가 없었고, 두 수술군 모두 무치료보다 조금 좋았지만 임상적으로 중요한 차이는 아니었습니다.<sup>3</sup></p>
+</section><section id="s2"><div class="sechead"><h1 data-i="12">2. 관절 질환 — 골관절염과 무혈성 괴사</h1>
+<button class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<p data-i="13">Kellgren-Lawrence grade(켈그렌-로렌스 등급)는 단순 방사선 사진으로 골관절염을 0에서 4등급으로 나눕니다. 1등급은 의심스러운 골극, 2등급은 뚜렷한 골극과 관절 간격 감소 가능성, 3등급은 여러 골극과 뚜렷한 관절 간격 감소, 연골하 경화, 4등급은 큰 골극과 심한 간격 감소, 뚜렷한 경화와 뼈 변형입니다. 이 부분은 교과서 기준입니다.</p>
+<figure class="fig" id="fq4-kl"><svg aria-label="Kellgren-Lawrence 등급" role="img" style="font-family:inherit" viewbox="0 0 640 290">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">Kellgren-Lawrence 등급(무릎 정면 도식)</text>
+<g fill="var(--box)" stroke="var(--ink)" stroke-width="2.5">
+<path d="M20 60 L120 60 L120 120 Q70 132 20 120 Z"></path><path d="M20 160 Q70 150 120 160 L120 220 L20 220 Z"></path>
+<path d="M145 60 L245 60 L245 120 Q195 132 145 120 Z"></path><path d="M145 158 Q195 148 245 158 L245 220 L145 220 Z"></path>
+<path d="M270 60 L370 60 L370 124 Q320 134 270 124 Z"></path><path d="M270 152 Q320 144 370 152 L370 220 L270 220 Z"></path>
+<path d="M395 60 L495 60 L495 128 Q445 138 395 128 Z"></path><path d="M395 146 Q445 140 495 146 L495 220 L395 220 Z"></path>
+<path d="M520 60 L620 60 L620 134 Q570 142 520 134 Z"></path><path d="M520 138 Q570 136 620 138 L620 220 L520 220 Z"></path></g>
+<g fill="var(--ink)">
+<path d="M145 120 l-6 6 l6 2 Z"></path>
+<path d="M270 124 l-10 6 l10 4 Z M370 124 l10 6 l-10 4 Z"></path>
+<path d="M395 128 l-12 6 l12 4 Z M495 128 l12 6 l-12 4 Z M395 146 l-12 -4 l12 -4 Z"></path>
+<path d="M520 134 l-16 4 l16 4 Z M620 134 l16 4 l-16 4 Z M520 138 l-16 6 l16 4 Z M620 138 l16 6 l-16 4 Z"></path></g>
+<g fill="#7a6a4a" opacity=".35"><rect height="10" width="100" x="395" y="118"></rect><rect height="10" width="100" x="395" y="146"></rect><rect height="14" width="100" x="520" y="120"></rect><rect height="14" width="100" x="520" y="138"></rect></g>
+<g fill="var(--ink)" font-size="18" text-anchor="middle">
+<text font-weight="700" x="70" y="250">0</text><text font-size="14" x="70" y="272">정상</text>
+<text font-weight="700" x="195" y="250">1</text><text font-size="14" x="195" y="272">의심스러운 골극</text>
+<text font-weight="700" x="320" y="250">2</text><text font-size="14" x="320" y="272">뚜렷한 골극</text>
+<text font-weight="700" x="445" y="250">3</text><text font-size="14" x="445" y="272">간격 감소·경화</text>
+<text font-weight="700" x="570" y="250">4</text><text font-size="14" x="570" y="272">간격 소실·변형</text></g>
+</svg><figcaption><b>그림 1.</b> 골관절염의 <b>Kellgren-Lawrence 등급</b>. 검은 삼각형은 골극, 갈색 띠는 연골하 경화입니다.<span class="src">그림: Claude 작성 도식(교과서 서술을 요약한 것으로, 원 논문의 그림이 아닙니다).</span></figcaption></figure>
+<p data-i="14">대퇴골두 무혈성 괴사는 Ficat-Arlet classification(피캣-알렛 분류)과 ARCO classification(국제 골순환 연구회 분류)으로 나눕니다. 1기는 X-ray 정상, MRI 이상, 2기는 경화와 낭종이 보이지만 골두가 둥근 상태, 3기는 연골하 골절인 crescent sign(초승달 징후)이나 골두 함몰, 4기는 관절 간격 감소와 골관절염입니다. 골두가 함몰되기 전, 즉 2기까지는 골두 보존 수술을 고려할 수 있고, 함몰 후에는 대부분 인공 관절을 고려합니다. MRI의 이중선 징후는 무혈성 괴사의 특징입니다. 이 부분은 교과서 기준입니다.</p>
+</section><section id="s3"><div class="sechead"><h1 data-i="15">3. 종양 — 병기와 병적 골절 위험</h1>
+<button class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<div class="tbl"><table><tr><th>분류</th><th>내용</th></tr>
+<tr data-i="16"><td>Enneking 양성</td><td>1기 잠재성(비골화 섬유종), 2기 활동성(동맥류성 골낭종), 3기 공격성(거대세포종)</td></tr>
+<tr data-i="17"><td>Enneking 악성</td><td>IA 저등급 구획 내, IB 저등급 구획 외, IIA 고등급 구획 내, IIB 고등급 구획 외로 골육종 대부분, III 원격 전이</td></tr>
+<tr data-i="18"><td>Mirels score(미렐스 점수)</td><td>위치, 통증, 병변 형태, 크기를 각 1에서 3점, 합 12점. 9점 이상 예방적 고정, 8점은 판단, 7점 이하 방사선 치료와 관찰</td></tr>
+<tr data-i="19"><td>Campanacci(캄파나치)</td><td>거대세포종 방사선 등급 1에서 3, 3등급은 피질을 뚫고 연부 조직으로 확장</td></tr>
+</table></div>
+<p data-i="20">Mirels 점수의 항목은 위치가 상지 1점, 하지 2점, 전자부 주위 3점입니다. 통증은 경도 1점, 중등도 2점, 기능성 통증 3점입니다. 병변은 골형성 1점, 혼합 2점, 골용해 3점이고, 크기는 피질 두께의 3분의 1 미만 1점, 3분의 1에서 3분의 2는 2점, 3분의 2 초과는 3점입니다. 체중을 실을 때 아픈 기능성 통증이 가장 중요한 경고 신호입니다. 이 부분은 교과서 기준입니다.</p>
+<div class="warn" data-i="21"><b>원칙:</b> 원발성 악성 종양이 의심되는 병변은 최종 수술을 할 기관에서 생검합니다. 생검 경로는 이후 절제 범위에 포함되어야 하므로, 다른 곳에서 함부로 절개 생검하거나 금속 고정을 하지 않습니다.</div>
+</section><section id="s4"><div class="sechead"><h1 data-i="22">4. 소아 종합 — 다시 보는 분류</h1>
+<button class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<div class="tbl"><table><tr><th>분류</th><th>대상</th><th>핵심</th></tr>
+<tr data-i="23"><td>Graf(그라프)</td><td>영아 고관절 초음파</td><td>알파각 60도 이상 1형 정상, 50에서 59도 2형, 43도 미만이면 4형까지 진행</td></tr>
+<tr data-i="24"><td>Herring lateral pillar(헤링 외측 기둥)</td><td>페르테스병</td><td>A 높이 유지, B 50퍼센트 이상 유지, B/C 경계, C 50퍼센트 미만</td></tr>
+<tr data-i="25"><td>Loder(로더)</td><td>대퇴골두 골단 분리증</td><td>목발로도 걸을 수 있으면 안정형, 걷지 못하면 불안정형으로 무혈성 괴사 위험 큼</td></tr>
+<tr data-i="26"><td>Gartland(가틀랜드)</td><td>과상부 골절</td><td>1형 비전위, 2형 뒤쪽 피질 연결, 3형 완전 전위</td></tr>
+<tr data-i="27"><td>Salter-Harris(샐터-해리스)</td><td>성장판 골절</td><td>2형 가장 흔함, 5형 처음엔 안 보임</td></tr>
+<tr data-i="28"><td>Risser(리서)</td><td>남은 성장</td><td>0에서 5, 0에서 1에 초경 전이면 측만 진행 위험 큼</td></tr>
+<tr data-i="29"><td>GMFCS</td><td>뇌성 마비</td><td>1에서 5, 높을수록 고관절 탈구 위험 큼</td></tr>
+</table></div>
+<p data-i="30">Kocher 등은 급성으로 고관절이 아픈 아이에서 화농성 관절염과 일과성 활막염을 구분하는 네 가지 예측 인자를 찾았습니다. 발열 병력, 체중 부하 불가, 적혈구 침강 속도 시간당 40밀리미터 이상, 혈액 백혈구 12,000 초과입니다. 화농성 관절염의 예측 확률은 인자가 하나도 없으면 0.2퍼센트 미만, 하나 3.0퍼센트, 둘 40.0퍼센트, 셋 93.1퍼센트, 넷 99.6퍼센트였습니다.<sup>4</sup></p>
+<figure class="fig" id="fq4-kocher"><svg aria-label="Kocher 예측 확률" role="img" style="font-family:inherit" viewbox="0 0 640 280">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">예측 인자 수에 따른 화농성 관절염 확률(Kocher 1999)</text>
+<g fill="var(--ink)" font-size="18">
+<text x="20" y="80">0개</text><rect fill="var(--okb)" height="24" width="2" x="90" y="64"></rect><text font-weight="700" x="102" y="82">&lt;0.2%</text>
+<text x="20" y="120">1개</text><rect fill="var(--okb)" height="24" rx="3" width="13" x="90" y="104"></rect><text font-weight="700" x="113" y="122">3.0%</text>
+<text x="20" y="160">2개</text><rect fill="#e8a33d" height="24" rx="3" width="176" x="90" y="144"></rect><text font-weight="700" x="276" y="162">40.0%</text>
+<text x="20" y="200">3개</text><rect fill="#c0392b" height="24" rx="3" width="410" x="90" y="184"></rect><text font-weight="700" x="510" y="202">93.1%</text>
+<text x="20" y="240">4개</text><rect fill="#c0392b" height="24" rx="3" width="438" x="90" y="224"></rect><text font-weight="700" x="538" y="242">99.6%</text>
+<text fill="var(--muted)" font-size="15" x="20" y="272">인자: 발열 병력 · 체중 부하 불가 · ESR ≥40 mm/h · 혈액 백혈구 &gt;12,000/mm³</text></g>
+</svg><figcaption><b>그림 2.</b> Kocher 기준의 <b>예측 인자 수와 화농성 관절염 확률</b>. 막대 길이는 초록 수치에 비례합니다. 원 연구의 후향적 개발 코호트 수치입니다.<span class="src">그림: Claude 작성 도식(Kocher 1999 초록 수치를 그린 것으로, 원 논문의 그림이 아닙니다).</span></figcaption></figure>
+</section><section id="s5"><div class="sechead"><h1 data-i="31">5. 구술 대비 — 한 문장으로 말하기</h1>
+<button class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<div class="box" data-i="32"><b>소리 내어 연습할 문장</b><br/>DeOrio-Cofield — 1, 3, 5센티미터. Goutallier 3 이상은 봉합 결과 나쁨.<br/>Snyder 2형 SLAP — 가장 흔함, 이두근-관절와순 분리.<br/>Outerbridge 4 — 연골하골 노출.<br/>반월상 연골 적색 구역 — 바깥 3분의 1, 봉합 가능.<br/>Kellgren-Lawrence — 골극으로 시작해 간격 감소, 경화, 변형.<br/>무혈성 괴사 3기 — 초승달 징후, 함몰 전후가 치료를 가른다.<br/>Enneking IIB — 고등급 구획 외, 골육종 대부분.<br/>Mirels — 12점 만점, 9점 이상 예방적 고정, 기능성 통증이 핵심.<br/>Kocher — 발열, 체중 부하 불가, ESR 40, 백혈구 12,000.<br/>Graf 1형 — 알파각 60도 이상.</div>
+<h2 data-i="33">근거가 바꾼 스포츠·관절 진료</h2>
+<p data-i="34">세 연구를 한 줄로 요약합니다. 젊은 활동적 성인의 급성 전방 십자 인대 파열도 재활 후 필요할 때 재건하는 전략으로 2년 결과가 같았고 수술이 크게 줄었습니다. 골관절염이 없는 퇴행성 내측 반월상 연골 파열의 부분 절제술은 가짜 수술보다 낫지 않았습니다. 회전근개가 온전한 견봉하 통증의 감압술은 진단 관절경보다 낫지 않았습니다.</p>
+<p data-i="35">이제 짝을 이루는 문제은행 4권에서 직접 풀어 보시기 바랍니다. 다음 5권은 전 범위를 섞은 모의고사입니다.</p>
+</section><section id="s6"><div class="sechead"><h1 data-i="36">6. 참고문헌</h1>
+<button class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="37"><span class="tag">확인</span> Frobell RB, Roos EM, Roos HP, Ranstam J, Lohmander LS. A randomized trial of treatment for acute anterior cruciate ligament tears. <i>N Engl J Med</i>. 2010;363:331–342. <a href="https://doi.org/10.1056/NEJMoa0907797">doi:10.1056/NEJMoa0907797</a></li>
+<li data-i="38"><span class="tag">확인</span> Sihvonen R, Paavola M, Malmivaara A, et al. Arthroscopic partial meniscectomy versus sham surgery for a degenerative meniscal tear. <i>N Engl J Med</i>. 2013;369:2515–2524. <a href="https://doi.org/10.1056/NEJMoa1305189">doi:10.1056/NEJMoa1305189</a></li>
+<li data-i="39"><span class="tag">확인</span> Beard DJ, Rees JL, Cook JA, et al. Arthroscopic subacromial decompression for subacromial shoulder pain (CSAW): a multicentre, pragmatic, parallel group, placebo-controlled, three-group, randomised surgical trial. <i>Lancet</i>. 2018;391:329–338. <a href="https://doi.org/10.1016/S0140-6736(17)32457-1">doi:10.1016/S0140-6736(17)32457-1</a></li>
+<li data-i="40"><span class="tag">확인</span> Kocher MS, Zurakowski D, Kasser JR. Differentiating between septic arthritis and transient synovitis of the hip in children: an evidence-based clinical prediction algorithm. <i>J Bone Joint Surg Am</i>. 1999;81:1662–1670. <a href="https://doi.org/10.2106/00004623-199912000-00002">doi:10.2106/00004623-199912000-00002</a></li>
+<li data-i="41"><span class="tag2">표준</span> DeLee, Drez and Miller's Orthopaedic Sports Medicine, 5th ed.; Campbell's Operative Orthopaedics, 14th ed.; Lovell and Winter's Pediatric Orthopaedics, 8th ed. — DeOrio-Cofield, Goutallier, Patte, Snyder, Outerbridge, 반월상 연골 파열 형태와 혈류 구역, Kellgren-Lawrence, Ficat-Arlet와 ARCO, Enneking, Mirels, Campanacci, 생검 원칙, Graf, Herring, Loder, Gartland, Salter-Harris, Risser, GMFCS의 일반 서술 기준</li>
+<li data-i="42"><span class="tag2">짝</span> 문제은행 4권 — <a href="https://claude.ai/artifact/L15kVCTy9SafqKncHN95Dp">클로드_문제은행 4권_Sports·Joint·Tumor·Pediatric 30문항 1판</a> (바로 풀고 해설 확인)</li>
+</ol>
+<h2 data-i="43">읽는 법</h2>
+<p data-i="44">「확인」 표시는 PubMed 초록으로 본문 수치를 직접 대조한 문헌, 「표준」 표시는 교과서 서술 기준입니다. KANON 연구는 프로 선수가 아닌 활동적 일반인이 대상이었습니다. FIDELITY 연구는 골관절염이 없는 퇴행성 내측 반월상 연골 파열 증상이 대상이므로 급성 외상성 파열이나 양동이 손잡이 파열에 그대로 적용하지 않습니다. Kocher 수치는 원 연구의 후향적 코호트 값으로, 다른 병원에서 검증하면 확률이 더 낮게 나올 수 있다는 점이 교과서에 언급되지만 그 수치는 이번 권에서 대조하지 않았습니다. Mirels 점수와 Graf 각도는 교과서 기준이며 원 논문과 직접 대조하지 않았습니다.</p>
+</section><p class="note">작성: Claude · 2026년 10월 7일 (1판). 「선희」 음성 녹음 포함. 「확인」 표시 문헌은 PubMed 초록으로 수치를 대조했고, 「표준」 표시는 교과서 서술 기준입니다.</p></div><div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/05_분류·문제은행/클로드_분류_04권_스포츠·관절·종양·소아.mp4"], "t": [[0, 0.0, 2.712], [0, 3.062, 43.454], [0, 43.804, 47.356], [0, 47.706, 62.898], [0, 63.248, 77.408], [0, 77.758, 90.19], [0, 90.54, 106.356], [0, 106.706, 122.282], [0, 122.632, 138.496], [0, 138.846, 165.966], [0, 166.316, 189.62], [0, 189.97, 218.89], [0, 219.24, 223.992], [0, 224.342, 253.43], [0, 253.78, 298.612], [0, 298.962, 303.306], [0, 303.656, 315.08], [0, 315.43, 329.422], [0, 329.772, 346.764], [0, 347.114, 357.818], [0, 358.168, 392.632], [0, 392.982, 408.774], [0, 409.124, 412.868], [0, 413.218, 427.978], [0, 428.328, 442.56], [0, 442.91, 456.542], [0, 456.892, 468.844], [0, 469.194, 480.042], [0, 480.392, 491.312], [0, 491.662, 501.862], [0, 502.212, 534.852], [0, 535.202, 539.402], [0, 539.752, 599.536], [0, 599.886, 603.606], [0, 603.956, 631.436], [0, 631.786, 641.218], [0, 641.568, 645.36], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 645.71, 647.582], [0, 647.932, 692.764]]};</script><script>(function(){
+var D=window.__AUD__;if(!D.urls||!D.urls.length)return;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>
