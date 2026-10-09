@@ -1,6 +1,6 @@
 // Browser-level navigation smoke for every byte-preserved Claude HTML lecture.
-// Runs against the local static server in runtime-navigation-e2e; does NOT claim
-// that remote Cloudflare Preview, real Android hardware or MP4 playback passed.
+// Runs against the local static server OR exact-SHA Cloudflare Preview when
+// CLAUDE_E2E_LIVE=true. Neither mode claims real Android hardware or MP4 playback.
 import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
@@ -140,7 +140,7 @@ try {
     results
   };
   fs.writeFileSync(path.join(outDir, 'report.json'), JSON.stringify(report, null, 2) + '\n');
-  console.log('PASS | Claude original local browser navigation: ' + report.mobileLecturesOpened +
+  console.log('PASS | Claude original ' + (isLive ? 'exact-SHA live Preview' : 'local') + ' browser navigation: ' + report.mobileLecturesOpened +
     '/87 mobile + ' + report.desktopRepresentativeLecturesOpened +
     '/10 desktop representative; categories=' + categoryCounts.join(','));
   console.log('INFO | Inner-HTML horizontal overflows: ' + report.knownHorizontalOverflows.length +
