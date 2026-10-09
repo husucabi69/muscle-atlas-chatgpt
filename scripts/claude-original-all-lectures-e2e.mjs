@@ -43,6 +43,10 @@ try {
       serviceWorkers: 'block'
     });
     const page = await context.newPage();
+    const failedRequests=[];
+    page.on('requestfailed',request=>{
+      if(request.url().includes('/claude-library/'))failedRequests.push({url:request.url(),failure:request.failure()});
+    });
     page.setDefaultTimeout(15000);
     await page.goto(base + '/', { waitUntil: 'domcontentloaded' });
     await page.locator('.tab[data-page="diseaseTrauma"]').click();
@@ -79,13 +83,27 @@ try {
                 !iframe.hidden && document.getElementById('diseaseTraumaLoadIssue').hidden &&
                 !document.getElementById('diseaseTraumaOriginalView').hidden;
             } catch { return false; }
-          }, expectedPath, { timeout: 20000 });
+          }, expectedPath, { timeout: isLive ? 38000 : 20000 });
         } catch (error) {
           await page.screenshot({
             path: path.join(outDir, 'failure-' + viewport.label + '-lecture-' + number + '.png')
           }).catch(() => {});
+          const details=await page.evaluate(()=>{
+            const frame=document.getElementById('diseaseTraumaOriginalFrame');
+            let detail={path:null,title:null,readyState:null,bodyChars:null};
+            try{
+              detail.path=frame?.contentWindow?.location?.pathname;
+              detail.title=frame?.contentDocument?.title;
+              detail.readyState=frame?.contentDocument?.readyState;
+              detail.bodyChars=(frame?.contentDocument?.body?.innerText||'').length;
+            }catch(e){detail.readError=String(e);}
+            return {...detail,frameHidden:frame?.hidden,frameSrc:frame?.src,
+              issue:document.getElementById('diseaseTraumaLoadIssue')?.innerText,
+              status:document.getElementById('diseaseTraumaOriginalStatus')?.innerText};
+          });
           throw new Error('Lecture ' + number + ' (' + row.title + ') failed original iframe load at ' +
-            expectedPath + ': ' + String(error));
+            expectedPath + ': ' + String(error)+'; diagnostics='+JSON.stringify(details)+
+            '; failedRequests='+JSON.stringify(failedRequests.slice(-6)));
         }
         const details = await page.locator('#diseaseTraumaOriginalFrame').evaluate(frame => ({
           pathname: decodeURIComponent(frame.contentWindow.location.pathname),
