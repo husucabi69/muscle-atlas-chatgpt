@@ -41,6 +41,8 @@ jobs:
         run: node scripts/disease-trauma-native-qa.mjs
       - name: Run Claude Original Classroom QA
         run: node scripts/claude-library-runtime-qa.mjs
+      - name: Enforce 3-screen Claude Original app integration and PWA safety contract
+        run: node scripts/claude-navigation-contract-qa.mjs
       - name: Run Claude Original exact-HTML sync regression QA
         run: node scripts/claude-original-sync-qa.mjs
       - name: Run Claude original source-integrity Service Worker QA
