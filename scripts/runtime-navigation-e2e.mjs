@@ -724,7 +724,7 @@ try{
   if(!thirdText.includes('팔꿈치 질환')||!thirdText.includes('우리 서버 원본'))fail('Elbow Disease self-hosted badge',thirdText);
   const pending=page.locator('[data-claude-lecture="34"]');
   const pendingText=(await pending.textContent()||'').trim();
-  if(!pendingText.includes('Claude 원본 fallback'))fail('Hand Disease fallback badge',pendingText);
+  if(!pendingText.includes('우리 서버 원본'))fail('Hand Disease self-hosted badge',pendingText);
 
   await first.click();
   await page.waitForTimeout(150);
