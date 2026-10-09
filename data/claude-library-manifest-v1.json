@@ -31,7 +31,12 @@
       "source_path": "1_강의페이지/00_근육총람/클로드_근육총람_대화형.html",
       "claude_artifact_url": "https://claude.ai/artifact/M1ytAeYVG3MykqRBFtomuZ",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1cgUbi0AuQDaipXqDdFEoGYVC0FMWpkwv",
+      "source_bytes": 3194396,
+      "source_sha256": "9859d623cf6185dafe79a8af048664a4a685465c1cc30ce461b36a245bc93adf",
+      "source_git_blob_sha1": "3137e7011aebc157f596bf061204f6749463b1f9",
+      "source_embedded_artifact": false
     },
     {
       "number": 2,
@@ -40,7 +45,12 @@
       "source_path": "1_강의페이지/00_근육총람/클로드_근육총람_표지·목록.html",
       "claude_artifact_url": "https://claude.ai/artifact/9TgeQSbLbxxAkSvPnCGvq7",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1Fl3yOsYV8qR4V6sNGJfxduH405FI9eCG",
+      "source_bytes": 3195425,
+      "source_sha256": "dac53d11da53d62af0dc9a3d70bcf52bd447eab82d9b31d193a54103c53ffa0f",
+      "source_git_blob_sha1": "29971e1fd0912cd357c7849df03c1bf01e2488fd",
+      "source_embedded_artifact": false
     },
     {
       "number": 3,
@@ -49,7 +59,18 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_01권_어깨·견갑대.html",
       "claude_artifact_url": "https://claude.ai/artifact/PCY9jsSx6fBnnuceZSjWrW",
       "audio": "있음(2부)",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1jF-YfryO3C0DpYK0M9yZRR2TRAwwqjUq",
+      "source_bytes": 1104600,
+      "source_sha256": "c3a3eb7166004597a47d1e91dc31a0e41cb7131e863cd776b4c31bbe4b694821",
+      "source_git_blob_sha1": "7498843154778adcb66bf8320e7176d431f90578",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_01권_어깨·견갑대_1부.mp4",
+      "r2_object_keys": [
+        "2_음성/01_근육학/클로드_근육학_01권_어깨·견갑대_1부.mp4",
+        "2_음성/01_근육학/클로드_근육학_01권_어깨·견갑대_2부.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 4,
@@ -58,7 +79,14 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_02권_상박부.html",
       "claude_artifact_url": "https://claude.ai/artifact/Qmq7djuzHsXqsTcu6K2o2m",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1ZgJGNNt9OHWul1MWsgO85JZLrXCOYN_k",
+      "source_bytes": 428041,
+      "source_sha256": "d1f176d867c5d50e97f160da596f49233df3253aa524914229bc098d40c7ff6e",
+      "source_git_blob_sha1": "d6818fecb9c3eeaab9cc26fdf23bc2b71eafe4a5",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_02권_상박부.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 5,
@@ -67,7 +95,18 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_03권_전완부.html",
       "claude_artifact_url": "https://claude.ai/artifact/KA6Y3aHRWPu9Y6HGGeg9sy",
       "audio": "있음(2부)",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1oQVoHopEQjzv-G0GvJPf1Dsqw_oyrL5R",
+      "source_bytes": 813115,
+      "source_sha256": "e9c6fd98e6220900d351f090feb1837ca487ec4f738495dfdcb6a62fa986835d",
+      "source_git_blob_sha1": "b7ae06786c13dbbfb8b338b939777e59ef8df7f1",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_03권_전완부_1부.mp4",
+      "r2_object_keys": [
+        "2_음성/01_근육학/클로드_근육학_03권_전완부_1부.mp4",
+        "2_음성/01_근육학/클로드_근육학_03권_전완부_2부.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 6,
@@ -76,7 +115,14 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_04권_손.html",
       "claude_artifact_url": "https://claude.ai/artifact/Q5hNtDAvd4wEGeoAFfYtUg",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1IeyECcYQqq0IN8udtUvUTkZ2VYNNxveg",
+      "source_bytes": 698999,
+      "source_sha256": "560d8e549ec9dfba2063154bcdcc6260e92dbb957cf5b20c6068892f4e27c16e",
+      "source_git_blob_sha1": "e1700f8e707619b86a7568336b14c334ef0a4036",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_04권_손.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 7,
@@ -85,7 +131,18 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_05권_대퇴부.html",
       "claude_artifact_url": "https://claude.ai/artifact/EFutUQPd8QRaNVRX3AUwEL",
       "audio": "있음(2부)",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1lVmvMJGMMvO7bYFglL1kO6mAVhUoyrag",
+      "source_bytes": 1505385,
+      "source_sha256": "70c081acca5f826cfeda23a283ae351a80a89ea8ba73e049a6ce7bc04fc71c72",
+      "source_git_blob_sha1": "84e6cb6c85c789bb1e39ef4ae5373c82e2c86988",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_05권_대퇴부_1부.mp4",
+      "r2_object_keys": [
+        "2_음성/01_근육학/클로드_근육학_05권_대퇴부_1부.mp4",
+        "2_음성/01_근육학/클로드_근육학_05권_대퇴부_2부.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 8,
@@ -94,7 +151,18 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_06권_하퇴부.html",
       "claude_artifact_url": "https://claude.ai/artifact/15gmemUqEGy9NdZs1GLME4",
       "audio": "있음(2부)",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "13Uh_eRPHvmta2TvT8SwBK1_SD9D0DqIj",
+      "source_bytes": 775557,
+      "source_sha256": "810266f85064de42def56e10cefb094492a8651f9ce9ab17767341d467f8b7d4",
+      "source_git_blob_sha1": "070e89496f5504e4a495d208cc6009d31ff4e6a8",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_06권_하퇴부_1부.mp4",
+      "r2_object_keys": [
+        "2_음성/01_근육학/클로드_근육학_06권_하퇴부_1부.mp4",
+        "2_음성/01_근육학/클로드_근육학_06권_하퇴부_2부.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 9,
@@ -103,7 +171,14 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_07권_발목·발.html",
       "claude_artifact_url": "https://claude.ai/artifact/8fdw5bN2zGidQPoHZCrEDB",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1wCKwmUNatXx7Us8_hO9vP8Xcu5b0uVtg",
+      "source_bytes": 1245235,
+      "source_sha256": "5d4bed305012852c8f21fc492004c19674c5d826bebb37392bc0ff3881990580",
+      "source_git_blob_sha1": "5fd14be3fc88524c8d82a573a86ecf2c1d572374",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_07권_발목·발.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 10,
@@ -112,7 +187,14 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_08권_경추.html",
       "claude_artifact_url": "https://claude.ai/artifact/4mWpUECGfLgWCGUmLiETYj",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1hKJNbP1K3qwvQZSOKSmZItEmDiRvO0BW",
+      "source_bytes": 1464118,
+      "source_sha256": "0dadfc70c117690f5a0e75f086ab1554905b44e583b41e5cf1b978870d0e9cd9",
+      "source_git_blob_sha1": "25ce7f98ed9c897d61f0df30768425c4d090279e",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_08권_경추.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 11,
@@ -121,7 +203,14 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_09권_흉추.html",
       "claude_artifact_url": "https://claude.ai/artifact/Km7FqeEfewJAjc2v5vESKh",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1cuvPTn44LCtfpUS3i5iVo8nDJ3tdnZjJ",
+      "source_bytes": 1323007,
+      "source_sha256": "b24cf7b9b80a17edea19637ed6e18b3f84ed7c8289d640df623d7c5cb9441bdf",
+      "source_git_blob_sha1": "234f15aa197a4b79cc3e424a078c519f07b1ad97",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_09권_흉추.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 12,
@@ -130,7 +219,14 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_10권_요추.html",
       "claude_artifact_url": "https://claude.ai/artifact/4mxUD1NFyaSmABFfra3Qnh",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1IoYY09AZ21kbZ9U-eTCKn-FQc-Fgsxfs",
+      "source_bytes": 1174208,
+      "source_sha256": "9687c8c640019c697ff332c97c4c321fa67389a81dcd46dfb71269b0c43d866a",
+      "source_git_blob_sha1": "830e2112e596eb6225b4d14dcab726e13e12571f",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_10권_요추.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 13,
@@ -139,7 +235,14 @@
       "source_path": "1_강의페이지/01_근육학/클로드_근육학_11권_골반.html",
       "claude_artifact_url": "https://claude.ai/artifact/XBPWdmNaypkTMPM9KeGk3r",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1959uMrXyDV2utIENDEAQaGY_fj218NW5",
+      "source_bytes": 1446878,
+      "source_sha256": "125bf82ba3145c1c2ffad76d3ba4f8e55b213c2153b940caf714d8acea9d43de",
+      "source_git_blob_sha1": "3befd3d8933bfbb73ea439e22d0ac71acd2e0a41",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/01_근육학/클로드_근육학_11권_골반.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 14,
@@ -610,7 +713,14 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_14권_요추_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/TuLEEnfqgkXGzG4thx1vQ7",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1Cz92zU40N3XvOtSJh2n7F7ppnjwBJfjb",
+      "source_bytes": 201507,
+      "source_sha256": "bbe8dceed2fe9bdda3e7456cf8151ddf614910270034116d6553f1656c07ce96",
+      "source_git_blob_sha1": "f5125083700d2878df2bffa3065e411045351d9d",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_14권_요추_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 42,
@@ -944,7 +1054,14 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_분류_01권_상지_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/1JE6AddfMtu5K1LL2eNgWL",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1H3BWJq0y5ZOSKNOjsJp78hBgjG-PGjuv",
+      "source_bytes": 37043,
+      "source_sha256": "292b8adb03c522277775aa2771102f4f84a8668114139a4b9bb6ab005df8bfed",
+      "source_git_blob_sha1": "52b596fee11c0f2e6f82f7fe1bb1e16fa01c38fb",
+      "source_embedded_artifact": true,
+      "r2_object_key": "2_음성/05_분류·문제은행/클로드_분류_01권_상지_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 65,
