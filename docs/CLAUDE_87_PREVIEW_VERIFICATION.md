@@ -50,3 +50,17 @@
 - 관측: Preview의 `2026.10.09-stage23.90` / `v12.18` 응답 확인. GitHub 공개 Actions 페이지는 최신 해당 commit Global QA를 `In progress`로 노출. 이는 개별 작업 PASS나 최종 결과의 증거가 아님.
 - **위반 사실:** `docs/MASTER_ROADMAP.md`의 더 엄격한 TinyFish 규칙은 **단순 공개 페이지 읽기 및 GitHub/Cloudflare 상태 확인 사유 사용 자체를 금지**한다. 사용자는 사전에 자체 수단 제한·대상·단가를 설명받았지만, 호출 당시 더 엄격한 규칙을 확인하지 못하고 조회한 절차 위반을 즉시 사용자에게 알림. 다음 회차부터 이 목적의 TinyFish Fetch도 **사용하지 않는다**. 도구 추가 호출 없음.
 - 실제 Preview 전수 브라우저 점검 및 물리적 Android 검증은 별도 CI·실기기 증거 없이는 완료 선언하지 않는다.
+
+## Android 사용자 실사용 회귀 — 2026-10-09 23:31 KST (Release Blocker)
+
+**의장님 제보:** Android Preview v12.18에서 학술 분야를 누르면 같은 화면 아래쪽에 2단 목록이 갱신되어 찾아 내려야 했고, 강의를 누른 다음 iframe 내부에 `원본 강의 확인 필요`라는 Service Worker 생성 503 오류 페이지가 표시됨. 네트워크 아이콘은 5G. 이 상태를 87강 실사용 완료라고 판정하면 안 됨.
+
+**독립 화면 필수 구조:** `학술 강의실(10개 분야)` → `선택 분야의 강의 목록만` → `우리 앱에 저장한 실제 원본 HTML 1강만`. 선택 즉시 상위 목록은 숨기고 현재 새 화면 최상단에 보여야 함. 2단/3단 화면 상단의 `← 전체 학술 분야` / `← 강의 목록으로`, Android Back 동일 경로를 제공. 목차 밑에 결과를 덧붙이는 UI는 영구 금지.
+
+**원본 검증 정책:** 자체호스팅 manifest 87건과 실제 렌더링 성공을 구분. iframe이 "원본 강의 확인 필요"라는 SW 실패 문서이면 원본을 읽었다고 표시하지 않고 내부 원본 로딩 실패 및 재동기화 버튼 제공. 외부 Claude Artifact URL은 선택적으로 실패한 경우만 보조적 경로이며 내부 강의의 대체 구현이라고 주장하지 않는다. 원본 HTML 바이트는 그대로 유지한다.
+
+**수정 적용:** 독립 category drill, 하단 중복 24강 목록 숨김, Android scroll reset, 브라우저 뒤로가기 3단 보강, Service Worker 네트워크 최신 manifest 재검증 + 검증 실패 코드 노출, iframe onload 실체 확인 및 재시도 버튼, 활성 Service Worker 상태의 로컬·정확한 Cloudflare Preview E2E 2강 추가, 로컬·live 87강 전수 browser E2E에서 503 문서 검출.
+
+**완료 판정:** 위 수정 코드가 GitHub에 있다는 것만으로 PASS 아님. 새 commit의 GitHub Actions Global QA / Runtime E2E / Deploy Safety Gate와 실제 Cloudflare 배포 완료 및 의장님의 Android 화면 검증이 필요함. 실제 모바일 전체 87강과 음성 재생 검증은 여전히 별도 미완료 상태.
+
+**도구 원칙:** 이 장애 회차는 GitHub 공식 커넥터와 기존 자체 QA 스크립트만 사용하며 TinyFish 호출은 수행하지 않음. Production/main 미변경.
