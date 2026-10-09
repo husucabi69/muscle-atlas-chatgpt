@@ -53,6 +53,7 @@ try {
     const counts = [];
     for (let category = 0; category < 10; category++) {
       await page.locator('[data-claude-academic-category="' + category + '"]').click();
+      await page.waitForFunction(() => !document.getElementById('diseaseTraumaCategoryView').hidden);
       const ids = await page.locator('#claudeAcademicCourseList [data-claude-academic-lecture]')
         .evaluateAll(nodes => nodes.map(n => Number(n.dataset.claudeAcademicLecture)));
       if (!ids.length || ids.some(id => !byNumber.has(id)))
@@ -74,6 +75,8 @@ try {
               const w = iframe.contentWindow;
               return decodeURIComponent(w.location.pathname) === expected &&
                 !!w.document.body && (w.document.body.innerText || w.document.body.textContent || '').trim().length >= 30 &&
+                w.document.title !== '원본 강의 확인 필요' &&
+                !iframe.hidden && document.getElementById('diseaseTraumaLoadIssue').hidden &&
                 !document.getElementById('diseaseTraumaOriginalView').hidden;
             } catch { return false; }
           }, expectedPath, { timeout: 20000 });
@@ -114,7 +117,7 @@ try {
         } else {
           await page.locator('#diseaseTraumaOriginalView .region-back').click();
         }
-        await page.waitForFunction(() => !document.querySelector('#diseaseTraumaRootView').hidden);
+        await page.waitForFunction(() => !document.querySelector('#diseaseTraumaCategoryView').hidden);
       }
     }
     if (viewport.all) {
