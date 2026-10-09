@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_각 부위별 연관통 — 음성 강의</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}</style></head><body>
+<div class="wrap">
+<header class="hero"><div class="kicker">정형외과 강의실 · 외래 감별 가이드 · 음성 강의판</div>
+<h1>각 부위별 연관통</h1>
+<p>어깨 · 흉추 · 요추 · 복부 · 서혜부 · 팔다리</p>
+<p>문단을 누르면 그 자리부터 읽어드립니다. 읽는 문단은 노란색으로 표시됩니다.</p>
+<div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-android="intent://claude.ai/artifact/FqWvwezPbrpajWpXTLHnuZ#Intent;scheme=https;package=com.android.chrome;end" data-ios="x-safari-https://claude.ai/artifact/FqWvwezPbrpajWpXTLHnuZ" data-url="https://claude.ai/artifact/FqWvwezPbrpajWpXTLHnuZ" href="intent://claude.ai/artifact/FqWvwezPbrpajWpXTLHnuZ#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/FqWvwezPbrpajWpXTLHnuZ</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다 · 전체 약 33분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 이 문서의 원칙과 근거 표시 규칙</a></li><li><a href="#s1">1. 연관통의 기전 — 왜 엉뚱한 곳이 아픈가</a></li><li><a href="#s2">2. 어깨로 오는 연관통</a></li><li><a href="#s3">3. 흉추·등으로 오는 연관통</a></li><li><a href="#s4">4. 요추·옆구리로 오는 연관통</a></li><li><a href="#s5">5. 복부 — 복부로 '위장'하는 근골격 통증 포함</a></li><li><a href="#s6">6. 서혜부로 오는 연관통</a></li><li><a href="#s7">7. 팔다리로 오는 연관통</a></li><li><a href="#s8">8. 외래 레드플래그 통합 체크리스트</a></li><li><a href="#s9">9. 부록: 오늘 강의 요약 (어깨)</a></li><li><a href="#s10">10. 정정 사항</a></li><li><a href="#s11">11. 참고문헌 및 출처</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 이 문서의 원칙과 근거 표시 규칙</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<div class="box" data-i="1"><b>핵심 원칙 세 가지</b><br/>
+① 근골격 진찰이 정상인 통증은 <b>몸통 안</b>을 보라는 신호다.<br/>
+② <b>근골격 소견 양성 ≠ 내장 질환 음성.</b> 같은 분절에 둘이 공존할 수 있다(오늘 강의의 결론).<br/>
+③ 근골격 압통이 환자의 <b>그 통증을 100% 재현하지 못하면</b>, 나머지 통증의 출처를 따로 찾는다.</div>
+<p data-i="2">근거 표시 규칙: 각 항목 끝의 위첨자 번호는 11장 참고문헌 번호입니다. 참고문헌에는 <span class="tag">검증</span>(이번 작업 중 웹으로 원문 또는 초록을 직접 확인)과 <span class="tag2">표준</span>(정형외과·내과의 표준 교과서 및 널리 인용되는 고전 문헌으로, 이번 작업에서 원문 대조는 하지 않음)을 구분해 달았습니다. 수치(%)는 <span class="tag">검증</span> 출처에서만 인용했습니다.</p>
+<p data-i="3">이 문서는 감별 사고의 틀을 제공하는 학습 자료이며, 개별 환자의 판단은 진찰·검사 결과에 따릅니다.</p></section><section id="s1"><div class="sechead"><h1 data-i="4">1. 연관통의 기전 — 왜 엉뚱한 곳이 아픈가</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<h2 data-i="5">수렴-투사 이론 (Convergence–Projection Theory)</h2>
+<p data-i="6">내장 구심섬유와 체성(피부·근육) 구심섬유가 척수 후각의 <b>같은 2차 신경세포</b>로 수렴합니다. 뇌는 평소 훨씬 자주 들어오는 체성 신호에 익숙하므로, 내장에서 온 통증을 같은 분절의 체표 통증으로 '오독'합니다.<sup>1,2</sup> 척수 제1층(lamina I)에서 체성·내장 C섬유가 단일 신경세포에 단일시냅스로 수렴한다는 것이 실험적으로 확인되어, 연관통의 해부학적 기반으로 제시되었습니다.<sup>1</sup></p>
+<div class="box" data-i="7"><b>의장님 정리 그대로 (Kehr 징후 예시)</b><br/>비장 파열 → 혈종이 좌측 횡격막 하면 자극 → 횡격신경(C3·4·5) → 같은 분절의 쇄골상신경 영역(어깨끝)으로 뇌가 오인 → 좌측 어깨끝 통증.<sup>3,4</sup></div>
+<h2 data-i="8">내장성 연관통의 공통 특징</h2>
+<div class="tbl"><table><tr data-i="9"><th style="width:28%">특징</th><th>임상적 의미</th></tr>
+<tr data-i="10"><td>깊고, 둔하고, 경계가 불분명</td><td>환자가 손가락 하나로 짚지 못하고 손바닥으로 넓게 가리킨다.<sup>2,5</sup></td></tr>
+<tr data-i="11"><td>자세·움직임과 무관</td><td>관절가동범위, 압통, 유발검사로 재현되지 않는다 — 가장 중요한 감별 단서.<sup>5</sup></td></tr>
+<tr data-i="12"><td>내장 기능과 연동</td><td>식사(담낭·췌장), 노작(심장), 호흡(흉막·횡격막), 배뇨(신장·요관)에 따라 변한다.<sup>5</sup></td></tr>
+<tr data-i="13"><td>자율신경 동반 증상</td><td>식은땀, 오심, 창백, 빈맥, 발열.</td></tr>
+<tr data-i="14"><td>야간·휴식 시 통증</td><td>기계적 통증은 쉬면 줄어드는 것이 원칙. 휴식통·야간통은 비기계적 원인을 시사.<sup>9</sup></td></tr>
+</table></div>
+<h2 data-i="15">체성 연관통 vs 신경근성 통증 (근골격 내부의 감별)</h2>
+<p data-i="16">후관절·천장관절·디스크 같은 척추 구조물도 연관통을 만듭니다(체성 연관통). 이는 신경근 압박에 의한 <b>신경근성 통증</b>과 다릅니다. 체성 연관통은 깊고 넓게 퍼지며 경계가 모호하고 신경학적 결손이 없는 반면, 신경근성 통증은 피부분절을 따라 띠처럼 뻗치고 저림·감각저하·반사 변화를 동반하는 경향이 있습니다.<sup>17</sup></p></section><section id="s2"><div class="sechead"><h1 data-i="17">2. 어깨로 오는 연관통</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<div class="box" data-i="18"><b>출발점:</b> 어깨 ROM 전 방향 정상, 대결절·AC관절 압통 없음, 유발검사 음성인데 어깨가 아프다 → 어깨 밖을 본다.</div>
+<h2 data-i="19" id="s2a">2-1. 좌측 어깨: 심장 · 비장</h2>
+<h3 data-i="20">① 심근허혈 / 심근경색</h3>
+<p data-i="21"><b>양상:</b> 좌측 어깨, 좌측 팔 안쪽(척측), 턱, 목, 명치, 가슴의 압박감. <b>노작</b>(걷기, 계단, 무거운 것 들기)에서 악화되고 쉬면 완화. 식은땀·오심·호흡곤란 동반.</p>
+<div class="warn" data-i="22"><b>함정 — 흉통 없는 심근경색:</b> 미국 심근경색 등록자료 434,877명 분석에서 확진 심근경색 환자의 <b>33%가 내원 시 흉통이 없었고</b>, 이 군은 평균 7세 더 고령이며 여성·당뇨·심부전 과거력 비율이 높았고, 원내 사망률이 23.3% 대 9.3%로 두 배 이상이었습니다.<sup>6</sup> 2012년 후속 분석에서도 흉통 없는 내원은 여성 42%, 남성 31%였습니다.<sup>7</sup><br/>
+→ <b>당뇨·고령·여성·심부전 과거력</b> 환자의 설명 안 되는 좌측 어깨·턱·명치 통증은 심전도 문턱을 낮춘다. 단, 무흉통 심근경색 환자 중 당뇨는 약 1/3에 불과해 "당뇨만 조심"은 불충분합니다.<sup>6</sup></div>
+<h3 data-i="23">② 비장 손상 · 파열 — Kehr 징후</h3>
+<p data-i="24"><b>정의:</b> 복강 내 혈액이나 자극물이 횡격막을 자극해 어깨끝에 통증이 나타나는 현상. 좌측은 비장 파열의 고전적 징후입니다.<sup>3,4</sup> 누운 자세(특히 하지 거상)에서 혈액이 횡격막 쪽으로 몰려 통증이 심해지는 것이 특징적으로 기술됩니다.<sup>3</sup></p>
+<p data-i="25"><b>단서:</b> 좌측 갈비뼈 아래·좌측 흉곽·좌측 옆구리 둔상, 좌상복부 압통·근성방어, 저혈압. 성인에서 좌측 하부 늑골 골절 환자의 최대 20%가 비장 손상을 동반합니다.<sup>4</sup></p>
+<p data-i="26"><b>놓치기 쉬운 경우:</b> 경미한 외상 후 수일 지나 발생하는 <b>지연성 비장 파열</b>, 전염성 단핵구증 환자의 비외상성 파열.<sup>3,4</sup></p>
+<div class="warn" data-i="27">외상력 + 좌측 어깨끝 통증 + 어깨 진찰 정상 → 활력징후 확인 후 즉시 응급 영상(CT/초음파) 의뢰.</div>
+<h2 data-i="28" id="s2b">2-2. 우측 어깨: 간 · 담낭 · 횡격막하</h2>
+<h3 data-i="29">③ 담낭염 · 담석</h3>
+<p data-i="30">우측 어깨끝 또는 <b>우측 견갑골 하각 부위</b>로 연관통. 기름진 식사 후 1시간 전후 우상복부 통증과 동반, Murphy 징후. 어깨 진찰은 정상.<sup>5,9</sup></p>
+<h3 data-i="31">④ 간 · 횡격막하 농양 · 복강 내 출혈</h3>
+<p data-i="32">우측 횡격막 자극도 같은 경로(C3–5)로 우측 어깨끝 통증을 만듭니다. 발열 + 어깨끝 통증이면 횡격막하 농양, 자궁외임신 파열 같은 복강 내 출혈도 어깨끝 통증으로 올 수 있습니다.<sup>3,5</sup></p>
+<h2 data-i="33" id="s2c">2-3. 폐첨부(판코스트) · 흉막 · 경추</h2>
+<h3 data-i="34">⑤ 판코스트 종양 (폐첨부 종양)</h3>
+<p data-i="35">폐첨부의 비소세포폐암이 상완신경총·교감신경절·늑골·척추를 침범해 <b>어깨 통증, 호너 증후군, 손 내재근 약화·위축</b>을 만듭니다.<sup>10</sup> 초기에는 기침·호흡곤란·객혈이 없는 경우가 많아 <b>정형외과·신경과 질환으로 먼저 오인</b>되는 것이 진단의 핵심 어려움입니다.<sup>10</sup> 회전근개 손상으로 오진된 증례가 보고되어 있고, 지속적인 통증과 일상생활 방해가 근골격 원인이 아니라는 단서였습니다.<sup>11</sup></p>
+<div class="warn" data-i="36"><b>"완고한" 어깨 통증</b> = 표준 치료(소염제·주사·물리치료)에 반응하지 않고 지속되는 통증. 흡연자·고령 + 완고한 어깨·팔 안쪽 통증 + 손 저림 → <b>흉부 X선</b>(어깨 X선에서도 폐첨부가 보이면 반드시 확인).<sup>11</sup></div>
+<h3 data-i="37">⑥ 흉막염 · 폐렴 · 폐색전</h3>
+<p data-i="38">흉막 자극은 어깨·등으로 뻗치며 <b>깊은 호흡·기침</b>에 악화됩니다. 횡격막 흉막이면 어깨끝, 늑골 흉막이면 흉벽 국소 통증.<sup>5</sup></p>
+<h3 data-i="39">⑦ 경추 신경근병증 · 경추 후관절</h3>
+<p data-i="40">가장 흔하고 가장 많이 섞이는 원인. C5–6 신경근병증은 어깨 외측·삼각근 부위 통증과 극상근·삼각근 약화로 회전근개 질환을 흉내냅니다. 경추 후관절도 고유한 연관통 지도를 가집니다(C4–5, C5–6 후관절은 어깨 상부·견갑 부위).<sup>16</sup></p>
+<div class="ok" data-i="41"><b>의장님 방식:</b> 목 ROM에서 통증이 재현되면 경추, 어깨 ROM·진찰에서 재현되면 어깨. <b>보강:</b> 둘 다 재현되면(중년 이후 흔함) 피부분절을 따라 손끝까지 내려가는 저림·감각저하·반사 변화가 있는지로 경추 비중을 판단. 50대 이후 새로 생긴 어깨 근력 약화는 경추를 한 번 끼워 본다.</div>
+<h2 data-i="42">어깨 연관통 감별 요약표</h2>
+<div class="tbl"><table><tr data-i="43"><th>원인</th><th>위치</th><th>악화 요인</th><th>결정적 단서</th><th>다음 단계</th></tr>
+<tr data-i="44"><td>심장</td><td>좌 어깨·팔 안쪽·턱·명치</td><td>노작</td><td>식은땀, 호흡곤란, 위험인자</td><td>심전도, 트로포닌, 응급의뢰</td></tr>
+<tr data-i="45"><td>비장(Kehr)</td><td>좌 어깨끝</td><td>누운 자세</td><td>좌측 흉복부 외상, 저혈압</td><td>응급 CT/초음파</td></tr>
+<tr data-i="46"><td>담낭·간</td><td>우 어깨끝·우 견갑 하각</td><td>기름진 식사</td><td>우상복부 압통, Murphy</td><td>복부 초음파</td></tr>
+<tr data-i="47"><td>횡격막하 농양</td><td>어깨끝</td><td>호흡</td><td>발열, 복부 수술력</td><td>CT</td></tr>
+<tr data-i="48"><td>판코스트</td><td>어깨·팔 안쪽·손</td><td>무관(지속)</td><td>흡연, 호너, 손 위축, 치료 무반응</td><td>흉부 X선 → CT</td></tr>
+<tr data-i="49"><td>흉막·폐</td><td>어깨·등</td><td>깊은 호흡·기침</td><td>발열, 호흡곤란</td><td>흉부 X선</td></tr>
+<tr data-i="50"><td>경추</td><td>목→어깨→팔</td><td>목 움직임·자세</td><td>목 ROM 재현, 피부분절 저림</td><td>신경학적 검사, MRI</td></tr>
+</table></div></section><section id="s3"><div class="sechead"><h1 data-i="51">3. 흉추·등으로 오는 연관통</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<h3 data-i="52">① 췌장 (췌장염 · 췌장암)</h3>
+<p data-i="53">명치에서 <b>등 한가운데로 꿰뚫는</b> 통증. 식후·음주 후 악화, 앞으로 웅크리면 완화. 췌장암은 체중 감소, 새로 생긴 당뇨 또는 당뇨 악화, 지방변, 황달.<sup>5,9</sup></p>
+<h3 data-i="54">② 대동맥 박리</h3>
+<p data-i="55">갑자기 시작해 처음부터 최고조인 <b>찢어지는 듯한</b> 흉통·등 통증, 통증이 아래로 이동. 고혈압 과거력, 양팔 혈압 차이. 등 통증 단독으로 오는 경우도 있습니다.<sup>18</sup></p>
+<h3 data-i="56">③ 담낭 — 우측 견갑 하각</h3>
+<p data-i="57">2장 참조. "등이 결린다"로 내원하는 경우가 있어 흉추 문제로 오인되기 쉽습니다.<sup>9</sup></p>
+<h3 data-i="58">④ 심장 · 식도 · 위 후벽 궤양</h3>
+<p data-i="59">하벽 심근경색과 식도 질환은 견갑골 사이 통증으로 올 수 있고, 위·십이지장 후벽 궤양은 공복통·야간통과 함께 흉추 하부 등 통증을 만듭니다.<sup>5,9</sup></p>
+<h3 data-i="60">⑤ 대상포진 발진 전 통증</h3>
+<p data-i="61">발진이 나타나기 전 며칠간 흉추 피부분절을 따라 띠 모양의 화끈거리는 통증·이질통. 피부를 살짝 스치기만 해도 아픈 것이 단서. 고령·면역저하 환자에서 며칠 뒤 재진.<sup>9</sup></p>
+<h3 data-i="62">⑥ 신장(상극) · 흉막 하부</h3>
+<p data-i="63">신장 상극 질환은 늑골척추각 부위, 하부 흉막은 하부 흉추 주위 통증으로 올 수 있습니다.<sup>5</sup></p>
+<h2 data-i="64">의장님이 제기한 핵심 함정 — 흉추 다열근 + 췌장 공존</h2>
+<p data-i="65">흉추 다열근 자극이 후지(posterior ramus)와 전피신경(anterior cutaneous branch)을 자극해 등과 명치에 통증을 만들 수 있고, 실제 췌장 질환이 있는데 흉추 다열근 압통이 같이 있으면 근골격으로 결론 내리고 내장을 놓치기 쉽습니다.</p>
+<div class="tbl"><table><tr data-i="66"><th style="width:24%">감별 도구</th><th>근골격 쪽</th><th>내장 쪽</th></tr>
+<tr data-i="67"><td>통증의 리듬</td><td>특정 동작·자세에서 악화, 쉬면 완화</td><td>자세와 무관한 바탕 통증, 식후·음주 후 악화, 웅크리면 완화(췌장)</td></tr>
+<tr data-i="68"><td>재현의 완전성</td><td>압통이 "바로 그 통증"을 100% 재현</td><td>압통은 있으나 평소 통증과 다르거나 일부만 재현</td></tr>
+<tr data-i="69"><td>동반 증상</td><td>없음</td><td>체중 감소, 지방변, 당뇨 악화, 황달, 발열</td></tr>
+<tr data-i="70"><td>치료적 감별</td><td>다열근·포착 부위를 풀면 통증이 기대만큼 빠짐</td><td>근골격 치료 후에도 남는 통증 → 내장 재평가</td></tr>
+</table></div>
+<div class="warn" data-i="71">흉추 중간 통증 + 소화기 단서 1개 이상 → 아밀라제·리파아제, 간기능, 혈당, 복부 영상의 문턱을 낮춘다.</div></section><section id="s4"><div class="sechead"><h1 data-i="72">4. 요추·옆구리로 오는 연관통</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<h3 data-i="73">① 요관 결석 · 신우신염</h3>
+<p data-i="74">옆구리 → 하복부 → 서혜부·고환(음순)으로 뻗치는 <b>발작적 산통</b>. 어떤 자세로도 편하지 않아 몸부림치는 것이 근골격 통증과의 핵심 차이. 혈뇨, 배뇨 증상, 발열(신우신염), 늑골척추각 타진통.<sup>5,9</sup></p>
+<h3 data-i="75">② 복부 대동맥류(AAA) — 반드시 기억</h3>
+<p data-i="76">파열 AAA 152례 후향 분석에서 <b>30%가 처음에 오진</b>되었고, 가장 흔한 오진은 요관 산통, 게실염, 위장관 출혈이었습니다. 오진군에서 박동성 복부 종괴는 26%에서만 만져졌습니다.<sup>13</sup> 응급의학 교육과정은 <b>50세 이상의 복통·요통·옆구리 통증</b>에서 AAA를 감별진단에 넣도록 하며, 흔한 오진 목록에 근골격성 요통이 포함되어 있습니다.<sup>14</sup></p>
+<div class="warn" data-i="77">고령 남성·흡연·고혈압 + 갑작스러운 요통/옆구리 통증, 특히 "요관 결석 같은데 처음 겪는" 경우 → 복부 촉진(박동성 종괴), 혈압, 복부 초음파. 증상 있는 AAA는 응급입니다.<sup>13,14</sup></div>
+<h3 data-i="78">③ 췌장 · 후복막 질환</h3>
+<p data-i="79">췌장 체부·미부 질환과 후복막 종양·림프절 병변은 상부 요추 통증으로 올 수 있습니다. 야간통, 체중 감소가 단서.<sup>9</sup></p>
+<h3 data-i="80">④ 골반 장기 (부인과 · 전립선)</h3>
+<p data-i="81">자궁내막증, 난소 질환은 월경 주기와 연동된 요천추부 통증, 전립선염·전립선암 전이는 천골·하요추 통증으로 올 수 있습니다.<sup>9</sup></p>
+<h2 data-i="82">의장님이 제기한 핵심 함정 — 요추 문제 + 요관 문제 공존</h2>
+<p data-i="83">극돌기 압통, 극돌기 측면 다열근 부착부 압통, 허리 움직임 시 통증이 있으면서 요관 결석이 같이 있으면 감별이 매우 어렵습니다. 다음 순서로 거릅니다.</p>
+<div class="box" data-i="84">① 통증이 <b>파도처럼 몰려왔다 빠지는가</b>(산통) — 근골격은 동작에 비례하지 파도치지 않는다.<br/>
+② 허리를 움직이지 않을 때도 아픈가, 편한 자세가 있는가.<br/>
+③ 옆구리에서 <b>서혜부·고환으로 내려가는가</b> — 요추 후관절 연관통은 서혜부까지는 가도 고환까지는 드물다.<br/>
+④ <b>소변검사 한 번</b> — 혈뇨가 비치면 영상. 비용 대비 가장 효율적인 안전장치.<br/>
+⑤ 50세 이상이면 AAA를 같은 자리에 함께 올려놓는다.</div></section><section id="s5"><div class="sechead"><h1 data-i="85">5. 복부 — 복부로 '위장'하는 근골격 통증 포함</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<h2 data-i="86">복부로 오는 연관통 (내장·흉부 기원)</h2>
+<h3 data-i="87">① 충수염의 이동통</h3>
+<p data-i="88">초기에는 명치·배꼽 주위의 둔한 내장통(T10 분절), 수시간 뒤 벽측 복막이 자극되면 우하복부로 국소화. 초기 명치통을 위염으로 보고 넘기지 않는다.<sup>5,9</sup></p>
+<h3 data-i="89">② 하벽 심근경색</h3>
+<p data-i="90">명치 통증·소화불량·오심만으로 올 수 있습니다. 흉통 없는 심근경색은 1/3에 달한다는 점을 기억.<sup>6</sup></p>
+<h3 data-i="91">③ 하엽 폐렴 · 흉막염</h3>
+<p data-i="92">특히 소아에서 하엽 폐렴이 복통으로만 나타날 수 있습니다. 발열 + 빠른 호흡 + 복통.<sup>5</sup></p>
+<h3 data-i="93">④ 고환 염전</h3>
+<p data-i="94">소아·청소년에서 하복부 통증으로만 호소하는 경우가 있어 고환 진찰을 생략하면 놓칩니다(6장 참조).<sup>5</sup></p>
+<h2 data-i="95">복부로 위장하는 근골격·신경 통증 (정형외과 쪽에서 잡아야 할 것)</h2>
+<h3 data-i="96">⑤ 복벽 통증 · 전피신경 포착증후군(ACNES)</h3>
+<p data-i="97">복직근을 관통하는 늑간신경 전피지가 포착되어 국소적인 복벽 통증을 만듭니다. 만성 복통 환자에서 자주 간과되며, <b>Carnett 징후</b>로 감별합니다: 압통점을 누른 상태에서 환자가 머리·어깨를 들어 복벽을 긴장시킬 때 통증이 <b>그대로이거나 심해지면 복벽 기원</b>, 줄어들면 복강 내 기원을 시사.<sup>15</sup></p>
+<h3 data-i="98">⑥ 흉추 신경근병증 · 하부 늑골 증후군</h3>
+<p data-i="99">하부 흉추 신경근 자극은 옆구리에서 복부로 이어지는 띠 모양 통증을 만들고, 몸통 회전·기침에서 악화됩니다. 하부 늑골의 과가동(slipping rib)은 늑골 연을 잡아당길 때 통증이 재현됩니다.<sup>9</sup></p>
+<div class="ok" data-i="100"><b>의장님 외래 적용:</b> 의장님이 말씀하신 흉추 다열근–전피신경 경로는 ACNES와 같은 축의 개념입니다. Carnett 양성이면 근골격·신경 쪽 무게를 높이되, 3장의 "공존 함정" 원칙은 그대로 유지합니다.</div></section><section id="s6"><div class="sechead"><h1 data-i="101">6. 서혜부로 오는 연관통</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<div class="tbl"><table><tr data-i="102"><th style="width:20%">원인</th><th>특징</th><th>감별 단서</th></tr>
+<tr data-i="103"><td>고관절 내 병변</td><td>고관절 통증의 대표 부위는 서혜부·둔부·대퇴. 주사로 확인된 고관절 통증에서 둔부 71%, 서혜부 55%, 대퇴 57%, 무릎 아래 22%.<sup>19</sup></td><td>고관절 내회전·FADIR에서 재현, C 징후(손으로 C자 모양으로 감싸 쥠)</td></tr>
+<tr data-i="104"><td>요관 결석</td><td>옆구리→서혜부→고환·음순</td><td>산통, 혈뇨, 고관절 ROM 정상</td></tr>
+<tr data-i="105"><td>상부 요추 신경근(L1–2) · 후관절</td><td>서혜부·대퇴 전면</td><td>요추 움직임 재현, 감각 변화</td></tr>
+<tr data-i="106"><td>탈장(서혜·대퇴·폐쇄공)</td><td>기침·힘줄 때 서혜부 통증·종괴. 폐쇄공 탈장은 대퇴 내측으로 뻗치는 통증(Howship-Romberg 징후)으로 고령 마른 여성에서 고관절·신경 문제로 오인</td><td>기침 시 종괴, 장폐색 증상</td></tr>
+<tr data-i="107"><td>고환 염전 · 부고환염</td><td>서혜부·하복부 통증으로 호소</td><td>고환 진찰 필수, 염전은 응급</td></tr>
+<tr data-i="108"><td>AAA · 장골동맥류</td><td>서혜부·고환·회음부로 뻗치는 통증이 보고됨<sup>13</sup></td><td>고령, 박동성 종괴, 하지 맥박</td></tr>
+<tr data-i="109"><td>장요근 농양 · 골반 내 질환</td><td>고관절 굴곡 구축, 발열</td><td>장요근 징후(신전 시 통증), 염증 수치</td></tr>
+<tr data-i="110"><td>자궁외임신 · 난소 질환</td><td>가임기 여성 하복부·서혜부</td><td>월경력, 임신 검사</td></tr>
+</table></div>
+<div class="warn" data-i="111">가임기 여성의 서혜부·하복부 통증 + 어깨끝 통증 = 자궁외임신 파열에 의한 복강 내 출혈(Kehr 징후 경로)까지 염두.<sup>3</sup></div></section><section id="s7"><div class="sechead"><h1 data-i="112">7. 팔다리로 오는 연관통</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s7">▶ 이 장 듣기</button></div>
+<h2 data-i="113">상지</h2>
+<div class="tbl"><table><tr data-i="114"><th style="width:22%">원인</th><th>분포</th><th>감별 단서</th></tr>
+<tr data-i="115"><td>심장</td><td>좌측 팔 안쪽(척측)·손목</td><td>노작 연동, 팔 ROM·신경검사 정상<sup>6</sup></td></tr>
+<tr data-i="116"><td>판코스트 종양</td><td>C8–T1: 팔 안쪽·4·5지</td><td>호너, 손 내재근 위축, 흡연, 치료 무반응<sup>10,11</sup></td></tr>
+<tr data-i="117"><td>경추 신경근병증</td><td>피부분절(C5 어깨, C6 엄지, C7 중지, C8 소지)</td><td>Spurling, 목 ROM 재현, 반사·근력 변화</td></tr>
+<tr data-i="118"><td>경추 후관절(체성 연관통)</td><td>목·견갑·어깨 상부, 팔꿈치 위까지</td><td>신경학적 결손 없음, 후관절 압통<sup>16,17</sup></td></tr>
+<tr data-i="119"><td>흉곽출구 · 말초 포착</td><td>척측(흉곽출구), 정중신경(손목)</td><td>Roos, Tinel·Phalen, 이중 압궤 고려</td></tr>
+</table></div>
+<h2 data-i="120">하지</h2>
+<h3 data-i="121">① 고관절 → 무릎 (가장 중요)</h3>
+<p data-i="122">대퇴신경·폐쇄신경 관절지가 고관절과 무릎을 함께 지배해, 고관절 질환이 <b>무릎 전면·내측 통증</b>으로 나타날 수 있습니다.<sup>20</sup> 고관절 관절염 환자의 <b>47%가 무릎 아래 통증</b>을 보였는데, 정형외과 전공의 88.5%는 고관절 통증이 무릎 아래로 내려가지 않는다고 믿고 있었습니다.<sup>21</sup></p>
+<div class="warn" data-i="123"><b>소아·청소년 무릎 통증 = 고관절부터:</b> 대퇴골두 골단분리증(SCFE)은 무릎·대퇴 통증만 호소하는 경우가 있고, 이것이 진단 지연의 주요 원인으로 보고되어 있습니다.<sup>22</sup> 과체중 청소년의 무릎 통증 + 무릎 진찰 정상 → 고관절 내회전 제한 확인, 양측 고관절 X선(개구리 자세 포함).</div>
+<h3 data-i="124">② 요추 후관절 · 천장관절 → 하지</h3>
+<p data-i="125">체성 연관통으로 둔부·대퇴 후면까지 퍼지며, 대개 무릎 위에서 멈추고 신경학적 결손이 없습니다. 무릎 아래로 피부분절을 따라 내려가는 저림·근력저하는 신경근성 통증을 시사합니다.<sup>17</sup></p>
+<h3 data-i="126">③ 혈관성 파행 vs 신경성 파행</h3>
+<p data-i="127">걷다가 종아리가 아파 멈추면 서 있기만 해도 회복 → 혈관성. 허리를 굽히거나 앉아야 회복, 내리막·오래 서기에서 악화 → 척추관 협착(신경성). 족배동맥·후경골동맥 맥박을 반드시 촉지.<sup>9</sup></p>
+<h3 data-i="128">④ AAA · 장골동맥 · 후복막</h3>
+<p data-i="129">고관절·요추 통증으로 보였던 AAA 파열 증례들이 보고되어 있습니다. 고관절 움직임에 통증이 일부 재현되더라도 갑작스럽고 심한 통증이면 배제하지 않습니다.<sup>13,14</sup></p></section><section id="s8"><div class="sechead"><h1 data-i="130">8. 외래 레드플래그 통합 체크리스트</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s8">▶ 이 장 듣기</button></div>
+<div class="tbl"><table><tr data-i="131"><th style="width:5%">#</th><th style="width:47%">신호</th><th>떠올릴 것</th></tr>
+<tr data-i="132"><td>1</td><td>근골격 진찰이 정상인데 아프다</td><td>해당 분절의 내장·혈관·종양</td></tr>
+<tr data-i="133"><td>2</td><td>노작에서 악화, 식은땀·호흡곤란</td><td>심근허혈 — 심전도</td></tr>
+<tr data-i="134"><td>3</td><td>당뇨·고령·여성·심부전 + 설명 안 되는 좌측 어깨·턱·명치 통증</td><td>무흉통 심근경색<sup>6,7</sup></td></tr>
+<tr data-i="135"><td>4</td><td>외상 후 어깨끝 통증, 누우면 악화, 저혈압</td><td>비장 파열(Kehr)<sup>3,4</sup></td></tr>
+<tr data-i="136"><td>5</td><td>식후 악화되는 어깨끝·견갑 하각·등 통증</td><td>담낭, 췌장</td></tr>
+<tr data-i="137"><td>6</td><td>흡연자·고령의 완고한 어깨·팔 안쪽 통증, 손 위축, 호너</td><td>판코스트 — 흉부 X선<sup>10,11</sup></td></tr>
+<tr data-i="138"><td>7</td><td>갑작스러운 찢어지는 흉통·등 통증</td><td>대동맥 박리<sup>18</sup></td></tr>
+<tr data-i="139"><td>8</td><td>50세 이상 갑작스러운 요통·옆구리 통증, "처음 겪는 결석"</td><td>복부 대동맥류<sup>13,14</sup></td></tr>
+<tr data-i="140"><td>9</td><td>파도치는 산통, 편한 자세 없음, 혈뇨</td><td>요관 결석</td></tr>
+<tr data-i="141"><td>10</td><td>야간통·휴식통, 체중 감소, 암 과거력</td><td>종양·전이</td></tr>
+<tr data-i="142"><td>11</td><td>발열 + 척추·어깨끝 통증</td><td>감염(척추염, 농양)</td></tr>
+<tr data-i="143"><td>12</td><td>표준 치료에 반응하지 않는 통증</td><td>진단 재검토</td></tr>
+<tr data-i="144"><td>13</td><td>소아·청소년 무릎 통증 + 무릎 정상</td><td>SCFE 등 고관절<sup>22</sup></td></tr>
+<tr data-i="145"><td>14</td><td>근골격 압통이 통증의 일부만 재현</td><td>공존하는 내장 질환</td></tr>
+</table></div></section><section id="s9"><div class="sechead"><h1 data-i="146">9. 부록: 오늘 강의 요약 (어깨)</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s9">▶ 이 장 듣기</button></div>
+<h2 data-i="147">① 통증궁: 손등 vs 손바닥</h2>
+<p data-i="148">외전 시 손등을 위로(내회전) 하면 아프고 손바닥을 위로(외회전) 하면 덜 아픔 → 대결절과 극상건이 견봉 아래로 들어가느냐 뒤로 빠지느냐의 차이. 의장님 해석(극상근 건병증·부분파열로 부은 건이 충돌)은 건 자체의 퇴행성 병변을 일차 원인으로 보는 최근 해석과 부합.</p>
+<h2 data-i="149">② 수평 내전 시 후방 통증 — 견갑상신경 견인 가설</h2>
+<p data-i="150">의장님 가설: 극상근 과수축·유착으로 견갑상신경이 고정(tethering)되고, 수평 내전 시 원위 분지가 견인되어 후방 통증. 문헌상 <b>극관절와 인대(spinoglenoid ligament)는 후방 관절낭에 부착하며 교차 내전·내회전 시 긴장되어 극관절와 절흔에서 견갑상신경을 견인</b>한다는 보고가 있어 가설을 지지합니다.<sup>23</sup> 신경 활주 소실이 압박 부위와 떨어진 곳에 병변을 만든다는 '견인 신경병증' 개념도 있습니다.<sup>24</sup></p>
+<div class="tbl"><table><tr data-i="151"><th>구조</th><th>위치</th><th>막히면</th></tr>
+<tr data-i="152"><td>견갑절흔 (suprascapular notch)</td><td>견갑골 위쪽 모서리, 오훼돌기 안쪽. 상견갑횡인대 아래로 신경</td><td>극상근 + 극하근</td></tr>
+<tr data-i="153"><td>극관절와 절흔 (spinoglenoid notch)</td><td>견갑극 바깥 끝을 돌아 극하와로 넘어가는 모퉁이</td><td>극하근만</td></tr>
+</table></div>
+<p data-i="154">기억법: 견갑절흔은 "위", 극관절와 절흔은 "옆". 수평 내전으로 견인되는 쪽은 극관절와 절흔.</p>
+<h2 data-i="155">③ 90도 외전·외회전 시 후방 통증의 감별</h2>
+<p data-i="156">SLAP·내부충돌만이 원인은 아님. 후방 관절낭 구축(GIRD), 극하근·소원근 긴장, 견갑상신경 견인까지 포함. 의장님 방식: 5% 포도당(D5W) 하이드로디섹션 후 호전 → 신경 포착, 무반응 → 관절와순. 단, 효과가 수일에 걸쳐 나타날 수 있어 재평가 시점을 둔다.</p>
+<p data-i="157"><b>GIRD</b> = Glenohumeral Internal Rotation Deficit(관절와상완 내회전 결손). 90도 외전에서 내회전을 반대쪽과 비교, 견갑골을 고정하고 측정.</p>
+<h2 data-i="158">④ 동결견 vs 회전근개 — 의장님 알고리즘</h2>
+<div class="tbl"><table><tr data-i="159"><th>소견</th><th>판단</th></tr>
+<tr data-i="160"><td>수동 ROM 4방향(외전·굴곡·외회전·내회전) 모두 제한 + 끝범위 통증</td><td>관절막 징후 → 동결견</td></tr>
+<tr data-i="161"><td>1–2방향만 경미한 제한, 근력 정상</td><td>초기 동결견 감별</td></tr>
+<tr data-i="162"><td>손등 통증궁(+), 손바닥 통증궁(−), ROM 대체로 정상, 대결절 압통</td><td>회전근개 질환</td></tr>
+<tr data-i="163"><td>극상근 근력검사: 통증 + 약화</td><td>근병증 또는 부분파열</td></tr>
+<tr data-i="164"><td>약화만(통증 없음)</td><td>신경병증 동반 확인</td></tr>
+</table></div>
+<p data-i="165">보강 체크포인트: 수동은 풀리는데 능동만 안 되면 대형 파열 가성마비 / 통증 차단 후에도 근력 미회복이면 구조적 파열 / 50대 이후 새 약화는 경추 배제.</p></section><section id="s10"><div class="sechead"><h1 data-i="166">10. 정정 사항</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s10">▶ 이 장 듣기</button></div>
+<div class="box" data-i="167">① <b>Kehr 징후의 명칭 유래:</b> 대화 중 "독일 외과의사 한스 커의 이름에서 왔다"고 단정했으나, 실제로 Hans Kehr가 이 징후를 처음 기술했는지는 근거가 불충분하다는 비판적 검토가 있습니다.<sup>12</sup> Kehr 본인은 좌측 어깨 통증이 흔하지 않다고 기술했고, 진단적 의의를 강조한 것은 이후 Levy(1910) 등이라는 지적이 있습니다.<sup>12</sup> 임상적 의미(횡격막 자극에 의한 어깨끝 연관통)는 변함없습니다.<br/>
+② <b>Kehr 징후의 분절:</b> 문헌에 따라 C3–C4 또는 C3–C5로 기술됩니다. 횡격신경 기시는 C3–C5가 표준입니다.<sup>3</sup><br/>
+③ <b>날짜 표기:</b> 강의 중 답변 말미에 "2026년 10월 2일"로 표기한 것은 오류였습니다. 본 문서 작성일은 2026년 10월 4일(일)입니다.</div></section><section id="s11"><div class="sechead"><h1 data-i="168">11. 참고문헌 및 출처</h1><button aria-label="이 장 듣기" class="secplay" data-sec="s11">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="169"><span class="tag">검증</span> Luz LL 외. Monosynaptic convergence of somatic and visceral C-fiber afferents on projection and local circuit neurons in lamina I: a substrate for referred pain. <i>Pain</i>. 2015. doi:10.1097/j.pain.0000000000000267. https://pmc.ncbi.nlm.nih.gov/articles/PMC4770360</li>
+<li data-i="170"><span class="tag">검증</span> Cervero F. Visceral nociception: peripheral and central aspects of visceral nociceptive systems. <i>Philos Trans R Soc Lond B</i>. 1985. PMID 2858886</li>
+<li data-i="171"><span class="tag">검증</span> Kehr's sign 개관 및 인용문헌(Rutkow IM. Arch Surg 1978;113:718–20). https://en.wikipedia.org/wiki/Kehr%27s_sign ※ 2차 개관 자료로, 원 문헌 확인용 색인으로 사용</li>
+<li data-i="172"><span class="tag">검증</span> StatPearls. Splenic Rupture. NCBI Bookshelf NBK525951 (2026판). https://www.ncbi.nlm.nih.gov/books/NBK525951/</li>
+<li data-i="173"><span class="tag2">표준</span> Goodman CC, Heick JD. <i>Differential Diagnosis for Physical Therapists: Screening for Referral</i>. 6th ed. Elsevier; 2018. (내장성 연관통 패턴 전반)</li>
+<li data-i="174"><span class="tag">검증</span> Canto JG 외. Prevalence, clinical characteristics, and mortality among patients with myocardial infarction presenting without chest pain. <i>JAMA</i>. 2000;283:3223–3229.</li>
+<li data-i="175"><span class="tag">검증</span> Canto JG 외. Association of age and sex with myocardial infarction symptom presentation and in-hospital mortality. <i>JAMA</i>. 2012;307:813–822.</li>
+<li data-i="176"><span class="tag">검증</span> StatPearls. Neuroanatomy, Autonomic Nervous System Visceral Afferent Fibers and Pain (Sanvictores T, Jozsa F, Tadi P). NBK560843. https://www.ncbi.nlm.nih.gov/books/NBK560843/</li>
+<li data-i="177"><span class="tag2">표준</span> Goodman CC, Heick JD. 위 5번 문헌 — 위장관·간담도·비뇨기·종양 스크리닝 장 (등·옆구리·서혜부 연관통, 대상포진, 파행 감별).</li>
+<li data-i="178"><span class="tag">검증</span> StatPearls. Lung Pancoast Tumor. NBK556109 (2026판). https://www.ncbi.nlm.nih.gov/books/NBK556109/</li>
+<li data-i="179"><span class="tag">검증</span> Pancoast Tumor: The Overlooked Etiology of Shoulder Pain in Smokers. <i>Am J Case Rep</i>. 2020. https://pmc.ncbi.nlm.nih.gov/articles/PMC7508304/</li>
+<li data-i="180"><span class="tag">검증</span> Klimpel V. Does Kehr's sign derive from Hans Kehr? A critical commentary on its documentation. <i>Chirurg</i>. 2004;75(1):80–83. PMID 14740133. / LITFL: Johannes Otto Kehr. https://litfl.com/johannes-otto-kehr</li>
+<li data-i="181"><span class="tag">검증</span> Marston WA 외. Misdiagnosis of ruptured abdominal aortic aneurysms. <i>J Vasc Surg</i>. 1992. (152례, 30% 오진) https://www.qxmd.com/r/1619721</li>
+<li data-i="182"><span class="tag">검증</span> SAEM CDEM M4 Curriculum. Abdominal Aortic Aneurysm. https://www.saem.org/about-saem/academies-interest-groups-affiliates2/cdem/for-students/online-education/m4-curriculum/group-m4-cardiovascular/abdominal-aortic-aneurysm</li>
+<li data-i="183"><span class="tag2">표준</span> Srinivasan R, Greenbaum DS. Chronic abdominal wall pain: a frequently overlooked problem. <i>Am J Gastroenterol</i>. 2002;97:824–830. (Carnett 징후, ACNES)</li>
+<li data-i="184"><span class="tag2">표준</span> Dwyer A, Aprill C, Bogduk N. Cervical zygapophyseal joint pain patterns I: a study in normal volunteers. <i>Spine</i>. 1990;15:453–457.</li>
+<li data-i="185"><span class="tag2">표준</span> Bogduk N. On the definitions and physiology of back pain, referred pain, and radicular pain. <i>Pain</i>. 2009;147:17–19.</li>
+<li data-i="186"><span class="tag2">표준</span> Hagan PG 외. The International Registry of Acute Aortic Dissection (IRAD): new insights into an old disease. <i>JAMA</i>. 2000;283:897–903.</li>
+<li data-i="187"><span class="tag">검증</span> Lesher JM 외. Hip joint pain referral patterns: a descriptive study. <i>Pain Med</i>. 2008;9:22–25. (수치는 WikiMSK 요약으로 교차 확인: https://wikimsk.org/wiki/Hip_Pain_Maps)</li>
+<li data-i="188"><span class="tag">검증</span> Investigation and Macroscopic Anatomical Study of Referred Pain in Patients with Hip Disease. <i>J Phys Ther Sci</i>. 2014;26:203. https://pmc.ncbi.nlm.nih.gov/articles/PMC3944289</li>
+<li data-i="189"><span class="tag">검증</span> Khan AM 외. Hip osteoarthritis: where is the pain? <i>Ann R Coll Surg Engl</i>. 2004;86(2):119–121. PMID 15005931</li>
+<li data-i="190"><span class="tag2">표준</span> Kocher MS 외. Delay in diagnosis of slipped capital femoral epiphysis. <i>Pediatrics</i>. 2004;113:e322–e325.</li>
+<li data-i="191"><span class="tag">검증</span> Medscape. Suprascapular Neuropathy (Demirhan 등 인용: spinoglenoid ligament의 후방 관절낭 부착과 교차 내전·내회전 시 견인). https://emedicine.medscape.com/article/92672-overview / StatPearls. Suprascapular Nerve Injury. NBK559151</li>
+<li data-i="192"><span class="tag">검증</span> Painful scar neuropathy: principles of diagnosis and treatment (McLellan &amp; Swash 1979 견인 신경병증 개념 인용). https://www.oaepublish.com/articles/2347-9264.160878</li>
+</ol>
+<p class="ref" data-i="193" style="margin-top:10px;">※ <span class="tag2">표준</span> 표시 문헌은 서지 정보가 널리 알려진 자료이나 이번 작업에서 원문을 직접 대조하지 않았습니다. 강의·발표 인용 전 원문 확인을 권합니다.</p></section>
+<p class="note">작성: Claude · 2026년 10월 4일. 음성은 휴대폰에 내장된 한국어 읽기 음성을 사용합니다. 소리가 나지 않으면 휴대폰의 무음 모드와 음량을 확인해 주세요.</p>
+</div>
+<div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/02_이학적검진·연관통/클로드_연관통_부위별.mp4"], "t": [[0, 0.0, 4.248], [0, 4.598, 28.67], [0, 29.02, 57.724], [0, 58.074, 67.05], [0, 67.4, 71.888], [0, 72.238, 76.558], [0, 76.908, 109.044], [0, 109.394, 128.666], [0, 129.016, 132.64], [0, 132.99, 136.902], [0, 137.252, 147.356], [0, 147.706, 158.554], [0, 158.904, 172.44], [0, 172.79, 181.142], [0, 181.492, 193.132], [0, 193.482, 199.242], [0, 199.592, 227.744], [0, 228.094, 231.478], [0, 231.828, 243.468], [0, 243.818, 248.834], [0, 249.184, 252.568], [0, 252.918, 272.31], [0, 272.66, 326.252], [0, 326.602, 330.394], [0, 330.744, 350.88], [0, 351.23, 368.27], [0, 368.62, 378.292], [0, 378.642, 390.186], [0, 390.536, 396.272], [0, 396.622, 399.334], [0, 399.684, 413.532], [0, 413.882, 418.25], [0, 418.6, 435.472], [0, 435.822, 441.438], [0, 441.788, 445.268], [0, 445.618, 479.386], [0, 479.736, 500.376], [0, 500.726, 504.494], [0, 504.844, 516.916], [0, 517.266, 521.658], [0, 522.008, 544.928], [0, 545.278, 570.91], [0, 571.26, 574.548], [0, 574.898, 584.57], [0, 584.92, 600.544], [0, 600.894, 613.398], [0, 613.748, 625.148], [0, 625.498, 635.506], [0, 635.856, 650.784], [0, 651.134, 661.55], [0, 661.9, 676.684], [0, 677.034, 681.498], [0, 681.848, 685.424], [0, 685.774, 701.71], [0, 702.06, 704.268], [0, 704.618, 719.09], [0, 719.44, 722.2], [0, 722.55, 730.422], [0, 730.772, 734.804], [0, 735.154, 747.562], [0, 747.912, 751.128], [0, 751.478, 767.63], [0, 767.98, 771.628], [0, 771.978, 779.898], [0, 780.248, 785.792], [0, 786.142, 805.39], [0, 805.74, 809.964], [0, 810.314, 824.786], [0, 825.136, 836.704], [0, 837.054, 846.774], [0, 847.124, 859.604], [0, 859.954, 871.354], [0, 871.704, 876.288], [0, 876.638, 879.902], [0, 880.252, 900.964], [0, 901.314, 905.706], [0, 906.056, 936.512], [0, 936.862, 955.654], [0, 956.004, 959.124], [0, 959.474, 971.138], [0, 971.488, 975.472], [0, 975.822, 987.534], [0, 987.884, 993.548], [0, 993.898, 1007.77], [0, 1008.12, 1042.104], [0, 1042.454, 1047.374], [0, 1047.724, 1052.38], [0, 1052.73, 1055.442], [0, 1055.792, 1069.928], [0, 1070.278, 1072.75], [0, 1073.1, 1083.3], [0, 1083.65, 1086.674], [0, 1087.024, 1095.976], [0, 1096.326, 1098.582], [0, 1098.932, 1107.86], [0, 1108.21, 1114.666], [0, 1115.016, 1120.104], [0, 1120.454, 1144.334], [0, 1144.684, 1149.22], [0, 1149.57, 1166.73], [0, 1167.08, 1184.552], [0, 1184.902, 1188.286], [0, 1188.636, 1194.06], [0, 1194.41, 1221.266], [0, 1221.616, 1233.544], [0, 1233.894, 1244.934], [0, 1245.284, 1268.204], [0, 1268.554, 1279.354], [0, 1279.704, 1292.304], [0, 1292.654, 1303.766], [0, 1304.116, 1314.172], [0, 1314.522, 1324.842], [0, 1325.192, 1328.72], [0, 1329.07, 1330.942], [0, 1331.292, 1336.788], [0, 1337.138, 1347.266], [0, 1347.616, 1360.096], [0, 1360.446, 1376.262], [0, 1376.612, 1389.428], [0, 1389.778, 1402.618], [0, 1402.968, 1404.84], [0, 1405.19, 1409.198], [0, 1409.548, 1433.404], [0, 1433.754, 1459.098], [0, 1459.448, 1464.344], [0, 1464.694, 1480.87], [0, 1481.22, 1485.156], [0, 1485.506, 1504.226], [0, 1504.576, 1508.464], [0, 1508.814, 1522.854], [0, 1523.204, 1527.428], [0, 1527.778, 1533.106], [0, 1533.456, 1542.384], [0, 1542.734, 1550.366], [0, 1550.716, 1562.86], [0, 1563.21, 1571.466], [0, 1571.816, 1580.024], [0, 1580.374, 1590.838], [0, 1591.188, 1598.46], [0, 1598.81, 1608.242], [0, 1608.592, 1615.96], [0, 1616.31, 1624.302], [0, 1624.652, 1632.956], [0, 1633.306, 1639.978], [0, 1640.328, 1648.944], [0, 1649.294, 1656.878], [0, 1657.228, 1661.452], [0, 1661.802, 1665.498], [0, 1665.848, 1688.888], [0, 1689.238, 1694.134], [0, 1694.484, 1728.804], [0, 1729.154, 1734.314], [0, 1734.664, 1748.152], [0, 1748.502, 1758.27], [0, 1758.62, 1767.884], [0, 1768.234, 1772.914], [0, 1773.264, 1803.024], [0, 1803.374, 1816.262], [0, 1816.612, 1821.076], [0, 1821.426, 1824.93], [0, 1825.28, 1837.688], [0, 1838.038, 1845.286], [0, 1845.636, 1856.676], [0, 1857.026, 1864.346], [0, 1864.696, 1870.432], [0, 1870.782, 1884.126], [0, 1884.476, 1887.092], [0, 1887.442, 1943.434], [0, 1943.784, 1953.408], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758], [0, 1953.758, 1953.758]]};</script><script>(function(){
+var D=window.__AUD__;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>
