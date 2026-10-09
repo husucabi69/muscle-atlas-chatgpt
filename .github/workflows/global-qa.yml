@@ -174,6 +174,8 @@ jobs:
         run: node scripts/claude-original-visual-e2e.mjs
       - name: Open all 87 original Claude lectures on mobile and desktop representative routes
         run: node scripts/claude-original-all-lectures-e2e.mjs
+      - name: Test installed-PWA Service Worker against original Claude HTML
+        run: node scripts/claude-pwa-installed-original-e2e.mjs
       - name: Upload all-lecture navigation evidence
         if: always()
         uses: actions/upload-artifact@v4
