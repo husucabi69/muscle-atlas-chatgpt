@@ -12,7 +12,7 @@ if(!url.hostname.endsWith('.muscle-atlas-chatgpt.pages.dev')||url.protocol!=='ht
 }
 const manifest=JSON.parse(fs.readFileSync('data/claude-library-manifest-v1.json','utf8'));
 const hosted=manifest.lectures.filter(row=>String(row.hosting_status||'').startsWith('SELF_HOSTED_'));
-if(hosted.length<50)throw new Error('Expected at least 50 verified original HTML self-hosted lectures');
+if(manifest.lectures.length<87||hosted.length!==manifest.lectures.length)throw new Error('Every inventoried Claude HTML must be live and SHA-256 verified (minimum 87; hosted='+hosted.length+' inventory='+manifest.lectures.length+')');
 let passed=0;
 for(const row of hosted){
   const target=new URL('/claude-library/'+row.source_path,url);
