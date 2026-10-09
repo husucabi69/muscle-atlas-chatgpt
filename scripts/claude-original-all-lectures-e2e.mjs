@@ -119,6 +119,10 @@ try {
         }
         await page.waitForFunction(() => !document.querySelector('#diseaseTraumaCategoryView').hidden);
       }
+      // The next category tile lives on the preceding screen, not below
+      // this list: return to the ten-category root before continuing.
+      await page.locator('#diseaseTraumaCategoryView .region-back').click();
+      await page.waitForFunction(() => !document.querySelector('#diseaseTraumaRootView').hidden);
     }
     if (viewport.all) {
       categoryCounts = counts;
