@@ -100,7 +100,12 @@ try {
             path: path.join(outDir, viewport.label + '-category-' + String(category + 1).padStart(2, '0') + '.png')
           });
         }
-        await page.locator('#diseaseTraumaOriginalView .region-back').click();
+        if (viewport.all && category === 0 && number === ids[0]) {
+          // Test browser/PWA Back once; other cases use the visible return button.
+          await page.goBack({ waitUntil: 'domcontentloaded' });
+        } else {
+          await page.locator('#diseaseTraumaOriginalView .region-back').click();
+        }
         await page.waitForFunction(() => !document.querySelector('#diseaseTraumaRootView').hidden);
       }
     }
