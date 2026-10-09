@@ -20,9 +20,11 @@ try{
     page.on('pageerror',error=>errors.push(String(error)));
     await page.goto(base+'/',{waitUntil:'domcontentloaded'});
     await page.locator('.tab[data-page="diseaseTrauma"]').click();
-    await page.waitForFunction(()=>document.querySelectorAll('#diseaseTraumaVolumeChooser [data-claude-lecture]').length>=24,{timeout:30000});
+    await page.waitForFunction(()=>document.querySelectorAll('#claudeAcademicCategoryChooser [data-claude-academic-category]').length===10,{timeout:30000});
+    await page.locator('[data-claude-academic-category="2"]').click();
+    await page.waitForFunction(()=>document.querySelectorAll('#claudeAcademicCourseList [data-claude-academic-lecture]').length===24,{timeout:30000});
     for(const lecture of lectures){
-      const item=page.locator('[data-claude-lecture="'+lecture.number+'"]');
+      const item=page.locator('[data-claude-academic-lecture="'+lecture.number+'"]');
       if(!(await item.textContent()).includes('우리 서버 원본'))throw new Error('Not self-hosted '+lecture.number);
       await item.click();
       const frame=page.frameLocator('#diseaseTraumaOriginalFrame');
@@ -63,7 +65,7 @@ try{
       await page.screenshot({path:target,fullPage:false});
       evidence.push({lecture:lecture.number,title:lecture.title,viewport:cfg.name,screenshot:name,source_sha256:lecture.source_sha256,...state});
       await page.locator('#diseaseTraumaOriginalView .region-back').click();
-      await page.waitForFunction(()=>!document.querySelector('#diseaseTraumaRootView')?.hidden,{timeout:10000});
+      await page.waitForFunction(()=>!document.querySelector('#diseaseTraumaCategoryView')?.hidden,{timeout:10000});
     }
     if(errors.length)throw new Error('Uncaught browser errors: '+errors.join(' | '));
     await context.close();
