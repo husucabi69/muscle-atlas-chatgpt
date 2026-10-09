@@ -999,3 +999,11 @@ Production `main`은 사용자 명시 승인 전까지 동결한다.
 - TinyFish 미사용
 - 2026-09-28 사용자 `진행해` 지시로 Stage 23A 다음 단계 진입 승인. 별도 A10 실기기 시각 PASS로 오기하지 않음
 - Stage 23B Patient Exercise Illustration 3.0 시작
+
+## 2026-10-09 Android 학술 강의실 실사용 결함 — 최상위 Release Blocker
+
+의장님 Android Preview v12.18 화면에서 (1) 학술 분야 터치 시 새 독립 화면이 아니라 현재 목차의 아래쪽만 갱신되어 긴 스크롤 탐색을 요구했고, (2) Claude 87강 중 직접 선택한 1강과 14강에서 Service Worker가 생성한 '원본 강의 확인 필요' 오류 문서가 나옴. **HTML 저장 87/87은 실사용 87/87과 다르다.** 앱 로딩 오류를 외부 Artifact 링크로 대체하는 방식은 완료로 간주하지 않는다.
+
+해결 정본: `학술 강의실 → 독립 분야별 목록 → 개별 원본 강의 전체화면` 3단 구조. 각 단계 상단 뒤로가기·Android 브라우저 Back, 터치 즉시 viewport 최상단, 중복 하단 목록 노출 금지. iframe 문서의 실제 제목·본문·오류 상태를 확인하며, 503 오류/앱 셸을 정상 원본으로 판정하지 않는다. 기존 Google Drive 출처 HTML 바이트/스타일/JavaScript/표/SVG를 임의 재작성하지 않는다. 설치형 PWA의 활성 Service Worker에서 대표 강의 실제 열림을 재현하는 테스트를 CI에 추가하며, 통과 여부와 사용자의 실기기 재확인을 분리한다.
+
+다음 우선순위: 해당 결함 CI·Preview·실기기 재검증 → Claude 인터랙션/모바일 검증 → R2 원본 MP4 확보·실재생 → 승인된 Stage 23B 콘텐츠/검사/초음파 로드맵 복귀. 의장님 Production 승인 전 `main` 변경 금지.
