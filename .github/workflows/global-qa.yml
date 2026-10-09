@@ -136,7 +136,7 @@ jobs:
 
   runtime-navigation-e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -166,6 +166,16 @@ jobs:
         run: node scripts/patient-exercise-illustration-3-e2e.mjs
       - name: Capture Claude original classroom at mobile and desktop sizes
         run: node scripts/claude-original-visual-e2e.mjs
+      - name: Open all 87 original Claude lectures on mobile and desktop representative routes
+        run: node scripts/claude-original-all-lectures-e2e.mjs
+      - name: Upload all-lecture navigation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-all-lectures-e2e-${{ github.sha }}
+          path: qa-artifacts/claude-all-lectures/
+          if-no-files-found: warn
+          retention-days: 14
       - name: Upload Claude original classroom visual evidence
         if: always()
         uses: actions/upload-artifact@v4
