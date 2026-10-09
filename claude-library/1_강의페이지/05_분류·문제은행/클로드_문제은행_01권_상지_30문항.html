@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>상지 문제은행 1권</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--sel:#e3ecf6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--sel:#1d2a38}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--sel:#1d2a38}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 80px}
+.kicker{font-size:14px;color:var(--muted);letter-spacing:.02em}
+h1{font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(26px,7vw,38px);line-height:1.25;margin:6px 0 8px;color:var(--accent)}
+.lead{color:var(--muted);font-size:15.5px;margin:0 0 14px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.chip{border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 13px;font-size:14.5px;font-family:inherit;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.score{margin-left:auto;font-size:15px;color:var(--muted)}
+.score b{color:var(--ink)}
+.prog{height:6px;background:var(--box);border-radius:9px;overflow:hidden;margin:4px 0 18px}
+.prog i{display:block;height:100%;width:0;background:var(--okb);transition:width .3s}
+.q{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:16px 16px 14px;margin:0 0 16px}
+.qh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.qn{font-weight:700;color:var(--accent);font-size:15px}
+.tag{font-size:12.5px;border:1px solid var(--boxb);border-radius:6px;padding:1px 7px;color:var(--muted)}
+.stem{margin:2px 0 10px;font-weight:500}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:var(--bg);color:var(--ink);border:1px solid var(--rule);border-radius:10px;padding:10px 12px;margin:6px 0;font-size:16px;font-family:inherit;cursor:pointer;line-height:1.5}
+.opt:hover:not(:disabled){background:var(--sel)}
+.opt .n{flex:0 0 22px;font-weight:700;color:var(--muted)}
+.opt.right{background:var(--ok);border-color:var(--okb)}
+.opt.wrong{background:var(--warn);border-color:var(--warnb)}
+.opt:disabled{cursor:default}
+.exp{display:none;margin-top:10px;padding:10px 12px;border-left:4px solid var(--okb);background:var(--box);border-radius:6px;font-size:15.5px}
+.exp.show{display:block}
+.exp .v{font-weight:700}
+.exp .src{display:block;margin-top:6px;font-size:13.5px;color:var(--muted)}
+.foot{margin-top:28px;font-size:14px;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.foot a{color:var(--accent2)}
+.done{display:none;background:var(--ok);border:1px solid var(--okb);border-radius:12px;padding:14px;margin:10px 0 18px}
+.btn{background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:9px 18px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}
+.empty{color:var(--muted);padding:20px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker">분류 총정리 + 문제은행 시리즈 · 1권 짝</div>
+<h1>클로드_문제은행 1권_Upper Limb 30문항 1판</h1>
+<p class="lead">상지 외상 분류와 근거, 근육학, 이학적 검사, 질환을 섞은 다섯 지선다 30문항입니다. 답을 누르면 바로 정답과 해설이 나옵니다. 실제 기출이 아닌 연습 문제입니다.</p>
+<div class="bar" id="filters"></div>
+<div class="bar">
+<button class="chip" id="wrongOnly" aria-pressed="false">틀린 문제만</button>
+<button class="chip" id="shuffle">순서 섞기</button>
+<button class="chip" id="reset">처음부터</button>
+<span class="score" id="score"></span>
+</div>
+<div class="prog"><i id="pbar"></i></div>
+<div class="done" id="done"></div>
+<div id="list"></div>
+<div class="foot">
+짝 강의: <a href="https://claude.ai/artifact/1JE6AddfMtu5K1LL2eNgWL" target="_blank" rel="noopener">클로드_분류문제 1권_Upper Limb Trauma Classification 1판</a> (「선희」 음성).<br>
+해설 근거 — 「확인」 PubMed 초록 대조: COTS 2007 JBJS <a href="https://doi.org/10.2106/JBJS.F.00020">doi:10.2106/JBJS.F.00020</a> · PROFHER 2015 JAMA <a href="https://doi.org/10.1001/jama.2015.1629">doi:10.1001/jama.2015.1629</a> · DRAFFT 2014 BMJ <a href="https://doi.org/10.1136/bmj.g4807">doi:10.1136/bmj.g4807</a> · SWIFFT 2020 Lancet <a href="https://doi.org/10.1016/S0140-6736(20)30931-4">doi:10.1016/S0140-6736(20)30931-4</a>. 「표준」 Rockwood and Green's Fractures in Adults; Green's Operative Hand Surgery; Campbell's Operative Orthopaedics; Hoppenfeld, Physical Examination of the Spine and Extremities.<br>
+작성: Claude · 2026년 10월 7일 (1판). 풀이 기록은 이 기기의 브라우저에만 저장됩니다.
+</div>
+</div>
+<script>
+const Q=[
+{"c":"분류","s":"Neer 4-part 분류에서 하나의 '부분(part)'으로 세려면 골편이 어느 정도 어긋나야 하는가?","o":["1 cm 또는 45°","5 mm 또는 20°","2 cm 또는 30°","골절선이 하나라도 보이면","골두 함몰 20% 이상"],"a":0,"e":"1 cm 초과 전위 또는 45° 초과 각형성이어야 한 부분으로 셉니다. 골절선이 많아도 어긋나지 않으면 1부분 골절입니다.","r":"표준"},
+{"c":"분류","s":"Neer 분류의 바깥쪽 쇄골 골절 중 불유합이 가장 흔한 불안정 유형은?","o":["I형 — 오훼쇄골 인대 사이, 전위 적음","II형 — 안쪽 골편이 오훼쇄골 인대에서 분리","III형 — 견봉쇄골 관절면 침범","IV형 — 소아의 골막 소매 손상","V형 — 분쇄 골절"],"a":1,"e":"II형은 안쪽 골편이 오훼쇄골 인대 지지를 잃고 흉쇄유돌근에 당겨 올라가며, 바깥 골편은 팔 무게로 내려가 불유합이 많습니다.","r":"표준"},
+{"c":"분류","s":"쇄골 원위단이 뒤로 빠져 승모근을 뚫고 나간 견봉쇄골 관절 탈구의 Rockwood 유형은?","o":["II형","III형","IV형","V형","VI형"],"a":2,"e":"IV형은 후방 전위입니다. V형은 오훼쇄골 거리가 100–300% 증가한 고도 상방 전위, VI형은 오훼돌기 아래 전위입니다. IV–VI형은 수술합니다.","r":"표준"},
+{"c":"근거","s":"완전히 어긋난 쇄골 중간부 골절 132명을 금속판 고정과 보존 치료로 비교한 COTS 무작위 연구(2007)의 결과로 옳은 것은?","o":["두 군의 기능 점수에 차이가 없었다","보존군의 유합 기간이 더 짧았다","수술군의 재수술은 대부분 감염 때문이었다","불유합이 수술군 2명, 보존군 7명으로 수술군에서 적었다","증상성 부정유합은 수술군에서 더 많았다"],"a":3,"e":"수술군이 기능 점수가 좋고 유합이 빨랐으며(16.4주 대 28.4주) 불유합(2 대 7)과 증상성 부정유합(0 대 9)이 적었습니다. 재수술은 주로 금속 제거였습니다.","r":"확인 · COTS 2007"},
+{"c":"근거","s":"외과 경부를 포함한 어긋난 위팔뼈 근위부 골절 성인 250명을 수술과 보존 치료로 나눈 PROFHER 연구(2015)의 결론은?","o":["수술군이 2년 옥스퍼드 어깨 점수가 5점 이상 높았다","보존군의 사망률이 유의하게 높았다","70세 이상에서만 수술이 우월했다","수술군에서 재수술이 유의하게 적었다","2년 옥스퍼드 어깨 점수에 유의한 차이가 없었다"],"a":4,"e":"39.07 대 38.32점으로 차이가 없었고(P=0.48), 합병증, 재수술(각 11명), 사망도 유의한 차이가 없었습니다.","r":"확인 · PROFHER 2015"},
+{"c":"질환·외상","s":"62세 여성이 넘어져 처음으로 어깨 전방 탈구가 되었다. 정복 후 2주가 지나도 팔을 들지 못한다. 가장 먼저 의심할 동반 손상은?","o":["회전근개 파열","SLAP 병변","Bankart 병변","상완이두근 장두 건 파열","견갑상 신경 포착"],"a":0,"e":"40세 이상의 첫 탈구는 관절와순보다 회전근개 파열이 흔히 동반되며, 겨드랑 신경 손상도 함께 확인합니다. 젊은 환자에서는 Bankart 병변이 주된 손상입니다.","r":"표준"},
+{"c":"질환·외상","s":"경련 발작 뒤 어깨 통증. 팔이 안쪽으로 돌아간 채 바깥 회전이 전혀 되지 않는다. 정면 X-ray는 거의 정상처럼 보인다. 진단과 동반 병변은?","o":["전방 탈구 — Hill-Sachs 병변","후방 탈구 — reverse Hill-Sachs(McLaughlin) 병변","하방 탈구 — luxatio erecta","견봉쇄골 탈구 — Rockwood III","유착성 관절낭염"],"a":1,"e":"경련과 감전은 후방 탈구의 대표 기전입니다. 골두 앞쪽이 함몰된 reverse Hill-Sachs가 생기며, 정면 사진만 보면 놓치기 쉬우므로 액와 사진이나 CT를 찍습니다.","r":"표준"},
+{"c":"질환·외상","s":"위팔뼈 원위 1/3 나선 골절(Holstein-Lewis)에서 가장 주의할 신경은?","o":["정중 신경","척골 신경","요골 신경","근피 신경","겨드랑 신경"],"a":2,"e":"요골 신경이 바깥쪽 근간 중격을 뚫는 부위에서 고정되어 손상되기 쉽습니다. 닫힌 골절의 요골 신경 마비는 대부분 저절로 회복하므로 우선 관찰합니다.","r":"표준"},
+{"c":"분류","s":"팔꿈치 'terrible triad'의 세 요소로 옳은 것은?","o":["전방 탈구, 주두 골절, 요골두 골절","요골두 골절, 골간막 파열, 원위 요척 관절 손상","후방 탈구, 내측 상과 골절, 요골 경부 골절","후방 탈구, 요골두 골절, 구상 돌기 골절","척골 골절, 요골두 탈구, 후골간 신경 마비"],"a":3,"e":"후방 탈구 + 요골두 골절 + 구상 돌기 골절입니다. 매우 불안정해 대부분 수술합니다. 보기 2는 Essex-Lopresti 손상입니다.","r":"표준"},
+{"c":"분류","s":"Bado 분류에서 가장 흔한 몬테지아 손상 유형은?","o":["I형 — 요골두 앞쪽 탈구, 척골 몸통 앞쪽 각형성","II형 — 요골두 뒤쪽 탈구","III형 — 요골두 바깥쪽 탈구","IV형 — 요골두 앞쪽 탈구와 양쪽 뼈 골절","V형 — 요골두 단독 탈구"],"a":0,"e":"I형이 가장 흔하고 소아에서 특히 많습니다. II형(후방)은 성인에서 상대적으로 많습니다. Bado 분류는 IV형까지입니다.","r":"표준"},
+{"c":"분류","s":"Mason 분류에서 팔꿈치 탈구가 동반된 요골두 골절은?","o":["I형","II형","III형","IV형","분류에 포함되지 않음"],"a":3,"e":"I 비전위, II 전위된 부분 골절, III 분쇄, IV 팔꿈치 탈구 동반입니다(Johnston 변형).","r":"표준"},
+{"c":"분류","s":"Essex-Lopresti 손상의 구성으로 옳은 것은?","o":["요골 원위 1/3 골절 + 원위 요척 관절 탈구","요골두 골절 + 골간막 파열 + 원위 요척 관절 손상","척골 근위 골절 + 요골두 탈구","요골 경상돌기 골절 + 주상월상 인대 파열","주두 골절 + 전방 탈구"],"a":1,"e":"요골두를 절제하면 요골이 근위로 이동해 손목 통증이 생기므로, 요골두는 고정하거나 치환합니다. 보기 1은 Galeazzi, 보기 3은 Monteggia입니다.","r":"표준"},
+{"c":"분류","s":"정상 원위 요골 측면 사진의 volar tilt(수장 경사)는 약 몇 도인가?","o":["0°","약 5°","약 11°","약 22°","약 35°"],"a":2,"e":"수장 경사 약 11°, 요골 경사 약 22°, 요골 높이 약 11 mm가 교과서적 정상값입니다.","r":"표준"},
+{"c":"분류","s":"원위 요골 골절에서 일반적으로 받아들이는 정복 기준으로 옳지 않은 것은?","o":["요골 단축 3 mm 이내","등쪽 기울기 10° 이내","관절면 단차 2 mm 이내","관절면 단차 5 mm 이내","요골 경사가 크게 줄지 않을 것"],"a":3,"e":"관절면 단차는 2 mm 이내가 기준입니다. 고령자는 기준을 덜 엄격하게 적용합니다.","r":"표준"},
+{"c":"근거","s":"수술이 필요한 등쪽 전위 원위 요골 골절 461명을 K-강선과 손바닥 쪽 잠김 금속판으로 비교한 DRAFFT 연구(2014)의 결과는?","o":["금속판군의 12개월 손목 점수가 임상적으로 의미 있게 높았다","K-강선군의 합병증이 두 배였다","65세 이상에서만 금속판이 우월했다","K-강선군의 재수술이 유의하게 많았다","3, 6, 12개월 손목 점수에 임상적으로 의미 있는 차이가 없었다"],"a":4,"e":"PRWE 차이 −1.3점(P=0.40)으로 차이가 없었고 합병증 수도 비슷했습니다. K-강선이 더 싸고 빨랐습니다.","r":"확인 · DRAFFT 2014"},
+{"c":"질환·외상","s":"주상골 몸쪽 극(proximal pole) 골절이 무혈성 괴사와 불유합이 많은 이유는?","o":["혈류가 먼 쪽(원위)에서 들어와 몸쪽으로 역행하기 때문","관절 연골로 완전히 덮여 골막이 두껍기 때문","척골 동맥만으로 공급되기 때문","월상골과 인대로 연결되지 않기 때문","골절선이 항상 수직이기 때문"],"a":0,"e":"요골 동맥의 등쪽 분지가 주상골 원위부와 허리로 들어가 몸쪽으로 흐르므로, 몸쪽 골편은 혈류를 잃기 쉽습니다.","r":"표준"},
+{"c":"근거","s":"2 mm 이하로 어긋난 주상골 허리 골절 성인 439명을 비교한 SWIFFT 연구(2020)가 권고한 전략은?","o":["모든 환자에게 즉시 경피 나사 고정","석고 고정으로 시작하고, 불유합이 확인되면 즉시 고정","12주 석고 후 불유합이면 6개월 더 석고","보조기만 4주","즉시 뼈 이식과 금속판 고정"],"a":1,"e":"52주 PRWE에 차이가 없었고, 수술군의 14%가 수술 관련 심각할 수 있는 합병증을 겪었습니다. 석고 고정으로 시작하고 불유합만 수술하도록 권고했습니다.","r":"확인 · SWIFFT 2020"},
+{"c":"분류","s":"손목 측면 사진에서 월상골이 '엎어진 찻잔(spilled teacup)'처럼 손바닥 쪽으로 돌아가 있다. Mayfield 단계는?","o":["1단계 — 주상월상 인대 손상","2단계 — 유두-월상 관절 탈구","3단계 — 월상삼각 인대 손상","4단계 — 월상골 탈구","킨벡병 Lichtman 3B"],"a":3,"e":"Mayfield는 주상월상 → 유두월상 → 월상삼각 → 월상골 탈구 순으로 진행합니다. 4단계는 정중 신경 압박이 동반될 수 있는 응급입니다.","r":"표준"},
+{"c":"질환·외상","s":"Bennett 골절에서 중수골 몸통을 근위·바깥쪽으로 당겨 정복을 불안정하게 만드는 주된 근육은?","o":["무지 대립근","장무지신근","단무지굴근","장무지외전근","제1 배측 골간근"],"a":3,"e":"장무지외전근(APL)이 몸통을 근위 바깥으로 당기고, 엄지 내전근이 내전시킵니다. 작은 손바닥 쪽 골편은 전방 사인대에 붙어 제자리에 남습니다.","r":"표준"},
+{"c":"질환·외상","s":"엄지 중수지 관절 척측 측부 인대 완전 파열에서 수술이 필요한 Stener 병변이란?","o":["인대가 근위 지골 기저부 골편과 함께 떨어진 것","종자골이 골절된 것","요측 측부 인대가 함께 파열된 것","장무지굴근이 관절에 끼인 것","파열된 인대 끝과 뼈 사이에 내전근 건막이 끼어든 것"],"a":4,"e":"내전근 건막이 사이에 끼면 인대가 제자리로 돌아오지 못해 보존 치료로 낫지 않습니다.","r":"표준"},
+{"c":"분류","s":"굴곡건 손상 구역 가운데, 두 굴곡건이 좁은 섬유성 건초 안을 함께 지나 예전에 'no man's land'라 불린 곳은?","o":["1구역","2구역","3구역","4구역","5구역"],"a":1,"e":"2구역은 원위 손바닥 주름부터 천지굴근 부착부까지로, 유착이 잘 생겨 회복이 어렵습니다. 4구역은 수근관 안입니다.","r":"표준"},
+{"c":"근육학","s":"소결절에 붙으며, belly press test와 lift-off test로 검사하는 회전근개 근육은?","o":["극상근","견갑하근","소원근","극하근","대원근"],"a":1,"e":"견갑하근은 소결절에 붙는 유일한 회전근개 근육으로 내회전을 담당하며, 상·하 견갑하 신경의 지배를 받습니다.","r":"표준"},
+{"c":"근육학","s":"소원근(teres minor)을 지배하는 신경은?","o":["견갑상 신경","하견갑하 신경","겨드랑 신경","흉배 신경","등쪽 견갑 신경"],"a":2,"e":"겨드랑 신경이 삼각근과 소원근을 지배합니다. 극상근과 극하근은 견갑상 신경, 대원근은 하견갑하 신경입니다.","r":"표준"},
+{"c":"이학적검사","s":"Jobe test(empty can test)로 주로 평가하는 근육은?","o":["상완이두근 장두","극하근","견갑하근","극상근","전거근"],"a":3,"e":"팔을 견갑면에서 90° 들고 엄지를 아래로 향한 채 아래로 누르는 힘에 버티게 해 극상근 근력과 통증을 봅니다.","r":"표준"},
+{"c":"이학적검사","s":"종이를 엄지와 검지 사이에 끼우고 당길 때 엄지 지관절이 굽혀지면(Froment sign) 약해진 근육과 신경은?","o":["단무지외전근 — 정중 신경","무지 대립근 — 정중 신경","장무지굴근 — 전골간 신경","장무지신근 — 후골간 신경","무지 내전근 — 척골 신경"],"a":4,"e":"척골 신경이 지배하는 무지 내전근이 약해 전골간 신경 지배의 장무지굴근으로 보상하기 때문에 지관절이 굽혀집니다.","r":"표준"},
+{"c":"이학적검사","s":"엄지와 검지로 동그라미를 만들게 했더니 끝마디가 펴진 채 납작한 모양이 된다. 손상된 신경은?","o":["전골간 신경","후골간 신경","척골 신경","근피 신경","정중 신경의 반회 운동 분지"],"a":0,"e":"전골간 신경은 장무지굴근, 검지 심지굴근, 방형 회내근을 지배하며 감각 분포가 없습니다. 소아 과상부 골절에서 가장 흔히 다치는 신경입니다.","r":"표준"},
+{"c":"이학적검사","s":"엄지를 손바닥 안에 넣고 주먹을 쥔 채 손목을 척측으로 꺾으면 아픈 Finkelstein test 양성. 침범된 힘줄은?","o":["장무지신근과 단요측수근신근","장무지외전근과 단무지신근","총지신근과 고유시지신근","척측수근신근","장무지굴근"],"a":1,"e":"제1 신전 구획의 장무지외전근(APL)과 단무지신근(EPB) 건초염, 즉 de Quervain 병입니다. 둘 사이 격벽이 있으면 주사 효과가 떨어질 수 있습니다.","r":"표준"},
+{"c":"근육학","s":"수근관 증후군이 진행할 때 근력 약화와 위축이 가장 잘 나타나는 무지구 근육은?","o":["단무지굴근 심부두","무지 내전근","단무지외전근","제1 배측 골간근","장무지외전근"],"a":2,"e":"정중 신경의 반회 운동 분지가 지배하는 단무지외전근이 가장 먼저, 가장 뚜렷하게 약해집니다. 무지 내전근과 단무지굴근 심부두는 척골 신경 지배입니다.","r":"표준"},
+{"c":"질환·외상","s":"외측 상과염(테니스 엘보)에서 병변의 중심이 되는 힘줄은?","o":["장요측수근신근","회외근","총지신근","단요측수근신근","척측수근신근"],"a":3,"e":"단요측수근신근(ECRB) 기시부의 퇴행성 건증이 핵심입니다. 손목과 중지를 펴는 힘에 저항할 때 통증이 재현됩니다.","r":"표준"},
+{"c":"질환·외상","s":"배구 선수의 극하근만 위축되고 극상근은 정상이다. 견갑상 신경이 눌린 가장 가능성 높은 부위는?","o":["견갑상 절흔(suprascapular notch)","흉곽 출구","사각 공간(quadrilateral space)","삼각 공간","극관절와 절흔(spinoglenoid notch)"],"a":4,"e":"극상근 분지가 나간 뒤인 극관절와 절흔에서 눌리면 극하근만 침범됩니다. 관절와순 주위 결절종이 흔한 원인입니다. 사각 공간은 겨드랑 신경입니다.","r":"표준"}
+];
+const KEY="qb1_v2";let st={ans:{},order:null,filt:"전체",wrong:false};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)st=Object.assign(st,s)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+if(!st.order||st.order.length!==Q.length)st.order=Q.map((_,i)=>i);
+const cats=["전체",...new Set(Q.map(q=>q.c))];
+const F=document.getElementById("filters");
+cats.forEach(c=>{const b=document.createElement("button");b.className="chip";b.textContent=c;b.onclick=()=>{st.filt=c;save();render()};b.dataset.c=c;F.appendChild(b)});
+document.getElementById("wrongOnly").onclick=()=>{st.wrong=!st.wrong;save();render()};
+document.getElementById("shuffle").onclick=()=>{const o=st.order;for(let i=o.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[o[i],o[j]]=[o[j],o[i]]}save();render()};
+document.getElementById("reset").onclick=()=>{st.ans={};st.wrong=false;save();render();window.scrollTo(0,0)};
+function render(){
+ F.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.c===st.filt));
+ document.getElementById("wrongOnly").setAttribute("aria-pressed",st.wrong);
+ const L=document.getElementById("list");L.innerHTML="";let shown=0;
+ st.order.forEach((qi,pos)=>{const q=Q[qi];
+  if(st.filt!=="전체"&&q.c!==st.filt)return;
+  const a=st.ans[qi];if(st.wrong&&!(a!==undefined&&a!==q.a))return;shown++;
+  const d=document.createElement("div");d.className="q";
+  d.innerHTML=`<div class="qh"><span class="qn">${qi+1}번</span><span class="tag">${q.c}</span></div><div class="stem">${q.s}</div>`;
+  q.o.forEach((t,k)=>{const b=document.createElement("button");b.className="opt";b.innerHTML=`<span class="n">${"①②③④⑤"[k]}</span><span>${t}</span>`;
+   if(a!==undefined){b.disabled=true;if(k===q.a)b.classList.add("right");else if(k===a)b.classList.add("wrong")}
+   b.onclick=()=>{st.ans[qi]=k;save();render()};d.appendChild(b)});
+  const ex=document.createElement("div");ex.className="exp"+(a!==undefined?" show":"");
+  if(a!==undefined)ex.innerHTML=`<span class="v">${a===q.a?"정답입니다.":"오답입니다. 정답은 "+"①②③④⑤"[q.a]+"."}</span> ${q.e}<span class="src">근거: 「${q.r}」</span>`;
+  d.appendChild(ex);L.appendChild(d)});
+ if(!shown)L.innerHTML=`<div class="empty">${st.wrong?"틀린 문제가 없습니다.":"문항이 없습니다."}</div>`;
+ const n=Object.keys(st.ans).length,c=Object.entries(st.ans).filter(([i,v])=>Q[i].a===v).length;
+ document.getElementById("score").innerHTML=`푼 문제 <b>${n}</b>/${Q.length} · 정답 <b>${c}</b>`;
+ document.getElementById("pbar").style.width=(n/Q.length*100)+"%";
+ const D=document.getElementById("done");
+ if(n===Q.length){D.style.display="block";D.innerHTML=`<b>다 풀었습니다 — ${c}/${Q.length} (${Math.round(c/Q.length*100)}%)</b><br>틀린 문제만 골라 다시 풀거나, 순서를 섞어 처음부터 다시 풀어 보세요.`}else D.style.display="none";
+}
+render();
+</script>
+</body>
+</html>

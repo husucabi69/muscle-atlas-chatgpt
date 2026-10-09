@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>종합 문제은행 4권</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--sel:#e3ecf6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--sel:#1d2a38}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--sel:#1d2a38}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 80px}
+.kicker{font-size:14px;color:var(--muted);letter-spacing:.02em}
+h1{overflow-wrap:anywhere;font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(26px,7vw,38px);line-height:1.25;margin:6px 0 8px;color:var(--accent)}
+.lead{color:var(--muted);font-size:15.5px;margin:0 0 14px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.chip{border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 13px;font-size:14.5px;font-family:inherit;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.score{margin-left:auto;font-size:15px;color:var(--muted)}
+.score b{color:var(--ink)}
+.prog{height:6px;background:var(--box);border-radius:9px;overflow:hidden;margin:4px 0 18px}
+.prog i{display:block;height:100%;width:0;background:var(--okb);transition:width .3s}
+.q{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:16px 16px 14px;margin:0 0 16px}
+.qh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.qn{font-weight:700;color:var(--accent);font-size:15px}
+.tag{font-size:12.5px;border:1px solid var(--boxb);border-radius:6px;padding:1px 7px;color:var(--muted)}
+.stem{margin:2px 0 10px;font-weight:500}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:var(--bg);color:var(--ink);border:1px solid var(--rule);border-radius:10px;padding:10px 12px;margin:6px 0;font-size:16px;font-family:inherit;cursor:pointer;line-height:1.5}
+.opt:hover:not(:disabled){background:var(--sel)}
+.opt .n{flex:0 0 22px;font-weight:700;color:var(--muted)}
+.opt.right{background:var(--ok);border-color:var(--okb)}
+.opt.wrong{background:var(--warn);border-color:var(--warnb)}
+.opt:disabled{cursor:default}
+.exp{display:none;margin-top:10px;padding:10px 12px;border-left:4px solid var(--okb);background:var(--box);border-radius:6px;font-size:15.5px}
+.exp.show{display:block}
+.exp .v{font-weight:700}
+.exp .src{display:block;margin-top:6px;font-size:13.5px;color:var(--muted)}
+.foot{margin-top:28px;font-size:14px;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.foot a{color:var(--accent2)}
+.done{display:none;background:var(--ok);border:1px solid var(--okb);border-radius:12px;padding:14px;margin:10px 0 18px}
+.btn{background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:9px 18px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}
+.empty{color:var(--muted);padding:20px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker">분류 총정리 + 문제은행 시리즈 · 4권 짝</div>
+<h1>클로드_문제은행 4권_Sports·Joint·Tumor·Pediatric 30문항 1판</h1>
+<p class="lead">스포츠·관절·종양·소아 분류와 근거, 근육학, 이학적 검사, 질환을 섞은 다섯 지선다 30문항입니다. 답을 누르면 바로 정답과 해설이 나옵니다. 실제 기출이 아닌 연습 문제입니다.</p>
+<div class="bar" id="filters"></div>
+<div class="bar">
+<button class="chip" id="wrongOnly" aria-pressed="false">틀린 문제만</button>
+<button class="chip" id="shuffle">순서 섞기</button>
+<button class="chip" id="reset">처음부터</button>
+<span class="score" id="score"></span>
+</div>
+<div class="prog"><i id="pbar"></i></div>
+<div class="done" id="done"></div>
+<div id="list"></div>
+<div class="foot">
+짝 강의: <a href="https://claude.ai/artifact/ENwiy1ZrG3UDH43erhrF4R" target="_blank" rel="noopener">클로드_분류문제 4권_Sports·Joint·Tumor·Pediatric Classification 1판</a> (「선희」 음성).<br>
+해설 근거 — 「확인」 PubMed 초록 대조: KANON 2010 NEJM <a href="https://doi.org/10.1056/NEJMoa0907797">doi:10.1056/NEJMoa0907797</a> · FIDELITY 2013 NEJM <a href="https://doi.org/10.1056/NEJMoa1305189">doi:10.1056/NEJMoa1305189</a> · CSAW 2018 Lancet <a href="https://doi.org/10.1016/S0140-6736(17)32457-1">doi:10.1016/S0140-6736(17)32457-1</a> · Kocher 1999 JBJS <a href="https://doi.org/10.2106/00004623-199912000-00002">doi:10.2106/00004623-199912000-00002</a>. 「표준」 DeLee Drez Miller Orthopaedic Sports Medicine; Campbell's Operative Orthopaedics; Lovell and Winter's Pediatric Orthopaedics.<br>
+작성: Claude · 2026년 10월 7일 (1판). 풀이 기록은 이 기기의 브라우저에만 저장됩니다.
+</div>
+</div>
+<script>
+const Q=[
+{"c":"분류","s":"MRI에서 회전근개 전층 파열의 앞뒤 길이가 4 cm이다. DeOrio-Cofield 분류로는?","o":["대 파열","중 파열","소 파열","광범위 파열","부분층 파열"],"a":0,"e":"1 cm 미만 소, 1–3 cm 중, 3–5 cm 대, 5 cm 초과 광범위입니다.","r":"표준"},
+{"c":"분류","s":"회전근개 봉합 후 결과가 나쁠 것으로 예측되는 Goutallier 지방 변성 단계는?","o":["0단계 이상","1단계 이상","2단계 이상","3단계 이상(지방 ≥ 근육)","단계와 무관"],"a":3,"e":"3단계(지방=근육), 4단계(지방>근육)는 봉합 후 재파열과 기능 저하가 많습니다. 지방 변성은 봉합해도 거의 회복되지 않습니다.","r":"표준"},
+{"c":"분류","s":"Snyder 분류에서 가장 흔한 SLAP 병변 유형은?","o":["1형 — 관절와순 닳음","2형 — 이두근-관절와순 복합체가 관절와에서 분리","3형 — 양동이 손잡이 파열, 이두근 정상","4형 — 이두근 장두로 연장된 양동이 손잡이","5형 — Bankart 동반"],"a":1,"e":"2형이 가장 흔하며 젊은 투구 선수에서는 봉합, 나이가 많으면 이두근 건 고정술을 고려합니다.","r":"표준"},
+{"c":"분류","s":"관절경에서 연골하골이 드러난 연골 손상의 Outerbridge 등급은?","o":["1등급","2등급","3등급","4등급","0등급"],"a":3,"e":"1 연화·부종, 2 1.5 cm 미만 균열, 3 1.5 cm 이상 균열, 4 연골하골 노출입니다.","r":"표준"},
+{"c":"질환·외상","s":"반월상 연골 파열 중 봉합의 예후가 가장 좋은 부위는?","o":["안쪽 1/3 백색 구역","가운데 적-백 구역","퇴행성 수평 파열","전각 방사형 파열","바깥 1/3 적색 구역"],"a":4,"e":"바깥 1/3 적색 구역은 혈류가 있어 유합이 잘 됩니다. 젊은 사람의 바깥쪽 종 파열이 봉합의 가장 좋은 적응입니다.","r":"표준"},
+{"c":"근거","s":"급성 ACL 파열 젊은 활동적 성인 121명을 재활+조기 재건과 재활+필요 시 지연 재건으로 비교한 KANON(2010)의 결과로 옳은 것은?","o":["2년 점수 변화 39.2 대 39.4로 차이가 없었고, 지연 전략군 59명 중 36명은 재건 없이 지냈다","조기 재건군의 2년 무릎 점수가 유의하게 높았다","지연 전략군 전원이 결국 재건술을 받았다","조기 재건군의 이상 반응이 없었다","실제 받은 치료로 분석하면 조기 재건이 우월했다"],"a":0,"e":"지연 전략은 재건술 빈도를 크게 줄였고, 실제 받은 치료로 분석해도 결과는 비슷했습니다.","r":"확인 · KANON 2010"},
+{"c":"근거","s":"골관절염이 없는 퇴행성 내측 반월상 연골 파열 146명에서 관절경 부분 절제술과 가짜 수술을 비교한 FIDELITY(2013)의 결과는?","o":["부분 절제술군의 Lysholm 점수가 유의하게 높았다","12개월 Lysholm, WOMET, 운동 후 통증 모두 차이가 없었다","가짜 수술군의 재수술이 유의하게 많았다","부분 절제술군에서 통증이 더 빨리 줄었다","맹검이 없는 연구였다"],"a":1,"e":"이중 맹검 가짜 수술 대조 연구로, Lysholm 변화 21.7 대 23.3, WOMET 24.6 대 27.1로 차이가 없었습니다.","r":"확인 · FIDELITY 2013"},
+{"c":"근거","s":"회전근개가 온전한 견봉하 통증 313명을 감압술, 진단 관절경만, 무치료로 나눈 CSAW(2018)의 결과는?","o":["감압술이 관절경만보다 6개월 점수가 임상적으로 의미 있게 좋았다","무치료군이 가장 좋았다","감압술과 관절경만 사이에 차이가 없었고, 두 수술군은 무치료보다 조금 좋았지만 임상적으로 중요하지 않았다","감압술군에서 동결견이 가장 많았다","관절경만 군이 무치료보다 나빴다"],"a":2,"e":"6개월 옥스퍼드 어깨 점수 32.7(감압) 대 34.2(관절경만), 무치료 29.4였습니다. 연구 관련 합병증은 각 군 2명씩 동결견이었습니다.","r":"확인 · CSAW 2018"},
+{"c":"이학적검사","s":"외회전 저항 검사에서 팔이 내회전 위치로 되돌아가는 external rotation lag sign 양성. 주로 의심할 손상은?","o":["견갑하근 파열","극상근 단독 부분 파열","상완이두근 장두 파열","극하근(± 소원근) 파열","SLAP 병변"],"a":3,"e":"수동으로 최대 외회전시킨 뒤 유지하지 못하면 극하근 파열을 시사합니다. 견갑하근은 belly press·lift-off 검사입니다.","r":"표준"},
+{"c":"이학적검사","s":"무릎을 20–30° 굽힌 채 경골을 앞으로 당겨 보는, ACL 파열에 가장 민감한 진찰은?","o":["전방 전위 검사(90° 굴곡)","Apley 압박 검사","후방 전위 검사","McMurray 검사","Lachman 검사"],"a":4,"e":"Lachman 검사가 가장 민감합니다. Pivot shift는 특이도가 높지만 깨어 있는 환자에서는 하기 어렵습니다.","r":"표준"},
+{"c":"분류","s":"Kellgren-Lawrence 등급에서 '뚜렷한 골극과 관절 간격 감소 가능성'에 해당하는 등급은?","o":["0","1","2","3","4"],"a":2,"e":"1 의심스러운 골극, 2 뚜렷한 골극, 3 여러 골극과 뚜렷한 간격 감소·경화, 4 큰 골극과 심한 간격 감소·변형입니다.","r":"표준"},
+{"c":"분류","s":"대퇴골두 무혈성 괴사에서 '초승달 징후(crescent sign)'가 보이는 Ficat-Arlet 병기는?","o":["1기","2기","3기","4기","0기"],"a":2,"e":"3기는 연골하 골절이나 골두 함몰이 생긴 단계로, 골두 보존 수술의 결과가 크게 나빠집니다.","r":"표준"},
+{"c":"이학적검사","s":"대퇴골두 무혈성 괴사의 MRI T2 영상에서 특징적인 소견은?","o":["표적 징후","초승달 징후","이중선 징후(double line sign)","박차 징후","공기 징후"],"a":2,"e":"괴사부와 정상골 경계의 이중선 징후는 무혈성 괴사의 특징입니다. 초승달 징후는 단순 X-ray의 연골하 골절입니다.","r":"표준"},
+{"c":"질환·외상","s":"대퇴골두 무혈성 괴사의 위험 인자로 가장 거리가 먼 것은?","o":["스테로이드 장기 사용","과음","겸상 적혈구병","비만 단독","잠수병"],"a":3,"e":"스테로이드, 알코올, 혈색소병증, 감압병, 대퇴 경부 골절과 탈구가 대표적인 위험 인자입니다.","r":"표준"},
+{"c":"분류","s":"Enneking 병기에서 골육종이 진단 때 가장 흔히 해당하는 병기는?","o":["IA","IB","IIA","IIB","III"],"a":3,"e":"고등급(II)이면서 대개 피질을 뚫고 구획 밖(B)으로 나가 있습니다. 원격 전이가 있으면 III입니다.","r":"표준"},
+{"c":"분류","s":"Enneking 양성 종양 병기에서 거대세포종이 흔히 해당하는 '공격성' 병기는?","o":["1기","2기","3기","IIA","IIB"],"a":2,"e":"1기 잠재성(비골화 섬유종), 2기 활동성(동맥류성 골낭종), 3기 공격성(거대세포종)이 대표 예입니다.","r":"표준"},
+{"c":"분류","s":"Mirels 점수에서 예방적 고정을 권하는 기준은?","o":["5점 이상","7점 이상","9점 이상","11점 이상","12점만"],"a":2,"e":"12점 만점에 9점 이상 예방적 고정, 8점 판단, 7점 이하 방사선과 관찰입니다.","r":"표준"},
+{"c":"분류","s":"Mirels 점수에서 각 3점이 되는 조합으로 옳은 것은?","o":["상지, 경도 통증, 골형성, 피질 1/3 미만","하지, 중등도 통증, 혼합, 피질 1/3–2/3","전자부 주위, 기능성 통증, 골용해, 피질 2/3 초과","상지, 기능성 통증, 골형성, 피질 2/3 초과","척추, 야간통, 골용해, 피질 1/3 미만"],"a":2,"e":"위치(전자부 주위 3), 통증(기능성 3), 병변(골용해 3), 크기(피질 2/3 초과 3)입니다.","r":"표준"},
+{"c":"질환·외상","s":"원발성 악성 골종양이 의심되는 대퇴골 병변의 생검 원칙으로 옳은 것은?","o":["가장 가까운 병원에서 빨리 절개 생검","병적 골절 위험이 있으면 먼저 골수강 내 정을 박고 생검","생검은 횡절개로 넓게","최종 수술을 할 기관에서 절제 경로를 고려해 생검","배액관은 생검 경로에서 멀리 따로 낸다"],"a":3,"e":"생검 경로는 이후 광범위 절제에 포함되어야 합니다. 금속을 먼저 넣으면 오염 범위가 골수강 전체로 넓어집니다. 배액관은 생검 경로와 일직선으로 둡니다.","r":"표준"},
+{"c":"분류","s":"Campanacci 3등급 거대세포종의 특징은?","o":["경계가 뚜렷하고 피질이 온전함","피질이 얇아지고 부풀었지만 온전함","관절면 침범 없음","폐 전이","피질을 뚫고 연부 조직으로 확장"],"a":4,"e":"1 경계 뚜렷, 2 피질 얇아짐·팽창, 3 피질 파괴와 연부 조직 확장입니다.","r":"표준"},
+{"c":"근거","s":"Kocher 기준(1999)의 네 예측 인자로 옳은 조합은?","o":["발열 병력, 체중 부하 불가, ESR ≥40 mm/h, 혈액 백혈구 >12,000","CRP >2, 발열 >38.5℃, 관절액 백혈구 >50,000, 체중 부하 불가","나이 <3세, 발열, 관절 삼출, 오한","ESR ≥20, CRP ≥1, 혈소판 증가, 발열","통증 지속 >3일, 발열, 체중 부하 불가, 관절 삼출"],"a":0,"e":"네 인자가 모두 있으면 99.6%, 셋 93.1%, 둘 40.0%, 하나 3.0%, 없으면 0.2% 미만이었습니다. CRP는 이후 Caird 연구에서 추가된 인자입니다.","r":"확인 · Kocher 1999"},
+{"c":"근거","s":"Kocher 기준에서 예측 인자가 2개인 아이의 화농성 관절염 예측 확률(원 연구)은?","o":["3.0%","약 10%","40.0%","93.1%","99.6%"],"a":2,"e":"0개 <0.2%, 1개 3.0%, 2개 40.0%, 3개 93.1%, 4개 99.6%입니다.","r":"확인 · Kocher 1999"},
+{"c":"분류","s":"영아 고관절 초음파 Graf 분류에서 정상(1형)의 알파각 기준은?","o":["43° 미만","43–49°","50–59°","60° 이상","90° 이상"],"a":3,"e":"알파각 60° 이상이 1형입니다. 50–59°는 2형으로 3개월 미만이면 생리적 미성숙일 수 있습니다.","r":"표준"},
+{"c":"분류","s":"페르테스병에서 외측 기둥 높이가 원래의 50% 미만으로 줄어든 Herring 분류는?","o":["A","B","B/C 경계","C","Catterall IV"],"a":3,"e":"A 높이 유지, B 50% 이상 유지, C 50% 미만입니다. C군과 발병 나이가 많을수록 예후가 나쁩니다.","r":"표준"},
+{"c":"분류","s":"Loder 분류에서 대퇴골두 골단 분리증의 '불안정형' 정의는?","o":["X-ray에서 미끄러짐 50% 이상","무릎 통증만 있음","통증이 3주 이상","양측성","목발을 써도 체중 부하를 할 수 없음"],"a":4,"e":"목발로도 걷지 못하면 불안정형으로, 무혈성 괴사 위험이 높습니다. 미끄러진 정도로 나누는 분류는 Southwick 각 등입니다.","r":"표준"},
+{"c":"이학적검사","s":"비만한 13세 남아가 무릎 앞쪽 통증을 호소한다. 고관절을 굽히면 다리가 저절로 바깥으로 돌아간다(obligatory external rotation). 다음 검사는?","o":["양측 고관절 정면과 개구리 측면 사진","무릎 MRI","혈액 배양","골주사","근전도"],"a":0,"e":"대퇴골두 골단 분리증의 전형적인 소견입니다. 고관절 병변은 무릎 통증으로 나타날 수 있어 반드시 고관절을 진찰합니다.","r":"표준"},
+{"c":"질환·외상","s":"3세 아이가 감기 후 고관절 통증으로 절뚝인다. 열 없음, 걸을 수 있음, ESR 15 mm/h, 백혈구 8,000. 가장 가능성 높은 진단은?","o":["화농성 관절염","일과성 활막염","페르테스병","대퇴골두 골단 분리증","골육종"],"a":1,"e":"Kocher 인자가 하나도 없어 화농성 관절염 확률이 매우 낮습니다. 경과 관찰과 재진 안내가 적절합니다.","r":"표준"},
+{"c":"근육학","s":"외측 상과염에서 압통과 저항 검사로 확인하는 핵심 힘줄 기시부는?","o":["장요측수근신근","척측수근신근","단요측수근신근","원회내근","상완요골근"],"a":2,"e":"단요측수근신근(ECRB) 기시부의 건증이 핵심입니다(1권 복습).","r":"표준"},
+{"c":"근육학","s":"Trendelenburg 징후 양성(한 발로 설 때 반대쪽 골반이 처짐)에서 약해진 근육과 신경은?","o":["대둔근 — 하둔 신경","대퇴사두근 — 대퇴 신경","장요근 — 대퇴 신경","중둔근 — 상둔 신경","내전근 — 폐쇄 신경"],"a":3,"e":"서 있는 쪽의 중둔근(상둔 신경, L5 주 지배)이 약하면 반대쪽 골반이 처집니다. 고관절 이형성증, SCFE, 페르테스, L5 신경근병에서 볼 수 있습니다.","r":"표준"},
+{"c":"이학적검사","s":"어깨 앞쪽 불안정성을 평가하는 검사로, 외전·외회전 자세에서 불안감을 느끼다가 앞에서 상완골두를 뒤로 눌러 주면 불안감이 사라지는 검사는?","o":["Neer 충돌 검사","Hawkins 검사","Speed 검사","O'Brien 검사","Apprehension–relocation 검사"],"a":4,"e":"전방 불안정성의 대표 검사입니다. O'Brien은 SLAP·견봉쇄골, Speed는 이두근 장두 검사입니다.","r":"표준"}
+];
+const KEY="qb4_v2";let st={ans:{},order:null,filt:"전체",wrong:false};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)st=Object.assign(st,s)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+if(!st.order||st.order.length!==Q.length)st.order=Q.map((_,i)=>i);
+const cats=["전체",...new Set(Q.map(q=>q.c))];
+const F=document.getElementById("filters");
+cats.forEach(c=>{const b=document.createElement("button");b.className="chip";b.textContent=c;b.onclick=()=>{st.filt=c;save();render()};b.dataset.c=c;F.appendChild(b)});
+document.getElementById("wrongOnly").onclick=()=>{st.wrong=!st.wrong;save();render()};
+document.getElementById("shuffle").onclick=()=>{const o=st.order;for(let i=o.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[o[i],o[j]]=[o[j],o[i]]}save();render()};
+document.getElementById("reset").onclick=()=>{st.ans={};st.wrong=false;save();render();window.scrollTo(0,0)};
+function render(){
+ F.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.c===st.filt));
+ document.getElementById("wrongOnly").setAttribute("aria-pressed",st.wrong);
+ const L=document.getElementById("list");L.innerHTML="";let shown=0;
+ st.order.forEach((qi,pos)=>{const q=Q[qi];
+  if(st.filt!=="전체"&&q.c!==st.filt)return;
+  const a=st.ans[qi];if(st.wrong&&!(a!==undefined&&a!==q.a))return;shown++;
+  const d=document.createElement("div");d.className="q";
+  d.innerHTML=`<div class="qh"><span class="qn">${qi+1}번</span><span class="tag">${q.c}</span></div><div class="stem">${q.s}</div>`;
+  q.o.forEach((t,k)=>{const b=document.createElement("button");b.className="opt";b.innerHTML=`<span class="n">${"①②③④⑤"[k]}</span><span>${t}</span>`;
+   if(a!==undefined){b.disabled=true;if(k===q.a)b.classList.add("right");else if(k===a)b.classList.add("wrong")}
+   b.onclick=()=>{st.ans[qi]=k;save();render()};d.appendChild(b)});
+  const ex=document.createElement("div");ex.className="exp"+(a!==undefined?" show":"");
+  if(a!==undefined)ex.innerHTML=`<span class="v">${a===q.a?"정답입니다.":"오답입니다. 정답은 "+"①②③④⑤"[q.a]+"."}</span> ${q.e}<span class="src">근거: 「${q.r}」</span>`;
+  d.appendChild(ex);L.appendChild(d)});
+ if(!shown)L.innerHTML=`<div class="empty">${st.wrong?"틀린 문제가 없습니다.":"문항이 없습니다."}</div>`;
+ const n=Object.keys(st.ans).length,c=Object.entries(st.ans).filter(([i,v])=>Q[i].a===v).length;
+ document.getElementById("score").innerHTML=`푼 문제 <b>${n}</b>/${Q.length} · 정답 <b>${c}</b>`;
+ document.getElementById("pbar").style.width=(n/Q.length*100)+"%";
+ const D=document.getElementById("done");
+ if(n===Q.length){D.style.display="block";D.innerHTML=`<b>다 풀었습니다 — ${c}/${Q.length} (${Math.round(c/Q.length*100)}%)</b><br>틀린 문제만 골라 다시 풀거나, 순서를 섞어 처음부터 다시 풀어 보세요.`}else D.style.display="none";
+}
+render();
+</script>
+</body>
+</html>

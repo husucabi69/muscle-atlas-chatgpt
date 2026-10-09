@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>하지 문제은행 2권</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--sel:#e3ecf6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--sel:#1d2a38}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--sel:#1d2a38}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 80px}
+.kicker{font-size:14px;color:var(--muted);letter-spacing:.02em}
+h1{font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(26px,7vw,38px);line-height:1.25;margin:6px 0 8px;color:var(--accent)}
+.lead{color:var(--muted);font-size:15.5px;margin:0 0 14px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.chip{border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 13px;font-size:14.5px;font-family:inherit;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.score{margin-left:auto;font-size:15px;color:var(--muted)}
+.score b{color:var(--ink)}
+.prog{height:6px;background:var(--box);border-radius:9px;overflow:hidden;margin:4px 0 18px}
+.prog i{display:block;height:100%;width:0;background:var(--okb);transition:width .3s}
+.q{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:16px 16px 14px;margin:0 0 16px}
+.qh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.qn{font-weight:700;color:var(--accent);font-size:15px}
+.tag{font-size:12.5px;border:1px solid var(--boxb);border-radius:6px;padding:1px 7px;color:var(--muted)}
+.stem{margin:2px 0 10px;font-weight:500}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:var(--bg);color:var(--ink);border:1px solid var(--rule);border-radius:10px;padding:10px 12px;margin:6px 0;font-size:16px;font-family:inherit;cursor:pointer;line-height:1.5}
+.opt:hover:not(:disabled){background:var(--sel)}
+.opt .n{flex:0 0 22px;font-weight:700;color:var(--muted)}
+.opt.right{background:var(--ok);border-color:var(--okb)}
+.opt.wrong{background:var(--warn);border-color:var(--warnb)}
+.opt:disabled{cursor:default}
+.exp{display:none;margin-top:10px;padding:10px 12px;border-left:4px solid var(--okb);background:var(--box);border-radius:6px;font-size:15.5px}
+.exp.show{display:block}
+.exp .v{font-weight:700}
+.exp .src{display:block;margin-top:6px;font-size:13.5px;color:var(--muted)}
+.foot{margin-top:28px;font-size:14px;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.foot a{color:var(--accent2)}
+.done{display:none;background:var(--ok);border:1px solid var(--okb);border-radius:12px;padding:14px;margin:10px 0 18px}
+.btn{background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:9px 18px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}
+.empty{color:var(--muted);padding:20px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker">분류 총정리 + 문제은행 시리즈 · 2권 짝</div>
+<h1>클로드_문제은행 2권_Lower Limb 30문항 1판</h1>
+<p class="lead">하지 외상 분류와 근거, 근육학, 이학적 검사, 질환을 섞은 다섯 지선다 30문항입니다. 답을 누르면 바로 정답과 해설이 나옵니다. 실제 기출이 아닌 연습 문제입니다.</p>
+<div class="bar" id="filters"></div>
+<div class="bar">
+<button class="chip" id="wrongOnly" aria-pressed="false">틀린 문제만</button>
+<button class="chip" id="shuffle">순서 섞기</button>
+<button class="chip" id="reset">처음부터</button>
+<span class="score" id="score"></span>
+</div>
+<div class="prog"><i id="pbar"></i></div>
+<div class="done" id="done"></div>
+<div id="list"></div>
+<div class="foot">
+짝 강의: <a href="https://claude.ai/artifact/WfB8rwnW5gUezpJJoXFzqr" target="_blank" rel="noopener">클로드_분류문제 2권_Lower Limb Trauma Classification 1판</a> (「선희」 음성).<br>
+해설 근거 — 「확인」 PubMed 초록 대조: FAITH 2017 Lancet <a href="https://doi.org/10.1016/S0140-6736(17)30066-1">doi:10.1016/S0140-6736(17)30066-1</a> · HEALTH 2019 NEJM <a href="https://doi.org/10.1056/NEJMoa1906190">doi:10.1056/NEJMoa1906190</a> · AIM 2016 JAMA <a href="https://doi.org/10.1001/jama.2016.14719">doi:10.1001/jama.2016.14719</a> · UK HeFT 2014 BMJ <a href="https://doi.org/10.1136/bmj.g4483">doi:10.1136/bmj.g4483</a>. 「표준」 Rockwood and Green's Fractures in Adults; Skeletal Trauma; Campbell's Operative Orthopaedics.<br>
+작성: Claude · 2026년 10월 7일 (1판). 풀이 기록은 이 기기의 브라우저에만 저장됩니다.
+</div>
+</div>
+<script>
+const Q=[
+{"c":"분류","s":"Young-Burgess 분류에서 치골 결합이 2.5 cm 넘게 벌어지고 앞쪽 천장 관절이 열렸지만 뒤쪽 천장 인대는 유지된 'open book' 손상은?","o":["LC I","LC II","APC I","APC II","VS"],"a":3,"e":"APC II는 회전 불안정·수직 안정입니다. APC III는 천장 관절 앞뒤 인대가 모두 끊어져 회전과 수직 모두 불안정하고 출혈 위험이 가장 큽니다.","r":"표준"},
+{"c":"분류","s":"Tile 분류에서 '회전 불안정, 수직 안정'에 해당하는 유형은?","o":["A형","B형","C형","D형","해당 없음"],"a":1,"e":"A 안정, B 회전 불안정·수직 안정, C 회전과 수직 모두 불안정입니다.","r":"표준"},
+{"c":"질환·외상","s":"혈역학적으로 불안정한 골반 골절 환자에게 골반 결속대(pelvic binder)를 감는 올바른 위치는?","o":["장골능 높이","배꼽 높이","대전자 높이","무릎 바로 위","치골 결합 위 5 cm"],"a":2,"e":"대전자 높이에 감아야 골반 용적을 줄일 수 있습니다. 장골능 높이에 감으면 효과가 떨어지고 오히려 벌어질 수 있습니다.","r":"표준"},
+{"c":"분류","s":"Letournel 비구 골절 분류에서 '기본형(elementary)'이 아닌 것은?","o":["후벽 골절","전주 골절","횡 골절","T자형 골절","후주 골절"],"a":3,"e":"기본형은 후벽, 후주, 전벽, 전주, 횡 골절입니다. T자형은 복합형(associated)입니다.","r":"표준"},
+{"c":"분류","s":"폐쇄 사위 사진에서 'spur sign'이 보이는 비구 골절은?","o":["후벽 골절","횡 골절","T자형 골절","전벽 골절","양주 골절"],"a":4,"e":"양주 골절은 관절면 전체가 축골격과 분리되어, 장골 날개에 남은 뼈가 박차처럼 보입니다.","r":"표준"},
+{"c":"질환·외상","s":"교통사고 후 다리가 짧아지고 고관절이 굴곡·내전·내회전되어 있다. 가장 가능성 높은 진단과 확인할 신경은?","o":["후방 탈구 — 좌골 신경","전방 탈구 — 대퇴 신경","전방 탈구 — 폐쇄 신경","후방 탈구 — 대퇴 신경","중심성 탈구 — 음부 신경"],"a":0,"e":"계기판 손상의 후방 탈구가 대부분이며 좌골 신경(특히 비골 분지)을 확인하고 가능한 빨리 정복합니다. 전방 탈구는 외전·외회전 자세입니다.","r":"표준"},
+{"c":"분류","s":"Pipkin 분류에서 대퇴골두 골절이 원형 인대 오목(fovea) '위쪽', 즉 체중 부하면에 있는 유형은?","o":["I형","II형","III형","IV형","V형"],"a":1,"e":"I형은 오목 아래, II형은 오목 위, III형은 경부 골절 동반, IV형은 비구 골절 동반입니다.","r":"표준"},
+{"c":"분류","s":"Garden 분류에서 골두가 비구 안으로 제자리로 돌아가, 골두와 비구의 골소주가 다시 나란해 보이는 유형은?","o":["I형","II형","III형","IV형","Pauwels III형"],"a":3,"e":"IV형은 완전 전위로 골두가 원위 골편과의 연결을 잃어 비구 안에서 원래 방향으로 돌아갑니다. III형은 연결이 일부 남아 골두가 내반으로 기울어 골소주가 어긋납니다.","r":"표준"},
+{"c":"분류","s":"Pauwels 분류에서 불유합 위험이 가장 큰 골절선 각도는?","o":["수평선과 30° 미만","30–50°","각도와 무관","50° 초과","외반 감입 골절"],"a":3,"e":"수직에 가까울수록 전단력이 커져 불유합과 고정 실패가 많습니다. 젊은 고에너지 손상에서 흔합니다.","r":"표준"},
+{"c":"근거","s":"50세 이상 저에너지 고관절 골절 1108명을 활강 고관절 나사와 해면골 나사로 비교한 FAITH 연구(2017)의 결과로 옳은 것은?","o":["활강 고관절 나사군의 24개월 재수술이 유의하게 적었다","폐색전증이 활강 고관절 나사군에서 유의하게 많았다","해면골 나사군의 사망률이 유의하게 높았다","무혈성 괴사는 해면골 나사군에서 두 배였다","재수술은 20% 대 22%로 차이가 없었고, 무혈성 괴사는 활강 고관절 나사군에서 더 많았다"],"a":4,"e":"재수술 HR 0.83(P=0.18)으로 차이가 없었고, 무혈성 괴사는 9% 대 5%였습니다. 흡연자, 전위·경부 기저부 골절에서는 활강 고관절 나사가 나을 수 있다고 했습니다.","r":"확인 · FAITH 2017"},
+{"c":"근거","s":"혼자 걷던 50세 이상의 전위 대퇴 경부 골절 1495명을 전치환술과 반치환술로 비교한 HEALTH 연구(2019)의 결과는?","o":["2차 수술은 7.9% 대 8.3%로 차이가 없었고, 탈구는 전치환술에서 더 많았다(4.7% 대 2.4%)","전치환술군의 사망률이 유의하게 낮았다","전치환술이 24개월 2차 수술을 절반으로 줄였다","반치환술의 기능 점수가 더 좋았다","심각한 이상 반응은 반치환술군에서 더 많았다"],"a":0,"e":"기능은 전치환술이 약간 나았지만 임상적으로 중요하지 않은 차이였습니다. 사망률 14.3% 대 13.1%로 비슷했습니다.","r":"확인 · HEALTH 2019"},
+{"c":"질환·외상","s":"전자간 골절을 활강 고관절 나사보다 골수강 내 정으로 고정해야 하는 소견이 아닌 것은?","o":["역사선 골절","비전위 안정형 2부분 골절","전자하부로의 연장","후내측 피질의 큰 분쇄","바깥쪽 벽 손상"],"a":1,"e":"비전위 안정형은 활강 고관절 나사로 충분합니다. 나머지는 모두 불안정 소견입니다.","r":"표준"},
+{"c":"질환·외상","s":"전자간 골절 고정에서 나사 컷아웃을 줄이기 위한 tip-apex distance 기준은?","o":["10 mm 미만","25 mm 미만","35 mm 미만","45 mm 미만","골두 중심이면 거리 무관"],"a":1,"e":"정면과 측면 사진에서 나사 끝과 골두 정점 사이 거리를 더한 값이 25 mm 미만이 되도록 합니다(Baumgaertner).","r":"표준"},
+{"c":"분류","s":"Schatzker 분류에서 가장 흔한 경골 고평부 골절 유형은?","o":["I형 — 외측 쪼개짐","II형 — 외측 쪼개짐과 함몰","III형 — 외측 순수 함몰","IV형 — 내측 고평부","VI형 — 골간단·골간 분리"],"a":1,"e":"II형이 가장 흔합니다. III형은 골다공증 노인의 순수 함몰, I형은 젊은 사람의 쪼개짐입니다.","r":"표준"},
+{"c":"분류","s":"무릎 탈구와 슬와 동맥 손상을 가장 먼저 의심해야 하는 Schatzker 유형은?","o":["I형","II형","III형","IV형","V형"],"a":3,"e":"IV형 내측 고평부 골절은 고에너지 손상으로 골절-탈구일 수 있어 맥박, 발목-상완 지수, 비골 신경을 확인합니다.","r":"표준"},
+{"c":"분류","s":"개방성 경골 골절에서 변연 절제 뒤 골막이 넓게 벗겨져 뼈를 덮으려면 피판이 필요하다. Gustilo-Anderson 유형은?","o":["II형","IIIA형","IIIB형","IIIC형","I형"],"a":2,"e":"IIIB는 연부 조직 피복을 위해 피판이 필요한 경우, IIIC는 혈관 복원이 필요한 경우입니다. 최종 분류는 변연 절제 후 정합니다.","r":"표준"},
+{"c":"질환·외상","s":"필론 골절에서 연부 조직이 심하게 부은 경우의 표준적인 치료 순서는?","o":["당일 관혈적 정복과 금속판 고정","외고정으로 길이를 유지하고, 붓기가 빠진 뒤 내고정","석고 고정 후 6주 뒤 수술","즉시 발목 유합술","골수강 내 정으로 즉시 고정"],"a":1,"e":"단계적 치료(span–scan–plan)가 원칙입니다. 붓기 속 조기 수술은 상처 괴사와 감염이 많습니다.","r":"표준"},
+{"c":"분류","s":"Weber 분류 B형의 비골 골절선 위치는?","o":["원위 경비 인대 결합 아래","결합 위 비골 몸통","원위 경비 인대 결합 높이","비골 근위부","내과만 골절"],"a":2,"e":"A 아래, B 결합 높이, C 위입니다. 골절선이 높을수록 결합 손상 가능성이 큽니다.","r":"표준"},
+{"c":"분류","s":"Lauge-Hansen 분류에서 가장 흔한 발목 골절 기전은?","o":["회외-내전(SAD)","회내-외회전(PER)","회내-외전(PAB)","회외-외회전(SER)","회내-배굴"],"a":3,"e":"SER형이 가장 흔하며, 4단계에서 내과 골절이나 삼각 인대 파열이 생겨 불안정해집니다.","r":"표준"},
+{"c":"질환·외상","s":"발목을 삐었다며 온 환자. 발목 X-ray에서 내측 관절 간격이 넓어졌지만 비골 원위부는 정상이다. 반드시 추가로 확인할 것은?","o":["5중족골 기저부","족저근막","주상골","아킬레스건","비골 근위부(Maisonneuve 골절)"],"a":4,"e":"비골 근위부 골절과 결합 손상, 삼각 인대 손상이 함께 있는 Maisonneuve 골절을 의심해 비골 전체를 만지고 찍습니다.","r":"표준"},
+{"c":"근거","s":"60세 넘은 불안정 발목 골절 620명을 수술과 밀착 석고로 비교한 AIM 연구(2016)의 결과로 옳은 것은?","o":["6개월 기능은 동등했고, 감염·상처 문제는 수술군, 방사선상 부정유합은 석고군에서 더 많았다","석고군의 6개월 기능이 유의하게 나빴다","두 군의 부정유합 빈도가 같았다","석고군에서 수술로 바꾼 환자는 없었다","석고는 일반 응급실에서 감았다"],"a":0,"e":"OMAS 66.0 대 64.5로 동등했고, 감염·상처 10% 대 1%, 부정유합 3% 대 15%였습니다. 석고군 19%는 정복 소실로 수술로 바꿨고, 석고는 수술실에서 마취 아래 숙련된 외과의가 만들었습니다.","r":"확인 · AIM 2016"},
+{"c":"질환·외상","s":"거골 경부 골절 6–8주 뒤 정면 사진에서 거골 체부 연골하 방사선 투과 띠(Hawkins sign)가 보인다. 의미는?","o":["무혈성 괴사가 진행 중","혈류가 살아 있어 무혈성 괴사 가능성이 낮음","불유합","감염","거주상 관절 탈구"],"a":1,"e":"혈류가 있는 뼈에서만 사용하지 않아 생긴 골흡수가 일어나므로 좋은 징후입니다. 없다고 괴사가 확정되는 것은 아닙니다.","r":"표준"},
+{"c":"분류","s":"종골 관절 내 골절의 Sanders 분류는 무엇을 기준으로 나누는가?","o":["측면 사진의 Böhler 각","축면 사진의 너비","관상면 CT의 후관절면 골편 수","시상면 MRI의 부종","손상 기전"],"a":2,"e":"관상면 CT에서 후관절면이 가장 넓게 보이는 단면의 골편 수로 1–4형을 나눕니다.","r":"표준"},
+{"c":"이학적검사","s":"종골 측면 사진의 Böhler 각 정상 범위(교과서)와 감소의 의미로 옳은 것은?","o":["0–10°, 정상 변이","약 20–40°, 후관절면 함몰","50–70°, 아킬레스건 파열","약 90°, 거골 탈구","약 130°, 편평족"],"a":1,"e":"Böhler 각이 줄면 후관절면이 함몰된 것입니다. 정상 범위는 교과서마다 조금 다릅니다.","r":"표준"},
+{"c":"근거","s":"전위된 관절 내 종골 골절 151명을 수술과 보존 치료로 비교한 UK Heel Fracture Trial(2014)의 결론은?","o":["수술군의 2년 기능이 임상적으로 의미 있게 좋았다","50세 미만에서만 수술이 우월했다","보존군에서 아탈구가 많아 연구가 중단되었다","수술군에서 감염이 없었다","2년 통증·기능에 차이가 없었고 합병증과 재수술은 수술군에서 많아, 전형적 골절에 수술을 권하지 않았다"],"a":4,"e":"Kerr-Atkins 69.8 대 65.7점으로 차이가 없었고, 합병증 OR 7.5로 수술군에서 많았습니다.","r":"확인 · UK HeFT 2014"},
+{"c":"질환·외상","s":"첫째와 둘째 중족골 기저부 사이에 작은 뼛조각(fleck sign)이 보인다. 의심 진단과 추가 검사는?","o":["Lisfranc 손상 — 체중 부하 사진 또는 CT","Jones 골절 — MRI","족저근막염 — 초음파","주상골 피로 골절 — 골주사","무지 외반증 — 체중 부하 사진"],"a":0,"e":"리스프랑 인대 견열입니다. 비체중 사진은 정상처럼 보일 수 있어 체중 부하 사진, CT를 찍습니다.","r":"표준"},
+{"c":"질환·외상","s":"5중족골 골간단–골간 경계(2구역) 골절, 즉 Jones 골절의 특징은?","o":["단비골근 견열로 대부분 저절로 잘 붙는다","혈류가 나쁜 경계 부위로 불유합이 많다","소아에서만 생긴다","관절 내 골절이라 즉시 유합술","거골하 관절 탈구를 동반한다"],"a":1,"e":"1구역 결절 견열은 대개 잘 낫지만, 2구역 Jones와 3구역 피로 골절은 불유합이 많아 운동선수는 나사 고정을 고려합니다.","r":"표준"},
+{"c":"근육학","s":"5중족골 결절 견열 골절(1구역)을 일으키는 주된 구조물로 교과서에서 언급하는 것은?","o":["장비골근","후경골근","단비골근과 족저근막 외측 띠","전경골근","장지신근"],"a":2,"e":"발이 내번될 때 단비골근과 족저근막 외측 띠가 결절을 당겨 떼어 냅니다.","r":"표준"},
+{"c":"이학적검사","s":"발목 외상 환자에서 X-ray 촬영 여부를 정하는 Ottawa ankle rule(발목 기준과 발 기준 전체)에 포함되지 않는 것은?","o":["외과 후연 끝 6 cm 압통","내과 후연 끝 6 cm 압통","즉시 그리고 응급실에서 네 걸음 체중 부하 불가","전거비 인대 부위 부종","5중족골 기저부 압통"],"a":3,"e":"부종은 기준이 아닙니다. 외과·내과 후연 압통과 체중 부하 불가는 발목 기준, 5중족골 기저부와 주상골 압통은 발 기준입니다.","r":"표준"},
+{"c":"근육학","s":"구획 증후군에서 전방 구획이 침범될 때 가장 먼저 감각 이상이 나타나는 부위는?","o":["발등 바깥쪽","종아리 뒤쪽","발바닥 전체","발뒤꿈치","첫째와 둘째 발가락 사이 등쪽"],"a":4,"e":"전방 구획을 지나는 심비골 신경의 감각 분포가 첫째 물갈퀴 공간입니다. 가장 이른 징후는 수동 신전 시 심한 통증입니다.","r":"표준"}
+];
+const KEY="qb2_v2";let st={ans:{},order:null,filt:"전체",wrong:false};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)st=Object.assign(st,s)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+if(!st.order||st.order.length!==Q.length)st.order=Q.map((_,i)=>i);
+const cats=["전체",...new Set(Q.map(q=>q.c))];
+const F=document.getElementById("filters");
+cats.forEach(c=>{const b=document.createElement("button");b.className="chip";b.textContent=c;b.onclick=()=>{st.filt=c;save();render()};b.dataset.c=c;F.appendChild(b)});
+document.getElementById("wrongOnly").onclick=()=>{st.wrong=!st.wrong;save();render()};
+document.getElementById("shuffle").onclick=()=>{const o=st.order;for(let i=o.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[o[i],o[j]]=[o[j],o[i]]}save();render()};
+document.getElementById("reset").onclick=()=>{st.ans={};st.wrong=false;save();render();window.scrollTo(0,0)};
+function render(){
+ F.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.c===st.filt));
+ document.getElementById("wrongOnly").setAttribute("aria-pressed",st.wrong);
+ const L=document.getElementById("list");L.innerHTML="";let shown=0;
+ st.order.forEach((qi,pos)=>{const q=Q[qi];
+  if(st.filt!=="전체"&&q.c!==st.filt)return;
+  const a=st.ans[qi];if(st.wrong&&!(a!==undefined&&a!==q.a))return;shown++;
+  const d=document.createElement("div");d.className="q";
+  d.innerHTML=`<div class="qh"><span class="qn">${qi+1}번</span><span class="tag">${q.c}</span></div><div class="stem">${q.s}</div>`;
+  q.o.forEach((t,k)=>{const b=document.createElement("button");b.className="opt";b.innerHTML=`<span class="n">${"①②③④⑤"[k]}</span><span>${t}</span>`;
+   if(a!==undefined){b.disabled=true;if(k===q.a)b.classList.add("right");else if(k===a)b.classList.add("wrong")}
+   b.onclick=()=>{st.ans[qi]=k;save();render()};d.appendChild(b)});
+  const ex=document.createElement("div");ex.className="exp"+(a!==undefined?" show":"");
+  if(a!==undefined)ex.innerHTML=`<span class="v">${a===q.a?"정답입니다.":"오답입니다. 정답은 "+"①②③④⑤"[q.a]+"."}</span> ${q.e}<span class="src">근거: 「${q.r}」</span>`;
+  d.appendChild(ex);L.appendChild(d)});
+ if(!shown)L.innerHTML=`<div class="empty">${st.wrong?"틀린 문제가 없습니다.":"문항이 없습니다."}</div>`;
+ const n=Object.keys(st.ans).length,c=Object.entries(st.ans).filter(([i,v])=>Q[i].a===v).length;
+ document.getElementById("score").innerHTML=`푼 문제 <b>${n}</b>/${Q.length} · 정답 <b>${c}</b>`;
+ document.getElementById("pbar").style.width=(n/Q.length*100)+"%";
+ const D=document.getElementById("done");
+ if(n===Q.length){D.style.display="block";D.innerHTML=`<b>다 풀었습니다 — ${c}/${Q.length} (${Math.round(c/Q.length*100)}%)</b><br>틀린 문제만 골라 다시 풀거나, 순서를 섞어 처음부터 다시 풀어 보세요.`}else D.style.display="none";
+}
+render();
+</script>
+</body>
+</html>
