@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>클로드_분류문제 1권_Upper Limb Trauma Classification 1판</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#FBF7EE;--paper:#FFFDF7;--ink:#1f1d1a;--muted:#6b5f4a;--rule:#d8cba9;--accent:#183a5c;--accent2:#24507a;--box:#F1E9D6;--boxb:#b8965a;--warn:#F7E4DF;--warnb:#b4513f;--ok:#E6EFE3;--okb:#5e8a55;--th:#E4D9BF;--hl:#FFE9A8;--bar:#183a5c;--barink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}}
+:root[data-theme="dark"]{--bg:#17150f;--paper:#1f1c15;--ink:#ece6d8;--muted:#b3a78f;--rule:#4a4130;--accent:#9cc3ea;--accent2:#b5d3f0;--box:#2b2619;--boxb:#b8965a;--warn:#3a2420;--warnb:#d0735f;--ok:#1f2d1d;--okb:#7fae75;--th:#2f2a1d;--hl:#5a4a12;--bar:#0f2238}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.75;padding-bottom:120px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+header.hero{padding:38px 0 18px;border-bottom:3px double var(--boxb);margin-bottom:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--muted);font-weight:500}
+.hero h1{font-family:"Noto Serif KR",serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.2;margin:8px 0 10px;color:var(--accent)}
+.hero p{margin:4px 0;color:var(--muted);font-size:15px}
+.startall{margin-top:16px;display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:var(--paper);border:0;border-radius:999px;padding:12px 22px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin:18px 0}
+nav.toc b{font-size:14px;color:var(--muted)}
+nav.toc ol{margin:6px 0 0;padding-left:0;list-style:none}
+nav.toc li{padding:6px 0;border-bottom:1px dotted var(--rule)}
+nav.toc li:last-child{border:0}
+nav.toc a{color:var(--accent2);text-decoration:none;font-size:15.5px}
+section{padding-top:22px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-bottom:2px solid var(--boxb);padding-bottom:6px;margin-bottom:8px}
+.sechead h1{font-family:"Noto Serif KR",serif;font-size:22px;line-height:1.35;margin:0;color:var(--accent);flex:1 1 260px}
+.secplay{background:var(--box);color:var(--ink);border:1px solid var(--boxb);border-radius:999px;padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;white-space:nowrap}
+h2{font-family:"Noto Serif KR",serif;font-size:18.5px;color:var(--accent2);margin:20px 0 6px}
+h3{font-size:16.5px;margin:14px 0 4px}
+p{margin:6px 0 10px}
+sup{font-size:11px;color:var(--accent2)}
+.box,.warn,.ok{padding:10px 14px;border-radius:8px;margin:10px 0}
+.box{background:var(--box);border-left:5px solid var(--boxb)}
+.warn{background:var(--warn);border-left:5px solid var(--warnb)}
+.ok{background:var(--ok);border-left:5px solid var(--okb)}
+.tbl{overflow-x:auto;margin:8px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th{background:var(--th);text-align:left;padding:7px 8px;border:1px solid var(--rule)}
+td{padding:7px 8px;border:1px solid var(--rule);vertical-align:top;background:var(--paper)}
+.tag,.tag2{font-size:12px;padding:1px 6px;border-radius:4px;background:var(--ok);}
+.tag2{background:var(--box)}
+.ref li{margin-bottom:6px;font-size:14.5px;word-break:break-all}
+.rd{cursor:pointer;border-radius:6px;transition:background .2s}
+.rd.now{background:var(--hl)!important;outline:2px solid var(--boxb);outline-offset:2px}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.18);z-index:10}
+.pin{max-width:760px;margin:0 auto}
+.status{font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.ctrls{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ctrls button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:10px;min-width:48px;height:46px;font-size:20px;cursor:pointer;font-family:inherit}
+.ctrls button.main{background:#fff;color:#183a5c;min-width:64px;font-size:24px}
+.ctrls select{height:40px;border-radius:8px;border:0;font-size:15px;padding:0 6px;font-family:inherit}
+.note{font-size:13.5px;color:var(--muted);margin:24px 0}
+.openx{display:none;background:var(--warn);border:2px solid var(--warnb);border-radius:12px;padding:14px 16px;margin:14px 0}
+.openx a.ob{display:block;text-align:center;background:var(--warnb);color:#fff;font-weight:700;font-size:18px;padding:14px;border-radius:10px;text-decoration:none;margin:10px 0 6px}
+.openx .u{font-size:13px;word-break:break-all;color:var(--muted);user-select:all;-webkit-user-select:all}
+table.kv{min-width:0}table.kv th{width:24%}h4{font-size:15.5px;margin:10px 0 2px;color:var(--accent2)}figure.fig{margin:10px 0 14px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px;text-align:center}
+figure.fig img{max-width:100%;max-height:420px;height:auto;border-radius:6px}
+figure.fig figcaption{font-size:12.5px;color:#5a5245;margin-top:4px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.onepage{font-size:14px;color:var(--muted);margin:6px 0}figure.svgfig{background:#FFFDF5}figure.svgfig svg{display:block;margin:0 auto}.legend{font-size:14px;color:var(--muted)}</style><style id="figcss">
+figure.fig{margin:22px 0 26px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+figure.fig img,figure.fig svg{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+figure.fig .pair{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+figure.fig .pair img{flex:1 1 140px;max-width:48%}
+figure.fig figcaption{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+figure.fig figcaption b{color:var(--accent)}
+figure.fig .src{display:block;margin-top:6px;font-size:12px;color:var(--muted);word-break:break-all}
+figure.fig .src a{color:var(--muted)}
+</style><style>.noaud .player,.noaud #startAll,.noaud #openx{display:none!important}.audpending{margin:14px 0;padding:12px 14px;border:1px dashed var(--warnb);border-radius:10px;background:var(--warn);color:var(--ink);font-size:15px}</style></head><body><div class="wrap"><header class="hero"><div class="kicker">정형외과 강의실 · 분류 총정리 + 문제은행 시리즈 1권 · 음성 강의판</div><h1>클로드_분류문제 1권_Upper Limb Trauma Classification 1판</h1><p>상지 외상 분류 총정리 · 시험 형식 확인 · 쇄골(Allman, Neer)과 COTS · Rockwood 견봉쇄골 · Neer 4-part와 PROFHER · 어깨 탈구 병변 · Mason·Regan-Morrey·Mayo·Bado · 원위 요골 계측과 DRAFFT · 주상골과 SWIFFT · Mayfield · 손 골절과 힘줄 · 구술 대비 문장</p>
+<p>부위마다 분류 · 치료 기준 · 근거 · 구술용 한 문장 순서로 정리했습니다. 짝이 되는 문제은행 1권에서 바로 풀어 보세요. 문단이나 표의 줄을 누르면 그 자리부터 읽어 드립니다.</p><div class="openx" id="openx"><b>🔇 이 화면(Claude 앱 안)에서는 소리가 나지 않습니다.</b><br/>아래 버튼을 누르면 크롬(아이폰은 사파리)에서 열려 바로 들으실 수 있습니다.
+<a class="ob" data-ios="x-safari-https://claude.ai/artifact/1JE6AddfMtu5K1LL2eNgWL" data-url="https://claude.ai/artifact/1JE6AddfMtu5K1LL2eNgWL" href="intent://claude.ai/artifact/1JE6AddfMtu5K1LL2eNgWL#Intent;scheme=https;package=com.android.chrome;end" id="obtn" rel="noopener" target="_blank">▶ 크롬에서 열어 듣기</a>
+<div style="font-size:13.5px">버튼이 안 되면: 아래 주소를 길게 눌러 복사 → 크롬 주소창에 붙여넣기. 크롬에서 처음 열 때는 Claude 로그인이 필요할 수 있습니다.</div><div class="u">https://claude.ai/artifact/1JE6AddfMtu5K1LL2eNgWL</div></div><p style="font-size:14px;margin:10px 0 0">🎧 인공지능 음성 「선희」로 미리 녹음한 강의입니다(의학 용어는 영어로 읽고 처음 나올 때만 한국어 뜻을 덧붙임) · 전체 약 14분 · 처음 누를 때 소리 파일을 불러오느라 몇 초 걸릴 수 있습니다.</p><button class="startall" id="startAll">▶ 처음부터 듣기</button></header>
+<p class="onepage">이 페이지는 처음부터 끝까지 한 장으로 이어져 있습니다. 목차를 누르면 해당 장으로 이동하고, 각 장 제목 옆 「▶ 이 장 듣기」로 그 장부터 들을 수 있습니다.</p>
+<nav class="toc"><b>목차 — 누르면 해당 장으로 이동</b><ol><li><a href="#s0">0. 시험 형식과 이 시리즈 쓰는 법</a></li><li><a href="#s1">1. 어깨 — 쇄골, 견봉쇄골 관절, 위팔뼈 근위부</a></li><li><a href="#s2">2. 위팔과 팔꿈치, 아래팔</a></li><li><a href="#s3">3. 손목 — 원위 요골과 손목뼈</a></li><li><a href="#s4">4. 손</a></li><li><a href="#s5">5. 구술 대비 — 한 문장으로 말하기</a></li><li><a href="#s6">6. 참고문헌</a></li></ol></nav>
+<section id="s0"><div class="sechead"><h1 data-i="0">0. 시험 형식과 이 시리즈 쓰는 법</h1>
+<button class="secplay" data-sec="s0">▶ 이 장 듣기</button></div>
+<p data-i="1">분류 총정리와 문제은행 시리즈 1권은 <b>상지 외상 분류</b>입니다. 먼저 시험 형식을 확인했습니다. 대한의학회 전문의자격시험 안내에 따르면 2026년 제69차 시험은 1차 필기가 2월 3일, 25개 전문과목이 함께 치렀고, 2차 시험은 2월 7일에서 10일 사이에 과목별로 시행되었습니다. 응급의학과 공고에는 1차가 태블릿 PC 기반 시험으로 적혀 있습니다. 대한정형외과학회의 제68차 공지에는 정형외과 2차 시험이 UBT 필기, 즉 컴퓨터 기반 필기 2시간 30분과, 문항당 2분의 구술 시험으로 구성되었다고 나와 있습니다.</p>
+<div class="warn" data-i="2"><b>확인하지 못한 것:</b> 정형외과 1차 필기의 정확한 문항 수, 문항 형식, 합격 기준은 공개된 공식 자료에서 찾지 못했습니다. 이 시리즈의 문제는 실제 기출이 아니라, 교과서와 이전 강의 내용을 바탕으로 만든 객관식 다섯 지선다 연습 문제입니다. 구술 시험에 대비해 각 분류는 소리 내어 설명할 수 있는 형태로 정리했습니다.</div>
+<p data-i="3">이 시리즈는 부위별로 두 개의 페이지가 짝을 이룹니다. 하나는 지금 듣고 계신 분류 총정리 강의이고, 다른 하나는 바로 풀어 보는 문제은행입니다. 문제은행에는 분류뿐 아니라 근육학, 이학적 검사, 질환과 외상 시리즈의 내용이 함께 들어갑니다.</p>
+</section><section id="s1"><div class="sechead"><h1 data-i="4">1. 어깨 — 쇄골, 견봉쇄골 관절, 위팔뼈 근위부</h1>
+<button class="secplay" data-sec="s1">▶ 이 장 듣기</button></div>
+<h2 data-i="5">쇄골 골절</h2>
+<p data-i="6">쇄골 골절은 위치로 나누는 Allman classification(알만 분류)이 기본입니다. 가운데 3분의 1이 가장 흔하고, 바깥쪽 3분의 1, 안쪽 3분의 1 순입니다. 바깥쪽 골절은 Neer classification(니어 분류)으로 다시 나누며, 안쪽 조각이 오훼쇄골 인대에서 떨어져 위로 들리는 2형이 불안정해 불유합이 많습니다. 이 부분은 교과서 기준입니다.</p>
+<p data-i="7">캐나다 정형외과 외상학회의 무작위 연구는 완전히 어긋난 쇄골 중간부 골절 132명을 금속판 고정과 팔걸이 보존 치료로 나누었습니다. 1년 동안 수술군의 기능 점수가 더 좋았고, 불유합은 수술군 2명, 보존군 7명, 증상이 있는 부정유합은 보존군에서만 9명이었습니다. 수술군의 재수술은 대부분 금속 제거였습니다.<sup>1</sup></p>
+<h2 data-i="8">견봉쇄골 관절 탈구 — Rockwood 분류</h2>
+<div class="tbl"><table><tr><th>유형</th><th>손상</th><th>치료</th></tr>
+<tr data-i="9"><td>I</td><td>견봉쇄골 인대 염좌</td><td>보존</td></tr>
+<tr data-i="10"><td>II</td><td>견봉쇄골 인대 파열, 오훼쇄골 인대는 염좌</td><td>보존</td></tr>
+<tr data-i="11"><td>III</td><td>두 인대 모두 파열, 오훼쇄골 거리 25에서 100퍼센트 증가</td><td>대개 보존, 육체노동자는 논란</td></tr>
+<tr data-i="12"><td>IV</td><td>쇄골이 뒤로, 승모근을 뚫고 빠짐</td><td>수술</td></tr>
+<tr data-i="13"><td>V</td><td>오훼쇄골 거리 100에서 300퍼센트 증가</td><td>수술</td></tr>
+<tr data-i="14"><td>VI</td><td>쇄골이 오훼돌기 아래로 빠짐, 매우 드묾</td><td>수술</td></tr>
+</table></div>
+<h2 data-i="15">위팔뼈 근위부 골절 — Neer 4-part 분류</h2>
+<p data-i="16">위팔뼈 근위부는 골두, 대결절, 소결절, 몸통의 네 조각으로 봅니다. 한 조각이 1센티미터 넘게 벌어지거나 45도 넘게 기울어야 하나의 부분으로 셉니다. 아무리 금이 많아도 어긋나지 않으면 1부분 골절입니다. 4부분 골절과 골두 분할 골절은 골두의 혈류가 끊겨 무혈성 괴사 위험이 큽니다. 대결절이 5밀리미터 넘게 위로 밀려 올라가면 충돌 때문에 고정을 고려합니다. 이 부분은 교과서 기준입니다.</p>
+<figure class="fig" id="fq1-neer"><svg aria-label="Neer 4-part" role="img" style="font-family:inherit" viewbox="0 0 640 360">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">위팔뼈 근위부의 네 부분(Neer, 앞에서 본 왼쪽 어깨)</text>
+<path d="M250 90 A75 75 0 0 1 380 130 L330 160 Z" fill="#4a90c2" opacity=".55" stroke="var(--ink)" stroke-width="2"></path>
+<path d="M380 130 C405 150 410 185 395 205 L345 200 L330 160 Z" fill="#e8a33d" opacity=".75" stroke="var(--ink)" stroke-width="2"></path>
+<path d="M250 90 C225 120 232 175 262 200 L300 195 L330 160 Z" fill="#7fb77e" opacity=".75" stroke="var(--ink)" stroke-width="2"></path>
+<path d="M262 200 L300 195 L345 200 L395 205 L370 320 L290 320 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="2"></path>
+<g fill="var(--ink)" font-size="18">
+<text font-weight="700" x="430" y="100">① 골두(관절면)</text>
+<text font-weight="700" x="430" y="170">② 대결절(바깥)</text><text font-size="16" x="430" y="192">극상·극하·소원근</text>
+<text font-weight="700" x="40" y="150">③ 소결절(안쪽)</text><text font-size="16" x="40" y="172">견갑하근</text>
+<text font-weight="700" x="430" y="270">④ 몸통</text><text font-size="16" x="430" y="292">대흉근이 안으로 당김</text></g>
+<text fill="var(--muted)" font-size="16" x="20" y="350">1cm 초과 또는 45° 초과로 어긋나야 한 부분</text>
+</svg><figcaption><b>그림 1.</b> <b>Neer 분류</b>의 네 부분과 각 조각을 당기는 근육. 조각이 몇 개로 깨졌는지가 아니라 몇 개가 어긋났는지를 셉니다.<span class="src">그림: Claude 작성 도식(교과서 분류를 요약한 것으로, 원 논문의 그림이 아닙니다).</span></figcaption></figure>
+<p data-i="17">PROFHER 연구는 외과 경부를 포함해 어긋난 위팔뼈 근위부 골절 성인 250명을 수술과 팔걸이 보존 치료로 나누었습니다. 2년 동안 옥스퍼드 어깨 점수는 39.07점 대 38.32점으로 차이가 없었고, 합병증, 재수술, 사망도 차이가 없었습니다.<sup>2</sup></p>
+<div class="box" data-i="18"><b>어깨 탈구와 함께 외우는 병변</b><br/>Bankart lesion(방카르트 병변) — 앞쪽 아래 관절와순 파열, 뼈 조각이 붙으면 bony Bankart.<br/>Hill-Sachs lesion(힐-삭스 병변) — 위팔뼈 골두 뒤쪽 위의 함몰.<br/>reverse Hill-Sachs(McLaughlin) — 뒤쪽 탈구, 골두 앞쪽 함몰, 경련이나 감전 뒤 놓치기 쉬움.<br/>HAGL — 관절와 상완 인대가 위팔뼈 쪽에서 떨어진 손상.<br/>40세 이상 첫 탈구 — 회전근개 파열과 겨드랑 신경 손상을 확인.</div>
+</section><section id="s2"><div class="sechead"><h1 data-i="19">2. 위팔과 팔꿈치, 아래팔</h1>
+<button class="secplay" data-sec="s2">▶ 이 장 듣기</button></div>
+<p data-i="20">위팔뼈 몸통 원위 3분의 1의 나선 골절은 Holstein-Lewis fracture(홀스타인-루이스 골절)라고 부르며 요골 신경 마비와 연관됩니다. 닫힌 골절의 요골 신경 마비는 대부분 저절로 회복하므로 우선 관찰합니다. 위팔뼈 원위부 골절은 AO 분류로 관절 밖 A형, 부분 관절 B형, 완전 관절 C형으로 나눕니다.</p>
+<div class="tbl"><table><tr><th>분류</th><th>대상</th><th>핵심</th></tr>
+<tr data-i="21"><td>Mason(메이슨)</td><td>요골두 골절</td><td>1형 비전위, 2형 전위된 부분 골절, 3형 분쇄, 4형 팔꿈치 탈구 동반</td></tr>
+<tr data-i="22"><td>Regan-Morrey(리건-모리)</td><td>구상 돌기 골절</td><td>1형 끝부분, 2형 50퍼센트 이하, 3형 50퍼센트 초과</td></tr>
+<tr data-i="23"><td>Mayo(메이요)</td><td>주두 골절</td><td>1형 비전위, 2형 전위 안정, 3형 불안정</td></tr>
+<tr data-i="24"><td>Bado(바도)</td><td>몬테지아 손상</td><td>1형 요골두 앞쪽 탈구로 가장 흔함, 2형 뒤쪽, 3형 바깥쪽, 4형 양쪽 뼈 골절</td></tr>
+</table></div>
+<p data-i="25">terrible triad(끔찍한 삼징후)는 팔꿈치 후방 탈구, 요골두 골절, 구상 돌기 골절이 함께 생긴 손상으로 매우 불안정해 대부분 수술합니다. Galeazzi fracture(갈레아치 골절)는 요골 원위 3분의 1 골절과 원위 요척 관절 탈구, Essex-Lopresti injury(에섹스-로프레스티 손상)는 요골두 골절과 골간막 파열, 원위 요척 관절 손상이 함께 생긴 것입니다. 이 부분은 교과서 기준입니다.</p>
+</section><section id="s3"><div class="sechead"><h1 data-i="26">3. 손목 — 원위 요골과 손목뼈</h1>
+<button class="secplay" data-sec="s3">▶ 이 장 듣기</button></div>
+<h2 data-i="27">원위 요골 골절</h2>
+<div class="tbl"><table><tr><th>지표</th><th>정상값</th><th>받아들이는 기준</th></tr>
+<tr data-i="28"><td>radial inclination(요골 경사)</td><td>약 22도</td><td>크게 줄지 않을 것</td></tr>
+<tr data-i="29"><td>radial height(요골 높이)</td><td>약 11밀리미터</td><td>단축 3밀리미터 이내</td></tr>
+<tr data-i="30"><td>volar tilt(수장 경사)</td><td>약 11도</td><td>등쪽 기울기 10도 이내</td></tr>
+<tr data-i="31"><td>관절면 단차</td><td>0</td><td>2밀리미터 이내</td></tr>
+</table></div>
+<figure class="fig" id="fq1-dr"><svg aria-label="원위 요골 계측" role="img" style="font-family:inherit" viewbox="0 0 640 360">
+<text fill="var(--ink)" font-size="22" font-weight="700" x="20" y="34">원위 요골의 세 가지 계측(도식)</text>
+<text fill="var(--muted)" font-size="17" text-anchor="middle" x="150" y="62">정면(PA)</text>
+<path d="M100 240 L100 130 L80 95 L215 75 L200 130 L200 240 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="3"></path>
+<line stroke="#c0392b" stroke-width="3" x1="70" x2="230" y1="97" y2="72"></line>
+<line stroke="var(--muted)" stroke-dasharray="6 4" stroke-width="2" x1="60" x2="240" y1="97" y2="97"></line>
+<text fill="#c0392b" font-size="17" font-weight="700" x="245" y="80">요골 경사 ≈22°</text>
+<line stroke="var(--accent)" stroke-width="4" x1="240" x2="240" y1="75" y2="97"></line>
+<text fill="var(--accent)" font-size="17" font-weight="700" x="245" y="112">요골 높이 ≈11mm</text>
+<text fill="var(--muted)" font-size="17" text-anchor="middle" x="490" y="62">측면</text>
+<path d="M440 240 L440 120 L430 90 L545 105 L540 120 L540 240 Z" fill="var(--box)" stroke="var(--ink)" stroke-width="3"></path>
+<line stroke="#c0392b" stroke-width="3" x1="415" x2="565" y1="87" y2="108"></line>
+<line stroke="var(--muted)" stroke-dasharray="6 4" stroke-width="2" x1="410" x2="570" y1="95" y2="95"></line>
+<g fill="var(--ink)" font-size="17">
+<text fill="#c0392b" font-weight="700" x="400" y="268">수장 경사 ≈11°</text>
+<text x="400" y="290">관절면이 손바닥 쪽을 향함</text>
+<text fill="var(--muted)" font-size="16" x="20" y="326">허용 기준(교과서): 단축 ≤3mm · 등쪽 기울기 ≤10° · 관절 단차 ≤2mm</text>
+<text fill="var(--muted)" font-size="16" x="20" y="350">측면: 왼쪽 = 등쪽, 오른쪽 = 손바닥 쪽 · 각도는 과장해서 그림</text></g>
+</svg><figcaption><b>그림 2.</b> 원위 요골의 <b>요골 경사, 요골 높이, 수장 경사</b>. 정면 사진에서 두 가지, 측면 사진에서 한 가지를 잽니다.<span class="src">그림: Claude 작성 도식(교과서 서술을 요약한 것으로, 원 논문의 그림이 아닙니다).</span></figcaption></figure>
+<p data-i="32">이 정상값과 기준은 교과서 기준이며, 고령자는 덜 엄격하게 적용합니다. 이름 붙은 골절도 외웁니다. Colles fracture(콜리스 골절)는 원위 골편이 등쪽으로, Smith fracture(스미스 골절)는 손바닥 쪽으로 어긋난 것입니다. Barton fracture(바턴 골절)는 관절면 가장자리가 손목뼈와 함께 빠진 것이고, chauffeur fracture(운전사 골절)는 요골 경상돌기 골절입니다.</p>
+<p data-i="33">DRAFFT 연구는 수술이 필요한 등쪽 전위 원위 요골 골절 성인 461명을 경피 K-강선과 손바닥 쪽 잠김 금속판으로 나누었습니다. 3, 6, 12개월 손목 점수에 임상적으로 의미 있는 차이가 없었고, 합병증도 비슷했으며, K-강선이 더 싸고 빨랐습니다.<sup>3</sup></p>
+<h2 data-i="34">주상골 골절과 손목뼈 탈구</h2>
+<p data-i="35">주상골은 손목뼈 골절의 대부분을 차지하고, 허리 부위 골절이 가장 흔합니다. 혈액이 먼 쪽에서 들어오므로 몸쪽 극 골절은 불유합과 무혈성 괴사가 많습니다. 해부학적 코담뱃갑 압통이 있는데 X-ray가 정상이면 고정한 뒤 다시 찍거나 MRI를 찍습니다.</p>
+<p data-i="36">SWIFFT 연구는 2밀리미터 이하로 어긋난 주상골 허리 골절 성인 439명을 바로 수술하는 군과, 석고 고정 뒤 불유합이 확인되면 바로 수술하는 군으로 나누었습니다. 52주 손목 점수는 차이가 없었고, 수술군은 14퍼센트가 수술 관련 심각할 수 있는 합병증을 겪었습니다. 연구진은 석고 고정으로 시작하고 불유합만 수술하도록 권했습니다.<sup>4</sup></p>
+<p data-i="37">손목뼈 주위 탈구는 Mayfield classification(메이필드 분류)으로 손상이 주상골 쪽에서 시작해 반대쪽으로 진행하는 순서를 외웁니다. 1단계 주상월상 인대, 2단계 유두-월상 관절, 3단계 월상삼각 인대, 4단계 월상골 탈구입니다. 측면 사진에서 월상골이 엎어진 찻잔처럼 손바닥 쪽으로 돌아가 있으면 4단계입니다. 월상골 무혈성 괴사인 Kienböck disease(킨벡병)는 Lichtman classification(릭트만 분류) 1에서 4단계로 나눕니다. 이 부분은 교과서 기준입니다.</p>
+</section><section id="s4"><div class="sechead"><h1 data-i="38">4. 손</h1>
+<button class="secplay" data-sec="s4">▶ 이 장 듣기</button></div>
+<div class="tbl"><table><tr><th>이름</th><th>손상</th><th>핵심</th></tr>
+<tr data-i="39"><td>Bennett fracture(베넷 골절)</td><td>엄지 중수골 기저부 관절 내 두 조각 골절</td><td>장무지외전근이 몸통을 당겨 불안정, 고정 필요</td></tr>
+<tr data-i="40"><td>Rolando fracture(롤란도 골절)</td><td>엄지 중수골 기저부 분쇄 골절</td><td>예후가 더 나쁨</td></tr>
+<tr data-i="41"><td>Boxer's fracture(복서 골절)</td><td>새끼손가락 중수골 경부 골절</td><td>각 변형은 상당히 허용, 회전 변형은 허용 안 함</td></tr>
+<tr data-i="42"><td>mallet finger(망치 손가락)</td><td>원위 지관절 신전건 단열</td><td>원위 지관절만 6에서 8주 신전 부목</td></tr>
+<tr data-i="43"><td>jersey finger(저지 손가락)</td><td>심지굴근건 단열, 대개 약지</td><td>Leddy-Packer 분류, 힘줄이 손바닥까지 당겨지면 빨리 수술</td></tr>
+<tr data-i="44"><td>gamekeeper's thumb(사냥터지기 엄지)</td><td>엄지 중수지 관절 척측 측부 인대 파열</td><td>Stener lesion(스테너 병변)은 내전근 건막이 끼어 수술</td></tr>
+</table></div>
+<p data-i="45">굴곡건 손상은 손상 위치를 다섯 구역으로 나눕니다. 2구역은 두 굴곡건이 좁은 건초 안을 함께 지나는 곳으로, 예전에 누구의 땅도 아니라는 뜻의 no man's land라고 불렀을 만큼 회복이 어렵습니다. 이 부분은 교과서 기준입니다.</p>
+</section><section id="s5"><div class="sechead"><h1 data-i="46">5. 구술 대비 — 한 문장으로 말하기</h1>
+<button class="secplay" data-sec="s5">▶ 이 장 듣기</button></div>
+<div class="box" data-i="47"><b>소리 내어 연습할 문장</b><br/>Neer 4-part — 1센티미터 또는 45도, 어긋나지 않으면 조각이 많아도 1부분.<br/>Rockwood — 3형까지 대개 보존, 4·5·6형 수술.<br/>Neer 바깥 쇄골 2형 — 오훼쇄골 인대에서 떨어진 안쪽 조각, 불유합 많음.<br/>Mason — 1 비전위, 2 전위, 3 분쇄, 4 탈구 동반.<br/>terrible triad — 후방 탈구, 요골두, 구상 돌기.<br/>Bado 1형 — 요골두 앞쪽, 가장 흔함.<br/>원위 요골 — 22도, 11밀리미터, 11도; 단축 3, 등쪽 10, 단차 2.<br/>Mayfield — 주상월상, 유두월상, 월상삼각, 월상 탈구.<br/>Stener 병변 — 내전근 건막이 끼어 수술.</div>
+<h2 data-i="48">근거가 바꾼 상지 외상 진료</h2>
+<p data-i="49">네 연구를 한 줄로 요약하면 이렇습니다. 완전히 어긋난 쇄골 중간부 골절은 활동적인 성인에서 고정의 이득이 있었습니다. 반면 외과 경부를 포함한 위팔뼈 근위부 골절, 수술이 필요한 원위 요골 골절의 고정 방법, 적게 어긋난 주상골 허리 골절은 더 공격적인 치료가 더 낫지 않았습니다. 시험에서는 분류와 함께 이 흐름을 묻습니다.</p>
+<p data-i="50">이제 짝을 이루는 문제은행 1권에서 직접 풀어 보시기 바랍니다.</p>
+</section><section id="s6"><div class="sechead"><h1 data-i="51">6. 참고문헌</h1>
+<button class="secplay" data-sec="s6">▶ 이 장 듣기</button></div>
+<ol class="ref">
+<li data-i="52"><span class="tag">확인</span> Canadian Orthopaedic Trauma Society. Nonoperative treatment compared with plate fixation of displaced midshaft clavicular fractures. A multicenter, randomized clinical trial. <i>J Bone Joint Surg Am</i>. 2007;89:1–10. <a href="https://doi.org/10.2106/JBJS.F.00020">doi:10.2106/JBJS.F.00020</a></li>
+<li data-i="53"><span class="tag">확인</span> Rangan A, Handoll H, Brealey S, et al. Surgical vs nonsurgical treatment of adults with displaced fractures of the proximal humerus: the PROFHER randomized clinical trial. <i>JAMA</i>. 2015;313:1037–1047. <a href="https://doi.org/10.1001/jama.2015.1629">doi:10.1001/jama.2015.1629</a></li>
+<li data-i="54"><span class="tag">확인</span> Costa ML, Achten J, Parsons NR, et al. Percutaneous fixation with Kirschner wires versus volar locking plate fixation in adults with dorsally displaced fracture of distal radius: randomised controlled trial. <i>BMJ</i>. 2014;349:g4807. <a href="https://doi.org/10.1136/bmj.g4807">doi:10.1136/bmj.g4807</a></li>
+<li data-i="55"><span class="tag">확인</span> Dias JJ, Brealey SD, Fairhurst C, et al. Surgery versus cast immobilisation for adults with a bicortical fracture of the scaphoid waist (SWIFFT): a pragmatic, multicentre, open-label, randomised superiority trial. <i>Lancet</i>. 2020;396:390–401. <a href="https://doi.org/10.1016/S0140-6736(20)30931-4">doi:10.1016/S0140-6736(20)30931-4</a></li>
+<li data-i="56"><span class="tag2">표준</span> Rockwood and Green's Fractures in Adults, 9th ed.; Green's Operative Hand Surgery, 8th ed.; Campbell's Operative Orthopaedics, 14th ed. — Allman·Neer 쇄골, Rockwood 견봉쇄골, Neer 4-part, 어깨 탈구 병변, Holstein-Lewis, AO 원위 위팔뼈, Mason·Regan-Morrey·Mayo·Bado 분류, terrible triad·Galeazzi·Essex-Lopresti, 원위 요골 정상값과 허용 기준, 주상골 혈류, Mayfield·Lichtman 분류, 손 골절과 힘줄 손상, 굴곡건 구역의 일반 서술 기준</li>
+<li data-i="57"><span class="tag2">시험</span> 대한의학회 전문의자격시험 안내(exam.kams.or.kr), 대한응급의학회 제69차 시행계획 공고, 대한정형외과학회 제68차 1차 합격자 및 2차 시험 공지 — 시험 일정과 형식(2026년 10월 7일 확인)</li>
+<li data-i="58"><span class="tag2">짝</span> 문제은행 1권 — <a href="https://claude.ai/artifact/JcwmhHuCvnkuUGjHY6Pb93">클로드_문제은행 1권_Upper Limb 30문항 1판</a> (바로 풀고 해설 확인)</li>
+</ol>
+<h2 data-i="59">읽는 법</h2>
+<p data-i="60">「확인」 표시는 PubMed 초록으로 본문 수치를 직접 대조한 문헌, 「표준」 표시는 교과서 서술 기준, 「시험」 표시는 공식 공지에서 확인한 시험 정보입니다. 분류의 세부 기준, 예를 들어 Rockwood 3형과 5형의 경계나 복서 골절의 허용 각도는 교과서마다 조금씩 다릅니다. 정형외과 1차 필기의 문항 수와 합격 기준은 확인하지 못했습니다.</p>
+</section><p class="note">작성: Claude · 2026년 10월 7일 (1판). 「선희」 음성 녹음 포함. 「확인」 표시 문헌은 PubMed 초록으로 수치를 대조했고, 「표준」 표시는 교과서 서술 기준입니다.</p></div><div class="player"><div class="pin"><div class="status" id="status">▶ 버튼을 누르면 읽기 시작합니다</div>
+<div class="ctrls"><button aria-label="이전 문단" id="prev">⏮</button><button aria-label="재생" class="main" id="play">▶</button><button aria-label="다음 문단" id="next">⏭</button><button aria-label="정지" id="stop">⏹</button>
+<select aria-label="읽기 속도" id="rate"><option value="0.8">0.8배</option><option selected="" value="1">1.0배</option><option value="1.2">1.2배</option><option value="1.4">1.4배</option></select></div></div></div>
+<script>window.__AUD__={"urls": ["../../2_음성/05_분류·문제은행/클로드_분류_01권_상지_외상.mp4"], "t": [[0, 0.0, 3.816], [0, 4.166, 47.51], [0, 47.86, 72.82], [0, 73.17, 92.658], [0, 93.008, 99.128], [0, 99.478, 101.614], [0, 101.964, 129.804], [0, 130.154, 156.386], [0, 156.736, 160.768], [0, 161.118, 167.622], [0, 167.972, 176.06], [0, 176.41, 187.666], [0, 188.016, 195.408], [0, 195.758, 203.51], [0, 203.86, 211.516], [0, 211.866, 216.21], [0, 216.56, 250.928], [0, 251.278, 273.166], [0, 273.516, 310.764], [0, 311.114, 314.786], [0, 315.136, 340.36], [0, 340.71, 354.126], [0, 354.476, 366.956], [0, 367.306, 377.842], [0, 378.192, 391.824], [0, 392.174, 424.478], [0, 424.828, 428.716], [0, 429.066, 431.466], [0, 431.816, 441.752], [0, 442.102, 452.542], [0, 452.892, 462.804], [0, 463.154, 470.474], [0, 470.824, 502.792], [0, 503.142, 524.982], [0, 525.332, 528.836], [0, 529.186, 549.85], [0, 550.2, 578.568], [0, 578.918, 617.318], [0, 617.668, 619.756], [0, 620.106, 633.762], [0, 634.112, 645.176], [0, 645.526, 658.606], [0, 658.956, 669.732], [0, 670.082, 683.258], [0, 683.608, 697.288], [0, 697.638, 715.734], [0, 716.084, 720.284], [0, 720.634, 775.354], [0, 775.704, 778.8], [0, 779.15, 805.718], [0, 806.068, 811.324], [0, 811.674, 815.466], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 0.0, 0.0], [0, 815.816, 817.688], [0, 818.038, 843.334]]};</script><script>(function(){
+var D=window.__AUD__;if(!D.urls||!D.urls.length)return;                     // {urls:[...], t:{i:[part,s,e]}}
+var items=[].slice.call(document.querySelectorAll('[data-i]'));
+items.sort(function(a,b){return a.dataset.i-b.dataset.i;});
+items.forEach(function(el){el.classList.add('rd');});
+var st=document.getElementById('status'),pb=document.getElementById('play'),rate=document.getElementById('rate');
+var A=D.urls.map(function(u){var a=new Audio();a.preload='none';a.src=u;return a;});
+var T=D.t,cur=-1,part=0,playing=false,failed=false;
+function tm(i){return T[i]||null;}
+function playable(i){var x=tm(i);return x&&x[2]>x[1];}
+function secTitle(el){var s=el.closest('section');return s?s.querySelector('.sechead h1').textContent:'';}
+function mark(i,scroll){if(i===cur)return;items.forEach(function(e){e.classList.remove('now');});cur=i;var el=items[i];if(!el)return;el.classList.add('now');if(scroll!==false)el.scrollIntoView({block:'center',behavior:'smooth'});st.textContent=secTitle(el)+' · '+(i+1)+'/'+items.length;}
+function findIdx(p,t){var best=-1;for(var i=0;i<items.length;i++){var x=T[i];if(!x||x[0]!==p||x[2]<=x[1])continue;if(x[1]<=t+0.05)best=i;else if(best>=0)break;}return best;}
+function stopAll(){A.forEach(function(a){a.pause();});}
+function goto(i){while(i<items.length&&!playable(i))i++;if(i>=items.length){stop();st.textContent='끝까지 들었습니다';return;}
+ var x=T[i];stopAll();part=x[0];var a=A[part];a.playbackRate=parseFloat(rate.value);
+ var seek=function(){try{a.currentTime=x[1];}catch(e){}};
+ if(a.readyState>=1)seek();else a.addEventListener('loadedmetadata',seek,{once:true});
+ playing=true;pb.textContent='⏸';mark(i);
+ var pr=a.play();if(pr&&pr.catch)pr.catch(function(){fail();});}
+function fail(){if(failed)return;failed=true;playing=false;pb.textContent='▶';var b=document.getElementById('openx');if(b){b.style.display='block';b.scrollIntoView({block:'center'});}st.textContent='이 화면에서는 소리가 나지 않습니다 — 위의 "크롬에서 열어 듣기"를 눌러주세요';}
+A.forEach(function(a,p){
+ a.addEventListener('timeupdate',function(){if(p!==part||!playing)return;var i=findIdx(p,a.currentTime);if(i>=0)mark(i);});
+ a.addEventListener('ended',function(){if(p!==part)return;if(p+1<A.length){part=p+1;var n=A[part];n.playbackRate=parseFloat(rate.value);n.currentTime=0;var pr=n.play();if(pr&&pr.catch)pr.catch(fail);}else{stop();st.textContent='끝까지 들었습니다';}});
+ a.addEventListener('error',function(){if(playing)fail();});
+});
+function pause(){playing=false;stopAll();pb.textContent='▶';st.textContent='일시정지 · 다시 ▶ 를 누르면 이어서 들려 드립니다';}
+function stop(){playing=false;stopAll();pb.textContent='▶';items.forEach(function(e){e.classList.remove('now');});}
+pb.onclick=function(){if(playing)pause();else if(cur>=0&&A[part]&&A[part].currentTime>0){playing=true;pb.textContent='⏸';var pr=A[part].play();if(pr&&pr.catch)pr.catch(fail);}else goto(Math.max(cur,0));};
+document.getElementById('stop').onclick=function(){stop();cur=-1;A.forEach(function(a){try{a.currentTime=0;}catch(e){}});st.textContent='정지했습니다';};
+document.getElementById('next').onclick=function(){var i=cur+1;while(i<items.length&&!playable(i))i++;if(playing)goto(i);else mark(i);};
+document.getElementById('prev').onclick=function(){var i=Math.max(cur-1,0);while(i>0&&!playable(i))i--;if(playing)goto(i);else mark(i);};
+rate.onchange=function(){A.forEach(function(a){a.playbackRate=parseFloat(rate.value);});};
+document.getElementById('startAll').onclick=function(){goto(0);};
+items.forEach(function(el){el.addEventListener('click',function(ev){if(ev.target.closest('a,button'))return;goto(parseInt(el.dataset.i,10));});});
+[].forEach.call(document.querySelectorAll('.secplay'),function(b){b.onclick=function(){var h=document.querySelector('#'+b.dataset.sec+' .sechead h1');goto(parseInt(h.dataset.i,10));};});
+function hashGo(){var id=location.hash.slice(1);var s=id&&document.getElementById(id);if(s&&s.tagName==='SECTION'){var h=s.querySelector('.sechead h1');mark(parseInt(h.dataset.i,10),false);st.textContent+=' · ▶ 를 누르면 여기서부터 들려 드립니다';}}
+window.addEventListener('hashchange',hashGo);hashGo();
+st.textContent='▶ 를 누르면 강의를 들려 드립니다 (목소리: 선희)';
+})();
+</script></body></html>
