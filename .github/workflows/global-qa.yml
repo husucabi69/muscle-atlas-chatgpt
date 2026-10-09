@@ -189,7 +189,7 @@ jobs:
     if: github.event_name == 'push' && github.ref_name == 'preview/development'
     needs: [global-qa, runtime-navigation-e2e]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - name: Checkout exact SHA
         uses: actions/checkout@v4
@@ -209,6 +209,22 @@ jobs:
         run: node scripts/claude-live-media-probe.mjs
       - name: Verify every live Claude original HTML matches Drive exact bytes
         run: node scripts/claude-live-original-fidelity-qa.mjs
+      - name: Install Chromium for exact-SHA live Preview browser E2E
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Open all 87 live Claude originals through Preview mobile navigation
+        env:
+          CLAUDE_E2E_LIVE: 'true'
+        run: node scripts/claude-original-all-lectures-e2e.mjs
+      - name: Upload exact-SHA live Preview navigation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-live-preview-e2e-${{ github.sha }}
+          path: qa-artifacts/claude-preview-live/
+          if-no-files-found: warn
+          retention-days: 14
       - name: Upload deploy-safety evidence
         if: always()
         uses: actions/upload-artifact@v4
