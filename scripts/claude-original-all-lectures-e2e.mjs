@@ -67,15 +67,23 @@ try {
           throw new Error('Self-hosted status missing from tile ' + number);
         await tile.click();
         const expectedPath = '/claude-library/' + row.source_path;
-        await page.waitForFunction(expected => {
-          try {
-            const iframe = document.getElementById('diseaseTraumaOriginalFrame');
-            const w = iframe.contentWindow;
-            return decodeURIComponent(w.location.pathname) === expected &&
-              !!w.document.body && (w.document.body.innerText || w.document.body.textContent || '').trim().length >= 30 &&
-              !document.getElementById('diseaseTraumaOriginalView').hidden;
-          } catch { return false; }
-        }, expectedPath, { timeout: 20000 });
+        try {
+          await page.waitForFunction(expected => {
+            try {
+              const iframe = document.getElementById('diseaseTraumaOriginalFrame');
+              const w = iframe.contentWindow;
+              return decodeURIComponent(w.location.pathname) === expected &&
+                !!w.document.body && (w.document.body.innerText || w.document.body.textContent || '').trim().length >= 30 &&
+                !document.getElementById('diseaseTraumaOriginalView').hidden;
+            } catch { return false; }
+          }, expectedPath, { timeout: 20000 });
+        } catch (error) {
+          await page.screenshot({
+            path: path.join(outDir, 'failure-' + viewport.label + '-lecture-' + number + '.png')
+          }).catch(() => {});
+          throw new Error('Lecture ' + number + ' (' + row.title + ') failed original iframe load at ' +
+            expectedPath + ': ' + String(error));
+        }
         const details = await page.locator('#diseaseTraumaOriginalFrame').evaluate(frame => ({
           pathname: decodeURIComponent(frame.contentWindow.location.pathname),
           title: frame.contentDocument.title,
