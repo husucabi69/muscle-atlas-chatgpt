@@ -7,6 +7,12 @@ on:
     branches: [ main, preview/development ]
   workflow_dispatch:
 
+# Rapid Preview commits must not leave multiple expensive Chromium/Cloudflare QA
+# runs competing; only the newest commit on a given ref is authoritative.
+concurrency:
+  group: muscle-atlas-global-qa-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   checks: read
