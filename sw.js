@@ -186,7 +186,7 @@ async function verifiedClaudeOriginal(request){
     const runtime=await caches.open(RUNTIME_CACHE);
     let response=null;
     try{
-      const fresh=await fetch(manifestUrl.href,{cache:'no-store',signal:AbortSignal.timeout(8000)});
+      const fresh=await fetch(manifestUrl.href,{cache:'no-store'});
       if(fresh.ok){
         const verified=await fresh.clone().json();
         if(Array.isArray(verified.lectures)&&verified.lectures.length>=87){
