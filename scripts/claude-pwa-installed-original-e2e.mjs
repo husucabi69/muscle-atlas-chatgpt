@@ -46,17 +46,17 @@ try{
   await page.locator('[data-claude-academic-category="'+spec.category+'"]').click();
   await page.waitForFunction(()=>!document.getElementById('diseaseTraumaCategoryView').hidden);
   const viewY=await page.locator('#diseaseTraumaCategoryView').evaluate(el=>el.getBoundingClientRect().top);
-  if(viewY>window.innerHeight/2)throw Error('Category view opened below visible screen: top='+viewY);
+  if(viewY>422)throw Error('Category view opened below visible screen: top='+viewY);
   await page.locator('[data-claude-academic-lecture="'+spec.number+'"]').click();
   try{
    await page.waitForFunction(()=>{
     const frame=document.getElementById('diseaseTraumaOriginalFrame');
     try{
      const doc=frame.contentDocument;
-     return !frame.hidden&&!document.getElementById('diseaseTraumaLoadIssue').hidden===false&&
+     return !frame.hidden&&document.getElementById('diseaseTraumaLoadIssue').hidden&&
        doc?.title!=='원본 강의 확인 필요'&&(doc?.body?.innerText||'').trim().length>200;
     }catch{return false;}
-   },{timeout:30000});
+   },null,{timeout:30000});
   }catch(error){
    await page.screenshot({path:path.join(outDir,'failure-lecture-'+spec.number+'.png')});
    const detail=await page.locator('#diseaseTraumaLoadIssue').innerText().catch(()=>'<unavailable>');
