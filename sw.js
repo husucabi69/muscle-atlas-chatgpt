@@ -171,8 +171,9 @@ self.addEventListener('message',event=>{
 // Canonical-source gate for original Claude HTML. Never cache or display an app-shell
 // fallback as if it were a lecture, including when an older cache was poisoned.
 async function verifiedClaudeOriginal(request){
+  let reason='SOURCE_MISSING_OR_IDENTITY_MISMATCH';
   const unavailable=()=>new Response(
-    '<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>원본 강의 확인 필요</title></head><body><h1>원본 강의 확인 필요</h1><p>이 원본 강의는 현재 확인할 수 없습니다. 인터넷 연결 후 다시 열어 주세요.</p></body></html>',
+    '<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>원본 강의 확인 필요</title></head><body><h1>원본 강의 확인 필요</h1><p>앱 내부 원본의 검증이 실패했습니다. 인터넷 연결 후 다시 열어 주세요.</p><small>진단: '+reason+'</small></body></html>',
     {status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}});
   let row;
   try{
@@ -186,7 +187,7 @@ async function verifiedClaudeOriginal(request){
     let response=null;
     try{
       const fresh=await fetch(manifestUrl.href,{cache:'no-store',signal:AbortSignal.timeout(8000)});
-      if(fresh.ok&&/application\/json/i.test(fresh.headers.get('Content-Type')||'')){
+      if(fresh.ok){
         const verified=await fresh.clone().json();
         if(Array.isArray(verified.lectures)&&verified.lectures.length>=87){
           response=fresh;
@@ -195,14 +196,14 @@ async function verifiedClaudeOriginal(request){
       }
     }catch{}
     if(!response)response=(await runtime.match(manifestUrl.href))||(await caches.match(manifestUrl.href));
-    if(!response?.ok)return unavailable();
+    if(!response?.ok){reason='MANIFEST_UNAVAILABLE';return unavailable();}
     const manifest=await response.json();
     const pathname=decodeURI(new URL(request.url).pathname);
     const sourcePath=pathname.slice('/claude-library/'.length);
     row=(manifest.lectures||[]).find(x=>x.source_path===sourcePath);
     if(!row||!String(row.hosting_status).startsWith('SELF_HOSTED_')||
        !Number.isSafeInteger(row.source_bytes)||row.source_bytes<1||
-       !/^[0-9a-f]{64}$/.test(row.source_sha256||''))return unavailable();
+       !/^[0-9a-f]{64}$/.test(row.source_sha256||'')){reason='MANIFEST_ROW_MISSING';return unavailable();}
   }catch{return unavailable();}
   async function valid(response){
     if(!response?.ok||!/^text\/html\b/i.test(response.headers.get('Content-Type')||''))return false;
@@ -214,8 +215,12 @@ async function verifiedClaudeOriginal(request){
   }
   try{
     const live=await fetch(request,{cache:'no-store'});
-    if(await valid(live))return await putIfUsable(RUNTIME_CACHE,request,live);
-  }catch{}
+    reason='ORIGINAL_HTTP_'+live.status;
+    if(live.ok){
+      reason='ORIGINAL_CONTENT_TYPE_OR_SHA256_MISMATCH';
+      if(await valid(live))return await putIfUsable(RUNTIME_CACHE,request,live);
+    }
+  }catch{reason='ORIGINAL_NETWORK_ERROR';}
   try{
     const cached=await caches.match(request);
     if(await valid(cached))return cached;
