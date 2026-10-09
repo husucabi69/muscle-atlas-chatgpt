@@ -43,7 +43,7 @@ check('Service Worker tries fresh verified manifest before stale install cache',
  sw.includes('verified.lectures.length>=87')&&
  sw.includes('row.source_sha256'));
 check('No synthetic audio is presented as original',
- html.includes("item.audio==='없음'")&&html.includes('음성은 연결 대기 중'));
+ html.includes("item.audio==='없음'")&&html.includes('음성 연결 대기 중'));
 check('CI checks real active Service Worker original loading',
  workflow.includes('node scripts/claude-pwa-installed-original-e2e.mjs'));
 console.log('CLAUDE DRILL NAVIGATION CONTRACT QA | '+pass+'/'+pass+' PASS');
