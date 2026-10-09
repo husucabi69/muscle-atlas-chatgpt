@@ -225,6 +225,10 @@ jobs:
         env:
           CLAUDE_E2E_LIVE: 'true'
         run: node scripts/claude-original-all-lectures-e2e.mjs
+      - name: Test installed-PWA Claude original HTML on exact-SHA Cloudflare Preview
+        env:
+          CLAUDE_E2E_LIVE: 'true'
+        run: node scripts/claude-pwa-installed-original-e2e.mjs
       - name: Upload exact-SHA live Preview navigation evidence
         if: always()
         uses: actions/upload-artifact@v4
