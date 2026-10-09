@@ -99,7 +99,7 @@ for(const [number,driveId,size,digest] of lockedAudio){
 const inventory=json('data/claude-drive-inventory-v2.json');
 check('Fresh Claude Drive inventory has exactly 87 original HTML courses',inventory.lectures?.length===87&&rows.length===87);
 check('Fresh Drive inventory represents 10 source HTML folders',inventory.folders?.length===10);
-check('New rehabilitation 6 and sports medicine 1 registered',rows.filter(x=>x.series==='재활·운동처방').length===6&&rows.filter(x=>x.series==='스포츠의학').length===5);
+check('New rehabilitation 6 and sports medicine 5 registered',rows.filter(x=>x.series==='재활·운동처방').length===6&&rows.filter(x=>x.series==='스포츠의학').length===5);
 check('Drive inventory and app manifest agree on every path/number',
  inventory.lectures?.length===rows.length&&inventory.lectures.every(i=>{
   const row=rows.find(x=>x.number===i.number);
@@ -124,8 +124,7 @@ for(const [n,id,bytes,digest] of newExactSources){
 }
 check('No Cloudflare R2 object keys collide',new Set(rows.filter(x=>x.r2_object_key).map(x=>x.r2_object_key)).size===rows.filter(x=>x.r2_object_key).length);
 
-console.log(`SUMMARY | ${passes.length}/${passes.length+failures.length} PASS`);
-if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1);}
+
 
 // Sports medicine 02–05 are original, byte-preserved Drive HTML files, not title-only links.
 const sportsAdded=[
@@ -139,3 +138,6 @@ for(const [n,id,size,digest,blob] of sportsAdded){
  check('Claude sports '+n+' source and app route locked',row?.source_drive_file_id===id&&row?.source_bytes===size&&row?.source_sha256===digest&&row?.source_git_blob_sha1===blob&&item?.drive_file_id===id&&item?.bytes===size&&row?.hosting_status==='SELF_HOSTED_HTML_MEDIA_PENDING'&&row?.audio_source_verification==='DRIVE_MP4_UNLOCATED');
 }
 check('All manifest original HTML files that actually exist can open locally',rows.every(x=>!fs.existsSync('claude-library/'+x.source_path)||x.hosting_status.startsWith('SELF_HOSTED_')));
+
+console.log(`SUMMARY | ${passes.length}/${passes.length+failures.length} PASS`);
+if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1);}
