@@ -5593,6 +5593,8 @@ async function loadClaudeLibrary(){
 }
 function showDiseaseTraumaRoot(record=true){
  selectedClaudeLectureNumber=null;
+ if(claudeOriginalProbeTimer)clearInterval(claudeOriginalProbeTimer);
+ claudeOriginalProbeTimer=null;
  const frame=document.getElementById('diseaseTraumaOriginalFrame');if(frame){if(frame.contentWindow)frame.contentWindow.location.replace('about:blank');else frame.removeAttribute('src');}
  renderDiseaseTraumaRoot();setDiseaseTraumaView('root');
  if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'root'});
@@ -5603,6 +5605,21 @@ function showDiseaseTraumaRoot(record=true){
 // Register after the main script is parsed: initial about:blank iframe load can
 // fire before global declarations exist and poison unrelated page QA.
 document.getElementById('diseaseTraumaOriginalFrame')?.addEventListener('load',handleClaudeOriginalFrameLoad);
+let claudeOriginalProbeTimer=null;
+let claudeOriginalProbeStartedAt=0;
+function beginClaudeOriginalProbe(){
+ if(claudeOriginalProbeTimer)clearInterval(claudeOriginalProbeTimer);
+ claudeOriginalProbeStartedAt=Date.now();
+ claudeOriginalProbeTimer=setInterval(()=>{
+  handleClaudeOriginalFrameLoad();
+  const frame=document.getElementById('diseaseTraumaOriginalFrame');
+  const issue=document.getElementById('diseaseTraumaLoadIssue');
+  if(!selectedClaudeLectureNumber||!frame?.hidden||!issue?.hidden){
+   clearInterval(claudeOriginalProbeTimer);
+   claudeOriginalProbeTimer=null;
+  }
+ },250);
+}
 function handleClaudeOriginalFrameLoad(){
  const frame=document.getElementById('diseaseTraumaOriginalFrame');
  const issue=document.getElementById('diseaseTraumaLoadIssue');
@@ -5610,24 +5627,34 @@ function handleClaudeOriginalFrameLoad(){
  if(!frame||!issue||!selectedClaudeLectureNumber)return;
  const item=(claudeLibraryManifest?.lectures||[]).find(x=>x.number===selectedClaudeLectureNumber);
  if(!item)return;
- let loaded=false;
+ let loaded=false, failedDocument=false, diagnostic='', path='', chars=0, state='';
  try{
   const doc=frame.contentDocument;
-  const path=decodeURI(frame.contentWindow.location.pathname);
+  path=decodeURI(frame.contentWindow.location.pathname);
+  state=doc?.readyState||'';
   const text=(doc?.body?.innerText||doc?.body?.textContent||'').trim();
+  chars=text.length;
+  failedDocument=doc?.title==='원본 강의 확인 필요'||Boolean(doc?.getElementById('appVersionLabel'));
+  diagnostic=(text.match(/진단: [A-Z0-9_]+/)||[])[0]||'';
   loaded=path.endsWith('/claude-library/'+item.source_path)&&!!doc?.body&&
-    text.length>=30&&doc.title!=='원본 강의 확인 필요';
- }catch{}
+    text.length>=200&&doc.title!=='원본 강의 확인 필요'&&!doc.getElementById('appVersionLabel');
+ }catch(e){diagnostic='FRAME_ACCESS_'+String(e?.name||'ERROR');}
+ // iframe about:blank onload may fire before the real document; slow external
+ // resources can delay load until long after DOM text exists. Poll for real
+ // original content and never label the intermediary blank document as failed.
+ if(!loaded&&!failedDocument&&Date.now()-claudeOriginalProbeStartedAt<30000)return;
  frame.hidden=!loaded;
  issue.hidden=loaded;
  document.getElementById('diseaseTraumaClaudeFallback').hidden=loaded;
  if(loaded){
+  if(claudeOriginalProbeTimer)clearInterval(claudeOriginalProbeTimer);
+  claudeOriginalProbeTimer=null;
   status.innerHTML='<b>우리 앱 내부 원본 화면 열림</b><br>원본 HTML과 화면 구성이 우리 서버에서 표시됐습니다. '+
     (item.audio==='없음'?'원본에 음성 파일 없음.':item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'원본 MP4 재생은 별도 확인이 필요합니다.':'음성 연결 대기 중입니다.');
  }else{
-  let diagnostic='';
-  try{diagnostic=(frame.contentDocument?.body?.textContent||'').match(/진단: [A-Z0-9_]+/)?.[0]||'';}catch{}
-  issue.innerHTML='<b>우리 앱 내부 원본을 아직 열지 못했습니다.</b><br>원본 파일 검증에 실패했습니다. 최신 목록을 다시 받아 원본을 다시 열어 주세요.'+(diagnostic?'<br><small>'+esc(diagnostic)+'</small>':'')+
+  const detail=diagnostic||('FRAME_'+state+'_CHARS_'+chars+'_PATH_'+path.slice(0,90));
+  issue.innerHTML='<b>우리 앱 내부 원본을 아직 열지 못했습니다.</b><br>원본 파일 검증에 실패했습니다. 최신 목록을 다시 받아 원본을 다시 열어 주세요.'+
+   '<br><small>진단: '+esc(detail)+'</small>'+
    '<div class="quiz-actions"><button type="button" class="primary" onclick="retryClaudeOriginalLecture()">내부 원본 다시 불러오기</button></div>';
   status.innerHTML='<b>원본 HTML 로딩 실패</b><br>외부 Claude 링크를 내부 원본 완료로 표시하지 않습니다.';
  }
@@ -5648,6 +5675,7 @@ async function retryClaudeOriginalLecture(){
   if(!item)throw Error('강의 번호를 찾지 못했습니다');
   const frame=document.getElementById('diseaseTraumaOriginalFrame');
   frame.hidden=true;
+  beginClaudeOriginalProbe();
   // Cache-busting is for a real re-check; original HTML bytes stay untouched.
   frame.contentWindow.location.replace(claudeSelfHostedUrl(item)+'?verify='+Date.now());
  }catch(error){
@@ -5669,6 +5697,7 @@ function openClaudeOriginalLecture(number,record=true){
  const issue=document.getElementById('diseaseTraumaLoadIssue');
  if(issue)issue.hidden=true;
  frame.hidden=true;
+ beginClaudeOriginalProbe();
  if(local){
    status.innerHTML='<b>우리 서버의 원본 HTML을 실제로 불러오는 중입니다...</b><br>로딩이 끝날 때까지 열람 완료로 표시하지 않습니다.';
    // Avoid creating nested iframe history entries that steal browser-back from the app router.
