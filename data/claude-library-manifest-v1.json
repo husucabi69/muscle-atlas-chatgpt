@@ -148,7 +148,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_연관통_부위별.html",
       "claude_artifact_url": "https://claude.ai/artifact/FqWvwezPbrpajWpXTLHnuZ",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "13MuRZCgIkBOIeh_mfI0rDMfcbZCzFmUy",
+      "source_bytes": 55272,
+      "source_sha256": "55b36ffa243917ef3f017dfce0a19184dd15503e2aaba46bc52966180c225be6",
+      "source_git_blob_sha1": "e36843a48c195b2785ca44d5ac90102c8e940641",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_연관통_부위별.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_연관통_부위별.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 15,
@@ -157,7 +166,17 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_01권_어깨.html",
       "claude_artifact_url": "https://claude.ai/artifact/2cYm3MPURzyBVXnZXeUten",
       "audio": "있음(2부)",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1oXuqls-ZhoHlQszVgxOwVfMS3UNTb884",
+      "source_bytes": 499368,
+      "source_sha256": "5a48c454d86cb0c0c5f29af2b4fe89de57fa097f6b3a99fb1e05dd36a98fe2dd",
+      "source_git_blob_sha1": "64e1b5488262a0e611e780354b0122e306273af9",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_01권_어깨_1부.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_01권_어깨_1부.mp4",
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_01권_어깨_2부.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 16,
@@ -166,7 +185,17 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_02권_팔꿈치.html",
       "claude_artifact_url": "https://claude.ai/artifact/HLFWW2LeZsZGQnFGRaDcp1",
       "audio": "있음(2부)",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1PdAo0osPw2V9L9Q5ATy6MA6cGhND9xhP",
+      "source_bytes": 360609,
+      "source_sha256": "ac532ca4facbac868c6144d51583126f71af923cabd5bf78edbaa2cc91d9daf5",
+      "source_git_blob_sha1": "ec9756e523316b47f5e243978f73371133be9678",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_02권_팔꿈치_1부.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_02권_팔꿈치_1부.mp4",
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_02권_팔꿈치_2부.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 17,
@@ -175,7 +204,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_03권_손목.html",
       "claude_artifact_url": "https://claude.ai/artifact/3pPc9e31wmYfFX9xUrSvUs",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1O_al214M-zsMPyzl1C5XA63cdCASVrO1",
+      "source_bytes": 438936,
+      "source_sha256": "b03926d1b0ec0774b7d7766dbac86305d52d655360509bc1eedf606fe0bf9f84",
+      "source_git_blob_sha1": "cb1a07a48c8fa304628ca5d460d82988ab06db8f",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_03권_손목.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_03권_손목.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 18,
@@ -184,7 +222,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_04권_손·손가락.html",
       "claude_artifact_url": "https://claude.ai/artifact/KMFqKHGcDpRQdGKZHPnrYo",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1Ww6kFyZoYFDSBUsNQjSkVWWGRW4uKUA0",
+      "source_bytes": 193996,
+      "source_sha256": "841a031ee73e3fc05eb59aacca27570e094c2a397b5d210fbd5335814ba79c79",
+      "source_git_blob_sha1": "7354b964d5c15eb5af5f24e4985db293b3a37ec8",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_04권_손·손가락.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_04권_손·손가락.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 19,
@@ -193,7 +240,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_05권_경추·상지_신경.html",
       "claude_artifact_url": "https://claude.ai/artifact/6uEN3czYi2RwMkEwAAUEDq",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1FGRqIjeU0RyRkSlecgLKa_nmoOELwr5r",
+      "source_bytes": 263583,
+      "source_sha256": "1b57e0c083060217532d783dddf758e2a210acb76886b9e3959cce6de8c1608b",
+      "source_git_blob_sha1": "e6a61d926afdd12a10e4e38affe80763050b1ccc",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_05권_경추·상지_신경.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_05권_경추·상지_신경.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 20,
@@ -202,7 +258,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_06권_흉추·흉곽·복부.html",
       "claude_artifact_url": "https://claude.ai/artifact/XYJ9wjx51AtyoouH2bEN7F",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1z_daZzcZIGEQ8PzjSZe5AairJ_kZQ3Ij",
+      "source_bytes": 52463,
+      "source_sha256": "fc37cffca09d31667d6715818affb798fa17b46e4a184b2a7d8827cff441de48",
+      "source_git_blob_sha1": "106798019a826016e27a5b31e5da76eac9d4f838",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_06권_흉추·흉곽·복부.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_06권_흉추·흉곽·복부.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 21,
@@ -211,7 +276,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_07권_요추·하지_신경.html",
       "claude_artifact_url": "https://claude.ai/artifact/53Vf8XjNYR6k9Airhg7Y7T",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1WPIkRSQC5M0SPp4ur2kfK0qur7abaU1I",
+      "source_bytes": 91244,
+      "source_sha256": "e00f11243f9010137d0a6a80aee86612cea542c9fcc3fc6e74a331a956c74220",
+      "source_git_blob_sha1": "9466902c64e3e9f89065d95269d8fe1db6630ef7",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_07권_요추·하지_신경.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_07권_요추·하지_신경.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 22,
@@ -220,7 +294,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_08권_골반·천장관절.html",
       "claude_artifact_url": "https://claude.ai/artifact/YQpBNYPofBzo2b4qK7TK52",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1reifwebfnvhWV5fqPdXgfkkNitH87-rJ",
+      "source_bytes": 72480,
+      "source_sha256": "cc1721d6e4a2be4a858853583d53ade4d575152c7bd318bd6247dad505f26cd0",
+      "source_git_blob_sha1": "205965420d5934210ea2077af68183d4730b4028",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_08권_골반·천장관절.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_08권_골반·천장관절.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 23,
@@ -229,7 +312,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_09권_고관절.html",
       "claude_artifact_url": "https://claude.ai/artifact/KRwgA6KsPftAH5iVQafNUk",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1_PIPZ_qnxqy7wXcNBh2qHLz5zNyaWSgl",
+      "source_bytes": 64479,
+      "source_sha256": "95b05699ee4521d1b453f56c293a4297411806921724fc43f2a1dc72d72b5256",
+      "source_git_blob_sha1": "e70d2628632863a9e1ffdd0ee291aaa88c76dafc",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_09권_고관절.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_09권_고관절.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 24,
@@ -238,7 +330,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_10권_무릎.html",
       "claude_artifact_url": "https://claude.ai/artifact/NwajhB68UTmqdq1sAbuxTk",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1n-6SUbQLF1aJynRDtd0OD_2S-rhHSrwz",
+      "source_bytes": 60911,
+      "source_sha256": "3fe5b57316589f4bf66afc8ba7a100e18158214b1f9d160fcb224699ad1ef089",
+      "source_git_blob_sha1": "8ddd890c19e49c9dc0038e17fc897d6915121edf",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_10권_무릎.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_10권_무릎.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 25,
@@ -247,7 +348,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_11권_발목.html",
       "claude_artifact_url": "https://claude.ai/artifact/1dJKtGEPcnSfz7XmJRdRs7",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1Kith6EAVMv_nRyAhfpewL2lyDCu_tipR",
+      "source_bytes": 52627,
+      "source_sha256": "7883a0b936ad62944316d8c59b810b68b1d1235d3d7174eb3ec95df14693cc7b",
+      "source_git_blob_sha1": "2eed5df3346b794c9286deaecb8c18633a652b3e",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_11권_발목.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_11권_발목.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 26,
@@ -256,7 +366,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_12권_발·발가락.html",
       "claude_artifact_url": "https://claude.ai/artifact/4x7uqtDQjE7kybUJS6Acmq",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1rgxjOpcM47KIwfufhB8qS5oQ627ix_yW",
+      "source_bytes": 56273,
+      "source_sha256": "9fa5449c10c1668817fc4b3c1a5368b2640ed26e521d907c7d8ca3c70474bf8e",
+      "source_git_blob_sha1": "d8f49f91bb93466ccb482bcc6d5840414db6ea97",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_12권_발·발가락.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_12권_발·발가락.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 27,
@@ -265,7 +384,16 @@
       "source_path": "1_강의페이지/02_이학적검진·연관통/클로드_이학적검진_13권_전신_종합.html",
       "claude_artifact_url": "https://claude.ai/artifact/Rg3bwkWicwi5bFzkkvvUug",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1PqZPpY9-WS_Q6BwTmobPP1phX12X4H6v",
+      "source_bytes": 50049,
+      "source_sha256": "e543801bffc4dd0977bc2717ffaa30d87560a0f61faaa397d542f489bbe3108d",
+      "source_git_blob_sha1": "26baa1ead7566c225b5c750e52c7907b98dcabee",
+      "r2_object_key": "2_음성/02_이학적검진·연관통/클로드_이학적검진_13권_전신_종합.mp4",
+      "source_media_paths": [
+        "2_음성/02_이학적검진·연관통/클로드_이학적검진_13권_전신_종합.mp4"
+      ],
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 28,
