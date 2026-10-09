@@ -535,7 +535,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_09권_경추_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/Tx3SjF3p6zyK3bDaRhUTg3",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1UU6G15KhLtRlg36ZmKHNdYUDpcY6c87o",
+      "source_bytes": 423656,
+      "source_sha256": "0be45a32babf7078e68eda72eed1757e3534bb06c4dfaa61c865e15f82153e1d",
+      "source_git_blob_sha1": "30a2e33ee5d86edf4c22ce9cbe448fb5f712e664",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_09권_경추_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 37,
@@ -544,7 +550,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_10권_경추_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/C4nDoXzsURV4fBwVdhQvjb",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1Aw1bu8--wxAZaIZUxI_qujuRYzJ0npa-",
+      "source_bytes": 411323,
+      "source_sha256": "febf2fe0cfd01066409d5128d5c032c67965a9c2e0624ef7e5f7851ca368088b",
+      "source_git_blob_sha1": "456c13ca39a083ced0b4af9453a408a6d73dd131",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_10권_경추_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 38,
@@ -553,7 +565,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_11권_흉추_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/GxUTrpC15BAjtGa7B8nQQn",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "13Jj8F1NONQ7wcjvG5qYCFBMkWtH6tHB7",
+      "source_bytes": 625777,
+      "source_sha256": "5c8d78bee0ccb475fca75c083477656ac13831bd2c545b5af9625155c7531237",
+      "source_git_blob_sha1": "bf0056c9bd83efa5553b3ee17cc34103fceadcaa",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_11권_흉추_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 39,
@@ -562,7 +580,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_12권_흉추_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/LGj2Zn6pEoHC5kaVwx8h4e",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "16AZJzPJfrdZntSQ8VDybxfYblDdT0jyc",
+      "source_bytes": 320921,
+      "source_sha256": "1a2af802a49f1ad1cc7b942340cc6e13eba94bbde03d6d8ca9bd0f26a851d73e",
+      "source_git_blob_sha1": "941d362efa270933cf4378347bd6d0335b3c1035",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_12권_흉추_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 40,
@@ -571,7 +595,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_13권_요추_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/YJraXLWyR9n3V9obQDgH4y",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1aMsfnUYEGwhoYC3Yj_9xh8CYFAV546Fh",
+      "source_bytes": 273687,
+      "source_sha256": "89b96295da49d31da786725b5a8d69df7974cf088f075937bcbd9bb95c0a993a",
+      "source_git_blob_sha1": "685841a0cfab950801bb4d03221a731a010df0f3",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_13권_요추_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 41,
@@ -589,7 +619,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_15권_골반·천장관절_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/EyJ5d7nTZVzGEmKUvbVwEY",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "13QqaxJbS6xn4Q9ZwjaHDTkVCl8LJiGwM",
+      "source_bytes": 211295,
+      "source_sha256": "b32ab33fc03172e80f5e68ff031e76775295faf1c7cdbdbfc615e4903dee5094",
+      "source_git_blob_sha1": "d80b728b5ad55d17017e6c40255d6f500d2725aa",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_15권_골반·천장관절_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 43,
@@ -598,7 +634,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_16권_골반·천장관절_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/DkdV8QRZtqGZs5WKCwupJR",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1MLJAZqoqoytwoqly_HsEV9o1wJu0juIG",
+      "source_bytes": 97864,
+      "source_sha256": "69e690f0fb9b15098425c9c9f2e5e629fea5781f146e1de37697898428a661dc",
+      "source_git_blob_sha1": "9696213004262a6bf64d9519d11022dd8b809d9b",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_16권_골반·천장관절_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 44,
@@ -607,7 +649,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_17권_고관절_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/VcosZiWjEtwEKRFfrDrJST",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1xqX8K0GEeq48Cyu_CYYKVT5rkUorM8Ll",
+      "source_bytes": 223777,
+      "source_sha256": "6e6df4956ace7741b54369c8933255b5921cfcfbb1599b732a0db4cf563a0fda",
+      "source_git_blob_sha1": "b7c2d786c690c6ac09d9c2823ec0215f631f4a36",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_17권_고관절_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 45,
@@ -616,7 +664,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_18권_고관절_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/CPnaiCmY1nLChrwiDfsrzR",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "10ieAtvhSiLASNgseHwfDR1Cq3zM6j3AC",
+      "source_bytes": 79917,
+      "source_sha256": "6e040ae923cad45d112d1619de3f38b2422a9476b58bb58c21e5c8c5f54b1476",
+      "source_git_blob_sha1": "768f83ef8452f488bb6a0bfadf684129bd5a1a85",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_18권_고관절_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 46,
@@ -625,7 +679,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_19권_무릎_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/RU71xXXBzMZUdiZW955xna",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1bGBV9pdVpSqs50Gtj0YeOh0ZNj1NYqDU",
+      "source_bytes": 188160,
+      "source_sha256": "fe0495041c77b06a48a4df8fdc8f37ceb39fac811942d62f9556126c5d067593",
+      "source_git_blob_sha1": "d4e4007f4332dd04f185cb1a249c19f9f6d8a675",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_19권_무릎_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 47,
@@ -634,7 +694,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_20권_무릎_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/1VVq53RUTdUaip5JUkUL4Q",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1m3c99C9BZ25TynsAQRUXWUPOIfbvlvud",
+      "source_bytes": 197392,
+      "source_sha256": "3881543f83a9a7354cc11654d41b40a855efebd56e2b06e0f3be6f682639cc02",
+      "source_git_blob_sha1": "5800d976aac6e08aa1062a97108b333eb86a47c5",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_20권_무릎_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 48,
@@ -643,7 +709,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_21권_발목_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/72hxSD93N7ZDPyoSa3rgKx",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1OxcUwB108vs_PXIw7DWGPR2emtYEVHgs",
+      "source_bytes": 141645,
+      "source_sha256": "f48806ab7e2009ba489ca3699fa602cfaefa1f4560fd906d21a6c3677fe141ed",
+      "source_git_blob_sha1": "80d7a1349a8f42c3c4d39af45c73200be0557451",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_21권_발목_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 49,
@@ -652,7 +724,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_22권_발목_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/3zfw4PQH6rcWeuw3BVBaSv",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1z3VWJDhFsXwfWYfNflF2Q5IGhEA4UHra",
+      "source_bytes": 131973,
+      "source_sha256": "ed118b07e05eafc853bfc3a054f0b286dc3900b23dcfaf537776a0c022fcfa46",
+      "source_git_blob_sha1": "e2ea55480e8511806d44040f5bcd4af30b445c4c",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_22권_발목_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 50,
@@ -661,7 +739,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_23권_발_질환.html",
       "claude_artifact_url": "https://claude.ai/artifact/AswT16c95NwYKS5HUy6j2F",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1MUAOzoJ7lwiEm0AvS6W3trpyPICxC_EO",
+      "source_bytes": 700236,
+      "source_sha256": "8b9b9227c5f8bdfe9fb7b01bfb8df7004b1ec73b32ad54751689fe62944b4454",
+      "source_git_blob_sha1": "9be0a5b4940b097d409ea1f6211569b354b8a3b7",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_23권_발_질환.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 51,
@@ -670,7 +754,13 @@
       "source_path": "1_강의페이지/03_질환외상/클로드_질환외상_24권_발_외상.html",
       "claude_artifact_url": "https://claude.ai/artifact/MNFdZdkRiw7XmVdF9ho875",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1uGP7TYDvVaOJlAhBjx-Adm-OBAqDQgmr",
+      "source_bytes": 781482,
+      "source_sha256": "14bc307b0e5ba9242e5ade4be587e62144035491e5e006202a702ddb6ceff1b0",
+      "source_git_blob_sha1": "3c838299d5a9de9f7f2d3d019b06ca8bd5752550",
+      "r2_object_key": "2_음성/03_질환외상/클로드_질환외상_24권_발_외상.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 52,
@@ -679,7 +769,13 @@
       "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_01권_원칙·양성.html",
       "claude_artifact_url": "https://claude.ai/artifact/Tx5Pwa3AGcWaVkCctS5Zv4",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1eNzD5k7HS0pF4vAm5FYbR0-TxNrvP-xL",
+      "source_bytes": 1366707,
+      "source_sha256": "6cba60071f5885533db63c490960da5db9799c1ad1e5ab8547089d0d3b0b34e8",
+      "source_git_blob_sha1": "fcc98988d685e58df81a2a9a00ccad03b5795590",
+      "r2_object_key": "2_음성/04_골종양·소아/클로드_골종양_01권_원칙·양성.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 53,
@@ -688,7 +784,13 @@
       "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_02권_악성.html",
       "claude_artifact_url": "https://claude.ai/artifact/D91HSEZQ4rg8ozuEZHuX5z",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1wdRFx1kbF8x2U3FlWIp5LJrrJXGeIkdt",
+      "source_bytes": 613639,
+      "source_sha256": "587b51ac053e28d1cf3cfbf007c9261bbcced3d6df33e918f4f978e0dd0aa0a2",
+      "source_git_blob_sha1": "66f2cc0feb80b7820b7c27f8aa3f8f5e7d23d561",
+      "r2_object_key": "2_음성/04_골종양·소아/클로드_골종양_02권_악성.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 54,
@@ -697,7 +799,13 @@
       "source_path": "1_강의페이지/04_골종양·소아/클로드_골종양_03권_연부조직_종양.html",
       "claude_artifact_url": "https://claude.ai/artifact/R5eiCGi7SxG8YssPjQF3iU",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1E2-XASfpeiliasXt6vnqfhbjBXCgBL56",
+      "source_bytes": 131358,
+      "source_sha256": "45276ba92217a4b74e74b17d11d555e2396d352f49965c13dfc8093d6fdc3103",
+      "source_git_blob_sha1": "ac53eacc562d339216e1121b85b94a7e2c0d4d4e",
+      "r2_object_key": "2_음성/04_골종양·소아/클로드_골종양_03권_연부조직_종양.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 55,
@@ -706,7 +814,13 @@
       "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_01권_신생아·영아.html",
       "claude_artifact_url": "https://claude.ai/artifact/J1nVfTCK6HxRxCN6p7vqgQ",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "16xwwm3iikxZvv9NZXTcWQZq6WV1-YWxd",
+      "source_bytes": 287052,
+      "source_sha256": "405d5dae43aaedd426aeb78bfcb172ab70bfc8dfac1f8cdf768ff083cede425e",
+      "source_git_blob_sha1": "a9b39c807442ee9ba894ce482c53c81635e2ce91",
+      "r2_object_key": "2_음성/04_골종양·소아/클로드_소아_01권_신생아·영아.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 56,
@@ -715,7 +829,13 @@
       "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_02권_고관절·하지_정렬.html",
       "claude_artifact_url": "https://claude.ai/artifact/WQYKQDH7GWDRtCvmGwo9g1",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1noj_2mZR1JkMhbB9m7rXP9T3hFm7R0se",
+      "source_bytes": 416328,
+      "source_sha256": "c831f44d4bfea896fd4e8cf80ef9a617ead056dd84394ee0e1c2537ade6b10ed",
+      "source_git_blob_sha1": "a81bb0752c801aa1154d796cec7a64617a1112b7",
+      "r2_object_key": "2_음성/04_골종양·소아/클로드_소아_02권_고관절·하지_정렬.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 57,
@@ -724,7 +844,13 @@
       "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_03권_골절·성장판·학대.html",
       "claude_artifact_url": "https://claude.ai/artifact/L66M97X2w5v6p486thhuDX",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1BLyM4azw8oRKBQyBTx2yXmSnZzKgbNp6",
+      "source_bytes": 48313,
+      "source_sha256": "ec364ae43352ba545fe68fd3b8cf9a771cfef99c7cdd47169c75b7f9939a208e",
+      "source_git_blob_sha1": "ec4d422ff91d0cd0ddc2afc1a6591eeaa6d196c3",
+      "r2_object_key": "2_음성/04_골종양·소아/클로드_소아_03권_골절·성장판·학대.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 58,
@@ -733,7 +859,13 @@
       "source_path": "1_강의페이지/04_골종양·소아/클로드_소아_04권_척추·신경근육·골계통.html",
       "claude_artifact_url": "https://claude.ai/artifact/9ch7qFdnmRaDwXuNNK6LpZ",
       "audio": "있음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1fGy1oUsw4WhQ9sCgjsAvu0xf8OxO1nup",
+      "source_bytes": 42190,
+      "source_sha256": "68e45d61b7f701b59204308d358fdb6ef421d59d86e6ddf8720e88c7cc6c0e23",
+      "source_git_blob_sha1": "b08544647b1de0bf25e6e885f5855d5d926f3ff9",
+      "r2_object_key": "2_음성/04_골종양·소아/클로드_소아_04권_척추·신경근육·골계통.mp4",
+      "audio_source_verification": "DRIVE_MP4_UNLOCATED"
     },
     {
       "number": 59,
