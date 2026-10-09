@@ -53,7 +53,7 @@ for(const row of hosted){
   const bytes=read(file),body=bytes.toString('utf8');
   check(label+' Drive HTML byte identity',Number.isSafeInteger(row.source_bytes)&&bytes.length===row.source_bytes,String(bytes.length));
   check(label+' Drive HTML SHA256 integrity',/^[0-9a-f]{64}$/.test(row.source_sha256||'')&&crypto.createHash('sha256').update(bytes).digest('hex')===row.source_sha256);
-  check(label+' preserves original Artifact fallback',body.includes(row.claude_artifact_url));
+  check(label+' checks original Artifact fallback faithfully',row.source_embedded_artifact===false?!body.includes(row.claude_artifact_url):body.includes(row.claude_artifact_url));
   if(row.audio!=='없음'){
     check(label+' preserves original R2 logical MP4 path',typeof row.r2_object_key==='string'&&
       row.r2_object_key.startsWith('2_음성/')&&body.includes('../../'+row.r2_object_key));
