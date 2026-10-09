@@ -614,7 +614,12 @@
       "source_path": "1_강의페이지/05_분류·문제은행/클로드_문제은행_01권_상지_30문항.html",
       "claude_artifact_url": "https://claude.ai/artifact/JcwmhHuCvnkuUGjHY6Pb93",
       "audio": "없음",
-      "hosting_status": "SOURCE_VERIFIED_SYNC_PENDING"
+      "hosting_status": "SELF_HOSTED_HTML_MEDIA_PENDING",
+      "source_drive_file_id": "1vcsOYNsyZAkTEB92Rv9WD62Dhu8cl-RD",
+      "source_bytes": 23542,
+      "source_sha256": "d378960666a76c06cad0b13291d8216b1ffcc0af79b4e270be428976c311cfbc",
+      "source_git_blob_sha1": "bcd3527fc1fc66e22602c84d07df6aef0ae8732d",
+      "source_embedded_artifact": false
     },
     {
       "number": 60,
