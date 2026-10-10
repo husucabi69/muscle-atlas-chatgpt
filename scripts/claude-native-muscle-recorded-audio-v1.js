@@ -26,8 +26,8 @@ function mount(shadow,doc){
  if(active){stop();for(const u of active.urls)if(u)URL.revokeObjectURL(u);}
  const cues=timing(doc),box=document.createElement('section');
  box.className='claude-original-recorded';box.dataset.recordedAudio='player';
- const title=document.createElement('h3');title.textContent='🎧 Claude 원본 여성 강사 음성 (1·2부)';
- const guide=document.createElement('p');guide.textContent='구글 드라이브의 원본 MP4를 선택하면 직접 재생합니다. 파일은 서버로 전송하지 않습니다.';
+ const title=document.createElement('h3');title.textContent='🎧 Claude 원본 녹음 (MP4 수동 파일 선택)';
+ const guide=document.createElement('p');guide.textContent='원본 녹음은 실제로 존재하지만 Cloudflare 음성 저장소 미연결로 자동 재생은 아직 되지 않습니다. Google Drive에서 내려받은 1·2부 MP4를 아래에서 직접 선택하면 파일 검증 후 재생합니다. 파일을 외부로 보내지 않습니다. 바로 듣고 싶다면 위쪽 무료 한국어 음성을 사용하세요.';
  const label=document.createElement('label');label.textContent='원본 MP4 1·2부 선택 ';
  const picker=document.createElement('input');picker.type='file';picker.multiple=true;
  picker.accept='.mp4,video/mp4,audio/mp4';picker.dataset.recordedAudio='files';label.append(picker);
