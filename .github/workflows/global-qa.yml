@@ -41,6 +41,8 @@ jobs:
         run: node scripts/disease-trauma-native-qa.mjs
       - name: Verify free Korean native audio segmentation and navigation contract
         run: node scripts/claude-native-muscle-audio-contract-qa.mjs
+      - name: Verify recovered original Claude MP4 timing and safe app-audio pilot
+        run: node scripts/claude-native-muscle-recorded-audio-qa.mjs
       - name: Run first-muscle-lecture native-integration fidelity QA
         run: node scripts/claude-native-muscle-v1-qa.mjs
       - name: Run Claude Original Classroom QA

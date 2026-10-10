@@ -107,6 +107,9 @@ try {
                 shadow.querySelectorAll('img').length===18 &&
                 shadow.querySelectorAll('[data-i]').length===671 &&
                 shadow.querySelectorAll('.claude-native-teaching').length===5 &&
+                host.querySelector('[data-recorded-audio="player"]') &&
+                host.querySelector('[data-recorded-audio="files"]') &&
+                host.querySelector('[data-recorded-audio="element"]') &&
                 host.querySelector('[data-native-audio="player"]') &&
                 host.querySelector('[data-native-audio="play"]') &&
                 host.querySelector('[data-native-audio="voice"]') &&
@@ -183,6 +186,12 @@ try {
         });
         if (nativePilot) {
           if(viewport.all){
+            const recordedPicker=page.locator('#claudeNativePilotHost [data-recorded-audio="files"]');
+            await recordedPicker.setInputFiles({name:'not-a-claude-source.mp4',mimeType:'video/mp4',buffer:Buffer.from('invalid original mp4')});
+            await page.waitForFunction(()=>document.querySelector('#claudeNativePilotHost [data-recorded-audio="file-status"]')?.textContent.includes('⚠'));
+            const recordedAudioState=await page.locator('#claudeNativePilotHost [data-recorded-audio="element"]').evaluate(a=>({paused:a.paused,src:a.getAttribute('src')}));
+            if(!recordedAudioState.paused||recordedAudioState.src)
+              throw new Error('Invalid MP4 must never become playable: '+JSON.stringify(recordedAudioState));
             const audioPlay=page.locator('#claudeNativePilotHost [data-native-audio="play"]');
             await audioPlay.click();
             await page.waitForFunction(()=>window.__lysNativeSpeechQA?.length>0);
