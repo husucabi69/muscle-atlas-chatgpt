@@ -215,6 +215,9 @@ try {
           // Test browser/PWA Back once; other cases use the visible return button.
           await page.goBack({ waitUntil: 'domcontentloaded' });
         } else {
+          // Native audio highlights may scroll the long lecture far down.
+          // Center the actual return button below the app's sticky header.
+          await page.locator('#diseaseTraumaOriginalView .region-back').evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
           await page.locator('#diseaseTraumaOriginalView .region-back').click();
         }
         await page.waitForFunction(() => !document.querySelector('#diseaseTraumaCategoryView').hidden);
