@@ -178,7 +178,7 @@ try {
         const status = await page.locator('#diseaseTraumaOriginalStatus').innerText();
         if (row.audio === '없음' && !status.includes('원본에 음성 파일 없음'))
           throw new Error('No-audio source improperly presented for ' + number);
-        if (row.audio !== '없음' && row.hosting_status === 'SELF_HOSTED_HTML_MEDIA_PENDING' && !(nativePilot?status.includes('MP4 연결 대기'):status.includes('음성 연결 대기')))
+        if (row.audio !== '없음' && row.hosting_status === 'SELF_HOSTED_HTML_MEDIA_PENDING' && !(nativePilot?status.includes('MP4 직접 선택 재생 시범'):status.includes('음성 연결 대기')))
           throw new Error('Audio-pending disclaimer missing for ' + number);
         results.push({
           number, series: row.series, title: row.title, viewport: viewport.label,
