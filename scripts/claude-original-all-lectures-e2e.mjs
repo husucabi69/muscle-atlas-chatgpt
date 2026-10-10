@@ -223,7 +223,7 @@ try {
             if(!stopped.includes('정지'))throw Error('Native audio stop did not update player status');
           }
           const screenshot=path.join(outDir,viewport.label+'-native-muscle-'+number+'.png');
-          await page.screenshot({path:screenshot,fullPage:true});
+          await page.screenshot({path:screenshot,fullPage:nativePilot});
           if(details.horizontalOverflow)throw Error('Native muscle 1 overflows mobile/desktop width: '+JSON.stringify(details));
         }
         if (number === ids[0]) {
