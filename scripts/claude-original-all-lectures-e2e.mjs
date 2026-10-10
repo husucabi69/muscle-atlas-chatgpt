@@ -87,7 +87,7 @@ try {
                 document.getElementById('diseaseTraumaOriginalFrame').hidden &&
                 document.getElementById('diseaseTraumaLoadIssue').hidden &&
                 !document.getElementById('diseaseTraumaOriginalView').hidden;
-            },{timeout:isLive?38000:20000});
+            },null,{timeout:isLive?38000:20000});
           } else await page.waitForFunction(expected => {
             try {
               const iframe = document.getElementById('diseaseTraumaOriginalFrame');
@@ -154,6 +154,11 @@ try {
           number, series: row.series, title: row.title, viewport: viewport.label,
           expectedSha256: row.source_sha256, fallbackMatches: true, ...details
         });
+        if (nativePilot) {
+          const screenshot=path.join(outDir,viewport.label+'-native-muscle-1.png');
+          await page.screenshot({path:screenshot,fullPage:true});
+          if(details.horizontalOverflow)throw Error('Native muscle 1 overflows mobile/desktop width: '+JSON.stringify(details));
+        }
         if (number === ids[0]) {
           await page.screenshot({
             path: path.join(outDir, viewport.label + '-category-' + String(category + 1).padStart(2, '0') + '.png')

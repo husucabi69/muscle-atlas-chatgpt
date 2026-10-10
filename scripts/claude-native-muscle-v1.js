@@ -123,6 +123,10 @@
     const page=document.createElement('div');
     page.className='native-original';
     const originalBody=document.importNode(sourceWrap,true);
+    // Full original educational prose (including tables, captions and citations)
+    // must be exactly preserved before supplement-only teaching notes are added.
+    if(originalBody.textContent!==sourceWrap.textContent)
+      throw Error('원본 교육문장 텍스트 보존 검사 실패');
     for(const table of [...originalBody.querySelectorAll('table')]){
       if(!table.parentElement?.classList.contains('tbl')){
         const scroller=document.createElement('div');scroller.className='tbl';
