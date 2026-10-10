@@ -45,6 +45,8 @@ jobs:
         run: node scripts/claude-native-muscle-recorded-audio-qa.mjs
       - name: Run first-muscle-lecture native-integration fidelity QA
         run: node scripts/claude-native-muscle-v1-qa.mjs
+      - name: Run multi-volume native Muscle lecture source fidelity QA
+        run: node scripts/claude-native-muscle-series-qa.mjs
       - name: Run Claude Original Classroom QA
         run: node scripts/claude-library-runtime-qa.mjs
       - name: Enforce 3-screen Claude Original app integration and PWA safety contract
