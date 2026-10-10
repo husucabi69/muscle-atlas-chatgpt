@@ -42,3 +42,14 @@
 .claude-native-audio-dock strong{font-size:13px;line-height:1.3;flex:1}
 .claude-native-audio-dock button{border:1px solid #94b9d0;color:#102e4a;background:#fff;font-weight:800;border-radius:10px;padding:9px 11px;min-height:40px;cursor:pointer}
 @media(max-width:390px){.claude-native-audio-dock strong{font-size:11px}.claude-native-audio-dock button{font-size:12px;padding:8px 9px}}
+
+/* A scroll-synced lecture can be far down the page. Its return control must
+   remain clickable BELOW the main sticky app header, not underneath its title. */
+#diseaseTraumaOriginalView > .claude-original-toolbar,
+#diseaseTraumaCategoryView > .claude-original-toolbar {
+  top: calc(var(--claude-original-header-offset, 0px) + 4px);
+  scroll-margin-top: calc(var(--claude-original-header-offset, 0px) + 10px);
+}
+#diseaseTraumaOriginalView > .claude-original-toolbar .region-back {
+  min-height: 44px;
+}
