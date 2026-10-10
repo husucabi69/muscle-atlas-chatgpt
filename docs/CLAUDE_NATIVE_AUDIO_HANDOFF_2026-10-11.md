@@ -77,3 +77,10 @@
 - 코드/원본은 GitHub Preview 브랜치에 저장. 위 SHA를 최신으로 단정하지 말고 반드시 GitHub를 재조회.
 
 마지막 지침: **기존 강의를 단순 링크시키거나 축약하지 말 것. 실제 소리와 671개 강조가 나오도록 구현할 것. 원본 87강 + 이미지/표/서술 완전 보존, 설명은 보강. 모든 보고에 프리뷰 링크와 실측 시간을 포함.**
+
+## 9. 2026-10-11 02:21 KST 최종 QA 체크포인트 — 다음 채팅 첫 해결과제
+- 음성 파일 검증·FFmpeg·독립 Chromium 재생은 **PASS**, GitHub **Global QA PASS**, Cloudflare Preview 배포 **PASS**.
+- **전체 브라우저 E2E는 FAIL**: 실행 `38071088595`, 단계 `Open all 87 original Claude lectures on mobile and desktop representative routes`에서 `#diseaseTraumaOriginalView .region-back` 클릭 시 상단 고정 `.header h1`이 포인터 입력을 가로채는 오류(`TimeoutError`). 오디오 동기화가 페이지를 자동 스크롤한 뒤 발생. `scrollIntoView({block:'center'})` 추가만으로 해소되지 않음.
+- Deploy Safety Gate는 E2E 실패로 **SKIPPED**. **이번 시범 전체 QA PASS·Android 실기기 음성 테스트 완료를 주장하면 안 됨.**
+- **다음 개발 첫 순서:** 이 header/back overlay의 실제 CSS·스크롤 및 클릭 경로를 조사 → 실제 앱에서 조작 가능한 복귀 버튼과 접근성을 보장 → E2E 87/87 및 Preview exact-SHA / PWA 회귀검사 재실행. 사용자 원본 HTML 변경 금지.
+- 다음 채팅에 새로운 `진행해` 지시가 있을 때만 수정을 시작. 최신 HEAD/Actions 상태를 다시 확인할 것.
