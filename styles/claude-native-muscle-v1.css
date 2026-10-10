@@ -32,3 +32,6 @@
 .claude-native-audio-status{font-size:13px;margin:10px 0 5px;color:#174e58;line-height:1.6}
 .claude-native-audio-progress{font-size:12px;color:#56687a;font-weight:600}
 @media(max-width:440px){.claude-native-audio{padding:9px}.claude-native-audio-controls{gap:5px}.claude-native-audio-controls button{padding:7px 8px;font-size:12px}}
+
+.claude-native-audio-chapter{display:flex;gap:9px;flex-wrap:wrap;margin:8px 0}
+.claude-native-audio-chapter button{padding:9px 12px;border-radius:9px;border:1px solid #a2bbc9;color:#183a5c;background:#eef6fb;font-size:13px;font-weight:700;cursor:pointer}

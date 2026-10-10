@@ -3,6 +3,9 @@
 (function(){
  'use strict';
  const MAX_CHUNK=160;
+ const POS_KEY='lys-native-muscle-1-tts-position-v1';
+ const RATE_KEY='lys-native-muscle-1-tts-rate-v1';
+ const VOICE_KEY='lys-native-muscle-1-tts-voice-v1';
  const synth=window.speechSynthesis;
  let active=null;
  function normalized(el){
@@ -71,7 +74,8 @@
    const pause=createButton('⏸ 일시정지','pause');
    const next=createButton('다음 문단 ⏭','next');
    const end=createButton('⏹ 정지','stop');
-   controls.append(prev,play,pause,next,end);
+   const fromStart=createButton('⟲ 처음부터','start');
+   controls.append(prev,play,pause,next,end,fromStart);
    const optionRow=document.createElement('div');optionRow.className='claude-native-audio-options';
    const voiceLabel=document.createElement('label');voiceLabel.textContent='한국어 목소리';
    const voiceSelect=document.createElement('select');voiceSelect.dataset.nativeAudio='voice';
@@ -93,9 +97,17 @@
      box,play,pause,status,progress,voiceSelect,rateSelect,availableVoices:[],selectedVoice:null
    };
    active=state;
+   try{
+     const stored=Number(localStorage.getItem(POS_KEY)||'0');
+     if(Number.isInteger(stored)&&stored>=0&&stored<entries.length)state.index=stored;
+     const savedRate=localStorage.getItem(RATE_KEY);
+     if(savedRate&&[...rateSelect.options].some(x=>x.value===savedRate))rateSelect.value=savedRate;
+   }catch{}
+   if(state.index>0)status.textContent='이전 구간부터 이어 듣기 준비 완료. ▶ 읽기를 누르세요. (기기 한국어 음성)';
    function setProgress(){
      progress.textContent='읽기 구간: '+(state.index+1)+' / '+entries.length+' · '+(entries[state.index]?.title||'');
    }
+   setProgress();
    function setHighlight(index){
      state.highlight?.classList.remove('claude-native-speaking');
      const entry=entries[index];if(!entry)return;
@@ -109,6 +121,8 @@
      const ko=all.filter(v=>/^ko(?:-|_|$)/i.test(v.lang));
      state.availableVoices=ko;
      const was=voiceSelect.value;
+     let lastVoice='';
+     try{lastVoice=localStorage.getItem(VOICE_KEY)||'';}catch{}
      voiceSelect.replaceChildren();
      if(!ko.length){
        const option=new Option('기기 기본 한국어 음성','default');
@@ -121,7 +135,8 @@
        const option=new Option(v.name+(v.localService?' · 기기 음성':' · 온라인 음성'),String(i));
        voiceSelect.add(option);
      });
-     voiceSelect.value=ko.some((v,i)=>String(i)===was)?was:String(defaultIndex);
+     const savedIndex=ko.findIndex(v=>v.name===lastVoice);
+     voiceSelect.value=ko.some((v,i)=>String(i)===was)?was:String(savedIndex>=0?savedIndex:defaultIndex);
    }
    function handleError(ev,token){
      if(active!==state||token!==state.token)return;
@@ -134,12 +149,14 @@
    function speakNext(token){
      if(active!==state||token!==state.token||!state.playing||state.paused)return;
      if(state.index>=state.entries.length){
-       stop();state.status.textContent='✅ 근육학 1권 읽기가 끝났습니다.';return;
+       stop();try{localStorage.removeItem(POS_KEY);}catch{}
+       state.status.textContent='✅ 근육학 1권 읽기가 끝났습니다.';return;
      }
      const entry=state.entries[state.index];
      if(!state.chunks.length){
        state.chunks=split(entry.text);
        state.chunk=0;
+       try{localStorage.setItem(POS_KEY,String(state.index));}catch{}
        setHighlight(state.index);setProgress();
      }
      if(state.chunk>=state.chunks.length){
@@ -183,6 +200,7 @@
      return selector?.value||'';
    }
    play.addEventListener('click',()=>startAt(state.index));
+   fromStart.addEventListener('click',()=>startAt(0));
    prev.addEventListener('click',()=>startAt(Math.max(0,state.index-1)));
    next.addEventListener('click',()=>startAt(Math.min(entries.length-1,state.index+1)));
    end.addEventListener('click',stop);
@@ -197,9 +215,11 @@
      }
    });
    voiceSelect.addEventListener('change',()=>{
+     try{localStorage.setItem(VOICE_KEY,state.availableVoices[Number(voiceSelect.value)]?.name||'');}catch{}
      if(state.playing)startAt(state.index);
    });
    rateSelect.addEventListener('change',()=>{
+     try{localStorage.setItem(RATE_KEY,rateSelect.value);}catch{}
      if(state.playing)startAt(state.index);
    });
    // A passage tap restarts at that sentence/figure/table, not from page top.
@@ -209,6 +229,7 @@
      const index=entries.findIndex(entry=>entry.el===el);
      if(index>=0)startAt(index);
    });
+   window.addEventListener('pagehide',stop,{once:true});
    if(synth?.addEventListener)synth.addEventListener('voiceschanged',updateVoices);
    updateVoices();
    // Stopping playback on app navigation prevents speech continuing over a

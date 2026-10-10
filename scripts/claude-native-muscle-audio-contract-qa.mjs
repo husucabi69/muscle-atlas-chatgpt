@@ -25,6 +25,9 @@ for(const [i,src] of samples.entries()){
 }
 assert.ok(moduleSource.includes("u.lang='ko-KR'"),'Korean voice language pinned');
 assert.ok(moduleSource.includes("getVoices"),'user-selectable device voices');
+assert.ok(moduleSource.includes('POS_KEY'),'local bookmark available');
+assert.ok(moduleSource.includes('RATE_KEY'),'local rate preference available');
+assert.ok(moduleSource.includes('VOICE_KEY'),'local voice preference available');
 assert.ok(moduleSource.includes("setHighlight"),'current passage highlighting');
 assert.ok(moduleSource.includes("MutationObserver"),'navigation stop');
 assert.ok(moduleSource.includes("window.LYSNativeAudio"),'native binding');
