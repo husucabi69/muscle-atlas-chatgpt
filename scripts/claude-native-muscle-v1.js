@@ -8,6 +8,20 @@
   if(typeof originalOpen!=='function')throw Error('Claude original router unavailable');
   const originalFrame=document.getElementById('diseaseTraumaOriginalFrame');
   if(!originalFrame)throw Error('Claude original host missing');
+  // The main app header and original-lecture back toolbar are both sticky.
+  // Keep the return toolbar BELOW the real header, including tall mobile headers.
+  // This offset is UI-only and never modifies the Claude original HTML.
+  const stickyHeader=document.querySelector('.header');
+  if(stickyHeader){
+    const syncLectureToolbarOffset=()=>{
+      const sticky=getComputedStyle(stickyHeader).position==='sticky';
+      const pixels=sticky?Math.ceil(stickyHeader.getBoundingClientRect().height):0;
+      document.documentElement.style.setProperty('--claude-original-header-offset',pixels+'px');
+    };
+    syncLectureToolbarOffset();
+    if(typeof ResizeObserver!=='undefined')new ResizeObserver(syncLectureToolbarOffset).observe(stickyHeader);
+    window.addEventListener('resize',syncLectureToolbarOffset,{passive:true});
+  }
   const view=document.getElementById('diseaseTraumaOriginalView');
   const modeSwitch=document.createElement('div');
   modeSwitch.id='claudeNativeModeSwitch';
