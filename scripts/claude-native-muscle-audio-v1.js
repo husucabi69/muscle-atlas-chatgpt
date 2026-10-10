@@ -7,6 +7,13 @@
  const RATE_KEY='lys-native-muscle-1-tts-rate-v1';
  const VOICE_KEY='lys-native-muscle-1-tts-voice-v1';
  const synth=window.speechSynthesis;
+ // The exact HTML remains untouched; only spoken punctuation is made natural.
+ function spokenText(text,skipDecorative=true){
+   if(!skipDecorative)return String(text);
+   return String(text).replace(/[•●○◆◇■□★☆▶◀※]/g,' ')
+     .replace(/[→⇒]/g,' 에서 ').replace(/[%％]/g,' 퍼센트 ')
+     .replace(/[\[\]{}<>]/g,' ').replace(/\s+/g,' ').trim();
+ }
  let active=null;
  function normalized(el){
    if(el.matches('tr')){
@@ -49,7 +56,10 @@
    if(className)b.className=className;
    return b;
  }
- function mount(shadow){
+ function mount(shadow,options={}){
+   const lectureNumber=Number.isInteger(options.lectureNumber)?options.lectureNumber:3;
+   const bookmarkKey=lectureNumber===3?POS_KEY:'lys-native-lecture-'+lectureNumber+'-tts-position-v1';
+   const displayName=options.title||'근육학 1권';
    if(active?.navObserver)active.navObserver.disconnect();
    stop();
    const elements=[...shadow.querySelectorAll('[data-i], .claude-native-teaching')];
@@ -60,14 +70,16 @@
      const title=el.closest('section')?.querySelector('.sechead h1')?.textContent?.trim()||'강의';
      return {el,title,text:src?.trim()||''};
    }).filter(x=>x.text.length);
-   if(entries.length!==676)throw Error('읽기 대상 문단 수 불일치: '+entries.length+' / 676');
+   const expected=options.expectedCount===undefined?(lectureNumber===3?676:null):options.expectedCount;
+   if(expected!==null&&entries.length!==expected)throw Error('읽기 대상 문단 수 불일치: '+entries.length+' / '+expected);
+   if(!entries.length)throw Error('읽기 대상 원문 문단이 없습니다.');
    const box=document.createElement('section');
    box.className='claude-native-audio';
    box.dataset.nativeAudio='player';
-   box.setAttribute('aria-label','근육학 1권 한국어 읽기');
+   box.setAttribute('aria-label',displayName+' 한국어 읽기');
    const header=document.createElement('div');header.className='claude-native-audio-head';
    const heading=document.createElement('strong');heading.textContent='🎧 강의 듣기 · 무료 한국어 음성';
-   const detail=document.createElement('small');detail.textContent='기기에 설치된 한국어 음성으로 원문 671구간 + 보강 5곳을 순서대로 읽습니다. Claude 녹음 MP4는 아직 연결되지 않았습니다.';
+   const detail=document.createElement('small');detail.textContent='휴대전화/브라우저에서 제공하는 한국어 음성입니다. 별도 구매나 Runway 생성 없이 원문 '+entries.length+'개 구간을 읽습니다. 원본 Claude MP4 자동연결과는 별개입니다.';
    header.append(heading,detail);
    const controls=document.createElement('div');controls.className='claude-native-audio-controls';
    const prev=createButton('⏮ 이전 문단','prev');
@@ -83,8 +95,12 @@
    voiceLabel.append(voiceSelect);
    const rateLabel=document.createElement('label');rateLabel.textContent='말하기 속도';
    const rateSelect=document.createElement('select');rateSelect.dataset.nativeAudio='rate';
-   rateSelect.innerHTML='<option value="0.85">천천히 0.85</option><option selected value="1">보통 1.0</option><option value="1.15">빠르게 1.15</option><option value="1.3">빠르게 1.3</option>';
+   rateSelect.innerHTML='<option value="0.75">아주 천천히 0.75</option><option value="0.85">천천히 0.85</option><option selected value="1">보통 1.0</option><option value="1.15">빠르게 1.15</option><option value="1.3">빠르게 1.3</option><option value="1.5">매우 빠르게 1.5</option>';
    rateLabel.append(rateSelect);optionRow.append(voiceLabel,rateLabel);
+   const punctuationLabel=document.createElement('label');punctuationLabel.textContent='음성 부호';
+   const punctuationSelect=document.createElement('select');punctuationSelect.dataset.nativeAudio='punctuation';
+   punctuationSelect.innerHTML='<option value="natural">기호 자연스럽게 건너뛰기</option><option value="literal">원문 그대로 읽기</option>';
+   punctuationLabel.append(punctuationSelect);optionRow.append(punctuationLabel);
    const status=document.createElement('p');status.className='claude-native-audio-status';
    status.dataset.nativeAudio='status';status.setAttribute('role','status');
    status.textContent='▶ 읽기를 누르거나, 아래 강의에서 원하는 문단을 눌러 들으세요. 기기 설정에 따라 음색이 달라집니다.';
@@ -92,21 +108,36 @@
    const progress=document.createElement('div');progress.className='claude-native-audio-progress';
    progress.dataset.nativeAudio='progress';progress.textContent='읽기 구간: 0 / 676';
    const chapterTools=document.createElement('div');chapterTools.className='claude-native-audio-chapter';chapterTools.append(chapterButton);
+   const replay=createButton('🔁 지금 문단 다시','replay');
+   const repeatStart=createButton('A 구간 시작','repeat-a');
+   const repeatEnd=createButton('B 구간 끝','repeat-b');
+   const repeatToggle=createButton('🔁 A↔B 반복 켜기','repeat-toggle');
+   const repeatReset=createButton('반복 해제','repeat-reset');
+   const repeatInfo=document.createElement('span');repeatInfo.dataset.nativeAudio='repeat-info';
+   repeatInfo.textContent='반복 구간 미설정';
+   chapterTools.append(replay,repeatStart,repeatEnd,repeatToggle,repeatReset,repeatInfo);
+   const continueLabel=document.createElement('label');continueLabel.className='claude-native-auto-next';
+   const continueCheckbox=document.createElement('input');continueCheckbox.type='checkbox';
+   continueCheckbox.dataset.nativeAudio='auto-next';continueCheckbox.checked=true;
+   continueLabel.append(continueCheckbox,document.createTextNode(' 이 권이 끝나면 같은 시리즈의 다음 강의를 자동으로 열고 읽기'));
    const dock=document.createElement('div');dock.className='claude-native-audio-dock';dock.hidden=true;
-   const dockText=document.createElement('strong');dockText.textContent='🎧 근육학 1권 · 듣는 중';
+   const dockText=document.createElement('strong');dockText.textContent='🎧 '+displayName+' · 듣는 중';
    const dockPause=createButton('⏸ 일시정지','dock-pause');
    const dockStop=createButton('⏹ 정지','dock-stop');
    dock.append(dockText,dockPause,dockStop);
-   box.append(header,controls,optionRow,chapterTools,status,progress,dock);
+   box.append(header,controls,optionRow,chapterTools,continueLabel,status,progress,dock);
    const state={
      token:0,playing:false,paused:false,highlight:null,entries,index:0,chunk:0,chunks:[],
-     box,play,pause,status,progress,dock,dockPause,dockStop,voiceSelect,rateSelect,availableVoices:[],selectedVoice:null
+     box,play,pause,status,progress,dock,dockPause,dockStop,voiceSelect,rateSelect,availableVoices:[],selectedVoice:null,
+     repeatFrom:null,repeatTo:null,repeatEnabled:false
    };
    active=state;
    try{
-     const stored=Number(localStorage.getItem(POS_KEY)||'0');
+     const stored=Number(localStorage.getItem(bookmarkKey)||'0');
      if(Number.isInteger(stored)&&stored>=0&&stored<entries.length)state.index=stored;
      const savedRate=localStorage.getItem(RATE_KEY);
+     punctuationSelect.value=localStorage.getItem('lys-native-audio-punctuation-v1')||'natural';
+     continueCheckbox.checked=localStorage.getItem('lys-native-audio-auto-next-v1')!=='off';
      if(savedRate&&[...rateSelect.options].some(x=>x.value===savedRate))rateSelect.value=savedRate;
    }catch{}
    if(state.index>0)status.textContent='이전 구간부터 이어 듣기 준비 완료. ▶ 읽기를 누르세요. (기기 한국어 음성)';
@@ -155,21 +186,26 @@
    function speakNext(token){
      if(active!==state||token!==state.token||!state.playing||state.paused)return;
      if(state.index>=state.entries.length){
-       stop();try{localStorage.removeItem(POS_KEY);}catch{}
-       state.status.textContent='✅ 근육학 1권 읽기가 끝났습니다.';return;
+       const shouldContinue=continueCheckbox.checked&&typeof options.onComplete==='function';
+       stop();try{localStorage.removeItem(bookmarkKey);}catch{}
+       state.status.textContent='✅ '+displayName+' 읽기가 끝났습니다.'+(shouldContinue?' 다음 강의로 이동합니다.':'');
+       if(shouldContinue)setTimeout(()=>{try{options.onComplete();}catch(e){state.status.textContent='다음 강의 자동 이동 실패: '+e.message;}},120);
+       return;
      }
      const entry=state.entries[state.index];
      if(!state.chunks.length){
        state.chunks=split(entry.text);
        state.chunk=0;
-       try{localStorage.setItem(POS_KEY,String(state.index));}catch{}
+       try{localStorage.setItem(bookmarkKey,String(state.index));}catch{}
        setHighlight(state.index);setProgress();
      }
      if(state.chunk>=state.chunks.length){
        state.index++;state.chunk=0;state.chunks=[];
+       if(state.repeatEnabled && state.repeatFrom!==null && state.repeatTo!==null && state.index>state.repeatTo)
+         state.index=state.repeatFrom;
        setTimeout(()=>speakNext(token),80);return;
      }
-     const u=new SpeechSynthesisUtterance(state.chunks[state.chunk]);
+     const u=new SpeechSynthesisUtterance(spokenText(state.chunks[state.chunk],punctuationSelect.value!=='literal'));
      u.lang='ko-KR';u.rate=Number(rateSelect.value)||1;
      const selected=state.availableVoices[Number(voiceSelect.value)];
      if(selected)u.voice=selected;
@@ -207,6 +243,33 @@
      const selector=document.querySelector('#claudeNativePilotHost .claude-native-navbar select');
      return selector?.value||'';
    }
+   function showRepeat(){
+     repeatInfo.textContent=state.repeatFrom===null?'반복 시작 A를 지정하세요':
+       'A '+(state.repeatFrom+1)+'번'+(state.repeatTo===null?' · B 끝 지정 전':' ↔ B '+(state.repeatTo+1)+'번')+
+       (state.repeatEnabled?' · 반복 중':' · 반복 꺼짐');
+     repeatToggle.textContent=state.repeatEnabled?'🔁 A↔B 반복 끄기':'🔁 A↔B 반복 켜기';
+   }
+   replay.addEventListener('click',()=>startAt(state.index));
+   repeatStart.addEventListener('click',()=>{state.repeatFrom=state.index;state.repeatTo=null;state.repeatEnabled=false;showRepeat();});
+   repeatEnd.addEventListener('click',()=>{
+     if(state.repeatFrom===null)state.repeatFrom=state.index;
+     state.repeatTo=state.index;
+     if(state.repeatTo<state.repeatFrom){const v=state.repeatFrom;state.repeatFrom=state.repeatTo;state.repeatTo=v;}
+     showRepeat();
+   });
+   repeatToggle.addEventListener('click',()=>{
+     if(state.repeatFrom===null)state.repeatFrom=state.index;
+     if(state.repeatTo===null)state.repeatTo=state.index;
+     state.repeatEnabled=!state.repeatEnabled;showRepeat();
+   });
+   repeatReset.addEventListener('click',()=>{state.repeatFrom=null;state.repeatTo=null;state.repeatEnabled=false;showRepeat();});
+   punctuationSelect.addEventListener('change',()=>{
+     try{localStorage.setItem('lys-native-audio-punctuation-v1',punctuationSelect.value);}catch{}
+     if(state.playing)startAt(state.index);
+   });
+   continueCheckbox.addEventListener('change',()=>{
+     try{localStorage.setItem('lys-native-audio-auto-next-v1',continueCheckbox.checked?'on':'off');}catch{}
+   });
    play.addEventListener('click',()=>startAt(state.index));
    fromStart.addEventListener('click',()=>startAt(0));
    prev.addEventListener('click',()=>startAt(Math.max(0,state.index-1)));
@@ -242,6 +305,7 @@
    window.addEventListener('pagehide',stop,{once:true});
    if(synth?.addEventListener)synth.addEventListener('voiceschanged',updateVoices);
    updateVoices();
+   if(options.autoStart)setTimeout(()=>{if(active===state)startAt(0)},350);
    // Stopping playback on app navigation prevents speech continuing over a
    // different lecture/category or browser background tab.
    const lectureView=document.getElementById('diseaseTraumaOriginalView');
@@ -255,5 +319,5 @@
    state.navObserver=navObserver;
    return box;
  }
- window.LYSNativeAudio=Object.freeze({mount,stop,split});
+ window.LYSNativeAudio=Object.freeze({mount,stop,split,spokenText});
 })();
