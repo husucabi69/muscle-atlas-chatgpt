@@ -110,7 +110,7 @@
       .replace(/\bbody\s*\{/g,'.native-original{')+
       '\n:host{display:block;background:var(--bg,#FBF7EE);color:var(--ink,#1f1d1a)}'+
       '.native-original{max-width:100%;padding:0 0 22px;margin:0}'+
-      '.native-original .wrap{max-width:900px;width:100%;min-width:0;padding:0 12px;margin:auto}'+
+      '.native-original .wrap{max-width:760px;width:100%;min-width:0;padding:0 12px;margin:auto}'+
       '.native-original .openx,.native-original .startall,.native-original .secplay{display:none!important}'+
       '.native-original .tbl{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}'+
       '.native-original table{max-width:100%;}'+
@@ -141,9 +141,9 @@
     const nav=document.createElement('div');nav.className='claude-native-navbar';
     const intro=document.createElement('div');
     intro.className='claude-native-lead';
-    intro.innerHTML='<b>우리 앱 정식 학습 화면 · 근육학 1권 (시범 이식)</b>'+
-      '<p>원본 강의의 19개 장, 표 49개, 그림 18개와 학습 문단 전체를 그대로 표시합니다. 임상 보강 해설 5곳이 추가되었습니다.</p>'+
-      '<small>원본 SHA-256 검증 통과 · MP4 원본 음성은 현재 연결 대기(별도 검증 필요)</small>';
+    intro.innerHTML='<b>근육학 1권 · 우리 앱 통합 시범</b>'+
+      '<p>원본 19장 · 표 49개 · 그림 18개 · 학습 구간 671개 전부 보존, 임상 설명형 해설 5개 추가</p>'+
+      '<small>원본 SHA-256 동일성 검증 완료 · MP4 음성 연결 대기</small>';
     const label=document.createElement('label');label.textContent='학습할 근육 또는 장 선택';
     const sel=document.createElement('select');sel.setAttribute('aria-label','강의 장 바로가기');
     const chapters=[...shadow.querySelectorAll('section[id]')].map(el=>({id:el.id,title:el.querySelector('.sechead h1')?.textContent?.trim()||el.id}));
@@ -153,8 +153,6 @@
       if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
     });
     label.append(sel);nav.append(label);
-    const notes=document.createElement('div');notes.className='claude-native-note';
-    notes.textContent='화면은 우리 앱이 직접 구성합니다. 원본 그림·도표·강의 텍스트는 삭제하거나 요약하지 않았습니다. 근육별 보강 해설은 녹색 상자에서 펼쳐 보실 수 있습니다.';
     // Original TOC navigation works inside Shadow DOM with app-owned handlers.
     shadow.addEventListener('click',e=>{
       const a=e.target.closest?.('a[href^="#"]');
@@ -164,7 +162,7 @@
       if(section){e.preventDefault();section.scrollIntoView({behavior:'smooth',block:'start'});sel.value=section.id;}
     });
     if(token!==renderToken)return;
-    panel.replaceChildren(intro,nav,notes,lessonRoot);
+    panel.replaceChildren(intro,nav,lessonRoot);
     const countImported={
       sections:shadow.querySelectorAll('section').length,
       tables:shadow.querySelectorAll('table').length,
@@ -175,7 +173,7 @@
     if(Object.keys(required).some(k=>countImported[k]!==required[k]))
       throw Error('이식 후 원본 교육요소 수가 달라졌습니다');
     const st=document.getElementById('diseaseTraumaOriginalStatus');
-    st.innerHTML='<b>우리 앱 학습 엔진에서 직접 표시 중</b><br>원본 그림·표·본문 동일성 검증 PASS · 음성은 연결 대기';
+    st.textContent='✓ 우리 앱 통합보기 · 원본 본문·표·그림 동일성 검증 완료 · 음성 연결 대기';
   }
   async function openPilot(number,record=true){
     if(Number(number)!==PILOT_NUMBER){
@@ -205,7 +203,7 @@
     if(!inNativeMode)return;
     setDiseaseTraumaView('original');
     if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'original',lectureNumber:PILOT_NUMBER});
-    if(panel.querySelector('.claude-native-lesson'))status.innerHTML='<b>우리 앱 학습 엔진에서 직접 표시 중</b><br>원본 내용 및 그림·표 검증 완료 · 음성 연결 대기';
+    if(panel.querySelector('.claude-native-lesson'))status.textContent='✓ 우리 앱 통합보기 · 원본 본문·표·그림 동일성 검증 완료 · 음성 연결 대기';
   }
   function showOriginalComparison(){
     inNativeMode=false;renderToken++;
