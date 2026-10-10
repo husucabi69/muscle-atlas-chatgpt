@@ -200,7 +200,10 @@ async function verifiedClaudeOriginal(request){
     const manifest=await response.json();
     const pathname=decodeURI(new URL(request.url).pathname);
     const sourcePath=pathname.slice('/claude-library/'.length);
-    row=(manifest.lectures||[]).find(x=>x.source_path===sourcePath);
+    // Cloudflare Pages may canonicalize /file.html to /file (Clean URLs).
+    // Keep both aliases tied to the same manifest row and canonical SHA-256.
+    row=(manifest.lectures||[]).find(x=>x.source_path===sourcePath||
+      x.source_path.replace(/\.html$/i,'')===sourcePath);
     if(!row||!String(row.hosting_status).startsWith('SELF_HOSTED_')||
        !Number.isSafeInteger(row.source_bytes)||row.source_bytes<1||
        !/^[0-9a-f]{64}$/.test(row.source_sha256||'')){reason='MANIFEST_ROW_MISSING';return unavailable();}
@@ -253,7 +256,8 @@ self.addEventListener('fetch',event=>{
     path.endsWith('/manifest.webmanifest')||
     path.endsWith('/privacy.html');
 
-  if(decodedPath.startsWith('/claude-library/1_강의페이지/')&&decodedPath.toLowerCase().endsWith('.html')){
+  if(decodedPath.startsWith('/claude-library/1_강의페이지/')&&
+     (decodedPath.toLowerCase().endsWith('.html')||!decodedPath.slice(decodedPath.lastIndexOf('/')+1).includes('.'))){
     event.respondWith(verifiedClaudeOriginal(event.request));
     return;
   }
