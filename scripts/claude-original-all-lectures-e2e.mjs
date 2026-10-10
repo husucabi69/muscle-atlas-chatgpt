@@ -77,7 +77,8 @@ try {
             try {
               const iframe = document.getElementById('diseaseTraumaOriginalFrame');
               const w = iframe.contentWindow;
-              return decodeURIComponent(w.location.pathname) === expected &&
+              const actual=decodeURIComponent(w.location.pathname);
+              return (actual===expected||actual===expected.replace(/\.html$/i,'')) &&
                 !!w.document.body && (w.document.body.innerText || w.document.body.textContent || '').trim().length >= 30 &&
                 w.document.title !== '원본 강의 확인 필요' &&
                 !iframe.hidden && document.getElementById('diseaseTraumaLoadIssue').hidden &&
