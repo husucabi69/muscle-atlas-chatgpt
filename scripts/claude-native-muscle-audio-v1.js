@@ -46,6 +46,7 @@
    return b;
  }
  function mount(shadow){
+   if(active?.navObserver)active.navObserver.disconnect();
    stop();
    const elements=[...shadow.querySelectorAll('[data-i], .claude-native-teaching')];
    const entries=elements.map(el=>{
@@ -82,9 +83,11 @@
    const status=document.createElement('p');status.className='claude-native-audio-status';
    status.dataset.nativeAudio='status';status.setAttribute('role','status');
    status.textContent='▶ 읽기를 누르거나, 아래 강의에서 원하는 문단을 눌러 들으세요. 기기 설정에 따라 음색이 달라집니다.';
+   const chapterButton=createButton('선택한 장부터 듣기','chapter');
    const progress=document.createElement('div');progress.className='claude-native-audio-progress';
    progress.dataset.nativeAudio='progress';progress.textContent='읽기 구간: 0 / 676';
-   box.append(header,controls,optionRow,status,progress);
+   const chapterTools=document.createElement('div');chapterTools.className='claude-native-audio-chapter';chapterTools.append(chapterButton);
+   box.append(header,controls,optionRow,chapterTools,status,progress);
    const state={
      token:0,playing:false,paused:false,highlight:null,entries,index:0,chunk:0,chunks:[],
      box,play,pause,status,progress,voiceSelect,rateSelect,availableVoices:[],selectedVoice:null
@@ -170,6 +173,15 @@
      status.textContent='🔊 기기 한국어 음성 읽기 중 · 이것은 유료 Niki 음성이 아닌 휴대전화 내장 음성입니다.';
      speakNext(run);
    }
+   chapterButton.addEventListener('click',()=>{
+     const selected=panelChapter();
+     const idx=selected ? entries.findIndex(e=>e.el.closest('section')?.id===selected) : 0;
+     startAt(Math.max(0,idx));
+   });
+   function panelChapter(){
+     const selector=document.querySelector('#claudeNativePilotHost .claude-native-navbar select');
+     return selector?.value||'';
+   }
    play.addEventListener('click',()=>startAt(state.index));
    prev.addEventListener('click',()=>startAt(Math.max(0,state.index-1)));
    next.addEventListener('click',()=>startAt(Math.min(entries.length-1,state.index+1)));
@@ -199,6 +211,17 @@
    });
    if(synth?.addEventListener)synth.addEventListener('voiceschanged',updateVoices);
    updateVoices();
+   // Stopping playback on app navigation prevents speech continuing over a
+   // different lecture/category or browser background tab.
+   const lectureView=document.getElementById('diseaseTraumaOriginalView');
+   const appPage=document.getElementById('diseaseTrauma');
+   const navObserver=new MutationObserver(()=>{
+     if(active!==state){navObserver.disconnect();return;}
+     if(lectureView?.hidden||!appPage?.classList.contains('active'))stop();
+   });
+   if(lectureView)navObserver.observe(lectureView,{attributes:true,attributeFilter:['hidden']});
+   if(appPage)navObserver.observe(appPage,{attributes:true,attributeFilter:['class']});
+   state.navObserver=navObserver;
    return box;
  }
  window.LYSNativeAudio=Object.freeze({mount,stop,split});
