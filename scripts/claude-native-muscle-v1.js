@@ -177,9 +177,12 @@
       if(section){e.preventDefault();section.scrollIntoView({behavior:'smooth',block:'start'});sel.value=section.id;}
     });
     if(token!==renderToken)return;
-    const audioPlayer=window.LYSNativeAudio.mount(shadow);
+    const audioPlayer=window.LYSNativeAudio.mount(shadow,{
+      lectureNumber:3,title:'근육학 01권 어깨·견갑대',expectedCount:676,
+      onComplete:()=>window.LYSClaudeSequence?.next(3)
+    });
     const recordedPlayer=window.LYSClaudeRecordedAudio.mount(shadow,doc);
-    panel.replaceChildren(intro,nav,recordedPlayer,audioPlayer,lessonRoot);
+    panel.replaceChildren(intro,nav,audioPlayer,recordedPlayer,lessonRoot);
     const countImported={
       sections:shadow.querySelectorAll('section').length,
       tables:shadow.querySelectorAll('table').length,
