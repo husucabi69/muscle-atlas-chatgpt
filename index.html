@@ -5621,6 +5621,8 @@ function beginClaudeOriginalProbe(){
  },250);
 }
 function handleClaudeOriginalFrameLoad(){
+ // Native imported lectures deliberately park the unused iframe at about:blank.
+ if(window.LYSClaudeNativeSuppressOriginalProbe)return;
  const frame=document.getElementById('diseaseTraumaOriginalFrame');
  const issue=document.getElementById('diseaseTraumaLoadIssue');
  const status=document.getElementById('diseaseTraumaOriginalStatus');
