@@ -5,6 +5,7 @@ const html=fs.readFileSync('index.html','utf8');
 const js=fs.readFileSync('scripts/claude-native-muscle-v1.js','utf8');
 const css=fs.readFileSync('styles/claude-native-muscle-v1.css','utf8');
 const audio=fs.readFileSync('scripts/claude-native-muscle-audio-v1.js','utf8');
+const recorded=fs.readFileSync('scripts/claude-native-muscle-recorded-audio-v1.js','utf8');
 const manifest=JSON.parse(fs.readFileSync('data/claude-library-manifest-v1.json','utf8'));
 const item=manifest.lectures.find(x=>x.number===3);
 assert.ok(item&&item.source_bytes===1104600&&/^[0-9a-f]{64}$/.test(item.source_sha256));
@@ -17,6 +18,9 @@ verify(/<img\b/g,18,'canonical 18 figures images');
 verify(/\bdata-i="/g,671,'canonical 671 educational segments');
 assert.ok(html.includes('<script src="./scripts/claude-native-muscle-audio-v1.js"></script>'));
 assert.ok(html.includes('<script src="./scripts/claude-native-muscle-v1.js"></script>'));
+assert.ok(html.includes('scripts/claude-native-muscle-recorded-audio-v1.js'));
+assert.ok(nativeRecordedPlayerIntegration());
+function nativeRecordedPlayerIntegration(){return js.includes('window.LYSClaudeRecordedAudio.mount(shadow,doc)')&&js.includes('window.LYSClaudeRecordedAudio?.stop()')&&recorded.includes('SHA-256')&&recorded.includes('671');}
 assert.ok(html.includes('styles/claude-native-muscle-v1.css'));
 assert.ok(js.includes('const PILOT_NUMBER=3'));
 assert.ok(js.includes('attachShadow({mode:'));

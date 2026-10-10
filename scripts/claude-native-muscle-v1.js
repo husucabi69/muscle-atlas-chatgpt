@@ -144,7 +144,7 @@
     intro.className='claude-native-lead';
     intro.innerHTML='<b>근육학 1권 · 우리 앱 통합 시범</b>'+
       '<p>원본 19장 · 표 49개 · 그림 18개 · 학습 구간 671개 전부 보존, 임상 설명형 해설 5개 추가</p>'+
-      '<small>원본 SHA-256 동일성 검증 완료 · 아래 무료 기기 한국어 음성으로 듣기 · MP4 연결 대기</small>';
+      '<small>원본 SHA-256 동일성 검증 완료 · Claude 원본 MP4 선택 재생 · 무료 기기 음성도 이용 가능</small>';
     const label=document.createElement('label');label.textContent='학습할 근육 또는 장 선택';
     const sel=document.createElement('select');sel.setAttribute('aria-label','강의 장 바로가기');
     const chapters=[...shadow.querySelectorAll('section[id]')].map(el=>({id:el.id,title:el.querySelector('.sechead h1')?.textContent?.trim()||el.id}));
@@ -164,7 +164,8 @@
     });
     if(token!==renderToken)return;
     const audioPlayer=window.LYSNativeAudio.mount(shadow);
-    panel.replaceChildren(intro,nav,audioPlayer,lessonRoot);
+    const recordedPlayer=window.LYSClaudeRecordedAudio.mount(shadow,doc);
+    panel.replaceChildren(intro,nav,recordedPlayer,audioPlayer,lessonRoot);
     const countImported={
       sections:shadow.querySelectorAll('section').length,
       tables:shadow.querySelectorAll('table').length,
@@ -175,17 +176,19 @@
     if(Object.keys(required).some(k=>countImported[k]!==required[k]))
       throw Error('이식 후 원본 교육요소 수가 달라졌습니다');
     const st=document.getElementById('diseaseTraumaOriginalStatus');
-    st.textContent='✓ 우리 앱 통합보기 · 원본 동일성 검증 완료 · 기기 한국어 음성 읽기 제공 · MP4 연결 대기';
+    st.textContent='✓ 본문·그림 동일성 PASS · 원본 MP4 직접 선택 재생 시범 · 무료 기기 음성';
   }
   async function openPilot(number,record=true){
     if(Number(number)!==PILOT_NUMBER){
       window.LYSNativeAudio?.stop();
+      window.LYSClaudeRecordedAudio?.stop();
       inNativeMode=false;renderToken++;panel.hidden=true;modeSwitch.hidden=true;
       return originalOpen(number,record);
     }
     const item=(claudeLibraryManifest?.lectures||[]).find(x=>x.number===PILOT_NUMBER);
     if(!item){return originalOpen(number,record);}
     window.LYSNativeAudio?.stop();
+    window.LYSClaudeRecordedAudio?.stop();
     inNativeMode=true;
     selectedClaudeLectureNumber=PILOT_NUMBER;
     document.getElementById('diseaseTraumaOriginalBreadcrumb').textContent='근육학 › '+TITLE;
@@ -211,10 +214,11 @@
     if(!inNativeMode)return;
     setDiseaseTraumaView('original');
     if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'original',lectureNumber:PILOT_NUMBER});
-    if(panel.querySelector('.claude-native-lesson'))status.textContent='✓ 우리 앱 통합보기 · 원본 동일성 검증 완료 · 기기 한국어 음성 읽기 제공 · MP4 연결 대기';
+    if(panel.querySelector('.claude-native-lesson'))status.textContent='✓ 본문·그림 동일성 PASS · 원본 MP4 직접 선택 재생 시범 · 무료 기기 음성';
   }
   function showOriginalComparison(){
     window.LYSNativeAudio?.stop();
+    window.LYSClaudeRecordedAudio?.stop();
     inNativeMode=false;renderToken++;
     panel.hidden=true;modeSwitch.hidden=false;switchMode('original');
     originalOpen(PILOT_NUMBER,false);
@@ -223,6 +227,6 @@
   modeSwitch.querySelector('[data-native-mode="original"]').addEventListener('click',showOriginalComparison);
   window.openClaudeOriginalLecture=openPilot;
   window.addEventListener('popstate',event=>{
-    if(event.state?.claudeLevel!=='original'){window.LYSNativeAudio?.stop();panel.hidden=true;}
+    if(event.state?.claudeLevel!=='original'){window.LYSNativeAudio?.stop();window.LYSClaudeRecordedAudio?.stop();panel.hidden=true;}
   });
 })();

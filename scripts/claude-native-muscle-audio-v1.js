@@ -187,6 +187,7 @@
        status.textContent='이 브라우저는 한국어 음성 읽기를 지원하지 않습니다. Chrome 또는 기기 TTS 설정을 확인해 주세요.';
        return;
      }
+     window.LYSClaudeRecordedAudio?.stop();
      stop();
      state.index=Math.max(0,Math.min(entries.length-1,index));
      state.chunk=0;state.chunks=[];
@@ -234,7 +235,7 @@
    // A passage tap restarts at that sentence/figure/table, not from page top.
    shadow.addEventListener('click',ev=>{
      const el=ev.target.closest?.('[data-i], .claude-native-teaching');
-     if(!el||ev.target.closest?.('a,button,select,summary'))return;
+     if(!el||ev.target.closest?.('a,button,select,summary')||window.LYSClaudeRecordedAudio?.isReady())return;
      const index=entries.findIndex(entry=>entry.el===el);
      if(index>=0)startAt(index);
    });
