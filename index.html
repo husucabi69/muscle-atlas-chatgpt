@@ -5636,7 +5636,11 @@ function handleClaudeOriginalFrameLoad(){
   chars=text.length;
   failedDocument=doc?.title==='원본 강의 확인 필요'||Boolean(doc?.getElementById('appVersionLabel'));
   diagnostic=(text.match(/진단: [A-Z0-9_]+/)||[])[0]||'';
-  loaded=path.endsWith('/claude-library/'+item.source_path)&&!!doc?.body&&
+  // Cloudflare Pages Clean URLs redirect .html to extensionless /lecture;
+  // localhost keeps .html. Both are the exact same SHA-locked original file.
+  const expected='/claude-library/'+item.source_path;
+  const matchingOriginal=path===expected||path===expected.replace(/\.html$/i,'');
+  loaded=matchingOriginal&&!!doc?.body&&
     text.length>=200&&doc.title!=='원본 강의 확인 필요'&&!doc.getElementById('appVersionLabel');
  }catch(e){diagnostic='FRAME_ACCESS_'+String(e?.name||'ERROR');}
  // iframe about:blank onload may fire before the real document; slow external
