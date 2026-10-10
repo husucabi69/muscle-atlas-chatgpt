@@ -84,6 +84,10 @@ try {
                 shadow.querySelectorAll('img').length===18 &&
                 shadow.querySelectorAll('[data-i]').length===671 &&
                 shadow.querySelectorAll('.claude-native-teaching').length===5 &&
+                host.querySelector('[data-native-audio="player"]') &&
+                host.querySelector('[data-native-audio="play"]') &&
+                host.querySelector('[data-native-audio="voice"]') &&
+                host.querySelector('[data-native-audio="status"]')?.textContent.includes('기기') &&
                 document.getElementById('diseaseTraumaOriginalFrame').hidden &&
                 document.getElementById('diseaseTraumaLoadIssue').hidden &&
                 !document.getElementById('diseaseTraumaOriginalView').hidden;

@@ -119,7 +119,8 @@
       '.claude-native-teaching{padding:16px 18px;border:1px solid #bbd6d0;border-radius:14px;background:#f0fbf8;color:#163e39;margin:18px 0;line-height:1.85}'+
       '.claude-native-teaching summary{cursor:pointer;font-weight:800;font-size:16px}'+
       '.claude-native-teaching p{margin:12px 0 8px}'+
-      '.claude-native-teaching small{color:#375a54}';
+      '.claude-native-teaching small{color:#375a54}'+
+      '.claude-native-speaking{outline:3px solid #dd9e25!important;outline-offset:3px;background:#fff1bf!important;border-radius:5px}';
     const page=document.createElement('div');
     page.className='native-original';
     const originalBody=document.importNode(sourceWrap,true);
@@ -143,7 +144,7 @@
     intro.className='claude-native-lead';
     intro.innerHTML='<b>근육학 1권 · 우리 앱 통합 시범</b>'+
       '<p>원본 19장 · 표 49개 · 그림 18개 · 학습 구간 671개 전부 보존, 임상 설명형 해설 5개 추가</p>'+
-      '<small>원본 SHA-256 동일성 검증 완료 · MP4 음성 연결 대기</small>';
+      '<small>원본 SHA-256 동일성 검증 완료 · 아래 무료 기기 한국어 음성으로 듣기 · MP4 연결 대기</small>';
     const label=document.createElement('label');label.textContent='학습할 근육 또는 장 선택';
     const sel=document.createElement('select');sel.setAttribute('aria-label','강의 장 바로가기');
     const chapters=[...shadow.querySelectorAll('section[id]')].map(el=>({id:el.id,title:el.querySelector('.sechead h1')?.textContent?.trim()||el.id}));
@@ -162,7 +163,8 @@
       if(section){e.preventDefault();section.scrollIntoView({behavior:'smooth',block:'start'});sel.value=section.id;}
     });
     if(token!==renderToken)return;
-    panel.replaceChildren(intro,nav,lessonRoot);
+    const audioPlayer=window.LYSNativeAudio.mount(shadow);
+    panel.replaceChildren(intro,nav,audioPlayer,lessonRoot);
     const countImported={
       sections:shadow.querySelectorAll('section').length,
       tables:shadow.querySelectorAll('table').length,
@@ -173,15 +175,17 @@
     if(Object.keys(required).some(k=>countImported[k]!==required[k]))
       throw Error('이식 후 원본 교육요소 수가 달라졌습니다');
     const st=document.getElementById('diseaseTraumaOriginalStatus');
-    st.textContent='✓ 우리 앱 통합보기 · 원본 본문·표·그림 동일성 검증 완료 · 음성 연결 대기';
+    st.textContent='✓ 우리 앱 통합보기 · 원본 동일성 검증 완료 · 기기 한국어 음성 읽기 제공 · MP4 연결 대기';
   }
   async function openPilot(number,record=true){
     if(Number(number)!==PILOT_NUMBER){
+      window.LYSNativeAudio?.stop();
       inNativeMode=false;renderToken++;panel.hidden=true;modeSwitch.hidden=true;
       return originalOpen(number,record);
     }
     const item=(claudeLibraryManifest?.lectures||[]).find(x=>x.number===PILOT_NUMBER);
     if(!item){return originalOpen(number,record);}
+    window.LYSNativeAudio?.stop();
     inNativeMode=true;
     selectedClaudeLectureNumber=PILOT_NUMBER;
     document.getElementById('diseaseTraumaOriginalBreadcrumb').textContent='근육학 › '+TITLE;
@@ -203,9 +207,10 @@
     if(!inNativeMode)return;
     setDiseaseTraumaView('original');
     if(record)pushAppNavigationState({lysPage:'diseaseTrauma',claudeLevel:'original',lectureNumber:PILOT_NUMBER});
-    if(panel.querySelector('.claude-native-lesson'))status.textContent='✓ 우리 앱 통합보기 · 원본 본문·표·그림 동일성 검증 완료 · 음성 연결 대기';
+    if(panel.querySelector('.claude-native-lesson'))status.textContent='✓ 우리 앱 통합보기 · 원본 동일성 검증 완료 · 기기 한국어 음성 읽기 제공 · MP4 연결 대기';
   }
   function showOriginalComparison(){
+    window.LYSNativeAudio?.stop();
     inNativeMode=false;renderToken++;
     panel.hidden=true;modeSwitch.hidden=false;switchMode('original');
     originalOpen(PILOT_NUMBER,false);
@@ -214,6 +219,6 @@
   modeSwitch.querySelector('[data-native-mode="original"]').addEventListener('click',showOriginalComparison);
   window.openClaudeOriginalLecture=openPilot;
   window.addEventListener('popstate',event=>{
-    if(event.state?.claudeLevel!=='original')panel.hidden=true;
+    if(event.state?.claudeLevel!=='original'){window.LYSNativeAudio?.stop();panel.hidden=true;}
   });
 })();
