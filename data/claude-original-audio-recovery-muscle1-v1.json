@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "status": "FOUND_IN_GOOGLE_DRIVE_NOT_YET_HOSTED",
+  "lecture_number": 3,
+  "lecture_title": "근육학 01권 어깨·견갑대",
+  "source_folder_name": "2_음성/01_근육학",
+  "source_folder_id": "1grQ0hGkl6Nhwj4hfhufPOjLt66zxDQux",
+  "parts": [
+    {
+      "number": 1,
+      "file_name": "클로드_근육학_01권_어깨·견갑대_1부.mp4",
+      "drive_file_id": "1gJ5rmtdluB0NxU6JmGDYC71QJpHq0TVH",
+      "bytes": 17183339,
+      "sha256": "f32fd6b9e1cc3bfa376c40cfc151893e4f30e47be3e803e69eb1364560146ede",
+      "seconds": 4490.598,
+      "codec": "aac"
+    },
+    {
+      "number": 2,
+      "file_name": "클로드_근육학_01권_어깨·견갑대_2부.mp4",
+      "drive_file_id": "1wk6ha_q3xGBNMkUGCrk7O421akOpGEXG",
+      "bytes": 7719745,
+      "sha256": "165aea41a03ed624cfc537ab1a0110f4ef67a4da7f204794b580ba59181ad4c1",
+      "seconds": 2047.27,
+      "codec": "aac"
+    }
+  ],
+  "total_bytes": 24903084,
+  "total_duration_seconds": 6537.868,
+  "evidence": "Fetched raw original MP4 files from authenticated Google Drive and verified size and SHA256 in current workspace 2026-10-10.",
+  "source_route_status": "Cloudflare Pages CLAUDE_MEDIA_R2 not connected, returning HTTP 503; original bytes not uploaded to Pages or R2, so current Preview uses free device voice until restoration.",
+  "no_changes_to_original_html": true,
+  "keep_runway_niki_on_hold": true
+}

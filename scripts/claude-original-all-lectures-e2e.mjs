@@ -189,7 +189,7 @@ try {
             const speechQA=await page.evaluate(()=>window.__lysNativeSpeechQA[0]);
             if(!speechQA?.text||speechQA.lang!=='ko-KR'||speechQA.text.length>160)
               throw Error('Native Korean lecture audio did not send valid <=160-character Korean utterance: '+JSON.stringify(speechQA));
-            await page.locator('#claudeNativePilotHost [data-native-audio="stop"]').click();
+            await page.locator('#claudeNativePilotHost [data-native-audio="dock-stop"]').click();
             const stopped=await page.locator('#claudeNativePilotHost [data-native-audio="status"]').innerText();
             if(!stopped.includes('정지'))throw Error('Native audio stop did not update player status');
           }

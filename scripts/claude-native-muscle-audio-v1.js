@@ -41,6 +41,7 @@
    state.status.textContent='⏹ 정지 · 문단을 눌러 해당 위치부터 다시 들을 수 있습니다.';
    state.play.textContent='▶ 읽기';
    state.pause.textContent='⏸ 일시정지';
+   if(state.dock)state.dock.hidden=true;
  }
  function createButton(label,action,className){
    const b=document.createElement('button');b.type='button';b.textContent=label;
@@ -91,10 +92,15 @@
    const progress=document.createElement('div');progress.className='claude-native-audio-progress';
    progress.dataset.nativeAudio='progress';progress.textContent='읽기 구간: 0 / 676';
    const chapterTools=document.createElement('div');chapterTools.className='claude-native-audio-chapter';chapterTools.append(chapterButton);
-   box.append(header,controls,optionRow,chapterTools,status,progress);
+   const dock=document.createElement('div');dock.className='claude-native-audio-dock';dock.hidden=true;
+   const dockText=document.createElement('strong');dockText.textContent='🎧 근육학 1권 · 듣는 중';
+   const dockPause=createButton('⏸ 일시정지','dock-pause');
+   const dockStop=createButton('⏹ 정지','dock-stop');
+   dock.append(dockText,dockPause,dockStop);
+   box.append(header,controls,optionRow,chapterTools,status,progress,dock);
    const state={
      token:0,playing:false,paused:false,highlight:null,entries,index:0,chunk:0,chunks:[],
-     box,play,pause,status,progress,voiceSelect,rateSelect,availableVoices:[],selectedVoice:null
+     box,play,pause,status,progress,dock,dockPause,dockStop,voiceSelect,rateSelect,availableVoices:[],selectedVoice:null
    };
    active=state;
    try{
@@ -186,6 +192,7 @@
      state.chunk=0;state.chunks=[];
      state.playing=true;state.paused=false;
      state.play.textContent='↻ 처음부터';state.pause.textContent='⏸ 일시정지';
+     dock.hidden=false;dockPause.textContent='⏸ 일시정지';
      const run=++state.token;
      status.textContent='🔊 기기 한국어 음성 읽기 중 · 이것은 유료 Niki 음성이 아닌 휴대전화 내장 음성입니다.';
      speakNext(run);
@@ -204,14 +211,16 @@
    prev.addEventListener('click',()=>startAt(Math.max(0,state.index-1)));
    next.addEventListener('click',()=>startAt(Math.min(entries.length-1,state.index+1)));
    end.addEventListener('click',stop);
+   dockStop.addEventListener('click',stop);
+   dockPause.addEventListener('click',()=>pause.click());
    pause.addEventListener('click',()=>{
      if(active!==state||!state.playing)return;
      if(state.paused){
        state.paused=false;try{synth.resume();}catch{}
-       pause.textContent='⏸ 일시정지';status.textContent='🔊 다시 읽는 중';
+       pause.textContent='⏸ 일시정지';dockPause.textContent='⏸ 일시정지';status.textContent='🔊 다시 읽는 중';
      } else {
        state.paused=true;try{synth.pause();}catch{}
-       pause.textContent='▶ 계속';status.textContent='⏸ 일시정지';
+       pause.textContent='▶ 계속';dockPause.textContent='▶ 계속';status.textContent='⏸ 일시정지';
      }
    });
    voiceSelect.addEventListener('change',()=>{
