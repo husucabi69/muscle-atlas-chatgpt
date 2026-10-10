@@ -1,3 +1,4 @@
+// v12.27 app-shell update: this byte change forces installed PWA update detection.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
