@@ -85,7 +85,8 @@ try{
     const frame=document.getElementById('diseaseTraumaOriginalFrame');
     try{
      const doc=frame.contentDocument;
-     return decodeURIComponent(frame.contentWindow.location.pathname)===expectedPath&&
+     const actual=decodeURIComponent(frame.contentWindow.location.pathname);
+     return (actual===expectedPath||actual===expectedPath.replace(/\.html$/i,''))&&
        !frame.hidden&&document.getElementById('diseaseTraumaLoadIssue').hidden&&
        doc?.title!=='원본 강의 확인 필요'&&(doc?.body?.innerText||'').trim().length>200;
     }catch{return false;}
