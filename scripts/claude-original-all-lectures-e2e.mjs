@@ -96,6 +96,8 @@ try {
         await tile.click();
         const expectedPath = '/claude-library/' + row.source_path;
         const nativePilot = number === 3;
+        const nativeSeries = number >= 4 && number <= 13;
+        const nativeLesson = nativePilot || nativeSeries;
         try {
           if (nativePilot) {
             await page.waitForFunction(() => {
@@ -118,6 +120,24 @@ try {
                 document.getElementById('diseaseTraumaLoadIssue').hidden &&
                 !document.getElementById('diseaseTraumaOriginalView').hidden;
             },null,{timeout:isLive?38000:20000});
+          } else if(nativeSeries) {
+            await page.waitForFunction(number=>{
+              const host=document.getElementById('claudeNativePilotHost');
+              const shadow=host?.querySelector('.claude-native-lesson')?.shadowRoot;
+              return !host?.hidden&&Number(host.dataset.claudeNativeLecture)===number&&
+                Number(host.dataset.claudeNativeSections)>0&&
+                Number(host.dataset.claudeNativeParagraphs)>0&&
+                shadow?.querySelectorAll('section').length===Number(host.dataset.claudeNativeSections)&&
+                shadow.querySelectorAll('table').length===Number(host.dataset.claudeNativeTables)&&
+                shadow.querySelectorAll('figure').length===Number(host.dataset.claudeNativeFigures)&&
+                shadow.querySelectorAll('[data-i]').length===Number(host.dataset.claudeNativeParagraphs)&&
+                !!host.querySelector('[data-native-audio="play"]')&&
+                !!host.querySelector('[data-native-audio="punctuation"]')&&
+                !!host.querySelector('[data-native-audio="repeat-toggle"]')&&
+                !!host.querySelector('[data-native-audio="auto-next"]')&&
+                document.getElementById('diseaseTraumaOriginalFrame').hidden&&
+                !document.getElementById('diseaseTraumaOriginalView').hidden;
+            },number,{timeout:isLive?45000:30000});
           } else await page.waitForFunction(expected => {
             try {
               const iframe = document.getElementById('diseaseTraumaOriginalFrame');
@@ -151,7 +171,7 @@ try {
             expectedPath + ': ' + String(error)+'; diagnostics='+JSON.stringify(details)+
             '; failedRequests='+JSON.stringify(failedRequests.slice(-6)));
         }
-        const details = nativePilot ? await page.locator('#claudeNativePilotHost').evaluate((host,expected)=>{
+        const details = nativeLesson ? await page.locator('#claudeNativePilotHost').evaluate((host,expected)=>{
           const shadow=host.querySelector('.claude-native-lesson').shadowRoot;
           const content=shadow.querySelector('.native-original');
           return {
@@ -178,14 +198,14 @@ try {
         const status = await page.locator('#diseaseTraumaOriginalStatus').innerText();
         if (row.audio === '없음' && !status.includes('원본에 음성 파일 없음'))
           throw new Error('No-audio source improperly presented for ' + number);
-        if (row.audio !== '없음' && row.hosting_status === 'SELF_HOSTED_HTML_MEDIA_PENDING' && !(nativePilot?status.includes('MP4 직접 선택 재생 시범'):status.includes('음성 연결 대기')))
+        if (row.audio !== '없음' && row.hosting_status === 'SELF_HOSTED_HTML_MEDIA_PENDING' && !(nativePilot?status.includes('MP4 직접 선택 재생 시범'):nativeSeries?status.includes('무료 한국어 음성'):status.includes('음성 연결 대기')))
           throw new Error('Audio-pending disclaimer missing for ' + number);
         results.push({
           number, series: row.series, title: row.title, viewport: viewport.label,
           expectedSha256: row.source_sha256, fallbackMatches: true, ...details
         });
-        if (nativePilot) {
-          if(viewport.all){
+        if (nativeLesson) {
+          if(nativePilot && viewport.all){
             const recordedPicker=page.locator('#claudeNativePilotHost [data-recorded-audio="files"]');
             await recordedPicker.setInputFiles({name:'not-a-claude-source.mp4',mimeType:'video/mp4',buffer:Buffer.from('invalid original mp4')});
             await page.waitForFunction(()=>document.querySelector('#claudeNativePilotHost [data-recorded-audio="file-status"]')?.textContent.includes('⚠'));
@@ -202,7 +222,7 @@ try {
             const stopped=await page.locator('#claudeNativePilotHost [data-native-audio="status"]').innerText();
             if(!stopped.includes('정지'))throw Error('Native audio stop did not update player status');
           }
-          const screenshot=path.join(outDir,viewport.label+'-native-muscle-1.png');
+          const screenshot=path.join(outDir,viewport.label+'-native-muscle-'+number+'.png');
           await page.screenshot({path:screenshot,fullPage:true});
           if(details.horizontalOverflow)throw Error('Native muscle 1 overflows mobile/desktop width: '+JSON.stringify(details));
         }
