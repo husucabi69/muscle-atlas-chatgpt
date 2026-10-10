@@ -43,6 +43,29 @@ try {
       serviceWorkers: 'block'
     });
     const page = await context.newPage();
+    // Scripted device-TTS stub proves our UI actually sends Korean text to a
+    // speech engine. It is NOT an acoustic-quality or physical Android test.
+    if (viewport.all) await page.addInitScript(() => {
+      window.__lysNativeSpeechQA = [];
+      let stopped=false;
+      const speech={
+        getVoices:()=>[{name:'QA Korean Voice',lang:'ko-KR',localService:true,default:true}],
+        addEventListener:()=>{},
+        cancel:()=>{stopped=true;},
+        pause:()=>{},
+        resume:()=>{},
+        speak:u=>{
+          stopped=false;
+          window.__lysNativeSpeechQA.push({text:u.text,lang:u.lang,rate:u.rate});
+          setTimeout(()=>{if(!stopped)u.onend?.({});},90);
+        }
+      };
+      Object.defineProperty(window,'speechSynthesis',{value:speech,configurable:true});
+      Object.defineProperty(window,'SpeechSynthesisUtterance',{
+        value:class{constructor(text){this.text=text;this.lang='';this.rate=1;}},
+        configurable:true
+      });
+    });
     const failedRequests=[];
     page.on('requestfailed',request=>{
       if(request.url().includes('/claude-library/'))failedRequests.push({url:request.url(),failure:request.failure()});
@@ -159,6 +182,17 @@ try {
           expectedSha256: row.source_sha256, fallbackMatches: true, ...details
         });
         if (nativePilot) {
+          if(viewport.all){
+            const audioPlay=page.locator('#claudeNativePilotHost [data-native-audio="play"]');
+            await audioPlay.click();
+            await page.waitForFunction(()=>window.__lysNativeSpeechQA?.length>0);
+            const speechQA=await page.evaluate(()=>window.__lysNativeSpeechQA[0]);
+            if(!speechQA?.text||speechQA.lang!=='ko-KR'||speechQA.text.length>160)
+              throw Error('Native Korean lecture audio did not send valid <=160-character Korean utterance: '+JSON.stringify(speechQA));
+            await page.locator('#claudeNativePilotHost [data-native-audio="stop"]').click();
+            const stopped=await page.locator('#claudeNativePilotHost [data-native-audio="status"]').innerText();
+            if(!stopped.includes('정지'))throw Error('Native audio stop did not update player status');
+          }
           const screenshot=path.join(outDir,viewport.label+'-native-muscle-1.png');
           await page.screenshot({path:screenshot,fullPage:true});
           if(details.horizontalOverflow)throw Error('Native muscle 1 overflows mobile/desktop width: '+JSON.stringify(details));
