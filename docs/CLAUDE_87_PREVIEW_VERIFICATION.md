@@ -64,3 +64,15 @@
 **완료 판정:** 위 수정 코드가 GitHub에 있다는 것만으로 PASS 아님. 새 commit의 GitHub Actions Global QA / Runtime E2E / Deploy Safety Gate와 실제 Cloudflare 배포 완료 및 의장님의 Android 화면 검증이 필요함. 실제 모바일 전체 87강과 음성 재생 검증은 여전히 별도 미완료 상태.
 
 **도구 원칙:** 이 장애 회차는 GitHub 공식 커넥터와 기존 자체 QA 스크립트만 사용하며 TinyFish 호출은 수행하지 않음. Production/main 미변경.
+
+## Android/PWA Claude original redirect correction — 2026-10-10 / Preview v12.22
+
+**User-facing scope:** Only the installed PWA lecture navigation. All 87 Claude original HTML files and the approved 3-screen layout are unchanged. Runway Niki narration redesign remains on hold; no billing/audio generation.
+
+**Failure evidence:** Exact-SHA Cloudflare Preview's unmodified originals work in the ordinary browser, but installed Service Worker navigation returned `ORIGINAL_HTTP_0`. Cloudflare Pages canonicalizes `/lecture.html` to `/lecture`; browser navigation FetchEvent Requests may have `redirect: manual`, yielding a masked `opaqueredirect` with status 0 rather than actual HTML when code uses `fetch(event.request)`.
+
+**Patch:** `sw.js` now fetches canonical HTML by same-origin GET URL, explicitly following redirects. It still validates exact manifest source byte count and SHA-256 before caching. A followed response is reconstructed for `navigate` before answering `respondWith` so that Chromium does not reject a redirected response. The release cache key advances to `20261010-stage23-94` to migrate prior installed-PWA cache state.
+
+**Regression:** `scripts/claude-original-source-integrity-sw-qa.mjs` now simulates both opaque HTTP 0 navigation and followed redirects, while preserving poison cache rejection, offline exact-source fallback and manifest identity. The previous commit's Global QA recorded **17/17 source-integrity checks PASS**. New release's exact-SHA Cloudflare/installed-PWA E2E must pass independently before the bug is called resolved.
+
+**Acceptance:** Global QA PASS + Runtime E2E PASS + Deploy Safety Gate PASS + installed-PWA Claude representative lectures across 10 academic fields PASS + real Android user check. Do not report real Android or original MP4 audio as verified until tested.
