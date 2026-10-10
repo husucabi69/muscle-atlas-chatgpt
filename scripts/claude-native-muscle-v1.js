@@ -195,6 +195,10 @@
     const status=document.getElementById('diseaseTraumaOriginalStatus');
     const issue=document.getElementById('diseaseTraumaLoadIssue');issue.hidden=true;
     originalFrame.hidden=true;
+    // Stop the original HTML's own audio if the user was comparing original
+    // and now returns to the native lecture. Hidden iframes can keep playing.
+    try{originalFrame.contentWindow?.location.replace('about:blank');}
+    catch{originalFrame.removeAttribute('src');}
     modeSwitch.hidden=false;panel.hidden=false;switchMode('app');
     setDiseaseTraumaView('original');
     status.textContent='우리 앱 통합 근육학 1권을 여는 중입니다. 원본 SHA-256을 검증합니다.';
