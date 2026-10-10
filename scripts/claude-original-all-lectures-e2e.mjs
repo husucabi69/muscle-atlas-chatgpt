@@ -72,8 +72,23 @@ try {
           throw new Error('Self-hosted status missing from tile ' + number);
         await tile.click();
         const expectedPath = '/claude-library/' + row.source_path;
+        const nativePilot = number === 3;
         try {
-          await page.waitForFunction(expected => {
+          if (nativePilot) {
+            await page.waitForFunction(() => {
+              const host=document.getElementById('claudeNativePilotHost');
+              const shadow=host?.querySelector('.claude-native-lesson')?.shadowRoot;
+              return !host?.hidden && shadow?.querySelectorAll('section').length===19 &&
+                shadow.querySelectorAll('table').length===49 &&
+                shadow.querySelectorAll('figure').length===18 &&
+                shadow.querySelectorAll('img').length===18 &&
+                shadow.querySelectorAll('[data-i]').length===671 &&
+                shadow.querySelectorAll('.claude-native-teaching').length===5 &&
+                document.getElementById('diseaseTraumaOriginalFrame').hidden &&
+                document.getElementById('diseaseTraumaLoadIssue').hidden &&
+                !document.getElementById('diseaseTraumaOriginalView').hidden;
+            },{timeout:isLive?38000:20000});
+          } else await page.waitForFunction(expected => {
             try {
               const iframe = document.getElementById('diseaseTraumaOriginalFrame');
               const w = iframe.contentWindow;
@@ -106,7 +121,21 @@ try {
             expectedPath + ': ' + String(error)+'; diagnostics='+JSON.stringify(details)+
             '; failedRequests='+JSON.stringify(failedRequests.slice(-6)));
         }
-        const details = await page.locator('#diseaseTraumaOriginalFrame').evaluate(frame => ({
+        const details = nativePilot ? await page.locator('#claudeNativePilotHost').evaluate((host,expected)=>{
+          const shadow=host.querySelector('.claude-native-lesson').shadowRoot;
+          const content=shadow.querySelector('.native-original');
+          return {
+            pathname:'native:'+expected,title:'근육학 1권 — 어깨·견갑대',
+            bodyCharacters:content.textContent.length,
+            documentWidth:host.scrollWidth,viewportWidth:host.clientWidth,
+            horizontalOverflow:host.scrollWidth>host.clientWidth+8,
+            nativeIntegration:true,
+            sections:shadow.querySelectorAll('section').length,
+            figures:shadow.querySelectorAll('figure').length,
+            tables:shadow.querySelectorAll('table').length,
+            addedExplanations:shadow.querySelectorAll('.claude-native-teaching').length
+          };
+        },expectedPath) : await page.locator('#diseaseTraumaOriginalFrame').evaluate(frame => ({
           pathname: decodeURIComponent(frame.contentWindow.location.pathname),
           title: frame.contentDocument.title,
           bodyCharacters: (frame.contentDocument.body.innerText || frame.contentDocument.body.textContent || '').length,

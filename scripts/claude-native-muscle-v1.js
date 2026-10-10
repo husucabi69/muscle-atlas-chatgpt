@@ -183,10 +183,15 @@
     inNativeMode=true;
     selectedClaudeLectureNumber=PILOT_NUMBER;
     document.getElementById('diseaseTraumaOriginalBreadcrumb').textContent='근육학 › '+TITLE;
+    const fallback=document.getElementById('diseaseTraumaClaudeFallback');
+    fallback.href=item.claude_artifact_url;
+    fallback.hidden=true;
     const status=document.getElementById('diseaseTraumaOriginalStatus');
     const issue=document.getElementById('diseaseTraumaLoadIssue');issue.hidden=true;
     originalFrame.hidden=true;
     modeSwitch.hidden=false;panel.hidden=false;switchMode('app');
+    setDiseaseTraumaView('original');
+    status.textContent='우리 앱 통합 근육학 1권을 여는 중입니다. 원본 SHA-256을 검증합니다.';
     if(!panel.querySelector('.claude-native-lesson')){
       panel.innerHTML='<div class="claude-native-loading" role="status">1권 원본 19개 장과 49개 표·18개 그림을 무손실 검증하고 있습니다...</div>';
       const token=++renderToken;
