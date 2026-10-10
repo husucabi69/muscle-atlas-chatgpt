@@ -120,7 +120,7 @@
       '.claude-native-teaching summary{cursor:pointer;font-weight:800;font-size:16px}'+
       '.claude-native-teaching p{margin:12px 0 8px}'+
       '.claude-native-teaching small{color:#375a54}'+
-      '.claude-native-speaking{outline:3px solid #dd9e25!important;outline-offset:3px;background:#fff1bf!important;border-radius:5px}';
+      '.claude-native-speaking,.claude-recorded-now{outline:3px solid #dd9e25!important;outline-offset:3px;background:#fff1bf!important;border-radius:5px}';
     const page=document.createElement('div');
     page.className='native-original';
     const originalBody=document.importNode(sourceWrap,true);
