@@ -15,7 +15,7 @@ const row={source_path:lecture.slice('/claude-library/'.length),source_bytes:Buf
 const abs=x=>new URL(typeof x==='string'?x:x.url,origin+'/sw.js').href;
 let pass=0;
 const check=async(name,fn)=>{await fn();console.log('PASS | '+name);pass++};
-function setup({online=false,cached=null,live=original,mime='text/html',manifest=true,status=200,staleShellManifest=false,freshRuntimeManifest=false,emulateCleanUrlNavigationRedirect=false}={}){
+function setup({online=false,cached=null,live=original,mime='text/html',manifest=true,status=200,staleShellManifest=false,freshRuntimeManifest=false,emulateCleanUrlNavigationRedirect=false,emulateFollowedRedirect=false}={}){
  const handlers=new Map(),entries=new Map(),requests=[];
  entries.set(abs('/index.html'),new Response(shell));
  if(manifest)entries.set(abs('/data/claude-library-manifest-v1.json'),new Response(JSON.stringify({lectures:[row]}),{status:200}));
@@ -41,9 +41,11 @@ function setup({online=false,cached=null,live=original,mime='text/html',manifest
   // Enforce a fresh URL-based GET with redirect:'follow' for this regression.
   if(emulateCleanUrlNavigationRedirect &&
      (typeof req!=='string'||init.redirect!=='follow'))return Response.error();
-  return new Response(live,{status,headers:{'Content-Type':mime}});
+  const response=new Response(live,{status,headers:{'Content-Type':mime}});
+  if(emulateFollowedRedirect)Object.defineProperty(response,'redirected',{value:true});
+  return response;
  };
- vm.runInNewContext(source,{self,caches,fetch,Response,URL,console,crypto:webcrypto,Uint8Array,importScripts(){}},{filename:'sw.js',timeout:5000});
+ vm.runInNewContext(source,{self,caches,fetch,Response,Headers,URL,console,crypto:webcrypto,Uint8Array,importScripts(){}},{filename:'sw.js',timeout:5000});
  async function request(path,mode='navigate'){
   let pending=null;handlers.get('fetch')({request:{method:'GET',url:abs(path),mode},respondWith:r=>pending=Promise.resolve(r)});
   return {intercepted:!!pending,response:pending?await pending:null};
@@ -64,6 +66,14 @@ await check('Cloudflare clean URL redirect is followed instead of returning opaq
  assert.equal(r.response.status,200);
  assert.equal(await r.response.text(),original);
  assert.equal(await h.entries.get(abs(lecture)).text(),original);
+});
+await check('redirect-followed canonical HTML is sanitized before answering navigation',async()=>{
+ const h=setup({online:true,emulateCleanUrlNavigationRedirect:true,emulateFollowedRedirect:true});
+ const r=await h.request(lecture);
+ assert.equal(r.response.status,200);
+ assert.equal(r.response.redirected,false);
+ assert.equal(await r.response.text(),original);
+ assert.equal((await h.entries.get(abs(lecture)).text()),original);
 });
 await check('offline cached exact source remains accessible',async()=>{const r=await setup({cached:original}).request(lecture);assert.equal(await r.response.text(),original)});
 await check('old poisoned app-shell cache rejected',async()=>{const r=await setup({cached:shell}).request(lecture);assert.equal(r.response.status,503)});

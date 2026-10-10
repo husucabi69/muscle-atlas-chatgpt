@@ -227,7 +227,21 @@ async function verifiedClaudeOriginal(request){
     reason='ORIGINAL_HTTP_'+live.status;
     if(live.ok){
       reason='ORIGINAL_CONTENT_TYPE_OR_SHA256_MISMATCH';
-      if(await valid(live))return await putIfUsable(RUNTIME_CACHE,request,live);
+      if(await valid(live)){
+        // A followed Cloudflare .html -> clean-URL redirect sets
+        // Response.redirected=true. An intercepted navigation has redirect mode
+        // 'manual', and Chromium can reject a redirected Response in respondWith.
+        // Make a fresh same-origin HTML response AFTER SHA-256 verification;
+        // drop transport-size/encoding headers because fetch streams are decoded.
+        let verified=live;
+        if(live.redirected&&request.mode==='navigate'){
+          const headers=new Headers(live.headers);
+          headers.delete('Content-Encoding');
+          headers.delete('Content-Length');
+          verified=new Response(live.body,{status:live.status,statusText:live.statusText,headers});
+        }
+        return await putIfUsable(RUNTIME_CACHE,request,verified);
+      }
     }
   }catch{reason='ORIGINAL_NETWORK_ERROR';}
   try{
