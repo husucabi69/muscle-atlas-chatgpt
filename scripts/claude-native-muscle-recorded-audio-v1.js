@@ -18,7 +18,8 @@ function stop(){
  if(!active)return;
  active.audio.pause();
  active.mark?.classList.remove('claude-recorded-now');
- active.mark=null; active.dock.hidden=true;
+ active.mark=null; active.last=-1; active.dock.hidden=true;
+ if(active.status)active.status.textContent='⏹ 원본 음성 정지';
 }
 function isReady(){return !!active?.urls.some(Boolean);}
 function mount(shadow,doc){
@@ -48,7 +49,7 @@ function mount(shadow,doc){
  const dockTitle=document.createElement('strong');dockTitle.textContent='🎧 원본 음성 재생 중';
  const toggle=button('⏸','dockPause'),dockStop=button('⏹ 정지','dockStop');dock.append(dockTitle,toggle,dockStop);
  box.append(title,guide,label,info,toolbar,audio,rateLabel,status,dock);
- const state={audio,dock,urls:[null,null],part:0,mark:null,last:-1};active=state;
+ const state={audio,dock,status,urls:[null,null],part:0,mark:null,last:-1};active=state;
  const styles=document.createElement('style');styles.textContent=
  '.claude-original-recorded{background:#f4faff;border:2px solid #aacade;border-radius:14px;padding:14px;margin:12px 0;color:#16344d;line-height:1.6}'+
  '.claude-original-recorded h3{font-size:17px;margin:0 0 8px}'+
