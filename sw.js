@@ -1,4 +1,4 @@
-// v12.27 app-shell update: this byte change forces installed PWA update detection.
+// v12.28 app-shell update: refresh native muscle lecture series and free TTS settings.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
