@@ -46,6 +46,12 @@ function setup({online=false,cached=null,live=original,mime='text/html',manifest
  return {request,entries,requests};
 }
 await check('offline uncached lecture fails closed 503',async()=>{const h=setup(),r=await h.request(lecture);assert.equal(r.response.status,503);assert.match(await r.response.text(),/다시 열어 주세요/);assert.equal(r.response.headers.get('Cache-Control'),'no-store')});
+await check('Cloudflare clean-URL extensionless alias resolves only to SHA-locked original',async()=>{
+ const h=setup({online:true}),r=await h.request(lecture.replace(/\.html$/i,''));
+ assert.equal(r.intercepted,true);
+ assert.equal(r.response.status,200);
+ assert.equal(await r.response.text(),original);
+});
 await check('offline cached exact source remains accessible',async()=>{const r=await setup({cached:original}).request(lecture);assert.equal(await r.response.text(),original)});
 await check('old poisoned app-shell cache rejected',async()=>{const r=await setup({cached:shell}).request(lecture);assert.equal(r.response.status,503)});
 await check('online exact source is cached',async()=>{const h=setup({online:true}),r=await h.request(lecture);assert.equal(await r.response.text(),original);assert.equal(await h.entries.get(abs(lecture)).text(),original)});
