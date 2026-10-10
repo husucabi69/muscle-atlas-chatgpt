@@ -15,7 +15,7 @@ const row={source_path:lecture.slice('/claude-library/'.length),source_bytes:Buf
 const abs=x=>new URL(typeof x==='string'?x:x.url,origin+'/sw.js').href;
 let pass=0;
 const check=async(name,fn)=>{await fn();console.log('PASS | '+name);pass++};
-function setup({online=false,cached=null,live=original,mime='text/html',manifest=true,status=200,staleShellManifest=false,freshRuntimeManifest=false}={}){
+function setup({online=false,cached=null,live=original,mime='text/html',manifest=true,status=200,staleShellManifest=false,freshRuntimeManifest=false,emulateCleanUrlNavigationRedirect=false}={}){
  const handlers=new Map(),entries=new Map(),requests=[];
  entries.set(abs('/index.html'),new Response(shell));
  if(manifest)entries.set(abs('/data/claude-library-manifest-v1.json'),new Response(JSON.stringify({lectures:[row]}),{status:200}));
@@ -32,10 +32,15 @@ function setup({online=false,cached=null,live=original,mime='text/html',manifest
  };
  const self={location:new URL(origin+'/sw.js'),LYS_APP_RELEASE:{cacheKey:'qa'},addEventListener:(event,fn)=>handlers.set(event,fn),skipWaiting(){},clients:{claim(){}}};
  const freshLectureRows=[row,...Array.from({length:86},(_,i)=>({...row,source_path:'1_강의페이지/qa-'+i+'.html'}))];
- const fetch=async req=>{
+ const fetch=async(req,init={})=>{
   requests.push(abs(req));
   if(!online)throw Error('offline');
   if(abs(req)===manifestUrl)return new Response(JSON.stringify({lectures:freshLectureRows}),{status:200,headers:{'Content-Type':'application/json'}});
+  // Cloudflare .html -> clean-URL redirect + SW navigation redirect:'manual'
+  // may yield an opaqueredirect response (HTTP status 0), not the HTML body.
+  // Enforce a fresh URL-based GET with redirect:'follow' for this regression.
+  if(emulateCleanUrlNavigationRedirect &&
+     (typeof req!=='string'||init.redirect!=='follow'))return Response.error();
   return new Response(live,{status,headers:{'Content-Type':mime}});
  };
  vm.runInNewContext(source,{self,caches,fetch,Response,URL,console,crypto:webcrypto,Uint8Array,importScripts(){}},{filename:'sw.js',timeout:5000});
@@ -51,6 +56,14 @@ await check('Cloudflare clean-URL extensionless alias resolves only to SHA-locke
  assert.equal(r.intercepted,true);
  assert.equal(r.response.status,200);
  assert.equal(await r.response.text(),original);
+});
+await check('Cloudflare clean URL redirect is followed instead of returning opaque HTTP 0',async()=>{
+ const h=setup({online:true,emulateCleanUrlNavigationRedirect:true});
+ const r=await h.request(lecture);
+ assert.equal(r.intercepted,true);
+ assert.equal(r.response.status,200);
+ assert.equal(await r.response.text(),original);
+ assert.equal(await h.entries.get(abs(lecture)).text(),original);
 });
 await check('offline cached exact source remains accessible',async()=>{const r=await setup({cached:original}).request(lecture);assert.equal(await r.response.text(),original)});
 await check('old poisoned app-shell cache rejected',async()=>{const r=await setup({cached:shell}).request(lecture);assert.equal(r.response.status,503)});

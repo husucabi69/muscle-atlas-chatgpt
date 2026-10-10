@@ -217,7 +217,13 @@ async function verifiedClaudeOriginal(request){
     return hex===row.source_sha256;
   }
   try{
-    const live=await fetch(request,{cache:'no-store'});
+    // Navigation requests reaching a Service Worker can have redirect:'manual'.
+    // Cloudflare Pages redirects .html lecture URLs to clean extensionless URLs;
+    // following the original navigation Request exposes an opaqueredirect
+    // (type='opaqueredirect', status=0) even while the source exists.
+    // Reissue a same-origin GET by URL with normal redirect following, then
+    // require exact manifest byte count + SHA-256 before caching/displaying.
+    const live=await fetch(request.url,{cache:'no-store',redirect:'follow',credentials:'same-origin'});
     reason='ORIGINAL_HTTP_'+live.status;
     if(live.ok){
       reason='ORIGINAL_CONTENT_TYPE_OR_SHA256_MISMATCH';
