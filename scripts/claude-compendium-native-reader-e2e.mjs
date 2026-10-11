@@ -53,7 +53,7 @@ try{
    const utterance=await page.evaluate(()=>window.__compendiumMockSpoken.at(-1));
    assert.ok(utterance.text&&utterance.text.length<=160&&utterance.lang==='ko-KR',
        'real Korean device speech API invoked for '+n+': '+JSON.stringify(utterance));
-   await page.locator('#claudeCompendiumReaderHost [data-native-audio="stop"]').click();
+   await page.locator('#claudeCompendiumReaderHost [data-native-audio="stop"]').evaluate(button=>button.click());
    if(n===2){
      // On the original cover the 186 muscle selectors are deliberately hidden.
      // Opening the source's own catalog must preserve its button handlers;
@@ -84,7 +84,7 @@ try{
    const speechAfterTap=await page.evaluate(()=>window.__compendiumMockSpoken.length);
    assert.equal(speechAfterTap,speechBeforeTap+1,
      'refresh must leave exactly one passage click handler for source '+n);
-   await page.locator('#claudeCompendiumReaderHost [data-native-audio="stop"]').click();
+   await page.locator('#claudeCompendiumReaderHost [data-native-audio="stop"]').evaluate(button=>button.click());
    console.log('PASS | Compendium #'+n+' mobile interactive original viewport and free Korean voice: '+JSON.stringify(state));
    await page.locator('#diseaseTraumaOriginalView .region-back').click();
    assert.ok(await page.locator('#diseaseTraumaCategoryView').isVisible(),'returns to muscle category after '+n);
