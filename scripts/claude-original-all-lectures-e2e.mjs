@@ -32,18 +32,19 @@ let categoryCounts = [];
 try {
   // Every lecture is opened by the same category -> lecture -> iframe route
   // that an Android/PWA user uses, at a phone-sized viewport.
-  // Parallel, independent Chromium contexts exercise all 87 originals without
-  // serializing 87 heavy original-HTML loads. Every lecture is still covered.
-  // Each mobile shard owns exactly one disjoint set of lecture numbers.
-  const MOBILE_SHARDS = 4;
-  const viewports = [
-    ...Array.from({length:MOBILE_SHARDS},(_,shardIndex)=>({
-      label:'mobile390',width:390,height:844,isMobile:true,all:true,
-      shardIndex,shardCount:MOBILE_SHARDS
-    })),
-    {label:'desktop1280',width:1280,height:800,isMobile:false,all:false}
+  // Run one shard per independent GitHub Actions runner, never many heavy
+  // browser contexts on the same small runner. Coverage is partitioned exactly.
+  // An unset shard means the legacy full 87-lecture test remains available.
+  const shardCount=Number(process.env.CLAUDE_E2E_SHARD_COUNT||1);
+  const shardIndex=Number(process.env.CLAUDE_E2E_SHARD_INDEX||0);
+  if(!Number.isSafeInteger(shardCount)||shardCount<1||shardCount>12||
+     !Number.isSafeInteger(shardIndex)||shardIndex<0||shardIndex>=shardCount)
+    throw new Error('Invalid Claude E2E shard configuration '+shardIndex+'/'+shardCount);
+  const viewports=[
+    {label:'mobile390',width:390,height:844,isMobile:true,all:true,shardIndex,shardCount},
+    ...(shardIndex===0?[{label:'desktop1280',width:1280,height:800,isMobile:false,all:false}]:[])
   ];
-  await Promise.all(viewports.map(async viewport => {
+  for(const viewport of viewports) {
     const context = await browser.newContext({
       viewport: { width: viewport.width, height: viewport.height },
       isMobile: viewport.isMobile,
@@ -331,26 +332,28 @@ try {
         throw new Error('Mobile shard '+viewport.shardIndex+' incomplete: '+seen.size+'/'+expected);
     }
     await context.close();
-  }));
-  // Worker completion order is irrelevant: require exact 87 distinct lecture
-  // numbers, not merely 87 rows (which could hide duplicated or missing IDs).
+  }
+  // A passing shard must contain exactly its assigned original lecture IDs.
+  // In the matrix, every shard must PASS before the deployment gate can run.
   const mobileResults=results.filter(x=>x.viewport==='mobile390');
   const mobileIds=new Set(mobileResults.map(x=>x.number));
+  const expectedIds=lectures.filter(row=>(row.number-1)%shardCount===shardIndex).map(row=>row.number);
   const desktopResults=results.filter(x=>x.viewport==='desktop1280');
-  if (mobileResults.length!==87 || mobileIds.size!==87 ||
-      lectures.some(row=>!mobileIds.has(row.number)) ||
-      desktopResults.length!==10 ||
-      new Set(desktopResults.map(x=>x.number)).size!==10) {
-    throw new Error('Full parallel coverage failed: '+JSON.stringify({
-      mobileRows:mobileResults.length,uniqueMobile:mobileIds.size,
-      missing:lectures.filter(row=>!mobileIds.has(row.number)).map(row=>row.number),
-      desktop:desktopResults.length,
-      desktopUnique:new Set(desktopResults.map(x=>x.number)).size
+  if(mobileResults.length!==expectedIds.length ||
+     mobileIds.size!==expectedIds.length ||
+     expectedIds.some(number=>!mobileIds.has(number)) ||
+     desktopResults.length!==(shardIndex===0?10:0) ||
+     new Set(desktopResults.map(x=>x.number)).size!==desktopResults.length) {
+    throw new Error('Shard coverage failed: '+JSON.stringify({
+      shardIndex,shardCount,expected:expectedIds,
+      opened:mobileResults.map(x=>x.number),desktop:desktopResults.map(x=>x.number)
     }));
   }
   const report = {
     test: (isLive ? 'exact-SHA live Cloudflare Preview' : 'local static server') + ' Chromium category -> original iframe navigation',
     sourceCommit: process.env.GITHUB_SHA || null,
+    shardIndex,shardCount,
+    expectedMobileLectures:expectedIds.length,
     checkedAt: new Date().toISOString(),
     mobileLecturesOpened: results.filter(x => x.viewport === 'mobile390').length,
     desktopRepresentativeLecturesOpened: results.filter(x => x.viewport === 'desktop1280').length,
@@ -365,7 +368,7 @@ try {
   };
   fs.writeFileSync(path.join(outDir, 'report.json'), JSON.stringify(report, null, 2) + '\n');
   console.log('PASS | Claude original ' + (isLive ? 'exact-SHA live Preview' : 'local') + ' browser navigation: ' + report.mobileLecturesOpened +
-    '/87 mobile + ' + report.desktopRepresentativeLecturesOpened +
+    '/'+report.expectedMobileLectures+' mobile (shard '+shardIndex+'/'+shardCount+') + ' + report.desktopRepresentativeLecturesOpened +
     '/10 desktop representative; categories=' + categoryCounts.join(','));
   console.log('INFO | Inner-HTML horizontal overflows: ' + report.knownHorizontalOverflows.length +
     ' (recorded, not claimed to be repaired)');
