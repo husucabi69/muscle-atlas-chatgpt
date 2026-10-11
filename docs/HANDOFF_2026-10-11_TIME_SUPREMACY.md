@@ -21,6 +21,7 @@
 - 최종보고 규칙 항목: **25~30분 개발 준수**, **30~35분 마무리 준수**, **35분 HARD STOP 준수**, **35분 내 최종보고 전송 준수**를 별도로 PASS/FAIL/미계측 표기.
 - 예약 자동작업에는 예약별 별도 제한시간 적용, 단 **실측·최종보고 제1원칙**은 동일. 일반 수동 규칙을 예약에 잘못 복사하지 않는다.
 - **CI의 정본 문자열검사는 실제 시간 준수를 증명하지 않는다.** 실제 전송 시간을 분리 보고한다.
+- **실측 시간 감사 도구:** `node scripts/verify-development-time-report.mjs --self-test`는 GitHub CI에서 마감 위반·실측 누락을 거부하는 규칙을 시험한다. 실제 세션 기록은 `mode: manual`, `started_at`, `development_stopped_at`, `work_stopped_at`, `report_sent_at`을 KST 초 단위 ISO8601(`+09:00`)로 채운 JSON을 `node scripts/verify-development-time-report.mjs <실측기록.json>`에 넣어 검증한다. **실제 메시지 전송 시각은 GitHub가 자동으로 알 수 없으며, 미계측 시 성공 주장 금지**.
 - 최종 답변의 마지막 줄은 `한국시간 YYYY-MM-DD HH:MM:SS KST`.
 
 ## 2. 보고 형식
