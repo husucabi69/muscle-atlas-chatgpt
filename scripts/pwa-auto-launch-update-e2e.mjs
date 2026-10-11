@@ -88,7 +88,7 @@ try{
   await p2.waitForFunction(()=>document.getElementById('appUpdateState')?.textContent?.includes('새 버전이 준비'));
   assert.equal(studyNavigations,studyBase,'studying screen must not reload mid-session');
   await p2.locator('.tab[data-page="home"]').click();
-  await p2.evaluate(()=>{void requestAppUpdateCheck('resume',true)});
+  // User merely returns home; a staged update applies without any button.
   await p2.waitForFunction(version=>window.LYS_APP_RELEASE?.buildVersion===version,VERSION_NEW,{timeout:45000});
   assert.ok(studyNavigations>studyBase,'deferred update applies automatically when returning home');
   console.log('PASS | Open study lesson remains uninterrupted; returning home automatically applies deferred update');
