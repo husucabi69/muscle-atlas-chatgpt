@@ -176,6 +176,7 @@ try{
        sourceName:d.querySelector(d.getElementById('nav')?'#main h2':'#dname')?.textContent.trim(),
        sourceContent:d.getElementById('nav')?d.getElementById('main')?.textContent.length:d.getElementById('dbody')?.textContent.length,
        sourceNavHidden:!!d.getElementById('nav')&&getComputedStyle(d.getElementById('nav')).display==='none',
+       redundantHeaderHidden:!!d.getElementById('nav')&&getComputedStyle(d.querySelector('header')).display==='none',
        detailDisplay:d.getElementById('detail')?.style.display||null,
        originalScroll:d.defaultView.scrollY
      };
@@ -188,7 +189,10 @@ try{
      immediate.top>=50&&immediate.top<=90,'muscle focus must fill phone: '+JSON.stringify(immediate));
    assert.ok(immediate.sourceName.includes('갑상설골근')&&immediate.sourceContent>100,
      'source selection must display requested muscle instantly: '+JSON.stringify(immediate));
-   if(n===1)assert.equal(immediate.sourceNavHidden,true,'huge original navigation is hidden during reading');
+   if(n===1){
+     assert.equal(immediate.sourceNavHidden,true,'huge original navigation is hidden during reading');
+     assert.equal(immediate.redundantHeaderHidden,true,'original search toolbar should not consume muscle reading viewport');
+   }
    else assert.equal(immediate.detailDisplay,'block','original source detail is truly opened');
    await page.locator('#claudeCompendiumFocusToolbar [data-focus-list]').click();
    const returned=await page.locator('#diseaseTraumaOriginalFrame').evaluate(frame=>{
