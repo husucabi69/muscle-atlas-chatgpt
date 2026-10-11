@@ -20,14 +20,77 @@
   '.claude-compendium-actions{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}'+
   '.claude-compendium-actions button{min-height:43px;padding:10px 16px;border:1px solid #abc0d0;border-radius:12px;background:#fff;color:#173951;font-weight:750}'+
   '.claude-compendium-reader .claude-native-audio{margin:14px 0}'+
-  '.claude-original-frame.claude-compendium-large{display:block;width:100%;max-width:100%;box-sizing:border-box;min-height:880px;height:100svh;border:1px solid #cbd7df;border-radius:16px;background:#fff}';
+  '.claude-original-frame.claude-compendium-large{display:block;width:100%;max-width:100%;box-sizing:border-box;min-height:880px;height:100svh;border:1px solid #cbd7df;border-radius:16px;background:#fff}'+
+  // Focus is a position change of the EXISTING verified iframe, never a DOM
+  // reparent, navigation, copy, or mutation of the source HTML.
+  '.claude-original-frame.claude-compendium-focus-frame{position:fixed!important;inset:calc(58px + env(safe-area-inset-top,0px)) 0 0!important;width:100vw!important;max-width:none!important;height:calc(100dvh - 58px - env(safe-area-inset-top,0px))!important;min-height:0!important;border:0!important;border-radius:0!important;z-index:102!important;background:#fff!important}'+
+  '.claude-compendium-focus-toolbar[hidden]{display:none!important}'+
+  '.claude-compendium-focus-toolbar{position:fixed;top:0;left:0;right:0;height:calc(58px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 10px 0;display:flex;align-items:center;gap:8px;z-index:103;background:#102d42;color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.14)}'+
+  '.claude-compendium-focus-toolbar button{min-height:43px;padding:8px 11px;white-space:nowrap;background:#fff;color:#102d42;border:0;border-radius:11px;font-size:15px;font-weight:750}'+
+  '.claude-compendium-focus-toolbar strong{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px}'+
+  '@media(max-width:390px){.claude-compendium-focus-toolbar{gap:5px;padding-left:6px;padding-right:6px}.claude-compendium-focus-toolbar button{padding:8px;font-size:14px}}';
  document.head.append(style);
  let route=null,epoch=0,inProgress=false,listener=null,frameDoc=null,heightTimer=null,player=null;
- let resizeObserver=null,sourceMouse=null;
+ let resizeObserver=null,sourceMouse=null,selectionListener=null,focusMode=false,savedOverflow='';
+ const focusToolbar=document.createElement('div');
+ focusToolbar.id='claudeCompendiumFocusToolbar';
+ focusToolbar.className='claude-compendium-focus-toolbar';
+ focusToolbar.hidden=true;
+ focusToolbar.innerHTML='<button type="button" data-focus-back>← 강의</button>'+
+   '<button type="button" data-focus-list>☰ 근육 목록</button>'+
+   '<strong data-focus-name aria-live="polite">근육 상세</strong>';
+ document.body.append(focusToolbar);
+ function releaseFocus(){
+   if(!focusMode)return;
+   focusMode=false;
+   frame.classList.remove('claude-compendium-focus-frame');
+   focusToolbar.hidden=true;
+   document.documentElement.style.overflow=savedOverflow;
+   try{
+     const d=frame.contentDocument;
+     d?.documentElement.classList.remove('lys-compendium-muscle-focus','lys-compendium-muscle-list');
+   }catch{}
+   if(frameDoc&&frame.classList.contains('claude-compendium-large'))nextHeight(frameDoc);
+ }
+ function focusSelectedMuscle(doc,name){
+   if(!doc||!frameDoc||doc!==frameDoc||frame.hidden||route===null)return;
+   if(!focusMode){savedOverflow=document.documentElement.style.overflow;focusMode=true;}
+   document.documentElement.style.overflow='hidden';
+   frame.style.removeProperty('height');
+   frame.classList.add('claude-compendium-focus-frame');
+   focusToolbar.querySelector('[data-focus-name]').textContent=name||'근육 상세';
+   focusToolbar.querySelector('[data-focus-list]').textContent='☰ 근육 목록';
+   focusToolbar.hidden=false;
+   doc.documentElement.classList.remove('lys-compendium-muscle-list');
+   doc.documentElement.classList.add('lys-compendium-muscle-focus');
+   try{frame.contentWindow.scrollTo({top:0,behavior:'instant'});}catch{}
+ }
+ focusToolbar.querySelector('[data-focus-back]').addEventListener('click',()=>{
+   releaseFocus();
+   document.querySelector('#diseaseTraumaOriginalView .region-back')?.click();
+ });
+ focusToolbar.querySelector('[data-focus-list]').addEventListener('click',()=>{
+   const doc=frame.contentDocument;if(!doc||!focusMode)return;
+   if(route===1){
+     doc.documentElement.classList.remove('lys-compendium-muscle-focus');
+     doc.documentElement.classList.add('lys-compendium-muscle-list');
+     focusToolbar.querySelector('[data-focus-name]').textContent='근육 이름을 선택하세요';
+   }else if(route===2){
+     doc.defaultView.goIndex?.();
+     focusToolbar.querySelector('[data-focus-name]').textContent='근육 이름을 선택하세요';
+   }
+   frame.contentWindow.scrollTo({top:0,behavior:'instant'});
+ });
+ window.addEventListener('keydown',e=>{
+   if(e.key==='Escape'&&focusMode){e.preventDefault();releaseFocus();}
+ });
  const status=document.getElementById('diseaseTraumaOriginalStatus');
  function stop(){
    window.LYSNativeAudio?.stop();
    if(frameDoc&&sourceMouse)frameDoc.removeEventListener('click',sourceMouse,true);
+   if(frameDoc&&selectionListener)frameDoc.removeEventListener('click',selectionListener,true);
+   selectionListener=null;
+   releaseFocus();
    sourceMouse=null;frameDoc=null;
    if(resizeObserver){resizeObserver.disconnect();resizeObserver=null;}
    if(heightTimer){clearTimeout(heightTimer);heightTimer=null;}
@@ -38,6 +101,7 @@
    player=null;
  }
  function nextHeight(doc){
+   if(focusMode)return; // Focus iframe fills the visual viewport, never 18,000 px.
    const body=doc.body;
    if(!body)return;
    // Avoid tiny nested 78vh browser panes seen on Android. A very long
@@ -72,7 +136,17 @@
      'button,select,input{min-height:38px;max-width:100%}'+
      'table{max-width:100%;overflow-x:auto}img,svg,video{max-width:100%;height:auto}'+
      'pre{max-width:100%;overflow-x:auto;white-space:pre-wrap}'+
-     '[data-i].claude-native-speaking{outline:3px solid #d79416!important;outline-offset:3px;background:#fff2b9!important;border-radius:6px}';
+     '[data-i].claude-native-speaking{outline:3px solid #d79416!important;outline-offset:3px;background:#fff2b9!important;border-radius:6px}'+
+     // A self-contained reading screen. The source's original handlers, data,
+     // selection, illustrations and JS remain untouched in the live iframe.
+     'html.lys-compendium-muscle-focus #nav{display:none!important}'+
+     'html.lys-compendium-muscle-focus .wrap{display:block!important;max-width:none!important;padding:8px!important}'+
+     'html.lys-compendium-muscle-focus #main{display:block!important;padding:14px!important;min-height:0!important;border:0!important;width:100%!important;max-width:none!important}'+
+     'html.lys-compendium-muscle-list #nav{display:block!important;max-height:none!important;position:static!important}'+
+     'html.lys-compendium-muscle-list #main{display:none!important}'+
+     'html.lys-compendium-muscle-focus body,html.lys-compendium-muscle-list body{font-size:20px!important;line-height:1.75!important}'+
+     'html.lys-compendium-muscle-focus .card p,html.lys-compendium-muscle-focus .sec2 p,html.lys-compendium-muscle-focus .flow .b,html.lys-compendium-muscle-focus .bx,html.lys-compendium-muscle-focus #detail .blk p{font-size:20px!important;line-height:1.8!important}'+
+     'html.lys-compendium-muscle-focus main h2,html.lys-compendium-muscle-focus #detail h1{font-size:clamp(29px,7vw,36px)!important}';
    doc.head.append(el);
  }
  function extractPassages(doc){
@@ -235,6 +309,26 @@
      // update frame height, and let the user refresh the voice context.
      sourceMouse=()=>scheduleHeight(doc);
      doc.addEventListener('click',sourceMouse,true);
+     // Observe the original source's own selection events; do not preventDefault.
+     // Its handlers render the real 186-muscle data, then the verified iframe
+     // becomes a one-viewport reading screen with NO parent-document scroll.
+     selectionListener=e=>{
+       const trigger=route===1
+         ?e.target.closest('a[data-n],#sug [data-n]')
+         :e.target.closest('#regions .mbtn,#sug [data-n]');
+       if(!trigger)return;
+       const chosen=Number(trigger.dataset.n);
+       if(!Number.isInteger(chosen)||chosen<1||chosen>186)return;
+       const picked=trigger.textContent.trim().split('\n')[0];
+       setTimeout(()=>{
+         if(doc!==frameDoc||route!==n)return;
+         const heading=route===1?doc.querySelector('#main h2'):doc.querySelector('#dname');
+         const detailReady=route===1?!!heading:doc.querySelector('#detail')?.style.display==='block';
+         if(!detailReady)return;
+         focusSelectedMuscle(doc,(heading?.textContent||picked).trim());
+       },80);
+     };
+     doc.addEventListener('click',selectionListener,true);
    }catch(error){
      if(token!==epoch)return;
      banner.hidden=false;banner.replaceChildren();
