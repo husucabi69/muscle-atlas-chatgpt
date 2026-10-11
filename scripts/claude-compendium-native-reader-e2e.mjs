@@ -208,8 +208,16 @@ try{
      'selecting another muscle must focus it immediately '+JSON.stringify(next));
    console.log('PASS | Compendium #'+n+' original muscle→full-viewport detail→list→next muscle: '+JSON.stringify({immediate,next}));
    console.log('PASS | Compendium #'+n+' mobile interactive original viewport and free Korean voice: '+JSON.stringify(state));
-   await page.locator('#claudeCompendiumFocusToolbar [data-focus-back]').click();
+   if(n===1){
+     // System Back on installed Android should remove the full-screen shell.
+     await page.goBack({waitUntil:'domcontentloaded'});
+     await page.waitForFunction(()=>!document.getElementById('diseaseTraumaCategoryView').hidden);
+   }else{
+     await page.locator('#claudeCompendiumFocusToolbar [data-focus-back]').click();
+   }
    assert.ok(await page.locator('#diseaseTraumaCategoryView').isVisible(),'returns to muscle category after '+n);
+   assert.equal(await page.locator('#claudeCompendiumFocusToolbar').isVisible(),false,
+     'full-screen toolbar must not remain orphaned after Android Back or close');
    assert.equal(await page.locator('.header .tabs').evaluate(el=>getComputedStyle(el).display==='none'),false,
      'app navigation must return when leaving focused lecture');
  }
