@@ -181,7 +181,10 @@
      state.playing=false;state.paused=false;
      state.highlight?.classList.remove('claude-native-speaking');state.highlight=null;
      play.textContent='▶ 읽기';pause.textContent='⏸ 일시정지';
-     status.textContent='음성 읽기 실패: '+(ev.error||'알 수 없는 오류')+'. 휴대전화의 한국어 TTS 설정을 확인해 주세요.';
+     const blocked=['not-allowed','not_allowed','audio-busy'].includes(ev.error);
+     status.textContent=blocked
+       ? '휴대전화 브라우저가 자동 음성 시작을 제한했습니다. ▶ 읽기를 직접 눌러 이 구간부터 이어 들으세요.'
+       : '음성 읽기 실패: '+(ev.error||'알 수 없는 오류')+'. 휴대전화의 한국어 TTS 설정을 확인해 주세요.';
    }
    function speakNext(token){
      if(active!==state||token!==state.token||!state.playing||state.paused)return;
@@ -189,7 +192,18 @@
        const shouldContinue=continueCheckbox.checked&&typeof options.onComplete==='function';
        stop();try{localStorage.removeItem(bookmarkKey);}catch{}
        state.status.textContent='✅ '+displayName+' 읽기가 끝났습니다.'+(shouldContinue?' 다음 강의로 이동합니다.':'');
-       if(shouldContinue)setTimeout(()=>{try{options.onComplete();}catch(e){state.status.textContent='다음 강의 자동 이동 실패: '+e.message;}},120);
+       if(shouldContinue){
+         // A user can leave the lecture or press Stop in the short gap between
+         // finishing the last utterance and starting the next course. Never let
+         // a stale completion callback hijack the new navigation state.
+         const completionToken=state.token;
+         setTimeout(()=>{
+           if(active!==state||state.token!==completionToken||
+              lectureView?.hidden||!appPage?.classList.contains('active'))return;
+           try{options.onComplete();}
+           catch(e){state.status.textContent='다음 강의 자동 이동 실패: '+e.message;}
+         },120);
+       }
        return;
      }
      const entry=state.entries[state.index];
