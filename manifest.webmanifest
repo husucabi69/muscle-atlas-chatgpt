@@ -2,7 +2,7 @@
   "name": "이윤석정형외과 근육",
   "short_name": "이윤석정형외과 근육",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "이윤석정형외과 근육 · Stage 23B active · EXAM-001 Physical Examination Stable-ID baseline 148/148 COMPLETE · v11.90",
+  "description": "이윤석정형외과 근육 · 설치형 PWA · 앱 실행 시 자동 업데이트 · 의학교육 및 임상 학습",
   "start_url": "./?source=pwa",
   "scope": "./",
   "display": "fullscreen",
