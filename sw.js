@@ -1,4 +1,4 @@
-// v12.28 app-shell update: refresh native muscle lecture series and free TTS settings.
+// v12.29 app-shell update: invalidate cached audio engine for safe cross-lecture Stop.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
