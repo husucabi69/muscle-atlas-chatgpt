@@ -128,6 +128,12 @@ for (const name of ['agents','constitution','principles']) {
     doc.indexOf('SUPER-LOCK 2026-10-11')>=0&&
     doc.indexOf('SUPER-LOCK 2026-10-11')<doc.indexOf('LOCKED 2026-10-09'));
 }
+for (const name of ['masterRoadmap','previewPolicy']) {
+  check(name+': current time SUPER-LOCK is written into operational roadmap',
+    files[name].includes('SUPER-LOCK 2026-10-11') &&
+    files[name].includes('35분 HARD STOP') &&
+    files[name].includes('35분 내'));
+}
 check('Handoff current: 2026-10-11 time SUPER-LOCK acknowledged',
   files.handoff.includes('SUPER-LOCK 2026-10-11'));
 
