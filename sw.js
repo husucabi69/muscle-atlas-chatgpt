@@ -1,4 +1,4 @@
-// v12.30 app-shell update: preserve clinical native source and isolate recorded MP4 tap control.
+// v12.30 app-shell update: load native clinical TTS blank-marker safety fix and MP4 ownership.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
