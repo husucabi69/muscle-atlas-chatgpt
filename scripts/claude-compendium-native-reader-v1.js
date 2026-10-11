@@ -33,6 +33,7 @@
    if(heightTimer){clearTimeout(heightTimer);heightTimer=null;}
    frame.classList.remove('claude-compendium-large');
    frame.style.removeProperty('height');
+   frame.style.removeProperty('scroll-margin-top');
    banner.hidden=true;banner.replaceChildren();
    player=null;
  }
@@ -209,7 +210,11 @@
        banner.dataset.compendiumExpanded=expanded?'true':'false';
        if(scrollToLesson&&!frame.hidden){
          // Audio controls precede a several-thousand-pixel original page.
-         // Without scrolling, users see no change although zoom was applied.
+         // The installed Android app has a tall sticky header. Use its
+         // *measured* height so the lecture is not hidden under the tabs.
+         const header=document.querySelector('.header');
+         const offset=Math.ceil((header?.getBoundingClientRect().height||0)+16);
+         frame.style.scrollMarginTop=offset+'px';
          frame.scrollIntoView({behavior:'smooth',block:'start'});
        }
      }

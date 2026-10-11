@@ -59,6 +59,8 @@ try{
        height:frame.clientHeight,visible:!frame.hidden,
        expanded:host.dataset.compendiumExpanded,
        note:host.querySelector('[data-compendium-view-mode]')?.textContent,
+       scrollMarginTop:parseFloat(frame.style.scrollMarginTop)||0,
+       stickyHeaderHeight:document.querySelector('.header')?.getBoundingClientRect().height||0,
        shrinkHidden:host.querySelector('.claude-compendium-actions button:nth-child(2)')?.hidden,
        enlargeHidden:host.querySelector('.claude-compendium-actions button:nth-child(3)')?.hidden};
    });
@@ -81,6 +83,8 @@ try{
    assert.ok(enlargedAgain.bodyFont>originalSize.bodyFont,
      'real body text size must increase: '+JSON.stringify({originalSize,enlargedAgain}));
    assert.ok(enlargedAgain.note.includes('글자 확대 적용됨'));
+   assert.ok(enlargedAgain.scrollMarginTop>=enlargedAgain.stickyHeaderHeight+10,
+     'scroll to lecture must keep sticky app header clear: '+JSON.stringify(enlargedAgain));
    console.log('PASS | Compendium #'+n+' real original/large text toggle: '+
      JSON.stringify({originalFont:originalSize.bodyFont,largeFont:enlargedAgain.bodyFont}));
    await page.locator('#claudeCompendiumReaderHost [data-native-audio="play"]').click();

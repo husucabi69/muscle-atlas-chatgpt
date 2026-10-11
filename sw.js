@@ -1,4 +1,4 @@
-// v12.40 preview: genuine compendium font-size toggle and focus original content, stage24.23.
+// v12.41 preview: large-text toggle and safe offset below sticky header, stage24.24.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
