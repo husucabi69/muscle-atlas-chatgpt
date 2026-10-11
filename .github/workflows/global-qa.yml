@@ -184,6 +184,8 @@ jobs:
         run: node scripts/patient-exercise-illustration-3-e2e.mjs
       - name: Capture Claude original classroom at mobile and desktop sizes
         run: node scripts/claude-original-visual-e2e.mjs
+      - name: Verify native Korean speech Stop versus auto-next race on mobile Chromium
+        run: node scripts/claude-native-muscle-audio-navigation-e2e.mjs
       - name: Open all 87 original Claude lectures on mobile and desktop representative routes
         run: node scripts/claude-original-all-lectures-e2e.mjs
       - name: Test installed-PWA Service Worker against original Claude HTML
