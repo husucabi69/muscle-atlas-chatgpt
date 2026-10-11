@@ -1,4 +1,4 @@
-// v12.31 app-shell update: load original-preserving large interactive compendium Korean voice adapter.
+// v12.32 app-shell update: offline shell for interactive compendium and source-locked wrist native reader.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -9,6 +9,11 @@ const CORE=[
   './',
   './index.html',
   './app-version.js',
+  './scripts/claude-native-muscle-audio-v1.js',
+  './scripts/claude-native-muscle-recorded-audio-v1.js',
+  './scripts/claude-native-muscle-v1.js',
+  './scripts/claude-native-muscle-series-v1.js',
+  './scripts/claude-compendium-native-reader-v1.js',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
