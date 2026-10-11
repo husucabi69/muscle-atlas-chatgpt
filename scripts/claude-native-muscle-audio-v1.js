@@ -72,7 +72,11 @@
      return {el,title,text:src?.trim()||''};
    }).filter(x=>x.text.length);
    const expected=options.expectedCount===undefined?(lectureNumber===3?676:null):options.expectedCount;
-   if(expected!==null&&entries.length!==expected)throw Error('읽기 대상 문단 수 불일치: '+entries.length+' / '+expected);
+   // Source [data-i] IDs may legitimately include empty audio placeholders.
+   // Preserve/count every original marker, but never synthesize empty speech.
+   // First Muscle volume also has five app-owned teaching-note segments.
+   if(expected!==null&&elements.length!==expected)
+     throw Error('원본 읽기 표식 수 불일치: '+elements.length+' / '+expected);
    if(!entries.length)throw Error('읽기 대상 원문 문단이 없습니다.');
    const box=document.createElement('section');
    box.className='claude-native-audio';
