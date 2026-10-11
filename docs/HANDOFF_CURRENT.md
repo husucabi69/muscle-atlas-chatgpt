@@ -1,5 +1,17 @@
 # CURRENT HANDOFF — 2026-10-11 SUPER-LOCK time/reporting first
 
+## 2026-10-11 오전 수동개발 — v12.29 무료 한국어 음성 안전동작 (신규 최상단 체크포인트)
+
+- **기능 검증 완료 SHA:** `d6cf9c36f75e1fd1709d958c86f7645e5285f8db` (`preview/development`, v12.29 `2026.10.11-stage24.06`). 원본 87개 HTML / v11.14 근육상세 기준 / Production main 변경 없음. **본 인계 정본 커밋으로 HEAD는 다시 바뀌므로 반드시 최신 HEAD 재조회.**
+- **Global QA run `38103785870`: SUCCESS (global-qa + runtime-navigation-e2e + deploy-safety-gate)**. 모바일 Chromium 무료 한국어 음성 회귀: 읽기 자연 종료 후 다음 강의 이동 1회, 정지/탭 이탈 후 지연 자동이동 0회, 쉼표 단위 문단 이어읽기 및 pause/onend 동시처리, 모바일 TTS 권한거절·인터럽트 복구 안내, 근육학 11권의 존재하지 않는 다음 강의 버튼 비표시 모두 PASS. **이는 모의 음성 엔진을 사용하는 브라우저 검증이며 실물 Android PASS가 아니다.**
+- **원본 87강 보존 검증:** 근육학 2~11권 원문 SHA/바이트/본문·도표 등 10/10 PASS; 87/87 모바일 강의 진입, PC 대표 10/10 PASS. Cloudflare exact-SHA `https://a5a8a748.muscle-atlas-chatgpt.pages.dev`: 원본 87/87 서버 해시 PASS, 87/87 모바일+PC 대표 10/10 PASS, 설치형 PWA 자동 복구 브라우저 PASS. 개발 설치 주소는 `https://preview-development.muscle-atlas-chatgpt.pages.dev/`.
+- **원인/수정:** TTS 강의가 끝난 뒤 120ms 지연 callback이 ⏹ 정지/다른 강의 이동 이후에도 동작할 수 있는 경쟁 상태를 토큰·현재 화면 검증으로 차단. 일시정지와 마지막 음성 `onend`가 겹칠 때 chunk 진행이 막히는 상황을 `utteranceInFlight`로 보호. 음성 인터럽트/브라우저 자동시작 거절 시 중지 상태와 ▶ 재시도 안내 표시. 최종 근육학 11권에는 다음 권 자동읽기 선택을 제거.
+- 신규 회귀 `scripts/claude-native-muscle-audio-navigation-e2e.mjs`가 GitHub Actions runtime job에 연결. Android 실물 검수표 `docs/CLAUDE_NATIVE_ANDROID_REAL_DEVICE_QA_2026-10-11.md` 작성. 유료 음성/Runway 이용 없음.
+- **NOT DONE/BLOCKED:** 실제 의장님 Android Chrome 및 설치 PWA 음성청취/음질/배속/A–B 반복/권간 자동음성 시작은 아직 직접 관찰하지 않았으므로 `REAL_DEVICE_PENDING`; Cloudflare R2 바인딩/원본 MP4 자동재생은 `BLOCKED` (원본 MP4는 보존). 전체 87강 자체 Native 이식은 아님(근육학 11권만 Native). 물리 기기 검증 없이 COMPLETE 선언 금지.
+- **다음 1순위:** 위 Android 실기기 검수표에 따라 무료 음성·중지·권간 이동을 의장님 Android에서 확인, 발견 버그의 재현→근본원인→회귀검사. 원본 HTML/MP4/SHA와 Production main 유지. 이후 이학적 검사·연관통 자체 학술 강의 원형 무손실 이식.
+- **SUPER-LOCK 계속 유효:** 이번 개발·점검·보고 실측 시각은 최종 사용자 보고에 기록. 35분 HARD STOP 및 그 이전 최종보고 완료가 기능보다 우선.
+
+
 > **2026-10-11 사용자 최상위 지시:** 작업시간 준수와 최종보고시간 준수가 개발의 제1가치. 기능 완성보다 **35분 HARD STOP과 실제 최종보고 전송**이 우선한다. `SUPER-LOCK 2026-10-11`.
 >
 > **현 시점 정본 인계문:** [HANDOFF_2026-10-11_TIME_SUPREMACY.md](./HANDOFF_2026-10-11_TIME_SUPREMACY.md). 다음 작업자는 이 문서와 `AGENTS.md` 및 개발헌법의 2026-10-11 SUPER-LOCK을 **가장 먼저 읽는다.** 아래의 2026-10-08/09 이전 기록은 역사자료이므로 현재 HEAD/작업 순서보다 우선하지 않는다.
