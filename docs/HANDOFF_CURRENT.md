@@ -1,3 +1,17 @@
+# CURRENT HANDOFF — 2026-10-11 SUPER-LOCK time/reporting first
+
+> **2026-10-11 사용자 최상위 지시:** 작업시간 준수와 최종보고시간 준수가 개발의 제1가치. 기능 완성보다 **35분 HARD STOP과 실제 최종보고 전송**이 우선한다. `SUPER-LOCK 2026-10-11`.
+>
+> **현 시점 정본 인계문:** [HANDOFF_2026-10-11_TIME_SUPREMACY.md](./HANDOFF_2026-10-11_TIME_SUPREMACY.md). 다음 작업자는 이 문서와 `AGENTS.md` 및 개발헌법의 2026-10-11 SUPER-LOCK을 **가장 먼저 읽는다.** 아래의 2026-10-08/09 이전 기록은 역사자료이므로 현재 HEAD/작업 순서보다 우선하지 않는다.
+>
+> 수동 개발: 0~25분 개발 → 25~30분 점검/정리 → 30~33분 저장·검증·인계 → 33~35분 최종보고 최우선 → **35분 이전 발송 완료**. 실제 지시 수령/시작/개발 종료/작업 종료/보고 시각 기록, 4가지 시간판정 독립 보고. 실측 실패는 `미계측`. 사용자 중단은 `USER_STOP_OVERRIDE`.
+>
+> 인계 기준 기능: v12.28, 근육학 1~11권 Native 강의+무료 기기 한국어 음성(부호, 0.75~1.5배, A-B 반복, 다음 권 자동 연결). 원본 87개 HTML 불변. 전체 87강 Native 완료 아님. 직전 확인된 기능 HEAD `6ea0e1f9826fde5d0529c6748339eb51ae48be6b`, Actions `38079159157` SUCCESS; **이후 정본 편집으로 HEAD가 바뀌었으니 재조회 필수**. Production `main` 보존.
+>
+> 이번 지시는 **정본 강화와 인계문 작성**으로 한정; 새 기능 개발 명령으로 확대하지 않는다.
+
+---
+
 # CURRENT HANDOFF — 2026-10-08 Claude Original Classroom active · EXAM-REAL preserved
 
 ## CURRENT OVERRIDE — 2026-10-09 06:05 KST Hand Original 34–35 binary source staging / QA
