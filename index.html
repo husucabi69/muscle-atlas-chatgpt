@@ -5318,7 +5318,9 @@ const APP_AUTO_UPDATE_MIN_INTERVAL=15000;
 async function getOnlineAppBuildVersion(){
   if(!navigator.onLine)return null;
   try{
-    const response=await fetch('./app-version.js?check='+Date.now(),{cache:'no-store'});
+    // no-store + network-first SW already bypass caches; a unique URL on
+    // every resume would pollute the PWA runtime cache with unbounded entries.
+    const response=await fetch('./app-version.js',{cache:'no-store'});
     if(!response.ok)return null;
     const text=await response.text();
     const match=text.match(/\bbuildVersion\s*:\s*['"]([0-9A-Za-z._-]+)['"]/);
