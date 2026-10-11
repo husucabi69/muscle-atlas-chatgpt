@@ -1,4 +1,4 @@
-// v12.46 preview: full-viewport muscle tap and Android Back cleanup, stage24.29.
+// v12.47 preview: full-viewport original muscle details and clean #1 single reader header, stage24.30.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
