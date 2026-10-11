@@ -16,6 +16,13 @@ const c={window:{},console};
 vm.runInNewContext(js,c);
 assert.equal(typeof c.window.LYSClaudeRecordedAudio.mount,'function');
 assert.equal(typeof c.window.LYSClaudeRecordedAudio.stop,'function');
+assert.equal(typeof c.window.LYSClaudeRecordedAudio.isReadyFor,'function');
+assert.equal(c.window.LYSClaudeRecordedAudio.isReadyFor({}),false,
+  'MP4 status must not leak into a different native lecture');
+assert.ok(js.includes('active.shadow===shadow'),'source selection ownership is Shadow DOM scoped');
+const free=fs.readFileSync('scripts/claude-native-muscle-audio-v1.js','utf8');
+assert.ok(free.includes('isReadyFor?.(shadow)'),
+  'free clinical TTS passage taps cannot be disabled by MP4 chosen in another volume');
 const doc={querySelectorAll:()=>[{textContent:'window.__AUD__='+JSON.stringify(original)+';'}]};
 const cues=c.window.LYSClaudeRecordedAudio.timing(doc);
 assert.equal(cues.length,671);
