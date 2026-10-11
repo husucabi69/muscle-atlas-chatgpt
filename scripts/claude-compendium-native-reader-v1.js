@@ -43,6 +43,9 @@
    // interactive source is capped for mobile compositor stability.
    const trueHeight=Math.max(body.scrollHeight,doc.documentElement.scrollHeight);
    const px=Math.min(18000,Math.max(880,trueHeight+36));
+   // Never silently reactivate the enlarged layout after the user selected
+   // original size. A click inside the interactive original may fire this.
+   if(!frame.classList.contains('claude-compendium-large'))return;
    if(Math.abs(frame.clientHeight-px)>8)frame.style.height=px+'px';
    const note=banner.querySelector('[data-compendium-height-note]');
    if(note)note.textContent=trueHeight>18000
@@ -159,7 +162,10 @@
      const shrink=document.createElement('button');shrink.textContent='원본 화면 크기로 보기';shrink.type='button';
      const enlarge=document.createElement('button');enlarge.textContent='확대 보기 다시 적용';enlarge.type='button';
      const heightNote=document.createElement('small');heightNote.dataset.compendiumHeightNote='1';
-     row.append(refresh,shrink,enlarge);
+     const modeNote=document.createElement('small');modeNote.dataset.compendiumViewMode='1';
+     modeNote.style.display='block';modeNote.style.flexBasis='100%';
+     modeNote.style.color='#466173';modeNote.setAttribute('role','status');
+     row.append(refresh,shrink,enlarge,modeNote);
      const mountAudio=()=>{
        if(token!==epoch||!doc.body)return;
        window.LYSNativeAudio?.stop();
@@ -181,13 +187,39 @@
        banner.dataset.compendiumVoiceSegments=String(count);
      };
      banner.replaceChildren(lead,row,heightNote);
+     function setReadingMode(expanded,scrollToLesson=false){
+       // The previous buttons changed only the OUTER iframe height.
+       // Large-font CSS inside the original iframe remained active even in
+       // "original size", making "enlarge again" appear to do nothing.
+       // Toggle our separately injected CSS via media: no original source
+       // bytes, scripts, muscle selections or learning history are modified.
+       const readerStyle=doc.getElementById('lys-compendium-native-layout-v1');
+       if(!readerStyle||frameDoc!==doc)return;
+       readerStyle.media=expanded?'all':'not all';
+       frame.classList.toggle('claude-compendium-large',expanded);
+       if(expanded)nextHeight(doc);
+       else{
+         if(heightTimer){clearTimeout(heightTimer);heightTimer=null;}
+         frame.style.removeProperty('height');
+       }
+       shrink.hidden=!expanded;enlarge.hidden=expanded;
+       modeNote.textContent=expanded
+         ?'✅ 글자 확대 적용됨 · 원본 강의 본문은 아래에서 계속 읽을 수 있습니다.'
+         :'원본 글자 크기 · 「확대 보기 다시 적용」을 누르면 글자가 커지고 본문으로 이동합니다.';
+       banner.dataset.compendiumExpanded=expanded?'true':'false';
+       if(scrollToLesson&&!frame.hidden){
+         // Audio controls precede a several-thousand-pixel original page.
+         // Without scrolling, users see no change although zoom was applied.
+         frame.scrollIntoView({behavior:'smooth',block:'start'});
+       }
+     }
      refresh.addEventListener('click',()=>{mountAudio();scheduleHeight(doc);});
-     shrink.addEventListener('click',()=>{frame.classList.remove('claude-compendium-large');frame.style.removeProperty('height');shrink.hidden=true;enlarge.hidden=false;});
-     enlarge.addEventListener('click',()=>{frame.classList.add('claude-compendium-large');scheduleHeight(doc);shrink.hidden=false;enlarge.hidden=true;});
-     enlarge.hidden=true;
+     shrink.addEventListener('click',()=>setReadingMode(false,true));
+     enlarge.addEventListener('click',()=>setReadingMode(true,true));
      mountAudio();
      banner.hidden=false;
      banner.dataset.compendiumLecture=String(n);
+     setReadingMode(true,false);
      status.textContent='✓ 근육총람 '+n+'번 원본 검증 PASS · 큰 화면 + 무료 한국어 음성 · 원본 대화 기능 보존';
      nextHeight(doc);
      // The source itself remains interactive; after choosing a new muscle,

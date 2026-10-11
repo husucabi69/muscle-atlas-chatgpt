@@ -1,4 +1,4 @@
-// v12.39 preview: preview-only LYSOS academic branding with stable installed PWA ID, stage24.22.
+// v12.40 preview: genuine compendium font-size toggle and focus original content, stage24.23.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

@@ -49,6 +49,40 @@ try{
    assert.ok(state.frameHeight>=875&&state.frameWidth<=state.mainWidth+4,'expanded interactive lecture viewport '+n+': '+JSON.stringify(state));
    assert.ok(state.sourceDomLength>2000&&state.originalScripts>0,'original running JS and full content intact '+n);
    assert.ok(state.speechNodes>0&&state.appliedResponsive&&state.hasSpeaker,'large native reader speech controls '+n+': '+JSON.stringify(state));
+   // Regression for the real Android screenshot: the former "enlarge again"
+   // only changed iframe height, never the font and did not reveal the body.
+   const getZoomState=()=>page.locator('#claudeCompendiumReaderHost').evaluate(host=>{
+     const frame=document.getElementById('diseaseTraumaOriginalFrame');
+     const doc=frame.contentDocument,css=doc.getElementById('lys-compendium-native-layout-v1');
+     return {large:frame.classList.contains('claude-compendium-large'),
+       cssMedia:css?.media,bodyFont:parseFloat(doc.defaultView.getComputedStyle(doc.body).fontSize),
+       height:frame.clientHeight,visible:!frame.hidden,
+       expanded:host.dataset.compendiumExpanded,
+       note:host.querySelector('[data-compendium-view-mode]')?.textContent,
+       shrinkHidden:host.querySelector('.claude-compendium-actions button:nth-child(2)')?.hidden,
+       enlargeHidden:host.querySelector('.claude-compendium-actions button:nth-child(3)')?.hidden};
+   });
+   const initiallyLarge=await getZoomState();
+   assert.equal(initiallyLarge.cssMedia,'all','reader starts in real enlarged-font mode');
+   assert.equal(initiallyLarge.expanded,'true');
+   await page.locator('#claudeCompendiumReaderHost .claude-compendium-actions button').nth(1).click();
+   const originalSize=await getZoomState();
+   assert.equal(originalSize.cssMedia,'not all','original-size action must disable enlarged FONT rules');
+   assert.equal(originalSize.large,false);
+   assert.equal(originalSize.expanded,'false');
+   assert.equal(originalSize.enlargeHidden,false);
+   await page.locator('#claudeCompendiumReaderHost .claude-compendium-actions button').nth(2).click();
+   const enlargedAgain=await getZoomState();
+   assert.equal(enlargedAgain.cssMedia,'all','enlarge-again must re-enable enlarged FONT rules');
+   assert.equal(enlargedAgain.large,true);
+   assert.equal(enlargedAgain.expanded,'true');
+   assert.equal(enlargedAgain.shrinkHidden,false);
+   assert.equal(enlargedAgain.enlargeHidden,true);
+   assert.ok(enlargedAgain.bodyFont>originalSize.bodyFont,
+     'real body text size must increase: '+JSON.stringify({originalSize,enlargedAgain}));
+   assert.ok(enlargedAgain.note.includes('글자 확대 적용됨'));
+   console.log('PASS | Compendium #'+n+' real original/large text toggle: '+
+     JSON.stringify({originalFont:originalSize.bodyFont,largeFont:enlargedAgain.bodyFont}));
    await page.locator('#claudeCompendiumReaderHost [data-native-audio="play"]').click();
    await page.waitForFunction(()=>window.__compendiumMockSpoken?.length>0);
    const utterance=await page.evaluate(()=>window.__compendiumMockSpoken.at(-1));
