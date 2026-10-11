@@ -71,6 +71,20 @@ try{
        'manual new-muscle voice recapture '+n);
    const refreshed=await page.locator('#claudeCompendiumReaderHost').getAttribute('data-compendium-voice-segments');
    assert.ok(Number(refreshed)>0,'refreshed interactive source has actual accessible Korean reading segments '+n);
+   const speechBeforeTap=await page.evaluate(()=>window.__compendiumMockSpoken.length);
+   const tapped=await page.locator('#diseaseTraumaOriginalFrame').evaluate(f=>{
+     const doc=f.contentDocument;
+     const el=[...doc.querySelectorAll('[data-compendium-voice]')]
+       .find(e=>!e.closest('button,a')&&e.getClientRects().length>0);
+     if(!el)return false;
+     el.click();return true;
+   });
+   assert.ok(tapped,'selected-muscle passage should remain tappable '+n);
+   await page.waitForFunction(prior=>window.__compendiumMockSpoken.length>prior,speechBeforeTap);
+   const speechAfterTap=await page.evaluate(()=>window.__compendiumMockSpoken.length);
+   assert.equal(speechAfterTap,speechBeforeTap+1,
+     'refresh must leave exactly one passage click handler for source '+n);
+   await page.locator('#claudeCompendiumReaderHost [data-native-audio="stop"]').click();
    console.log('PASS | Compendium #'+n+' mobile interactive original viewport and free Korean voice: '+JSON.stringify(state));
    await page.locator('#diseaseTraumaOriginalView .region-back').click();
    assert.ok(await page.locator('#diseaseTraumaCategoryView').isVisible(),'returns to muscle category after '+n);
