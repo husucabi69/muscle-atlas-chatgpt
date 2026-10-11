@@ -333,7 +333,11 @@
    // A passage tap restarts at that sentence/figure/table, not from page top.
    shadow.addEventListener('click',ev=>{
      const el=ev.target.closest?.('[data-i], .claude-native-teaching');
-     if(!el||ev.target.closest?.('a,button,select,summary')||window.LYSClaudeRecordedAudio?.isReady())return;
+     // Recorded MP4 tap-to-seek is exclusive to Volume 1's owning Shadow DOM.
+     // A previously selected MP4 must not disable free TTS passage taps in
+     // subsequently opened native examination/referred-pain lessons.
+     if(!el||ev.target.closest?.('a,button,select,summary')||
+       window.LYSClaudeRecordedAudio?.isReadyFor?.(shadow))return;
      const index=entries.findIndex(entry=>entry.el===el);
      if(index>=0)startAt(index);
    });
