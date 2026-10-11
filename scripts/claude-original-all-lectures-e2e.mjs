@@ -235,7 +235,7 @@ try {
           }
           // The first non-muscle native conversion must actually speak through
           // the same local Korean voice engine; source HTML is left untouched.
-          if(nativeSeries && viewport.all && [14,15,16].includes(number)){
+          if(nativeSeries && viewport.all && [14,15,16,17].includes(number)){
             const prior=await page.evaluate(()=>window.__lysNativeSpeechQA?.length||0);
             await page.locator('#claudeNativePilotHost [data-native-audio="play"]').click();
             await page.waitForFunction(previous=>(window.__lysNativeSpeechQA?.length||0)>previous,prior);
@@ -258,23 +258,23 @@ try {
               await page.locator('#claudeNativePilotHost [data-native-audio="dock-stop"]').click();
             }
           }
-          if(nativeSeries && viewport.all && [14,15,16].includes(number)){
+          if(nativeSeries && viewport.all && [14,15,16,17].includes(number)){
             const controls=await page.locator('#claudeNativePilotHost').evaluate(host=>{
               const label=host.querySelector('.claude-native-auto-next');
               const switcher=label?.querySelector('input');
               return {hidden:label?.hidden,cssDisplay:label?getComputedStyle(label).display:null,disabled:switcher?.disabled};
             });
-            if(number===16 && (!controls.hidden||controls.cssDisplay!=='none'||!controls.disabled))
-              throw Error('End-of-batch clinical lecture 16 must not auto-open original-only #17: '+JSON.stringify(controls));
-            if(number!==16 && (controls.hidden||controls.cssDisplay==='none'||controls.disabled))
+            if(number===17 && (!controls.hidden||controls.cssDisplay!=='none'||!controls.disabled))
+              throw Error('End-of-batch clinical lecture 17 must not auto-open original-only #18: '+JSON.stringify(controls));
+            if(number!==17 && (controls.hidden||controls.cssDisplay==='none'||controls.disabled))
               throw Error('Clinical lecture '+number+' should offer the next native lecture: '+JSON.stringify(controls));
-            if(number===15||number===16){
+            if(number===15||number===16||number===17){
               const visual=await page.locator('#claudeNativePilotHost').evaluate(async host=>{
                 const imgs=[...host.querySelector('.claude-native-lesson').shadowRoot.querySelectorAll('img')];
                 await Promise.all(imgs.map(img=>img.decode().catch(()=>{})));
                 return {total:imgs.length,broken:imgs.filter(img=>!img.complete||!img.naturalWidth).length};
               });
-              if(visual.total!==5||visual.broken)
+              if(visual.total!==(number===17?3:5)||visual.broken)
                 throw Error('Clinical native embedded source figures failed image decode for '+number+': '+JSON.stringify(visual));
             }
           }
