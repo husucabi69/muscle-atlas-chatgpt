@@ -38,7 +38,7 @@ assert.ok(audio.includes('repeatToggle'),'A-B repeat switch');
 assert.ok(audio.includes("auto-next"),'opt-in next-lecture playback');
 const series=fs.readFileSync('scripts/claude-native-muscle-series-v1.js','utf8');
 assert.ok(html.includes('scripts/claude-native-muscle-series-v1.js'),'series reader must load after pilot');
-assert.ok(series.includes('new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19])'),'10 muscle plus 3 clinical lectures allowed');
+assert.ok(series.includes('new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27])'),'10 muscle plus 3 clinical lectures allowed');
 assert.ok(series.includes('&&ELIGIBLE.has(x.number)'),'cross-lecture auto-next limited to native courses');
 assert.ok(series.includes("crypto.subtle.digest('SHA-256',bytes)"),'each native volume verifies source SHA');
 assert.ok(series.includes("full.textContent!==source.textContent"),'source text fidelity');
