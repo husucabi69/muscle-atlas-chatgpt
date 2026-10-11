@@ -20,7 +20,8 @@ check('page imports canonical version',index.includes('<script src="./app-versio
 check('service worker cache derives from release key',sw.includes("SHELL_CACHE=CACHE_PREFIX+'shell-'+RELEASE.cacheKey")&&sw.includes("RUNTIME_CACHE=CACHE_PREFIX+'runtime-'+RELEASE.cacheKey"));
 check('canonical version is precached',sw.includes("'./app-version.js'"));
 check('old release caches are deleted',sw.includes("key.startsWith(CACHE_PREFIX)")&&sw.includes("caches.delete(key)"));
-check('skipWaiting enabled',sw.includes('self.skipWaiting()'));
+check('manual safe activation supported',sw.includes("message.type==='SKIP_WAITING'")&&sw.includes('self.skipWaiting()'));
+check('install does not take over a live lecture',!sw.slice(sw.indexOf("self.addEventListener('install'"),sw.indexOf("self.addEventListener('activate'")).includes('skipWaiting()'));
 check('clients.claim enabled',sw.includes('self.clients.claim()'));
 check('navigation is network-first',sw.includes("if(isNavigation)")&&sw.includes("networkFirst(event.request,'./index.html')"));
 check('fresh JSON/version resources are network-first',sw.includes("path.endsWith('.json')")&&sw.includes("path.endsWith('/app-version.js')")&&sw.includes('networkFirst(event.request)'));
@@ -74,6 +75,11 @@ check('install prompt is blocked on immutable deployment URLs',
   index.includes('if(!applyInstallOriginPolicy()){deferredInstallPrompt=null;return;}')
 );
 check('visible current-version label exists',index.includes('id="appVersionLabel"')&&index.includes("appVersionLabel.textContent=APP_RELEASE.displayVersion"));
+check('PWA shows running version and live server version',index.includes('id="appRunningVersion"')&&index.includes('id="appServerVersion"')&&index.includes('pwa_check='));
+check('version check bypasses stale Service Worker cache',sw.includes("url.searchParams.has('pwa_check')")&&sw.includes("path.endsWith('/app-version.js')"));
+check('new worker activates only when home safe',index.includes('function activateWaitingWorkerWhenSafe(worker)')&&index.includes('activateWaitingWorkerWhenSafe(registration.waiting)'));
+check('home arrival activates staged worker',index.includes('if(appSWRegistration?.waiting)activateWaitingWorkerWhenSafe(appSWRegistration.waiting)'));
+check('never misreports latest on network version failure',index.includes("if(!onlineVersion){")&&index.includes('⚠️ 업데이트 확인 실패'));
 check('offline status preserves stable app',updateCode.includes("오프라인입니다. 저장된 앱으로 계속 사용할 수 있습니다."));
 check('online recovery triggers unthrottled update check',updateCode.includes("window.addEventListener('online',()=>requestAppUpdateCheck('online',true))"));
 check('app resume checks for updates',

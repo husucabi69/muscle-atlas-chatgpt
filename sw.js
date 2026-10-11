@@ -1,4 +1,4 @@
-// v12.35 preview: preserve and deliver 14 clinical native lessons #14–27, 25 native / 27 free voice UI, stage24.18.
+// v12.36 preview: staged Service Worker activation prevents interruption of live lessons, stage24.19.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -123,7 +123,8 @@ self.addEventListener('install',event=>{
   event.waitUntil(
     caches.open(SHELL_CACHE)
       .then(cache=>cache.addAll(CORE))
-      .then(()=>self.skipWaiting())
+      // Do not skipWaiting during installation. A live lecture may be playing.
+      // The page explicitly requests activation only on a safe home screen.
   );
 });
 
@@ -270,6 +271,9 @@ self.addEventListener('fetch',event=>{
   }
 
   const path=url.pathname;
+  // Version probes MUST reach the real server, even when a stale worker controls
+  // this PWA. No unbounded query-key entries may enter the runtime cache.
+  if(path.endsWith('/app-version.js')&&url.searchParams.has('pwa_check'))return;
   // Let audio/video Range requests reach the Pages R2 streaming Function directly.
   // Cache API stale-while-revalidate must not turn a 206 fragment into a stale media response.
   let decodedPath;

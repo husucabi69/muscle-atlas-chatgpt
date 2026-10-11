@@ -26,7 +26,7 @@ const server=http.createServer((req,res)=>{
   const headers={'Cache-Control':'no-cache, no-store, must-revalidate','Content-Type':mime[path.extname(fileName)]||'application/octet-stream'};
   if(fileName==='sw.js'){
     liveCalls.sw++;
-    res.writeHead(200,headers).end(originalSW.replace('// v12.33 PWA auto-update:',`// v12.33 PWA auto-update deployed ${deployed}:`));
+    res.writeHead(200,headers).end('// PWA E2E simulated Cloudflare deployment '+deployed+'\n'+originalSW);
   }else if(fileName==='app-version.js'){
     const label=deployed==='old'?VERSION_OLD:VERSION_NEW;
     res.writeHead(200,headers).end(sourceVersion
