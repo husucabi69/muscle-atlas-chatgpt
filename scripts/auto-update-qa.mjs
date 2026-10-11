@@ -36,7 +36,23 @@ check('registration bypasses worker HTTP cache',updateCode.includes("updateViaCa
 check('app launch explicitly checks registration.update',updateCode.includes('await registration.update()'));
 check('controllerchange is observed',updateCode.includes("addEventListener('controllerchange'"));
 check('new worker receives SKIP_WAITING',updateCode.includes("postMessage({type:'SKIP_WAITING'})"));
-check('reload uses one-shot session guard',updateCode.includes("sessionStorage.getItem(reloadKey)!==APP_RELEASE.buildVersion")&&updateCode.includes('window.location.reload()'));
+check('reload guard is target-build scoped with anti-loop timebox',
+  updateCode.includes("'lys-muscle-pwa-auto-reload-v3-'+nextVersion")&&
+  updateCode.includes('Date.now()-last<APP_AUTO_RELOAD_GUARD_MS')&&
+  updateCode.includes('sessionStorage.setItem(key,String(Date.now()))')&&
+  updateCode.includes('window.location.reload()'));
+check('automatic update handles controllerchange and changes since old index loaded',
+  updateCode.includes("getOnlineAppBuildVersion()")&&
+  updateCode.includes('controllerVersion!==APP_RELEASE.buildVersion')&&
+  updateCode.includes('applyAppUpdateWhenSafe(controllerVersion)'));
+check('automatic update is deferred while learning',
+  updateCode.includes('function isSafeToApplyAppUpdate()')&&
+  updateCode.includes("document.getElementById('home')?.classList.contains('active')")&&
+  updateCode.includes('appAutoUpdatePendingVersion=nextVersion'));
+check('app JS and CSS are network-first online with offline fallback',
+  sw.includes('const isAppShellAsset=')&&
+  sw.includes('if(isFreshnessCritical||isAppShellAsset)')&&
+  sw.includes('event.respondWith(networkFirst(event.request))'));
 check('update engine never clears local learning storage',!updateCode.includes('localStorage.clear')&&!sw.includes('localStorage'));
 check('manual update button exists',index.includes('id="appUpdateButton"')&&updateCode.includes("addEventListener('click',()=>checkForAppUpdate(true))"));
 check('stable preview origin is canonical for development installs',
@@ -59,7 +75,7 @@ check('install prompt is blocked on immutable deployment URLs',
 );
 check('visible current-version label exists',index.includes('id="appVersionLabel"')&&index.includes("appVersionLabel.textContent=APP_RELEASE.displayVersion"));
 check('offline status preserves stable app',updateCode.includes("오프라인입니다. 저장된 앱으로 계속 사용할 수 있습니다."));
-check('online recovery triggers update check',updateCode.includes("window.addEventListener('online',()=>checkForAppUpdate(false))"));
+check('online recovery triggers unthrottled update check',updateCode.includes("window.addEventListener('online',()=>requestAppUpdateCheck('online',true))"));
 check('app resume checks for updates',
   updateCode.includes("window.addEventListener('pageshow',()=>requestAppUpdateCheck('pageshow'))") &&
   updateCode.includes("window.addEventListener('focus',()=>requestAppUpdateCheck('focus'))") &&
