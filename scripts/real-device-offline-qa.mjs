@@ -32,10 +32,11 @@ check('Offline shell contains canonical knowledge',sw.includes("'./data/knowledg
 check('Offline shell contains patient exercise',sw.includes("'./data/patient-exercise-library-v1.json'")&&sw.includes("'./data/patient-exercise-illustration-v2.json'"));
 check('Offline shell contains ultrasound guidance',sw.includes("'./data/ultrasound-probe-guidance-v2.json'"));
 check('Offline navigation fallback exists',sw.includes("networkFirst(event.request,'./index.html')"));
-check('Online recovery update hook exists',index.includes("window.addEventListener('online',()=>checkForAppUpdate(false))"));
+check('Online recovery triggers automatic fresh update check',index.includes("window.addEventListener('online',()=>requestAppUpdateCheck('online',true))"));
 check('Offline runtime hook exists',index.includes("window.addEventListener('offline'"));
 check('Update path preserves learning storage',!sw.includes('localStorage.clear')&&!index.includes('localStorage.clear'));
-check('One-shot update reload guard exists',index.includes("sessionStorage.getItem(reloadKey)!==APP_RELEASE.buildVersion"));
+check('New-build scoped reload guard prevents loops',index.includes("'lys-muscle-pwa-auto-reload-v3-'+nextVersion")&&index.includes('APP_AUTO_RELOAD_GUARD_MS')&&index.includes('sessionStorage.setItem(key,String(Date.now()))'));
+check('Learning pages are not force-reloaded in background',index.includes('function isSafeToApplyAppUpdate()')&&index.includes("document.getElementById('home')?.classList.contains('active')"));
 
 check('Device quality gate UI exists',index.includes('id="deviceQualityGate"')&&index.includes('실기기·오프라인 품질 점검'));
 check('Device automatic diagnostics exist',index.includes('async function runDeviceQualityGate()'));
