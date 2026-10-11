@@ -7,9 +7,9 @@ import crypto from 'node:crypto';
 const manifest=JSON.parse(fs.readFileSync('data/claude-library-manifest-v1.json','utf8'));
 const nativeReader=fs.readFileSync('scripts/claude-native-muscle-series-v1.js','utf8');
 const evidence=[
- {number:14,sections:12,segments:194,tables:8,figures:0,images:0,parts:1},
- {number:15,sections:15,segments:500,tables:46,figures:15,images:5,parts:2},
- {number:16,sections:16,segments:361,tables:35,figures:13,images:5,parts:2}
+ {number:14,sections:12,segments:194,tables:8,figures:0,images:0,parts:1,unsyncedCues:25},
+ {number:15,sections:15,segments:500,tables:46,figures:15,images:5,parts:2,unsyncedCues:54},
+ {number:16,sections:16,segments:361,tables:35,figures:13,images:5,parts:2,unsyncedCues:34}
 ];
 assert.ok(nativeReader.includes('&&ELIGIBLE.has(x.number)'),
   'Auto-next must not claim native/auto TTS in an unported lesson');
@@ -51,11 +51,18 @@ for(const spec of evidence){
  const audio=JSON.parse(audioMatch[1]);
  assert.equal(audio.urls?.length,spec.parts,'original MP4 part count '+spec.number);
  assert.equal(audio.t?.length,spec.segments,'original cue-to-markup 1:1 identity '+spec.number);
- assert.ok(audio.t.every(t=>Array.isArray(t)&&t.length===3&&t[2]>t[1]),
-   'original MP4 cue numeric times intact '+spec.number);
+ // Do not silently inflate original MP4 coverage: some source timestamps
+ // have zero duration. They are exact original placeholders, NOT synced audio.
+ assert.ok(audio.t.every(t=>Array.isArray(t)&&t.length===3&&
+   Number.isInteger(t[0])&&t[0]>=0&&t[0]<spec.parts&&
+   Number.isFinite(t[1])&&Number.isFinite(t[2])&&t[1]>=0&&t[2]>=t[1]),
+   'no malformed, reverse or out-of-range original MP4 cues '+spec.number);
+ const unsynced=audio.t.filter(t=>t[2]===t[1]).length;
+ assert.equal(unsynced,spec.unsyncedCues,'original missing timed narration documented '+spec.number);
  console.log('PASS | Clinical native '+spec.number+': '+spec.sections+
    ' sections, '+spec.segments+' source/cue markers, '+spec.tables+
    ' tables, '+spec.figures+' figures, '+spec.images+' embedded images, '+
-   spec.parts+' recorded MP4 parts preserved (R2 playback NOT claimed)');
+   spec.parts+' original MP4 parts, '+spec.unsyncedCues+
+   ' untimed source cues. Free device TTS still covers all source text; R2 playback NOT claimed');
 }
-console.log('CLAUDE CLINICAL NATIVE SOURCE QA | 3/3 original SHA, audio cue, TOC, academic content and image identity PASS; real Android/MP4 not claimed');
+console.log('CLAUDE CLINICAL NATIVE SOURCE QA | 3/3 original SHA, source cue gaps audited, TOC, academic content and image identity PASS; real Android/MP4 not claimed');
