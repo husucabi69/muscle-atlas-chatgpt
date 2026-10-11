@@ -95,6 +95,35 @@ try{
     document.getElementById('lys-audio-race-fixture')?.remove();
     delete window.__lysAudioRace;
   });
+  // Android-like edge case: onend may arrive while the user has paused,
+  // or the user can pause in the quiet interval between two utterances.
+  // Both cases must resume and eventually complete the long paragraph.
+  for(const [mode,pauseMs,resumeMs] of [
+    ['onend-while-paused',0,100],['pause-between-chunks',35,115]
+  ]){
+    await page.evaluate(({mode,pauseMs,resumeMs})=>{
+      const state=window.__lysAudioRace;
+      state.shadow.querySelector('[data-i]').textContent=('견갑대의 근력과 통증을 차례대로 평가합니다. ').repeat(20);
+      const host=document.getElementById('lys-audio-race-fixture');
+      host.querySelector('[data-native-audio="player"]')?.remove();
+      state.pauseCompletions??={};
+      state.pauseCompletions[mode]=0;
+      const player=window.LYSNativeAudio.mount(state.shadow,{
+        lectureNumber:99,title:'한국어 음성 이어듣기 검증',expectedCount:1,
+        onComplete:()=>{state.pauseCompletions[mode]++;}
+      });
+      host.append(player);
+      player.querySelector('[data-native-audio="play"]').click();
+      const pause=player.querySelector('[data-native-audio="pause"]');
+      if(pauseMs===0)pause.click();else setTimeout(()=>pause.click(),pauseMs);
+      setTimeout(()=>pause.click(),resumeMs);
+    },{mode,pauseMs,resumeMs});
+    await page.waitForFunction(mode=>window.__lysAudioRace?.pauseCompletions?.[mode]===1,mode,{timeout:10000});
+  }
+  await page.evaluate(()=>{
+    window.LYSNativeAudio.stop();
+    document.getElementById('lys-audio-race-fixture')?.remove();
+  });
   // Final muscle volume must not offer a nonexistent auto-next destination.
   await page.locator('#diseaseTraumaOriginalView .region-back').click();
   await page.waitForFunction(()=>!document.getElementById('diseaseTraumaCategoryView').hidden);
