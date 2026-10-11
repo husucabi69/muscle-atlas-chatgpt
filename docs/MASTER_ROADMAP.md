@@ -1,5 +1,7 @@
 # Muscle Atlas → LYS OrthoOS 전신 개발 Master Roadmap
 
+> **최상위 우선권 — SUPER-LOCK 2026-10-11:** 기능/완성도/QA/배포보다 **작업시간 및 최종보고 전송시간 준수**가 우선. 수동 개발 25~30분, 30~35분 저장·검증·보고, 33분부터 보고 우선, **35분 HARD STOP + 35분 내 실제 최종보고 전송**. 실측 KST 시각 기재, 미계측은 PASS 아님, 사용자 중단은 USER_STOP_OVERRIDE. 자세한 규칙은 [개발 헌법](DEVELOPMENT_CONSTITUTION.md)과 [인계 정본](HANDOFF_2026-10-11_TIME_SUPREMACY.md)을 따른다.
+
 최초 시행일: 2026-09-24
 최종 재정렬: 2026-09-25
 정본 상태: Stage 0–12 COMPLETE / Stage 13 Android TWA COMPLETE / Stage 14 Play submission pack PREPARED
