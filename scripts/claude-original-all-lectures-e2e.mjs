@@ -227,6 +227,31 @@ try {
             const nowStatus=await page.locator('#diseaseTraumaOriginalStatus').innerText();
             if(!hostedReader||!nowStatus.includes('무료 한국어 음성'))
               throw new Error('Compendium '+number+' needs verified interactive large reader and free voice, not fake MP4');
+            // Exact-SHA live Preview must exercise REAL text zoom and reveal
+            // the original, not merely check that a button was rendered.
+            const controls=page.locator('#claudeCompendiumReaderHost .claude-compendium-actions button');
+            const capture=()=>page.locator('#claudeCompendiumReaderHost').evaluate(host=>{
+              const f=document.getElementById('diseaseTraumaOriginalFrame'),d=f.contentDocument;
+              return {font:parseFloat(d.defaultView.getComputedStyle(d.body).fontSize),
+                cssMedia:d.getElementById('lys-compendium-native-layout-v1')?.media,
+                expanded:host.dataset.compendiumExpanded,
+                margin:parseFloat(f.style.scrollMarginTop)||0,
+                sticky:document.querySelector('.header')?.getBoundingClientRect().height||0};
+            });
+            await controls.nth(1).click();
+            const originalSize=await capture();
+            await controls.nth(2).click();
+            const enlarged=await capture();
+            if(originalSize.cssMedia!=='not all'||originalSize.expanded!=='false'||
+               enlarged.cssMedia!=='all'||enlarged.expanded!=='true'||
+               !(enlarged.font>originalSize.font)||
+               enlarged.margin<enlarged.sticky+10)
+              throw new Error('Compendium '+number+' real font zoom or scroll FAIL: '+
+                JSON.stringify({originalSize,enlarged}));
+            await page.screenshot({path:path.join(outDir,viewport.label+'-compendium-'+number+'-large-text.png')});
+            console.log('PASS | Compendium '+number+' font zoom and header-safe scroll'+
+              (isLive?' exact Cloudflare Preview':' local')+
+              ': '+originalSize.font+'px → '+enlarged.font+'px');
           }else if(!status.includes('원본에 음성 파일 없음'))
             throw new Error('No-original-MP4 source improperly presented for ' + number);
         }
