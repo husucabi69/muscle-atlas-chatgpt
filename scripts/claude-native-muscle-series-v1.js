@@ -1,10 +1,10 @@
 // Stage 24 expansion: lossless native app reader for Muscle volumes 2–11 and
-// Phase 1–2 referred-pain and physical-examination lectures 14–17.
+// Phase 1–2 referred-pain and physical-examination lectures 14–19.
 // Exact canonical HTML SHA/bytes verified before DOM import; source files untouched.
 // The existing volume-1 custom native lecture and every non-muscle course retain their routes.
 (function(){
   'use strict';
-  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17]);
+  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]);
   const previousOpen=window.openClaudeOriginalLecture;
   const panel=document.getElementById('claudeNativePilotHost');
   const modeSwitch=document.getElementById('claudeNativeModeSwitch');
