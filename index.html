@@ -5638,7 +5638,7 @@ function renderClaudeAcademicCategories(){
  const rows=claudeLibraryManifest?.lectures||[];
  if(!rows.length){total.textContent='원본 강의 목록을 불러오는 중';categories.innerHTML='';list.innerHTML='';return}
  if(selectedClaudeAcademicCategoryIndex>=claudeAcademicCategories.length)selectedClaudeAcademicCategoryIndex=0;
- total.textContent=rows.length+'개 원본 강의 · '+claudeAcademicCategories.length+'개 분야 · 자체 이식 15강 · 무료 한국어 음성 UI 17강';
+ total.textContent=rows.length+'개 원본 강의 · '+claudeAcademicCategories.length+'개 분야 · 자체 이식 17강 · 무료 한국어 음성 UI 19강';
  categories.innerHTML=claudeAcademicCategories.map((def,index)=>{
    const count=claudeAcademicRows(index).length,selected=index===selectedClaudeAcademicCategoryIndex;
    return '<button type="button" class="region-choice" data-claude-academic-category="'+index+'" aria-pressed="'+(selected?'true':'false')+'" onclick="showClaudeAcademicCategory('+index+')"><span><b>'+esc(def.label)+'</b><br><small>원본 강의 '+count+'개</small></span><span class="arrow">'+(selected?'✓':'›')+'</span></button>'
@@ -5648,7 +5648,7 @@ function renderClaudeAcademicCategories(){
  list.innerHTML='<div class="note"><b>'+esc(current.label)+' · '+items.length+'강</b><br>강의를 누르면 독립 강의 화면으로 이동합니다. 목록 아래에 내용을 추가하지 않습니다.</div>'+
  items.map(item=>{
   const local=String(item.hosting_status||'').startsWith('SELF_HOSTED_');
-  const deviceSpeech=(item.number>=1&&item.number<=17);
+  const deviceSpeech=(item.number>=1&&item.number<=19);
   const speechStatus=deviceSpeech
    ?(item.number<=2?'대화형 원본 확대 · 무료 한국어 기기음성':'앱 자체 이식 · 무료 한국어 기기음성')
    :(item.audio==='없음'?'원본 음성 없음':item.hosting_status==='SELF_HOSTED_HTML_MEDIA_READY'?'원본 음성 재생 확인':local?'원본 MP4 연결 대기':'원본 음성 '+esc(item.audio));
