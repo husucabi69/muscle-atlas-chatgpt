@@ -115,7 +115,43 @@ try{
     },{mode,pauseMs,resumeMs});
     await page.waitForFunction(mode=>window.__lysAudioRace?.pauseCompletions?.[mode]===1,mode,{timeout:10000});
   }
+  // Browser/Android may reject autoplay or interrupt the speech engine.
+  // The learner must see an actionable tap-to-restart message, not a false
+  // playing dock or a permanently locked speech state.
+  for(const errMode of ['interrupted','not-allowed','NotAllowedError']){
+    await page.evaluate(errMode=>{
+      const state=window.__lysAudioRace;
+      const host=document.getElementById('lys-audio-race-fixture');
+      host.querySelector('[data-native-audio="player"]')?.remove();
+      state.shadow.querySelector('[data-i]').textContent='휴대전화 음성 권한 검증.';
+      const synth=window.speechSynthesis;
+      state.originalSpeak??=synth.speak;
+      synth.speak=(utterance)=>{
+        if(errMode==='NotAllowedError'){
+          const err=new Error('user gesture needed');err.name=errMode;throw err;
+        }
+        setTimeout(()=>utterance.onerror?.({error:errMode}),5);
+      };
+      const player=window.LYSNativeAudio.mount(state.shadow,{
+        lectureNumber:99,title:'음성 중단 복구 검사',expectedCount:1
+      });
+      host.append(player);
+      player.querySelector('[data-native-audio="play"]').click();
+    },errMode);
+    await page.waitForFunction(errMode=>{
+      const p=document.querySelector('#lys-audio-race-fixture');
+      const status=p.querySelector('[data-native-audio="status"]')?.textContent||'';
+      return errMode==='interrupted' ? status.includes('중단되었습니다') : status.includes('자동 음성 시작을 제한했습니다');
+    },errMode);
+    const failureState=await page.locator('#lys-audio-race-fixture').evaluate(host=>({
+      dockHidden:host.querySelector('[data-native-audio="player"] .claude-native-audio-dock')?.hidden,
+      playText:host.querySelector('[data-native-audio="play"]')?.textContent
+    }));
+    assert.equal(failureState.dockHidden,true,'Interrupted speech should hide the playing dock: '+errMode);
+    assert.equal(failureState.playText,'▶ 읽기','Interrupted speech should let the user restart: '+errMode);
+  }
   await page.evaluate(()=>{
+    window.speechSynthesis.speak=window.__lysAudioRace.originalSpeak;
     window.LYSNativeAudio.stop();
     document.getElementById('lys-audio-race-fixture')?.remove();
     delete window.__lysAudioRace;
