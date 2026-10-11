@@ -237,7 +237,7 @@ button,input{font:inherit} button{cursor:pointer}
   </div>
   <div id="appUpdatePanel" class="note" style="margin:0 0 12px;border-color:#cce8e3">
     <b id="appUpdateState">앱 최신 상태를 확인하는 중입니다.</b><br>
-    <span id="appUpdateDetail" style="color:var(--muted)">앱을 열 때 자동 확인합니다. 홈에서 아래로 당겨도 업데이트됩니다.</span>
+    <span id="appUpdateDetail" style="color:var(--muted)">앱 아이콘을 누르면 자동으로 최신 버전을 확인·적용합니다. 학습 중에는 안전하게 대기합니다.</span>
     <div class="quiz-actions"><button id="appUpdateButton" class="pill" type="button">업데이트 확인</button><button id="appOpenStablePreviewButton" class="primary" type="button" style="display:none">최신 Preview 앱 열기</button></div>
   </div>
   <details id="deviceQualityGate" class="device-qa">
@@ -5299,6 +5299,9 @@ renderDeviceManualGate();
 
 let appSWRegistration=null;
 let appSWControllerChanged=false;
+let appAutoUpdatePendingVersion=null;
+let appAutoUpdateApplying=false;
+const APP_AUTO_RELOAD_GUARD_MS=60000;
 function setStablePreviewMigrationUI(){
   const move=document.getElementById('appOpenStablePreviewButton');
   if(move)move.style.display=isImmutableCloudflareDeploymentHost()?'inline-block':'none';
@@ -5309,6 +5312,50 @@ function setStablePreviewMigrationUI(){
 let appLastAutoUpdateCheckAt=0;
 let appPullRefreshing=false;
 const APP_AUTO_UPDATE_MIN_INTERVAL=15000;
+
+// The latest deploy may have changed app files without a visible worker update.
+// This endpoint is fetched from the network; never execute remote text as code.
+async function getOnlineAppBuildVersion(){
+  if(!navigator.onLine)return null;
+  try{
+    const response=await fetch('./app-version.js?check='+Date.now(),{cache:'no-store'});
+    if(!response.ok)return null;
+    const text=await response.text();
+    const match=text.match(/\bbuildVersion\s*:\s*['"]([0-9A-Za-z._-]+)['"]/);
+    return match?.[1]||null;
+  }catch{return null;}
+}
+
+// Auto-apply on the home/start screen, not in the middle of a patient handout,
+// exercise, voice lecture or unsaved field. Background updates stay staged.
+function isSafeToApplyAppUpdate(){
+  if(document.visibilityState==='hidden'||!navigator.onLine)return false;
+  if(!document.getElementById('home')?.classList.contains('active'))return false;
+  if(document.querySelector('.overlay.show,.overlay.active,.modal.show'))return false;
+  const focus=document.activeElement;
+  return !focus?.matches?.('input,textarea,select,[contenteditable="true"]');
+}
+function applyAppUpdateWhenSafe(nextVersion){
+  if(!nextVersion||nextVersion===APP_RELEASE.buildVersion)return false;
+  appAutoUpdatePendingVersion=nextVersion;
+  if(!isSafeToApplyAppUpdate()){
+    setAppUpdateStatus('새 버전이 준비되었습니다.','학습 중에는 화면을 바꾸지 않습니다. 홈에서 앱을 다시 열면 자동 적용됩니다.');
+    return false;
+  }
+  if(appAutoUpdateApplying)return false;
+  const key='lys-muscle-pwa-auto-reload-v3-'+nextVersion;
+  const last=Number(sessionStorage.getItem(key)||0);
+  if(Date.now()-last<APP_AUTO_RELOAD_GUARD_MS){
+    setAppUpdateStatus('새 버전 적용을 확인하는 중입니다.','자동 새로고침 반복을 방지했습니다. 업데이트 확인을 다시 시도할 수 있습니다.');
+    return false;
+  }
+  appAutoUpdateApplying=true;
+  sessionStorage.setItem(key,String(Date.now()));
+  setAppUpdateStatus('최신 앱으로 자동 전환합니다.','학습기록은 유지됩니다. 잠시만 기다려 주세요.');
+  window.location.reload();
+  return true;
+}
+
 const APP_PULL_REFRESH_THRESHOLD=72;
 
 async function requestAppUpdateCheck(reason='resume',force=false){
@@ -5454,11 +5501,24 @@ async function checkForAppUpdate(manual=false){
       watchInstallingWorker(registration.installing);
       return true;
     }
-    const controllerVersion=await getControllerVersion();
-    const detail=controllerVersion&&controllerVersion!==APP_RELEASE.buildVersion
-      ? '새 버전 전환을 준비하고 있습니다.'
-      : APP_RELEASE.displayVersion+' · 최신 상태';
-    setAppUpdateStatus('현재 최신 버전입니다.',detail);
+    const [controllerVersion,onlineVersion]=await Promise.all([
+      getControllerVersion(),getOnlineAppBuildVersion()
+    ]);
+    // A PWA launch can begin with an old cached document while the current
+    // deploy is already live. Detect either new worker or new network build.
+    if(onlineVersion&&onlineVersion!==APP_RELEASE.buildVersion){
+      applyAppUpdateWhenSafe(onlineVersion);
+      return true;
+    }
+    if(controllerVersion&&controllerVersion!==APP_RELEASE.buildVersion){
+      applyAppUpdateWhenSafe(controllerVersion);
+      return true;
+    }
+    if(appAutoUpdatePendingVersion&&appAutoUpdatePendingVersion!==APP_RELEASE.buildVersion){
+      applyAppUpdateWhenSafe(appAutoUpdatePendingVersion);
+      return true;
+    }
+    setAppUpdateStatus('현재 최신 버전입니다.',APP_RELEASE.displayVersion+' · 앱 실행 시 자동 업데이트');
     return true;
   }catch(error){
     setAppUpdateStatus(
@@ -5478,18 +5538,16 @@ async function initAppServiceWorker(){
   }
 
   navigator.serviceWorker.addEventListener('controllerchange',()=>{
-    if(appSWControllerChanged)return;
     appSWControllerChanged=true;
     if(!appHadControllerAtLoad){
       setAppUpdateStatus('앱 설치 준비 완료',APP_RELEASE.displayVersion);
       return;
     }
-    const reloadKey='lys-muscle-update-reload';
-    if(sessionStorage.getItem(reloadKey)!==APP_RELEASE.buildVersion){
-      sessionStorage.setItem(reloadKey,APP_RELEASE.buildVersion);
-      setAppUpdateStatus('새 버전을 적용했습니다.','한 번만 다시 열어 최신 화면으로 전환합니다.');
-      window.location.reload();
-    }
+    // Never key the reload guard to this OLD document's version: doing so
+    // suppresses the next deployment's automatic reload in a long-lived PWA.
+    void getControllerVersion().then(version=>{
+      if(version&&version!==APP_RELEASE.buildVersion)applyAppUpdateWhenSafe(version);
+    });
   });
 
   try{
@@ -5507,11 +5565,15 @@ const appUpdateButton=document.getElementById('appUpdateButton');
 if(appUpdateButton)appUpdateButton.addEventListener('click',()=>checkForAppUpdate(true));
 const appOpenStablePreviewButton=document.getElementById('appOpenStablePreviewButton');
 if(appOpenStablePreviewButton)appOpenStablePreviewButton.addEventListener('click',openCanonicalPreview);
-window.addEventListener('online',()=>checkForAppUpdate(false));
+window.addEventListener('online',()=>requestAppUpdateCheck('online',true));
 window.addEventListener('online',()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
 window.addEventListener('offline',()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();});
 window.addEventListener('orientationchange',()=>setTimeout(()=>{if(document.getElementById('deviceQaResults')?.children.length)runDeviceQualityGate();},250));
 window.addEventListener('pageshow',()=>requestAppUpdateCheck('pageshow'));
+// Applies a previously staged update when the app returns to the home screen.
+window.addEventListener('pageshow',()=>{
+  if(appAutoUpdatePendingVersion)applyAppUpdateWhenSafe(appAutoUpdatePendingVersion);
+});
 window.addEventListener('focus',()=>requestAppUpdateCheck('focus'));
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')requestAppUpdateCheck('resume');});
 window.addEventListener('load',()=>{initPullToRefresh();initAppServiceWorker();});
