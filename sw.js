@@ -1,4 +1,4 @@
-// v12.32 app-shell update: offline interactive TTS reader with correct refreshed-muscle click ownership.
+// v12.33 PWA auto-update: always network-first live JS/CSS on launch, offline cache fallback.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -292,7 +292,12 @@ self.addEventListener('fetch',event=>{
     return;
   }
 
-  if(isFreshnessCritical){
+  // Static app-shell JavaScript/CSS is version-critical. Returning an old
+  // cached script once on PWA startup mixes new HTML with old runtime code.
+  // Load app assets from the network on every online launch, falling back to
+  // the verified cache only when offline. Original HTML has its separate SHA gate.
+  const isAppShellAsset=/\.(?:js|css)$/i.test(path);
+  if(isFreshnessCritical||isAppShellAsset){
     event.respondWith(networkFirst(event.request));
     return;
   }
