@@ -168,8 +168,12 @@
          // muscle-series MP4; no deceptive auto-next promise.
          onComplete:undefined
        });
-       if(player)player.replaceWith(newPlayer);
-       else row.after(newPlayer);
+       // The original interactive iframe can finish a second navigation or
+       // replace an earlier read-aloud DOM node. Replacing a detached node is
+       // a silent no-op: mount to the CURRENT banner instead, exactly once.
+       if(player?.isConnected&&banner.contains(player))player.replaceWith(newPlayer);
+       else if(row.isConnected&&banner.contains(row))row.after(newPlayer);
+       else banner.append(newPlayer);
        player=newPlayer;
        banner.dataset.compendiumVoiceSegments=String(count);
      };
