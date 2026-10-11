@@ -4,7 +4,7 @@
 
 ## 작동 원리 — 최초 실행 / 다시 열기
 1. 설치 주소는 **https://preview-development.muscle-atlas-chatgpt.pages.dev/** 처럼 고정된 **브랜치 Preview**다. `https://<8자 SHA>.muscle-atlas-chatgpt.pages.dev` 형식 배포고정 주소는 영원히 그 버전에 고정되므로 이 주소를 PWA로 설치하면 자동 갱신을 약속할 수 없다.
-2. 앱은 열릴 때 `navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'})`, `registration.update()`를 실행한다. 브라우저/네트워크가 허용하는 경우 `app-version.js?check=<timestamp>`의 최신 빌드번호도 no-store로 읽어 오래된 페이지와 새 배포를 대조한다. 수시 포커스/복귀/연결회복 때에도 15초 중복 확인 제한을 지킨다(연결회복은 강제).
+2. 앱은 열릴 때 `navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'})`, `registration.update()`를 실행한다. 브라우저/네트워크가 허용하는 경우 `app-version.js`의 최신 빌드번호도 no-store로 읽어 오래된 페이지와 새 배포를 대조한다. 수시 포커스/복귀/연결회복 때에도 15초 중복 확인 제한을 지킨다(연결회복은 강제).
 3. Service Worker는 **앱 index.html 네비게이션, 모든 앱 JS/CSS 및 데이터 JSON을 온라인에서는 network-first**로 받는다. 이전 버전의 스크립트가 잠깐 제공돼 서로 다른 UI/로직을 섞는 문제를 예방한다. 오프라인에서는 저장된 검증 캐시가 사용된다. Claude 학술 원본 HTML은 별도 byte+SHA-256 검사 관문을 반드시 통과해야 하며, 원본 MP4 Range 요청은 캐시 우회한다.
 4. 새로운 SW가 설치되면 `SKIP_WAITING`→`clients.claim()`으로 진행하고, 컨트롤러/네트워크 build의 **정확한 버전**을 대조한다. 신규 SW 활성화 전에 이미 최신 HTML을 보고 있다면 이전 SW 버전을 최신보다 우선하지 않아 **다운그레이드 없음**. 이전 문서 버전으로 영구 reload 횟수를 막는 결함 대신 **신규 목표 빌드별 60초 루프 방지**를 사용한다.
 5. 앱 홈 화면에서 새 배포를 확인하면 **자동으로 한 번 새로고침**한다. 강의 듣기·환자교육 등 홈이 아닌 화면에서 업데이트 발견 시 **현재 작업은 강제 재시작하지 않고 보류**, 홈으로 이동하면 사용자 재확인 버튼 없이 자동 적용한다. 입력 중인 양식, 모달, 오프라인 상태는 안전 정책에 따라 재시작하지 않는다.
