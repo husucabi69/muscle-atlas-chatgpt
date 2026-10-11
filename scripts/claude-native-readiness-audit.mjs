@@ -63,6 +63,8 @@ assert.ok(rows.some(x=>x.number===14&&x.nativePreviewIntegrated),
   'new clinical source must be represented');
 assert.ok(rows.some(x=>x.number===17&&x.nativePreviewIntegrated),
   'wrist examination #17 must be counted after original fidelity validation');
+assert.ok(rows.filter(x=>[18,19].includes(x.number)).every(x=>x.nativePreviewIntegrated&&x.freeKoreanTtsImplemented),
+  'hand/finger and cervical/nerve native audio must be counted only when truly integrated');
 assert.ok(rows.filter(x=>x.interactiveOriginalLargeScreenDeviceTts).length===2,
   'original compendium 1–2 added voice controls but remains interactive original');
 const total=(test)=>rows.filter(test).length;
@@ -80,11 +82,11 @@ const report={
  actualAndroidAudioVerified:0,serverRecordedAudioVerified:0,
  rows
 };
-assert.equal(report.nativePreviewIntegrated,15,'pilot 1 + 10 muscle extension + 4 clinical native');
-assert.equal(report.originalOnly,72,'unported source-only lecture count');
-assert.equal(report.deviceVoiceCodeAvailable,17,'15 native + 2 interactive original read-aloud wrappers');
+assert.equal(report.nativePreviewIntegrated,17,'pilot 1 + 10 muscle extension + 6 clinical native');
+assert.equal(report.originalOnly,70,'unported native source-only lecture count, including 2 enhanced interactive');
+assert.equal(report.deviceVoiceCodeAvailable,19,'17 native + 2 interactive original read-aloud wrappers');
 fs.mkdirSync('qa-artifacts/claude-native-readiness',{recursive:true});
 fs.writeFileSync('qa-artifacts/claude-native-readiness/report.json',
  JSON.stringify(report,null,2)+'\n');
-console.log('CLAUDE ALL 87 READINESS | originals 87/87 exact SHA; native 15; source-only 72; device voice UI '+report.deviceVoiceCodeAvailable+'; source cue maps '+report.sourceCueMapsParsed+'; untimed original cues '+report.sourceCuesMissingTiming+'; physical Android 0 verified; MP4 hosted 0 verified');
+console.log('CLAUDE ALL 87 READINESS | originals 87/87 exact SHA; native 17; source-only 70; device voice UI '+report.deviceVoiceCodeAvailable+'; source cue maps '+report.sourceCueMapsParsed+'; untimed original cues '+report.sourceCuesMissingTiming+'; physical Android 0 verified; MP4 hosted 0 verified');
 console.log('NOTE | Extra/duplicate scripts require type-specific review; static classification does NOT authorize automatic native integration');
