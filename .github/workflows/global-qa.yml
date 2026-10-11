@@ -29,6 +29,8 @@ jobs:
           node-version: '20'
       - name: Enforce development governance policy
         run: node scripts/development-governance-policy-qa.mjs
+      - name: Verify measured development and report deadline contract
+        run: node scripts/verify-development-time-report.mjs --self-test
       - name: Validate cervical EXAM-REAL content locks
         run: node scripts/cervical-exam-content-qa.mjs
       - name: Enforce Physical Examination generation permission gate
