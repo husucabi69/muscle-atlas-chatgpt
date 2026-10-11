@@ -12,7 +12,15 @@ const evidence=[
  {number:16,sections:16,segments:361,tables:35,figures:13,images:5,parts:2,unsyncedCues:34},
  {number:17,sections:13,segments:282,tables:22,figures:8,images:3,parts:1,unsyncedCues:30},
  {number:18,sections:15,segments:240,tables:19,figures:5,images:1,parts:1,unsyncedCues:17},
- {number:19,sections:11,segments:208,tables:19,figures:5,images:2,parts:1,unsyncedCues:24}
+ {number:19,sections:11,segments:208,tables:19,figures:5,images:2,parts:1,unsyncedCues:24},
+ {number:20,sections:9,segments:157,tables:13,figures:0,images:0,parts:1,unsyncedCues:21},
+ {number:21,sections:11,segments:269,tables:31,figures:0,images:0,parts:1,unsyncedCues:28},
+ {number:22,sections:10,segments:206,tables:24,figures:0,images:0,parts:1,unsyncedCues:24},
+ {number:23,sections:9,segments:184,tables:23,figures:0,images:0,parts:1,unsyncedCues:18},
+ {number:24,sections:10,segments:188,tables:26,figures:0,images:0,parts:1,unsyncedCues:17},
+ {number:25,sections:9,segments:145,tables:19,figures:0,images:0,parts:1,unsyncedCues:17},
+ {number:26,sections:9,segments:176,tables:23,figures:0,images:0,parts:1,unsyncedCues:17},
+ {number:27,sections:8,segments:148,tables:14,figures:0,images:0,parts:1,unsyncedCues:19}
 ];
 assert.ok(nativeReader.includes('&&ELIGIBLE.has(x.number)'),
   'Auto-next must not claim native/auto TTS in an unported lesson');
@@ -70,4 +78,4 @@ for(const spec of evidence){
    spec.parts+' original MP4 parts, '+spec.unsyncedCues+
    ' untimed source cues. Free device TTS still covers all source text; R2 playback NOT claimed');
 }
-console.log('CLAUDE CLINICAL NATIVE SOURCE QA | 6/6 original SHA, source cue gaps audited, TOC, academic content and image identity PASS; real Android/MP4 not claimed');
+console.log('CLAUDE CLINICAL NATIVE SOURCE QA | 14/14 original SHA, source cue gaps audited, TOC, academic content and image identity PASS; real Android/MP4 not claimed');
