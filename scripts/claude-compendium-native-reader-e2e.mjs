@@ -19,6 +19,7 @@ try{
   Object.defineProperty(window,'speechSynthesis',{configurable:true,value:synth});
  });
  const page=await context.newPage();page.setDefaultTimeout(30000);
+ const caught=[];page.on('pageerror',e=>caught.push(e.message));
  await page.goto('http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
  await page.locator('.tab[data-page="diseaseTrauma"]').click();
  await page.locator('[data-claude-academic-category="0"]').click();
@@ -67,8 +68,16 @@ try{
      if(started)await page.waitForTimeout(120);
    }
    await page.locator('#claudeCompendiumReaderHost .claude-compendium-actions button').first().click();
-   assert.ok(await page.locator('#claudeCompendiumReaderHost [data-native-audio="play"]').count()===1,
-       'manual new-muscle voice recapture '+n);
+   const refreshedState=await page.locator('#claudeCompendiumReaderHost').evaluate(host=>({
+      playerButtons:host.querySelectorAll('[data-native-audio="play"]').length,
+      voiceSegments:host.dataset.compendiumVoiceSegments,
+      content:host.textContent.slice(0,500),
+      frameReady:document.getElementById('diseaseTraumaOriginalFrame')?.contentDocument?.readyState,
+      frameHidden:document.getElementById('diseaseTraumaOriginalFrame')?.hidden,
+      hostHidden:host.hidden
+   }));
+   assert.equal(refreshedState.playerButtons,1,
+       'manual new-muscle voice recapture '+n+': '+JSON.stringify(refreshedState)+'; errors: '+JSON.stringify(caught));
    const refreshed=await page.locator('#claudeCompendiumReaderHost').getAttribute('data-compendium-voice-segments');
    assert.ok(Number(refreshed)>0,'refreshed interactive source has actual accessible Korean reading segments '+n);
    const speechBeforeTap=await page.evaluate(()=>window.__compendiumMockSpoken.length);
