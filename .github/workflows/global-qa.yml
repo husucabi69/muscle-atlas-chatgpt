@@ -71,6 +71,8 @@ jobs:
         run: node scripts/android-twa-qa.mjs
       - name: Run Play Store submission pack QA
         run: node scripts/play-store-submission-qa.mjs
+      - name: Verify LYSOS academic app identity and installed-PWA continuity
+        run: node scripts/brand-identity-qa.mjs
       - name: Run Stage 15 auto-update QA
         run: node scripts/auto-update-qa.mjs
       - name: Run Stage 16 hierarchical navigation QA

@@ -1,4 +1,4 @@
-// v12.38 preview: verify large Claude compendiums on Cloudflare clean URLs, stage24.21.
+// v12.39 preview: preview-only LYSOS academic branding with stable installed PWA ID, stage24.22.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -15,6 +15,7 @@ const CORE=[
   './scripts/claude-native-muscle-series-v1.js',
   './scripts/claude-compendium-native-reader-v1.js',
   './manifest.webmanifest',
+  './assets/lysos-symbol.svg',
   './icon-192.png',
   './icon-512.png',
   './data/media-v1.json',

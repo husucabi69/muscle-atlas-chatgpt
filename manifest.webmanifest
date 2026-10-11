@@ -1,15 +1,21 @@
 {
-  "name": "이윤석정형외과 근육",
-  "short_name": "이윤석정형외과 근육",
+  "name": "이윤석정형외과 학술",
+  "short_name": "이윤석정형외과",
   "id": "/muscle-atlas-chatgpt/",
-  "description": "이윤석정형외과 근육 · 설치형 PWA · 앱 실행 시 자동 업데이트 · 의학교육 및 임상 학습",
+  "description": "이윤석정형외과 학술 · LYSOS 학술 플랫폼 · 정형외과 해부학·진찰·임상 강의·환자교육",
   "start_url": "./?source=pwa",
   "scope": "./",
   "display": "fullscreen",
   "orientation": "any",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#f8fcfd",
+  "theme_color": "#103342",
   "icons": [
+    {
+      "src": "assets/lysos-symbol.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
     {
       "src": "icon-192.png",
       "sizes": "192x192",

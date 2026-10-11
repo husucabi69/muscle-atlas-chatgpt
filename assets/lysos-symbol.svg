@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="LYSOS 의학교육 앱 로고">
+ <defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e273b"/><stop offset=".58" stop-color="#113e49"/><stop offset="1" stop-color="#0f2637"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#67e4cf"/><stop offset="1" stop-color="#35c4ce"/></linearGradient>
+ </defs>
+ <rect x="0" y="0" width="512" height="512" rx="114" fill="url(#bg)"/>
+ <circle cx="256" cy="220" r="130" fill="#ffffff" opacity=".075"/>
+ <circle cx="256" cy="220" r="105" fill="none" stroke="#ffffff" opacity=".23" stroke-width="3"/>
+ <path d="M188 164 C192 190 215 212 256 239" fill="none" stroke="#f1fcff" stroke-width="30" stroke-linecap="round"/>
+ <path d="M324 164 C320 190 297 212 256 239" fill="none" stroke="url(#accent)" stroke-width="30" stroke-linecap="round"/>
+ <path d="M256 239 L256 297" fill="none" stroke="#f1fcff" stroke-width="30" stroke-linecap="round"/>
+ <circle cx="256" cy="239" r="20" fill="url(#accent)" stroke="#09323e" stroke-width="6"/>
+ <circle cx="188" cy="164" r="14" fill="#f1fcff"/>
+ <circle cx="324" cy="164" r="14" fill="#5ce1d1"/>
+ <text x="256" y="385" fill="#f6fcff" text-anchor="middle" font-family="Arial,DejaVu Sans,sans-serif" font-size="57" font-weight="800" letter-spacing="7">LYSOS</text>
+ <path d="M176 409 H336" fill="none" stroke="#6bd9ce" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+</svg>
