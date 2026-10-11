@@ -188,6 +188,8 @@ jobs:
           done
           cat /tmp/muscle-runtime-e2e.log
           exit 1
+      - name: Inspect original interactive compendium DOM and mobile iframe viewport
+        run: node scripts/claude-compendium-layout-inspect.mjs
       - name: Run anatomy click-through runtime E2E
         run: node scripts/runtime-navigation-e2e.mjs
       - name: Run custom clinical exam illustration runtime E2E
