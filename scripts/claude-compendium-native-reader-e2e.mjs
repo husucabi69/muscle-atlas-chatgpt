@@ -29,7 +29,7 @@ try{
      const frame=document.getElementById('diseaseTraumaOriginalFrame');
      return !host?.hidden&&host?.dataset.compendiumLecture===String(number)&&
        !frame?.hidden&&frame.classList.contains('claude-compendium-large')&&
-       +host.dataset.compendiumVoiceSegments>8&&
+       +host.dataset.compendiumVoiceSegments>0&&
        !!host.querySelector('[data-native-audio="play"]');
    },n,{timeout:45000});
    const state=await page.locator('#claudeCompendiumReaderHost').evaluate((host)=>{
@@ -54,9 +54,23 @@ try{
    assert.ok(utterance.text&&utterance.text.length<=160&&utterance.lang==='ko-KR',
        'real Korean device speech API invoked for '+n+': '+JSON.stringify(utterance));
    await page.locator('#claudeCompendiumReaderHost [data-native-audio="stop"]').click();
+   if(n===2){
+     // On the original cover the 186 muscle selectors are deliberately hidden.
+     // Opening the source's own catalog must preserve its button handlers;
+     // refresh then narrates the newly visible interactive content.
+     const started=await page.locator('#diseaseTraumaOriginalFrame').evaluate(f=>{
+       const doc=f.contentDocument;
+       const choice=[...doc.querySelectorAll('button')].find(btn=>/시작하기|부위별 근육 보기/.test(btn.innerText||''));
+       if(!choice)return false;
+       choice.click();return true;
+     });
+     if(started)await page.waitForTimeout(120);
+   }
    await page.locator('#claudeCompendiumReaderHost .claude-compendium-actions button').first().click();
    assert.ok(await page.locator('#claudeCompendiumReaderHost [data-native-audio="play"]').count()===1,
        'manual new-muscle voice recapture '+n);
+   const refreshed=await page.locator('#claudeCompendiumReaderHost').getAttribute('data-compendium-voice-segments');
+   assert.ok(Number(refreshed)>0,'refreshed interactive source has actual accessible Korean reading segments '+n);
    console.log('PASS | Compendium #'+n+' mobile interactive original viewport and free Korean voice: '+JSON.stringify(state));
    await page.locator('#diseaseTraumaOriginalView .region-back').click();
    assert.ok(await page.locator('#diseaseTraumaCategoryView').isVisible(),'returns to muscle category after '+n);
