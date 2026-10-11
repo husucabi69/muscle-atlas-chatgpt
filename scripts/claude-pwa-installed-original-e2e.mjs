@@ -101,7 +101,7 @@ try{
      try{
       const doc=frame.contentDocument;
       const actual=decodeURIComponent(frame.contentWindow.location.pathname);
-      return (actual===expectedPath||actual===expectedPath.replace(/\\.html$/i,''))&&
+      return (actual===expectedPath||actual===expectedPath.replace(/\.html$/i,''))&&
        !frame.hidden&&document.getElementById('diseaseTraumaLoadIssue').hidden&&
        doc?.title!=='원본 강의 확인 필요'&&(doc?.body?.innerText||'').trim().length>200;
      }catch{return false;}
