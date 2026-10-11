@@ -45,7 +45,7 @@ check('reload guard is target-build scoped with anti-loop timebox',
 check('automatic update handles controllerchange and changes since old index loaded',
   updateCode.includes("getOnlineAppBuildVersion()")&&
   updateCode.includes('controllerVersion!==APP_RELEASE.buildVersion')&&
-  updateCode.includes('applyAppUpdateWhenSafe(controllerVersion)'));
+  updateCode.includes('applyAppUpdateWhenSafe(onlineVersion)'));
 check('automatic update is deferred while learning',
   updateCode.includes('function isSafeToApplyAppUpdate()')&&
   updateCode.includes("document.getElementById('home')?.classList.contains('active')")&&
