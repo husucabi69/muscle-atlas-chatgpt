@@ -32,10 +32,18 @@ let categoryCounts = [];
 try {
   // Every lecture is opened by the same category -> lecture -> iframe route
   // that an Android/PWA user uses, at a phone-sized viewport.
-  for (const viewport of [
-    { label: 'mobile390', width: 390, height: 844, isMobile: true, all: true },
-    { label: 'desktop1280', width: 1280, height: 800, isMobile: false, all: false }
-  ]) {
+  // Parallel, independent Chromium contexts exercise all 87 originals without
+  // serializing 87 heavy original-HTML loads. Every lecture is still covered.
+  // Each mobile shard owns exactly one disjoint set of lecture numbers.
+  const MOBILE_SHARDS = 4;
+  const viewports = [
+    ...Array.from({length:MOBILE_SHARDS},(_,shardIndex)=>({
+      label:'mobile390',width:390,height:844,isMobile:true,all:true,
+      shardIndex,shardCount:MOBILE_SHARDS
+    })),
+    {label:'desktop1280',width:1280,height:800,isMobile:false,all:false}
+  ];
+  await Promise.all(viewports.map(async viewport => {
     const context = await browser.newContext({
       viewport: { width: viewport.width, height: viewport.height },
       isMobile: viewport.isMobile,
@@ -86,7 +94,9 @@ try {
       if (!ids.length || ids.some(id => !byNumber.has(id)))
         throw new Error('Category ' + category + ' has empty or unknown items');
       counts.push(ids.length);
-      for (const number of viewport.all ? ids : [ids[0]]) {
+      for (const number of viewport.all ?
+        ids.filter(number => (number-1)%viewport.shardCount===viewport.shardIndex) :
+        [ids[0]]) {
         if (seen.has(number)) throw new Error('Duplicate lecture across category lists: ' + number);
         seen.add(number);
         const row = byNumber.get(number);
@@ -314,10 +324,29 @@ try {
     }
     if (viewport.all) {
       categoryCounts = counts;
-      if (seen.size !== 87 || counts.reduce((a, b) => a + b, 0) !== 87)
-        throw new Error('Category coverage incomplete: ' + seen.size + '/87; counts=' + counts.join(','));
+      if (counts.reduce((a, b) => a + b, 0) !== 87)
+        throw new Error('Category index incomplete: counts=' + counts.join(','));
+      const expected = lectures.filter(row => (row.number-1)%viewport.shardCount===viewport.shardIndex).length;
+      if (seen.size !== expected)
+        throw new Error('Mobile shard '+viewport.shardIndex+' incomplete: '+seen.size+'/'+expected);
     }
     await context.close();
+  }));
+  // Worker completion order is irrelevant: require exact 87 distinct lecture
+  // numbers, not merely 87 rows (which could hide duplicated or missing IDs).
+  const mobileResults=results.filter(x=>x.viewport==='mobile390');
+  const mobileIds=new Set(mobileResults.map(x=>x.number));
+  const desktopResults=results.filter(x=>x.viewport==='desktop1280');
+  if (mobileResults.length!==87 || mobileIds.size!==87 ||
+      lectures.some(row=>!mobileIds.has(row.number)) ||
+      desktopResults.length!==10 ||
+      new Set(desktopResults.map(x=>x.number)).size!==10) {
+    throw new Error('Full parallel coverage failed: '+JSON.stringify({
+      mobileRows:mobileResults.length,uniqueMobile:mobileIds.size,
+      missing:lectures.filter(row=>!mobileIds.has(row.number)).map(row=>row.number),
+      desktop:desktopResults.length,
+      desktopUnique:new Set(desktopResults.map(x=>x.number)).size
+    }));
   }
   const report = {
     test: (isLive ? 'exact-SHA live Cloudflare Preview' : 'local static server') + ' Chromium category -> original iframe navigation',
