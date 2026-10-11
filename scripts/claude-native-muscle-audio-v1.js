@@ -62,6 +62,13 @@
    const bookmarkKey=lectureNumber===3?POS_KEY:'lys-native-lecture-'+lectureNumber+'-tts-position-v1';
    const displayName=options.title||'근육학 1권';
    if(active?.navObserver)active.navObserver.disconnect();
+   // Replacing a dynamic compendium's selected-muscle audio MUST detach
+   // its previous DOM tap handler and voice listener. Otherwise each refresh
+   // leaves another listener that can speak the old muscle unexpectedly.
+   if(active?.passageRoot&&active?.passageHandler)
+     active.passageRoot.removeEventListener('click',active.passageHandler);
+   if(active?.voiceChangedHandler&&synth?.removeEventListener)
+     synth.removeEventListener('voiceschanged',active.voiceChangedHandler);
    stop();
    const elements=[...shadow.querySelectorAll('[data-i], .claude-native-teaching')];
    const entries=elements.map(el=>{
@@ -335,7 +342,7 @@
      if(state.playing)startAt(state.index);
    });
    // A passage tap restarts at that sentence/figure/table, not from page top.
-   shadow.addEventListener('click',ev=>{
+   const passageHandler=ev=>{
      const el=ev.target.closest?.('[data-i], .claude-native-teaching');
      // Recorded MP4 tap-to-seek is exclusive to Volume 1's owning Shadow DOM.
      // A previously selected MP4 must not disable free TTS passage taps in
@@ -344,9 +351,14 @@
        window.LYSClaudeRecordedAudio?.isReadyFor?.(shadow))return;
      const index=entries.findIndex(entry=>entry.el===el);
      if(index>=0)startAt(index);
-   });
+   };
+   shadow.addEventListener('click',passageHandler);
+   state.passageRoot=shadow;state.passageHandler=passageHandler;
    window.addEventListener('pagehide',stop,{once:true});
-   if(synth?.addEventListener)synth.addEventListener('voiceschanged',updateVoices);
+   if(synth?.addEventListener){
+     synth.addEventListener('voiceschanged',updateVoices);
+     state.voiceChangedHandler=updateVoices;
+   }
    updateVoices();
    if(options.autoStart)setTimeout(()=>{if(active===state)startAt(0)},350);
    // Stopping playback on app navigation prevents speech continuing over a
