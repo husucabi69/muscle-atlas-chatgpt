@@ -100,6 +100,37 @@ check('Physical Examination interpretation contract locks textbook narrative fie
 
 check('Constitution preserves scheduled automation override', files.constitution.includes('예약 자동개발의 별도 45~50분 규칙은 해당 예약 프롬프트를 따른다.'));
 
+// 2026-10-11 chairman SUPER-LOCK: protect precedence AND actual-report semantics,
+// not merely the presence of a 35-minute string somewhere in the repository.
+const supremePhrase='작업시간과 최종 보고시간을 지키는 것이 모든 개발 기능';
+const timeContract=[
+ 'SUPER-LOCK 2026-10-11',
+ supremePhrase,
+ '25분 점검',
+ '30~33분 신규 기능 개발 금지',
+ '33분부터 도구 호출보다 최종보고',
+ '35분 전 최종 보고 메시지의 실제 전송 완료',
+ '지시 수령시간',
+ '개발 종료시간',
+ '35분 이내 최종보고 전송 준수',
+ '미계측 / FAIL(계측)',
+ 'USER_STOP_OVERRIDE',
+ '자동 예방'
+];
+for (const name of ['agents','constitution','principles']) {
+  const doc=files[name];
+  check(name+': 2026-10-11 time/reporting SUPER-LOCK is highest priority',
+    doc.includes('SUPER-LOCK 2026-10-11')&&doc.includes(supremePhrase));
+  for(const invariant of timeContract){
+    check(name+': time SUPER-LOCK invariant '+invariant,doc.includes(invariant));
+  }
+  check(name+': timing section precedes all implementation and feature rules',
+    doc.indexOf('SUPER-LOCK 2026-10-11')>=0&&
+    doc.indexOf('SUPER-LOCK 2026-10-11')<doc.indexOf('LOCKED 2026-10-09'));
+}
+check('Handoff current: 2026-10-11 time SUPER-LOCK acknowledged',
+  files.handoff.includes('SUPER-LOCK 2026-10-11'));
+
 const failed = checks.filter(x => !x.pass);
 console.log(`SUMMARY | ${checks.length - failed.length}/${checks.length} PASS`);
 if (failed.length) process.exit(1);
