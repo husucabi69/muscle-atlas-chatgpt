@@ -95,7 +95,22 @@ try{
     document.getElementById('lys-audio-race-fixture')?.remove();
     delete window.__lysAudioRace;
   });
-  console.log('PASS | native Korean speech completion/cancel race (mobile Chromium): canceled 0 callbacks; uninterrupted 1 callback; no physical Android claim');
+  // Final muscle volume must not offer a nonexistent auto-next destination.
+  await page.locator('#diseaseTraumaOriginalView .region-back').click();
+  await page.waitForFunction(()=>!document.getElementById('diseaseTraumaCategoryView').hidden);
+  await page.locator('[data-claude-academic-lecture="13"]').click();
+  await page.waitForFunction(()=>{
+    const host=document.getElementById('claudeNativePilotHost');
+    return Number(host?.dataset.claudeNativeLecture)===13&&
+      !!host.querySelector('[data-native-audio="auto-next"]');
+  });
+  const lastCourse=await page.locator('#claudeNativePilotHost').evaluate(host=>({
+    hidden:host.querySelector('.claude-native-auto-next')?.hidden,
+    disabled:host.querySelector('[data-native-audio="auto-next"]')?.disabled
+  }));
+  assert.equal(lastCourse.hidden,true,'Final muscle lecture should hide the unusable next-volume UI');
+  assert.equal(lastCourse.disabled,true,'Final muscle lecture auto-next must be disabled');
+  console.log('PASS | native Korean speech: canceled 0 auto-next; uninterrupted 1 auto-next; last-volume continuation disabled; simulated mobile browser only');
 }finally{
   await browser.close();
 }
