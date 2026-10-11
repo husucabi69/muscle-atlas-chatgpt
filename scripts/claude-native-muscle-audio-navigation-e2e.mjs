@@ -106,10 +106,12 @@ try{
   });
   const lastCourse=await page.locator('#claudeNativePilotHost').evaluate(host=>({
     hidden:host.querySelector('.claude-native-auto-next')?.hidden,
+    display:getComputedStyle(host.querySelector('.claude-native-auto-next')).display,
     disabled:host.querySelector('[data-native-audio="auto-next"]')?.disabled
   }));
   assert.equal(lastCourse.hidden,true,'Final muscle lecture should hide the unusable next-volume UI');
   assert.equal(lastCourse.disabled,true,'Final muscle lecture auto-next must be disabled');
+  assert.equal(lastCourse.display,'none','Final muscle lecture next switch must be visually hidden');
   console.log('PASS | native Korean speech: canceled 0 auto-next; uninterrupted 1 auto-next; last-volume continuation disabled; simulated mobile browser only');
 }finally{
   await browser.close();
