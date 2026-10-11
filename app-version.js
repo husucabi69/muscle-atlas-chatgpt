@@ -1,8 +1,8 @@
 (function(scope){
   const release=Object.freeze({
-    buildVersion:'2026.10.11-stage24.17',
-    displayVersion:'v12.34 · 손·손가락 및 경추·상지 신경 음성 이식',
-    cacheKey:'20261011-stage24-17'
+    buildVersion:'2026.10.11-stage24.18',
+    displayVersion:'v12.35 · 이학적 검진 14권 원본·무료 음성',
+    cacheKey:'20261011-stage24-18'
   });
   scope.LYS_APP_RELEASE=release;
 })(typeof self!=='undefined'?self:window);
