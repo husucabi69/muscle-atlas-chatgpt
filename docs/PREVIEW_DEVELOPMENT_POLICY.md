@@ -1,5 +1,7 @@
 # Preview Development Policy
 
+> **HIGHEST PRIORITY — SUPER-LOCK 2026-10-11:** time AND actual final-report delivery deadlines override feature completion, QA/deploy waits and roadmap scope. Manual development 25~30분; wrap 30~35분; report first at minute 33; 35분 HARD STOP includes the **final response actually sent**. Record real KST start/end/report, show PASS/FAIL or 미계측 for each gate, user `USER_STOP_OVERRIDE` immediately. For scheduled automation apply its separate deadline, keeping real measurement/report supremacy.
+
 This is the long-lived development line for 이윤석정형외과 근육.
 
 - Branch: `preview/development`
