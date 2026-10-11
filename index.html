@@ -5595,7 +5595,11 @@ if(autoUpdateHome)new MutationObserver(()=>{
 }).observe(autoUpdateHome,{attributes:true,attributeFilter:['class']});
 window.addEventListener('focus',()=>requestAppUpdateCheck('focus'));
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')requestAppUpdateCheck('resume');});
-window.addEventListener('load',()=>{initPullToRefresh();initAppServiceWorker();});
+// Check for an updated installed app as soon as startup HTML is parsed;
+// waiting for every image/font to load would delay a launch-time upgrade.
+function initAppStartup(){initPullToRefresh();initAppServiceWorker();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initAppStartup,{once:true});
+else initAppStartup();
 
 let claudeLibraryManifest=null,selectedClaudeLectureNumber=null;
 function setDiseaseTraumaView(v){
