@@ -1,4 +1,4 @@
-// v12.32 app-shell update: offline compendium TTS, wrist native and honest course-status labels.
+// v12.32 app-shell update: offline interactive TTS reader with correct refreshed-muscle click ownership.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
