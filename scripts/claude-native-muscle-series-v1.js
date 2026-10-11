@@ -1,9 +1,10 @@
-// Stage 24 expansion: native app reader for Claude Muscle Anatomy volumes 2–11.
+// Stage 24 expansion: lossless native app reader for Muscle volumes 2–11 and
+// Phase 1 examination/referred-pain lectures 14–16.
 // Exact canonical HTML SHA/bytes verified before DOM import; source files untouched.
 // The existing volume-1 custom native lecture and every non-muscle course retain their routes.
 (function(){
   'use strict';
-  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13]);
+  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16]);
   const previousOpen=window.openClaudeOriginalLecture;
   const panel=document.getElementById('claudeNativePilotHost');
   const modeSwitch=document.getElementById('claudeNativeModeSwitch');
@@ -22,7 +23,7 @@
   function nextInSeries(number){
     const all=window.LYSClaudeLectureCatalog?.()||[];
     const current=all.find(x=>x.number===number);
-    return all.find(x=>x.number===number+1&&x.series===current?.series)||null;
+    return all.find(x=>x.number===number+1&&x.series===current?.series&&ELIGIBLE.has(x.number))||null;
   }
   window.LYSClaudeSequence=Object.freeze({
     next(number){
@@ -92,7 +93,7 @@
     const lead=document.createElement('div');lead.className='claude-native-lead';
     lead.innerHTML='<b>'+esc(item.title)+' · 우리 앱 통합 강의</b>'+
       '<p>원본 '+originalCounts.sections+'장 · 표 '+originalCounts.tables+'개 · 그림 '+originalCounts.figures+'개 · 음성용 문단 '+originalCounts.paragraphs+'개를 그대로 보존했습니다.</p>'+
-      '<small>원문 용량과 SHA-256 검증 PASS · 휴대전화 무료 한국어 음성 사용</small>';
+      '<small>원문 용량과 SHA-256 검증 PASS · 휴대전화 무료 한국어 음성 사용 · 원본 MP4 서버 자동재생 아님</small>';
     const nav=document.createElement('div');nav.className='claude-native-navbar';
     const label=document.createElement('label');label.textContent='학습할 장 선택';
     const choose=document.createElement('select');choose.setAttribute('aria-label','강의 장 바로가기');
