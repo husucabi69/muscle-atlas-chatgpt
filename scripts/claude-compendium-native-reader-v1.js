@@ -150,6 +150,7 @@
      '[data-i].claude-native-speaking{outline:3px solid #d79416!important;outline-offset:3px;background:#fff2b9!important;border-radius:6px}'+
      // A self-contained reading screen. The source's original handlers, data,
      // selection, illustrations and JS remain untouched in the live iframe.
+     'html.lys-compendium-muscle-focus header{display:none!important}' +
      'html.lys-compendium-muscle-focus #nav{display:none!important}'+
      'html.lys-compendium-muscle-focus .wrap{display:block!important;max-width:none!important;padding:8px!important}'+
      'html.lys-compendium-muscle-focus #main{display:block!important;padding:14px!important;min-height:0!important;border:0!important;width:100%!important;max-width:none!important}'+
