@@ -1,5 +1,16 @@
 # CURRENT HANDOFF — 2026-10-11 SUPER-LOCK time/reporting first
 
+## 2026-10-11 13:28 KST 수동 개발 — v12.32 근육총람 1·2 큰 화면/무료음성 + #17 손목검진 정식 Native 후보
+- **원본 87/87 HTML을 그대로 보존하고 `main`은 명시 승인 전 변경 금지.** 개발 `preview/development`; HEAD/CI/Preview는 다음 작업에서 실시간 재확인.
+- **실제 요청:** Android 화면에서 근육총람 대화형 #1·근육총람 표지·목록 #2의 내용이 작은 프레임 안에 갇혀 보임. #3 근육학 1권처럼 읽기 쉽고 무료 한국어 음성을 원함.
+- **원인 실측:** 모바일 Chromium 원본 프레임은 **높이 656px**, #1 원본 실제 문서 높이 **3605px**, #2 **775px**. 각각 약 3.2MB의 원본 JS 대화형 페이지로 #3 같은 정적 academic HTML 형식이 아니므로 원본 스크립트를 버리고 단순 Shadow DOM 복제하면 메뉴·근육 선택 기능이 손실됨.
+- **개선:** `scripts/claude-compendium-native-reader-v1.js`로 #1·#2의 진짜 원본 iframe/스크립트를 유지하면서, 휴대전화 반응형 폰트/가로너비·문서 높이 기반 바깥 스크롤, 앱 자체 제어패널·무료 한국어 브라우저 TTS 연결. 내부 노출 중인 학술 문장뿐 아니라 동적으로 생성된 DIV/SPAN 카드와 근육 선택 BUTTON까지 읽기 노드 검색. 근육 변경 시 "지금 선택한 내용으로 음성 갱신" 버튼 지원. **원본 녹음 MP4는 연결되지 않음.**
+- **Native와 개선형 원본 구분:** 정식 본문 이식은 기존 14강(#3~16)+#17 손목검진 **15/87강**. #1,2는 원본 대화형 기능 보존을 우선하는 **원본+큰글씨·음성 통합형 2개**로 별도 표기, Native 정적 이식 완료로 허위 계상하지 않는다. 따라서 무료 기기 TTS 사용자 인터페이스 제공 대상은 합계 **17/87강**, 실제 Android 음색/자동동작은 별도 `REAL_DEVICE_PENDING`.
+- **#17 이학검진 손목 원본 검증:** 원본 HTML 438936바이트, 13장/282개 음성 표식/22표/8figure/3그림, 표식 중 빈 문단 2개, 원본 MP4 타임코드 30개는 0초. 원본 `window.__AUD__` 스크립트 2개는 동일하며, 나머지 1개는 원본 MP4 플레이어. 두 번째 동적 시험 문제가 생성되는 자료는 아님. 원본 SHA/용량 검증 후 제2~11근육학에 쓰던 Shadow DOM Native 방식 재사용, #17 다음 #18은 아직 미이식이므로 자동 음성 넘김 금지.
+- **회귀검사:** `scripts/claude-compendium-layout-inspect.mjs`, `scripts/claude-compendium-native-reader-e2e.mjs`, `scripts/claude-native-clinical-source-qa.mjs`, `scripts/claude-native-readiness-audit.mjs`, 기존 87강 모바일/설치형 PWA/Cloudflare exact-SHA. 최종 run PASS 여부는 현재 HEAD에서 새로 읽고 기입. PWA shell에 TTS/Native/Compendium JS를 사전 캐시.
+- **계속 작업:** 우선 이번 회차 안에 모바일 #1/2 확대·음성·근육선택 및 #17 검증, 실물 Android 음질 검증(사용자 기기 필요). 후속 이식 **#18 이학적검진 손·손가락**, 그다음 #19 경추·상지신경의 중복 `__AUD__` 무손실 검증 후 적용. 87/87 HTML PASS는 87/87 Native PASS가 아님. 35분 HARD STOP과 실제 보고시간 우선.
+
+
 ## 2026-10-11 12:30 KST 시작 수동배치 — v12.30 연관통·이학적검진 Native 1차 이식
 - **이번 배치 주요 변경:** Native 강의 이식 대상 #14 연관통, #15 어깨 이학검사, #16 팔꿈치 이학검사. 기존 근육학 11권과 합쳐 **14/87 Native(무료 한국어 TTS 코드 연결)**, 나머지 **73/87 원본 HTML 열람만 지원**. `scripts/claude-native-muscle-series-v1.js`, 원본무결성 QA, 87/87 모바일 브라우저 E2E 확대. 최종 CI 결과를 매 작업 시작 시 새로 읽을 것.
 - **기본 CI 회귀:** `scripts/claude-native-muscle-series-qa.mjs`, `scripts/claude-native-clinical-source-qa.mjs`에 원본 SHA·bytes·section·table·figure·base64 JPEG·구간/TOC·TTS 바인딩 검사를 연결. 87강 전체 원본/Native 도입 현황·원본 시간표시 누락은 `scripts/claude-native-readiness-audit.mjs`가 인벤토리로 보고하고 Actions artifact로 저장.
