@@ -204,18 +204,8 @@ jobs:
         run: node scripts/claude-original-visual-e2e.mjs
       - name: Verify native Korean speech Stop versus auto-next race on mobile Chromium
         run: node scripts/claude-native-muscle-audio-navigation-e2e.mjs
-      - name: Open all 87 original Claude lectures on mobile and desktop representative routes
-        run: node scripts/claude-original-all-lectures-e2e.mjs
       - name: Test installed-PWA Service Worker against original Claude HTML
         run: node scripts/claude-pwa-installed-original-e2e.mjs
-      - name: Upload all-lecture navigation evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: claude-all-lectures-e2e-${{ github.sha }}
-          path: qa-artifacts/claude-all-lectures/
-          if-no-files-found: warn
-          retention-days: 14
       - name: Upload Claude original classroom visual evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -225,9 +215,53 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+  # Four isolated workers avoid running multiple enormous HTML pages on one
+  # underpowered browser. All matrix shards must pass: their modulo partition
+  # covers the exact 87 original lecture numbers with no omissions.
+  claude-originals-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start local source server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/claude-shard-server.log 2>&1 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/claude-shard-server.log
+          exit 1
+      - name: Verify exact original lecture subset in isolated Chromium
+        env:
+          CLAUDE_E2E_SHARD_INDEX: ${{ matrix.shard }}
+          CLAUDE_E2E_SHARD_COUNT: '4'
+        run: node scripts/claude-original-all-lectures-e2e.mjs
+      - name: Upload one-shard full original fidelity evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-all-lectures-e2e-${{ github.sha }}-shard-${{ matrix.shard }}
+          path: qa-artifacts/claude-all-lectures/
+          if-no-files-found: warn
+          retention-days: 14
+
   deploy-safety-gate:
     if: github.event_name == 'push' && github.ref_name == 'preview/development'
-    needs: [global-qa, runtime-navigation-e2e]
+    needs: [global-qa, runtime-navigation-e2e, claude-originals-e2e]
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -253,10 +287,6 @@ jobs:
         run: |
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
-      - name: Open all 87 live Claude originals through Preview mobile navigation
-        env:
-          CLAUDE_E2E_LIVE: 'true'
-        run: node scripts/claude-original-all-lectures-e2e.mjs
       - name: Test installed-PWA Claude original HTML on exact-SHA Cloudflare Preview
         env:
           CLAUDE_E2E_LIVE: 'true'
@@ -275,5 +305,48 @@ jobs:
         with:
           name: deploy-safety-evidence-${{ github.sha }}
           path: /tmp/deploy-safety-evidence.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  # Live original source checks run only AFTER the exact-SHA deploy gate has
+  # passed. Each worker downloads that gate's evidence and verifies its SHA.
+  claude-live-originals-e2e:
+    if: github.event_name == 'push' && github.ref_name == 'preview/development'
+    needs: [deploy-safety-gate]
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Checkout exact SHA
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Load verified exact-SHA Cloudflare deployment evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: deploy-safety-evidence-${{ github.sha }}
+          path: /tmp
+      - name: Verify every assigned original lecture on live Preview
+        env:
+          CLAUDE_E2E_LIVE: 'true'
+          CLAUDE_E2E_SHARD_INDEX: ${{ matrix.shard }}
+          CLAUDE_E2E_SHARD_COUNT: '4'
+          DEPLOY_GATE_EVIDENCE: /tmp/deploy-safety-evidence.json
+        run: node scripts/claude-original-all-lectures-e2e.mjs
+      - name: Upload live original fidelity evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-live-originals-${{ github.sha }}-shard-${{ matrix.shard }}
+          path: qa-artifacts/claude-preview-live/
           if-no-files-found: warn
           retention-days: 14
