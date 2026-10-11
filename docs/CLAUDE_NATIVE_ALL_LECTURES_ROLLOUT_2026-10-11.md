@@ -6,7 +6,7 @@
 - 원본 구조: **#14 연관통 12장·194개 읽기 구간·8개 표**, **#15 어깨 15장·500구간·46개 표·15개 figure·5개 JPEG**, **#16 팔꿈치 16장·361구간·35개 표·13개 figure·5개 JPEG**. 이미지 데이터는 원본 HTML의 data URI이므로 수정/대체 없이 재사용.
 - 중요한 원본 MP4 동기화 제한을 실제 조사했다: #14 **25/194**, #15 **54/500**, #16 **34/361** 구간의 기존 `__AUD__.t`에는 **시작시각과 종료시각이 같은 0초 표시**가 존재한다. 이는 Claude 원본의 미동기화 구간이지 무료 TTS의 누락이 아니다. 절대 임의로 시각을 채우거나 원본 녹음 전체가 정확히 동기화된 것처럼 보고하지 않는다. 실제 MP4 파일 자동재생은 R2 미연결로 계속 BLOCKED.
 - 새 원본 형식·시간표시 정합성 QA: `scripts/claude-native-clinical-source-qa.mjs`. 87강 전체 Native/원본 열람 현황과 동기화 결손을 감사하는 `scripts/claude-native-readiness-audit.mjs`는 변경 없이 자동 실행하는 읽기 전용 검사다.
-- Android 실제 휴대전화 소리/자동시작/반복은 여전히 **REAL_DEVICE_PENDING**이다. Chromium 음성 모의엔진 PASS를 실물 Android PASS로 대체하지 않는다. 설치·검수는 `https://preview-development.muscle-atlas-chatgpt.pages.dev/`를 사용한다.
+- 녹음 MP4 선택은 **해당 제1권 Shadow DOM에만 귀속**시켰다. 1권에서 사용자가 원본 MP4를 선택한 뒤 연관통/검진 강의로 옮겨도 새 강의 문단을 탭하면 무료 TTS가 정상 시작되도록 방지 상태를 수정했고, 모바일 Chromium 회귀 검사를 연결했다. (실물 Android 검증은 별도.)\n- Android 실제 휴대전화 소리/자동시작/반복은 여전히 **REAL_DEVICE_PENDING**이다. Chromium 음성 모의엔진 PASS를 실물 Android PASS로 대체하지 않는다. 설치·검수는 `https://preview-development.muscle-atlas-chatgpt.pages.dev/`를 사용한다.
 - Production `main`은 별도 명시 승인 전까지 동결. 기존 v11.14 5탭 해부학 상세·원본 87 HTML·원본 mp4 해시는 그대로 보존.
 - **다음 배치:** #17 손목, #18 손·손가락, #19 경추·상지신경은 원본 `__AUD__` 선언이 두 번 있어 중복 의도·해시 확인이 우선이다. #20~27 이학검진 나머지는 학술 본문형 후보이나, 각각 별도의 무손실 원본/음성/브라우저 검증 후에만 Native 범위를 늘린다. #1~2 근육총람 대화형은 3MB급 별도 형식이며 단순 HTML 복제만으로 완료 처리하지 않는다.
 - 모든 강의 유형의 새 Batch는 **지시 → 실제 코드/QA → Cloudflare Preview → 실기기 검사 → 다음 배치**로 전개한다. 기능 완성보다 35분 HARD STOP과 실제 최종보고시간이 최우선.
