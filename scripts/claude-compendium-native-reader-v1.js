@@ -131,6 +131,10 @@
    try{doc=frame.contentDocument;}catch{return;}
    const item=(window.LYSClaudeLectureCatalog?.()||[]).find(x=>x.number===n);
    if(!item||!doc||doc.readyState!=='complete'||doc.title==='원본 강의 확인 필요')return;
+   // Cloudflare may fire multiple iframe load callbacks for the SAME
+   // document. Once verified, never remount controls or reset the user's
+   // chosen original/enlarged mode for this exact document.
+   if(frameDoc===doc&&!banner.hidden&&banner.dataset.compendiumLecture===String(n))return;
    const path=decodeURIComponent(frame.contentWindow.location.pathname);
    const canonical='/claude-library/'+item.source_path;
    // Cloudflare Pages Clean URLs redirects /lecture.html to /lecture.

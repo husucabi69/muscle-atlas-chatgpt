@@ -1,4 +1,4 @@
-// v12.41 preview: large-text toggle and safe offset below sticky header, stage24.24.
+// v12.42 preview: preserve compendium reading mode across duplicate iframe load callbacks, stage24.25.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
