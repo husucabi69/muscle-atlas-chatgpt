@@ -1,4 +1,4 @@
-// v12.45 preview: full-viewport muscle tap, compact academic header, and 87-layout migration plan, stage24.28.
+// v12.46 preview: full-viewport muscle tap and Android Back cleanup, stage24.29.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
