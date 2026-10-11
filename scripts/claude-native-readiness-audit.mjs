@@ -10,6 +10,7 @@ const nativeSource=fs.readFileSync('scripts/claude-native-muscle-series-v1.js','
 const allowed=nativeSource.match(/const ELIGIBLE=new Set\(\[([\d,]+)\]\)/);
 assert.ok(allowed,'exact native lecture allowlist must be inspectable');
 const nativeNumbers=new Set([3,...allowed[1].split(',').map(Number)]);
+const largeInteractiveDeviceVoiceNumbers=new Set([1,2]); // full interactive original in large app-owned shell, not static native rewrite
 const rows=[];
 for(const item of manifest.lectures){
  const bytes=fs.readFileSync('claude-library/'+item.source_path);
@@ -37,6 +38,7 @@ for(const item of manifest.lectures){
  const sections=count(/<section\b/gi);
  const scriptCount=count(/<script\b/gi);
  const native=nativeNumbers.has(item.number);
+ const interactiveVoice=largeInteractiveDeviceVoiceNumbers.has(item.number);
  const sourceShape=sections&&markCount
    ? (audioDeclarations>1?'DUPLICATE_AUDIO_DECLARATION_REVIEW':
       scriptCount>3?'ADDITIONAL_DYNAMIC_SCRIPT_REVIEW':
@@ -45,7 +47,8 @@ for(const item of manifest.lectures){
  rows.push({
    number:item.number,title:item.title,series:item.series,
    originalBytes:bytes.length,sourceSha256:item.source_sha256,
-   nativePreviewIntegrated:native,freeKoreanTtsImplemented:native,
+   nativePreviewIntegrated:native,freeKoreanTtsImplemented:native||interactiveVoice,
+   interactiveOriginalLargeScreenDeviceTts:interactiveVoice,
    actualAndroidAudioVerified:false,hostedRecordedMp4Verified:false,
    sections,readingSegments:markCount,tables:count(/<table\b/gi),
    figures:count(/<figure\b/gi),images:count(/<img\b/gi),
@@ -58,8 +61,10 @@ for(const item of manifest.lectures){
 assert.equal(new Set(rows.map(x=>x.number)).size,87,'lecture IDs unique');
 assert.ok(rows.some(x=>x.number===14&&x.nativePreviewIntegrated),
   'new clinical source must be represented');
-assert.ok(rows.some(x=>x.number===17&&!x.nativePreviewIntegrated),
-  'original-only 17 must not be falsely counted as native');
+assert.ok(rows.some(x=>x.number===17&&x.nativePreviewIntegrated),
+  'wrist examination #17 must be counted after original fidelity validation');
+assert.ok(rows.filter(x=>x.interactiveOriginalLargeScreenDeviceTts).length===2,
+  'original compendium 1–2 added voice controls but remains interactive original');
 const total=(test)=>rows.filter(test).length;
 const report={
  provenance:'GitHub original HTML exact byte/SHA comparison',
@@ -68,15 +73,18 @@ const report={
  originalLectureFiles:rows.length,
  nativePreviewIntegrated:total(x=>x.nativePreviewIntegrated),
  originalOnly:total(x=>!x.nativePreviewIntegrated),
+ enhancedOriginalWithDeviceVoice:total(x=>x.interactiveOriginalLargeScreenDeviceTts),
+ deviceVoiceCodeAvailable:total(x=>x.freeKoreanTtsImplemented),
  sourceCueMapsParsed:total(x=>x.audioParse==='PARSED_SOURCE_NOT_PLAYBACK'),
  sourceCuesMissingTiming:rows.reduce((n,x)=>n+x.untimedSourceCues,0),
  actualAndroidAudioVerified:0,serverRecordedAudioVerified:0,
  rows
 };
-assert.equal(report.nativePreviewIntegrated,14,'pilot 1 + 10 muscle extension + 3 clinical native');
-assert.equal(report.originalOnly,73,'unported source-only lecture count');
+assert.equal(report.nativePreviewIntegrated,15,'pilot 1 + 10 muscle extension + 4 clinical native');
+assert.equal(report.originalOnly,72,'unported source-only lecture count');
+assert.equal(report.deviceVoiceCodeAvailable,17,'15 native + 2 interactive original read-aloud wrappers');
 fs.mkdirSync('qa-artifacts/claude-native-readiness',{recursive:true});
 fs.writeFileSync('qa-artifacts/claude-native-readiness/report.json',
  JSON.stringify(report,null,2)+'\n');
-console.log('CLAUDE ALL 87 READINESS | originals 87/87 exact SHA; native 14; source-only 73; source cue maps '+report.sourceCueMapsParsed+'; untimed original cues '+report.sourceCuesMissingTiming+'; physical Android 0 verified; MP4 hosted 0 verified');
+console.log('CLAUDE ALL 87 READINESS | originals 87/87 exact SHA; native 15; source-only 72; device voice UI '+report.deviceVoiceCodeAvailable+'; source cue maps '+report.sourceCueMapsParsed+'; untimed original cues '+report.sourceCuesMissingTiming+'; physical Android 0 verified; MP4 hosted 0 verified');
 console.log('NOTE | Extra/duplicate scripts require type-specific review; static classification does NOT authorize automatic native integration');
