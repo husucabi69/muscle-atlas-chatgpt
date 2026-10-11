@@ -1,4 +1,5 @@
-// Regression gate for new native muscle lectures 2–11: original bytes remain unchanged.
+// Native series QA: Muscle #4–13 plus clinical/referred-pain #14–16.
+// Original source bytes, academic text/figures/tables and series boundaries stay intact.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
@@ -7,11 +8,12 @@ const reader=fs.readFileSync('scripts/claude-native-muscle-series-v1.js','utf8')
 const speech=fs.readFileSync('scripts/claude-native-muscle-audio-v1.js','utf8');
 const index=fs.readFileSync('index.html','utf8');
 const workflow=fs.readFileSync('.github/workflows/global-qa.yml','utf8');
-const list=manifest.lectures.filter(x=>x.number>=4&&x.number<=13);
-assert.equal(list.length,10);
+const list=manifest.lectures.filter(x=>x.number>=4&&x.number<=16);
+assert.equal(list.length,13);
 assert.ok(index.includes('<script src="./scripts/claude-native-muscle-series-v1.js"></script>'));
 assert.ok(index.indexOf('claude-native-muscle-series-v1.js')>index.indexOf('claude-native-muscle-v1.js'));
-assert.ok(reader.includes('new Set([4,5,6,7,8,9,10,11,12,13])'));
+assert.ok(reader.includes('new Set([4,5,6,7,8,9,10,11,12,13,14,15,16])'));
+assert.ok(reader.includes('&&ELIGIBLE.has(x.number)'), 'native next-course gate must never spill into non-native original lessons');
 assert.ok(reader.includes("crypto.subtle.digest('SHA-256',bytes)"));
 assert.ok(reader.includes('full.textContent!==source.textContent'));
 assert.ok(reader.includes('window.LYSNativeAudio.mount(shadow'));
@@ -23,7 +25,7 @@ assert.ok(speech.includes('onComplete'));
 assert.ok(workflow.includes('node scripts/claude-native-muscle-series-qa.mjs'));
 const report=[];
 for(const x of list){
-  assert.equal(x.series,'근육학');
+  assert.equal(x.series,x.number<=13?'근육학':'이학적 검진·연관통');
   const src=fs.readFileSync('claude-library/'+x.source_path);
   const actualSha=crypto.createHash('sha256').update(src).digest('hex');
   assert.equal(actualSha,x.source_sha256,'source SHA unchanged for '+x.number);
@@ -33,6 +35,11 @@ for(const x of list){
   const sections=count(/<section\b/g),paragraphs=count(/\bdata-i="/g),
     tables=count(/<table\b/g),figures=count(/<figure\b/g),images=count(/<img\b/g);
   assert.ok(sections>0&&paragraphs>0,'static full-content lecture needed: '+x.number);
+  // Each transplanted examination source must remain the *actual* full
+  // academic page: not a shortened synthetic synopsis or lecture outline.
+  if(x.number===14)assert.ok(sections===12&&paragraphs===194&&tables===8,'referred pain source fidelity');
+  if(x.number===15)assert.ok(sections===15&&paragraphs===500&&tables===46&&figures===15,'shoulder examination source fidelity');
+  if(x.number===16)assert.ok(sections===16&&paragraphs===361&&tables===35&&figures===13,'elbow examination source fidelity');
   assert.ok(/class=["']wrap["']/.test(s),'canonical source body wrapper missing: '+x.number);
   assert.ok(s.includes('<style>'),'original theme must be preserved');
   assert.ok(s.includes('window.__AUD__='),'original source audio timings preserved');
@@ -40,5 +47,5 @@ for(const x of list){
   console.log('PASS | Source-locked native volume '+x.number+': '+sections+' chapters, '+paragraphs+' speech markers, '+tables+' tables, '+figures+' figures');
 }
 fs.mkdirSync('qa-artifacts/claude-native-series',{recursive:true});
-fs.writeFileSync('qa-artifacts/claude-native-series/report.json',JSON.stringify({plannedNativeVolumes:[3,...list.map(x=>x.number)],verifiedSourceVolumes:report,sourceBytesProtected:true,actualAndroidVerified:false,originalMp4AutoHosted:false},null,2)+'\n');
-console.log('CLAUDE NATIVE 10-VOLUME SOURCE QA | 10/10 exact SHA + full content inventory PASS');
+fs.writeFileSync('qa-artifacts/claude-native-series/report.json',JSON.stringify({plannedNativeVolumes:[3,...list.map(x=>x.number)],verifiedSourceVolumes:report,sourceBytesProtected:true,clinicalExtension:[14,15,16],actualAndroidVerified:false,originalMp4AutoHosted:false},null,2)+'\n');
+console.log('CLAUDE NATIVE 13-VOLUME SOURCE QA | 13/13 exact SHA + full content inventory PASS (Muscle 10 + Exam 3)');
