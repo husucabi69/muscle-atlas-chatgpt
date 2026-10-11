@@ -101,6 +101,7 @@ try {
         if (seen.has(number)) throw new Error('Duplicate lecture across category lists: ' + number);
         seen.add(number);
         const row = byNumber.get(number);
+        console.log('CHECK | Claude lecture '+number+' shard '+shardIndex+'/'+shardCount+' start');
         const tile = page.locator('#claudeAcademicCourseList [data-claude-academic-lecture="' + number + '"]');
         if (!(await tile.textContent()).includes('우리 서버 원본'))
           throw new Error('Self-hosted status missing from tile ' + number);
@@ -235,6 +236,7 @@ try {
           number, series: row.series, title: row.title, viewport: viewport.label,
           expectedSha256: row.source_sha256, fallbackMatches: true, ...details
         });
+        console.log('CHECK | Claude lecture '+number+' shard '+shardIndex+'/'+shardCount+' loaded; checking audio and images');
         if (nativeLesson) {
           if(nativePilot && viewport.all){
             const recordedPicker=page.locator('#claudeNativePilotHost [data-recorded-audio="files"]');
@@ -291,10 +293,24 @@ try {
             if(number>=15&&number<=19){
               const visual=await page.locator('#claudeNativePilotHost').evaluate(async host=>{
                 const imgs=[...host.querySelector('.claude-native-lesson').shadowRoot.querySelectorAll('img')];
-                await Promise.all(imgs.map(img=>img.decode().catch(()=>{})));
-                return {total:imgs.length,broken:imgs.filter(img=>!img.complete||!img.naturalWidth).length};
+                // Imported source may use loading=lazy. decode() for an image
+                // far below the viewport can remain pending indefinitely;
+                // force eager loading in this disposable QA DOM ONLY and cap
+                // the decode check so a failed asset cannot stall CI 19 minutes.
+                imgs.forEach(img=>{img.loading='eager';});
+                const result=await Promise.race([
+                  Promise.allSettled(imgs.map(img=>img.decode())).then(states=>({
+                    timedOut:false,
+                    rejected:states.filter(state=>state.status==='rejected').length
+                  })),
+                  new Promise(resolve=>setTimeout(()=>resolve({timedOut:true,rejected:-1}),12000))
+                ]);
+                return {total:imgs.length,timedOut:result.timedOut,
+                  rejected:result.rejected,
+                  broken:imgs.filter(img=>!img.complete||!img.naturalWidth).length,
+                  sources:imgs.filter(img=>!img.complete||!img.naturalWidth).map(img=>img.currentSrc||img.src)};
               });
-              if(visual.total!==({15:5,16:5,17:3,18:1,19:2}[number])||visual.broken)
+              if(visual.total!==({15:5,16:5,17:3,18:1,19:2}[number])||visual.timedOut||visual.rejected||visual.broken)
                 throw Error('Clinical native embedded source figures failed image decode for '+number+': '+JSON.stringify(visual));
             }
           }
@@ -317,6 +333,7 @@ try {
           await page.locator('#diseaseTraumaOriginalView .region-back').click();
         }
         await page.waitForFunction(() => !document.querySelector('#diseaseTraumaCategoryView').hidden);
+        console.log('PASS | Claude lecture '+number+' shard '+shardIndex+'/'+shardCount+' full interaction');
       }
       // The next category tile lives on the preceding screen, not below
       // this list: return to the ten-category root before continuing.
