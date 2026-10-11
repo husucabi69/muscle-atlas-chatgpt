@@ -53,3 +53,32 @@
 #diseaseTraumaOriginalView > .claude-original-toolbar .region-back {
   min-height: 44px;
 }
+
+
+/* Stage 24.28: when an actual academic lecture is open, prioritize the
+   lesson above the app navigation. Users return with the sticky "강의 목록"
+   control; the full tab bar is present again in the course listing.
+   This is app UI only, not a change to any Claude original source. */
+@media (max-width:720px){
+  body:has(#diseaseTraumaOriginalView:not([hidden])) .header .tabs{display:none!important}
+  body:has(#diseaseTraumaOriginalView:not([hidden])) .head-inner{
+    padding:5px 12px;gap:7px;min-height:44px
+  }
+  body:has(#diseaseTraumaOriginalView:not([hidden])) .brand{gap:9px;min-width:0}
+  body:has(#diseaseTraumaOriginalView:not([hidden])) .brand img{
+    width:31px;height:31px;border-radius:9px
+  }
+  body:has(#diseaseTraumaOriginalView:not([hidden])) .brand h1{
+    font-size:17px;line-height:1.15;white-space:nowrap
+  }
+  body:has(#diseaseTraumaOriginalView:not([hidden])) .brand small{
+    font-size:12px;max-width:calc(100vw - 78px);white-space:nowrap;
+    overflow:hidden;text-overflow:ellipsis
+  }
+  body:has(#diseaseTraumaOriginalView:not([hidden])) .page{
+    padding-top:8px;padding-left:8px;padding-right:8px
+  }
+  body:has(#diseaseTraumaOriginalView:not([hidden])) .claude-native-pilot{
+    padding:6px;border-radius:12px
+  }
+}
