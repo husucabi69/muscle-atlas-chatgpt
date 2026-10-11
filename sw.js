@@ -1,4 +1,4 @@
-// v12.33 PWA auto-update: always network-first live JS/CSS on launch, offline cache fallback; stage24.14.
+// v12.33 PWA auto-update: DOM-ready launch, live JS/CSS network-first, offline cache fallback; stage24.15.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
