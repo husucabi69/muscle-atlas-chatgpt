@@ -2,6 +2,7 @@
 // Muscle Compendium sources. Browser voice is mocked: physical Android audio
 // and original MP4 playback are NOT verified by this test.
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {chromium} from 'playwright';
 const browser=await chromium.launch({headless:true});
 try{
@@ -22,6 +23,7 @@ try{
  const caught=[];page.on('pageerror',e=>caught.push(e.message));
  await page.goto('http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
  await page.locator('.tab[data-page="diseaseTrauma"]').click();
+ const originalHeader=await page.locator('.header').evaluate(el=>el.getBoundingClientRect().height);
  await page.locator('[data-claude-academic-category="0"]').click();
  for(const n of [1,2]){
    await page.locator('[data-claude-academic-lecture="'+n+'"]').click();
@@ -33,6 +35,13 @@ try{
        +host.dataset.compendiumVoiceSegments>0&&
        !!host.querySelector('[data-native-audio="play"]');
    },n,{timeout:45000});
+   const compact=await page.evaluate(()=>({
+     tabs:getComputedStyle(document.querySelector('.header .tabs')).display,
+     header:document.querySelector('.header').getBoundingClientRect().height
+   }));
+   assert.equal(compact.tabs,'none','course reading should hide redundant app tab row');
+   assert.ok(compact.header<originalHeader&&compact.header<75,
+     'course mobile header should shrink: '+JSON.stringify({originalHeader,compact}));
    const state=await page.locator('#claudeCompendiumReaderHost').evaluate((host)=>{
      const f=document.getElementById('diseaseTraumaOriginalFrame');
      const d=f.contentDocument;
@@ -172,6 +181,8 @@ try{
      };
    });
    const immediate=await focus();
+   fs.mkdirSync('qa-artifacts/claude-original-classroom',{recursive:true});
+   await page.screenshot({path:'qa-artifacts/claude-original-classroom/compendium-fullscreen-'+n+'.png'});
    assert.ok(immediate.height>=immediate.viewportHeight-90&&
      immediate.width>=immediate.viewportWidth-4&&
      immediate.top>=50&&immediate.top<=90,'muscle focus must fill phone: '+JSON.stringify(immediate));
@@ -199,6 +210,8 @@ try{
    console.log('PASS | Compendium #'+n+' mobile interactive original viewport and free Korean voice: '+JSON.stringify(state));
    await page.locator('#claudeCompendiumFocusToolbar [data-focus-back]').click();
    assert.ok(await page.locator('#diseaseTraumaCategoryView').isVisible(),'returns to muscle category after '+n);
+   assert.equal(await page.locator('.header .tabs').evaluate(el=>getComputedStyle(el).display==='none'),false,
+     'app navigation must return when leaving focused lecture');
  }
  await context.close();
  console.log('CLAUDE COMPENDIUM ADAPTIVE READER E2E | 2/2 original full interactive HTML + responsive large view + browser Korean TTS PASS; physical Android pending');
