@@ -188,6 +188,8 @@ jobs:
           done
           cat /tmp/muscle-runtime-e2e.log
           exit 1
+      - name: Confirm installed PWA automatically updates on launch without interrupting study
+        run: node scripts/pwa-auto-launch-update-e2e.mjs
       - name: Inspect original interactive compendium DOM and mobile iframe viewport
         run: node scripts/claude-compendium-layout-inspect.mjs
       - name: Validate enlarged interactive compendium and free Korean device voice
