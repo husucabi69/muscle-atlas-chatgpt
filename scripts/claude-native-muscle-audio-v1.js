@@ -124,6 +124,7 @@
    // otherwise promise an impossible automatic transition.
    continueCheckbox.disabled=!hasFollowingLecture;
    continueLabel.hidden=!hasFollowingLecture;
+   if(!hasFollowingLecture)continueLabel.style.display='none';
    continueLabel.append(continueCheckbox,document.createTextNode(' 이 권이 끝나면 같은 시리즈의 다음 강의를 자동으로 열고 읽기'));
    const dock=document.createElement('div');dock.className='claude-native-audio-dock';dock.hidden=true;
    const dockText=document.createElement('strong');dockText.textContent='🎧 '+displayName+' · 듣는 중';
