@@ -90,11 +90,6 @@ try{
   }));
   assert.equal(accepted.accepted,1,'Uninterrupted lecture must still auto-advance exactly once');
   assert.equal(accepted.unwanted,0,'A stale canceled callback must never run');
-  await page.evaluate(()=>{
-    window.LYSNativeAudio.stop();
-    document.getElementById('lys-audio-race-fixture')?.remove();
-    delete window.__lysAudioRace;
-  });
   // Android-like edge case: onend may arrive while the user has paused,
   // or the user can pause in the quiet interval between two utterances.
   // Both cases must resume and eventually complete the long paragraph.
@@ -123,6 +118,7 @@ try{
   await page.evaluate(()=>{
     window.LYSNativeAudio.stop();
     document.getElementById('lys-audio-race-fixture')?.remove();
+    delete window.__lysAudioRace;
   });
   // Final muscle volume must not offer a nonexistent auto-next destination.
   await page.locator('#diseaseTraumaOriginalView .region-back').click();
