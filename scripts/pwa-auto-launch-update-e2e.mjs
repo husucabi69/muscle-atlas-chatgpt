@@ -55,7 +55,7 @@ try{
   const navigationsBefore=reloads;
   deployed='new';
   // This is the same check as app launch, and MUST refresh WITHOUT a button.
-  await page.evaluate(()=>requestAppUpdateCheck('launch',true));
+  await page.evaluate(()=>{void requestAppUpdateCheck('launch',true)});
   await page.waitForFunction(version=>window.LYS_APP_RELEASE?.buildVersion===version,VERSION_NEW,{timeout:45000});
   await page.waitForFunction(()=>window.__pwaE2EAssetBuild==='new');
   assert.ok(reloads>navigationsBefore,'auto-updated PWA must reload itself without manual click');
@@ -84,11 +84,11 @@ try{
   assert.equal(await p2.locator('#diseaseTrauma').getAttribute('class'),'page active');
   const studyBase=studyNavigations;
   deployed='new';
-  await p2.evaluate(()=>requestAppUpdateCheck('resume',true));
+  await p2.evaluate(()=>{void requestAppUpdateCheck('resume',true)});
   await p2.waitForFunction(()=>document.getElementById('appUpdateState')?.textContent?.includes('새 버전이 준비'));
   assert.equal(studyNavigations,studyBase,'studying screen must not reload mid-session');
   await p2.locator('.tab[data-page="home"]').click();
-  await p2.evaluate(()=>requestAppUpdateCheck('resume',true));
+  await p2.evaluate(()=>{void requestAppUpdateCheck('resume',true)});
   await p2.waitForFunction(version=>window.LYS_APP_RELEASE?.buildVersion===version,VERSION_NEW,{timeout:45000});
   assert.ok(studyNavigations>studyBase,'deferred update applies automatically when returning home');
   console.log('PASS | Open study lesson remains uninterrupted; returning home automatically applies deferred update');
