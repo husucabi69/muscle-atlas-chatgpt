@@ -219,7 +219,7 @@
          const header=document.querySelector('.header');
          const offset=Math.ceil((header?.getBoundingClientRect().height||0)+16);
          frame.style.scrollMarginTop=offset+'px';
-         frame.scrollIntoView({behavior:'smooth',block:'start'});
+         frame.scrollIntoView({behavior:'instant',block:'start'});
        }
      }
      refresh.addEventListener('click',()=>{mountAudio();scheduleHeight(doc);});

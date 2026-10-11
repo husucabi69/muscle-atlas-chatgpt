@@ -236,6 +236,7 @@ try {
                 cssMedia:d.getElementById('lys-compendium-native-layout-v1')?.media,
                 expanded:host.dataset.compendiumExpanded,
                 margin:parseFloat(f.style.scrollMarginTop)||0,
+                frameTop:f.getBoundingClientRect().top,
                 sticky:document.querySelector('.header')?.getBoundingClientRect().height||0};
             });
             await controls.nth(1).click();
@@ -245,7 +246,9 @@ try {
             if(originalSize.cssMedia!=='not all'||originalSize.expanded!=='false'||
                enlarged.cssMedia!=='all'||enlarged.expanded!=='true'||
                !(enlarged.font>originalSize.font)||
-               enlarged.margin<enlarged.sticky+10)
+               enlarged.margin<enlarged.sticky+10||
+               enlarged.frameTop<enlarged.sticky-8||
+               enlarged.frameTop>enlarged.sticky+80)
               throw new Error('Compendium '+number+' real font zoom or scroll FAIL: '+
                 JSON.stringify({originalSize,enlarged}));
             await page.screenshot({path:path.join(outDir,viewport.label+'-compendium-'+number+'-large-text.png')});
