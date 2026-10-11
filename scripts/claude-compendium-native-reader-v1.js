@@ -74,34 +74,44 @@
  function extractPassages(doc){
    // Preserve the real interactive HTML. Mark only visible educational nodes
    // in the in-memory DOM; NEVER write a shortened copy of the source.
-   const candidates=[...doc.body.querySelectorAll('h1,h2,h3,h4,p,li,tr,dt,dd,figcaption,blockquote,summary')];
+   // Both compendiums are interactive: educational copy is mostly DIV/SPAN
+   // cards and muscle-selection BUTTONs, not static <p> paragraphs.
+   const candidates=[...doc.body.querySelectorAll('h1,h2,h3,h4,p,li,tr,dt,dd,figcaption,blockquote,summary,button,div,span')];
+   // Drop only marks from this reader, never source-authored annotations.
+   for(const el of doc.querySelectorAll('[data-compendium-voice]')){
+     el.removeAttribute('data-compendium-voice');el.removeAttribute('data-i');
+   }
    const found=[];
    for(const el of candidates){
      if(el.closest('nav,footer,script,style,template,[aria-hidden="true"]'))continue;
-     if(el.closest('button,input,select,textarea,a'))continue;
+     if(!el.matches('button')&&el.closest('button,input,select,textarea,a'))continue;
+     if(el.matches('div,span')){
+       if(el.closest('h1,h2,h3,h4,p,li,summary'))continue;
+       if(el.querySelector('div,span,p,li,h1,h2,h3,h4,button,table,section,article'))continue;
+     }
      if(el.matches('li,tr')&&el.querySelector('p,li,tr,dd,dt'))continue;
+     if(el.parentElement?.closest('[data-compendium-voice]'))continue;
      if(!el.getClientRects().length)continue;
      const txt=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim();
-     if(txt.length<4)continue;
+     if(txt.length<3||txt.length>3000)continue;
      found.push(el);
+     el.dataset.compendiumVoice='1';
    }
-   // Extremely custom dynamic compendiums can use only DIV-based teaching
-   // cards. The fallback reads their visible leaf text, not unrelated scripts.
-   if(found.length<8){
-     for(const el of doc.body.querySelectorAll('div,span')){
+   // If a cover screen currently exposes only a few visible headings, allow
+   // it to speak its cover text; after a muscle is selected Refresh rescans.
+   if(found.length<3){
+     for(const el of doc.body.querySelectorAll('div,span,strong,b,small')){
        if(el.children.length>3||el.closest('nav,footer,button,a,script,style'))continue;
+       if(el.parentElement?.closest('[data-compendium-voice]'))continue;
        if(!el.getClientRects().length||el.querySelector('p,li,h1,h2,h3,h4,tr'))continue;
        const txt=(el.innerText||'').replace(/\s+/g,' ').trim();
-       if(txt.length>=15&&txt.length<=900&&!found.includes(el))found.push(el);
+       if(txt.length>=10&&txt.length<=900&&!found.includes(el)){
+         found.push(el);el.dataset.compendiumVoice='1';
+       }
        if(found.length>=300)break;
      }
    }
-   // A source may already have its own [data-i] semantics. Reconcile only
-   // this reader's previous marks, then enumerate all spoken blocks exactly.
-   for(const el of doc.querySelectorAll('[data-compendium-voice]')){
-     el.removeAttribute('data-compendium-voice');
-     el.removeAttribute('data-i');
-   }
+   // The full original DOM stays intact; add temporary app-owned TTS IDs.
    found.sort((a,b)=>{
      if(a===b)return 0;
      const order=a.compareDocumentPosition(b);
@@ -137,7 +147,7 @@
      const lead=document.createElement('div');lead.className='claude-native-lead';
      const head=document.createElement('b');head.textContent='📖 '+item.title+' · 큰 글씨 학습 및 무료 한국어 음성';
      const desc=document.createElement('p');
-     desc.textContent='원본 대화·목록 기능과 학술 데이터 전체를 보존한 채 화면을 확대했습니다. 원본 HTML을 따로 요약하거나 삭제하지 않습니다.';
+     desc.textContent='원본 근육 목록과 대화형 기능을 보존하면서 화면을 확대했습니다. 근육을 새로 선택한 뒤 아래 「음성 갱신」을 누르면 새로 보이는 설명을 읽습니다. 무료 기기 음성이며 원본 녹음 MP4와는 다릅니다.';
      const tiny=document.createElement('small');
      tiny.textContent='원본 '+item.source_bytes.toLocaleString('ko-KR')+'바이트 · SHA-256 확인 · 무료 휴대전화 음성(Claude 녹음 MP4와 별개)';
      lead.append(head,desc,tiny);
