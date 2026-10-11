@@ -1,4 +1,4 @@
-// v12.30 app-shell update: load native clinical TTS blank-marker safety fix and MP4 ownership.
+// v12.31 app-shell update: load original-preserving large interactive compendium Korean voice adapter.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
