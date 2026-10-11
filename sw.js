@@ -1,4 +1,4 @@
-// v12.29 app-shell update: invalidate cached audio engine for safe cross-lecture Stop.
+// v12.30 app-shell update: cache fresh native clinical lectures 14–16 and preserve originals.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
