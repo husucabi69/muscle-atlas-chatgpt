@@ -184,18 +184,18 @@
    }
    function handleError(ev,token){
      if(active!==state||token!==state.token)return;
+     state.playing=false;state.paused=false;state.utteranceInFlight=false;
+     state.highlight?.classList.remove('claude-native-speaking');state.highlight=null;
+     if(state.dock)state.dock.hidden=true;
+     play.textContent='▶ 읽기';pause.textContent='⏸ 일시정지';
      if(ev.error==='interrupted'||ev.error==='canceled'){
-       // OS/browser speech interruption is not a successful chunk completion.
-       // Release the in-flight lock and invite a user-initiated restart.
-       state.utteranceInFlight=false;state.playing=false;state.paused=false;
-       play.textContent='▶ 읽기';pause.textContent='⏸ 일시정지';
+       // An OS speech interruption is not a completed chunk. Do not leave
+       // the dock/highlight appearing as though narration is still playing.
        status.textContent='휴대전화 음성이 중단되었습니다. ▶ 읽기를 눌러 현재 문단부터 다시 들으세요.';
        return;
      }
-     state.playing=false;state.paused=false;state.utteranceInFlight=false;
-     state.highlight?.classList.remove('claude-native-speaking');state.highlight=null;
-     play.textContent='▶ 읽기';pause.textContent='⏸ 일시정지';
-     const blocked=['not-allowed','not_allowed','audio-busy'].includes(ev.error);
+     const blocked=['not-allowed','not_allowed','notallowederror','audio-busy']
+       .includes(String(ev.error||'').toLowerCase());
      status.textContent=blocked
        ? '휴대전화 브라우저가 자동 음성 시작을 제한했습니다. ▶ 읽기를 직접 눌러 이 구간부터 이어 들으세요.'
        : '음성 읽기 실패: '+(ev.error||'알 수 없는 오류')+'. 휴대전화의 한국어 TTS 설정을 확인해 주세요.';
