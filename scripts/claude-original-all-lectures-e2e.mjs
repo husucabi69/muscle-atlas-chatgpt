@@ -196,8 +196,19 @@ try {
         const fallback = await page.locator('#diseaseTraumaClaudeFallback').getAttribute('href');
         if (fallback !== row.claude_artifact_url) throw new Error('Wrong source fallback for ' + number);
         const status = await page.locator('#diseaseTraumaOriginalStatus').innerText();
-        if (row.audio === '없음' && !status.includes('원본에 음성 파일 없음'))
-          throw new Error('No-audio source improperly presented for ' + number);
+        // "No original MP4" does not mean "no free device voice". The
+        // original interactive compendium #1/2 now has an app-owned Korean
+        // speech reader, while the original MP4 is still absent.
+        if (row.audio === '없음') {
+          if([1,2].includes(number)){
+            const hostedReader=await page.locator('#claudeCompendiumReaderHost').evaluate(host=>
+              !host.hidden&&!!host.querySelector('[data-native-audio="play"]')&&
+              +host.dataset.compendiumVoiceSegments>0);
+            if(!hostedReader||!status.includes('무료 한국어 음성'))
+              throw new Error('Compendium '+number+' needs verified interactive large reader and free voice, not fake MP4');
+          }else if(!status.includes('원본에 음성 파일 없음'))
+            throw new Error('No-original-MP4 source improperly presented for ' + number);
+        }
         if (row.audio !== '없음' && row.hosting_status === 'SELF_HOSTED_HTML_MEDIA_PENDING' && !(nativePilot?status.includes('MP4 직접 선택 재생 시범'):nativeSeries?status.includes('무료 한국어 음성'):status.includes('음성 연결 대기')))
           throw new Error('Audio-pending disclaimer missing for ' + number);
         results.push({
