@@ -1,4 +1,4 @@
-// v12.37 preview: safe PWA updates and native lecture first-open blank-iframe guard, stage24.20.
+// v12.38 preview: verify large Claude compendiums on Cloudflare clean URLs, stage24.21.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

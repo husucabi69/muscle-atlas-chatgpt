@@ -128,7 +128,10 @@
    const item=(window.LYSClaudeLectureCatalog?.()||[]).find(x=>x.number===n);
    if(!item||!doc||doc.readyState!=='complete'||doc.title==='원본 강의 확인 필요')return;
    const path=decodeURIComponent(frame.contentWindow.location.pathname);
-   if(path!=='/claude-library/'+item.source_path&&!path.endsWith('/'+item.source_path.split('/').at(-1)))return;
+   const canonical='/claude-library/'+item.source_path;
+   // Cloudflare Pages Clean URLs redirects /lecture.html to /lecture.
+   // The verified original bytes stay identical; accept both navigations.
+   if(path!==canonical&&path!==canonical.replace(/\\.html$/i,''))return;
    if((doc.body?.textContent||'').length<1000)return;
    inProgress=true;
    try{
