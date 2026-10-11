@@ -184,7 +184,14 @@
    }
    function handleError(ev,token){
      if(active!==state||token!==state.token)return;
-     if(ev.error==='interrupted'||ev.error==='canceled')return;
+     if(ev.error==='interrupted'||ev.error==='canceled'){
+       // OS/browser speech interruption is not a successful chunk completion.
+       // Release the in-flight lock and invite a user-initiated restart.
+       state.utteranceInFlight=false;state.playing=false;state.paused=false;
+       play.textContent='▶ 읽기';pause.textContent='⏸ 일시정지';
+       status.textContent='휴대전화 음성이 중단되었습니다. ▶ 읽기를 눌러 현재 문단부터 다시 들으세요.';
+       return;
+     }
      state.playing=false;state.paused=false;state.utteranceInFlight=false;
      state.highlight?.classList.remove('claude-native-speaking');state.highlight=null;
      play.textContent='▶ 읽기';pause.textContent='⏸ 일시정지';
