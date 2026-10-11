@@ -122,7 +122,9 @@
     const player=window.LYSNativeAudio.mount(shadow,{
       lectureNumber:item.number,title:item.title,expectedCount:originalCounts.paragraphs,
       autoStart:autostart,
-      onComplete:()=>window.LYSClaudeSequence.next(item.number)
+      // The last volume in the series has no following lecture to open.
+      // Do not announce a next-lecture transition that cannot occur.
+      onComplete:nextInSeries(item.number)?()=>window.LYSClaudeSequence.next(item.number):undefined
     });
     if(token!==generation)return;
     panel.replaceChildren(lead,compareRow,nav,player,lessonRoot);
