@@ -1,5 +1,16 @@
 # CURRENT HANDOFF — 2026-10-11 SUPER-LOCK time/reporting first
 
+## 최신 수동 개발 — 2026-10-11 15:43:29 KST 시작, v12.35 (#3~27 Native + #1~2 대화형 음성)
+- **현대 개발 정본:** GitHub `husucabi69/muscle-atlas-chatgpt`, `preview/development`만 변경, Production `main` 변경 금지. 본 문서를 읽었다는 이유만으로 개발 재시작 금지; 반드시 사용자의 다음 “진행해” 등 신규 지시 기다린다.
+- **실제 시작 계측:** `2026-10-11 15:43:29 KST`(`TZ=Asia/Seoul date`). 지시 도달시간 미계측. 35분 HARD STOP → **16:18:29 KST 이전 최종보고 전송**, 약 25분(16:08:29) 개발 마무리, 30분(16:13:29)부터 신규코드 수정 금지, 33분(16:16:29)부터 보고 최우선. 실제 종료시각은 별도 계측 기록, 임의 계산 금지.
+- **요청 “다음 진행” 작업:** 직전 v12.33 PWA 실행시 자동업데이트의 최신 HEAD/QA를 확인한 후 학술 강의실 원본 이식 순서 #18 손·손가락, #19 경추·상지 신경부터 연속. 동일한 정적 학술 HTML인 #20~27 흉추·요추·골반·고관절·무릎·발목·발·종합도 원본 구조 검증 후 Native 범위 확장.
+- **진척:** 87/87 원본 HTML byte/SHA 고정; **정식 Native 25/87강(#3~27)**, **대화형 원본 확대+무료 음성 2/87강(#1,#2)** ⇒ **무료 기기 음성 UI 27/87강**, 나머지 60강은 기기 음성 미이식. Native 아닌 원본 62강 중 2강에는 음성 어댑터가 있다. 전체 원본 MP4 자동연결/R2는 BLOCKED, 실물 Android 음성 재생은 REAL_DEVICE_PENDING.
+- **코드:** `scripts/claude-native-muscle-series-v1.js` ELIGIBLE #4~27, #3 Pilot 보존; clinical source QA #14~27 원본 해시/표·그림·음성표식/중복 `__AUD__` 확인; 87강 readiness QA 집계, catalog 정확한 숫자, 87강 E2E에 #20~27 한글 TTS·이미지·연속이동 검증 연결; `app-version.js` `v12.35` `2026.10.11-stage24.18`, `sw.js` PWA 캐시 자동 갱신. 87개 원본 파일과 데이터 원본/Production 변경 금지.
+- **중요:** #20~27 원본은 원래 그림이 없는 자료; 실사형 Physical Examination 이미지 프로젝트 별도. 원본 MP4 cue 0초는 고치거나 강사 녹음 준비됐다고 표시하지 않는다. #27은 해당 시리즈 최종권, #28 질환외상 01권으로 자동 이탈 안 함.
+- **검증:** 최신 HEAD Global QA / 87강 E2E / PWA AutoUpdate / Deploy safety / Cloudflare Preview exact deploy를 매번 실조회해 PASS/FAIL/PARTIAL 기록. 작업 도중 CI가 GitHub concurrency로 CANCELLED라면 PASS로 꾸미지 말 것. 시범 `https://preview-development.muscle-atlas-chatgpt.pages.dev/`; Production main `14c35ef137d21fe83c1817d2ea7e7dbdd436827d` 불변.
+- **다음 지시부터:** #28 「질환외상 01권 어깨 질환」(10장/음성표식103/표3/그림9/이미지6) 무손실 Native 검토 및 MP4 아님을 명시. 그 후 질환외상 계열 연속 확대. 최종보고 반드시 두 절 '① 뭘 했나', '② 앞으로 뭘 할 건가' + 실제 계측 시간/규칙 준수 + 마지막 한국시간 초 단위.
+
+
 ## 2026-10-11 14:21 KST 시작 수동 배치: 설치형 PWA 실행 시 자동 업데이트 — v12.33
 - **사용자 요구:** 홈화면 아이콘을 누르면 앱이 최신 버전을 자동 확인·적용하고 싶다. 미루지 말고 Preview에서 실제 PWA 구현, 설명/업데이트 버튼 누르기 없이 작동해야 한다.
 - **원인:** 기존 `sw.js`는 index/JSON만 network-first이고 나머지 JavaScript/CSS는 stale-while-revalidate, 새 앱 HTML에 이전 JS 혼합 위험. 기존 `controllerchange`의 one-shot guard는 `APP_RELEASE.buildVersion`(오래된 문서 버전)에 귀속되어 이후 업데이트를 놓칠 수 있었다. 새 앱 HTML을 받은 상황에서 구형 SW version에 따라 다시 새로고침하는 역행 위험도 있음.
