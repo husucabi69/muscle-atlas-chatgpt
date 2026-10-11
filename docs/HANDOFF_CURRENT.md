@@ -5,7 +5,7 @@
 - **기본 CI 회귀:** `scripts/claude-native-muscle-series-qa.mjs`, `scripts/claude-native-clinical-source-qa.mjs`에 원본 SHA·bytes·section·table·figure·base64 JPEG·구간/TOC·TTS 바인딩 검사를 연결. 87강 전체 원본/Native 도입 현황·원본 시간표시 누락은 `scripts/claude-native-readiness-audit.mjs`가 인벤토리로 보고하고 Actions artifact로 저장.
 - **원본 녹음 타임코드 결손:** #14 25개, #15 54개, #16 34개 음성문단의 원본 MP4 `__AUD__.t` 구간이 0초. 실제 원본을 수정하거나 가짜 타임코드를 만들지 않았다. 무료 기기 한국어 TTS는 해당 문단도 읽을 수 있는 별개 경로. 원본 MP4 자동재생은 R2 바인딩 미설정으로 BLOCKED.
 - **안전:** Android 실물 소리·권간 자동 음성 = `REAL_DEVICE_PENDING`. Source 87개는 원본 그대로, v11.14 근육 상세 5탭 그대로. #16→#17은 #17이 원본 전용이므로 자동 무료 음성 연결하지 않는다. Production/main `14c35ef137d21fe83c1817d2ea7e7dbdd436827d` 동결.
-- **개발버전:** `v12.30`, `2026.10.11-stage24.07`; 안정 Preview `https://preview-development.muscle-atlas-chatgpt.pages.dev/`. 변경 HEAD와 CI Run은 본 문서 커밋 후 실제 재조회 필수(문서에 SHA를 최신으로 고정하지 않음).
+- **개발버전:** `v12.30`, `2026.10.11-stage24.08`; 안정 Preview `https://preview-development.muscle-atlas-chatgpt.pages.dev/`. 변경 HEAD와 CI Run은 본 문서 커밋 후 실제 재조회 필수(문서에 SHA를 최신으로 고정하지 않음).
 - **다음:** 현재 HEAD의 Global QA 3종·정확한 Cloudflare Preview·모바일 87/87 E2E 결과 확인, 사용자 Android 검수. 이어서 #17~19의 중복 `__AUD__` 소스 형식 검증(각각 3개 script), 그 다음 #20~27 배치 후보 감사. #1~2 대화형 근육총람은 독립형 adapter 필요. 전체 87강 Native/원본 MP4 완료라고 거짓 보고하지 않는다.
 - **SUPER-LOCK:** 의장님의 최우선 시간 준수. 수동 개발 0~25분, 25~30분 점검, 30~33분 저장·검증, 33~35분 보고. 35분 안에 **최종 메시지 전송 완료**. 미검증=PARTIAL; 시각 추정 금지. 작업시작/개발종료/작업종료/보고시각과 준수 판정 별도 기록.
 
