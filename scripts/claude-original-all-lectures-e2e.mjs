@@ -233,6 +233,26 @@ try {
               throw Error('Clinical native lecture '+number+' failed Korean TTS segment playback: '+JSON.stringify(spoken));
             await page.locator('#claudeNativePilotHost [data-native-audio="dock-stop"]').click();
           }
+          if(nativeSeries && viewport.all && [14,15,16].includes(number)){
+            const controls=await page.locator('#claudeNativePilotHost').evaluate(host=>{
+              const label=host.querySelector('.claude-native-auto-next');
+              const switcher=label?.querySelector('input');
+              return {hidden:label?.hidden,cssDisplay:label?getComputedStyle(label).display:null,disabled:switcher?.disabled};
+            });
+            if(number===16 && (!controls.hidden||controls.cssDisplay!=='none'||!controls.disabled))
+              throw Error('End-of-batch clinical lecture 16 must not auto-open original-only #17: '+JSON.stringify(controls));
+            if(number!==16 && (controls.hidden||controls.cssDisplay==='none'||controls.disabled))
+              throw Error('Clinical lecture '+number+' should offer the next native lecture: '+JSON.stringify(controls));
+            if(number===15||number===16){
+              const visual=await page.locator('#claudeNativePilotHost').evaluate(async host=>{
+                const imgs=[...host.querySelector('.claude-native-lesson').shadowRoot.querySelectorAll('img')];
+                await Promise.all(imgs.map(img=>img.decode().catch(()=>{})));
+                return {total:imgs.length,broken:imgs.filter(img=>!img.complete||!img.naturalWidth).length};
+              });
+              if(visual.total!==5||visual.broken)
+                throw Error('Clinical native embedded source figures failed image decode for '+number+': '+JSON.stringify(visual));
+            }
+          }
           const screenshot=path.join(outDir,viewport.label+'-native-muscle-'+number+'.png');
           await page.screenshot({path:screenshot,fullPage:nativePilot});
           if(details.horizontalOverflow)throw Error('Native muscle 1 overflows mobile/desktop width: '+JSON.stringify(details));
