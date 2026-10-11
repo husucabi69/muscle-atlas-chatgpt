@@ -51,6 +51,8 @@ jobs:
         run: node scripts/claude-native-muscle-series-qa.mjs
       - name: Verify native referred-pain and physical-examination original source/cue fidelity
         run: node scripts/claude-native-clinical-source-qa.mjs
+      - name: Audit all 87 Claude original types, MP4 cue gaps and native conversion coverage
+        run: node scripts/claude-native-readiness-audit.mjs
       - name: Run Claude Original Classroom QA
         run: node scripts/claude-library-runtime-qa.mjs
       - name: Enforce 3-screen Claude Original app integration and PWA safety contract
