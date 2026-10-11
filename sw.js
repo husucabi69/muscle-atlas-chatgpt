@@ -1,4 +1,4 @@
-// v12.43 preview: show enlarged original text immediately below sticky header, stage24.26.
+// v12.44 preview: 1/2 original muscle one-tap immersive full-viewport reader, stage24.27.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
