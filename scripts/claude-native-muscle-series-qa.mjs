@@ -1,4 +1,4 @@
-// Native series QA: Muscle #4–13 plus clinical/referred-pain #14–19.
+// Native series QA: Muscle #4–13 plus clinical/referred-pain #14–27.
 // Original source bytes, academic text/figures/tables and series boundaries stay intact.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -8,11 +8,11 @@ const reader=fs.readFileSync('scripts/claude-native-muscle-series-v1.js','utf8')
 const speech=fs.readFileSync('scripts/claude-native-muscle-audio-v1.js','utf8');
 const index=fs.readFileSync('index.html','utf8');
 const workflow=fs.readFileSync('.github/workflows/global-qa.yml','utf8');
-const list=manifest.lectures.filter(x=>x.number>=4&&x.number<=19);
-assert.equal(list.length,16);
+const list=manifest.lectures.filter(x=>x.number>=4&&x.number<=27);
+assert.equal(list.length,24);
 assert.ok(index.includes('<script src="./scripts/claude-native-muscle-series-v1.js"></script>'));
 assert.ok(index.indexOf('claude-native-muscle-series-v1.js')>index.indexOf('claude-native-muscle-v1.js'));
-assert.ok(reader.includes('new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19])'));
+assert.ok(reader.includes('new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27])'));
 assert.ok(reader.includes('&&ELIGIBLE.has(x.number)'), 'native next-course gate must never spill into non-native original lessons');
 assert.ok(reader.includes("crypto.subtle.digest('SHA-256',bytes)"));
 assert.ok(reader.includes('full.textContent!==source.textContent'));
@@ -50,5 +50,5 @@ for(const x of list){
   console.log('PASS | Source-locked native volume '+x.number+': '+sections+' chapters, '+paragraphs+' speech markers, '+tables+' tables, '+figures+' figures');
 }
 fs.mkdirSync('qa-artifacts/claude-native-series',{recursive:true});
-fs.writeFileSync('qa-artifacts/claude-native-series/report.json',JSON.stringify({plannedNativeVolumes:[3,...list.map(x=>x.number)],verifiedSourceVolumes:report,sourceBytesProtected:true,clinicalExtension:[14,15,16,17,18,19],actualAndroidVerified:false,originalMp4AutoHosted:false},null,2)+'\n');
-console.log('CLAUDE NATIVE 16-VOLUME SOURCE QA | 16/16 exact SHA + full content inventory PASS (Muscle 10 + Exam 6)');
+fs.writeFileSync('qa-artifacts/claude-native-series/report.json',JSON.stringify({plannedNativeVolumes:[3,...list.map(x=>x.number)],verifiedSourceVolumes:report,sourceBytesProtected:true,clinicalExtension:[14,15,16,17,18,19,20,21,22,23,24,25,26,27],actualAndroidVerified:false,originalMp4AutoHosted:false},null,2)+'\n');
+console.log('CLAUDE NATIVE 24-VOLUME SOURCE QA | 24/24 exact SHA + full content inventory PASS (Muscle 10 + Exam 14)');
