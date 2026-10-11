@@ -212,7 +212,8 @@ try {
             const hostedReader=await page.locator('#claudeCompendiumReaderHost').evaluate(host=>
               !host.hidden&&!!host.querySelector('[data-native-audio="play"]')&&
               +host.dataset.compendiumVoiceSegments>0);
-            if(!hostedReader||!status.includes('무료 한국어 음성'))
+            const nowStatus=await page.locator('#diseaseTraumaOriginalStatus').innerText();
+            if(!hostedReader||!nowStatus.includes('무료 한국어 음성'))
               throw new Error('Compendium '+number+' needs verified interactive large reader and free voice, not fake MP4');
           }else if(!status.includes('원본에 음성 파일 없음'))
             throw new Error('No-original-MP4 source improperly presented for ' + number);
