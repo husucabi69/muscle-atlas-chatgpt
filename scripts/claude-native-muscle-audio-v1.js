@@ -42,6 +42,7 @@
    state.token++;
    state.playing=false;
    state.paused=false;
+   state.utteranceInFlight=false;
    try{synth?.cancel();}catch{}
    state.highlight?.classList.remove('claude-native-speaking');
    state.highlight=null;
@@ -133,7 +134,7 @@
    dock.append(dockText,dockPause,dockStop);
    box.append(header,controls,optionRow,chapterTools,continueLabel,status,progress,dock);
    const state={
-     token:0,playing:false,paused:false,highlight:null,entries,index:0,chunk:0,chunks:[],
+     token:0,playing:false,paused:false,utteranceInFlight:false,highlight:null,entries,index:0,chunk:0,chunks:[],
      box,play,pause,status,progress,dock,dockPause,dockStop,voiceSelect,rateSelect,availableVoices:[],selectedVoice:null,
      repeatFrom:null,repeatTo:null,repeatEnabled:false
    };
@@ -184,7 +185,7 @@
    function handleError(ev,token){
      if(active!==state||token!==state.token)return;
      if(ev.error==='interrupted'||ev.error==='canceled')return;
-     state.playing=false;state.paused=false;
+     state.playing=false;state.paused=false;state.utteranceInFlight=false;
      state.highlight?.classList.remove('claude-native-speaking');state.highlight=null;
      play.textContent='▶ 읽기';pause.textContent='⏸ 일시정지';
      const blocked=['not-allowed','not_allowed','audio-busy'].includes(ev.error);
@@ -193,7 +194,7 @@
        : '음성 읽기 실패: '+(ev.error||'알 수 없는 오류')+'. 휴대전화의 한국어 TTS 설정을 확인해 주세요.';
    }
    function speakNext(token){
-     if(active!==state||token!==state.token||!state.playing||state.paused)return;
+     if(active!==state||token!==state.token||!state.playing||state.paused||state.utteranceInFlight)return;
      if(state.index>=state.entries.length){
        const shouldContinue=continueCheckbox.checked&&typeof options.onComplete==='function';
        stop();try{localStorage.removeItem(bookmarkKey);}catch{}
@@ -230,13 +231,17 @@
      const selected=state.availableVoices[Number(voiceSelect.value)];
      if(selected)u.voice=selected;
      u.onend=()=>{
-       if(token!==state.token||!state.playing||state.paused)return;
+       if(token!==state.token||!state.playing)return;
+       // Android may report onend during a pause or in the 35 ms gap between
+       // utterances. Keep the next chunk pending for Resume instead of losing it.
+       state.utteranceInFlight=false;
        state.chunk++;
-       setTimeout(()=>speakNext(token),35);
+       if(!state.paused)setTimeout(()=>speakNext(token),35);
      };
      u.onerror=ev=>handleError(ev,token);
+     state.utteranceInFlight=true;
      try{synth.speak(u);}
-     catch(err){handleError({error:err?.name||'speech_api'},token);}
+     catch(err){state.utteranceInFlight=false;handleError({error:err?.name||'speech_api'},token);}
    }
    function startAt(index){
      if(!synth||!window.SpeechSynthesisUtterance){
@@ -247,7 +252,7 @@
      stop();
      state.index=Math.max(0,Math.min(entries.length-1,index));
      state.chunk=0;state.chunks=[];
-     state.playing=true;state.paused=false;
+     state.playing=true;state.paused=false;state.utteranceInFlight=false;
      state.play.textContent='↻ 처음부터';state.pause.textContent='⏸ 일시정지';
      dock.hidden=false;dockPause.textContent='⏸ 일시정지';
      const run=++state.token;
@@ -301,6 +306,9 @@
      if(active!==state||!state.playing)return;
      if(state.paused){
        state.paused=false;try{synth.resume();}catch{}
+       // If Pause landed between chunks (or onend arrived while paused),
+       // nothing remains in the browser queue for resume() to restart.
+       if(!state.utteranceInFlight)setTimeout(()=>speakNext(state.token),0);
        pause.textContent='⏸ 일시정지';dockPause.textContent='⏸ 일시정지';status.textContent='🔊 다시 읽는 중';
      } else {
        state.paused=true;try{synth.pause();}catch{}
