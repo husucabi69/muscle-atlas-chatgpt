@@ -119,6 +119,11 @@
    const continueLabel=document.createElement('label');continueLabel.className='claude-native-auto-next';
    const continueCheckbox=document.createElement('input');continueCheckbox.type='checkbox';
    continueCheckbox.dataset.nativeAudio='auto-next';continueCheckbox.checked=true;
+   const hasFollowingLecture=typeof options.onComplete==='function';
+   // At the final volume there is no next course: hide a control that would
+   // otherwise promise an impossible automatic transition.
+   continueCheckbox.disabled=!hasFollowingLecture;
+   continueLabel.hidden=!hasFollowingLecture;
    continueLabel.append(continueCheckbox,document.createTextNode(' 이 권이 끝나면 같은 시리즈의 다음 강의를 자동으로 열고 읽기'));
    const dock=document.createElement('div');dock.className='claude-native-audio-dock';dock.hidden=true;
    const dockText=document.createElement('strong');dockText.textContent='🎧 '+displayName+' · 듣는 중';
