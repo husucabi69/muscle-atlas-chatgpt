@@ -1,5 +1,15 @@
 # CURRENT HANDOFF — 2026-10-11 SUPER-LOCK time/reporting first
 
+## 2026-10-11 14:21 KST 시작 수동 배치: 설치형 PWA 실행 시 자동 업데이트 — v12.33
+- **사용자 요구:** 홈화면 아이콘을 누르면 앱이 최신 버전을 자동 확인·적용하고 싶다. 미루지 말고 Preview에서 실제 PWA 구현, 설명/업데이트 버튼 누르기 없이 작동해야 한다.
+- **원인:** 기존 `sw.js`는 index/JSON만 network-first이고 나머지 JavaScript/CSS는 stale-while-revalidate, 새 앱 HTML에 이전 JS 혼합 위험. 기존 `controllerchange`의 one-shot guard는 `APP_RELEASE.buildVersion`(오래된 문서 버전)에 귀속되어 이후 업데이트를 놓칠 수 있었다. 새 앱 HTML을 받은 상황에서 구형 SW version에 따라 다시 새로고침하는 역행 위험도 있음.
+- **개선:** SW 앱 JS/CSS network-first+offline cache fallback, 앱 실행 시 worker recheck+network live `app-version.js?check=` 비교, 신규 build별 60초 reload guard, 활성 강의에서는 업데이트 보류/홈 복귀시 자동 적용, old-worker/new-document mixed version 다운그레이드 방지. 파일: `sw.js`, `index.html`, `app-version.js` v12.33 stage24.14. 원본 강의 무변경, 앱 학습기록/Production 유지.
+- **QA:** `scripts/pwa-auto-launch-update-e2e.mjs` 실제 Chromium 설치/버전 교체 mock(홈 자동갱신, 오프라인 cache 최신, 강의 도중 중단 방지). 기존 Stage15 `scripts/auto-update-qa.mjs` 및 Stage23 `scripts/real-device-offline-qa.mjs` 정본 계약을 새 로직에 맞춰 강화. `docs/PWA_AUTO_UPDATE_ON_LAUNCH_2026-10-11.md`에 상세 계약과 실물 삼성 Android 미검증 명시.
+- **사용자 설치:** 안정 브랜치 Preview `https://preview-development.muscle-atlas-chatgpt.pages.dev/`에서 설치. 8자리 배포번호 Pages 주소에서 PWA를 설치하면 자동 최신화 불가능하므로 해당 주소는 검수만. 이미 다른 origin 설치했다면 홈 아이콘 재설치 필요.
+- **다음:** 반드시 최신 HEAD/3종 CI/Cloudflare 배포를 재조회해 실제 결과 확정. 특히 새 브라우저 E2E 2개 경로 PASS 및 실제 Android 재실행/오프라인 복귀는 구분 보고. 미검증을 PASS로 쓰지 말 것. Production/main `14c35ef137d21fe83c1817d2ea7e7dbdd436827d`은 명시 승인 전 변경 금지.
+- **우선순위:** AGENTS.md 35분 HARD STOP 14:56:08 KST 전 최종보고 전송이 모든 CI 완료보다 우선; 실제 시작 계측 2026-10-11 14:21:08 KST. 개발종료/작업종료/보고시각은 각각 별도로 실측 기록.
+
+
 ## 2026-10-11 13:28 KST 수동 개발 — v12.32 근육총람 1·2 큰 화면/무료음성 + #17 손목검진 정식 Native 후보
 - **원본 87/87 HTML을 그대로 보존하고 `main`은 명시 승인 전 변경 금지.** 개발 `preview/development`; HEAD/CI/Preview는 다음 작업에서 실시간 재확인.
 - **실제 요청:** Android 화면에서 근육총람 대화형 #1·근육총람 표지·목록 #2의 내용이 작은 프레임 안에 갇혀 보임. #3 근육학 1권처럼 읽기 쉽고 무료 한국어 음성을 원함.
