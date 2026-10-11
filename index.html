@@ -5581,6 +5581,13 @@ window.addEventListener('pageshow',()=>requestAppUpdateCheck('pageshow'));
 window.addEventListener('pageshow',()=>{
   if(appAutoUpdatePendingVersion)applyAppUpdateWhenSafe(appAutoUpdatePendingVersion);
 });
+// No button needed after a study-safe deferral: returning to Home applies
+// the already verified update automatically, without interrupting reading.
+const autoUpdateHome=document.getElementById('home');
+if(autoUpdateHome)new MutationObserver(()=>{
+  if(appAutoUpdatePendingVersion&&autoUpdateHome.classList.contains('active'))
+    applyAppUpdateWhenSafe(appAutoUpdatePendingVersion);
+}).observe(autoUpdateHome,{attributes:true,attributeFilter:['class']});
 window.addEventListener('focus',()=>requestAppUpdateCheck('focus'));
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')requestAppUpdateCheck('resume');});
 window.addEventListener('load',()=>{initPullToRefresh();initAppServiceWorker();});
