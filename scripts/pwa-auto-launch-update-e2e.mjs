@@ -52,6 +52,7 @@ try{
   await page.reload({waitUntil:'domcontentloaded'});
   await page.waitForFunction(version=>window.LYS_APP_RELEASE?.buildVersion===version,VERSION_OLD);
   assert.equal(await page.evaluate(()=>window.__pwaE2EAssetBuild),'old','old script loaded');
+  await page.evaluate(()=>localStorage.setItem('lys-pwa-e2e-learning-record','must-survive-auto-upgrade'));
   const navigationsBefore=reloads;
   deployed='new';
   // This is the same check as app launch, and MUST refresh WITHOUT a button.
@@ -70,6 +71,8 @@ try{
     });
   });
   assert.equal(active,VERSION_NEW,'new worker controls the updated app');
+  assert.equal(await page.evaluate(()=>localStorage.getItem('lys-pwa-e2e-learning-record')),
+    'must-survive-auto-upgrade','existing learning data must survive automatic update');
   console.log('PASS | Installed PWA automatically adopts latest deploy at launch; updated JS fetched network-first; no reload loop',JSON.stringify({navigationCount:reloads,scriptFetchCount:liveCalls.js,workerFetchCount:liveCalls.sw,controller:active}));
   // After an online automatic upgrade, the verified new app shell and JS must
   // keep working without the network. This is a real SW-controlled cold reload.
@@ -78,6 +81,8 @@ try{
   await page.waitForFunction(version=>window.LYS_APP_RELEASE?.buildVersion===version,VERSION_NEW);
   assert.equal(await page.evaluate(()=>window.__pwaE2EAssetBuild),'new',
     'offline app reload must retain the NEW cached JS rather than old code');
+  assert.equal(await page.evaluate(()=>localStorage.getItem('lys-pwa-e2e-learning-record')),
+    'must-survive-auto-upgrade','offline cold reload must not clear learning data');
   assert.ok((await page.locator('#appUpdateState').innerText()).includes('오프라인'),
     'offline app opening reports cached mode explicitly');
   console.log('PASS | Updated installed PWA opens offline using new verified shell and JS, no forced update or lost learning storage');
