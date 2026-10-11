@@ -232,6 +232,20 @@ try {
             if(!spoken?.text||spoken.lang!=='ko-KR'||spoken.text.length>160)
               throw Error('Clinical native lecture '+number+' failed Korean TTS segment playback: '+JSON.stringify(spoken));
             await page.locator('#claudeNativePilotHost [data-native-audio="dock-stop"]').click();
+            if(number===14){
+              // If a valid original MP4 was previously selected in volume 1,
+              // the new clinical reader must STILL allow passage-tap TTS.
+              const priorTap=await page.evaluate(()=>window.__lysNativeSpeechQA?.length||0);
+              await page.locator('#claudeNativePilotHost').evaluate(host=>{
+                const original=window.LYSClaudeRecordedAudio;
+                try{
+                  window.LYSClaudeRecordedAudio={...original,isReady:()=>true,isReadyFor:()=>false};
+                  host.querySelector('.claude-native-lesson').shadowRoot.querySelector('[data-i]').click();
+                }finally{window.LYSClaudeRecordedAudio=original;}
+              });
+              await page.waitForFunction(before=>(window.__lysNativeSpeechQA?.length||0)>before,priorTap);
+              await page.locator('#claudeNativePilotHost [data-native-audio="dock-stop"]').click();
+            }
           }
           if(nativeSeries && viewport.all && [14,15,16].includes(number)){
             const controls=await page.locator('#claudeNativePilotHost').evaluate(host=>{
