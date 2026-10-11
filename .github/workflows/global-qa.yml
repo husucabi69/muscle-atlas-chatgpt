@@ -155,6 +155,14 @@ jobs:
         run: node scripts/patient-rehab-disease-content-qa.mjs
       - name: Run Stage 23B disease rehabilitation roadmap contract QA
         run: node scripts/disease-rehab-roadmap-contract-qa.mjs
+      - name: Upload full Claude 87 native source-readiness inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-native-readiness-${{ github.sha }}
+          path: qa-artifacts/claude-native-readiness/report.json
+          if-no-files-found: warn
+          retention-days: 14
 
   runtime-navigation-e2e:
     runs-on: ubuntu-latest
