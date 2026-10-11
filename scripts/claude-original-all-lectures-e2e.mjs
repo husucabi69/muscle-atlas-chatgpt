@@ -96,7 +96,7 @@ try {
         await tile.click();
         const expectedPath = '/claude-library/' + row.source_path;
         const nativePilot = number === 3;
-        const nativeSeries = number >= 4 && number <= 13;
+        const nativeSeries = number >= 4 && number <= 16;
         const nativeLesson = nativePilot || nativeSeries;
         try {
           if (nativePilot) {
@@ -221,6 +221,17 @@ try {
             await page.locator('#claudeNativePilotHost [data-native-audio="dock-stop"]').click();
             const stopped=await page.locator('#claudeNativePilotHost [data-native-audio="status"]').innerText();
             if(!stopped.includes('정지'))throw Error('Native audio stop did not update player status');
+          }
+          // The first non-muscle native conversion must actually speak through
+          // the same local Korean voice engine; source HTML is left untouched.
+          if(nativeSeries && viewport.all && [14,15,16].includes(number)){
+            const prior=await page.evaluate(()=>window.__lysNativeSpeechQA?.length||0);
+            await page.locator('#claudeNativePilotHost [data-native-audio="play"]').click();
+            await page.waitForFunction(previous=>(window.__lysNativeSpeechQA?.length||0)>previous,prior);
+            const spoken=await page.evaluate(()=>window.__lysNativeSpeechQA.at(-1));
+            if(!spoken?.text||spoken.lang!=='ko-KR'||spoken.text.length>160)
+              throw Error('Clinical native lecture '+number+' failed Korean TTS segment playback: '+JSON.stringify(spoken));
+            await page.locator('#claudeNativePilotHost [data-native-audio="dock-stop"]').click();
           }
           const screenshot=path.join(outDir,viewport.label+'-native-muscle-'+number+'.png');
           await page.screenshot({path:screenshot,fullPage:nativePilot});
