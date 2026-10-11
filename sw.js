@@ -1,4 +1,4 @@
-// v12.44 preview: 1/2 original muscle one-tap immersive full-viewport reader, stage24.27.
+// v12.45 preview: full-viewport muscle tap, compact academic header, and 87-layout migration plan, stage24.28.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
