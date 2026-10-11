@@ -1,4 +1,4 @@
-// v12.33 PWA auto-update: DOM-ready launch, network-first JS/CSS, offline+study safety; stage24.16.
+// v12.34 preview: native #18–19 clinical lessons with free Korean speech, PWA app-shell stage24.17.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
