@@ -136,8 +136,68 @@ try{
    assert.equal(speechAfterTap,speechBeforeTap+1,
      'refresh must leave exactly one passage click handler for source '+n);
    await page.locator('#claudeCompendiumReaderHost [data-native-audio="stop"]').evaluate(button=>button.click());
+   // The user reported nested scrolling and offscreen muscle details. Verify
+   // that clicking a REAL original muscle button instantly switches into an
+   // app-owned 1-viewport focus, with the source's own data unchanged.
+   const tapSourceMuscle=async(number)=>{
+     return page.locator('#diseaseTraumaOriginalFrame').evaluate((frame,number)=>{
+       const doc=frame.contentDocument;
+       if(number!==9&&number!==10)throw Error('invalid regression muscle');
+       // E2E's n isn't in the page; identify the source DOM structure.
+       const source=doc.getElementById('nav')?'#nav a[data-n="'+number+'"]':'#regions .mbtn[data-n="'+number+'"]';
+       const choice=doc.querySelector(source);
+       if(!choice)return false;
+       choice.closest('details')?.setAttribute('open','');
+       choice.click();return true;
+     },number);
+   };
+   assert.ok(await tapSourceMuscle(9),'real source muscle 9 selector exists '+n);
+   await page.waitForFunction(()=>{
+     const frame=document.getElementById('diseaseTraumaOriginalFrame');
+     return frame.classList.contains('claude-compendium-focus-frame')&&
+       !document.getElementById('claudeCompendiumFocusToolbar').hidden;
+   },null,{timeout:12000});
+   const focus=()=>page.evaluate(()=>{
+     const f=document.getElementById('diseaseTraumaOriginalFrame'),d=f.contentDocument;
+     const rect=f.getBoundingClientRect();
+     return {
+       top:rect.top,width:rect.width,height:rect.height,
+       viewportWidth:innerWidth,viewportHeight:innerHeight,
+       toolbarVisible:!document.getElementById('claudeCompendiumFocusToolbar').hidden,
+       sourceName:d.querySelector(d.getElementById('nav')?'#main h2':'#dname')?.textContent.trim(),
+       sourceContent:d.getElementById('nav')?d.getElementById('main')?.textContent.length:d.getElementById('dbody')?.textContent.length,
+       sourceNavHidden:!!d.getElementById('nav')&&getComputedStyle(d.getElementById('nav')).display==='none',
+       detailDisplay:d.getElementById('detail')?.style.display||null,
+       originalScroll:d.defaultView.scrollY
+     };
+   });
+   const immediate=await focus();
+   assert.ok(immediate.height>=immediate.viewportHeight-90&&
+     immediate.width>=immediate.viewportWidth-4&&
+     immediate.top>=50&&immediate.top<=90,'muscle focus must fill phone: '+JSON.stringify(immediate));
+   assert.ok(immediate.sourceName.includes('갑상설골근')&&immediate.sourceContent>100,
+     'source selection must display requested muscle instantly: '+JSON.stringify(immediate));
+   if(n===1)assert.equal(immediate.sourceNavHidden,true,'huge original navigation is hidden during reading');
+   else assert.equal(immediate.detailDisplay,'block','original source detail is truly opened');
+   await page.locator('#claudeCompendiumFocusToolbar [data-focus-list]').click();
+   const returned=await page.locator('#diseaseTraumaOriginalFrame').evaluate(frame=>{
+     const d=frame.contentDocument;
+     return d.getElementById('nav')
+       ?{showNav:getComputedStyle(d.getElementById('nav')).display!=='none',mainHidden:getComputedStyle(d.getElementById('main')).display==='none'}
+       :{showNav:!d.getElementById('index').classList.contains('hide'),mainHidden:d.getElementById('detail').style.display==='none'};
+   });
+   assert.ok(returned.showNav&&returned.mainHidden,'muscle list must be accessible from focus: '+JSON.stringify(returned));
+   assert.ok(await tapSourceMuscle(10));
+   await page.waitForFunction(()=>{
+     const d=document.getElementById('diseaseTraumaOriginalFrame').contentDocument;
+     return (d.getElementById('nav')?d.querySelector('#main h2'):d.querySelector('#dname'))?.textContent.includes('견갑설골근');
+   });
+   const next=await focus();
+   assert.ok(next.sourceName.includes('견갑설골근')&&next.height>=next.viewportHeight-90,
+     'selecting another muscle must focus it immediately '+JSON.stringify(next));
+   console.log('PASS | Compendium #'+n+' original muscle→full-viewport detail→list→next muscle: '+JSON.stringify({immediate,next}));
    console.log('PASS | Compendium #'+n+' mobile interactive original viewport and free Korean voice: '+JSON.stringify(state));
-   await page.locator('#diseaseTraumaOriginalView .region-back').click();
+   await page.locator('#claudeCompendiumFocusToolbar [data-focus-back]').click();
    assert.ok(await page.locator('#diseaseTraumaCategoryView').isVisible(),'returns to muscle category after '+n);
  }
  await context.close();
