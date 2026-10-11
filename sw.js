@@ -1,4 +1,4 @@
-// v12.30 app-shell update: cache fresh native clinical lectures 14–16 and preserve originals.
+// v12.30 app-shell update: preserve clinical native source and isolate recorded MP4 tap control.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
