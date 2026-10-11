@@ -1,4 +1,4 @@
-// v12.36 preview: staged Service Worker activation prevents interruption of live lessons, stage24.19.
+// v12.37 preview: safe PWA updates and native lecture first-open blank-iframe guard, stage24.20.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
