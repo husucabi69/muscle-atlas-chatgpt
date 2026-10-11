@@ -96,7 +96,7 @@ try {
         await tile.click();
         const expectedPath = '/claude-library/' + row.source_path;
         const nativePilot = number === 3;
-        const nativeSeries = number >= 4 && number <= 16;
+        const nativeSeries = number >= 4 && number <= 17;
         const nativeLesson = nativePilot || nativeSeries;
         try {
           if (nativePilot) {
