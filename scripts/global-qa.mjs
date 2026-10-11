@@ -194,9 +194,12 @@ check('Patient-first exercise UX present',
   html.includes("function exerciseIllustration") &&
   html.includes("function exerciseCaution")
 );
-check('App identity v9.3',
-  html.includes("<h1>이윤석정형외과 근육</h1>") &&
-  manifest.name==="이윤석정형외과 근육"
+check('LYSOS academic app identity (PWA continuity)',
+  html.includes("<h1>이윤석정형외과 학술</h1>") &&
+  manifest.name==="이윤석정형외과 학술" &&
+  manifest.short_name==="이윤석정형외과" &&
+  manifest.id==="/muscle-atlas-chatgpt/" &&
+  manifest.start_url==="./?source=pwa"
 );
 check('Privacy policy linked',
   html.includes("./privacy.html") &&
