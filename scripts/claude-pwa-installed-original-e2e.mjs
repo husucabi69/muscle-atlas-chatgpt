@@ -81,21 +81,37 @@ try{
   if(viewY>422)throw Error('Category view opened below visible screen: top='+viewY);
   await page.locator('[data-claude-academic-lecture="'+spec.number+'"]').click();
   try{
-   await page.waitForFunction(expectedPath=>{
-    const frame=document.getElementById('diseaseTraumaOriginalFrame');
-    try{
-     const doc=frame.contentDocument;
-     const actual=decodeURIComponent(frame.contentWindow.location.pathname);
-     return (actual===expectedPath||actual===expectedPath.replace(/\.html$/i,''))&&
+   if(number===14){
+    // Referred-pain lesson was intentionally upgraded to our own Native
+    // learning reader. The installed PWA must show complete source inside
+    // Shadow DOM, not the retired iframe, while SW still controls the page.
+    await page.waitForFunction(()=>{
+     const host=document.getElementById('claudeNativePilotHost');
+     const shadow=host?.querySelector('.claude-native-lesson')?.shadowRoot;
+     const frame=document.getElementById('diseaseTraumaOriginalFrame');
+     return !host?.hidden&&host?.dataset.claudeNativeLecture==='14'&&
+      !!frame?.hidden&&shadow?.querySelectorAll('section').length===12&&
+      shadow?.querySelectorAll('table').length===8&&
+      shadow?.querySelectorAll('[data-i]').length===194&&
+      !!host.querySelector('[data-native-audio="play"]');
+    },null,{timeout:30000});
+   }else{
+    await page.waitForFunction(expectedPath=>{
+     const frame=document.getElementById('diseaseTraumaOriginalFrame');
+     try{
+      const doc=frame.contentDocument;
+      const actual=decodeURIComponent(frame.contentWindow.location.pathname);
+      return (actual===expectedPath||actual===expectedPath.replace(/\\.html$/i,''))&&
        !frame.hidden&&document.getElementById('diseaseTraumaLoadIssue').hidden&&
        doc?.title!=='원본 강의 확인 필요'&&(doc?.body?.innerText||'').trim().length>200;
-    }catch{return false;}
-   },'/claude-library/'+row.source_path,{timeout:30000});
+     }catch{return false;}
+    },'/claude-library/'+row.source_path,{timeout:30000});
+   }
   }catch(error){
    await page.screenshot({path:path.join(outDir,'failure-lecture-'+spec.number+'.png')});
    const detail=await page.locator('#diseaseTraumaLoadIssue').innerText().catch(()=>'<unavailable>');
    const frameText=await page.locator('#diseaseTraumaOriginalFrame').evaluate(el=>el.contentDocument?.body?.innerText?.slice(0,300)||'').catch(()=>'<cross origin>');
-   throw Error('Installed PWA Claude '+spec.number+' refused original HTML: '+detail+'; iframe='+frameText+'; '+error);
+   throw Error('Installed PWA Claude '+spec.number+' failed expected original/native learning view: '+detail+'; iframe='+frameText+'; '+error);
   }
   if(category===0){
    const refreshed=await page.evaluate(async()=>{
