@@ -5511,7 +5511,14 @@ async function checkForAppUpdate(manual=false){
       return true;
     }
     if(controllerVersion&&controllerVersion!==APP_RELEASE.buildVersion){
-      applyAppUpdateWhenSafe(controllerVersion);
+      // Fresh index.html and app-version.js can arrive BEFORE a new worker
+      // activates. An older controller must NEVER downgrade the new page.
+      if(onlineVersion&&onlineVersion===APP_RELEASE.buildVersion){
+        setAppUpdateStatus('새 버전의 오프라인 저장을 준비 중입니다.',APP_RELEASE.displayVersion+' · 이미 최신 화면 사용 중');
+        return true;
+      }
+      if(!onlineVersion||onlineVersion===controllerVersion)
+        applyAppUpdateWhenSafe(controllerVersion);
       return true;
     }
     if(appAutoUpdatePendingVersion&&appAutoUpdatePendingVersion!==APP_RELEASE.buildVersion){
