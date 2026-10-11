@@ -5361,7 +5361,10 @@ function applyAppUpdateWhenSafe(nextVersion){
 const APP_PULL_REFRESH_THRESHOLD=72;
 
 async function requestAppUpdateCheck(reason='resume',force=false){
-  if(!navigator.onLine)return false;
+  if(!navigator.onLine){
+    setAppUpdateStatus('오프라인입니다. 저장된 앱으로 계속 사용할 수 있습니다.',APP_RELEASE.displayVersion+' · 연결되면 자동 업데이트를 확인합니다.');
+    return false;
+  }
   const now=Date.now();
   if(!force&&now-appLastAutoUpdateCheckAt<APP_AUTO_UPDATE_MIN_INTERVAL)return false;
   appLastAutoUpdateCheckAt=now;
