@@ -96,7 +96,7 @@ try {
         await tile.click();
         const expectedPath = '/claude-library/' + row.source_path;
         const nativePilot = number === 3;
-        const nativeSeries = number >= 4 && number <= 19;
+        const nativeSeries = number >= 4 && number <= 27;
         const nativeLesson = nativePilot || nativeSeries;
         try {
           if (nativePilot) {
@@ -244,7 +244,7 @@ try {
           }
           // The first non-muscle native conversion must actually speak through
           // the same local Korean voice engine; source HTML is left untouched.
-          if(nativeSeries && viewport.all && [14,15,16,17,18,19].includes(number)){
+          if(nativeSeries && viewport.all && (number>=14&&number<=27)){
             const prior=await page.evaluate(()=>window.__lysNativeSpeechQA?.length||0);
             await page.locator('#claudeNativePilotHost [data-native-audio="play"]').click();
             await page.waitForFunction(previous=>(window.__lysNativeSpeechQA?.length||0)>previous,prior);
@@ -267,17 +267,17 @@ try {
               await page.locator('#claudeNativePilotHost [data-native-audio="dock-stop"]').click();
             }
           }
-          if(nativeSeries && viewport.all && [14,15,16,17,18,19].includes(number)){
+          if(nativeSeries && viewport.all && (number>=14&&number<=27)){
             const controls=await page.locator('#claudeNativePilotHost').evaluate(host=>{
               const label=host.querySelector('.claude-native-auto-next');
               const switcher=label?.querySelector('input');
               return {hidden:label?.hidden,cssDisplay:label?getComputedStyle(label).display:null,disabled:switcher?.disabled};
             });
-            if(number===19 && (!controls.hidden||controls.cssDisplay!=='none'||!controls.disabled))
-              throw Error('End-of-batch clinical lecture 19 must not auto-open original-only #20: '+JSON.stringify(controls));
-            if(number!==19 && (controls.hidden||controls.cssDisplay==='none'||controls.disabled))
+            if(number===27 && (!controls.hidden||controls.cssDisplay!=='none'||!controls.disabled))
+              throw Error('End-of-batch clinical lecture 27 must not auto-open disease/trauma #28: '+JSON.stringify(controls));
+            if(number!==27 && (controls.hidden||controls.cssDisplay==='none'||controls.disabled))
               throw Error('Clinical lecture '+number+' should offer the next native lecture: '+JSON.stringify(controls));
-            if([15,16,17,18,19].includes(number)){
+            if(number>=15&&number<=19){
               const visual=await page.locator('#claudeNativePilotHost').evaluate(async host=>{
                 const imgs=[...host.querySelector('.claude-native-lesson').shadowRoot.querySelectorAll('img')];
                 await Promise.all(imgs.map(img=>img.decode().catch(()=>{})));
