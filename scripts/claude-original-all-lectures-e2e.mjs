@@ -201,6 +201,14 @@ try {
         // speech reader, while the original MP4 is still absent.
         if (row.audio === '없음') {
           if([1,2].includes(number)){
+            // The 3.2 MB interactive source is loaded in the iframe first;
+            // its separate verified responsive/voice adapter initializes
+            // asynchronously only after SHA-256 verification completes.
+            await page.waitForFunction(()=>{
+              const host=document.getElementById('claudeCompendiumReaderHost');
+              return !!host&&!host.hidden&&!!host.querySelector('[data-native-audio="play"]')&&
+                +host.dataset.compendiumVoiceSegments>0;
+            },null,{timeout:isLive?45000:30000});
             const hostedReader=await page.locator('#claudeCompendiumReaderHost').evaluate(host=>
               !host.hidden&&!!host.querySelector('[data-native-audio="play"]')&&
               +host.dataset.compendiumVoiceSegments>0);
