@@ -1,4 +1,4 @@
-// v12.34 preview: native #18–19 clinical lessons with free Korean speech, PWA app-shell stage24.17.
+// v12.35 preview: preserve and deliver 14 clinical native lessons #14–27, 25 native / 27 free voice UI, stage24.18.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
