@@ -84,6 +84,17 @@
  window.addEventListener('keydown',e=>{
    if(e.key==='Escape'&&focusMode){e.preventDefault();releaseFocus();}
  });
+ // Android system Back can pop browser history without pressing the app-owned
+ // back button. Never leave an orphaned fixed toolbar over the course listing.
+ const academicView=document.getElementById('diseaseTraumaOriginalView');
+ if(academicView&&typeof MutationObserver!=='undefined'){
+   new MutationObserver(()=>{
+     if(academicView.hidden)releaseFocus();
+   }).observe(academicView,{attributes:true,attributeFilter:['hidden']});
+ }
+ window.addEventListener('popstate',()=>setTimeout(()=>{
+   if(academicView?.hidden)releaseFocus();
+ },0));
  const status=document.getElementById('diseaseTraumaOriginalStatus');
  function stop(){
    window.LYSNativeAudio?.stop();
