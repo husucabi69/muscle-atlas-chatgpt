@@ -1,4 +1,4 @@
-// v12.32 app-shell update: offline shell for interactive compendium and source-locked wrist native reader.
+// v12.32 app-shell update: offline compendium TTS, wrist native and honest course-status labels.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
