@@ -754,14 +754,26 @@ try{
   const ref=page.locator('[data-claude-academic-lecture="14"]');
   if(!await ref.isVisible())fail('Referred-pain lecture 14 displayed in relevant category');
   await ref.click();
+  // Source #14 is now an app-owned, full-fidelity Native reader with local
+  // Korean TTS. Prior E2E expected an iframe; retain the same real click and
+  // browser-back contract while verifying this *new* visible screen instead.
   await page.waitForFunction(()=>{
-    const f=document.getElementById('diseaseTraumaOriginalFrame');
-    return !!f&&!f.hidden&&f.contentDocument?.title!=='원본 강의 확인 필요' &&
-      (f.contentDocument?.body?.textContent||'').length>300;
-  },null,{timeout:20000});
+    const host=document.getElementById('claudeNativePilotHost');
+    const shadow=host?.querySelector('.claude-native-lesson')?.shadowRoot;
+    const iframe=document.getElementById('diseaseTraumaOriginalFrame');
+    return !host?.hidden&&host?.dataset.claudeNativeLecture==='14'&&
+      !!iframe?.hidden&&
+      shadow?.querySelectorAll('section').length===12&&
+      shadow?.querySelectorAll('table').length===8&&
+      shadow?.querySelectorAll('[data-i]').length===194&&
+      !!host.querySelector('[data-native-audio="play"]');
+  },null,{timeout:30000});
+  const clinicalStatus=await page.locator('#diseaseTraumaOriginalStatus').innerText();
+  if(!clinicalStatus.includes('무료 한국어 음성'))
+    fail('Clinical Native #14 must clearly provide free device speech',clinicalStatus);
   await page.locator('#diseaseTraumaOriginalView .region-back').click();
   if(!await visible('#diseaseTraumaCategoryView'))fail('Lecture Back returns to course list');
-  pass('Claude Academic Classroom: independent 10 categories, 24 Trauma titles, 7 real original HTML courses and 3-level back');
+  pass('Claude Academic Classroom: independent 10 categories, 24 Trauma titles, 6 original HTML + 1 complete Native referred-pain lecture and 3-level back');
 
   if(pageErrors.length)fail('No uncaught page errors',pageErrors.join(' || '));
   if(consoleErrors.length)fail('No console errors',consoleErrors.join(' || '));
