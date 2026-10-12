@@ -92,9 +92,12 @@
      if(academicView.hidden)releaseFocus();
    }).observe(academicView,{attributes:true,attributeFilter:['hidden']});
  }
- window.addEventListener('popstate',()=>setTimeout(()=>{
+ // The academic router synchronously hides the original screen before
+ // this listener. Deferring cleanup by setTimeout left a fixed toolbar orphaned
+ // over the course list after Android Back. Release in the same popstate turn.
+ window.addEventListener('popstate',()=>{
    if(academicView?.hidden)releaseFocus();
- },0));
+ });
  const status=document.getElementById('diseaseTraumaOriginalStatus');
  function stop(){
    window.LYSNativeAudio?.stop();
