@@ -21,6 +21,15 @@
     document.documentElement.style.overflow=restore.htmlOverflow;
     document.body.style.overflow=restore.bodyOverflow;
   }
+  window.addEventListener('popstate',()=>{
+    // A physical Android Back action can leave the academic lesson route
+    // without using our own focus toolbar. Never strand a fullscreen reader.
+    if(fullViewRestore)leaveFullView();
+  });
+  if(typeof MutationObserver!=='undefined'){
+    new MutationObserver(()=>{if(view.hidden&&fullViewRestore)leaveFullView();})
+      .observe(view,{attributes:true,attributeFilter:['hidden']});
+  }
   function clean(){
     leaveFullView();
     generation++;
