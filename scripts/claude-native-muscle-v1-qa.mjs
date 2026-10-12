@@ -38,7 +38,7 @@ assert.ok(audio.includes('repeatToggle'),'A-B repeat switch');
 assert.ok(audio.includes("auto-next"),'opt-in next-lecture playback');
 const series=fs.readFileSync('scripts/claude-native-muscle-series-v1.js','utf8');
 assert.ok(html.includes('scripts/claude-native-muscle-series-v1.js'),'series reader must load after pilot');
-assert.ok(series.includes('new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51])'),'10 muscle + 14 clinical + 24 source-locked disease/trauma volumes allowed');
+assert.ok(series.includes('new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58])'),'10 muscle + 14 clinical + 24 disease/trauma + 7 bone-tumour/pediatric native volumes allowed');
 assert.ok(series.includes('&&ELIGIBLE.has(x.number)'),'cross-lecture auto-next limited to native courses');
 assert.ok(series.includes("crypto.subtle.digest('SHA-256',bytes)"),'each native volume verifies source SHA');
 assert.ok(series.includes("full.textContent!==source.textContent"),'source text fidelity');

@@ -1,4 +1,4 @@
-// v12.51 development: all source-verified disease/trauma lectures #28–51 immersive mobile chapters, stage24.34.
+// v12.52 development: B4 oncology/pediatric #52–58 exact-source mobile readers; B3 #28–51 preserved, stage24.35.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

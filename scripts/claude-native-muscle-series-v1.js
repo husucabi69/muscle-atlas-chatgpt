@@ -1,11 +1,11 @@
 // Stage 24 expansion: lossless native reader for Muscle #4–13, clinical #14–27,
-// and source-locked Disease/Trauma volumes 01–24, lectures #28–51.
+// source-locked Disease/Trauma volumes #28–51 and bone tumour/paediatrics #52–58.
 // Exact canonical HTML SHA/bytes verified before DOM import; source files untouched.
 // The existing volume-1 custom native lecture and every non-muscle course retain their routes.
 (function(){
   'use strict';
-  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]);
-  const FULL_VIEW_PILOT=new Set([28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]);
+  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58]);
+  const FULL_VIEW_PILOT=new Set([28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58]);
   const previousOpen=window.openClaudeOriginalLecture;
   const panel=document.getElementById('claudeNativePilotHost');
   const modeSwitch=document.getElementById('claudeNativeModeSwitch');

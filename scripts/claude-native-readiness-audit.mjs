@@ -76,6 +76,7 @@ const report={
  nativePreviewIntegrated:total(x=>x.nativePreviewIntegrated),
  diseaseTraumaPilot28:rows.find(x=>x.number===28)?.nativePreviewIntegrated===true,
  diseaseTraumaBatch28to51:rows.filter(x=>x.number>=28&&x.number<=51).every(x=>x.nativePreviewIntegrated),
+ boneTumourPaediatricBatch52to58:rows.filter(x=>x.number>=52&&x.number<=58).every(x=>x.nativePreviewIntegrated),
  originalOnly:total(x=>!x.nativePreviewIntegrated),
  enhancedOriginalWithDeviceVoice:total(x=>x.interactiveOriginalLargeScreenDeviceTts),
  deviceVoiceCodeAvailable:total(x=>x.freeKoreanTtsImplemented),
@@ -84,9 +85,9 @@ const report={
  actualAndroidAudioVerified:0,serverRecordedAudioVerified:0,
  rows
 };
-assert.equal(report.nativePreviewIntegrated,49,'pilot #3 + 10 muscle + 14 clinical + disease #28–51');
-assert.equal(report.originalOnly,38,'unported native source-only lecture count including enhanced interactive originals');
-assert.equal(report.deviceVoiceCodeAvailable,51,'49 native + 2 interactive original read-aloud wrappers');
+assert.equal(report.nativePreviewIntegrated,56,'pilot #3 + 10 muscle + 14 clinical + disease #28–51 + bone-tumour/paediatric #52–58');
+assert.equal(report.originalOnly,31,'unported native source-only lecture count including enhanced interactive originals');
+assert.equal(report.deviceVoiceCodeAvailable,58,'56 native + 2 interactive original read-aloud wrappers');
 fs.mkdirSync('qa-artifacts/claude-native-readiness',{recursive:true});
 fs.writeFileSync('qa-artifacts/claude-native-readiness/report.json',
  JSON.stringify(report,null,2)+'\n');
