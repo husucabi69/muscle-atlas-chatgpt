@@ -42,7 +42,11 @@
   function nextInSeries(number){
     const all=window.LYSClaudeLectureCatalog?.()||[];
     const current=all.find(x=>x.number===number);
-    return all.find(x=>x.number===number+1&&x.series===current?.series&&ELIGIBLE.has(x.number))||null;
+    return all.find(x=>x.number===number+1&&x.series===current?.series&&ELIGIBLE.has(x.number)&&
+      // The manifest groups both B4 specialties as "골종양·소아".
+      // End the tumour sequence at #54: never auto-advance into paediatrics #55.
+      (current?.series!=='골종양·소아'||
+        x.title.startsWith('골종양')===current.title.startsWith('골종양')))||null;
   }
   window.LYSClaudeSequence=Object.freeze({
     next(number){
