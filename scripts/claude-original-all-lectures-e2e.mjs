@@ -108,7 +108,7 @@ try {
         await tile.click();
         const expectedPath = '/claude-library/' + row.source_path;
         const nativePilot = number === 3;
-        const nativeSeries = number >= 4 && number <= 33; // #28–33 source-locked disease/trauma native batch
+        const nativeSeries = number >= 4 && number <= 39; // #28–39 source-locked disease/trauma native batch
         const nativeLesson = nativePilot || nativeSeries;
         try {
           if (nativePilot) {

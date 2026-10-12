@@ -1,9 +1,10 @@
-// The 2–6 disease/trauma native chapters must fill the mobile viewport and
+// The 2–12 disease/trauma native chapters must fill the mobile viewport and
 // keep their exact source nodes. This is browser QA, not physical phone testing.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {chromium} from 'playwright';
-const expected={29:[10,88,2,8,9],30:[12,126,3,8,6],31:[11,90,1,6,6],32:[11,86,2,8,6],33:[11,77,1,6,6]};
+const expected={29:[10,88,2,8,9],30:[12,126,3,8,6],31:[11,90,1,6,6],32:[11,86,2,8,6],33:[11,77,1,6,6],34:[10,80,2,8,7],35:[12,71,1,10,8],
+  36:[11,104,2,9,6],37:[11,94,4,8,6],38:[9,69,1,8,4],39:[10,62,2,8,4]};
 const browser=await chromium.launch({headless:true});
 try{
   const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,deviceScaleFactor:1,serviceWorkers:'block'});
@@ -49,7 +50,7 @@ try{
     assert.ok(focused.width>=focused.screenW-4&&focused.height>=focused.screenH-4,'real full-viewport reader #'+id);
     assert.ok(focused.top>=90&&focused.top<=300,'selected chapter immediately visible #'+id+': '+JSON.stringify(focused));
     assert.ok(focused.title.length>6,'chapter title visible #'+id);
-    if(id==='29')await page.screenshot({path:'qa-artifacts/claude-original-classroom/shoulder-trauma29-immersive.png'});
+    if(id==='29'||id==='34'||id==='36')await page.screenshot({path:'qa-artifacts/claude-original-classroom/disease-trauma-'+id+'-immersive.png'});
     await page.locator('#claudeNativePilotHost .claude-native-chapter-focusbar button').nth(1).click();
     assert.equal((await status()).voiceOpen,true,'speech stays accessible in focus #'+id);
     await page.locator('#claudeNativePilotHost .claude-native-chapter-focusbar button').first().click();

@@ -28,7 +28,7 @@ try{
       const item=page.locator('[data-claude-academic-lecture="'+lecture.number+'"]');
       if(!(await item.textContent()).includes('우리 서버 원본'))throw new Error('Not self-hosted '+lecture.number);
       await item.click();
-      const native=lecture.number>=28&&lecture.number<=33;
+      const native=lecture.number>=28&&lecture.number<=39;
       const expectedMedia=lecture.r2_object_key;
       let state;
       if(native){
