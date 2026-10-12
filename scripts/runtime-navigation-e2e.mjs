@@ -708,7 +708,7 @@ try{
 
 
   // Academic teaching room must be a dedicated hierarchy:
-  // 10 categories -> category-only list -> original HTML-only detail -> Back.
+  // 10 categories -> category-only list -> exact original verified native detail -> Back.
   await page.locator('.tab[data-page="diseaseTrauma"]').click();
   await page.waitForFunction(()=>document.querySelectorAll('#claudeAcademicCategoryChooser [data-claude-academic-category]').length===10,{timeout:20000});
   if(!await visible('#diseaseTraumaRootView'))fail('Claude 10-category root view visible');
@@ -728,21 +728,33 @@ try{
     await tile.click();
     if(!await visible('#diseaseTraumaOriginalView')||await visible('#diseaseTraumaCategoryView'))
       fail('Lecture '+number+' opens independent detail screen');
-    await page.waitForFunction(()=>{
-      const f=document.getElementById('diseaseTraumaOriginalFrame');
-      const doc=f?.contentDocument;
-      return !!f&&!f.hidden&&doc?.title!=='원본 강의 확인 필요' &&
-        (doc?.body?.textContent||'').length>1000;
-    },null,{timeout:20000});
-    const frame=page.frameLocator('#diseaseTraumaOriginalFrame');
-    const html=(await frame.locator('body').textContent()||'');
-    if(!html.includes(title.split(' ')[0]))fail('Original lecture '+number+' body content visible');
-    const audio=await frame.locator('body').evaluate(()=>window.__AUD__?.urls?.[0]||'');
-    if(!audio.startsWith('../../2_음성/03_질환외상/'))fail('Original lecture '+number+' MP4 logical path preserved',audio);
-    if(!await frame.locator('#startAll').isVisible()||!await frame.locator('#rate').isVisible())
-      fail('Original lecture '+number+' original playback controls preserved');
+    // B3 01–06 is source-locked native Shadow DOM, not the old nested iframe.
+    // The original MP4 remains unhosted; the free device voice must not be
+    // presented as an actual recovered recorded audio file.
+    await page.waitForFunction(number=>{
+      const panel=document.getElementById('claudeNativePilotHost');
+      const root=panel?.querySelector('.claude-native-lesson')?.shadowRoot;
+      return !panel?.hidden&&panel.dataset.claudeNativeLecture===String(number)&&
+        panel.dataset.claudeNativeLayout==='IMMERSIVE_CHAPTER_PILOT'&&
+        root?.querySelectorAll('section').length>=10&&
+        root.querySelectorAll('[data-i]').length>=70&&
+        root.querySelectorAll('figure').length>=6&&
+        root.querySelectorAll('img').length>=6&&
+        document.getElementById('diseaseTraumaOriginalFrame').hidden;
+    },number,{timeout:35000});
+    const academic=await page.locator('#claudeNativePilotHost').evaluate(panel=>{
+      const root=panel.querySelector('.claude-native-lesson').shadowRoot;
+      return {text:root.textContent,sections:root.querySelectorAll('section').length,
+        paragraphs:root.querySelectorAll('[data-i]').length,
+        speech:!!panel.querySelector('[data-native-audio="play"]'),
+        originalMp4Player:!!panel.querySelector('[data-recorded-audio="player"]')};
+    });
+    if(!academic.text.includes(title.split(' ')[0])||!academic.speech||
+       academic.originalMp4Player)
+      fail('Source-preserving native shoulder/elbow/wrist teaching '+number,academic);
     const status=(await page.locator('#diseaseTraumaOriginalStatus').innerText()||'');
-    if(!status.includes('음성 연결 대기'))fail('Unverified MP4 playback must remain pending',status);
+    if(!status.includes('무료 한국어 음성'))
+      fail('Free device TTS must not be mislabeled as ready original MP4 '+number,status);
     await page.evaluate(()=>history.back());
     await page.waitForFunction(()=>!document.getElementById('diseaseTraumaCategoryView').hidden);
     if(await visible('#diseaseTraumaOriginalView'))fail('Browser Back restores category alone');
