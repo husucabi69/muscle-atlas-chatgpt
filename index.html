@@ -5662,7 +5662,7 @@ function renderClaudeAcademicCategories(){
  const rows=claudeLibraryManifest?.lectures||[];
  if(!rows.length){total.textContent='원본 강의 목록을 불러오는 중';categories.innerHTML='';list.innerHTML='';return}
  if(selectedClaudeAcademicCategoryIndex>=claudeAcademicCategories.length)selectedClaudeAcademicCategoryIndex=0;
- total.textContent=rows.length+'개 원본 강의 · '+claudeAcademicCategories.length+'개 분야 · 자체 이식 25강 · 무료 한국어 음성 UI 27강';
+ total.textContent=rows.length+'개 원본 강의 · '+claudeAcademicCategories.length+'개 분야 · 자체 통합 56강 · 무료 한국어 음성 UI 58강';
  categories.innerHTML=claudeAcademicCategories.map((def,index)=>{
    const count=claudeAcademicRows(index).length,selected=index===selectedClaudeAcademicCategoryIndex;
    return '<button type="button" class="region-choice" data-claude-academic-category="'+index+'" aria-pressed="'+(selected?'true':'false')+'" onclick="showClaudeAcademicCategory('+index+')"><span><b>'+esc(def.label)+'</b><br><small>원본 강의 '+count+'개</small></span><span class="arrow">'+(selected?'✓':'›')+'</span></button>'
