@@ -49,6 +49,8 @@ jobs:
         run: node scripts/claude-native-muscle-v1-qa.mjs
       - name: Run multi-volume native Muscle lecture source fidelity QA
         run: node scripts/claude-native-muscle-series-qa.mjs
+      - name: Verify disease trauma 01–06 source identity and count
+        run: node scripts/claude-disease-trauma-batch-qa.mjs
       - name: Verify native referred-pain and physical-examination original source/cue fidelity
         run: node scripts/claude-native-clinical-source-qa.mjs
       - name: Audit all 87 Claude original types, MP4 cue gaps and native conversion coverage
@@ -198,6 +200,8 @@ jobs:
         run: node scripts/claude-compendium-native-reader-e2e.mjs
       - name: Validate source-locked shoulder disease 01 native fullscreen lesson
         run: node scripts/claude-disease-shoulder-native-e2e.mjs
+      - name: Verify disease trauma 02–06 immersive chapter mobile interaction
+        run: node scripts/claude-disease-trauma-batch-e2e.mjs
       - name: Run anatomy click-through runtime E2E
         run: node scripts/runtime-navigation-e2e.mjs
       - name: Run custom clinical exam illustration runtime E2E
