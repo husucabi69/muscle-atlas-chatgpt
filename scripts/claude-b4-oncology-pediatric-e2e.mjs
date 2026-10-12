@@ -64,6 +64,8 @@ try{
       'one-tap chapter is immediately visible #'+number+': '+JSON.stringify(focus));
     if(number===52||number===55)await page.screenshot({path:'qa-artifacts/claude-b4/mobile-'+number+'.png'});
     if(number===52){
+      // The focus reader intentionally collapses its voice dock until requested.
+      await page.locator('#claudeNativePilotHost .claude-native-chapter-focusbar button').nth(1).click();
       await page.locator('#claudeNativePilotHost [data-native-audio="play"]').click();
       await page.waitForFunction(()=>window.__b4Spoken?.length>0);
       const spoken=await page.evaluate(()=>window.__b4Spoken[0]);
