@@ -74,6 +74,7 @@ const report={
  generatedAt:new Date().toISOString(),
  originalLectureFiles:rows.length,
  nativePreviewIntegrated:total(x=>x.nativePreviewIntegrated),
+ diseaseTraumaPilot28:rows.find(x=>x.number===28)?.nativePreviewIntegrated===true,
  originalOnly:total(x=>!x.nativePreviewIntegrated),
  enhancedOriginalWithDeviceVoice:total(x=>x.interactiveOriginalLargeScreenDeviceTts),
  deviceVoiceCodeAvailable:total(x=>x.freeKoreanTtsImplemented),
@@ -82,9 +83,9 @@ const report={
  actualAndroidAudioVerified:0,serverRecordedAudioVerified:0,
  rows
 };
-assert.equal(report.nativePreviewIntegrated,25,'pilot 1 + 10 muscle extension + 14 clinical native');
-assert.equal(report.originalOnly,62,'unported native source-only lecture count including enhanced interactive originals');
-assert.equal(report.deviceVoiceCodeAvailable,27,'25 native + 2 interactive original read-aloud wrappers');
+assert.equal(report.nativePreviewIntegrated,26,'pilot #3 + 10 muscle + 14 clinical + disease #28');
+assert.equal(report.originalOnly,61,'unported native source-only lecture count including enhanced interactive originals');
+assert.equal(report.deviceVoiceCodeAvailable,28,'26 native + 2 interactive original read-aloud wrappers');
 fs.mkdirSync('qa-artifacts/claude-native-readiness',{recursive:true});
 fs.writeFileSync('qa-artifacts/claude-native-readiness/report.json',
  JSON.stringify(report,null,2)+'\n');

@@ -82,3 +82,19 @@
     padding:6px;border-radius:12px
   }
 }
+
+/* Native disease/trauma #28 pilot: one chapter tap => one full-viewport
+   source-locked educational reader, modeled on Muscle Volume 1. Other courses
+   stay on their approved readers until their batch passes fidelity QA. */
+.claude-native-chapter-focusbar[hidden]{display:none!important}
+.claude-native-chapter-focusbar{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:8px;min-height:53px;padding:6px 8px;background:#102d42;color:#fff;border-radius:10px}
+.claude-native-chapter-focusbar button{min-height:41px;border:0;border-radius:9px;background:#fff;color:#102d42;padding:7px 9px;font-size:14px;font-weight:750;white-space:nowrap}
+.claude-native-chapter-focusbar strong{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px}
+.claude-native-pilot.claude-native-chapter-focus{position:fixed!important;inset:0!important;z-index:116!important;width:100vw!important;max-width:none!important;height:100dvh!important;max-height:100dvh!important;min-height:0!important;overflow-y:auto!important;overscroll-behavior:contain;padding:env(safe-area-inset-top,0px) 6px env(safe-area-inset-bottom,0px)!important;margin:0!important;border:0!important;border-radius:0!important;background:#fbf7ee!important}
+.claude-native-chapter-focus>.claude-native-lead,.claude-native-chapter-focus>.claude-native-mode-switch{display:none!important}
+.claude-native-chapter-focus>.claude-native-navbar{position:sticky!important;top:53px!important;z-index:11;padding:6px 9px;margin:0 0 8px;border-radius:0 0 10px 10px}
+.claude-native-chapter-focus>.claude-native-navbar label{font-size:13px;gap:3px}
+.claude-native-chapter-focus>.claude-native-navbar select{font-size:15px;min-height:41px}
+.claude-native-chapter-focus>.claude-native-audio{display:none!important}
+.claude-native-chapter-focus.claude-native-chapter-voice-open>.claude-native-audio{display:block!important}
+.claude-native-chapter-focus>.claude-native-lesson{width:100%;max-width:none;overflow:visible;}

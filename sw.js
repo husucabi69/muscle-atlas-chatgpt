@@ -1,4 +1,4 @@
-// v12.47 preview: full-viewport original muscle details and clean #1 single reader header, stage24.30.
+// v12.48 development: shoulder disease #28 full-source native immersive chapter pilot, stage24.31.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

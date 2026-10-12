@@ -1,10 +1,11 @@
-// Stage 24 expansion: lossless native app reader for Muscle volumes 2–11 and
-// Phase 1–2 referred-pain and physical-examination lectures 14–27.
+// Stage 24 expansion: lossless native reader for Muscle #4–13, clinical #14–27,
+// and the first source-locked Disease/Trauma shoulder lecture #28.
 // Exact canonical HTML SHA/bytes verified before DOM import; source files untouched.
 // The existing volume-1 custom native lecture and every non-muscle course retain their routes.
 (function(){
   'use strict';
-  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]);
+  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]);
+  const FULL_VIEW_PILOT=new Set([28]);
   const previousOpen=window.openClaudeOriginalLecture;
   const panel=document.getElementById('claudeNativePilotHost');
   const modeSwitch=document.getElementById('claudeNativeModeSwitch');
@@ -12,7 +13,16 @@
   const view=document.getElementById('diseaseTraumaOriginalView');
   if(!panel||!frame||!view||typeof previousOpen!=='function')return;
   let generation=0;
+  let fullViewRestore=null;
+  function leaveFullView(){
+    if(!fullViewRestore)return;
+    const restore=fullViewRestore;fullViewRestore=null;
+    panel.classList.remove('claude-native-chapter-focus','claude-native-chapter-voice-open');
+    document.documentElement.style.overflow=restore.htmlOverflow;
+    document.body.style.overflow=restore.bodyOverflow;
+  }
   function clean(){
+    leaveFullView();
     generation++;
     window.LYSNativeAudio?.stop();
     window.LYSClaudeRecordedAudio?.stop();
@@ -71,6 +81,9 @@
       '.native-original .wrap{width:100%;max-width:760px;min-width:0;margin:auto;padding:0 12px}'+
       '.native-original .startall,.native-original .secplay,.native-original .player{display:none!important}'+
       '.native-original .tbl{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}'+
+      '.native-original section[id]{scroll-margin-top:148px}'+
+      (FULL_VIEW_PILOT.has(item.number)?
+       '.native-original{font-size:19px;line-height:1.78}.native-original .wrap{max-width:100%;padding:0 8px}.native-original p,.native-original li{font-size:19px;line-height:1.78}.native-original .sechead h1{font-size:clamp(23px,6.3vw,30px)}':'')+
       '.native-original table{max-width:100%}.native-original img,.native-original svg{max-width:100%;height:auto}'+
       '.native-original figure{max-width:100%}.claude-native-speaking{outline:3px solid #dd9e25!important;background:#fff1bf!important;border-radius:5px}';
     const full=document.importNode(source,true);
@@ -97,11 +110,48 @@
     const nav=document.createElement('div');nav.className='claude-native-navbar';
     const label=document.createElement('label');label.textContent='학습할 장 선택';
     const choose=document.createElement('select');choose.setAttribute('aria-label','강의 장 바로가기');
+    const fullViewPilot=FULL_VIEW_PILOT.has(item.number);
+    const focusToolbar=document.createElement('div');
+    focusToolbar.className='claude-native-chapter-focusbar';
+    focusToolbar.hidden=true;
+    const back=document.createElement('button');back.type='button';back.textContent='← 강의';
+    const focusTitle=document.createElement('strong');focusTitle.textContent='어깨 질환';
+    const voice=document.createElement('button');voice.type='button';voice.textContent='🔊 음성';
+    back.addEventListener('click',()=>{
+      leaveFullView();focusToolbar.hidden=true;
+      choose.value='';
+      panel.scrollTop=0;
+    });
+    voice.addEventListener('click',()=>{
+      const opened=panel.classList.toggle('claude-native-chapter-voice-open');
+      voice.textContent=opened?'✕ 음성 접기':'🔊 음성';
+      if(opened)panel.querySelector('.claude-native-audio')?.scrollIntoView({behavior:'instant',block:'start'});
+    });
+    focusToolbar.append(back,focusTitle,voice);
+    function focusChapter(target){
+      if(!target)return;
+      if(fullViewPilot){
+        if(!fullViewRestore){
+          fullViewRestore={htmlOverflow:document.documentElement.style.overflow,
+            bodyOverflow:document.body.style.overflow};
+          document.documentElement.style.overflow='hidden';
+          document.body.style.overflow='hidden';
+        }
+        panel.classList.add('claude-native-chapter-focus');
+        panel.classList.remove('claude-native-chapter-voice-open');
+        voice.textContent='🔊 음성';
+        focusToolbar.hidden=false;
+        focusTitle.textContent=target.querySelector('.sechead h1,h1,h2')?.textContent?.trim()||item.title;
+      }
+      // Set scrolling synchronously. Smooth/center used to strand the selected
+      // chapter below several screens on an installed Android PWA.
+      target.scrollIntoView({behavior:'instant',block:'start'});
+    }
     const chapters=[...shadow.querySelectorAll('section[id]')].map(e=>({id:e.id,name:e.querySelector('.sechead h1,h1,h2')?.textContent?.trim()||e.id}));
     choose.innerHTML='<option value="">목차에서 장을 선택하세요</option>'+chapters.map(x=>'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>').join('');
     choose.addEventListener('change',()=>{
       const target=shadow.getElementById(choose.value);
-      if(target)target.scrollIntoView({behavior:'smooth',block:'center'});
+      if(target)focusChapter(target);
     });
     label.append(choose);nav.append(label);
     shadow.addEventListener('click',event=>{
@@ -109,7 +159,7 @@
       if(!anchor)return;
       const id=decodeURIComponent(anchor.getAttribute('href').slice(1));
       const target=shadow.getElementById(id);
-      if(target){event.preventDefault();target.scrollIntoView({behavior:'smooth',block:'center'});choose.value=id;}
+      if(target){event.preventDefault();focusChapter(target);choose.value=id;}
     });
     const compare=document.createElement('button');compare.type='button';compare.className='pill';
     compare.textContent='원본 그대로 비교';
@@ -128,7 +178,8 @@
       onComplete:nextInSeries(item.number)?()=>window.LYSClaudeSequence.next(item.number):undefined
     });
     if(token!==generation)return;
-    panel.replaceChildren(lead,compareRow,nav,player,lessonRoot);
+    panel.replaceChildren(...(fullViewPilot?[focusToolbar]:[]),lead,compareRow,nav,player,lessonRoot);
+    panel.dataset.claudeNativeLayout=fullViewPilot?'IMMERSIVE_CHAPTER_PILOT':'STANDARD_NATIVE';
     const status=document.getElementById('diseaseTraumaOriginalStatus');
     status.textContent='✓ 원본 '+item.title+' 내용·이미지·표 검증 PASS · 무료 한국어 음성';
     panel.dataset.claudeNativeLecture=String(item.number);
