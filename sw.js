@@ -1,4 +1,4 @@
-// v12.48 development: shoulder disease #28 full-source native immersive chapter pilot, stage24.31.
+// v12.49 development: six source-verified disease/trauma lectures #28–33 immersive mobile chapters, stage24.32.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

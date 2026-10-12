@@ -4,8 +4,8 @@
 // The existing volume-1 custom native lecture and every non-muscle course retain their routes.
 (function(){
   'use strict';
-  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]);
-  const FULL_VIEW_PILOT=new Set([28]);
+  const ELIGIBLE=new Set([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33]);
+  const FULL_VIEW_PILOT=new Set([28,29,30,31,32,33]);
   const previousOpen=window.openClaudeOriginalLecture;
   const panel=document.getElementById('claudeNativePilotHost');
   const modeSwitch=document.getElementById('claudeNativeModeSwitch');
@@ -124,7 +124,7 @@
     focusToolbar.className='claude-native-chapter-focusbar';
     focusToolbar.hidden=true;
     const back=document.createElement('button');back.type='button';back.textContent='← 강의';
-    const focusTitle=document.createElement('strong');focusTitle.textContent='어깨 질환';
+    const focusTitle=document.createElement('strong');focusTitle.textContent=item.title;
     const voice=document.createElement('button');voice.type='button';voice.textContent='🔊 음성';
     back.addEventListener('click',()=>{
       leaveFullView();focusToolbar.hidden=true;
