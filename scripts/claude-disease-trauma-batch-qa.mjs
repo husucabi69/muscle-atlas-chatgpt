@@ -9,7 +9,7 @@ const counts={28:[10,103,3,9,6],29:[10,88,2,8,9],30:[12,126,3,8,6],31:[11,90,1,6
   43:[8,56,3,4,1],44:[8,53,1,6,3],45:[8,55,1,5,2],
   46:[8,55,1,5,2],47:[8,43,1,5,3],48:[8,39,1,3,1],
   49:[7,47,1,5,1],50:[10,101,3,9,4],51:[8,79,3,10,5]};
-const fullView=reader.match(/const FULL_VIEW_PILOT=new Set\\(\\[([\\d,]+)\\]\\)/)?.[1].split(',').map(Number);
+const fullView=reader.match(/const FULL_VIEW_PILOT=new Set\(\[([\d,]+)\]\)/)?.[1].split(',').map(Number);
 assert.ok(fullView&&Array.from({length:24},(_,i)=>i+28).every(id=>fullView.includes(id)),
   'all disease/trauma originals must remain immersive when B4 adds new courses');
 for(const [id,expected] of Object.entries(counts)){
