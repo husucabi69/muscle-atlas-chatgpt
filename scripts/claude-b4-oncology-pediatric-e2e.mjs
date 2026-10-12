@@ -30,6 +30,12 @@ try{
     await page.locator('#diseaseTraumaCategoryView .region-back').click();
   }
   assert.equal(found,true,'B4 academic category present');
+  const sequence=await page.evaluate(()=>({
+    after53:window.LYSClaudeSequence?.nextInSeries(53)?.number||null,
+    after54:window.LYSClaudeSequence?.nextInSeries(54)?.number||null,
+    after55:window.LYSClaudeSequence?.nextInSeries(55)?.number||null}));
+  assert.deepEqual(sequence,{after53:54,after54:null,after55:56},
+    'audio advance must not cross the tumour/paediatric specialty boundary');
   for(const [raw,counts] of Object.entries(expected)){
     const number=Number(raw);
     // Tumours (#52–54) and paediatrics (#55–58) belong to different
