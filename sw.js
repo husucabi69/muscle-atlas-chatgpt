@@ -1,4 +1,4 @@
-// v12.52 development: B4 oncology/pediatric #52–58 exact-source mobile readers; B3 #28–51 preserved, stage24.35.
+// v12.53 development: global academic search index pilot and exact deep link navigation, stage24.36.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -13,6 +13,8 @@ const CORE=[
   './scripts/claude-native-muscle-recorded-audio-v1.js',
   './scripts/claude-native-muscle-v1.js',
   './scripts/claude-native-muscle-series-v1.js',
+  './scripts/lysos-global-academic-search-v1.js',
+  './data/lysos-global-academic-search-v1.json',
   './scripts/claude-compendium-native-reader-v1.js',
   './manifest.webmanifest',
   './assets/lysos-symbol.svg',

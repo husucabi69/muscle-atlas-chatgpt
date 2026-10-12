@@ -53,6 +53,8 @@ jobs:
         run: node scripts/claude-disease-trauma-batch-qa.mjs
       - name: Verify B4 bone tumour and paediatric #52–58 exact original source and native allowlist
         run: node scripts/claude-b4-oncology-pediatric-qa.mjs
+      - name: Verify academic global search index provenance and truthful source coverage
+        run: node scripts/lysos-academic-search-qa.mjs
       - name: Verify native referred-pain and physical-examination original source/cue fidelity
         run: node scripts/claude-native-clinical-source-qa.mjs
       - name: Audit all 87 Claude original types, MP4 cue gaps and native conversion coverage
@@ -206,6 +208,8 @@ jobs:
         run: node scripts/claude-disease-trauma-batch-e2e.mjs
       - name: Verify B4 #52–58 source-locked immersive mobile chapters, speech and Back
         run: node scripts/claude-b4-oncology-pediatric-e2e.mjs
+      - name: Validate global academic search exact-section tap and back on mobile
+        run: node scripts/lysos-academic-search-e2e.mjs
       - name: Run anatomy click-through runtime E2E
         run: node scripts/runtime-navigation-e2e.mjs
       - name: Run custom clinical exam illustration runtime E2E
