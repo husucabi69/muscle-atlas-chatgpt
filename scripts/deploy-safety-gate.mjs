@@ -82,16 +82,47 @@ let exactSw={ok:false,status:0,text:''},branchSw={ok:false,status:0,text:''};
 let exactHome={ok:false,status:0,text:''},branchHome={ok:false,status:0,text:''};
 
 if(exactUrl&&branchUrl){
-  [exactVersion,branchVersion,exactManifest,branchManifest,exactSw,branchSw,exactHome,branchHome]=await Promise.all([
-    fetchText(exactUrl.replace(/\/$/,'')+'/app-version.js'),
-    fetchText(branchUrl.replace(/\/$/,'')+'/app-version.js'),
-    fetchText(exactUrl.replace(/\/$/,'')+'/manifest.webmanifest'),
-    fetchText(branchUrl.replace(/\/$/,'')+'/manifest.webmanifest'),
-    fetchText(exactUrl.replace(/\/$/,'')+'/sw.js'),
-    fetchText(branchUrl.replace(/\/$/,'')+'/sw.js'),
-    fetchText(exactUrl.replace(/\/$/,'')+'/'),
-    fetchText(branchUrl.replace(/\/$/,'')+'/')
-  ]);
+  const exact=exactUrl.replace(/\/$/,'');
+  const branch=branchUrl.replace(/\/$/,'');
+  const smokeUrls=[
+    exact+'/app-version.js',branch+'/app-version.js',
+    exact+'/manifest.webmanifest',branch+'/manifest.webmanifest',
+    exact+'/sw.js',branch+'/sw.js',exact+'/',branch+'/'
+  ];
+  // Cloudflare check-runs can finish before every immutable-preview edge
+  // responds with its HTML/manifest. We once saw exact / and manifest 404
+  // while exact /app-version.js and stable-branch routes already returned 200.
+  // Retry the FULL immutable/stable smoke contract for bounded propagation;
+  // never mark a partial deployment PASS or silently substitute the stable URL.
+  for(let attempt=0;attempt<12;attempt++){
+    [exactVersion,branchVersion,exactManifest,branchManifest,exactSw,branchSw,exactHome,branchHome]=
+      await Promise.all(smokeUrls.map(async url=>{
+        try{return await fetchText(url)}
+        catch(error){return {ok:false,status:0,text:'',url,error:String(error)}}
+      }));
+    let exactPwa=null,branchPwa=null;
+    try{exactPwa=JSON.parse(exactManifest.text)}catch{}
+    try{branchPwa=JSON.parse(branchManifest.text)}catch{}
+    const exactReleaseNow=parseRelease(exactVersion.text||'');
+    const branchReleaseNow=parseRelease(branchVersion.text||'');
+    const ready=[exactVersion,branchVersion,exactManifest,branchManifest,exactSw,branchSw,exactHome,branchHome]
+      .every(item=>item.ok)&&
+      exactReleaseNow.buildVersion===localRelease.buildVersion&&
+      exactReleaseNow.cacheKey===localRelease.cacheKey&&
+      exactReleaseNow.displayVersion===localRelease.displayVersion&&
+      branchReleaseNow.buildVersion===localRelease.buildVersion&&
+      branchReleaseNow.cacheKey===localRelease.cacheKey&&
+      branchReleaseNow.displayVersion===localRelease.displayVersion&&
+      exactPwa?.start_url==='./?source=pwa'&&exactPwa?.scope==='./'&&
+      branchPwa?.start_url==='./?source=pwa'&&branchPwa?.scope==='./';
+    if(ready)break;
+    if(attempt<11){
+      console.log('WAIT | Cloudflare exact/stable CDN smoke propagation '+
+        (attempt+1)+'/12; statuses='+
+        [exactHome,exactManifest,exactVersion,branchHome,branchManifest,branchVersion].map(x=>x.status).join('/'));
+      await sleep(5000);
+    }
+  }
 }
 
 for(const [name,item] of [
