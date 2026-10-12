@@ -12,8 +12,8 @@ assert.equal(source.byteLength,item.source_bytes,'pilot source bytes unchanged')
 assert.equal(crypto.createHash('sha256').update(source).digest('hex'),item.source_sha256,'pilot source SHA unchanged');
 const sourceHtml=source.toString('utf8');
 for(const [name,re,count] of [
- ['sections',/<section\\b/g,10],['speaking paragraphs',/\\bdata-i="/g,103],
- ['tables',/<table\\b/g,3],['figures',/<figure\\b/g,9],['images',/<img\\b/g,6]
+ ['sections',/<section\b/g,10],['speaking paragraphs',/\bdata-i="/g,103],
+ ['tables',/<table\b/g,3],['figures',/<figure\b/g,9],['images',/<img\b/g,6]
 ])assert.equal((sourceHtml.match(re)||[]).length,count,'original '+name+' fidelity');
 const browser=await chromium.launch({headless:true});
 try{
