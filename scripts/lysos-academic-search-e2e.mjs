@@ -7,6 +7,8 @@ try{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>window.LYSOSAcademicSearch?.indexedLectures?.length===78);
+ assert.equal(await page.evaluate(()=>document.documentElement.dataset.appPage),'home',
+  'initially visible home route must exist before any tab navigation');
  await page.locator('#searchTypeFilter').selectOption('academic_section');
  await page.locator('#searchBox').fill('hoffmann');
  assert.ok((await page.locator('#searchResults').innerText()).includes('19번'));

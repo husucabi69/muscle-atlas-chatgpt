@@ -50,6 +50,13 @@ function checkNative(){
  const sh=panel.querySelector('.claude-native-lesson')?.shadowRoot;
  const section=sh?.getElementById(p.section);
  const select=panel.querySelector('.claude-native-navbar select');
+ // Shadow-root styles are separate from outer CSS. Keep the exact hit visible
+ // below the app-owned 53px focus bar and 53px chapter selector.
+ if(sh&&!sh.getElementById('lysosSearchScrollMargin')){
+  const st=document.createElement('style');st.id='lysosSearchScrollMargin';
+  st.textContent='section h1,section h2,section h3,section h4,section [data-i]{scroll-margin-top:158px!important}';
+  sh.append(st);
+ }
  if(!section||!select)return false;
  state.pending=null;select.value=p.section;select.dispatchEvent(new Event('change',{bubbles:true}));
  const needle=norm(p.query),targets=[...section.querySelectorAll('h1,h2,h3,h4,[data-i]')];

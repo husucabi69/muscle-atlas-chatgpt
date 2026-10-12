@@ -2094,6 +2094,11 @@ function showPage(page){
   document.documentElement.dataset.appPage=page;
   resetNavigationViewport();
 }
+// The initially visible home page is CSS-active before any tab click.
+// Its route state must exist BEFORE the first search input/change event,
+// otherwise the search query is never saved and Android Back restores a blank home.
+if(!document.documentElement.dataset.appPage)
+  document.documentElement.dataset.appPage=document.querySelector('.page.active')?.id||'home';
 const clinicalFlowModules={
   shoulder:{label:'어깨',stage:'Stage 1',summary:'회전근개·이두건·견봉하 통증과 어깨 진찰·초음파를 연결합니다.',differential:'shoulderDifferentialGrid',exam:'shoulderExamGrid',ultrasound:'shoulderUSGrid'},
   elbow:{label:'팔꿈치·전완',stage:'Stage 2',summary:'외측·내측 팔꿈치, 척골신경, PIN, 원위 이두건·삼두건·UCL을 다룹니다.',differential:'elbowDifferentialGrid',exam:'elbowExamGrid',ultrasound:'elbowUSGrid'},

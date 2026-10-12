@@ -1,4 +1,4 @@
-// v12.53 development: global academic search index pilot and exact deep link navigation, stage24.36.
+// v12.54 development: 78 source-indexed originals and initial home search Back restoration, stage24.37.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
