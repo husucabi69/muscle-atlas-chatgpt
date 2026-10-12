@@ -5,7 +5,10 @@ const data=JSON.parse(fs.readFileSync('data/lysos-global-academic-search-v1.json
 const catalog=JSON.parse(fs.readFileSync('data/claude-library-manifest-v1.json','utf8'));
 assert.equal(data.schema,'lysos-global-academic-search-v1');
 assert.equal(data.rows.filter(x=>!x.section).length,87);
-assert.deepEqual(data.indexedLectureNumbers,[3,15,19,28,49,52]);
+assert.equal(data.indexedLectureNumbers.length,78,'78 static academic originals exactly indexed');
+assert.equal(data.rows.filter(x=>x.section).length,769,'769 exact source sections');
+assert.deepEqual(catalog.lectures.map(x=>x.number).filter(n=>!data.indexedLectureNumbers.includes(n)),[1,2,59,60,61,62,63,68,74],
+ 'interactive original pages require type-specific target adapters, not fake sections');
 assert.equal(new Set(data.rows.map(x=>x.id)).size,data.rows.length);
 for(const n of data.indexedLectureNumbers){
  const item=catalog.lectures.find(x=>x.number===n);
@@ -25,4 +28,4 @@ const app=fs.readFileSync('index.html','utf8'),script=fs.readFileSync('scripts/l
 assert.ok(app.includes('option value="academic_section"')&&app.includes('LYSOSAcademicSearch?.hits')&&app.includes('LYSOSAcademicSearch?.open'));
 assert.ok(script.includes('checkNative')&&script.includes('checkOriginal')&&script.includes('scrollIntoView')&&script.includes('history.back()'));
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-global-academic-search-v1.json'));
-console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 70 exact source chapters, 6/87 original books deep-indexed');
+console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 9 interactive source adapters pending');

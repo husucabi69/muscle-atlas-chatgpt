@@ -6,7 +6,7 @@ try{
  page.setDefaultTimeout(40000);
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>window.LYSOSAcademicSearch?.indexedLectures?.length===6);
+ await page.waitForFunction(()=>window.LYSOSAcademicSearch?.indexedLectures?.length===78);
  await page.locator('#searchTypeFilter').selectOption('academic_section');
  await page.locator('#searchBox').fill('hoffmann');
  assert.ok((await page.locator('#searchResults').innerText()).includes('19번'));
@@ -20,7 +20,10 @@ try{
  assert.ok(focus.on&&focus.w>=focus.sw-4&&focus.h>=focus.sh-4,JSON.stringify(focus));
  await page.goBack({waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
- assert.equal(await page.locator('#searchBox').inputValue(),'hoffmann');
+ const restored=await page.evaluate(()=>({state:history.state,query:document.getElementById('searchBox').value,
+  filter:document.getElementById('searchTypeFilter').value,appPage:document.documentElement.dataset.appPage}));
+ console.log('LYSOS BACK DIAGNOSTIC | '+JSON.stringify(restored));
+ assert.equal(restored.query,'hoffmann');
  assert.equal(await page.locator('#searchTypeFilter').inputValue(),'academic_section');
  await page.locator('#searchBox').fill('스포츠의학 05권');
  assert.ok((await page.locator('#searchResults').innerText()).includes('세부 위치 이동 미지원'));
