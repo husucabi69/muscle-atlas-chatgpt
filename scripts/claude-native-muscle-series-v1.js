@@ -1,5 +1,5 @@
 // Stage 24 expansion: lossless native reader for Muscle #4–13, clinical #14–27,
-// and the first source-locked Disease/Trauma shoulder lecture #28.
+// and source-locked Disease/Trauma volumes 01–06, lectures #28–33.
 // Exact canonical HTML SHA/bytes verified before DOM import; source files untouched.
 // The existing volume-1 custom native lecture and every non-muscle course retain their routes.
 (function(){

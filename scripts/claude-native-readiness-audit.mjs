@@ -90,5 +90,5 @@ assert.equal(report.deviceVoiceCodeAvailable,33,'31 native + 2 interactive origi
 fs.mkdirSync('qa-artifacts/claude-native-readiness',{recursive:true});
 fs.writeFileSync('qa-artifacts/claude-native-readiness/report.json',
  JSON.stringify(report,null,2)+'\n');
-console.log('CLAUDE ALL 87 READINESS | originals 87/87 exact SHA; native 25; source-only 62; device voice UI '+report.deviceVoiceCodeAvailable+'; source cue maps '+report.sourceCueMapsParsed+'; untimed original cues '+report.sourceCuesMissingTiming+'; physical Android 0 verified; MP4 hosted 0 verified');
+console.log('CLAUDE ALL 87 READINESS | originals 87/87 exact SHA; native '+report.nativePreviewIntegrated+'; source-only '+report.originalOnly+'; device voice UI '+report.deviceVoiceCodeAvailable+'; source cue maps '+report.sourceCueMapsParsed+'; untimed original cues '+report.sourceCuesMissingTiming+'; physical Android 0 verified; MP4 hosted 0 verified');
 console.log('NOTE | Extra/duplicate scripts require type-specific review; static classification does NOT authorize automatic native integration');

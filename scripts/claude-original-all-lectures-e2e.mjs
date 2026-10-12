@@ -187,7 +187,7 @@ try {
           const shadow=host.querySelector('.claude-native-lesson').shadowRoot;
           const content=shadow.querySelector('.native-original');
           return {
-            pathname:'native:'+expected,title:'근육학 1권 — 어깨·견갑대',
+            pathname:'native:'+expected,title:document.getElementById('diseaseTraumaOriginalBreadcrumb')?.textContent?.trim()||'통합 강의',
             bodyCharacters:content.textContent.length,
             documentWidth:host.scrollWidth,viewportWidth:host.clientWidth,
             horizontalOverflow:host.scrollWidth>host.clientWidth+8,
