@@ -32,6 +32,16 @@ try{
   assert.equal(found,true,'B4 academic category present');
   for(const [raw,counts] of Object.entries(expected)){
     const number=Number(raw);
+    // Tumours (#52–54) and paediatrics (#55–58) belong to different
+    // first-level academic categories. Do not silently skip the latter.
+    if(number===55){
+      await page.locator('#diseaseTraumaCategoryView .region-back').click();
+      await page.waitForFunction(()=>!document.getElementById('diseaseTraumaRootView').hidden);
+      await page.locator('[data-claude-academic-category="4"]').click();
+      await page.waitForFunction(()=>!document.getElementById('diseaseTraumaCategoryView').hidden);
+    }
+    assert.equal(await page.locator('[data-claude-academic-lecture="'+number+'"]').count(),1,
+      'B4 original present in correct academic category #'+number);
     await page.locator('[data-claude-academic-lecture="'+number+'"]').click();
     await page.waitForFunction(id=>{
       const host=document.getElementById('claudeNativePilotHost');
