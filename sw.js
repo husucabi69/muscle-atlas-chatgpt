@@ -1,4 +1,4 @@
-// v12.50 development: original-verified disease/trauma lectures #28–39 immersive mobile chapters and installed PWA tests, stage24.33.
+// v12.51 development: all source-verified disease/trauma lectures #28–51 immersive mobile chapters, stage24.34.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

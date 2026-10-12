@@ -81,9 +81,9 @@ try{
   if(viewY>422)throw Error('Category view opened below visible screen: top='+viewY);
   await page.locator('[data-claude-academic-lecture="'+spec.number+'"]').click();
   try{
-   if(number===14||(number>=28&&number<=39)){
+   if(number===14||(number>=28&&number<=51)){
     // Native course must stay intact under the REAL controlling service
-    // worker. Disease/trauma #28–39 intentionally retired the nested
+    // worker. Disease/trauma #28–51 intentionally retired the nested
     // original iframe after locking SHA+counts, exactly like clinical #14.
     // Don't mistake the iframe being blank for a broken installed PWA.
     await page.waitForFunction(({number})=>{
@@ -93,7 +93,10 @@ try{
      const expected={14:[12,8,194],28:[10,3,103],
        29:[10,2,88],30:[12,3,126],31:[11,1,90],
        32:[11,2,86],33:[11,1,77],34:[10,2,80],35:[12,1,71],
-       36:[11,2,104],37:[11,4,94],38:[9,1,69],39:[10,2,62]}[number];
+       36:[11,2,104],37:[11,4,94],38:[9,1,69],39:[10,2,62],40:[9,2,73],41:[8,2,60],
+       42:[9,3,62],43:[8,3,56],44:[8,1,53],45:[8,1,55],
+       46:[8,1,55],47:[8,1,43],48:[8,1,39],49:[7,1,47],
+       50:[10,3,101],51:[8,3,79]}[number];
      return !!expected&&!host?.hidden&&+host.dataset.claudeNativeLecture===number&&
       !!frame?.hidden&&shadow?.querySelectorAll('section').length===expected[0]&&
       shadow.querySelectorAll('table').length===expected[1]&&
