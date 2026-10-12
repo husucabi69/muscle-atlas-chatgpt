@@ -81,20 +81,25 @@ try{
   if(viewY>422)throw Error('Category view opened below visible screen: top='+viewY);
   await page.locator('[data-claude-academic-lecture="'+spec.number+'"]').click();
   try{
-   if(number===14){
-    // Referred-pain lesson was intentionally upgraded to our own Native
-    // learning reader. The installed PWA must show complete source inside
-    // Shadow DOM, not the retired iframe, while SW still controls the page.
-    await page.waitForFunction(()=>{
+   if(number===14||(number>=28&&number<=33)){
+    // Native course must stay intact under the REAL controlling service
+    // worker. Disease/trauma #28–33 intentionally retired the nested
+    // original iframe after locking SHA+counts, exactly like clinical #14.
+    // Don't mistake the iframe being blank for a broken installed PWA.
+    await page.waitForFunction(({number})=>{
      const host=document.getElementById('claudeNativePilotHost');
      const shadow=host?.querySelector('.claude-native-lesson')?.shadowRoot;
      const frame=document.getElementById('diseaseTraumaOriginalFrame');
-     return !host?.hidden&&host?.dataset.claudeNativeLecture==='14'&&
-      !!frame?.hidden&&shadow?.querySelectorAll('section').length===12&&
-      shadow?.querySelectorAll('table').length===8&&
-      shadow?.querySelectorAll('[data-i]').length===194&&
-      !!host.querySelector('[data-native-audio="play"]');
-    },null,{timeout:30000});
+     const expected={14:[12,8,194],28:[10,3,103],
+       29:[10,2,88],30:[12,3,126],31:[11,1,90],
+       32:[11,2,86],33:[11,1,77]}[number];
+     return !!expected&&!host?.hidden&&+host.dataset.claudeNativeLecture===number&&
+      !!frame?.hidden&&shadow?.querySelectorAll('section').length===expected[0]&&
+      shadow.querySelectorAll('table').length===expected[1]&&
+      shadow.querySelectorAll('[data-i]').length===expected[2]&&
+      !!host.querySelector('[data-native-audio="play"]')&&
+      (number===14||host.dataset.claudeNativeLayout==='IMMERSIVE_CHAPTER_PILOT');
+    },{number},{timeout:35000});
    }else{
     await page.waitForFunction(expectedPath=>{
      const frame=document.getElementById('diseaseTraumaOriginalFrame');
