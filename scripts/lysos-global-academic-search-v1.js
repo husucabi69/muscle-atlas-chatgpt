@@ -1,7 +1,7 @@
 // LYSOS P0 global academic search. Source section ids never modify original HTML.
 (function(){
 'use strict';
-const state={rows:[],lookup:new Map(),questionRows:[],questionLookup:new Map(),caseRows:[],caseLookup:new Map(),audioRows:[],audioLookup:new Map(),coverage:'LOADING',questionCoverage:'LOADING',pending:null};
+const state={rows:[],lookup:new Map(),questionRows:[],questionLookup:new Map(),caseRows:[],caseLookup:new Map(),audioRows:[],audioLookup:new Map(),mockRows:[],mockLookup:new Map(),coverage:'LOADING',questionCoverage:'LOADING',pending:null};
 const norm=s=>String(s||'').toLowerCase().normalize('NFKC').replace(/\s+/g,'').replace(/[·\-_/(){}[\].,:;'"]/g,'');
 const aliases={
  '호프만':['hoffmann','hoffman'],'hoffmann':['호프만','hoffman'],
@@ -102,6 +102,15 @@ function hits(query,filter){
   out.push({type:'academic_section',id:r.id,title:'증례 구술시험 · '+r.title,
    subtitle:'강의 74번 · '+r.area+' · '+r.volume+'권 '+r.caseNumber+'번 · 실제 대화형 증례 바로가기 · 기존 성적 유지',score});
  }
+ for(const r of state.mockRows){
+  const stem=r._normStem||norm(r.question),options=r._normOptions||norm((r.options||[]).join(' '));
+  if(!words.some(t=>stem.includes(t)||options.includes(t)))continue;
+  const score=50+(words.some(t=>stem.includes(t))?85:0)+
+    (words.some(t=>stem.startsWith(t))?50:0);
+  out.push({type:'academic_section',id:r.id,
+   title:'모의고사 05권 · '+r.volume+'권 '+(r.questionIndex+1)+'번 · '+r.question,
+   subtitle:'강의 63번 · '+r.category+' · 1문항 원본 모의시험 바로 열기 · 기존 50문항 시험 설정 유지',score});
+ }
  for(const r of state.questionRows){
   const stem=norm(r.question),choiceText=norm((r.options||[]).join(' '));
   if(!words.some(t=>stem.includes(t)||choiceText.includes(t)))continue;
@@ -133,6 +142,40 @@ function releaseQuestionFocus(){
  questionFocusObserver?.disconnect();questionFocusObserver=null;
 }
 
+// Original mock exam #63: open its ORIGINAL quiz renderer with a single
+// source-locked question. Never fake correct choices or mark grading as done.
+// Original grade() may save a 1-question result only if the user submits.
+function checkMock(){
+ const p=state.pending;if(!p||p.kind!=='mock'||!frame)return false;
+ try{
+  const win=frame.contentWindow,doc=frame.contentDocument;
+  const item=(window.LYSClaudeLectureCatalog?.()||[]).find(x=>x.number===63);
+  const expected='/claude-library/'+item?.source_path;
+  const actual=decodeURI(win.location.pathname);
+  if(!doc||!item||(actual!==expected&&actual!==expected.replace(/\\.html$/i,''))||
+     typeof win.start!=='function'||!doc.getElementById('qs')||!doc.getElementById('setup'))return false;
+  const q={v:p.volumeLabel,vi:p.volumeIndex,id:p.volumeIndex+'-'+p.questionIndex,
+   c:p.category,s:p.question,o:p.options.slice(),a:p.answer,e:p.explanation,r:p.reference};
+  // Calling the public source start() uses the original option handling and
+  // scoring, and leaves stored past mock histories untouched on entry.
+  win.start([q]);
+  const card=doc.querySelector('#qs .q');
+  if(!card||card.querySelector('.stem')?.textContent?.trim()!==p.question)return false;
+  if(!doc.getElementById('lysosSearchMockStyle')){
+   const style=doc.createElement('style');style.id='lysosSearchMockStyle';
+   style.textContent='.lysos-search-mockfocus{outline:4px solid #d99427!important;outline-offset:3px;border-radius:10px!important;scroll-margin-top:12px!important}';
+   doc.head.append(style);
+  }
+  card.classList.add('lysos-search-mockfocus');
+  state.pending=null;label.textContent='모의고사 05권 · '+p.volume+'권 '+(p.questionIndex+1)+'번 · 단일문항 연습';
+  bar.hidden=false;frame.classList.add('lysos-search-iframe');
+  requestAnimationFrame(()=>{
+   frame.hidden=false;card.scrollIntoView({behavior:'instant',block:'start'});
+   frame.dataset.lysosSearchTarget=p.id;
+  });
+  return true;
+ }catch(e){console.warn('LYSOS source mock focus unavailable',e);return false}
+}
 // The original recorded-audio list is not the media host. The deep link
 // navigates to its exact track CARD and must never autoplay an unavailable MP4.
 function checkAudioList(){
@@ -325,16 +368,20 @@ function checkOriginal(){
 }
 if(panel)new MutationObserver(()=>{if(state.pending)checkNative()}).observe(panel,
  {childList:true,attributes:true,attributeFilter:['data-claude-native-lecture','hidden']});
-frame?.addEventListener('load',()=>{if(state.pending){checkAudioList();checkCase();checkQuestion();checkOriginal()}});
+frame?.addEventListener('load',()=>{if(state.pending){checkMock();checkAudioList();checkCase();checkQuestion();checkOriginal()}});
 if(academicView)new MutationObserver(()=>{if(academicView.hidden)closeFocus()}).observe(academicView,{attributes:true,attributeFilter:['hidden']});
 window.addEventListener('popstate',event=>{
  if(event.state?.lysPage!=='diseaseTrauma'||academicView?.hidden)closeFocus();
 });
 function open(id){
- const row=state.lookup.get(id)||state.questionLookup.get(id)||state.caseLookup.get(id)||state.audioLookup.get(id);
+ const row=state.lookup.get(id)||state.questionLookup.get(id)||state.caseLookup.get(id)||state.audioLookup.get(id)||state.mockLookup.get(id);
  if(!row||!window.LYSClaudeLectureCatalog?.()?.some(x=>x.number===row.number))return false;
  if(document.documentElement.dataset.appPage==='home')ensureCurrentHomeHistory();
- closeFocus();state.pending=state.audioLookup.has(id)?{
+ closeFocus();state.pending=state.mockLookup.has(id)?{
+  kind:'mock',id:row.id,number:63,volume:row.volume,volumeLabel:row.volume+'권',volumeIndex:row.volumeIndex,
+  questionIndex:row.questionIndex,category:row.category,question:row.question,
+  options:row.options,answer:row.answer,explanation:row.explanation,reference:row.reference
+ }:state.audioLookup.has(id)?{
   kind:'audio',id:row.id,number:68,index:row.index,name:row.name
  }:state.caseLookup.has(id)?{
   kind:'case',id:row.id,number:74,volume:row.volume,caseNumber:row.caseNumber,area:row.area,title:row.title
@@ -353,7 +400,8 @@ window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
  get indexedLectures(){return [...new Set(state.rows.filter(x=>x.section).map(x=>x.number))]},
  get indexedQuestions(){return state.questionRows.length},
  get indexedCases(){return state.caseRows.length},
- get indexedAudioList(){return state.audioRows.length}};
+ get indexedAudioList(){return state.audioRows.length},
+ get indexedMockQuestions(){return state.mockRows.length}};
 (async()=>{
  try{
   const response=await fetch('./data/lysos-global-academic-search-v1.json',{cache:'no-cache'});
@@ -392,11 +440,21 @@ window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
     data.source?.number!==68||new Set(data.rows.map(x=>x.id)).size!==75)throw Error('invalid audio-list source index');
   state.audioRows=data.rows;state.audioLookup=new Map(data.rows.map(x=>[x.id,x]));
  }catch(e){console.warn('Audio list search index unavailable',e)}
+ try{
+  const response=await fetch('./data/lysos-interactive-mock-search-v1.json',{cache:'no-cache'});
+  if(!response.ok)throw Error('Mock source index HTTP '+response.status);
+  const mock=await response.json();
+  if(mock.schema!=='lysos-interactive-mock-search-v1'||mock.source?.number!==63||
+    mock.rows?.length!==160||new Set(mock.rows.map(r=>r.id)).size!==160)
+   throw Error('invalid mock source index');
+  state.mockRows=mock.rows.map(r=>({...r,_normStem:norm(r.question),_normOptions:norm(r.options.join(' '))}));
+  state.mockLookup=new Map(state.mockRows.map(r=>[r.id,r]));
+ }catch(e){console.warn('Mock source search index unavailable',e)}
  const count=new Set(state.rows.filter(x=>x.section).map(x=>x.number)).size;
  const info=document.getElementById('lysosAcademicSearchCoverage');
  if(info)info.textContent=state.coverage==='INDEX_UNAVAILABLE'?
   '학술 색인을 열지 못했습니다. 기존 근육·이학검사 검색은 계속 사용 가능합니다.':
-  '학술 원문 '+count+'/87강 · 문제은행 '+state.questionRows.length+'/120문항 · 구술시험 '+state.caseRows.length+'/30증례 · 음성목록 '+state.audioRows.length+'/75항목 (MP4 검증 전)';
+  '학술 원문 '+count+'/87강 · 문제은행 '+state.questionRows.length+'/120문항 · 모의고사 '+state.mockRows.length+'/160문항 · 구술시험 '+state.caseRows.length+'/30증례 · 음성목록 '+state.audioRows.length+'/75항목 (MP4 검증 전)';
  renderUnifiedSearch();
 })();
 })();

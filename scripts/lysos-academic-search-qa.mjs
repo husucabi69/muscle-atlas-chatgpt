@@ -133,6 +133,34 @@ sourceItems.items.forEach((x,i)=>{
 });
 assert.ok(script.includes('checkAudioList')&&script.includes('audioLookup')&&script.includes('원본 MP4 서버 재생 검증 전'));
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-audio-list-search-v1.json'));
+// Interactive mock exam source arrays Q1..Q5: 160 precise immutable records.
+const mockIndex=JSON.parse(fs.readFileSync('data/lysos-interactive-mock-search-v1.json','utf8'));
+assert.equal(mockIndex.schema,'lysos-interactive-mock-search-v1');
+assert.equal(mockIndex.source.number,63);
+assert.equal(mockIndex.rows.length,160);
+assert.equal(new Set(mockIndex.rows.map(x=>x.id)).size,160);
+const mockOriginal=catalog.lectures.find(x=>x.number===63);
+const mockRaw=fs.readFileSync('claude-library/'+mockOriginal.source_path);
+assert.equal(mockRaw.length,mockIndex.source.source_bytes);
+assert.equal(crypto.createHash('sha256').update(mockRaw).digest('hex'),mockIndex.source.source_sha256);
+const mockText=mockRaw.toString('utf8');let inspected=0;
+for(let vi=1;vi<=5;vi++){
+ const mat=mockText.match(new RegExp('const Q'+vi+'=(\\\\[[\\\\s\\\\S]*?\\\\]);'));
+ assert.ok(mat,'original mock Q'+vi+' must still be parseable');
+ const questions=JSON.parse(mat[1]);
+ assert.equal(questions.length,mockIndex.source.volume_lengths[vi-1]);
+ for(let qi=0;qi<questions.length;qi++){
+  const q=questions[qi],row=mockIndex.rows[inspected++];
+  assert.equal(row.id,'claude:63:mock-v'+vi+'-q'+qi);
+  assert.equal(row.volume,vi);assert.equal(row.question,q.s);
+  assert.deepEqual(row.options,q.o);assert.equal(row.answer,q.a);
+  assert.equal(row.explanation,q.e);assert.equal(row.reference,q.r);
+ }
+}
+assert.equal(inspected,160);
+assert.ok(script.includes('function checkMock()')&&script.includes('win.start([q])')&&script.includes('mockLookup'));
+assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-mock-search-v1.json'));
+console.log('LYSOS MOCK QUESTION SOURCE QA PASS | 160/160 original interactive mock questions and immutable answer explanations');
 console.log('LYSOS AUDIO LIST SEARCH QA PASS | 75 named tracks exact list focus, not falsely counted as hosted MP4');
 console.log('LYSOS ORAL CASE DEEP LINK QA PASS | all 30/30 case titles and prompts source-locked, original exam scoring preserved');
 console.log('LYSOS QUIZ QUESTION DEEP LINK QA PASS | 59-62 original quizzes, 120 verified question ids and preserved answer engines');
