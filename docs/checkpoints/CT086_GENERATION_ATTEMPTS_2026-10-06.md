@@ -107,3 +107,10 @@ New gates:
 The detailed ct086 clinical interpretation was expanded to textbook prose and remains in app HTML only. It now cites the 2026 independent cervical radiculopathy cluster validation, the 2026 systematic review/meta-analysis, and CROM/active-ROM measurement reliability reviews. The runtime now exposes test `evidence_refs` as clickable source links in a dedicated **근거** section.
 
 Next required action remains: generate a fresh Candidate 5 using only the structured image-only render contract, perform visual audit, save the exact HD binary, verify SHA-256/Git blob identity, and connect it through the guarded Preview connector. Do not advance to ct087 before this succeeds.
+
+## 2026-10-14 — Candidate 5 Runway generated task recorded, not yet materialized
+- Result: generation task `00886834-ff19-4655-9000-6941f580664d` reported IMAGE success; requested portrait 2:3 at 2K.
+- **Not yet verified:** output file width/height from actual PNG bytes, SHA-256, repository Git blob SHA-1, three-heading text fidelity, patient/examiner identities, body compensation, passive-force or red-overlay absence.
+- Access to the remote output URL is not equivalent to storing immutable source binary in GitHub; no source binary transfer verified in this run.
+- Therefore the ct086 registry remains PENDING_GENERATION / no Preview candidate / unchanged schematic fallback. Candidate 5 must not be described as approved or user-facing until binary identity, visual audit and guarded connection all PASS.
+- Renderer origin: connected Runway, not the former OpenAI generation attempts; user can inspect generated image in the inline Runway viewer. No signed output URL/token is committed.

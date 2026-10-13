@@ -1,3 +1,9 @@
+## 2026-10-14 ACTIVE 변경 — Claude 2판 출간 전 연결 보류, EXAM-REAL ct086 복귀
+- 의장님 새 지시: Claude 학술강의·음성 신증분 이식과 B5~B9 변환은 **2판 출간 및 추가 연결 승인까지 전면 보류**. 기존 1판 87강과 연결 검색 1,526개는 정상 사용·소스 불변 보존.
+- 차기 ACTIVE: ct086 Cervical rotation ROM HD candidate → 사용자 시각 검수·정확한 원본 바이너리 보존 후 Preview 연결 → ct087 → ct088 보류 후 재개 → Physical Examination 환자교육 실사형/해부학/초음파. ct085 HD 승인품은 재생성 금지.
+- **2026-10-14 ct086 Candidate 5 Runway 렌더 작업 성공, task id `00886834-ff19-4655-9000-6941f580664d`. 현재 픽셀/해시·인체 정확성/안전/허용 문구는 미검증; 앱 Preview 연결/승인품 승격 불가.** 소스 파일을 검증해 앱에 넣기 전에는 기존 도해 fallback 유지.
+- 작업 증거: `docs/LYSOS_CLAUDE_EDITION2_HOLD.md`, `docs/checkpoints/CT086_CANDIDATE5_RUNWAY_TASK_2026-10-14.json`. 관련 자동QA 잠금이 위반을 감지하면 실패한다.
+
 # LYS Ortho Muscle Atlas — Next Upgrade Roadmap
 
 ## 2026-10-13 앱 전체 학술 통합검색 — Preview 개발 완료·실기기 QA 별도 (B4 다음, B5 이전)

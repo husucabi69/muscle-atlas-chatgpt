@@ -1,0 +1,22 @@
+{
+  "schema": "lysos-ct086-render-task-v1",
+  "clinical_test_id": "ct086",
+  "candidate_no": 5,
+  "runway_task_id": "00886834-ff19-4655-9000-6941f580664d",
+  "render_date": "2026-10-14",
+  "generator": "Runway connected image generator",
+  "aspect_ratio": "2:3",
+  "requested_resolution": "2K",
+  "output_resolution_claim": "UNVERIFIED_PIXEL_DIMENSIONS",
+  "generation_result": "IMAGE_TASK_SUCCEEDED",
+  "binary_materialization": "NOT_AVAILABLE_IN_REPOSITORY",
+  "preview_connected": false,
+  "patient_and_examiner_visual_audit": "PENDING",
+  "contract": "2026-10-07-ct086-v2",
+  "source_sha256": null,
+  "git_blob_sha1": null,
+  "dimensions": null,
+  "review_axes": "ALL_VISUAL_AXES_PENDING",
+  "user_preview": "PENDING_NOT_CONNECTED",
+  "next_step": "Recover raw image bytes from original Runway task; verify dimensions SHA256 Git blob and perform visual human audit before guarded Preview link. Do not replace schematic fallback."
+}

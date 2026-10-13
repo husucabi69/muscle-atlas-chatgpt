@@ -31,6 +31,8 @@ jobs:
         run: node scripts/development-governance-policy-qa.mjs
       - name: Verify measured development and report deadline contract
         run: node scripts/verify-development-time-report.mjs --self-test
+      - name: Enforce Claude edition-two import pause and ct086 candidate honesty
+        run: node scripts/edition2-hold-ct086-restart-qa.mjs
       - name: Validate cervical EXAM-REAL content locks
         run: node scripts/cervical-exam-content-qa.mjs
       - name: Enforce Physical Examination generation permission gate
