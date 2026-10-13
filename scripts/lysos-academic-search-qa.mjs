@@ -170,7 +170,7 @@ for(const source of compendiumIndex.source){
  const buffer=fs.readFileSync('claude-library/'+item.source_path);
  assert.equal(buffer.length,source.source_bytes);
  assert.equal(crypto.createHash('sha256').update(buffer).digest('hex'),source.source_sha256);
- const code=buffer.toString('utf8'),start=code.indexOf('const DB'),end=code.indexOf(';\\nconst E',start);
+ const code=buffer.toString('utf8'),start=code.indexOf('const DB'),end=code.indexOf(';\nconst E',start);
  assert.ok(start>0&&end>start,'original source 186-muscle DB should be parseable');
  const original=JSON.parse(code.slice(code.indexOf('=',start)+1,end));
  assert.equal(original.items.length,186);assert.equal(original.secs.length,14);

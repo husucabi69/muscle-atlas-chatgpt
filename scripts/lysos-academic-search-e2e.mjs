@@ -109,7 +109,7 @@ try{
   await page.locator('#searchResults .search-result-main')
    .filter({hasText:'근육총람 '+number+'번 ·'}).first().click();
   await page.waitForFunction(n=>document.getElementById('diseaseTraumaOriginalFrame')?.dataset.lysosSearchTarget===
-   'claude:'+n+':muscle-70',number,{timeout:60000});
+   'claude:'+n+':muscle-96',number,{timeout:60000});
   const check=await page.evaluate(n=>{
    const f=document.getElementById('diseaseTraumaOriginalFrame'),doc=f.contentDocument;
    return {focus:f.classList.contains('claude-compendium-focus-frame'),
