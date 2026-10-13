@@ -45,7 +45,11 @@ try{
     windowWidth:innerWidth,hit:!!m,text:m?.textContent?.trim().slice(0,160)};
  });
  assert.ok(firstVolume.full&&firstVolume.width>=firstVolume.windowWidth-4&&firstVolume.hit,JSON.stringify(firstVolume));
- await page.locator('#lysosSearchVolumeOneToolbar button').click();
+ // Free Korean device-voice controls must remain accessible inside the #3 search focus view.
+ await page.locator('#lysosSearchVolumeOneToolbar button').last().click();
+ assert.equal(await page.locator('#claudeNativePilotHost').evaluate(x=>x.classList.contains('claude-native-chapter-voice-open')),true);
+ await page.locator('#lysosSearchVolumeOneToolbar button').last().click();
+ await page.locator('#lysosSearchVolumeOneToolbar button').first().click();
  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
  assert.equal(await page.locator('#searchBox').inputValue(),'극상근');
  await page.locator('#searchBox').fill('스포츠의학 05권');

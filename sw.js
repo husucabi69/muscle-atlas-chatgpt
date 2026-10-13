@@ -1,4 +1,4 @@
-// v12.56 development: same direct fullscreen search and Back also in the special native volume #3, stage24.39.
+// v12.57 development: preserve volume #3 free Korean TTS controls in fullscreen search, stage24.40.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

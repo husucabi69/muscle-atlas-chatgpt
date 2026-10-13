@@ -95,7 +95,13 @@ function checkNative(){
   toolbar.className='claude-native-chapter-focusbar';
   const exit=document.createElement('button');exit.type='button';exit.textContent='← 검색 결과';
   const title=document.createElement('strong');title.textContent='검색: '+p.query;
-  toolbar.append(exit,title);panel.prepend(toolbar);
+  const voice=document.createElement('button');voice.type='button';voice.textContent='🔊 음성';
+  voice.addEventListener('click',()=>{
+   const opened=panel.classList.toggle('claude-native-chapter-voice-open');
+   voice.textContent=opened?'✕ 음성 접기':'🔊 음성';
+   if(opened)panel.querySelector('.claude-native-audio')?.scrollIntoView({behavior:'instant',block:'start'});
+  });
+  toolbar.append(exit,title,voice);panel.prepend(toolbar);
  }
  state.pending=null;select.value=p.section;select.dispatchEvent(new Event('change',{bubbles:true}));
  const target=exactTarget(section,p.query,p.title);
