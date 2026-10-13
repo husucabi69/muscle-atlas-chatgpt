@@ -1,4 +1,4 @@
-// v12.69 development: 1-2 native interactive compendium 186-muscle direct bilingual search with exact original clicks, stage24.52.
+// v12.70 development: source-exact original mock exam volume names and transparent one-question history warning, stage24.53.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

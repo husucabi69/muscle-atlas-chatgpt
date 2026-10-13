@@ -144,6 +144,9 @@ const mockRaw=fs.readFileSync('claude-library/'+mockOriginal.source_path);
 assert.equal(mockRaw.length,mockIndex.source.source_bytes);
 assert.equal(crypto.createHash('sha256').update(mockRaw).digest('hex'),mockIndex.source.source_sha256);
 const mockText=mockRaw.toString('utf8');let inspected=0;
+for(const [i,volumeLabel] of ['1권 상지','2권 하지','3권 척추','4권 종합','5권 신규'].entries()){
+ assert.ok(mockText.includes('["'+volumeLabel+'",Q'+(i+1)+']'),'mock volume label must match locked original');
+}
 for(let vi=1;vi<=5;vi++){
  const mat=mockText.match(new RegExp('const Q'+vi+'=(\\[[\\s\\S]*?\\]);'));
  assert.ok(mat,'original mock Q'+vi+' must still be parseable');
@@ -152,7 +155,8 @@ for(let vi=1;vi<=5;vi++){
  for(let qi=0;qi<questions.length;qi++){
   const q=questions[qi],row=mockIndex.rows[inspected++];
   assert.equal(row.id,'claude:63:mock-v'+vi+'-q'+qi);
-  assert.equal(row.volume,vi);assert.equal(row.question,q.s);
+  assert.equal(row.volume,vi);assert.equal(row.volumeLabel,['1권 상지','2권 하지','3권 척추','4권 종합','5권 신규'][vi-1]);
+  assert.equal(row.question,q.s);
   assert.deepEqual(row.options,q.o);assert.equal(row.answer,q.a);
   assert.equal(row.explanation,q.e);assert.equal(row.reference,q.r);
  }

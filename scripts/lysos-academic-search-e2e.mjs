@@ -96,6 +96,7 @@ try{
  const mock=page.frameLocator('#diseaseTraumaOriginalFrame');
  assert.equal(await mock.locator('#qs .q').count(),1,'one source-locked practice question');
  assert.ok((await mock.locator('#qs .q .stem').innerText()).includes('Neer 4-part'));
+ assert.equal(await mock.locator('#qs .q .tag').last().innerText(),'1권 상지');
  await mock.locator('#qs .q button.opt').first().click();
  await mock.locator('#submit').click();
  assert.ok((await mock.locator('#result').innerText()).includes('문항별 해설'));

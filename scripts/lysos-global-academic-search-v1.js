@@ -119,7 +119,7 @@ function hits(query,filter){
     (words.some(t=>stem.startsWith(t))?50:0);
   out.push({type:'academic_section',id:r.id,
    title:'모의고사 05권 · '+r.volume+'권 '+(r.questionIndex+1)+'번 · '+r.question,
-   subtitle:'강의 63번 · '+r.category+' · 1문항 원본 모의시험 바로 열기 · 기존 50문항 시험 설정 유지',score});
+   subtitle:'강의 63번 · '+r.category+' · 1문항 원본 모의시험 바로 열기 · 단일문항 제출 시 원본 성적에 1문항 응시 기록 추가',score});
  }
  for(const r of state.questionRows){
   const stem=norm(r.question),choiceText=norm((r.options||[]).join(' '));
@@ -445,7 +445,7 @@ function open(id){
   kind:'compendium',id:row.id,number:row.number,muscleNumber:row.muscleNumber,
   ko:row.ko,en:row.en
  }:state.mockLookup.has(id)?{
-  kind:'mock',id:row.id,number:63,volume:row.volume,volumeLabel:row.volume+'권',volumeIndex:row.volumeIndex,
+  kind:'mock',id:row.id,number:63,volume:row.volume,volumeLabel:row.volumeLabel,volumeIndex:row.volumeIndex,
   questionIndex:row.questionIndex,category:row.category,question:row.question,
   options:row.options,answer:row.answer,explanation:row.explanation,reference:row.reference
  }:state.audioLookup.has(id)?{
