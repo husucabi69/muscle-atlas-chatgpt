@@ -187,6 +187,10 @@ for(const source of compendiumIndex.source){
  });
 }
 assert.ok(script.includes('function checkCompendium()')&&script.includes('originalChoice.click()')&&script.includes('compendiumLookup'));
+assert.ok(script.includes('compendiumHost.hidden||!frame.classList.contains('),
+ 'do not jump before source hash verification and interactive listener mounting');
+assert.ok(script.includes('delete frame.dataset.lysosSearchTarget'),
+ 'each direct tap must clear stale target completion flags from prior openings');
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-compendium-search-v1.json'));
 console.log('LYSOS COMPENDIUM SOURCE QA PASS | 186 muscles x 2 originals = 372 accurate app-owned links');
 console.log('LYSOS MOCK QUESTION SOURCE QA PASS | 160/160 original interactive mock questions and immutable answer explanations');

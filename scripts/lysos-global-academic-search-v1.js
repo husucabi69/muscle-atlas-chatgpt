@@ -163,7 +163,8 @@ function checkCompendium(){
   const doc=frame.contentDocument,win=frame.contentWindow;
   const expected='/claude-library/'+item?.source_path;
   const actual=decodeURI(win.location.pathname);
-  if(!item||!doc||compendiumHost.dataset.compendiumLecture!==String(p.number)||
+  if(!item||!doc||compendiumHost.hidden||!frame.classList.contains('claude-compendium-large')||
+    compendiumHost.dataset.compendiumLecture!==String(p.number)||
    (actual!==expected&&actual!==expected.replace(/\\.html$/i,'')))return false;
   const selector=p.number===1?'#nav a[data-n="'+p.muscleNumber+'"]':
    '#regions .mbtn[data-n="'+p.muscleNumber+'"]';
@@ -441,7 +442,10 @@ function open(id){
  const row=state.lookup.get(id)||state.questionLookup.get(id)||state.caseLookup.get(id)||state.audioLookup.get(id)||state.mockLookup.get(id)||state.compendiumLookup.get(id);
  if(!row||!window.LYSClaudeLectureCatalog?.()?.some(x=>x.number===row.number))return false;
  if(document.documentElement.dataset.appPage==='home')ensureCurrentHomeHistory();
- closeFocus();state.pending=state.compendiumLookup.has(id)?{
+ closeFocus();
+ if(frame)delete frame.dataset.lysosSearchTarget;
+ if(panel)delete panel.dataset.lysosSearchTarget;
+ state.pending=state.compendiumLookup.has(id)?{
   kind:'compendium',id:row.id,number:row.number,muscleNumber:row.muscleNumber,
   ko:row.ko,en:row.en
  }:state.mockLookup.has(id)?{

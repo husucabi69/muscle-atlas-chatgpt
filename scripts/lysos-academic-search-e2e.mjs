@@ -106,7 +106,7 @@ try{
  assert.equal(await page.locator('#searchBox').inputValue(),'Neer 4-part');
  await page.locator('#searchBox').fill('극상근');
  await page.waitForFunction(()=>window.LYSOSAcademicSearch?.indexedCompendiumMuscles===372);
- for(const number of [1,2]){
+ for(const number of [1,2,1]){
   await page.locator('#searchResults .search-result-main')
    .filter({hasText:'근육총람 '+number+'번 ·'}).first().click();
   await page.waitForFunction(n=>document.getElementById('diseaseTraumaOriginalFrame')?.dataset.lysosSearchTarget===

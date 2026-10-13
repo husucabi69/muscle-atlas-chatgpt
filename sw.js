@@ -1,4 +1,4 @@
-// v12.70 development: source-exact original mock exam volume names and transparent one-question history warning, stage24.53.
+// v12.71 development: guard compendium deep-links until verified source reader ready; stale target flags cleared, stage24.54.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
