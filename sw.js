@@ -1,4 +1,4 @@
-// v12.65 development: prevent shared medical acronym leaks in either direction, behavioral canonical-alias QA, stage24.48.
+// v12.66 development: execute bilingual alias regression tests using exact source norm function, stage24.49.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

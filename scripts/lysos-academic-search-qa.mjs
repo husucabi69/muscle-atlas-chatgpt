@@ -42,9 +42,11 @@ const sandbox={
   {muscle_id:'m1',name_ko:'극상근',name_en:'Supraspinatus',abbreviation:'ABC'},
   {muscle_id:'m2',name_ko:'견갑거근',name_en:'Levator scapulae',abbreviation:'ABC'},
   {muscle_id:'m3',name_ko:'단요측수근신근',name_en:'Extensor carpi radialis brevis',abbreviation:'ECRB'}
- ]},aliases:{},norm:s=>String(s||'').toLowerCase().normalize('NFKC').replace(/\\s+/g,'').replace(/[·\\-_/(){}[\\].,:;'"]/g,'')
+ ]},aliases:{}
 };
-const aliasApi=vm.runInNewContext(script.slice(aliasStart,aliasEnd)+'\\n({terms,canonicalAliases})',sandbox);
+const normSource=script.split('\n').find(x=>x.startsWith('const norm='));
+assert.ok(normSource,'exact application search normalization source must be testable');
+const aliasApi=vm.runInNewContext(normSource+'\n'+script.slice(aliasStart,aliasEnd)+'\n({terms,canonicalAliases})',sandbox);
 assert.ok(aliasApi.terms('극상근').includes('supraspinatus'));
 assert.ok(aliasApi.terms('Levator scapulae').includes('견갑거근'));
 assert.equal(aliasApi.terms('ABC').length,1,'shared acronym must NEVER be expanded');
