@@ -114,3 +114,9 @@ Next required action remains: generate a fresh Candidate 5 using only the struct
 - Access to the remote output URL is not equivalent to storing immutable source binary in GitHub; no source binary transfer verified in this run.
 - Therefore the ct086 registry remains PENDING_GENERATION / no Preview candidate / unchanged schematic fallback. Candidate 5 must not be described as approved or user-facing until binary identity, visual audit and guarded connection all PASS.
 - Renderer origin: connected Runway, not the former OpenAI generation attempts; user can inspect generated image in the inline Runway viewer. No signed output URL/token is committed.
+
+## 2026-10-14 — guarded Preview connector strengthened before ct086 binary materialization
+- The old source-to-Preview connector accepted plausible-looking SHA256/Git SHA1/byte metadata without checking the real file.
+- The connector now requires a real local source PNG or WebP AND real HD WebP Preview asset, checks RIFF/PNG headers, pixel dimensions, SHA256 of source and derived Preview, Git blob SHA1 and byte count before allowing a candidate registry reference.
+- CI builds an isolated temporary binary fixture (using *ct085 approved bytes strictly for internal test*, never published as ct086) and checks valid, forged and missing binaries. A Runway task ID or remote signed URL is not sufficient.
+- Status of the actual ct086 Candidate 5 remains **GENERATED / UNVERIFIED / NOT CONNECTED**.

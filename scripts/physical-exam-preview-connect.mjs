@@ -1,11 +1,12 @@
 import fs from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import {evaluatePhysicalExamCandidate} from './physical-exam-candidate-preflight.mjs';
+import {verifyPhysicalExamPreviewBinary} from './physical-exam-preview-binary-identity.mjs';
 
 const SHA256=/^[0-9a-f]{64}$/;
 const SHA1=/^[0-9a-f]{40}$/;
 
-export function connectPhysicalExamPreviewCandidate(profile,candidate,audit){
+export function connectPhysicalExamPreviewCandidate(profile,candidate,audit,options={}){
   if(!profile)throw new Error('missing profile');
   if(profile.status!=='PENDING_GENERATION'||profile.brief_status!=='GENERATION_READY'){
     throw new Error('profile is not generation-ready');
@@ -31,6 +32,9 @@ export function connectPhysicalExamPreviewCandidate(profile,candidate,audit){
   const dims=String(candidate?.dimensions||'');
   const expected=audit.width+'x'+audit.height;
   if(dims!==expected)throw new Error('candidate dimensions do not match audit: '+dims+' vs '+expected);
+  // Signed media links, synthetic hash strings and original Runway task IDs
+  // are NOT on-disk source assets. Verify actual HD PNG/WebP + original bytes.
+  const binary=verifyPhysicalExamPreviewBinary(candidate,audit,options);
 
   const next=structuredClone(profile);
   next.status='CANDIDATE_GENERATED_USER_PREVIEW_PENDING';
@@ -52,6 +56,8 @@ export function connectPhysicalExamPreviewCandidate(profile,candidate,audit){
     git_blob_sha1:candidate.git_blob_sha1,
     disposition:'INTERNAL_PASS_USER_PREVIEW_PENDING',
     preflight_passed:true,
+    source_asset_path:binary.sourcePath,
+    exact_binary_verified:true,
     preflight_axes:preflight.checks.map(x=>({name:x.name,pass:x.pass}))
   };
   next.review={
