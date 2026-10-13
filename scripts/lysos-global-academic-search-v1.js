@@ -84,6 +84,11 @@ back.addEventListener('click',()=>history.back());const label=document.createEle
 const panel=document.getElementById('claudeNativePilotHost'),frame=document.getElementById('diseaseTraumaOriginalFrame');
 const academicView=document.getElementById('diseaseTraumaOriginalView');
 let volumeOneRestore=null;
+let questionFocusObserver=null;
+function releaseQuestionFocus(){
+ questionFocusObserver?.disconnect();questionFocusObserver=null;
+}
+
 // The original recorded-audio list is not the media host. The deep link
 // navigates to its exact track CARD and must never autoplay an unavailable MP4.
 function checkAudioList(){
@@ -164,6 +169,22 @@ function checkQuestion(){
   doc.querySelectorAll('.lysos-search-qfocus').forEach(x=>x.classList.remove('lysos-search-qfocus'));
   card.classList.add('lysos-search-qfocus');
   state.pending=null;label.textContent='문제은행 '+(p.number-58)+'권 · '+(p.index+1)+'번';
+  // Selecting an option calls the original render() which REPLACES every card.
+  // Reattach the visible marker and keep the answered question in view.
+  releaseQuestionFocus();
+  const originalList=doc.getElementById('list');
+  if(originalList&&typeof MutationObserver!=='undefined'){
+   questionFocusObserver=new MutationObserver(()=>{
+    if(bar.hidden||frame.contentDocument!==doc)return;
+    const next=findCard();if(!next)return;
+    const alreadyMarked=next.classList.contains('lysos-search-qfocus');
+    if(!alreadyMarked){
+     next.classList.add('lysos-search-qfocus');
+     requestAnimationFrame(()=>{if(!bar.hidden&&next.isConnected)next.scrollIntoView({behavior:'instant',block:'start'})});
+    }
+   });
+   questionFocusObserver.observe(originalList,{childList:true});
+  }
   bar.hidden=false;frame.classList.add('lysos-search-iframe');
   requestAnimationFrame(()=>{
    if(!frame.isConnected)return;
@@ -175,6 +196,7 @@ function checkQuestion(){
 }
 
 function closeFocus(){
+ releaseQuestionFocus();
  bar.hidden=true;frame?.classList.remove('lysos-search-iframe');
  if(volumeOneRestore){
   panel?.classList.remove('claude-native-chapter-focus','claude-native-chapter-voice-open');

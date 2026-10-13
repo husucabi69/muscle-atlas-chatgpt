@@ -61,6 +61,14 @@ try{
  await quizFrame.locator('.lysos-search-qfocus button.opt').first().click();
  const graded=await quizFrame.locator('.q').filter({hasText:'Neer 4-part'}).first().locator('.exp').innerText();
  assert.ok(graded.includes('정답')||graded.includes('오답'));
+ await page.waitForFunction(()=>{
+  const doc=document.getElementById('diseaseTraumaOriginalFrame')?.contentDocument;
+  return [...(doc?.querySelectorAll('#list .q')||[])].some(x=>
+   x.querySelector('.qn')?.textContent?.trim()==='1번'&&
+   x.classList.contains('lysos-search-qfocus')&&
+   x.querySelector('.exp.show'));
+ });
+ assert.equal(await quizFrame.locator('.lysos-search-qfocus .qn').innerText(),'1번');
  await page.locator('#lysosSearchFocusbar button').click();
  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
  assert.equal(await page.locator('#searchBox').inputValue(),'Neer 4-part');

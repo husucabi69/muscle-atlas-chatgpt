@@ -63,6 +63,8 @@ for(const record of questionIndex.source){
  });
 }
 assert.ok(script.includes('function checkQuestion()')&&script.includes('lysos-search-qfocus')&&script.includes('questionLookup'));
+assert.ok(script.includes('questionFocusObserver.observe(originalList')&&script.includes('releaseQuestionFocus()'),
+ 'answer-triggered original quiz rerender must preserve the visible exact search marker');
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-question-search-v1.json'));
 const oralIndex=JSON.parse(fs.readFileSync('data/lysos-interactive-case-search-v1.json','utf8'));
 assert.equal(oralIndex.schema,'lysos-interactive-case-search-v1');

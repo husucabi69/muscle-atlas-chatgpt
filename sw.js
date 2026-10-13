@@ -1,4 +1,4 @@
-// v12.61 development: 75-track original recorded-audio catalogue search; never misrepresent as hosted MP4, stage24.44.
+// v12.62 development: preserve source-question exact focus and visible highlight after original quiz auto-grading, stage24.45.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
