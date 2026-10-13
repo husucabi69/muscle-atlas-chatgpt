@@ -197,4 +197,4 @@ console.log('LYSOS MOCK QUESTION SOURCE QA PASS | 160/160 original interactive m
 console.log('LYSOS AUDIO LIST SEARCH QA PASS | 75 named tracks exact list focus, not falsely counted as hosted MP4');
 console.log('LYSOS ORAL CASE DEEP LINK QA PASS | all 30/30 case titles and prompts source-locked, original exam scoring preserved');
 console.log('LYSOS QUIZ QUESTION DEEP LINK QA PASS | 59-62 original quizzes, 120 verified question ids and preserved answer engines');
-console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 3 interactive source adapters pending; 59-62,68,74 source lists supported; 4 quiz banks + oral cases now supported; 4 quiz banks support 120 questions');
+console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 course titles; 769 static chapters from 78 courses; all 9 special courses independently indexed: 372 muscles, 120 question-bank items, 160 mock items, 30 clinical oral cases and 75 original audio-list links (MP4 playback not verified)');
