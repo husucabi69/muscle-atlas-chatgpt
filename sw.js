@@ -1,4 +1,4 @@
-// v12.60 development: direct global search deep links for all 30 oral clinical cases (original scoring retained), stage24.43.
+// v12.61 development: 75-track original recorded-audio catalogue search; never misrepresent as hosted MP4, stage24.44.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -17,6 +17,7 @@ const CORE=[
   './data/lysos-global-academic-search-v1.json',
   './data/lysos-interactive-question-search-v1.json',
   './data/lysos-interactive-case-search-v1.json',
+  './data/lysos-interactive-audio-list-search-v1.json',
   './scripts/claude-compendium-native-reader-v1.js',
   './manifest.webmanifest',
   './assets/lysos-symbol.svg',

@@ -73,6 +73,14 @@ try{
  await page.locator('#lysosSearchFocusbar button').click();
  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
  assert.equal(await page.locator('#searchBox').inputValue(),'밤에 깨는 어깨 통증');
+ await page.locator('#searchBox').fill('근육학 02권 상박부');
+ await page.waitForFunction(()=>window.LYSOSAcademicSearch?.indexedAudioList===75);
+ await page.locator('#searchResults .search-result-main').filter({hasText:'음성 모음 · 근육학 02권 상박부'}).first().click();
+ await page.waitForFunction(()=>document.getElementById('diseaseTraumaOriginalFrame')?.dataset.lysosSearchTarget?.startsWith('claude:68:audio-'),null,{timeout:60000});
+ assert.equal(await page.frameLocator('#diseaseTraumaOriginalFrame').locator('.lysos-search-audiofocus .n').innerText(),'근육학 02권 상박부');
+ await page.locator('#lysosSearchFocusbar button').click();
+ await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
+ assert.equal(await page.locator('#searchBox').inputValue(),'근육학 02권 상박부');
  await page.locator('#searchBox').fill('스포츠의학 05권');
  assert.ok((await page.locator('#searchResults').innerText()).includes('세부 위치 이동 미지원'));
  assert.deepEqual(errors,[]);
