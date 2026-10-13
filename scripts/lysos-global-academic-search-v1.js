@@ -1,7 +1,7 @@
 // LYSOS P0 global academic search. Source section ids never modify original HTML.
 (function(){
 'use strict';
-const state={rows:[],lookup:new Map(),questionRows:[],questionLookup:new Map(),caseRows:[],caseLookup:new Map(),audioRows:[],audioLookup:new Map(),mockRows:[],mockLookup:new Map(),coverage:'LOADING',questionCoverage:'LOADING',pending:null};
+const state={rows:[],lookup:new Map(),questionRows:[],questionLookup:new Map(),caseRows:[],caseLookup:new Map(),audioRows:[],audioLookup:new Map(),mockRows:[],mockLookup:new Map(),compendiumRows:[],compendiumLookup:new Map(),coverage:'LOADING',questionCoverage:'LOADING',pending:null};
 const norm=s=>String(s||'').toLowerCase().normalize('NFKC').replace(/\s+/g,'').replace(/[·\-_/(){}[\].,:;'"]/g,'');
 const aliases={
  '호프만':['hoffmann','hoffman'],'hoffmann':['호프만','hoffman'],
@@ -88,6 +88,16 @@ function hits(query,filter){
     subtitle:'강의 '+r.number+'번 · '+(r.section||'원본 전체')+
      (r.section?' · 해당 원문 바로가기':' · 세부 위치 이동 미지원')+' · '+snippet,score});
  }
+ for(const r of state.compendiumRows){
+  const names=r._normNames||norm(r.ko+' '+r.en);
+  const text=r._normBody||norm(r.body);
+  if(!words.some(t=>names.includes(t)||text.includes(t)))continue;
+  const exact=words.some(t=>t===norm(r.ko)||t===norm(r.en));
+  const contained=words.some(t=>names.includes(t));
+  out.push({type:'academic_section',id:r.id,title:r.ko+' · '+r.en,
+   subtitle:'근육총람 '+r.number+'번 · 제'+r.muscleNumber+'근육 · '+r.region+
+    ' · 원본 대화형 근육 상세 바로가기',score:90+(contained?100:0)+(exact?140:0)});
+ }
  for(const r of state.audioRows){
   if(!words.some(t=>norm(r.name).includes(t)))continue;
   out.push({type:'academic_section',id:r.id,title:'음성 모음 · '+r.name,
@@ -137,6 +147,58 @@ back.addEventListener('click',()=>history.back());const label=document.createEle
 const panel=document.getElementById('claudeNativePilotHost'),frame=document.getElementById('diseaseTraumaOriginalFrame');
 const academicView=document.getElementById('diseaseTraumaOriginalView');
 let volumeOneRestore=null;
+let compendiumSearchActive=false;
+const compendiumHost=document.getElementById('claudeCompendiumReaderHost');
+const compendiumBack=document.querySelector('#claudeCompendiumFocusToolbar [data-focus-back]');
+if(compendiumBack){
+ compendiumBack.addEventListener('click',event=>{
+  if(!compendiumSearchActive)return;
+  event.preventDefault();event.stopImmediatePropagation();history.back();
+ },{capture:true});
+}
+function checkCompendium(){
+ const p=state.pending;if(!p||p.kind!=='compendium'||!frame||!compendiumHost)return false;
+ try{
+  const item=(window.LYSClaudeLectureCatalog?.()||[]).find(x=>x.number===p.number);
+  const doc=frame.contentDocument,win=frame.contentWindow;
+  const expected='/claude-library/'+item?.source_path;
+  const actual=decodeURI(win.location.pathname);
+  if(!item||!doc||compendiumHost.dataset.compendiumLecture!==String(p.number)||
+   (actual!==expected&&actual!==expected.replace(/\\.html$/i,'')))return false;
+  const selector=p.number===1?'#nav a[data-n="'+p.muscleNumber+'"]':
+   '#regions .mbtn[data-n="'+p.muscleNumber+'"]';
+  const originalChoice=doc.querySelector(selector);
+  if(!originalChoice)return false;
+  // Click a REAL source muscle item: the original application's own event
+  // handlers render the muscle and its compendium reader opens fullscreen.
+  originalChoice.click();
+  const heading=p.number===1?doc.querySelector('#main h2'):doc.querySelector('#dname');
+  if(!heading||heading.textContent?.trim()!==p.ko)return false;
+  const focusTitle=document.querySelector('#claudeCompendiumFocusToolbar [data-focus-name]');
+  // The source reader focuses after its existing 80ms click listener.
+  compendiumSearchActive=true;state.pending=null;
+  if(compendiumBack)compendiumBack.textContent='← 검색 결과';
+  if(focusTitle)focusTitle.textContent=p.ko+' · '+p.en;
+  if(!doc.getElementById('lysosSearchCompendiumStyle')){
+   const st=doc.createElement('style');st.id='lysosSearchCompendiumStyle';
+   st.textContent='.lysos-search-musclefocus{outline:3px solid #d99427!important;outline-offset:3px;border-radius:5px!important}';
+   doc.head.append(st);
+  }
+  heading.classList.add('lysos-search-musclefocus');
+  setTimeout(()=>{
+   if(!compendiumSearchActive||!frame.isConnected)return;
+   const target=p.number===1?doc.querySelector('#main h2'):doc.querySelector('#dname');
+   target?.scrollIntoView({behavior:'instant',block:'start'});
+   frame.dataset.lysosSearchTarget=p.id;
+  },150);
+  return true;
+ }catch(e){console.warn('LYSOS compendium source focus unavailable',e);return false}
+}
+if(compendiumHost&&typeof MutationObserver!=='undefined'){
+ new MutationObserver(()=>{if(state.pending?.kind==='compendium')checkCompendium()}).observe(compendiumHost,
+  {attributes:true,attributeFilter:['data-compendium-lecture']});
+}
+
 let questionFocusObserver=null;
 function releaseQuestionFocus(){
  questionFocusObserver?.disconnect();questionFocusObserver=null;
@@ -284,6 +346,8 @@ function checkQuestion(){
 
 function closeFocus(){
  releaseQuestionFocus();
+ compendiumSearchActive=false;
+ if(compendiumBack)compendiumBack.textContent='← 강의';
  bar.hidden=true;frame?.classList.remove('lysos-search-iframe');
  if(volumeOneRestore){
   panel?.classList.remove('claude-native-chapter-focus','claude-native-chapter-voice-open');
@@ -368,16 +432,19 @@ function checkOriginal(){
 }
 if(panel)new MutationObserver(()=>{if(state.pending)checkNative()}).observe(panel,
  {childList:true,attributes:true,attributeFilter:['data-claude-native-lecture','hidden']});
-frame?.addEventListener('load',()=>{if(state.pending){checkMock();checkAudioList();checkCase();checkQuestion();checkOriginal()}});
+frame?.addEventListener('load',()=>{if(state.pending){checkCompendium();checkMock();checkAudioList();checkCase();checkQuestion();checkOriginal()}});
 if(academicView)new MutationObserver(()=>{if(academicView.hidden)closeFocus()}).observe(academicView,{attributes:true,attributeFilter:['hidden']});
 window.addEventListener('popstate',event=>{
  if(event.state?.lysPage!=='diseaseTrauma'||academicView?.hidden)closeFocus();
 });
 function open(id){
- const row=state.lookup.get(id)||state.questionLookup.get(id)||state.caseLookup.get(id)||state.audioLookup.get(id)||state.mockLookup.get(id);
+ const row=state.lookup.get(id)||state.questionLookup.get(id)||state.caseLookup.get(id)||state.audioLookup.get(id)||state.mockLookup.get(id)||state.compendiumLookup.get(id);
  if(!row||!window.LYSClaudeLectureCatalog?.()?.some(x=>x.number===row.number))return false;
  if(document.documentElement.dataset.appPage==='home')ensureCurrentHomeHistory();
- closeFocus();state.pending=state.mockLookup.has(id)?{
+ closeFocus();state.pending=state.compendiumLookup.has(id)?{
+  kind:'compendium',id:row.id,number:row.number,muscleNumber:row.muscleNumber,
+  ko:row.ko,en:row.en
+ }:state.mockLookup.has(id)?{
   kind:'mock',id:row.id,number:63,volume:row.volume,volumeLabel:row.volume+'권',volumeIndex:row.volumeIndex,
   questionIndex:row.questionIndex,category:row.category,question:row.question,
   options:row.options,answer:row.answer,explanation:row.explanation,reference:row.reference
@@ -401,7 +468,8 @@ window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
  get indexedQuestions(){return state.questionRows.length},
  get indexedCases(){return state.caseRows.length},
  get indexedAudioList(){return state.audioRows.length},
- get indexedMockQuestions(){return state.mockRows.length}};
+ get indexedMockQuestions(){return state.mockRows.length},
+ get indexedCompendiumMuscles(){return state.compendiumRows.length}};
 (async()=>{
  try{
   const response=await fetch('./data/lysos-global-academic-search-v1.json',{cache:'no-cache'});
@@ -450,11 +518,20 @@ window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
   state.mockRows=mock.rows.map(r=>({...r,_normStem:norm(r.question),_normOptions:norm(r.options.join(' '))}));
   state.mockLookup=new Map(state.mockRows.map(r=>[r.id,r]));
  }catch(e){console.warn('Mock source search index unavailable',e)}
+ try{
+  const res=await fetch('./data/lysos-interactive-compendium-search-v1.json',{cache:'no-cache'});
+  if(!res.ok)throw Error('Compendium search HTTP '+res.status);
+  const value=await res.json();
+  if(value.schema!=='lysos-interactive-compendium-search-v1'||value.rows?.length!==372||
+    value.source?.length!==2||new Set(value.rows.map(r=>r.id)).size!==372)throw Error('Incomplete compendium muscle index');
+  state.compendiumRows=value.rows.map(r=>({...r,_normNames:norm(r.ko+' '+r.en),_normBody:norm(r.body)}));
+  state.compendiumLookup=new Map(state.compendiumRows.map(r=>[r.id,r]));
+ }catch(e){console.warn('Compendium search index unavailable',e)}
  const count=new Set(state.rows.filter(x=>x.section).map(x=>x.number)).size;
  const info=document.getElementById('lysosAcademicSearchCoverage');
  if(info)info.textContent=state.coverage==='INDEX_UNAVAILABLE'?
   '학술 색인을 열지 못했습니다. 기존 근육·이학검사 검색은 계속 사용 가능합니다.':
-  '학술 원문 '+count+'/87강 · 문제은행 '+state.questionRows.length+'/120문항 · 모의고사 '+state.mockRows.length+'/160문항 · 구술시험 '+state.caseRows.length+'/30증례 · 음성목록 '+state.audioRows.length+'/75항목 (MP4 검증 전)';
+  '학술 원문 '+count+'/87강 · 근육총람 '+state.compendiumRows.length+'/372항목 · 문제은행 '+state.questionRows.length+'/120문항 · 모의고사 '+state.mockRows.length+'/160문항 · 구술시험 '+state.caseRows.length+'/30증례 · 음성목록 '+state.audioRows.length+'/75항목';
  renderUnifiedSearch();
 })();
 })();

@@ -1,4 +1,4 @@
-// v12.67 development: source-verified one-tap mock exam question practice with original grading, stage24.50.
+// v12.69 development: 1-2 native interactive compendium 186-muscle direct bilingual search with exact original clicks, stage24.52.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -19,6 +19,7 @@ const CORE=[
   './data/lysos-interactive-case-search-v1.json',
   './data/lysos-interactive-audio-list-search-v1.json',
   './data/lysos-interactive-mock-search-v1.json',
+  './data/lysos-interactive-compendium-search-v1.json',
   './scripts/claude-compendium-native-reader-v1.js',
   './manifest.webmanifest',
   './assets/lysos-symbol.svg',

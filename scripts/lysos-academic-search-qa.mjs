@@ -160,6 +160,31 @@ for(let vi=1;vi<=5;vi++){
 assert.equal(inspected,160);
 assert.ok(script.includes('function checkMock()')&&script.includes('win.start([q])')&&script.includes('mockLookup'));
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-mock-search-v1.json'));
+const compendiumIndex=JSON.parse(fs.readFileSync('data/lysos-interactive-compendium-search-v1.json','utf8'));
+assert.equal(compendiumIndex.schema,'lysos-interactive-compendium-search-v1');
+assert.equal(compendiumIndex.rows.length,372);
+assert.equal(new Set(compendiumIndex.rows.map(r=>r.id)).size,372);
+for(const source of compendiumIndex.source){
+ assert.ok([1,2].includes(source.number));
+ const item=catalog.lectures.find(x=>x.number===source.number);
+ const buffer=fs.readFileSync('claude-library/'+item.source_path);
+ assert.equal(buffer.length,source.source_bytes);
+ assert.equal(crypto.createHash('sha256').update(buffer).digest('hex'),source.source_sha256);
+ const code=buffer.toString('utf8'),start=code.indexOf('const DB'),end=code.indexOf(';\\nconst E',start);
+ assert.ok(start>0&&end>start,'original source 186-muscle DB should be parseable');
+ const original=JSON.parse(code.slice(code.indexOf('=',start)+1,end));
+ assert.equal(original.items.length,186);assert.equal(original.secs.length,14);
+ const records=compendiumIndex.rows.filter(r=>r.number===source.number);
+ assert.equal(records.length,186);
+ original.items.forEach((m,i)=>{
+  const r=records[i];assert.equal(r.muscleNumber,m.n);assert.equal(r.ko,m.k);assert.equal(r.en,m.e);
+  assert.equal(r.region,original.secs[m.s].t);
+  assert.equal(r.body,[m.o,m.i,m.a,m.v,m.p,m.pa,m.us,m.note].filter(Boolean).join(' '));
+ });
+}
+assert.ok(script.includes('function checkCompendium()')&&script.includes('originalChoice.click()')&&script.includes('compendiumLookup'));
+assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-compendium-search-v1.json'));
+console.log('LYSOS COMPENDIUM SOURCE QA PASS | 186 muscles x 2 originals = 372 accurate app-owned links');
 console.log('LYSOS MOCK QUESTION SOURCE QA PASS | 160/160 original interactive mock questions and immutable answer explanations');
 console.log('LYSOS AUDIO LIST SEARCH QA PASS | 75 named tracks exact list focus, not falsely counted as hosted MP4');
 console.log('LYSOS ORAL CASE DEEP LINK QA PASS | all 30/30 case titles and prompts source-locked, original exam scoring preserved');

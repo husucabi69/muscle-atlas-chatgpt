@@ -103,6 +103,25 @@ try{
  await page.locator('#lysosSearchFocusbar button').click();
  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
  assert.equal(await page.locator('#searchBox').inputValue(),'Neer 4-part');
+ await page.locator('#searchBox').fill('극상근');
+ await page.waitForFunction(()=>window.LYSOSAcademicSearch?.indexedCompendiumMuscles===372);
+ for(const number of [1,2]){
+  await page.locator('#searchResults .search-result-main')
+   .filter({hasText:'근육총람 '+number+'번 ·'}).first().click();
+  await page.waitForFunction(n=>document.getElementById('diseaseTraumaOriginalFrame')?.dataset.lysosSearchTarget===
+   'claude:'+n+':muscle-70',number,{timeout:60000});
+  const check=await page.evaluate(n=>{
+   const f=document.getElementById('diseaseTraumaOriginalFrame'),doc=f.contentDocument;
+   return {focus:f.classList.contains('claude-compendium-focus-frame'),
+    name:n===1?doc.querySelector('#main h2')?.textContent:doc.querySelector('#dname')?.textContent,
+    toolbar:document.querySelector('#claudeCompendiumFocusToolbar [data-focus-back]')?.textContent};
+  },number);
+  assert.equal(check.name,'극상근');
+  assert.ok(check.focus&&check.toolbar==='← 검색 결과',JSON.stringify(check));
+  await page.locator('#claudeCompendiumFocusToolbar [data-focus-back]').click();
+  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
+  assert.equal(await page.locator('#searchBox').inputValue(),'극상근');
+ }
  await page.locator('#searchBox').fill('스포츠의학 05권');
  assert.ok((await page.locator('#searchResults').innerText()).includes('세부 위치 이동 미지원'));
  assert.deepEqual(errors,[]);
