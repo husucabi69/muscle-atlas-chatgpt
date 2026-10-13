@@ -1,4 +1,4 @@
-// v12.55 development: exact visible paragraph/table focus, bilingual aliases, Search Back, stage24.38.
+// v12.56 development: same direct fullscreen search and Back also in the special native volume #3, stage24.39.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

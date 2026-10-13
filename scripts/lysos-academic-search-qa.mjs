@@ -32,4 +32,8 @@ assert.ok(script.includes('function exactTarget(')&&script.includes('section td'
 assert.ok(script.includes('nativeBack.textContent=\'← 검색 결과\''),
  'native lecture Back must return to the search results instead of the course contents');
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-global-academic-search-v1.json'));
+assert.ok(fs.readFileSync('scripts/claude-native-muscle-v1.js','utf8').includes('panel.dataset.claudeNativeLecture=String(PILOT_NUMBER)'),
+ 'volume #3 must signal its rendered chapter to the global search observer');
+assert.ok(script.includes('lysosSearchVolumeOneToolbar')&&script.includes('volumeOneRestore'),
+ 'volume #3 search must use a full-width focused reader and restore the page on Back');
 console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 9 interactive source adapters pending');

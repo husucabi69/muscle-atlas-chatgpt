@@ -182,6 +182,7 @@
       onComplete:()=>window.LYSClaudeSequence?.next(3)
     });
     const recordedPlayer=window.LYSClaudeRecordedAudio.mount(shadow,doc);
+    panel.dataset.claudeNativeLecture=String(PILOT_NUMBER);
     panel.replaceChildren(intro,nav,audioPlayer,recordedPlayer,lessonRoot);
     const countImported={
       sections:shadow.querySelectorAll('section').length,
@@ -219,7 +220,9 @@
     // and now returns to the native lecture. Hidden iframes can keep playing.
     try{originalFrame.contentWindow?.location.replace('about:blank');}
     catch{originalFrame.removeAttribute('src');}
-    modeSwitch.hidden=false;panel.hidden=false;switchMode('app');
+    modeSwitch.hidden=false;panel.hidden=false;
+    panel.dataset.claudeNativeLecture=String(PILOT_NUMBER);
+    switchMode('app');
     setDiseaseTraumaView('original');
     status.textContent='우리 앱 통합 근육학 1권을 여는 중입니다. 원본 SHA-256을 검증합니다.';
     if(!panel.querySelector('.claude-native-lesson')){

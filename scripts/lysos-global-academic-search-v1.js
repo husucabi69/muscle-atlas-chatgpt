@@ -59,7 +59,17 @@ bar.hidden=true;const back=document.createElement('button');back.textContent='�
 back.addEventListener('click',()=>history.back());const label=document.createElement('strong');bar.append(back,label);document.body.append(bar);
 const panel=document.getElementById('claudeNativePilotHost'),frame=document.getElementById('diseaseTraumaOriginalFrame');
 const academicView=document.getElementById('diseaseTraumaOriginalView');
-function closeFocus(){bar.hidden=true;frame?.classList.remove('lysos-search-iframe')}
+let volumeOneRestore=null;
+function closeFocus(){
+ bar.hidden=true;frame?.classList.remove('lysos-search-iframe');
+ if(volumeOneRestore){
+  panel?.classList.remove('claude-native-chapter-focus','claude-native-chapter-voice-open');
+  panel?.querySelector('#lysosSearchVolumeOneToolbar')?.remove();
+  document.documentElement.style.overflow=volumeOneRestore.html;
+  document.body.style.overflow=volumeOneRestore.body;
+  volumeOneRestore=null;
+ }
+}
 function checkNative(){
  const p=state.pending;if(!p||!p.section||!panel||panel.hidden)return false;
  if(Number(panel.dataset.claudeNativeLecture)!==p.number)return false;
@@ -75,6 +85,18 @@ function checkNative(){
   sh.append(st);
  }
  if(!section||!select)return false;
+ // The approved #3 reader predates the #4–58 fullscreen toolbar; give search
+ // hits an equally direct full-width reading route without touching source HTML.
+ if(p.number===3&&!volumeOneRestore){
+  volumeOneRestore={html:document.documentElement.style.overflow,body:document.body.style.overflow};
+  document.documentElement.style.overflow='hidden';document.body.style.overflow='hidden';
+  panel.classList.add('claude-native-chapter-focus');
+  const toolbar=document.createElement('div');toolbar.id='lysosSearchVolumeOneToolbar';
+  toolbar.className='claude-native-chapter-focusbar';
+  const exit=document.createElement('button');exit.type='button';exit.textContent='← 검색 결과';
+  const title=document.createElement('strong');title.textContent='검색: '+p.query;
+  toolbar.append(exit,title);panel.prepend(toolbar);
+ }
  state.pending=null;select.value=p.section;select.dispatchEvent(new Event('change',{bubbles:true}));
  const target=exactTarget(section,p.query,p.title);
  markTarget(section,target);
@@ -119,7 +141,9 @@ if(panel)new MutationObserver(()=>{if(state.pending)checkNative()}).observe(pane
  {childList:true,attributes:true,attributeFilter:['data-claude-native-lecture','hidden']});
 frame?.addEventListener('load',()=>{if(state.pending)checkOriginal()});
 if(academicView)new MutationObserver(()=>{if(academicView.hidden)closeFocus()}).observe(academicView,{attributes:true,attributeFilter:['hidden']});
-window.addEventListener('popstate',()=>{if(academicView?.hidden)closeFocus()});
+window.addEventListener('popstate',event=>{
+ if(event.state?.lysPage!=='diseaseTrauma'||academicView?.hidden)closeFocus();
+});
 function open(id){
  const row=state.lookup.get(id);if(!row||!window.LYSClaudeLectureCatalog?.()?.some(x=>x.number===row.number))return false;
  if(document.documentElement.dataset.appPage==='home')ensureCurrentHomeHistory();

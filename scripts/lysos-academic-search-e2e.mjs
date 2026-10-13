@@ -34,6 +34,20 @@ try{
  console.log('LYSOS BACK DIAGNOSTIC | '+JSON.stringify(restored));
  assert.equal(restored.query,'hoffmann');
  assert.equal(await page.locator('#searchTypeFilter').inputValue(),'academic_section');
+ // #3 uses a separate first-volume renderer: it must also open the EXACT
+ // muscle passage in the same full-width reader and return to Search.
+ await page.locator('#searchBox').fill('극상근');
+ await page.locator('#searchResults .search-result-main').filter({hasText:'강의 3번 ·'}).first().click();
+ await page.waitForFunction(()=>document.getElementById('claudeNativePilotHost')?.dataset.lysosSearchTarget?.startsWith('claude:3:'),null,{timeout:60000});
+ const firstVolume=await page.locator('#claudeNativePilotHost').evaluate(p=>{
+  const m=p.querySelector('.claude-native-lesson')?.shadowRoot?.querySelector('.lysos-search-match');
+  return {full:p.classList.contains('claude-native-chapter-focus'),width:p.getBoundingClientRect().width,
+    windowWidth:innerWidth,hit:!!m,text:m?.textContent?.trim().slice(0,160)};
+ });
+ assert.ok(firstVolume.full&&firstVolume.width>=firstVolume.windowWidth-4&&firstVolume.hit,JSON.stringify(firstVolume));
+ await page.locator('#lysosSearchVolumeOneToolbar button').click();
+ await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
+ assert.equal(await page.locator('#searchBox').inputValue(),'극상근');
  await page.locator('#searchBox').fill('스포츠의학 05권');
  assert.ok((await page.locator('#searchResults').innerText()).includes('세부 위치 이동 미지원'));
  assert.deepEqual(errors,[]);
