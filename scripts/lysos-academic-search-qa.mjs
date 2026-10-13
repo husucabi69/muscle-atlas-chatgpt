@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
 const data=JSON.parse(fs.readFileSync('data/lysos-global-academic-search-v1.json','utf8'));
 const catalog=JSON.parse(fs.readFileSync('data/claude-library-manifest-v1.json','utf8'));
 assert.equal(data.schema,'lysos-global-academic-search-v1');
@@ -30,7 +31,27 @@ assert.ok(app.includes('option value="academic_section"')&&app.includes('LYSOSAc
 assert.ok(script.includes('checkNative')&&script.includes('checkOriginal')&&script.includes('scrollIntoView')&&script.includes('history.back()'));
 assert.ok(script.includes('function canonicalAliases()')&&script.includes('knowledgeCoreData')&&
  script.includes('new Set(matches.map(x=>x.id)).size!==1'),
- 'Korean/English/unique abbreviations must use exact canonical app concepts, never ambiguous invented aliases');
+ 'Korean/English/unique abbreviations must use exact canonical app concepts');
+// Behavioral regression: the same abbreviation used by two DIFFERENT muscles
+// must not appear even as an expansion of a unique Korean/English muscle name.
+const aliasStart=script.indexOf('let aliasesFromCore=null');
+const aliasEnd=script.indexOf('// Prefer the smallest visible source element');
+assert.ok(aliasStart>0&&aliasEnd>aliasStart,'extract original canonical alias functions');
+const sandbox={
+ knowledgeCoreData:{muscles:[
+  {muscle_id:'m1',name_ko:'극상근',name_en:'Supraspinatus',abbreviation:'ABC'},
+  {muscle_id:'m2',name_ko:'견갑거근',name_en:'Levator scapulae',abbreviation:'ABC'},
+  {muscle_id:'m3',name_ko:'단요측수근신근',name_en:'Extensor carpi radialis brevis',abbreviation:'ECRB'}
+ ]},aliases:{},norm:s=>String(s||'').toLowerCase().normalize('NFKC').replace(/\\s+/g,'').replace(/[·\\-_/(){}[\\].,:;'"]/g,'')
+};
+const aliasApi=vm.runInNewContext(script.slice(aliasStart,aliasEnd)+'\\n({terms,canonicalAliases})',sandbox);
+assert.ok(aliasApi.terms('극상근').includes('supraspinatus'));
+assert.ok(aliasApi.terms('Levator scapulae').includes('견갑거근'));
+assert.equal(aliasApi.terms('ABC').length,1,'shared acronym must NEVER be expanded');
+assert.ok(!aliasApi.terms('극상근').includes('abc')&&!aliasApi.terms('견갑거근').includes('abc'),
+ 'ambiguous acronym must not leak into search candidates through valid concept names');
+assert.ok(aliasApi.terms('ECRB').includes('단요측수근신근'));
+console.log('LYSOS CANONICAL BILINGUAL ALIAS QA PASS | exact Korean/English, unique abbreviations only, ambiguous forward/reverse blocked');
 assert.ok(script.includes('_normBody:norm(r.body)')&&script.includes('r._normBody||norm(r.body)'),
  'large academic source text normalized once per index load');
 assert.ok(script.includes('const rawAt=words.map(t=>raw.indexOf(t))'),

@@ -40,7 +40,10 @@ function canonicalAliases(){
   // An ACL-like token is accepted only when exactly one canonical entity
   // supplies it. Ambiguous short forms always remain literal text search.
   if(new Set(matches.map(x=>x.id)).size!==1)continue;
-  result.set(key,matches[0].all.filter(v=>v!==key));
+  // Filter aliases too: even when the entered Korean/English name is unique,
+  // NEVER expand it to an abbreviation shared by another muscle or concept.
+  result.set(key,matches[0].all.filter(v=>v!==key&&
+   new Set((candidates.get(v)||[]).map(x=>x.id)).size===1));
  }
  coreAliasSource=core;aliasesFromCore=result;
  return result;

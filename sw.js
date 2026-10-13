@@ -1,4 +1,4 @@
-// v12.64 development: exact Korean-English canonical concept aliases for academic search; ambiguous abbreviations blocked, stage24.47.
+// v12.65 development: prevent shared medical acronym leaks in either direction, behavioral canonical-alias QA, stage24.48.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
