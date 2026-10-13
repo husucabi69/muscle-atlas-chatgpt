@@ -145,7 +145,7 @@ assert.equal(mockRaw.length,mockIndex.source.source_bytes);
 assert.equal(crypto.createHash('sha256').update(mockRaw).digest('hex'),mockIndex.source.source_sha256);
 const mockText=mockRaw.toString('utf8');let inspected=0;
 for(let vi=1;vi<=5;vi++){
- const mat=mockText.match(new RegExp('const Q'+vi+'=(\\\\[[\\\\s\\\\S]*?\\\\]);'));
+ const mat=mockText.match(new RegExp('const Q'+vi+'=(\\[[\\s\\S]*?\\]);'));
  assert.ok(mat,'original mock Q'+vi+' must still be parseable');
  const questions=JSON.parse(mat[1]);
  assert.equal(questions.length,mockIndex.source.volume_lengths[vi-1]);
