@@ -1,0 +1,23 @@
+{
+  "schema": "lysos-ct086-render-provenance-v1",
+  "clinical_test_id": "ct086",
+  "candidate_no": 5,
+  "render_date": "2026-10-14",
+  "task_id": "00886834-ff19-4655-9000-6941f580664d",
+  "source_service": "Runway connected workspace",
+  "render_model_id": "nano-banana-2",
+  "requested_ratio": "2:3",
+  "requested_size": "2K",
+  "runway_credits_balance_before": 461,
+  "runway_credits_balance_after": 450,
+  "runway_credits_consumed": 11,
+  "original_generation_prompt_exact": "Generate ONE high-resolution vertical medical education illustration plate, exactly three equal stacked scenes, photorealistic digital painting (not photo), polished calm Korean outpatient clinic. Same identifiable adult FEMALE PATIENT with shoulder-length dark hair wearing a light blue examination gown, seated on a fixed high-backed chair in ALL three panels; same identifiable adult FEMALE EXAMINER in pale cream medical coat, visibly standing nearby in ALL panels, hands NOT pushing or turning the patient's head. This is ACTIVE cervical rotation range-of-motion observation: (1) patient looks straight ahead with head neutral, relaxed shoulders; tiny Korean heading exactly '1 중립 자세'. (2) show the same female patient rotating her head by herself to the left and right as an anatomically credible visual two-position comparison while shoulders and trunk remain straight and stationary, observer visibly monitoring compensatory motion; two subtle short neutral blue curved arrows, never any compression or passive force; tiny heading exactly '2 좌우 회전'. (3) patient actively turns less to one side, demonstrate limitation/shoulder-trunk compensation to avoid, examiner observing, neutral short blue arcs unequal left/right; tiny heading exactly '3 제한 / 보상'. Preserve female/female identity and clothes across scenes. Head motion biomechanically accurate. Clean full-frame scenes with spacious clinical composition and good anatomy. EXACTLY those three small Korean headings, no other text, no English, no numbers other than panel header digits, no anatomical labels, NO angle degree marks, NO diagnostic claims, NO red pain glow or red highlight, NO explanatory paragraph, NO footer, no caption, no copyright marks, no watermark, no logos. Portrait 2:3 ratio, at least 1024×1536 pixels. Clinical educational realism, high fidelity hands faces and cervical anatomy.",
+  "actual_image_binary_sha256": null,
+  "visual_review": "PENDING",
+  "patient_consent": "SYNTHETIC_ILLUSTRATION_NO_REAL_PATIENT",
+  "human_authorship_approval": "PENDING",
+  "user_preview_approval": "PENDING",
+  "import_to_app": "NOT_CONNECTED",
+  "copyright_note": "AI raw artwork alone is not a verified registrable human-authored derivative. Track future medically meaningful human changes and approval before copyright filing.",
+  "signed_download_url_recorded": false
+}
