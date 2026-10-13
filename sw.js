@@ -1,4 +1,4 @@
-// v12.54 development: 78 source-indexed originals and initial home search Back restoration, stage24.37.
+// v12.55 development: exact visible paragraph/table focus, bilingual aliases, Search Back, stage24.38.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

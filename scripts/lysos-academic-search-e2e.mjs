@@ -17,9 +17,16 @@ try{
    null,{timeout:60000});
  const focus=await page.locator('#claudeNativePilotHost').evaluate(p=>{
   const rect=p.getBoundingClientRect();
-  return {on:p.classList.contains('claude-native-chapter-focus'),w:rect.width,h:rect.height,sw:innerWidth,sh:innerHeight};
+  const sh=p.querySelector('.claude-native-lesson')?.shadowRoot;
+  const marked=sh?.querySelector('.lysos-search-match');
+  const hit=marked?.getBoundingClientRect();
+  return {on:p.classList.contains('claude-native-chapter-focus'),w:rect.width,h:rect.height,sw:innerWidth,sh:innerHeight,
+    marked:Boolean(marked),visible:Boolean(hit&&hit.bottom>0&&hit.top<innerHeight),text:marked?.textContent?.trim().slice(0,160),
+    back:p.querySelector('.claude-native-chapter-focusbar button')?.textContent};
  });
  assert.ok(focus.on&&focus.w>=focus.sw-4&&focus.h>=focus.sh-4,JSON.stringify(focus));
+ assert.ok(focus.marked&&focus.visible&&focus.text.toLowerCase().includes('hoffmann'),JSON.stringify(focus));
+ assert.equal(focus.back,'← 검색 결과');
  await page.goBack({waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
  const restored=await page.evaluate(()=>({state:history.state,query:document.getElementById('searchBox').value,

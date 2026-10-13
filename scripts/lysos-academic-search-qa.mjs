@@ -27,5 +27,9 @@ assert.ok(data.rows.some(x=>x.number===19&&x.section&&x.body.toLowerCase().inclu
 const app=fs.readFileSync('index.html','utf8'),script=fs.readFileSync('scripts/lysos-global-academic-search-v1.js','utf8');
 assert.ok(app.includes('option value="academic_section"')&&app.includes('LYSOSAcademicSearch?.hits')&&app.includes('LYSOSAcademicSearch?.open'));
 assert.ok(script.includes('checkNative')&&script.includes('checkOriginal')&&script.includes('scrollIntoView')&&script.includes('history.back()'));
+assert.ok(script.includes('function exactTarget(')&&script.includes('section td')&&script.includes('lysos-search-match'),
+ 'indexed clinical terms should focus and mark their actual visible source paragraph or table cell');
+assert.ok(script.includes('nativeBack.textContent=\'← 검색 결과\''),
+ 'native lecture Back must return to the search results instead of the course contents');
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-global-academic-search-v1.json'));
 console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 9 interactive source adapters pending');

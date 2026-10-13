@@ -11,10 +11,26 @@ const aliases={
  '극상근':['supraspinatus'],'supraspinatus':['극상근'],
  'rotatorcuff':['회전근개'],'회전근개':['rotatorcuff']
 };
+function terms(query){const q=norm(query);return [...new Set([q,...(aliases[q]||[]).map(norm)])].filter(Boolean)}
+// Prefer the smallest visible source element instead of landing at an entire chapter
+// when the search match occurs in a table, caption, nested paragraph, or alias.
+function exactTarget(section,query,title){
+ const nodes=[...section.querySelectorAll('h1,h2,h3,h4,[data-i],p,li,td,th,figcaption,dt,dd,blockquote')];
+ const items=nodes.map((el,i)=>({el,i,value:norm(el.textContent)}));
+ for(const term of terms(query)){
+  const candidates=items.filter(x=>x.value.includes(term));
+  if(candidates.length)return candidates.sort((a,b)=>a.value.length-b.value.length||a.i-b.i)[0].el;
+ }
+ return items.find(x=>x.value.includes(norm(title)))?.el||section;
+}
+function markTarget(section,target){
+ section.querySelectorAll('.lysos-search-match').forEach(el=>el.classList.remove('lysos-search-match'));
+ target.classList.add('lysos-search-match');
+}
 function hits(query,filter){
  if(filter!=='all'&&filter!=='academic_section')return[];
  const q=norm(query);if(q.length<2)return[];
- const words=[q,...(aliases[q]||[]).map(norm)],out=[];
+ const words=terms(query),out=[];
  for(const r of state.rows){
   const body=norm(r.body),title=norm(r.title);
   const match=words.find(t=>t&&body.includes(t));
@@ -54,14 +70,22 @@ function checkNative(){
  // below the app-owned 53px focus bar and 53px chapter selector.
  if(sh&&!sh.getElementById('lysosSearchScrollMargin')){
   const st=document.createElement('style');st.id='lysosSearchScrollMargin';
-  st.textContent='section h1,section h2,section h3,section h4,section [data-i]{scroll-margin-top:158px!important}';
+  st.textContent='section h1,section h2,section h3,section h4,section [data-i],section p,section li,section td,section th,section figcaption,section dt,section dd{scroll-margin-top:158px!important}'+
+   '.lysos-search-match{outline:3px solid #d99427!important;outline-offset:3px;border-radius:4px}';
   sh.append(st);
  }
  if(!section||!select)return false;
  state.pending=null;select.value=p.section;select.dispatchEvent(new Event('change',{bubbles:true}));
- const needle=norm(p.query),targets=[...section.querySelectorAll('h1,h2,h3,h4,[data-i]')];
- const target=targets.find(el=>norm(el.textContent).includes(needle))||
-  targets.find(el=>norm(el.textContent).includes(norm(p.title)))||section;
+ const target=exactTarget(section,p.query,p.title);
+ markTarget(section,target);
+ // A result opened from Search should return to Search, not to the course TOC.
+ const nativeBack=panel.querySelector('.claude-native-chapter-focusbar button');
+ if(nativeBack&&!nativeBack.dataset.lysosSearchBack){
+  nativeBack.dataset.lysosSearchBack='1';nativeBack.textContent='← 검색 결과';
+  nativeBack.addEventListener('click',event=>{
+   event.preventDefault();event.stopImmediatePropagation();history.back();
+  },{capture:true});
+ }
  requestAnimationFrame(()=>{
   if(panel.hidden||Number(panel.dataset.claudeNativeLecture)!==p.number)return;
   target.scrollIntoView({behavior:'instant',block:'start'});
@@ -80,8 +104,14 @@ function checkOriginal(){
    (actual!==expected&&actual!==expected.replace(/\.html$/i,'')))return false;
  }catch{return false}
  state.pending=null;label.textContent=p.title;bar.hidden=false;frame.classList.add('lysos-search-iframe');
- const needle=norm(p.query),target=[...section.querySelectorAll('h1,h2,h3,h4,[data-i]')]
-  .find(x=>norm(x.textContent).includes(needle))||section;
+ if(doc.head&&!doc.getElementById('lysosSearchIframeStyle')){
+  const st=doc.createElement('style');st.id='lysosSearchIframeStyle';
+  st.textContent='h1,h2,h3,h4,[data-i],p,li,td,th,figcaption,dt,dd{scroll-margin-top:80px!important}'+
+   '.lysos-search-match{outline:3px solid #d99427!important;outline-offset:3px;border-radius:4px}';
+  doc.head.append(st);
+ }
+ const target=exactTarget(section,p.query,p.title);
+ markTarget(section,target);
  requestAnimationFrame(()=>{frame.hidden=false;target.scrollIntoView({behavior:'instant',block:'start'});frame.dataset.lysosSearchTarget=p.id});
  return true;
 }
