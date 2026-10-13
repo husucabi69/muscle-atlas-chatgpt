@@ -25,8 +25,12 @@ for(const n of data.indexedLectureNumbers){
 }
 assert.ok(data.rows.some(x=>x.number===19&&x.section&&x.body.toLowerCase().includes('hoffmann')));
 const app=fs.readFileSync('index.html','utf8'),script=fs.readFileSync('scripts/lysos-global-academic-search-v1.js','utf8');
+assert.ok(app.includes('let knowledgeCoreData=null'), 'canonical MSK knowledge data remains available for bilingual aliases');
 assert.ok(app.includes('option value="academic_section"')&&app.includes('LYSOSAcademicSearch?.hits')&&app.includes('LYSOSAcademicSearch?.open'));
 assert.ok(script.includes('checkNative')&&script.includes('checkOriginal')&&script.includes('scrollIntoView')&&script.includes('history.back()'));
+assert.ok(script.includes('function canonicalAliases()')&&script.includes('knowledgeCoreData')&&
+ script.includes('new Set(matches.map(x=>x.id)).size!==1'),
+ 'Korean/English/unique abbreviations must use exact canonical app concepts, never ambiguous invented aliases');
 assert.ok(script.includes('_normBody:norm(r.body)')&&script.includes('r._normBody||norm(r.body)'),
  'large academic source text normalized once per index load');
 assert.ok(script.includes('const rawAt=words.map(t=>raw.indexOf(t))'),

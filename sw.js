@@ -1,4 +1,4 @@
-// v12.63 development: pre-normalized academic source index for responsive Android search and correct result snippet offsets, stage24.46.
+// v12.64 development: exact Korean-English canonical concept aliases for academic search; ambiguous abbreviations blocked, stage24.47.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

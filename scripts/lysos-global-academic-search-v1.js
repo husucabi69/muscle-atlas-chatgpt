@@ -11,7 +11,44 @@ const aliases={
  '극상근':['supraspinatus'],'supraspinatus':['극상근'],
  'rotatorcuff':['회전근개'],'회전근개':['rotatorcuff']
 };
-function terms(query){const q=norm(query);return [...new Set([q,...(aliases[q]||[]).map(norm)])].filter(Boolean)}
+// Extend hand-verified hardcoded aliases with exact bilingual names already
+// supplied by the app's canonical knowledge-core. Never infer synonyms from
+// fuzzy similarities or map an abbreviation shared by multiple concepts.
+let aliasesFromCore=null,coreAliasSource=null;
+function canonicalAliases(){
+ const core=typeof knowledgeCoreData==='undefined'?null:knowledgeCoreData;
+ if(!core)return new Map();
+ if(core===coreAliasSource&&aliasesFromCore)return aliasesFromCore;
+ const candidates=new Map();
+ const groups=['muscles','clinical_tests','diagnosis_concepts','ultrasound_views'];
+ for(const group of groups){
+  for(const row of core[group]||[]){
+   const ko=norm(row.name_ko),en=norm(row.name_en);
+   if(!ko||!en)continue;
+   const id=group+':'+(row.muscle_id||row.clinical_test_id||row.diagnosis_concept_id||row.ultrasound_view_id||'');
+   const termsForRow=[ko,en];
+   const abbreviation=norm(row.abbreviation||row.abbr);
+   if(abbreviation.length>=3)termsForRow.push(abbreviation);
+   for(const key of termsForRow){
+    if(!candidates.has(key))candidates.set(key,[]);
+    candidates.get(key).push({id,all:termsForRow});
+   }
+  }
+ }
+ const result=new Map();
+ for(const [key,matches] of candidates){
+  // An ACL-like token is accepted only when exactly one canonical entity
+  // supplies it. Ambiguous short forms always remain literal text search.
+  if(new Set(matches.map(x=>x.id)).size!==1)continue;
+  result.set(key,matches[0].all.filter(v=>v!==key));
+ }
+ coreAliasSource=core;aliasesFromCore=result;
+ return result;
+}
+function terms(query){
+ const q=norm(query),canonical=canonicalAliases();
+ return [...new Set([q,...(aliases[q]||[]).map(norm),...(canonical.get(q)||[])])].filter(Boolean);
+}
 // Prefer the smallest visible source element instead of landing at an entire chapter
 // when the search match occurs in a table, caption, nested paragraph, or alias.
 function exactTarget(section,query,title){
