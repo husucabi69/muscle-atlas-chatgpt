@@ -52,6 +52,18 @@ try{
  await page.locator('#lysosSearchVolumeOneToolbar button').first().click();
  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
  assert.equal(await page.locator('#searchBox').inputValue(),'극상근');
+ await page.locator('#searchBox').fill('Neer 4-part');
+ await page.waitForFunction(()=>window.LYSOSAcademicSearch?.indexedQuestions===120);
+ await page.locator('#searchResults .search-result-main').filter({hasText:'문제은행 1권 · 1번'}).first().click();
+ await page.waitForFunction(()=>document.getElementById('diseaseTraumaOriginalFrame')?.dataset.lysosSearchTarget==='claude:59:q0',{timeout:60000});
+ const quizFrame=page.frameLocator('#diseaseTraumaOriginalFrame');
+ assert.ok((await quizFrame.locator('.lysos-search-qfocus .stem').innerText()).includes('Neer 4-part'));
+ await quizFrame.locator('.lysos-search-qfocus button.opt').first().click();
+ const graded=await quizFrame.locator('.q').filter({hasText:'Neer 4-part'}).first().locator('.exp').innerText();
+ assert.ok(graded.includes('정답')||graded.includes('오답'));
+ await page.locator('#lysosSearchFocusbar button').click();
+ await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
+ assert.equal(await page.locator('#searchBox').inputValue(),'Neer 4-part');
  await page.locator('#searchBox').fill('스포츠의학 05권');
  assert.ok((await page.locator('#searchResults').innerText()).includes('세부 위치 이동 미지원'));
  assert.deepEqual(errors,[]);

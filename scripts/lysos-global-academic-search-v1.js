@@ -1,7 +1,7 @@
 // LYSOS P0 global academic search. Source section ids never modify original HTML.
 (function(){
 'use strict';
-const state={rows:[],lookup:new Map(),coverage:'LOADING',pending:null};
+const state={rows:[],lookup:new Map(),questionRows:[],questionLookup:new Map(),coverage:'LOADING',questionCoverage:'LOADING',pending:null};
 const norm=s=>String(s||'').toLowerCase().normalize('NFKC').replace(/\s+/g,'').replace(/[·\-_/(){}[\].,:;'"]/g,'');
 const aliases={
  '호프만':['hoffmann','hoffman'],'hoffmann':['호프만','hoffman'],
@@ -44,6 +44,16 @@ function hits(query,filter){
     subtitle:'강의 '+r.number+'번 · '+(r.section||'원본 전체')+
      (r.section?' · 해당 원문 바로가기':' · 세부 위치 이동 미지원')+' · '+snippet,score});
  }
+ for(const r of state.questionRows){
+  const stem=norm(r.question),choiceText=norm((r.options||[]).join(' '));
+  if(!words.some(t=>stem.includes(t)||choiceText.includes(t)))continue;
+  const priority=words.some(t=>stem.includes(t));
+  const starts=words.some(t=>stem.startsWith(t));
+  out.push({type:'academic_section',id:r.id,
+   title:'문제은행 '+(r.number-58)+'권 · '+(r.index+1)+'번 · '+r.question,
+   subtitle:'강의 '+r.number+'번 · '+r.category+' · 실제 문제로 바로가기 · 원본 자동채점·해설 유지',
+   score:45+(priority?80:0)+(starts?55:0)});
+ }
  return out.sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id)).slice(0,35);
 }
 const style=document.createElement('style');style.textContent=
@@ -60,6 +70,44 @@ back.addEventListener('click',()=>history.back());const label=document.createEle
 const panel=document.getElementById('claudeNativePilotHost'),frame=document.getElementById('diseaseTraumaOriginalFrame');
 const academicView=document.getElementById('diseaseTraumaOriginalView');
 let volumeOneRestore=null;
+// Original quiz JS owns answer state and grading. We only focus its existing
+// question element, never recreate answer buttons or rewrite the source HTML.
+function checkQuestion(){
+ const p=state.pending;if(!p||p.kind!=='question'||!frame)return false;
+ let doc;
+ try{
+  doc=frame.contentDocument;
+  const item=(window.LYSClaudeLectureCatalog?.()||[]).find(x=>x.number===p.number);
+  const actual=decodeURI(frame.contentWindow.location.pathname);
+  const expected='/claude-library/'+item?.source_path;
+  if(!doc||!item||(actual!==expected&&actual!==expected.replace(/\.html$/i,'')))return false;
+  // Filter controls only change which cards are displayed; grading answers
+  // remain inside the original quiz localStorage and are never overwritten.
+  const all=doc.querySelector('#filters .chip[data-c="전체"]');
+  if(all&&all.getAttribute('aria-pressed')!=='true')all.click();
+  const wrong=doc.getElementById('wrongOnly');
+  if(wrong?.getAttribute('aria-pressed')==='true')wrong.click();
+  const findCard=()=>[...doc.querySelectorAll('#list .q')].find(x=>
+   x.querySelector('.qn')?.textContent?.trim()===(p.index+1)+'번');
+  const card=findCard();if(!card)return false;
+  if(!doc.getElementById('lysosSearchQuestionStyle')){
+   const st=doc.createElement('style');st.id='lysosSearchQuestionStyle';
+   st.textContent='.lysos-search-qfocus{outline:4px solid #d99427!important;outline-offset:3px;border-radius:12px!important;scroll-margin-top:12px!important}';
+   doc.head.append(st);
+  }
+  doc.querySelectorAll('.lysos-search-qfocus').forEach(x=>x.classList.remove('lysos-search-qfocus'));
+  card.classList.add('lysos-search-qfocus');
+  state.pending=null;label.textContent='문제은행 '+(p.number-58)+'권 · '+(p.index+1)+'번';
+  bar.hidden=false;frame.classList.add('lysos-search-iframe');
+  requestAnimationFrame(()=>{
+   if(!frame.isConnected)return;
+   frame.hidden=false;card.scrollIntoView({behavior:'instant',block:'start'});
+   frame.dataset.lysosSearchTarget=p.id;
+  });
+  return true;
+ }catch(e){console.warn('LYSOS quiz source focus unavailable',e);return false}
+}
+
 function closeFocus(){
  bar.hidden=true;frame?.classList.remove('lysos-search-iframe');
  if(volumeOneRestore){
@@ -145,15 +193,18 @@ function checkOriginal(){
 }
 if(panel)new MutationObserver(()=>{if(state.pending)checkNative()}).observe(panel,
  {childList:true,attributes:true,attributeFilter:['data-claude-native-lecture','hidden']});
-frame?.addEventListener('load',()=>{if(state.pending)checkOriginal()});
+frame?.addEventListener('load',()=>{if(state.pending){checkQuestion();checkOriginal()}});
 if(academicView)new MutationObserver(()=>{if(academicView.hidden)closeFocus()}).observe(academicView,{attributes:true,attributeFilter:['hidden']});
 window.addEventListener('popstate',event=>{
  if(event.state?.lysPage!=='diseaseTrauma'||academicView?.hidden)closeFocus();
 });
 function open(id){
- const row=state.lookup.get(id);if(!row||!window.LYSClaudeLectureCatalog?.()?.some(x=>x.number===row.number))return false;
+ const row=state.lookup.get(id)||state.questionLookup.get(id);
+ if(!row||!window.LYSClaudeLectureCatalog?.()?.some(x=>x.number===row.number))return false;
  if(document.documentElement.dataset.appPage==='home')ensureCurrentHomeHistory();
- closeFocus();state.pending=row.section?{id:row.id,number:row.number,section:row.section,title:row.title,
+ closeFocus();state.pending=state.questionLookup.has(id)?{
+  kind:'question',id:row.id,number:row.number,index:row.index,question:row.question
+ }:row.section?{id:row.id,number:row.number,section:row.section,title:row.title,
   query:document.getElementById('searchBox')?.value||row.title}:null;
  showPage('diseaseTrauma');
  const item=window.LYSClaudeLectureCatalog().find(x=>x.number===row.number);
@@ -163,7 +214,8 @@ function open(id){
  return true;
 }
 window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
- get indexedLectures(){return [...new Set(state.rows.filter(x=>x.section).map(x=>x.number))]}};
+ get indexedLectures(){return [...new Set(state.rows.filter(x=>x.section).map(x=>x.number))]},
+ get indexedQuestions(){return state.questionRows.length}};
 (async()=>{
  try{
   const response=await fetch('./data/lysos-global-academic-search-v1.json',{cache:'no-cache'});
@@ -174,11 +226,20 @@ window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
      new Set(data.rows.map(x=>x.id)).size!==data.rows.length)throw Error('incomplete academic index');
   state.rows=data.rows;state.lookup=new Map(data.rows.map(x=>[x.id,x]));state.coverage=data.coverage;
  }catch(e){state.coverage='INDEX_UNAVAILABLE';console.warn('Academic index not ready',e)}
+ try{
+  const qr=await fetch('./data/lysos-interactive-question-search-v1.json',{cache:'no-cache'});
+  if(!qr.ok)throw Error('Question index HTTP '+qr.status);
+  const q=await qr.json();
+  if(q.schema!=='lysos-interactive-question-search-v1'||q.rows?.length!==120||q.source?.length!==4||
+   new Set(q.rows.map(x=>x.id)).size!==120)throw Error('Incomplete question source index');
+  state.questionRows=q.rows;state.questionLookup=new Map(q.rows.map(x=>[x.id,x]));
+  state.questionCoverage='59-62 / 120';
+ }catch(e){state.questionCoverage='UNAVAILABLE';console.warn('Quiz question index unavailable',e)}
  const count=new Set(state.rows.filter(x=>x.section).map(x=>x.number)).size;
  const info=document.getElementById('lysosAcademicSearchCoverage');
  if(info)info.textContent=state.coverage==='INDEX_UNAVAILABLE'?
   '학술 색인을 열지 못했습니다. 기존 근육·이학검사 검색은 계속 사용 가능합니다.':
-  '학술 원문 세부검색 '+count+'/87강 · 87강 제목검색 가능 · 나머지 세부검색 확대 중';
+  '학술 원문 세부검색 '+count+'/87강 · 문제은행 개별문항 '+state.questionRows.length+'/120개 · 87강 제목검색 가능';
  renderUnifiedSearch();
 })();
 })();

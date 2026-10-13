@@ -1,4 +1,4 @@
-// v12.57 development: preserve volume #3 free Korean TTS controls in fullscreen search, stage24.40.
+// v12.58 development: question-level exact search for 4 interactive original banks, with source answer-state preservation, stage24.41.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -15,6 +15,7 @@ const CORE=[
   './scripts/claude-native-muscle-series-v1.js',
   './scripts/lysos-global-academic-search-v1.js',
   './data/lysos-global-academic-search-v1.json',
+  './data/lysos-interactive-question-search-v1.json',
   './scripts/claude-compendium-native-reader-v1.js',
   './manifest.webmanifest',
   './assets/lysos-symbol.svg',

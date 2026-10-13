@@ -36,4 +36,33 @@ assert.ok(fs.readFileSync('scripts/claude-native-muscle-v1.js','utf8').includes(
  'volume #3 must signal its rendered chapter to the global search observer');
 assert.ok(script.includes('lysosSearchVolumeOneToolbar')&&script.includes('volumeOneRestore'),
  'volume #3 search must use a full-width focused reader and restore the page on Back');
+// Four dynamically rendered originals: deep-link by source question index
+// without changing original quiz HTML, stored answers, options or explanations.
+const questionIndex=JSON.parse(fs.readFileSync('data/lysos-interactive-question-search-v1.json','utf8'));
+assert.equal(questionIndex.schema,'lysos-interactive-question-search-v1');
+assert.equal(questionIndex.source.length,4);
+assert.equal(questionIndex.rows.length,120);
+assert.equal(new Set(questionIndex.rows.map(x=>x.id)).size,120);
+for(const record of questionIndex.source){
+ assert.ok([59,60,61,62].includes(record.number));
+ const item=catalog.lectures.find(x=>x.number===record.number);
+ assert.equal(record.source_path,item.source_path);
+ const raw=fs.readFileSync('claude-library/'+item.source_path);
+ assert.equal(raw.length,record.source_bytes);
+ assert.equal(crypto.createHash('sha256').update(raw).digest('hex'),record.source_sha256);
+ const m=raw.toString('utf8').match(/const Q=(\\[[\\s\\S]*?\\]);\\s*const KEY=/);
+ assert.ok(m,'quiz must embed plain JSON Q in protected original '+record.number);
+ const original=JSON.parse(m[1]);
+ assert.equal(original.length,record.question_count);
+ const rows=questionIndex.rows.filter(x=>x.number===record.number);
+ assert.equal(rows.length,original.length);
+ original.forEach((q,i)=>{
+  assert.equal(rows[i].id,'claude:'+record.number+':q'+i);
+  assert.equal(rows[i].question,q.s);assert.equal(rows[i].category,q.c);
+  assert.deepEqual(rows[i].options,q.o);
+ });
+}
+assert.ok(script.includes('function checkQuestion()')&&script.includes('lysos-search-qfocus')&&script.includes('questionLookup'));
+assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-question-search-v1.json'));
+console.log('LYSOS QUIZ QUESTION DEEP LINK QA PASS | 59-62 original quizzes, 120 verified question ids and preserved answer engines');
 console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 9 interactive source adapters pending');
