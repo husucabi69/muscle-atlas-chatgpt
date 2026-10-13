@@ -50,7 +50,7 @@ for(const record of questionIndex.source){
  const raw=fs.readFileSync('claude-library/'+item.source_path);
  assert.equal(raw.length,record.source_bytes);
  assert.equal(crypto.createHash('sha256').update(raw).digest('hex'),record.source_sha256);
- const m=raw.toString('utf8').match(/const Q=(\\[[\\s\\S]*?\\]);\\s*const KEY=/);
+ const m=raw.toString('utf8').match(/const Q=(\[[\s\S]*?\]);\s*const KEY=/);
  assert.ok(m,'quiz must embed plain JSON Q in protected original '+record.number);
  const original=JSON.parse(m[1]);
  assert.equal(original.length,record.question_count);
@@ -65,4 +65,4 @@ for(const record of questionIndex.source){
 assert.ok(script.includes('function checkQuestion()')&&script.includes('lysos-search-qfocus')&&script.includes('questionLookup'));
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-question-search-v1.json'));
 console.log('LYSOS QUIZ QUESTION DEEP LINK QA PASS | 59-62 original quizzes, 120 verified question ids and preserved answer engines');
-console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 9 interactive source adapters pending');
+console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 5 interactive source adapters pending; 4 quiz banks support 120 questions');

@@ -1,4 +1,4 @@
-// v12.58 development: question-level exact search for 4 interactive original banks, with source answer-state preservation, stage24.41.
+// v12.59 development: correct quiz provenance QA regex, preserve question deep-links and source integrity, stage24.42.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
