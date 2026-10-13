@@ -1,4 +1,4 @@
-// v12.62 development: preserve source-question exact focus and visible highlight after original quiz auto-grading, stage24.45.
+// v12.63 development: pre-normalized academic source index for responsive Android search and correct result snippet offsets, stage24.46.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

@@ -27,6 +27,10 @@ assert.ok(data.rows.some(x=>x.number===19&&x.section&&x.body.toLowerCase().inclu
 const app=fs.readFileSync('index.html','utf8'),script=fs.readFileSync('scripts/lysos-global-academic-search-v1.js','utf8');
 assert.ok(app.includes('option value="academic_section"')&&app.includes('LYSOSAcademicSearch?.hits')&&app.includes('LYSOSAcademicSearch?.open'));
 assert.ok(script.includes('checkNative')&&script.includes('checkOriginal')&&script.includes('scrollIntoView')&&script.includes('history.back()'));
+assert.ok(script.includes('_normBody:norm(r.body)')&&script.includes('r._normBody||norm(r.body)'),
+ 'large academic source text normalized once per index load');
+assert.ok(script.includes('const rawAt=words.map(t=>raw.indexOf(t))'),
+ 'search snippet must use raw original-text offsets, not normalized offsets');
 assert.ok(script.includes('function exactTarget(')&&script.includes('section td')&&script.includes('lysos-search-match'),
  'indexed clinical terms should focus and mark their actual visible source paragraph or table cell');
 assert.ok(script.includes('nativeBack.textContent=\'← 검색 결과\''),

@@ -32,14 +32,18 @@ function hits(query,filter){
  const q=norm(query);if(q.length<2)return[];
  const words=terms(query),out=[];
  for(const r of state.rows){
-  const body=norm(r.body),title=norm(r.title);
+  const body=r._normBody||norm(r.body),title=r._normTitle||norm(r.title);
   const match=words.find(t=>t&&body.includes(t));
   if(!match)continue;
-  const heading=(r.heads||[]).find(h=>words.some(t=>norm(h).includes(t)))||'';
+  const headingIndex=(r._normHeads||(r.heads||[]).map(norm)).findIndex(h=>words.some(t=>h.includes(t)));
+  const heading=headingIndex>=0?(r.heads||[])[headingIndex]:'';
   const t=heading||r.title,score=12+(heading?105:0)+(words.some(x=>title.includes(x))?65:0)+
     (r.section?20:0)+(words.some(x=>title===x||norm(heading)===x)?110:0);
-  const at=body.indexOf(match);
-  const snippet=r.body.slice(Math.max(0,at-20),Math.min(r.body.length,at+105));
+  // Normalized match offsets cannot be applied to the original spaced text.
+  const sourceText=String(r.body||''),raw=sourceText.toLowerCase();
+  const rawAt=words.map(t=>raw.indexOf(t)).find(i=>i>=0);
+  const at=Number.isInteger(rawAt)?rawAt:0;
+  const snippet=sourceText.slice(Math.max(0,at-25),Math.min(sourceText.length,at+120));
   out.push({type:'academic_section',id:r.id,title:t,
     subtitle:'강의 '+r.number+'번 · '+(r.section||'원본 전체')+
      (r.section?' · 해당 원문 바로가기':' · 세부 위치 이동 미지원')+' · '+snippet,score});
@@ -318,7 +322,10 @@ window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
   if(data.schema!=='lysos-global-academic-search-v1'||!Array.isArray(data.rows)||
      data.rows.filter(x=>!x.section).length!==87||
      new Set(data.rows.map(x=>x.id)).size!==data.rows.length)throw Error('incomplete academic index');
-  state.rows=data.rows;state.lookup=new Map(data.rows.map(x=>[x.id,x]));state.coverage=data.coverage;
+  // Cache normalized full chapters once instead of repeating work per keystroke.
+  state.rows=data.rows.map(r=>({...r,_normBody:norm(r.body),_normTitle:norm(r.title),
+   _normHeads:(r.heads||[]).map(norm)}));
+  state.lookup=new Map(state.rows.map(x=>[x.id,x]));state.coverage=data.coverage;
  }catch(e){state.coverage='INDEX_UNAVAILABLE';console.warn('Academic index not ready',e)}
  try{
   const qr=await fetch('./data/lysos-interactive-question-search-v1.json',{cache:'no-cache'});
