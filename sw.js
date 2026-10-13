@@ -1,4 +1,4 @@
-// v12.59 development: correct quiz provenance QA regex, preserve question deep-links and source integrity, stage24.42.
+// v12.60 development: direct global search deep links for all 30 oral clinical cases (original scoring retained), stage24.43.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -16,6 +16,7 @@ const CORE=[
   './scripts/lysos-global-academic-search-v1.js',
   './data/lysos-global-academic-search-v1.json',
   './data/lysos-interactive-question-search-v1.json',
+  './data/lysos-interactive-case-search-v1.json',
   './scripts/claude-compendium-native-reader-v1.js',
   './manifest.webmanifest',
   './assets/lysos-symbol.svg',

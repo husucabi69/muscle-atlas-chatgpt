@@ -64,5 +64,25 @@ for(const record of questionIndex.source){
 }
 assert.ok(script.includes('function checkQuestion()')&&script.includes('lysos-search-qfocus')&&script.includes('questionLookup'));
 assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-question-search-v1.json'));
+const oralIndex=JSON.parse(fs.readFileSync('data/lysos-interactive-case-search-v1.json','utf8'));
+assert.equal(oralIndex.schema,'lysos-interactive-case-search-v1');
+assert.equal(oralIndex.rows.length,30);
+const oralItem=catalog.lectures.find(x=>x.number===74);
+assert.equal(oralIndex.source.source_path,oralItem.source_path);
+const oralRaw=fs.readFileSync('claude-library/'+oralItem.source_path);
+assert.equal(oralRaw.length,oralIndex.source.source_bytes);
+assert.equal(crypto.createHash('sha256').update(oralRaw).digest('hex'),oralIndex.source.source_sha256);
+const oralScript=oralRaw.toString('utf8').match(/const C=(\[[\s\S]*?\]);\s*const AREAS=/);
+assert.ok(oralScript,'unaltered original 74 has extractable case C data');
+const oralCases=JSON.parse(oralScript[1]);assert.equal(oralCases.length,30);
+oralCases.forEach((x,i)=>{
+ const row=oralIndex.rows[i];
+ assert.equal(row.id,'claude:74:case-v'+x.v+'-n'+x.n);
+ assert.equal(row.title,x.title);assert.equal(row.area,x.area);
+ assert.equal(row.prompt,x.q);
+});
+assert.ok(script.includes('function checkCase()')&&script.includes('caseLookup')&&script.includes('lysos-search-casefocus'));
+assert.ok(fs.readFileSync('sw.js','utf8').includes('./data/lysos-interactive-case-search-v1.json'));
+console.log('LYSOS ORAL CASE DEEP LINK QA PASS | all 30/30 case titles and prompts source-locked, original exam scoring preserved');
 console.log('LYSOS QUIZ QUESTION DEEP LINK QA PASS | 59-62 original quizzes, 120 verified question ids and preserved answer engines');
-console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 5 interactive source adapters pending; 4 quiz banks support 120 questions');
+console.log('LYSOS GLOBAL ACADEMIC SEARCH QA PASS | 87 titles, 769 exact source chapters, 78/87 original books deep-indexed; 4 interactive source adapters pending; 4 quiz banks + oral cases now supported; 4 quiz banks support 120 questions');

@@ -64,6 +64,15 @@ try{
  await page.locator('#lysosSearchFocusbar button').click();
  await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
  assert.equal(await page.locator('#searchBox').inputValue(),'Neer 4-part');
+ await page.locator('#searchBox').fill('밤에 깨는 어깨 통증');
+ await page.waitForFunction(()=>window.LYSOSAcademicSearch?.indexedCases===30);
+ await page.locator('#searchResults .search-result-main').filter({hasText:'증례 구술시험 · 밤에 깨는 어깨 통증'}).first().click();
+ await page.waitForFunction(()=>document.getElementById('diseaseTraumaOriginalFrame')?.dataset.lysosSearchTarget==='claude:74:case-v1-n1',null,{timeout:60000});
+ assert.equal(await page.frameLocator('#diseaseTraumaOriginalFrame').locator('#ttl').innerText(),'밤에 깨는 어깨 통증, 55세 여성');
+ assert.ok((await page.frameLocator('#diseaseTraumaOriginalFrame').locator('#story').innerText()).includes('55세 여성'));
+ await page.locator('#lysosSearchFocusbar button').click();
+ await page.waitForFunction(()=>document.documentElement.dataset.appPage==='home');
+ assert.equal(await page.locator('#searchBox').inputValue(),'밤에 깨는 어깨 통증');
  await page.locator('#searchBox').fill('스포츠의학 05권');
  assert.ok((await page.locator('#searchResults').innerText()).includes('세부 위치 이동 미지원'));
  assert.deepEqual(errors,[]);

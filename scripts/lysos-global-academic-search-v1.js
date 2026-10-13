@@ -1,7 +1,7 @@
 // LYSOS P0 global academic search. Source section ids never modify original HTML.
 (function(){
 'use strict';
-const state={rows:[],lookup:new Map(),questionRows:[],questionLookup:new Map(),coverage:'LOADING',questionCoverage:'LOADING',pending:null};
+const state={rows:[],lookup:new Map(),questionRows:[],questionLookup:new Map(),caseRows:[],caseLookup:new Map(),coverage:'LOADING',questionCoverage:'LOADING',pending:null};
 const norm=s=>String(s||'').toLowerCase().normalize('NFKC').replace(/\s+/g,'').replace(/[·\-_/(){}[\].,:;'"]/g,'');
 const aliases={
  '호프만':['hoffmann','hoffman'],'hoffmann':['호프만','hoffman'],
@@ -44,6 +44,14 @@ function hits(query,filter){
     subtitle:'강의 '+r.number+'번 · '+(r.section||'원본 전체')+
      (r.section?' · 해당 원문 바로가기':' · 세부 위치 이동 미지원')+' · '+snippet,score});
  }
+ for(const r of state.caseRows){
+  const wordsInSource=norm([r.title,r.story,r.prompt,r.area].join(' '));
+  if(!words.some(t=>wordsInSource.includes(t)))continue;
+  const stem=norm(r.title),score=55+(words.some(t=>stem.includes(t))?95:0)+
+   (words.some(t=>stem.startsWith(t))?45:0);
+  out.push({type:'academic_section',id:r.id,title:'증례 구술시험 · '+r.title,
+   subtitle:'강의 74번 · '+r.area+' · '+r.volume+'권 '+r.caseNumber+'번 · 실제 대화형 증례 바로가기 · 기존 성적 유지',score});
+ }
  for(const r of state.questionRows){
   const stem=norm(r.question),choiceText=norm((r.options||[]).join(' '));
   if(!words.some(t=>stem.includes(t)||choiceText.includes(t)))continue;
@@ -70,6 +78,34 @@ back.addEventListener('click',()=>history.back());const label=document.createEle
 const panel=document.getElementById('claudeNativePilotHost'),frame=document.getElementById('diseaseTraumaOriginalFrame');
 const academicView=document.getElementById('diseaseTraumaOriginalView');
 let volumeOneRestore=null;
+// Original oral-exam JS owns its case/story/answer/checklist and score state.
+// Choose the corresponding existing ledger button to display precisely that
+// case without resetting the source exam or changing any recorded scores.
+function checkCase(){
+ const p=state.pending;if(!p||p.kind!=='case'||!frame)return false;
+ try{
+  const doc=frame.contentDocument;
+  const item=(window.LYSClaudeLectureCatalog?.()||[]).find(x=>x.number===74);
+  const actual=decodeURI(frame.contentWindow.location.pathname),expected='/claude-library/'+item?.source_path;
+  if(!item||!doc||(actual!==expected&&actual!==expected.replace(/\.html$/i,'')))return false;
+  const targetTitle=p.volume+'권 증례 '+p.caseNumber+': '+p.title;
+  const choice=[...doc.querySelectorAll('#rows .sq')].find(x=>x.title===targetTitle);
+  if(!choice)return false;
+  choice.click();
+  const heading=doc.getElementById('ttl');
+  if(!heading||heading.textContent?.trim()!==p.title)return false;
+  if(!doc.getElementById('lysosSearchCaseStyle')){
+   const st=doc.createElement('style');st.id='lysosSearchCaseStyle';
+   st.textContent='.lysos-search-casefocus{outline:4px solid #d99427!important;outline-offset:4px;scroll-margin-top:12px!important;border-radius:5px}';
+   doc.head.append(st);
+  }
+  heading.classList.add('lysos-search-casefocus');
+  state.pending=null;label.textContent='구술시험 · '+p.area+' · '+p.title;
+  bar.hidden=false;frame.classList.add('lysos-search-iframe');
+  requestAnimationFrame(()=>{frame.hidden=false;heading.scrollIntoView({behavior:'instant',block:'start'});frame.dataset.lysosSearchTarget=p.id});
+  return true;
+ }catch(e){console.warn('LYSOS oral source focus unavailable',e);return false}
+}
 // Original quiz JS owns answer state and grading. We only focus its existing
 // question element, never recreate answer buttons or rewrite the source HTML.
 function checkQuestion(){
@@ -193,16 +229,18 @@ function checkOriginal(){
 }
 if(panel)new MutationObserver(()=>{if(state.pending)checkNative()}).observe(panel,
  {childList:true,attributes:true,attributeFilter:['data-claude-native-lecture','hidden']});
-frame?.addEventListener('load',()=>{if(state.pending){checkQuestion();checkOriginal()}});
+frame?.addEventListener('load',()=>{if(state.pending){checkCase();checkQuestion();checkOriginal()}});
 if(academicView)new MutationObserver(()=>{if(academicView.hidden)closeFocus()}).observe(academicView,{attributes:true,attributeFilter:['hidden']});
 window.addEventListener('popstate',event=>{
  if(event.state?.lysPage!=='diseaseTrauma'||academicView?.hidden)closeFocus();
 });
 function open(id){
- const row=state.lookup.get(id)||state.questionLookup.get(id);
+ const row=state.lookup.get(id)||state.questionLookup.get(id)||state.caseLookup.get(id);
  if(!row||!window.LYSClaudeLectureCatalog?.()?.some(x=>x.number===row.number))return false;
  if(document.documentElement.dataset.appPage==='home')ensureCurrentHomeHistory();
- closeFocus();state.pending=state.questionLookup.has(id)?{
+ closeFocus();state.pending=state.caseLookup.has(id)?{
+  kind:'case',id:row.id,number:74,volume:row.volume,caseNumber:row.caseNumber,area:row.area,title:row.title
+ }:state.questionLookup.has(id)?{
   kind:'question',id:row.id,number:row.number,index:row.index,question:row.question
  }:row.section?{id:row.id,number:row.number,section:row.section,title:row.title,
   query:document.getElementById('searchBox')?.value||row.title}:null;
@@ -215,7 +253,8 @@ function open(id){
 }
 window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
  get indexedLectures(){return [...new Set(state.rows.filter(x=>x.section).map(x=>x.number))]},
- get indexedQuestions(){return state.questionRows.length}};
+ get indexedQuestions(){return state.questionRows.length},
+ get indexedCases(){return state.caseRows.length}};
 (async()=>{
  try{
   const response=await fetch('./data/lysos-global-academic-search-v1.json',{cache:'no-cache'});
@@ -235,11 +274,19 @@ window.LYSOSAcademicSearch={hits,open,get coverage(){return state.coverage},
   state.questionRows=q.rows;state.questionLookup=new Map(q.rows.map(x=>[x.id,x]));
   state.questionCoverage='59-62 / 120';
  }catch(e){state.questionCoverage='UNAVAILABLE';console.warn('Quiz question index unavailable',e)}
+ try{
+  const result=await fetch('./data/lysos-interactive-case-search-v1.json',{cache:'no-cache'});
+  if(!result.ok)throw Error('Case index HTTP '+result.status);
+  const record=await result.json();
+  if(record.schema!=='lysos-interactive-case-search-v1'||record.rows?.length!==30||
+   record.source?.number!==74||new Set(record.rows.map(x=>x.id)).size!==30)throw Error('invalid case search index');
+  state.caseRows=record.rows;state.caseLookup=new Map(record.rows.map(x=>[x.id,x]));
+ }catch(e){console.warn('Case search index unavailable',e)}
  const count=new Set(state.rows.filter(x=>x.section).map(x=>x.number)).size;
  const info=document.getElementById('lysosAcademicSearchCoverage');
  if(info)info.textContent=state.coverage==='INDEX_UNAVAILABLE'?
   '학술 색인을 열지 못했습니다. 기존 근육·이학검사 검색은 계속 사용 가능합니다.':
-  '학술 원문 세부검색 '+count+'/87강 · 문제은행 개별문항 '+state.questionRows.length+'/120개 · 87강 제목검색 가능';
+  '학술 원문 세부검색 '+count+'/87강 · 문제은행 '+state.questionRows.length+'/120문항 · 구술시험 '+state.caseRows.length+'/30증례 · 87강 제목검색';
  renderUnifiedSearch();
 })();
 })();
