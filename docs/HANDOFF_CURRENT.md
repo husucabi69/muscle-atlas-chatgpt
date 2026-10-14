@@ -1,5 +1,13 @@
 # CURRENT HANDOFF — 2026-10-14 14:21 KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
 
+## RUNWAY-PROHIBITED 2026-10-15 — 최신 사용자 명령 / 이전 회수 계획 전면 중단
+
+- **Runway 사용 전면 금지.** 생성·편집·업스케일·태스크 조회·자산 조회·원본 다운로드·Runway 웹/플러그인/API 사용 모두 금지(무료 조회도 금지).
+- 과거 ct086 Runway Candidate 5 관련 원본 회수 지시는 전부 무효. 원본 생성·조회·PNG 회수를 재개하지 않는다. 과거 추적 기록만 보존하고 실제 개발상태는 `BLOCKED_RUNWAY_PROHIBITED`. 앱은 기존 도해 유지.
+- `scripts/ct086-runway-asset-recover.mjs`는 금지 상태로 즉시 오류 반환하도록 변경. 해당 도구 재사용 금지. 다른 유료 서비스로 자동 전환하지 않으며 필요 시 의장님 승인. 기존 3D/Layer/Action 및 CROS 필수 로드맵 보존.
+- 이 절은 아래 2026-10-14 및 이전의 Runway 회수 관련 안내보다 우선한다. ROADMAP-FIRST, 작업시간 35분 및 main 동결 유지.
+
+
 
 ## 2026-10-14 — ct086 Runway Candidate 5 원본 재확인 및 안전한 회수 경로 구축
 

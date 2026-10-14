@@ -1,3 +1,9 @@
+## RUNWAY-PROHIBITED 2026-10-15 — 의장님 사용자 명령 (최신 절대 우선)
+
+- LYSOS 앱 개발에서 Runway 서비스·웹·API·플러그인/작업 조회·자산 조회·다운로드·생성·영상 편집·업스케일 사용을 전면 금지한다. 무료 조회도 금지.
+- **이 문서 아래 과거 '기존 Runway 이미지 회수' 지시는 모두 폐기된 실행 절차다.** ct086 Candidate 5는 제작 이력만 보존하며 추가 회수/Preview 등록 금지. 현 개발 장애: `BLOCKED_RUNWAY_PROHIBITED`; 이전 레지스트리 상태는 역사 기록. 기존 승인 도해 보존.
+- 유료 대체도구 자동 사용 금지, 필요한 외부 비용은 사전 승인. 3D 회전·Layer·근육 Action·CROS 저작권 Stage 23C 선행 MUST DEVELOP 상태 유지. Claude 2판 HOLD와 시간 규칙 유지.
+
 ## 2026-10-14 ct086 기존 Runway 이미지 안전회수 도구 추가 / 원본 실제 바이트는 여전히 BLOCKED
 - Runway get_task/list_recent으로 기존 Task 및 이미지 자산 재확인(재생성 0); 원본 signed URL은 조회되나 환경상 실제 PNG GitHub 전송 불가. `scripts/ct086-runway-asset-recover.mjs` 안전 다운로드·무덮어쓰기·PNG 전체 무결성·보안 차단, `scripts/ct086-runway-asset-recover-qa.mjs` 네트워크 없이 11개 검사. **원본 PNG SHA/픽셀/임상검수/Preview 연결은 여전히 미완료.** 다음 작업선 순서·3D/저작권 LOCK·Claude HOLD 변경 없음.
 

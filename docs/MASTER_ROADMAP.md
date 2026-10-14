@@ -7,6 +7,13 @@
 정본 상태: Stage 0–12 COMPLETE / Stage 13 Android TWA COMPLETE / Stage 14 Play submission pack PREPARED
 통합 원칙: Muscle Atlas는 독립 학습 앱으로 유지하면서 동일 MSK Knowledge Core를 LYS OrthoOS가 read-only 방식으로 재사용한다.
 
+## RUNWAY-PROHIBITED 2026-10-15 — 제공자 사용금지 (최신 우선)
+
+- 의장님 명령: Runway API·플러그인·웹·자산/작업 조회·다운로드·생성·편집 등 무료/유료 사용 전면 금지. 2026-10-14 이전 Runway 회수 절차 무효.
+- ct086 과거 Candidate 5는 비용/저작권 출처로만 기록. 실제 앱 제작상태 `BLOCKED_RUNWAY_PROHIBITED`, 현재 승인된 검사 도해 보존. 신규 소스 회수나 앱 연결·재생성 금지.
+- 대체 수단은 별도 검토·필요한 비용 사전 승인. Stage 23B 실사형 교육, 경추–견갑대 3D/Layer/Motion 및 CROS 저작권 필수 개발 계약·순서는 보존한다.
+- 상세 정본 `AGENTS.md`, `docs/HANDOFF_CURRENT.md`. 기존 시간 HARD STOP 및 ROADMAP-FIRST 유지.
+
 ## 2026-10-14 최신 개발 트랙 — EXAM-REAL (Claude 2판 이식 대기)
 - 사용자 승인결정: Claude 1판 이후 강의/음성 추가 연동은 2판 출간 후에만. 기존 Claude 소스 87 HTML/SHA·검색 1,526개 보호; 새 연동/Native B5~B9는 동결.
 - 지금은 **ct086 Cervical Rotation ROM 고해상도 실사형 후보의 실물 PNG/WebP 보존·임상 감리·조건부 Preview 등록**을 먼저 한다. 실제 그림은 Runway task `00886834-ff19-4655-9000-6941f580664d`로 생성되었지만 파일 바이트 미회수, 상태 PARTIAL; 새 이미지 중복생성 차단.
