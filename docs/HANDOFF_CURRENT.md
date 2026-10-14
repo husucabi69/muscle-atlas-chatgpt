@@ -1,3 +1,26 @@
+# CURRENT HANDOFF — 2026-10-14 EXAM-REAL ct086 / CLAUDE EDITION 2 HOLD
+
+> **이 절이 현재 개발 정본이다. 아래의 과거 2026-10-11 handoff는 역사기록이며, Claude 1판 추가 이식 지시로 재사용하지 않는다.** 실제 최신 HEAD/CI/Preview를 매 작업 시작 전 재조회한다. 사용자 '진행해' 등 다음 명시 지시 전에는 새 개발 시작 금지.
+
+## 사용자 새 결정 — 2026-10-14
+- Claude 학술자료/음성은 증보 2판 출간 준비 중이므로 새 강의·음성·B5~B9 통합 이식은 **2판 출간 및 의장님의 별도 재개승인까지 보류**한다. 기존 1판의 검증된 87 HTML과 1,526개 검색 항목은 제거하거나 임의 바꾸지 않는다. 56/87 native는 기존 기점일 뿐 87/87 완료로 오기 금지.
+- 현재 ACTIVE는 **Physical Examination 실사형 도해 ct086 경추 회전 ROM**(2026-10-14 08:46:40.387 KST 시작 수동회차). 순서는 ct086 PNG 원본 진위→임상 비주얼 검수→HD WebP 이미지 안전연결→사용자 Preview 승인→ct087. ct085 승인 HD 재생성 금지, ct088 Hoffmann은 사용자 지시대로 미완성 보류.
+- ct086 Runway candidate 5 **이미지 생성 성공**, TASK `00886834-ff19-4655-9000-6941f580664d`, 2:3 2K 요청, 비용 11 Runway 크레딧. **실제 PNG 바이트와 픽셀/해시·해부·손위치·3개 한국어 제목 확인은 아직 미완료**. 원격 출력 URL/인라인 뷰어는 GitHub 파일이 아니므로 Preview 앱에 반영했다고 하지 않는다. 원본 PNG 회수 없이 중복 재생성 금지.
+- GitHub `data/physical-exam-realistic-assets-v1.json`의 ct086 `inflight_render_task.state=IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING` 잠금으로 새 이미지 생성 차단. 앱 정본 status=PENDING_GENERATION, Preview candidate 없음, 기존 EXAM-001 schematic 유지. 이미지 PNG/WebP를 실물 파일로 저장하고 SHA256/Git SHA1/실제 바이트·픽셀 크기와 전문 임상 시각감리를 통과해야 **후보 Preview**만 연결 가능, 승인은 의장님만 결정.
+
+## 영구 개발증거
+- 의학 1판 추가 이식 금지 게이트: `docs/LYSOS_CLAUDE_EDITION2_HOLD_LOCK.json` 22개 Git blobs·원본 HTML 87/87 SHA, `scripts/edition2-hold-ct086-restart-qa.mjs` GitHub Global QA 자동 실행.
+- 후보의 정확한 원본 이미지가 GitHub에 있어야만 허용하는 연결 검사: `scripts/physical-exam-preview-binary-identity.mjs`와 `scripts/physical-exam-preview-connect.mjs`, `scripts/physical-exam-preview-connect-qa.mjs` 실제 임시 바이너리 및 13/13 PASS. 원본의 신원/바이트를 검증하지 않고 hash-shaped 값만 써서 연결하는 과거 취약점 수정.
+- CT086 Runway prompt/사용 크레딧/추후 IP: `docs/checkpoints/CT086_CANDIDATE5_PROVENANCE_2026-10-14.json`. `docs/checkpoints/CT086_CANDIDATE5_VISUAL_AUDIT_PENDING_2026-10-14.json`의 모든 미검수 플래그는 실제 리뷰 전 PASS로 변경 금지.
+- 원본 이미지 수집 및 체크리스트: `docs/checkpoints/CT086_CANDIDATE5_VISUAL_AND_IP_HANDOFF_2026-10-14.md`.
+- 최종 Preview GitHub SHA 및 Actions/Cloudflare는 반드시 다음 시작 시 다시 실조회(이 문서에 기재된 일시 snapshot보다 GitHub 실시간 상태 우선). Production main 의장님 명시 승인 없이 변경 금지.
+
+## 수동 개발 타임 SUPER-LOCK
+- 0~25분 개발 / 25~30분 최소 마무리 / 30~33분 체크포인트 QA / 33분부터 최종 보고 우선 / 35분 안에 최종보고 전송까지 완료. 지시 수령·실제 시작·실제 개발 끝·작업 끝·보고시간·실측 총 시간·규칙 PASS/FAIL과 초단위 KST 반드시 기록. 미완료 상태로 끝내더라도 시간 우선.
+- 보고 순서는 반드시 **① 뭘 했나 / ② 앞으로 뭘 할 건가** (PASS/PARTIAL/BLOCKED 명확히). TinyFish 기본 도구 금지, Cloudflare/Actions 자체 근거 우선.
+
+---
+
 # CURRENT HANDOFF — 2026-10-11 SUPER-LOCK time/reporting first
 
 ## 최신 수동 개발 — 2026-10-11 15:43:29 KST 시작, v12.35 (#3~27 Native + #1~2 대화형 음성)

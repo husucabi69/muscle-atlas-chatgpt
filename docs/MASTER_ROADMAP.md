@@ -7,6 +7,12 @@
 정본 상태: Stage 0–12 COMPLETE / Stage 13 Android TWA COMPLETE / Stage 14 Play submission pack PREPARED
 통합 원칙: Muscle Atlas는 독립 학습 앱으로 유지하면서 동일 MSK Knowledge Core를 LYS OrthoOS가 read-only 방식으로 재사용한다.
 
+## 2026-10-14 최신 개발 트랙 — EXAM-REAL (Claude 2판 이식 대기)
+- 사용자 승인결정: Claude 1판 이후 강의/음성 추가 연동은 2판 출간 후에만. 기존 Claude 소스 87 HTML/SHA·검색 1,526개 보호; 새 연동/Native B5~B9는 동결.
+- 지금은 **ct086 Cervical Rotation ROM 고해상도 실사형 후보의 실물 PNG/WebP 보존·임상 감리·조건부 Preview 등록**을 먼저 한다. 실제 그림은 Runway task `00886834-ff19-4655-9000-6941f580664d`로 생성되었지만 파일 바이트 미회수, 상태 PARTIAL; 새 이미지 중복생성 차단.
+- 기존 ct085 승인품 고정, ct087 순서 대기, ct088 Hoffmann 사용자 보류, 다음 환자교육 실사형·대표해부도·초음파·3D와 저작권 자료 구축.
+- 개발실행계획 상세: `docs/NEXT_UPGRADE_ROADMAP.md`; 최신 인계 `docs/HANDOFF_CURRENT.md`; 2판 보류 정본 `docs/LYSOS_CLAUDE_EDITION2_HOLD.md`.
+
 ## 현재 정본 요약
 
 | 영역 | 현재 상태 |
