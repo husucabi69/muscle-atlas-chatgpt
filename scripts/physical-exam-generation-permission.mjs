@@ -34,6 +34,19 @@ export function canGeneratePhysicalExamProfile(manifest,clinicalTestId,options={
     }
   }
 
+  // Existing successful image generation has not been recovered as a local
+  // SHA-checked binary. Never spend credits duplicating ct086 Candidate 5.
+  // After explicit rejection, clearing this marker re-opens the normal queue.
+  if(profile.inflight_render_task?.state==='IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING'){
+    return{
+      allowed:false,
+      reason:'EXISTING_RENDER_BINARY_RECOVERY_REQUIRED',
+      clinical_test_id:clinicalTestId,
+      existing_task_id:profile.inflight_render_task.task_id,
+      required_next_action:profile.inflight_render_task.next_action
+    };
+  }
+
   const pilot=manifest.pilot||{};
   if(!Array.isArray(pilot.clinical_test_ids)||!pilot.clinical_test_ids.includes(clinicalTestId)){
     return{allowed:false,reason:'NOT_IN_ACTIVE_PILOT',clinical_test_id:clinicalTestId};

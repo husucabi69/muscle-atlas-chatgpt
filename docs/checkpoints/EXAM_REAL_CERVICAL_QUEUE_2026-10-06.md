@@ -1,3 +1,10 @@
+# 2026-10-14 ACTIVE — ct086 Candidate 5 generated, binary recovery before re-generation
+
+- The exact Runway task id `00886834-ff19-4655-9000-6941f580664d` is now in the ct086 registry as `inflight_render_task` with status `IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING`.
+- ct086 remains `PENDING_GENERATION` in app lifecycle because its raw HD binary, image audit and user Preview have NOT been connected. Existing schematic remains visible.
+- Generation permission now **BLOCKS duplicate generation** until exact source is recovered and candidate undergoes frozen clinical visual review. It does not auto-advance to ct087 or permit ct088 Hoffmann generation.
+- If the image is explicitly rejected, the new task marker may be cleared only in a dedicated approved remediation commit. Otherwise, recover this task output without consuming another generation credit.
+
 # CURRENT QUEUE OVERRIDE — 2026-10-07 ct086 Candidate 5 structured gate
 
 - ct085 = APPROVED / HD_CANONICAL.

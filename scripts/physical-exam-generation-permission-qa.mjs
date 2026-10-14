@@ -20,12 +20,18 @@ check('ct085 remains regeneration-locked across binary materialization lifecycle
   JSON.stringify(c85Yes));
 
 const c86=canGeneratePhysicalExamProfile(manifest,'ct086',{binaryMaterializationAvailable:true});
-check('ct086 is the next permitted generation target with structured image-only mode',
-  c86.allowed&&c86.reason==='READY'&&
-  c86.generation_brief_version==='2026-10-06-ct086-v1'&&
-  c86.required_render_mode==='IMAGE_ONLY_STRUCTURED_CONTRACT'&&
-  c86.render_contract_version==='2026-10-07-ct086-v2',
-  JSON.stringify(c86));
+check('ct086 previously rendered Candidate 5 cannot be duplicate-generated until source recovered/reviewed',
+ !c86.allowed&&c86.reason==='EXISTING_RENDER_BINARY_RECOVERY_REQUIRED'&&
+ c86.existing_task_id==='00886834-ff19-4655-9000-6941f580664d',
+ JSON.stringify(c86));
+
+const reviewRejected=structuredClone(manifest);
+delete reviewRejected.profiles.find(x=>x.clinical_test_id==='ct086').inflight_render_task;
+const c86Reset=canGeneratePhysicalExamProfile(reviewRejected,'ct086',{binaryMaterializationAvailable:true});
+check('ct086 exact image contract remains generation-ready after an explicitly authorized render-task reset',
+ c86Reset.allowed&&c86Reset.reason==='READY'&&
+ c86Reset.required_render_mode==='IMAGE_ONLY_STRUCTURED_CONTRACT'&&
+ c86Reset.render_contract_version==='2026-10-07-ct086-v2',JSON.stringify(c86Reset));
 
 const noContract=structuredClone(manifest);
 const noContract86=noContract.profiles.find(x=>x.clinical_test_id==='ct086');

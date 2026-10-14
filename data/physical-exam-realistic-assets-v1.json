@@ -3751,6 +3751,17 @@
         "last_rejected_gen_id": "67a9abcc-9800-4e2f-9faf-b3d512d1afc8",
         "preview_connected": false,
         "next_required_action": "Generate Candidate 5 using image_render_contract contract_version 2026-10-07-ct086-v2. Reject internally if any acceptance axis fails."
+      },
+      "inflight_render_task": {
+        "candidate_no": 5,
+        "task_id": "00886834-ff19-4655-9000-6941f580664d",
+        "generator": "Runway connected image generator",
+        "generated_on": "2026-10-14",
+        "state": "IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING",
+        "binary_verified": false,
+        "visual_audit": "PENDING",
+        "user_preview": "NOT_CONNECTED",
+        "next_action": "Recover exact candidate 5 source bytes and medically audit; do not regenerate or enter Preview while asset is unverified."
       }
     },
     {
