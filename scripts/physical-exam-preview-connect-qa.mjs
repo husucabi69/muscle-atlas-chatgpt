@@ -32,6 +32,8 @@ try{
  candidate.render_task_id=p.inflight_render_task.task_id;
  audit.task_id=p.inflight_render_task.task_id;
  audit.visual_review_state='PASS';
+ audit.source_match_to_runway_task_confirmed=true;
+ audit.source_match_review_note='CI fixture only: source simulated, not an authentic Runway file';
  audit.human_auditor='CI_SYNTHETIC_QA_REVIEWER';
  audit.reviewed_at='2026-10-14T14:05:00+09:00';
  audit.reviewed_source_sha256=details.sha256;
@@ -68,6 +70,10 @@ try{
    fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,render_task_id:'other'},audit,opts),'render task identity mismatch'));
  check('Candidate number mismatch is blocked',
    fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,candidate_no:6},audit,opts),'render task identity mismatch'));
+ check('Runway original output identity must be human-attested',
+   fail(()=>connectPhysicalExamPreviewCandidate(p,candidate,{...audit,source_match_to_runway_task_confirmed:false},opts),'human original-to-Runway task identity attestation'));
+ check('Runway source origin explanation must be recorded',
+   fail(()=>connectPhysicalExamPreviewCandidate(p,candidate,{...audit,source_match_review_note:''},opts),'human original-to-Runway task identity attestation'));
  check('Unknown reviewer is blocked',
    fail(()=>connectPhysicalExamPreviewCandidate(p,candidate,{...audit,human_auditor:null},opts),'source-bound human visual review'));
  for(const key of ['passive_force_present','numeric_angle_present','degree_symbol_present','red_pain_overlay_present','infographic_copy_present']){

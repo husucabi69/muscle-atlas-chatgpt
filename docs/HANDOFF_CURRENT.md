@@ -1,4 +1,4 @@
-# CURRENT HANDOFF — 2026-10-14 14:2x KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
+# CURRENT HANDOFF — 2026-10-14 14:21 KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
 
 > 이 블록은 가장 최근 수동개발 방향이며 아래 이전 2026-10-14·2026-10-11 기록보다 우선한다. **Claude 증보 2판 출간 전 학술 콘텐츠 신규 연동 절대 재개 금지**. 앱 UI/원본 87 HTML 소스·main 불변. 다음 사용자 “진행” 전에는 신규 GitHub 수정/Runway 재생성 금지.
 
@@ -16,7 +16,7 @@
 1. 실제 KST 먼저 측정, **0–25 개발, 25–30 마무리, 30–33 확인, 33–35 보고 전송 필수**. `AGENTS.md` → 정본 → 이 문서 → 브랜치 최신 HEAD/CI/Exact Preview 확인. 중복된 그림 생성·이미 완료된 회차 반복 금지.
 2. 원본 task `00886834-ff19-4655-9000-6941f580664d`의 **동일 PNG 바이너리** 확보. CDN/JWT 토큰을 GitHub/로그에 저장하거나 임의 재생성 금지. 전송이 제한되면 BLOCKED로 기록하되, 독립 작업을 안전하게 진행.
 3. 확보 후 `node scripts/ct086-candidate5-hd-source-derivative.mjs /path/to/actual-runway-output.png`. 실제 PNG 1024×1536 이상과 파생 WebP 픽셀 비교를 수행하고 두 후보 파일을 `assets/physical-exam-realistic/candidates/`에 보존. 이 명령만으로 등록/승인되지는 않는다.
-4. 실제 그림을 **인체 구조·성별·3패널 동일성·검사자 관찰 위치·능동 경추회전과 몸통 고정·한글 3개 제목·수치 0·붉은 통증 표시 0** 조건으로 전문 시각 검수. 실제 받은 이미지를 보고 `CT086_CANDIDATE5_VISUAL_AUDIT_PENDING_2026-10-14.json` 내용을 사실대로 작성. PASS가 아니라면 재생성 전에 의장님께 실패 이유 보고.
+4. 중요한 별도 신원확인: 이미지 복사·PNG/WebP 해시 검사는 **그 파일이 Runway 작업의 진짜 출력물인지 증명하지 않는다**. 담당 임상의가 원래 Runway task 출력과 로컬 PNG가 같은 그림인지 직접 확인하고 `source_match_to_runway_task_confirmed=true`, `source_match_review_note`를 근거 있게 기록해야 한다. 이후 실제 그림을 **인체 구조·성별·3패널 동일성·검사자 관찰 위치·능동 경추회전과 몸통 고정·한글 3개 제목·수치 0·붉은 통증 표시 0** 조건으로 전문 시각 검수. 실제 받은 이미지를 보고 `CT086_CANDIDATE5_VISUAL_AUDIT_PENDING_2026-10-14.json` 내용을 사실대로 작성. PASS가 아니라면 재생성 전에 의장님께 실패 이유 보고.
 5. 실제 검수 승인 후에만 `physical-exam-preview-connect.mjs` 후보 연결/아직 사용자 승인 PENDING; 의장님 최종 사용자 승인 전에는 기존 stable 도해 교체 금지. 다음 ct087은 ct086 안전검수 종료 전까지 생성하지 않는다. ct088 Hoffmann은 계속 보류.
 6. 최종 QA는 `Global QA` → `runtime-navigation-e2e` → `deploy-safety-gate` → live originals 87/87 → Cloudflare SHA SUCCESS를 각 단계 직접 조회. Production/main `14c35ef137d21fe83c1817d2ea7e7dbdd436827d`는 의장님 승인 전 변경하지 않는다.
 

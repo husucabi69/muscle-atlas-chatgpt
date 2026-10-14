@@ -127,7 +127,7 @@ export async function importCt086RunwayOutput({sourcePath,repositoryRoot=process
   preview_asset_path:'./'+OUT_WEBP,preview_webp_sha256:webp.sha256,
   preview_bytes:webp.bytes,git_blob_sha1:webp.git_blob_sha1,
   dimensions:webp.width+'x'+webp.height};
- return{record,metrics,disposition:'BINARY_VERIFIED_CLINICAL_VISUAL_REVIEW_PENDING'};
+ return{record,metrics,source_origin_verification:'OPERATOR_SUPPLIED_PNG_NOT_INDEPENDENTLY_ATTESTED_AS_RUNWAY_TASK_OUTPUT',disposition:'BINARY_INTEGRITY_VERIFIED_CLINICAL_AND_RUNWAY_ORIGIN_REVIEW_PENDING'};
 }
 
 if(process.argv[1]&&process.argv[1].endsWith('ct086-candidate5-hd-source-derivative.mjs')){

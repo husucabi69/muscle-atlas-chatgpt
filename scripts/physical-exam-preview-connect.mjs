@@ -31,6 +31,12 @@ export function connectPhysicalExamPreviewCandidate(profile,candidate,audit,opti
      audit?.task_id!==inflight.task_id)){
     throw new Error('candidate render task identity mismatch; recover the exact existing task output');
   }
+  if(inflight?.state==='IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING'&&
+    (audit?.source_match_to_runway_task_confirmed!==true||
+     typeof audit?.source_match_review_note!=='string'||
+     audit.source_match_review_note.trim().length<12)){
+    throw new Error('human original-to-Runway task identity attestation required');
+  }
   if(audit?.visual_review_state!=='PASS'||
     typeof audit?.human_auditor!=='string'||audit.human_auditor.trim().length<2||
     typeof audit?.reviewed_at!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/.test(audit.reviewed_at)||
