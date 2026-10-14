@@ -137,6 +137,21 @@ for (const name of ['masterRoadmap','previewPolicy']) {
 check('Handoff current: 2026-10-11 time SUPER-LOCK acknowledged',
   files.handoff.includes('SUPER-LOCK 2026-10-11'));
 
+
+const firstRead=['AGENTS.md','docs/DEVELOPMENT_CONSTITUTION.md','docs/DEVELOPMENT_PRINCIPLES.md','docs/MASTER_ROADMAP.md','docs/NEXT_UPGRADE_ROADMAP.md'];
+for(const doc of ['agents','constitution','principles','handoff','masterRoadmap']){
+  check(doc+': ROADMAP-FIRST 2026-10-14', files[doc].includes('ROADMAP-FIRST 2026-10-14'));
+  check(doc+': never bypass full roadmap gate',files[doc].includes('ROADMAP_NOT_READ'));
+}
+const nextRoadmap=read('docs/NEXT_UPGRADE_ROADMAP.md');
+const mandatoryIds=['ANATOMY-KNOWLEDGE-001','ANATOMY-MASTER-3D-001','ANATOMY-IP-2D-001','ANATOMY-3D-VIEWER-001','ANATOMY-LAYER-001','MOTION-ANIM-001','IP-EVIDENCE-001','IP-REG-001'];
+for(const id of mandatoryIds){
+  check('3D/IP mandatory roadmap item '+id,
+    [files.agents,files.handoff,files.masterRoadmap,nextRoadmap].every(s=>s.includes(id)));
+}
+check('Next roadmap ROADMAP-FIRST',nextRoadmap.includes('ROADMAP-FIRST 2026-10-14'));
+check('CROS gates unchanged',[0,1,2,3,4,5].every(i=>read('docs/COPYRIGHT_REGISTRATION_STRATEGY.md').includes('COPYRIGHT-GATE-'+i)));
+
 const failed = checks.filter(x => !x.pass);
 console.log(`SUMMARY | ${checks.length - failed.length}/${checks.length} PASS`);
 if (failed.length) process.exit(1);

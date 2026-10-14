@@ -13,6 +13,14 @@
 - 기존 ct085 승인품 고정, ct087 순서 대기, ct088 Hoffmann 사용자 보류, 다음 환자교육 실사형·대표해부도·초음파·3D와 저작권 자료 구축.
 - 개발실행계획 상세: `docs/NEXT_UPGRADE_ROADMAP.md`; 최신 인계 `docs/HANDOFF_CURRENT.md`; 2판 보류 정본 `docs/LYSOS_CLAUDE_EDITION2_HOLD.md`.
 
+## ROADMAP-FIRST 2026-10-14 — 매 회차 개발 착수 전 전체 정본 숙지 의무
+- 인계용 복붙과 HANDOFF_CURRENT는 요약이지 전체 개발의 기준문서가 아니다. **인계문에 빠진 항목도 원래 로드맵에서 유효하다.** 로드맵을 읽지 않은 채 자체 판단으로 개발·삭제·후순위 강등하지 않는다.
+- 모든 새로운 개발 회차는 실제 KST 계측 후 `AGENTS.md` → `docs/DEVELOPMENT_CONSTITUTION.md` → `docs/DEVELOPMENT_PRINCIPLES.md` → **`docs/MASTER_ROADMAP.md` 전체** → **`docs/NEXT_UPGRADE_ROADMAP.md` 전체** → ACTIVE 관련 계약 및 `docs/ANATOMY_IP_3D_MOTION_CONTRACT.md`·`docs/COPYRIGHT_REGISTRATION_STRATEGY.md`의 해당 의무 → `docs/HANDOFF_CURRENT.md` 순으로 실제 읽고 대조한 뒤 시작한다.
+- 필수 보존: `ANATOMY-KNOWLEDGE-001`, `ANATOMY-MASTER-3D-001`, `ANATOMY-IP-2D-001`, `ANATOMY-3D-VIEWER-001`, `ANATOMY-LAYER-001`, `MOTION-ANIM-001`, `IP-EVIDENCE-001`, `IP-REG-001`, `COPYRIGHT-GATE-0~5`. 첫 파일럿은 두판상근. **LOCKED / MUST DEVELOP / Stage 23C 전 필수**. 비공개 증빙 저장소 `husucabi69/muscle-atlas-ip-vault` 연계.
+- 매 회차 ACTIVE·완료·미완료·HOLD·BLOCKED 및 우선순위·선후관계·저작권 알림 Gate를 대조한다. 인계문 누락은 회차 계획과 다음 인계에 즉시 복원하며, 잠금 개발항목의 임의 삭제/변경은 금지한다.
+- 로드맵 원본을 읽지 못했거나 충돌을 해소하지 못하면 `BLOCKED / ROADMAP_NOT_READ`로 보고하고 임의 개발하지 않는다. 보고에는 확인한 문서/HEAD, 현 작업 ID, 후속 필수 과제, 누락 복원 여부, 저작권 Gate를 밝힌다.
+- **시간 및 즉시중단 SUPER-LOCK은 계속 최상위**. Claude 2판 추가 연결 HOLD, ct086 ACTIVE, ct088 보류, Production/main 승인 전 동결을 유지한다.
+
 ## 현재 정본 요약
 
 | 영역 | 현재 상태 |
