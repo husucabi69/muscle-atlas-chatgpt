@@ -90,3 +90,8 @@ Generation brief version: 2026-10-06-ct086-v1
 - internal clinical/visual QA;
 - user Preview remains PENDING until explicit approval;
 - existing EXAM-001 schematic remains fallback before approval.
+
+## 2026-10-14 — Verified-source transfer is mandatory
+- Candidate 5 rendered in Runway (`00886834-ff19-4655-9000-6941f580664d`) but source PNG/HD WebP and visual review are **not verified or connected**.
+- Guarded Preview requires both on-disk source and actual full-HD WebP `source_asset_path`, `source_sha256`, `preview_asset_path`, `preview_webp_sha256`, `preview_bytes`, `git_blob_sha1` and `dimensions`. Forged metadata, remote links, test fixtures and low-resolution thumbnails must never count as user Preview assets.
+- Next required instructions are in `docs/checkpoints/CT086_CANDIDATE5_VISUAL_AND_IP_HANDOFF_2026-10-14.md`.

@@ -18,5 +18,6 @@
   "dimensions": null,
   "review_axes": "ALL_VISUAL_AXES_PENDING",
   "user_preview": "PENDING_NOT_CONNECTED",
-  "next_step": "Recover raw image bytes from original Runway task; verify dimensions SHA256 Git blob and perform visual human audit before guarded Preview link. Do not replace schematic fallback."
+  "next_step": "Recover exact existing Runway task image bytes; inspect actual pixel dimensions and visual axes; do not duplicate generation or connect unverifiable file.",
+  "duplicate_generation_block": "EXISTING_RENDER_BINARY_RECOVERY_REQUIRED"
 }
