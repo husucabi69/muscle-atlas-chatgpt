@@ -200,6 +200,8 @@ jobs:
           done
           cat /tmp/muscle-runtime-e2e.log
           exit 1
+      - name: Verify ct086 exact-original PNG to high-resolution WebP conversion in Chromium
+        run: node scripts/ct086-hd-source-derivative-e2e.mjs
       - name: Confirm installed PWA automatically updates on launch without interrupting study
         run: node scripts/pwa-auto-launch-update-e2e.mjs
       - name: Inspect original interactive compendium DOM and mobile iframe viewport
