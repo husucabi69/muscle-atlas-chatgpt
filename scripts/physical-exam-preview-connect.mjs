@@ -33,7 +33,7 @@ export function connectPhysicalExamPreviewCandidate(profile,candidate,audit,opti
   }
   if(audit?.visual_review_state!=='PASS'||
     typeof audit?.human_auditor!=='string'||audit.human_auditor.trim().length<2||
-    typeof audit?.reviewed_at!=='string'||!/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:Z|[+-]\\d{2}:\\d{2})$/.test(audit.reviewed_at)||
+    typeof audit?.reviewed_at!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/.test(audit.reviewed_at)||
     audit?.reviewed_source_sha256!==candidate?.source_sha256||
     audit?.reviewed_preview_webp_sha256!==candidate?.preview_webp_sha256||
     audit?.render_contract_version!==profile?.generation_brief?.image_render_contract?.contract_version){
