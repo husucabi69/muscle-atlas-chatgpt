@@ -1,3 +1,8 @@
+## 2026-10-14 v12.72 ct086 이미지 안전연결 선행 구축 / CLI 원본 미회수 BLOCKED
+- **현재 사용자에게 새로 보이는 변화:** 경추 회전 ROM 검사 화면에서 실사형 원본 감리 대기 표시, 기존 단계별 검사 도해 보존. 실제 원본 PNG가 안전검수를 통과한 후에만 HD 후보 이미지와 원본 크기 열기 연결. 이 과정은 Claude 증보 2판 신규 강의·음성 연결과 별개.
+- **완료한 기반 코드:** 시각적 부재축 명시 false 강제, 사람이 검토한 특정 PNG/WebP 해시와 기존 Runway task 바인딩, 완전 PNG CRC/IDAT/zlib/scanline 무결성, 2K PNG→WebP 투명한 픽셀차 계측, fake candidate 표시 차단, 390px Chrome 안전 fallback E2E. 설계와 개발 정본 `docs/HANDOFF_CURRENT.md` 우선.
+- **차단 요인:** 기존 Runway task `00886834-ff19-4655-9000-6941f580664d` 이미지 바이너리를 실제 GitHub에 전달할 경로가 아직 없다. signed URL만 확인됐고 바이너리와 SHA256·임상 감리·사용자 승인 PENDING. 실제 앱 신규 그림 반영으로 표기 금지.
+
 ## 2026-10-14 ACTIVE 변경 — Claude 2판 출간 전 연결 보류, EXAM-REAL ct086 복귀
 - 의장님 새 지시: Claude 학술강의·음성 신증분 이식과 B5~B9 변환은 **2판 출간 및 추가 연결 승인까지 전면 보류**. 기존 1판 87강과 연결 검색 1,526개는 정상 사용·소스 불변 보존.
 - 차기 ACTIVE: ct086 Cervical rotation ROM HD candidate → 사용자 시각 검수·정확한 원본 바이너리 보존 후 Preview 연결 → ct087 → ct088 보류 후 재개 → Physical Examination 환자교육 실사형/해부학/초음파. ct085 HD 승인품은 재생성 금지.

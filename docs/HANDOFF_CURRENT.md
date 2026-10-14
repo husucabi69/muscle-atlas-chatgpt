@@ -1,3 +1,27 @@
+# CURRENT HANDOFF — 2026-10-14 14:2x KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
+
+> 이 블록은 가장 최근 수동개발 방향이며 아래 이전 2026-10-14·2026-10-11 기록보다 우선한다. **Claude 증보 2판 출간 전 학술 콘텐츠 신규 연동 절대 재개 금지**. 앱 UI/원본 87 HTML 소스·main 불변. 다음 사용자 “진행” 전에는 신규 GitHub 수정/Runway 재생성 금지.
+
+## 실제 변경한 안전개발 결과
+- Runway ct086 Candidate 5 원본 task `00886834-ff19-4655-9000-6941f580664d`은 생성 SUCCEEDED. **현재 원본 PNG 다운로드·소스 SHA/픽셀 실측·사람의 해부학/검사 자세 검수·앱 후보 연결은 여전히 미완료**. Runway 2K label이나 유효기간 있는 signed URL은 PNG 바이트가 아니다. 동일 이미지 중복생성 금지.
+- `scripts/physical-exam-candidate-preflight.mjs`: passive_force, numeric_angle, degree_symbol, red-pain, infographic negative axes는 명시 `false` 아니면 무조건 FAIL. missing/null safety checks는 안전한 부재가 아니다.
+- `scripts/physical-exam-preview-connect.mjs`: 기존 ct086 인플라이트 task ID·candidate_no=5와 후보/감리 task 일치 필요. 사람 감리 PASS, `human_auditor`, `reviewed_at`, 원본 PNG SHA256과 WebP SHA256 각각의 명시적 검토 및 장면 계약 일치 필요. 바이트 검증 후에만 Preview Pending(승인 아님)으로 상태 전환.
+- `scripts/inspect-realistic-png.mjs`: 임의의 가짜 PNG 헤더/훼손·CRC 오류·zlib 압축데이터 오류·누락 IEND·비정상 스캔라인 필터는 FAIL. `scripts/physical-exam-preview-binary-identity.mjs`: 실물 PNG/WebP를 읽고 SHA256/Git blob SHA1/바이트 크기/이미지 픽셀 크기를 대조한다.
+- `scripts/ct086-candidate5-hd-source-derivative.mjs`: **실제 원본 PNG가 확보된 후에만** 원본을 byte-exact 보존하고 Playwright Chromium으로 동일 해상도 고품질 HD WebP를 유도한다. PNG와 WebP의 픽셀차이를 계측하고 많이 다르면 FAIL. 인체 시각/임상판정 자동완료로 오인 금지.
+- `index.html`: 현재 ct086 환자교육/의학교육 화면에 `실사형 도해 원본 확인 중` 상태를 정직하게 표시하고 기존 사용자 학습 도해를 유지한다. 검증 후 후보 이미지만 탭하면 HD 원본을 새 창으로 열 수 있다. 허위 JSON 경로만 적힌 이미지는 환자 화면에 노출되지 않음. 기존 ct083 검수 후보와 ct085 승인품은 유지.
+- `scripts/ct086-pending-mobile-e2e.mjs`, `scripts/physical-exam-preview-visibility-qa.mjs`: 390px 모바일·가짜 후보 임의 노출금지·기존 도해·사용자 미승인 표시를 자동검사. 등록 후 `scripts/ct086-live-preview-pixel-fidelity-e2e.mjs`가 CI에서 원본 이미지와 화면 노출 WebP의 실제 픽셀차를 비교한다.
+- 앱 자체 표시 버전 `v12.72`, 빌드 `2026.10.14-stage24.55`; 실물 삼성 Android PWA QA, 실제 원본 이미지 반영은 아직 미완료.
+
+## 다음 개발 담당자의 첫 번째 행동
+1. 실제 KST 먼저 측정, **0–25 개발, 25–30 마무리, 30–33 확인, 33–35 보고 전송 필수**. `AGENTS.md` → 정본 → 이 문서 → 브랜치 최신 HEAD/CI/Exact Preview 확인. 중복된 그림 생성·이미 완료된 회차 반복 금지.
+2. 원본 task `00886834-ff19-4655-9000-6941f580664d`의 **동일 PNG 바이너리** 확보. CDN/JWT 토큰을 GitHub/로그에 저장하거나 임의 재생성 금지. 전송이 제한되면 BLOCKED로 기록하되, 독립 작업을 안전하게 진행.
+3. 확보 후 `node scripts/ct086-candidate5-hd-source-derivative.mjs /path/to/actual-runway-output.png`. 실제 PNG 1024×1536 이상과 파생 WebP 픽셀 비교를 수행하고 두 후보 파일을 `assets/physical-exam-realistic/candidates/`에 보존. 이 명령만으로 등록/승인되지는 않는다.
+4. 실제 그림을 **인체 구조·성별·3패널 동일성·검사자 관찰 위치·능동 경추회전과 몸통 고정·한글 3개 제목·수치 0·붉은 통증 표시 0** 조건으로 전문 시각 검수. 실제 받은 이미지를 보고 `CT086_CANDIDATE5_VISUAL_AUDIT_PENDING_2026-10-14.json` 내용을 사실대로 작성. PASS가 아니라면 재생성 전에 의장님께 실패 이유 보고.
+5. 실제 검수 승인 후에만 `physical-exam-preview-connect.mjs` 후보 연결/아직 사용자 승인 PENDING; 의장님 최종 사용자 승인 전에는 기존 stable 도해 교체 금지. 다음 ct087은 ct086 안전검수 종료 전까지 생성하지 않는다. ct088 Hoffmann은 계속 보류.
+6. 최종 QA는 `Global QA` → `runtime-navigation-e2e` → `deploy-safety-gate` → live originals 87/87 → Cloudflare SHA SUCCESS를 각 단계 직접 조회. Production/main `14c35ef137d21fe83c1817d2ea7e7dbdd436827d`는 의장님 승인 전 변경하지 않는다.
+
+---
+
 # CURRENT HANDOFF — 2026-10-14 EXAM-REAL ct086 / CLAUDE EDITION 2 HOLD
 
 > **이 절이 현재 개발 정본이다. 아래의 과거 2026-10-11 handoff는 역사기록이며, Claude 1판 추가 이식 지시로 재사용하지 않는다.** 실제 최신 HEAD/CI/Preview를 매 작업 시작 전 재조회한다. 사용자 '진행해' 등 다음 명시 지시 전에는 새 개발 시작 금지.

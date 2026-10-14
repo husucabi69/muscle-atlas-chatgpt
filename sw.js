@@ -1,4 +1,4 @@
-// v12.71 development: guard compendium deep-links until verified source reader ready; stale target flags cleared, stage24.54.
+// v12.72 development: CT086 human-reviewed exact HD art gate, safe pending teaching fallback, mobile preview; stage24.55.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

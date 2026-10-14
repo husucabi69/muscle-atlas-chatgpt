@@ -1,8 +1,8 @@
 (function(scope){
   const release=Object.freeze({
-    buildVersion:'2026.10.13-stage24.54',
-    displayVersion:'v12.71',
-    cacheKey:'20261013-stage24-54'
+    buildVersion:'2026.10.14-stage24.55',
+    displayVersion:'v12.72',
+    cacheKey:'20261014-stage24-55'
   });
   scope.LYS_APP_RELEASE=release;
 })(typeof self!=='undefined'?self:window);

@@ -25,3 +25,9 @@
 - For ct086, both the candidate and the clinical audit must point to the **same existing successful Runway task ID** and candidate number 5. A new task cannot silently overwrite the in-flight renderer result.
 - Every negative risk axis (passive force, numeric cutoff, degree symbol, red pain overlay, infographic text) requires an **explicit boolean `false`**. Missing/null does not mean visually absent.
 - After successful verified image connection the in-flight marker advances to `IMAGE_VERIFIED_USER_PREVIEW_PENDING`; this is **not** approval. User has to approve the visible correct diagram separately before app replacement.
+
+## 2026-10-14 v12.72 — candidate exact-source import/code complete (image itself NOT imported)
+- `scripts/ct086-candidate5-hd-source-derivative.mjs` copies the exact task PNG without re-encoding source, creates 2K WebP using Chromium and compares actual decoded image pixels; it is runnable **only after binary obtained**, with Playwright locally installed.
+- `scripts/ct086-live-preview-pixel-fidelity-e2e.mjs` rechecks displayed WebP vs original on future candidate connection. The current state is appropriately NOT_CONNECTED.
+- `index.html` deliberately reports original artwork is being verified rather than pretending a generated image is clinically correct. The existing Stable-ID schematic remains available. Real medical image and approval are pending.
+- Candidate clinical data in `data/examination-cervical-v1.json` unchanged; academic/original Claude 1st-edition files remain frozen pending 2nd-edition release.
