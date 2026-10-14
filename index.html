@@ -2324,7 +2324,21 @@ function physicalExamRealisticCandidateHtml(test){
   const review=p?.review||{},blockers=p?.approval_blockers||[];
   const approvedMeta=p?.approved_asset||p?.user_approved_asset||null;
   const isApproved=Boolean(p?.status==='APPROVED'&&p?.composite_url&&review.user_preview==='PASS'&&approvedMeta);
-  const candidate=isApproved?approvedMeta:p?.preview_candidate;
+  // New structured-generation candidates (ct086 onward) must never appear
+  // solely because someone wrote a plausible preview_asset_path into JSON.
+  // Preserve existing legacy candidates and approved assets unchanged.
+  const strictRenderGate=p?.generation_brief?.render_contract_required===true;
+  const exactCandidateReady=Boolean(
+    p?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
+    p?.preview_candidate?.exact_binary_verified===true&&
+    p?.preview_candidate?.preflight_passed===true&&
+    p?.preview_candidate?.source_sha256&&
+    p?.preview_candidate?.preview_webp_sha256&&
+    p?.inflight_render_task?.state==='IMAGE_VERIFIED_USER_PREVIEW_PENDING'&&
+    review.user_preview==='PENDING'
+  );
+  const candidate=isApproved?approvedMeta:
+    (strictRenderGate&&!exactCandidateReady?null:p?.preview_candidate);
   const assetPath=isApproved?p.composite_url:(candidate?.preview_asset_path||candidate?.asset_path||candidate?.composite_url);
   const isDeferred=String(p?.status||'').startsWith('INCOMPLETE_DEFERRED')||review.user_preview==='DEFERRED';
   if(!assetPath&&isDeferred){
@@ -2333,6 +2347,10 @@ function physicalExamRealisticCandidateHtml(test){
       '현재 실사형 후보는 승인되지 않았습니다. 기존 Stable-ID 교육 도해를 유지하며, 정확한 검사 자세가 완성된 뒤 다시 검수합니다.'+
       (blockers.length?'<br><span style="color:var(--muted)">남은 교정: '+esc(blockers.join(' / '))+'</span>':'')+
       '</div>';
+  }
+  if(!assetPath&&p?.inflight_render_task?.state==='IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING'){
+    return '<div class="note" data-exam-realistic-binary-pending="'+esc(test.clinical_test_id)+'" style="margin-bottom:14px">'+
+      '<b>실사형 도해 원본 확인 중</b><br>새로운 교육용 실사 그림이 생성됐으나 원본 파일 및 임상적 자세 검수가 아직 끝나지 않았습니다. 안전검수 전까지 기존 검사 도해를 사용합니다.</div>';
   }
   if(!assetPath)return'';
   const failed=['clinical_content','visual_pose','examiner_hand_position','force_direction','embedded_text']
@@ -2343,7 +2361,7 @@ function physicalExamRealisticCandidateHtml(test){
   const footer=isApproved?'승인된 실사형 교육자산입니다. 기존 Stable-ID 도해는 보조 reference로 유지합니다.':'이 후보는 사용자 검수용이며 canonical 교체가 아닙니다.';
   return '<div class="clinical-exam-visual" data-exam-realistic-candidate="'+(isApproved?'approved':'preview')+'" data-clinical-test-id="'+esc(test.clinical_test_id)+'" style="border:2px solid '+border+';background:'+background+';margin-bottom:14px">'+
     '<div class="clinical-exam-visual-head"><b>'+heading+'</b><span>gen_id '+esc(candidate?.gen_id||'')+' · 기존 Stable-ID 도해 유지</span></div>'+
-    '<div style="padding:12px;text-align:center"><img src="'+esc(assetPath)+'" alt="'+esc((test.name_ko||'Physical Examination')+(isApproved?' 실사형 승인본':' 실사형 Preview 후보'))+'" style="display:block;width:auto;max-width:100%;height:auto;margin:0 auto;border-radius:12px;background:#fff" loading="eager" decoding="sync" fetchpriority="high"></div>'+
+    '<div style="padding:12px;text-align:center"><a href="'+esc(assetPath)+'" target="_blank" rel="noopener noreferrer" aria-label="실사형 그림을 원본 크기로 열기"><img src="'+esc(assetPath)+'" alt="'+esc((test.name_ko||'Physical Examination')+(isApproved?' 실사형 승인본':' 실사형 Preview 후보'))+'" style="display:block;width:auto;max-width:100%;height:auto;margin:0 auto;border-radius:12px;background:#fff" loading="eager" decoding="sync" fetchpriority="high"></a><small style="display:block;margin-top:7px;color:var(--muted)">그림을 누르면 원본 크기로 열립니다.</small></div>'+
     '<div class="note"><b>현재 판정</b><br>'+verdict+
     (blockers.length?'<br><span style="color:var(--muted)">승격 차단: '+esc(blockers.join(' / '))+'</span>':'')+
     '<br><span style="color:var(--muted)">'+footer+'</span></div></div>';
