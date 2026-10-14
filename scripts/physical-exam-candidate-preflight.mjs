@@ -13,6 +13,7 @@ export function evaluatePhysicalExamCandidate(profile,candidate){
   const joined=visibleText.join(' | ');
 
   check('HD_DIMENSIONS',
+    Number.isInteger(width)&&Number.isInteger(height)&&
     width>=Number(rc.output?.min_width_px||1024)&&height>=Number(rc.output?.min_height_px||1536),
     width+'x'+height);
   check('FEMALE_PATIENT',candidate?.patient_gender==='female',String(candidate?.patient_gender||'missing'));
@@ -20,17 +21,17 @@ export function evaluatePhysicalExamCandidate(profile,candidate){
   check('SAME_IDENTITIES_ALL_PANELS',
     candidate?.same_patient_all_panels===true&&candidate?.same_examiner_all_panels===true);
   check('EXAMINER_VISIBLE_ALL_PANELS',candidate?.examiner_visible_all_panels===true);
-  check('ACTIVE_ROTATION_ONLY',candidate?.active_rotation_only===true&&candidate?.passive_force_present!==true);
+  check('ACTIVE_ROTATION_ONLY',candidate?.active_rotation_only===true&&candidate?.passive_force_present===false);
   check('TRUNK_SHOULDERS_FIXED',candidate?.trunk_shoulders_fixed===true);
   check('THREE_ALLOWED_HEADERS_ONLY',
     visibleText.length===allowed.length&&allowed.every(x=>visibleText.includes(x))&&visibleText.every(x=>allowed.includes(x)),
     joined);
   check('NO_NUMERIC_ANGLE_OR_CUTOFF',
-    candidate?.numeric_angle_present!==true&&candidate?.degree_symbol_present!==true&&
+    candidate?.numeric_angle_present===false&&candidate?.degree_symbol_present===false&&
     !(rc.forbidden_text_patterns||[]).some(pattern=>joined.toLowerCase().includes(String(pattern).toLowerCase())),
     joined);
-  check('NO_RED_PAIN_OVERLAY',candidate?.red_pain_overlay_present!==true);
-  check('NO_INFOGRAPHIC_COPY',candidate?.infographic_copy_present!==true);
+  check('NO_RED_PAIN_OVERLAY',candidate?.red_pain_overlay_present===false);
+  check('NO_INFOGRAPHIC_COPY',candidate?.infographic_copy_present===false);
 
   const failed=checks.filter(x=>!x.pass);
   return{

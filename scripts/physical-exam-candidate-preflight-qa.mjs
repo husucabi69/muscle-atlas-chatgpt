@@ -66,6 +66,20 @@ check('ct086 trunk-compensation candidate is rejected',
   !trunk.eligible&&trunk.failed_axes.includes('TRUNK_SHOULDERS_FIXED'),
   JSON.stringify(trunk));
 
+// Missing, null, or loosely truthy/falsey negative attestations MUST NEVER pass.
+const missingNegative={...good};
+for(const key of ['passive_force_present','numeric_angle_present','degree_symbol_present','red_pain_overlay_present','infographic_copy_present']){
+  delete missingNegative[key];
+  const a=evaluatePhysicalExamCandidate(p,missingNegative);
+  check('ct086 missing '+key+' is fail-closed',!a.eligible&&a.failed_axes.length>0);
+  missingNegative[key]=good[key];
+}
+for(const key of ['passive_force_present','numeric_angle_present','degree_symbol_present','red_pain_overlay_present','infographic_copy_present']){
+  const a=evaluatePhysicalExamCandidate(p,{...good,[key]:null});
+  check('ct086 null '+key+' is fail-closed',!a.eligible);
+}
+check('ct086 invalid fractional dimensions rejected',!evaluatePhysicalExamCandidate(p,{...good,width:1024.5}).eligible);
+
 const failed=checks.filter(x=>!x.pass);
 console.log('\nPhysical Examination candidate preflight QA: '+(checks.length-failed.length)+'/'+checks.length+' PASS');
 if(failed.length)process.exit(1);

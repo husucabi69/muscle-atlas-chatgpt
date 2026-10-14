@@ -19,3 +19,9 @@
 5. Set `candidate_no=5`, actual `source_asset_path`, `source_sha256`, `preview_asset_path`, `preview_webp_sha256`, `preview_bytes`, `git_blob_sha1`, `dimensions` from files. Then run `node scripts/physical-exam-preview-connect.mjs <registry> ct086 <candidate.json> <actual-audit.json> <output-registry>`. It checks **real** on-disk source/Preview binaries, bytes, pixel resolution, SHA256 and Git blob SHA1.
 6. User must explicitly PASS the connected Preview before approval; until then preserve EXAM-001 schematic fallback. If explicitly rejected, reset in-flight task only in dedicated audited change.
 7. Preserve task's full prompt, clinical human edits, exact binary and QA evidence for copyright documentation; AI generation alone is not proof of registrable human creative contribution.
+
+## 2026-10-14 14:00 — image-bound clinician review requirement
+- The connector now requires a *human clinical visual review on the exact source and WebP binary* before it will create a **user Preview pending** candidate. The audit must provide: `task_id`, `visual_review_state="PASS"`, nonempty `human_auditor`, ISO timestamp `reviewed_at`, `reviewed_source_sha256`, `reviewed_preview_webp_sha256`, and `render_contract_version`. Do not fill these from an unattended image generator or a test fixture.
+- For ct086, both the candidate and the clinical audit must point to the **same existing successful Runway task ID** and candidate number 5. A new task cannot silently overwrite the in-flight renderer result.
+- Every negative risk axis (passive force, numeric cutoff, degree symbol, red pain overlay, infographic text) requires an **explicit boolean `false`**. Missing/null does not mean visually absent.
+- After successful verified image connection the in-flight marker advances to `IMAGE_VERIFIED_USER_PREVIEW_PENDING`; this is **not** approval. User has to approve the visible correct diagram separately before app replacement.

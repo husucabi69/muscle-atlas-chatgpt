@@ -22,6 +22,24 @@ export function connectPhysicalExamPreviewCandidate(profile,candidate,audit,opti
     throw new Error('preview_asset_path must use candidate asset directory');
   }
 
+  // Clinician approval of the exact image is distinct from a generated-task success.
+  // Negative findings MUST be explicitly attested in the actual image audit, not inferred.
+  const inflight=profile.inflight_render_task;
+  if(inflight?.state==='IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING'&&
+    (candidate?.candidate_no!==inflight.candidate_no||
+     candidate?.render_task_id!==inflight.task_id||
+     audit?.task_id!==inflight.task_id)){
+    throw new Error('candidate render task identity mismatch; recover the exact existing task output');
+  }
+  if(audit?.visual_review_state!=='PASS'||
+    typeof audit?.human_auditor!=='string'||audit.human_auditor.trim().length<2||
+    typeof audit?.reviewed_at!=='string'||!/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:Z|[+-]\\d{2}:\\d{2})$/.test(audit.reviewed_at)||
+    audit?.reviewed_source_sha256!==candidate?.source_sha256||
+    audit?.reviewed_preview_webp_sha256!==candidate?.preview_webp_sha256||
+    audit?.render_contract_version!==profile?.generation_brief?.image_render_contract?.contract_version){
+    throw new Error('source-bound human visual review PASS required before Preview candidate connection');
+  }
+
   const preflight=evaluatePhysicalExamCandidate(profile,audit);
   if(!preflight.eligible){
     const error=new Error('candidate failed visual preflight: '+preflight.failed_axes.join(','));
@@ -58,8 +76,14 @@ export function connectPhysicalExamPreviewCandidate(profile,candidate,audit,opti
     preflight_passed:true,
     source_asset_path:binary.sourcePath,
     exact_binary_verified:true,
+    render_task_id:candidate.render_task_id||null,
+    human_auditor:audit.human_auditor,
+    reviewed_at:audit.reviewed_at,
     preflight_axes:preflight.checks.map(x=>({name:x.name,pass:x.pass}))
   };
+  if(inflight?.state==='IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING'){
+    next.inflight_render_task={...inflight,state:'IMAGE_VERIFIED_USER_PREVIEW_PENDING',binary_verified:true,visual_audit:'PASS',user_preview:'PENDING'};
+  }
   next.review={
     ...(next.review||{}),
     clinical_content:'PASS',
