@@ -129,6 +129,8 @@ jobs:
         run: node scripts/physical-exam-candidate-preflight-qa.mjs
       - name: Verify CT086 exact PNG source and high-resolution WebP byte identity
         run: node scripts/physical-exam-png-integrity-qa.mjs
+      - name: Verify ct086 Runway task binary recovery safety using local generated PNG fixture (no paid generation)
+        run: node scripts/ct086-runway-asset-recover-qa.mjs
       - name: Run Physical Examination guarded Preview connector QA
         run: node scripts/physical-exam-preview-connect-qa.mjs
       - name: Run Stage 23B realistic exercise asset pipeline QA

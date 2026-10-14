@@ -1,3 +1,6 @@
+## 2026-10-14 ct086 기존 Runway 이미지 안전회수 도구 추가 / 원본 실제 바이트는 여전히 BLOCKED
+- Runway get_task/list_recent으로 기존 Task 및 이미지 자산 재확인(재생성 0); 원본 signed URL은 조회되나 환경상 실제 PNG GitHub 전송 불가. `scripts/ct086-runway-asset-recover.mjs` 안전 다운로드·무덮어쓰기·PNG 전체 무결성·보안 차단, `scripts/ct086-runway-asset-recover-qa.mjs` 네트워크 없이 11개 검사. **원본 PNG SHA/픽셀/임상검수/Preview 연결은 여전히 미완료.** 다음 작업선 순서·3D/저작권 LOCK·Claude HOLD 변경 없음.
+
 ## 2026-10-14 v12.72 ct086 이미지 안전연결 선행 구축 / CLI 원본 미회수 BLOCKED
 - **현재 사용자에게 새로 보이는 변화:** 경추 회전 ROM 검사 화면에서 실사형 원본 감리 대기 표시, 기존 단계별 검사 도해 보존. 실제 원본 PNG가 안전검수를 통과한 후에만 HD 후보 이미지와 원본 크기 열기 연결. 이 과정은 Claude 증보 2판 신규 강의·음성 연결과 별개.
 - **완료한 기반 코드:** 시각적 부재축 명시 false 강제, 사람이 검토한 특정 PNG/WebP 해시와 기존 Runway task 바인딩, 완전 PNG CRC/IDAT/zlib/scanline 무결성, 2K PNG→WebP 투명한 픽셀차 계측, fake candidate 표시 차단, 390px Chrome 안전 fallback E2E. 설계와 개발 정본 `docs/HANDOFF_CURRENT.md` 우선.

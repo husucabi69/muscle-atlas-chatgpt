@@ -31,3 +31,9 @@
 - `scripts/ct086-live-preview-pixel-fidelity-e2e.mjs` rechecks displayed WebP vs original on future candidate connection. The current state is appropriately NOT_CONNECTED.
 - `index.html` deliberately reports original artwork is being verified rather than pretending a generated image is clinically correct. The existing Stable-ID schematic remains available. Real medical image and approval are pending.
 - Candidate clinical data in `data/examination-cervical-v1.json` unchanged; academic/original Claude 1st-edition files remain frozen pending 2nd-edition release.
+
+## 2026-10-14 — existing asset retrieved as metadata; safe PNG transfer utility added
+- Runway task get confirms SUCCEEDED and temporary image download URL; recent asset gallery lists original image asset ID `f0cd8f79-02c8-4e0f-8c42-b5271d40fe5f`.
+- Actual PNG file **still absent**: network transfer of temporary signed CDN URL from the current sandbox is blocked. No SHA or pixel size has been verified. Do not mark source or medical review PASS.
+- Network-enabled trusted dev environment: obtain FRESH exact task URL from Runway `get_task`; pass ONLY via environment variable `CT086_RUNWAY_ASSET_URL` (never GitHub, shell-history argument or logs) and run `node scripts/ct086-runway-asset-recover.mjs`. It validates original task-path, PNG structure/size and writes `ct086-rotation-rom-candidate5-source.png` atomically, leaving approval pending.
+- Then run `node scripts/ct086-candidate5-hd-source-derivative.mjs assets/physical-exam-realistic/candidates/ct086-rotation-rom-candidate5-source.png` followed by independent clinical/image-origin attestation and guarded preview connector. Do not generate again.

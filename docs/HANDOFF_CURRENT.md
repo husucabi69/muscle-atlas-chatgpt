@@ -1,5 +1,16 @@
 # CURRENT HANDOFF — 2026-10-14 14:21 KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
 
+
+## 2026-10-14 — ct086 Runway Candidate 5 원본 재확인 및 안전한 회수 경로 구축
+
+- Runway `get_task`와 `list_recent`로 기존 Task `00886834-ff19-4655-9000-6941f580664d`의 이미지 성공과 자산 `f0cd8f79-02c8-4e0f-8c42-b5271d40fe5f` 존재 재확인. **신규 생성 0건/크레딧 0 사용.**
+- 기존 태스크의 CloudFront 이미지 signed URL은 조회할 수 있으나 현재 도구의 네트워크/바이너리 전송 제한 때문에 **실제 PNG 바이트를 GitHub에 저장하지 못했다**. 만료되는 signed URL/JWT는 정본/커밋/로그에 절대 저장하지 않는다.
+- 새로운 회수 도구 `scripts/ct086-runway-asset-recover.mjs`: 신뢰 도메인·정확한 태스크 ID·PNG·signed URL 여부를 검증하고, 크기 상한/Content-Type/리다이렉트/전체 PNG CRC·IDAT/해상도 검증 후 원본을 **중복 덮어쓰기 없이** 저장한다. URL은 환경변수 `CT086_RUNWAY_ASSET_URL`로만 전달. 실패 시 토큰 노출 금지. 회수해도 Registry/Preview/승인 상태는 그대로 보류.
+- `scripts/ct086-runway-asset-recover-qa.mjs`는 네트워크를 사용하지 않는 유효 PNG 시험 원본으로 안전 차단 11가지를 검사한다. 기존 Global QA에서 1회 실행되며 새 workflow/유료 이미지/추가 배포를 만들지 않는다.
+- **다음 실제 작업:** Runway에서 동일 태스크의 최신 signed URL을 가져와 인터넷 접근이 가능한 **신뢰된 개발 실행환경**의 환경변수로 전달 → `node scripts/ct086-runway-asset-recover.mjs` → `node scripts/ct086-candidate5-hd-source-derivative.mjs assets/physical-exam-realistic/candidates/ct086-rotation-rom-candidate5-source.png` → PNG/WebP 실제 바이너리 SHA·픽셀 비교 및 Runway 원본과 시각적 동일성/의학검수 → 검증 통과 후 후보만 Preview 연결 → 의장님 승인.
+- 현재 ct086은 `PENDING_GENERATION` / `IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING`. ct085 HD 승인품 보존, ct087 순서 대기, ct088 미완성 보류. Claude 2판 신규 연결 HOLD. Anatomy 3D/Layer/Motion 및 COPYRIGHT-GATE-0~5 MUST DEVELOP 원래 로드맵 불변. 앱 v12.72 사용자 화면 변화 없음.
+
+
 ## ROADMAP-FIRST 2026-10-14 — 인계 단독 의존 금지
 
 - 인계용 복붙과 HANDOFF_CURRENT는 요약이지 전체 개발의 기준문서가 아니다. **인계문에 빠진 항목도 원래 로드맵에서 유효하다.** 로드맵을 읽지 않은 채 자체 판단으로 개발·삭제·후순위 강등하지 않는다.
