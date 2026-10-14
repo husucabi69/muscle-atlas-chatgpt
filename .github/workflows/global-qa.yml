@@ -222,6 +222,8 @@ jobs:
         run: node scripts/runtime-navigation-e2e.mjs
       - name: Verify ct086 pending clinical artwork mobile fallback
         run: node scripts/ct086-pending-mobile-e2e.mjs
+      - name: Verify ct086 registered source matches the exact clinical preview pixels
+        run: node scripts/ct086-live-preview-pixel-fidelity-e2e.mjs
       - name: Run custom clinical exam illustration runtime E2E
         run: node scripts/clinical-exam-illustration-e2e.mjs
       - name: Run Stage 23B patient exercise illustration runtime E2E
