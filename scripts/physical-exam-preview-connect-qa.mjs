@@ -47,8 +47,8 @@ try{
   good.profile.preview_candidate?.render_task_id===candidate.render_task_id&&
   !good.profile.composite_url&&good.profile.review.user_preview==='PENDING');
  check('Missing real candidate file is blocked',fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,preview_asset_path:'./assets/physical-exam-realistic/candidates/nonexistent.webp'},audit,opts),'binary missing'));
- check('Forged source SHA256 is blocked',fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,source_sha256:'a'.repeat(64)},audit,opts),'source_sha256 does not match'));
- check('Forged preview SHA256 is blocked',fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,preview_webp_sha256:'b'.repeat(64)},audit,opts),'preview_webp_sha256 does not match'));
+ check('Forged source SHA256 is blocked',fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,source_sha256:'a'.repeat(64)},{...audit,reviewed_source_sha256:'a'.repeat(64)},opts),'source_sha256 does not match'));
+ check('Forged preview SHA256 is blocked',fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,preview_webp_sha256:'b'.repeat(64)},{...audit,reviewed_preview_webp_sha256:'b'.repeat(64)},opts),'preview_webp_sha256 does not match'));
  check('Forged Git blob SHA1 is blocked',fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,git_blob_sha1:'c'.repeat(40)},audit,opts),'git_blob_sha1 does not match'));
  check('Forged byte count is blocked',fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,preview_bytes:123456},audit,opts),'preview_bytes does not match'));
  check('Candidate with no exact source binary path is blocked',fail(()=>connectPhysicalExamPreviewCandidate(p,{...candidate,source_asset_path:null},audit,opts),'candidate local asset path required'));
