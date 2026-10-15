@@ -1,4 +1,4 @@
-// v12.74 development: independent ct086 artwork intake + rights review gate; historical provider remains prohibited; stage24.57.
+// v12.75 development: ct086 independent vector pose layout review-only link; canonical image remains unapproved; stage24.58.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

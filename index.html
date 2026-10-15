@@ -2344,7 +2344,11 @@ function physicalExamRealisticCandidateHtml(test){
   if(blockedLegacyCt086){
     return '<div class="note" data-exam-realistic-provider-blocked="ct086" role="status" style="margin-bottom:14px">'+
       '<b>실사형 검사 도해 · 제작 경로 변경 중</b><br>'+
-      '이전 그림 제작 서비스의 사용이 중단되어 해당 후보를 표시하지 않습니다. 새로운 그림이 정확한 자세·고해상도 원본·임상 검수·사용자 승인을 모두 통과하기 전까지, 아래의 기존 단계별 검사 도해로 학습할 수 있습니다.</div>';
+      '이전 그림 제작 서비스의 사용이 중단되어 해당 후보를 표시하지 않습니다. 새로운 그림이 정확한 자세·고해상도 원본·임상 검수·사용자 승인을 모두 통과하기 전까지, 아래의 기존 단계별 검사 도해로 학습할 수 있습니다.</div>'+ 
+      '<div class="note" data-exam-independent-layout-draft="ct086" style="margin-bottom:14px">'+
+      '<b>신규 3장면 동작 시안 — 임상·저작권 검수 전</b><br>아래 시안은 저작권등록용 완성품이나 실사형 승인본이 아닙니다. 자세와 검사자 위치를 먼저 확인하기 위한 독립 제작 벡터 초안입니다.'+
+      '<br><a data-clinical-visual-draft="ct086" href="./assets/physical-exam-realistic/drafts/ct086-original-pose-layout-review-20261015.svg" target="_blank" rel="noopener noreferrer">3장면 동작 시안 크게 보기 ↗</a>'+
+      '<br><small style="color:var(--muted)">임상의 및 의장님 검수 전 환자 교육에 사용하지 않습니다. 기존 정본 도해는 그대로 유지합니다.</small></div>';
   }
   // New structured-generation candidates (ct086 onward) must never appear
   // solely because someone wrote a plausible preview_asset_path into JSON.

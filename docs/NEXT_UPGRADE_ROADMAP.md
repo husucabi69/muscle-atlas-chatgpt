@@ -1,3 +1,11 @@
+## 2026-10-15 v12.75 — ct086 3패널 독립 벡터 동작 시안 **실제 앱 검토 링크** / NOT PHOTO-REAL
+
+- 환자·여성 검사자 위치와 능동 경추 좌우회전 등 **시각 구도 검토용 SVG 초안** 1024×1536 신규 추가: `assets/physical-exam-realistic/drafts/ct086-original-pose-layout-review-20261015.svg`. 프로그램 작성 SVG 원본으로 독립 경로에서 생성, 외부 사진·이전 금지 제공자 자산 차용 없음. 정식 사진형 의료 이미지로 승인/표현하지 않는다.
+- 앱 `ct086` 검사에 '3장면 동작 시안 크게 보기' 링크와 '실사형 승인본이 아님·환자 교육 금지·임상·저작권 감리 전' 경고. 기존 Stable-ID 도해·ct085 승인/ct088 보류/87 HTML 보호.
+- 임상적 3D 머리회전 표현, 여성 얼굴/검사자 손·자세, 고품질 사진 같은 질감, 인간의 창작적 기여 및 CROS 등록 증빙 모두 **미검증/미완료**. 상태 `POSE_LAYOUT_DRAFT_USER_REVIEWABLE / NOT_PHOTOREALISTIC / NOT_APPROVED`. 독립 진품 PNG 제작→인체/권리 감리→HD source & WebP→Preview 후보→사용자 승인 필수선 그대로.
+- `scripts/ct086-pose-draft-preview-qa.mjs`·390px 모바일 시안 링크 검사 추가, Runway 호출 0. `docs/checkpoints/CT086_POSE_LAYOUT_DRAFT_2026-10-15.md` 참고.
+- Stage 23B → 근육해부학 2D/3D Master → Layer → Motion → Stage 23C 필수 LOCKED, `ANATOMY-MASTER-3D-001`·`MOTION-ANIM-001`·`IP-REG-001`/CROS COPYRIGHT-GATE-0~5 변경 금지.
+
 ## 2026-10-15 v12.74 — ct086 독립 소스 원본→HD→임상감리→Preview 등록 Gate 구현
 
 - `EXAM-REAL-001 ct086`의 금지 공급자 이력은 보존하되 사용·회수·재생성·Preview 등록 모두 차단. 새 독립 PNG/사용권 확인/인간 창작·편집 기록을 받는 등록·검증기 `scripts/ct086-independent-hd-import.mjs`, `scripts/ct086-independent-artwork-gate.mjs` 개발. 원본의 실제 1024×1536 이상, 2:3, PNG CRC/IDAT/sha256, 파생 HD WebP 픽셀차, 모든 임상 수락축, 권리·출처, 별도 사람 검수를 선행한다.

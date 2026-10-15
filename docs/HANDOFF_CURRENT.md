@@ -1,5 +1,15 @@
 # CURRENT HANDOFF — 2026-10-14 14:21 KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
 
+## 2026-10-15 v12.75 — ct086 독립 제작 3장면 **벡터 구도 시안** 최초 제공 / 실제 실사형은 미완료
+
+- 사용자 '다음' 개발: `assets/physical-exam-realistic/drafts/ct086-original-pose-layout-review-20261015.svg` **실제 파일**을 추가했다. 1024×1536, 3패널(1 중립/2 좌우 능동회전/3 제한·보상), 환자·여성 검사자 모티프, 강제 수동회전 없이 독립적인 SVG Path/Gradient로 제작. 온라인 서비스 호출 없음.
+- **임상 의학 정확도·사진같은 실사형 품질·인간 저작권 기여는 검증되지 않았다.** 정식 실사형 후보로 승인하거나 고해상도 PNG 등록검증을 통과한 것으로 보고 금지. `data/physical-exam-realistic-assets-v1.json` ct086은 기존 `PENDING_GENERATION`, 구식 제공자 중단 기록 그대로. 의료 검수는 PENDING, 사용자 승인도 미실시.
+- `index.html` ct086 보류 안내 바로 밑에 `3장면 동작 시안 크게 보기 ↗` 직접 링크를 제공. '임상·저작권 검수 전', '실사형 승인본이 아님', '환자교육용 사용 금지'를 바로 명시. 기존 공식 교육 도해와 서술/승인 ct085 및 보류 ct088을 보존.
+- `scripts/ct086-pose-draft-preview-qa.mjs`: 독립 벡터 자체·3개 제목/해상도/외부사진 미사용·임상 미승인 상태, 진단과 무관한 보조 시안 링크, ct085/ct088 회귀 테스트. `scripts/ct086-pending-mobile-e2e.mjs`: 모바일 390px에서 시안 직접 SVG 링크 HTTP 성공 + 안전 안내 검증. 기존 Global QA job에 새 단계 1개, GitHub 한 번 Push만.
+- 상태 `POSE_LAYOUT_DRAFT_USER_REVIEWABLE / NOT_PHOTOREALISTIC / NOT_APPROVED`. 시안 문서 `docs/checkpoints/CT086_POSE_LAYOUT_DRAFT_2026-10-15.md`. 신규 독립 실제 photo-like PNG/WebP + 전문의/인간저작권 증빙·승인 **미완료**. 수요와 비용 승인 없이는 외부 유료 제공자 변경 금지.
+- Stage 23B ct086 ACTIVE, ct087 대기, ct088 HOLD, Claude 2판 HOLD, `main` 동결. `ANATOMY-MASTER-3D-001`, `ANATOMY-LAYER-001`, `MOTION-ANIM-001`, `IP-EVIDENCE-001`, `IP-REG-001`, `COPYRIGHT-GATE-0~5` 순서 그대로 유지. Runway 서비스는 조회 포함 사용금지.
+- 앱 version `v12.75`, build `2026.10.15-stage24.58`, cache `20261015-stage24-58`. Cloudflare 실제 결과는 새 HEAD 자동검사에서만 판정, 미검증은 PASS 금지.
+
 ## 2026-10-15 v12.74 — EXAM-REAL ct086 비-Runway 원본 등록 체계 실제 개발
 
 - 새 제작도구 호출 없이 `ct086-independent-hd-import.mjs`(로컬 PNG 정확한 바이트·CRC·최소 2K·세로 2:3 검사→오프라인 Chromium WebP 변환·픽셀차 검사·SHA/Blob 기록), `ct086-independent-artwork-gate.mjs`(출처·권리·인간 편집·의학 시각감사·원본 SHA/Preview 정확 바이트·별도 후보 연결, 승인 전) 개발.

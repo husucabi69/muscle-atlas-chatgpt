@@ -7,6 +7,12 @@
 정본 상태: Stage 0–12 COMPLETE / Stage 13 Android TWA COMPLETE / Stage 14 Play submission pack PREPARED
 통합 원칙: Muscle Atlas는 독립 학습 앱으로 유지하면서 동일 MSK Knowledge Core를 LYS OrthoOS가 read-only 방식으로 재사용한다.
 
+## 2026-10-15 v12.75 — ct086 독립 2D 벡터 **동작 시안** 출품 (실사형 완제품 아님)
+
+- `EXAM-REAL-001/ct086` 검토 가능한 세패널 벡터 SVG와 앱 링크 추가. 이 그림은 실제 사람이 촬영된/사진같은 실사형 원본이 아니고, 의학 자세·저작권·사용자 승인을 통과하지 않았다. 프로덕션 및 canonical ct086 status 변화 없음.
+- 실사형 본 제작, 독립 원본의 인간 교정·권리/출처 검증 및 임상감사, 사용자 승인 남음. 미래 3D 해부학 Master·Layer·Motion 및 CROS `COPYRIGHT-GATE-0~5`는 Stage 23C 전 필수라는 기존 약속대로 진행. `ct087`은 ct086 이후, `ct088` 및 Claude 2판 보류.
+- 새 시안 상세 상태 `docs/checkpoints/CT086_POSE_LAYOUT_DRAFT_2026-10-15.md`. 금지된 기존 제작 서비스 사용하지 않았다.
+
 ## RUNWAY-PROHIBITED 2026-10-15 — 제공자 사용금지 (최신 우선)
 
 - 의장님 명령: Runway API·플러그인·웹·자산/작업 조회·다운로드·생성·편집 등 무료/유료 사용 전면 금지. 2026-10-14 이전 Runway 회수 절차 무효.

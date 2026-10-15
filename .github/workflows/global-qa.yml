@@ -119,6 +119,8 @@ jobs:
         run: node scripts/physical-exam-realistic-assets-qa.mjs
       - name: Verify ct086 candidate is not visible without exact binary and clinician audit
         run: node scripts/physical-exam-preview-visibility-qa.mjs
+      - name: Validate original ct086 clinical pose draft preview is labeled non-final and preserves approved assets
+        run: node scripts/ct086-pose-draft-preview-qa.mjs
       - name: Run EXAM-REAL review lifecycle QA
         run: node scripts/exam-real-review-lifecycle-qa.mjs
       - name: Run EXAM-REAL lifecycle QA
