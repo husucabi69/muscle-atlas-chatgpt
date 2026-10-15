@@ -1,3 +1,7 @@
+## 2026-10-15 v12.73 — ct086 금지 서비스 이미지 UI 차단 / 기존 도해 유지
+
+- Runway 신규 조회/생성/기존 원본 회수 0. ct086 금지 서비스 후보가 fake approved/verified 필드를 갖더라도 화면에 표시되지 않게 앱 런타임 보호 및 단위 QA 강화. 390px 모바일에서도 기존 검사 도해와 상황 안내 확인. `docs/CT086_NON_RUNWAY_CLINICAL_ARTWORK_PATH_2026-10-15.md`는 비-Runway 독립 이미지 생성/검수·비용 승인 절차를 규정. 기존 필수 3D/Layer/Motion/CROS roadmap 순서 변경 없음.
+
 ## RUNWAY-PROHIBITED 2026-10-15 — 의장님 사용자 명령 (최신 절대 우선)
 
 - LYSOS 앱 개발에서 Runway 서비스·웹·API·플러그인/작업 조회·자산 조회·다운로드·생성·영상 편집·업스케일 사용을 전면 금지한다. 무료 조회도 금지.

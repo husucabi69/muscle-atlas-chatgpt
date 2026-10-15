@@ -1,5 +1,13 @@
 # CURRENT HANDOFF — 2026-10-14 14:21 KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
 
+## 2026-10-15 v12.73 — ct086 금지 공급자 후보 완전 비노출 / 비-Runway 경로 준비
+
+- **신규 개발 지시 '다음':** Runway 사용금지를 모든 서비스 조회/기능 포함 계속 엄수. `index.html`의 ct086 실사형 후보 렌더러는 역사적 in-flight generator가 Runway인 경우 **승인처럼 보이는 JSON이 들어와도 어떤 후보 원본·URL·이미지도 표시하지 않음**. '실사형 검사 도해 · 제작 경로 변경 중' 안내 + 원래 Stable-ID 단계별 검사 도해 유지.
+- `scripts/physical-exam-preview-visibility-qa.mjs`는 현재 Runway 후보 차단·가짜 verified/approved 상태 차단·기존 ct083 미승인/ct085 승인/ct088 보류 보존을 검증. `scripts/ct086-pending-mobile-e2e.mjs`는 390px 화면에 명확한 금지 안내·기존 도해·가로 넘침 없음을 검사.
+- 앱 버전 v12.73 / build 2026.10.15-stage24.56 / PWA cache 20261015-stage24-56. 원본 87강 HTML과 Claude 2판 HOLD, Production main, 최초 ct086 registry/provenance 기록은 변경하지 않는다.
+- 차기 유효한 그림 후보는 `docs/CT086_NON_RUNWAY_CLINICAL_ARTWORK_PATH_2026-10-15.md`에 정리된 완전히 독립적인 자체 제작/허가된 비-Runway 워크플로만 허용한다. 추가 유료 서비스 임의 실행 금지, 임상적 정확성과 최초 영상 바이너리/저작권 증빙·의장님 승인 필수.
+- 기존 Runway 소스 다운로드/작업 조회 시도 금지. ct086은 현재 사진형 신규 도해 미등록 상태; 바뀐 것은 오류없는 정직한 UI와 안전차단이다. `ANATOMY-MASTER-3D-001` 등 Stage 23C 전 필수 트랙은 미누락 유지.
+
 ## RUNWAY-PROHIBITED 2026-10-15 — 최신 사용자 명령 / 이전 회수 계획 전면 중단
 
 - **Runway 사용 전면 금지.** 생성·편집·업스케일·태스크 조회·자산 조회·원본 다운로드·Runway 웹/플러그인/API 사용 모두 금지(무료 조회도 금지).

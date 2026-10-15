@@ -12,16 +12,17 @@ try{
   await openClinicalItem('ct086',false);
   const host=document.getElementById('clinicalDetailContent');
   return{
-   note:!!host?.querySelector('[data-exam-realistic-binary-pending="ct086"]'),
+   note:!!host?.querySelector('[data-exam-realistic-provider-blocked="ct086"]'),
    unverified:!!host?.querySelector('[data-exam-realistic-candidate]'),
    schematic:!!host?.querySelector('[data-exam-illustration="custom"]'),
    clinicalText:(host?.textContent||'').includes('경추 회전'),
+   honestProviderState:(host?.textContent||'').includes('제작 경로 변경 중'),
    overflow:(host?.scrollWidth||0)-(host?.clientWidth||0)
   };
  });
- if(!actual.note||actual.unverified||!actual.schematic||!actual.clinicalText||actual.overflow>2)
+ if(!actual.note||actual.unverified||!actual.schematic||!actual.clinicalText||!actual.honestProviderState||actual.overflow>2)
   throw Error('CT086 MOBILE SAFETY FAIL '+JSON.stringify(actual));
  fs.mkdirSync('qa-artifacts/ct086-mobile',{recursive:true});
  await page.screenshot({path:'qa-artifacts/ct086-mobile/pending-390px.png',fullPage:true});
- console.log('CT086 MOBILE 390px PASS | existing schematic; honest source-binary pending note; no unreviewed candidate');
+ console.log('CT086 MOBILE 390px PASS | existing schematic; image provider prohibition clearly displayed; no banned candidate');
 }finally{await browser.close();}

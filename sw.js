@@ -1,4 +1,4 @@
-// v12.72 development: CT086 human-reviewed exact HD art gate, safe pending teaching fallback, mobile preview; stage24.55.
+// v12.73 development: Runway provider prohibited; ct086 truthful safe schematic fallback, preserved previous approval; stage24.56.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

@@ -12,6 +12,36 @@ const render=vm.runInNewContext('('+source.replace('function physicalExamRealist
  {physicalExamRealisticProfile:()=>state.profile,esc});
 const checks=[];
 const check=(name,pass)=>{checks.push(Boolean(pass));console.log((pass?'PASS':'FAIL')+' | '+name);};
+// Legacy provider assets are forbidden for ct086 even when all legacy file
+// hashes and review flags are later made to look plausible.
+const prohibitedCt086={clinical_test_id:'ct086',status:'PENDING_GENERATION',
+ generation_brief:{render_contract_required:true},
+ inflight_render_task:{generator:'Runway connected image generator',
+   state:'IMAGE_SUCCEEDED_BINARY_TRANSFER_PENDING'},
+ preview_candidate:{preview_asset_path:'./assets/physical-exam-realistic/candidates/never-expose.webp'},
+ review:{user_preview:'PENDING'}
+};
+state.profile=prohibitedCt086;
+let prohibitionHtml=render(test);
+check('ct086 banned provider yields transparent status and existing schematic instruction',
+ prohibitionHtml.includes('data-exam-realistic-provider-blocked="ct086"')&&
+ prohibitionHtml.includes('기존 단계별 검사 도해')&&
+ !prohibitionHtml.includes('<img')&&!prohibitionHtml.includes('never-expose.webp'));
+state.profile={...prohibitedCt086,status:'CANDIDATE_GENERATED_USER_PREVIEW_PENDING',
+ inflight_render_task:{...prohibitedCt086.inflight_render_task,
+   state:'IMAGE_VERIFIED_USER_PREVIEW_PENDING'},
+ preview_candidate:{...prohibitedCt086.preview_candidate,
+   exact_binary_verified:true,preflight_passed:true,
+   source_sha256:'a'.repeat(64),preview_webp_sha256:'b'.repeat(64)}};
+prohibitionHtml=render(test);
+check('ct086 banned provider remains blocked even if approval-shaped fields appear',
+ prohibitionHtml.includes('제작 경로 변경 중')&&
+ !prohibitionHtml.includes('never-expose.webp')&&!prohibitionHtml.includes('<img'));
+state.profile={...prohibitedCt086,status:'APPROVED',composite_url:'./assets/never-display.png',
+ approved_asset:{gen_id:'fake'},review:{user_preview:'PASS'}};
+prohibitionHtml=render(test);
+check('ct086 historic provider never becomes visible from forged approved state',
+ !prohibitionHtml.includes('never-display.png')&&!prohibitionHtml.includes('<img'));
 const baseline={
  clinical_test_id:'ct086',status:'PENDING_GENERATION',
  generation_brief:{render_contract_required:true},
