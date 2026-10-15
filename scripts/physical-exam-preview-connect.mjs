@@ -7,6 +7,8 @@ const SHA256=/^[0-9a-f]{64}$/;
 const SHA1=/^[0-9a-f]{40}$/;
 
 export function connectPhysicalExamPreviewCandidate(profile,candidate,audit,options={}){
+  if(profile?.clinical_test_id==='ct086'&&/runway/i.test(String(profile?.inflight_render_task?.generator||'')))
+    throw new Error('CT086_RESTRICTED_ORIGIN_2026_10_15');
   if(!profile)throw new Error('missing profile');
   if(profile.status!=='PENDING_GENERATION'||profile.brief_status!=='GENERATION_READY'){
     throw new Error('profile is not generation-ready');

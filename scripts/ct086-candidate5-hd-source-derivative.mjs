@@ -66,11 +66,12 @@ export async function renderAndCompareCt086PNG(sourceBytes,{webpQuality=0.98}={}
  }finally{await browser.close();}
 }
 
-export async function compareCt086Images(sourceBytes,webpBytes){
+export async function compareCt086Images(sourceBytes,webpBytes,{sourceMime='image/png'}={}){
+ if(!['image/png','image/webp'].includes(sourceMime))fail('UNSUPPORTED_SOURCE_IMAGE_TYPE');
  const browser=await chromium.launch({headless:true});
  try{
   const page=await browser.newPage();
-  const pngUrl='data:image/png;base64,'+sourceBytes.toString('base64');
+  const pngUrl='data:'+sourceMime+';base64,'+sourceBytes.toString('base64');
   const webpUrl='data:image/webp;base64,'+webpBytes.toString('base64');
   return await page.evaluate(async ([first,second])=>{
    const load=async url=>{const img=new Image();img.src=url;await img.decode();return img;};
@@ -96,6 +97,8 @@ export async function compareCt086Images(sourceBytes,webpBytes){
 }
 
 export async function importCt086RunwayOutput({sourcePath,repositoryRoot=process.cwd()}){
+ // Explicit owner policy: historical provider asset must never be imported.
+ fail('PROVIDER_BANNED_2026_10_15');
  if(!sourcePath||!fs.existsSync(sourcePath))fail('EXACT_SOURCE_FILE_REQUIRED');
  const registry=JSON.parse(fs.readFileSync(path.join(repositoryRoot,'data/physical-exam-realistic-assets-v1.json'),'utf8'));
  const p=registry.profiles.find(x=>x.clinical_test_id==='ct086');

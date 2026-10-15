@@ -57,10 +57,25 @@ state.profile={...baseline,status:'CANDIDATE_GENERATED_USER_PREVIEW_PENDING'};
 h=render(test);
 check('Fake ct086 candidate path cannot bypass binary+clinical review gate',!h.includes('<img'));
 state.profile={...baseline,status:'CANDIDATE_GENERATED_USER_PREVIEW_PENDING',
- inflight_render_task:{state:'IMAGE_VERIFIED_USER_PREVIEW_PENDING'},
+ historical_restricted_provider_render_task:{generator:'Runway connected image generator'},
+ inflight_render_task:{state:'IMAGE_VERIFIED_USER_PREVIEW_PENDING',
+   generator:'LYSOS_INDEPENDENT_ORIGINAL'},
  preview_candidate:{...baseline.preview_candidate,exact_binary_verified:true,
-  preflight_passed:true,source_sha256:'a'.repeat(64),preview_webp_sha256:'b'.repeat(64)}
+  preflight_passed:true,source_sha256:'a'.repeat(64),preview_webp_sha256:'b'.repeat(64),
+  gen_id:'LYSOS-INDEPENDENT-aaaaaaaaaaaaaaaa',
+  generator:'LYSOS_INDEPENDENT_ORIGINAL',independent_artwork_verified:true,
+  independent_source_kind:'HUMAN_ORIGINAL',
+  provenance_evidence_reference:'ip-vault/ct086/real-human-authorship'}
 };
+h=render(test);
+const sourceVerified=state.profile;
+state.profile={...sourceVerified,preview_candidate:{...sourceVerified.preview_candidate,
+  provenance_evidence_reference:null}};
+check('Independent-origin gate rejects missing rights provenance',!render(test).includes('<img'));
+state.profile={...sourceVerified,preview_candidate:{...sourceVerified.preview_candidate,
+  independent_artwork_verified:false}};
+check('Independent-origin gate rejects missing independent verification',!render(test).includes('<img'));
+state.profile=sourceVerified;
 h=render(test);
 check('Exact-verified ct086 shows amber preview candidate but NOT approved',h.includes('<img')&&
  h.includes('승인 전')&&!h.includes('실사형 승인본')&&h.includes('원본 크기로 열기'));

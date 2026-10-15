@@ -14,6 +14,12 @@
 - 대체 수단은 별도 검토·필요한 비용 사전 승인. Stage 23B 실사형 교육, 경추–견갑대 3D/Layer/Motion 및 CROS 저작권 필수 개발 계약·순서는 보존한다.
 - 상세 정본 `AGENTS.md`, `docs/HANDOFF_CURRENT.md`. 기존 시간 HARD STOP 및 ROADMAP-FIRST 유지.
 
+## 2026-10-15 v12.74 — EXAM-REAL ct086 독립 원본 안전 검증 Gate 구축
+
+- 현재 작업 ID `EXAM-REAL-001 / ct086`: 금지 공급자 기존 파일·조회·재생성은 계속 차단. 새 비-Runway 원본을 허가된 방법으로 제작한 뒤, 실제 원본 PNG 바이트·고해상도 WebP·임상 자세·인간 창작/저작권 증빙·사용자 승인을 확인하는 독립 소스용 등록 Gate 개발. 코드는 `scripts/ct086-independent-hd-import.mjs`, `scripts/ct086-independent-artwork-gate.mjs`; 실제 이미지 신품 **아직 없음**, 후보 Preview 미연결.
+- `docs/CT086_INDEPENDENT_SOURCE_RUNBOOK_2026-10-15.md` 및 2개 `docs/templates/CT086_INDEPENDENT_*.json`을 출처/감리 문서로 연계. 앱의 기존 정본 도해·ct085 승인본·Claude 87강 원본 불변. ct087 후속 대기, ct088 Hoffmann 보류.
+- `Stage 23B-Disease Rehab` → `Stage 23B-Anatomy IP` → `Stage 23B-3D Anatomy` → `Stage 23B-Motion Animation` → `Stage 23C` 기존 확정 순서와 `ANATOMY-MASTER-3D-001`/층별 뷰어/`MOTION-ANIM-001`/`IP-REG-001`/CROS COPYRIGHT-GATE-0~5 필수 지위는 변경하지 않는다.
+
 ## 2026-10-14 최신 개발 트랙 — EXAM-REAL (Claude 2판 이식 대기)
 - 사용자 승인결정: Claude 1판 이후 강의/음성 추가 연동은 2판 출간 후에만. 기존 Claude 소스 87 HTML/SHA·검색 1,526개 보호; 새 연동/Native B5~B9는 동결.
 - 지금은 **ct086 Cervical Rotation ROM 고해상도 실사형 후보의 실물 PNG/WebP 보존·임상 감리·조건부 Preview 등록**을 먼저 한다. 실제 그림은 Runway task `00886834-ff19-4655-9000-6941f580664d`로 생성되었지만 파일 바이트 미회수, 상태 PARTIAL; 새 이미지 중복생성 차단.

@@ -133,6 +133,8 @@ jobs:
         run: node scripts/ct086-runway-asset-recover-qa.mjs
       - name: Run Physical Examination guarded Preview connector QA
         run: node scripts/physical-exam-preview-connect-qa.mjs
+      - name: Verify independent ct086 original image, rights attestation, medical review and binary gates
+        run: node scripts/ct086-independent-artwork-gate-qa.mjs
       - name: Run Stage 23B realistic exercise asset pipeline QA
         run: node scripts/patient-exercise-realistic-assets-qa.mjs
       - name: Run Stage 23B realistic WebP binary integrity QA
@@ -206,6 +208,8 @@ jobs:
           exit 1
       - name: Verify ct086 exact-original PNG to high-resolution WebP conversion in Chromium
         run: node scripts/ct086-hd-source-derivative-e2e.mjs
+      - name: Verify independent provider-free ct086 HD PNG to WebP pipeline with offline fixture
+        run: node scripts/ct086-independent-hd-import-e2e.mjs
       - name: Confirm installed PWA automatically updates on launch without interrupting study
         run: node scripts/pwa-auto-launch-update-e2e.mjs
       - name: Inspect original interactive compendium DOM and mobile iframe viewport

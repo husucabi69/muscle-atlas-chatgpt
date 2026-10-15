@@ -1,0 +1,15 @@
+{
+  "schema": "lysos-independent-original-provenance-v1",
+  "clinical_test_id": "ct086",
+  "source_kind": null,
+  "source_sha256": null,
+  "no_legacy_provider_lineage_attested": false,
+  "rights_review_state": "PENDING",
+  "creative_process_record": null,
+  "human_editing_record": null,
+  "rights_basis": null,
+  "evidence_reference": null,
+  "reviewer": null,
+  "reviewed_at": null,
+  "instructions": "Complete with independently substantiated creative authorship, rights, human editing, original binary digest and signed review. DO NOT assign PASS before inspecting real art. This JSON is an unapproved form."
+}

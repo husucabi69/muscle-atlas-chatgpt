@@ -4,7 +4,10 @@ import path from 'node:path';
 import {connectPhysicalExamPreviewCandidate} from './physical-exam-preview-connect.mjs';
 import {inspectWebP} from './inspect-realistic-webp.mjs';
 const manifest=JSON.parse(fs.readFileSync('data/physical-exam-realistic-assets-v1.json','utf8'));
-const p=manifest.profiles.find(x=>x.clinical_test_id==='ct086');
+const legacy=manifest.profiles.find(x=>x.clinical_test_id==='ct086');
+const p=structuredClone(legacy);
+p.inflight_render_task={...p.inflight_render_task,generator:'CI_TEST_ONLY_INDEPENDENT',
+  task_id:'OFFLINE_CI_TEST_RENDER_ID'};
 const checks=[];
 const check=(name,ok,detail='')=>{checks.push({name,ok:Boolean(ok)});console.log((ok?'PASS':'FAIL')+' | '+name+(detail?' | '+detail:''));};
 const fail=(call,message)=>{try{call();return false;}catch(e){return String(e.message).includes(message);}};
@@ -39,6 +42,7 @@ try{
  audit.reviewed_source_sha256=details.sha256;
  audit.reviewed_preview_webp_sha256=details.sha256;
  audit.render_contract_version=p.generation_brief.image_render_contract.contract_version;
+ check('Banned historical ct086 candidate cannot enter Preview',fail(()=>connectPhysicalExamPreviewCandidate(legacy,candidate,audit,opts),'CT086_RESTRICTED_ORIGIN_2026_10_15'));
  const good=connectPhysicalExamPreviewCandidate(p,candidate,audit,opts);
  check('Only a real existing HD binary and passing visual-audit declarations can create a pending user-preview record',
   good.profile.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&

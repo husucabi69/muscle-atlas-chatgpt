@@ -2323,7 +2323,19 @@ function physicalExamRealisticCandidateHtml(test){
   const p=physicalExamRealisticProfile(test);
   const review=p?.review||{},blockers=p?.approval_blockers||[];
   const approvedMeta=p?.approved_asset||p?.user_approved_asset||null;
-  const isApproved=Boolean(p?.status==='APPROVED'&&p?.composite_url&&review.user_preview==='PASS'&&approvedMeta);
+  const independentCt086=Boolean(
+    test?.clinical_test_id==='ct086'&&
+    p?.inflight_render_task?.generator==='LYSOS_INDEPENDENT_ORIGINAL'&&
+    p?.preview_candidate?.generator==='LYSOS_INDEPENDENT_ORIGINAL'&&
+    p?.preview_candidate?.independent_artwork_verified===true&&
+    p?.preview_candidate?.independent_source_kind&&
+    p?.preview_candidate?.provenance_evidence_reference&&
+    /^LYSOS-INDEPENDENT-[0-9a-f]{16}$/.test(String(p?.preview_candidate?.gen_id||''))&&
+    /runway/i.test(String(p?.historical_restricted_provider_render_task?.generator||''))
+  );
+  const isApproved=Boolean(p?.status==='APPROVED'&&p?.composite_url&&review.user_preview==='PASS'&&
+    approvedMeta&&(test?.clinical_test_id!=='ct086'||(
+      independentCt086&&approvedMeta.independent_artwork_verified===true)));
   // The chairman prohibited all use of the former image provider. Keep its task
   // as historical evidence only; even an edited "verified" candidate cannot
   // become visible in this app. No provider services are contacted here.
@@ -2339,6 +2351,7 @@ function physicalExamRealisticCandidateHtml(test){
   // Preserve existing legacy candidates and approved assets unchanged.
   const strictRenderGate=p?.generation_brief?.render_contract_required===true;
   const exactCandidateReady=Boolean(
+    (test?.clinical_test_id!=='ct086'||independentCt086)&&
     p?.status==='CANDIDATE_GENERATED_USER_PREVIEW_PENDING'&&
     p?.preview_candidate?.exact_binary_verified===true&&
     p?.preview_candidate?.preflight_passed===true&&

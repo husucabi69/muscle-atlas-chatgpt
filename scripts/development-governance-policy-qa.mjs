@@ -152,6 +152,31 @@ for(const id of mandatoryIds){
 check('Next roadmap ROADMAP-FIRST',nextRoadmap.includes('ROADMAP-FIRST 2026-10-14'));
 check('CROS gates unchanged',[0,1,2,3,4,5].every(i=>read('docs/COPYRIGHT_REGISTRATION_STRATEGY.md').includes('COPYRIGHT-GATE-'+i)));
 
+// 2026-10-15: chairman's service ban and independent ct086 original-source lane.
+for(const name of ['agents','constitution','principles','masterRoadmap','handoff']){
+ const source=files[name];
+ check(name+': 2026-10-15 forbidden-provider policy cannot disappear',
+   source.includes('RUNWAY-PROHIBITED')&&source.includes('BLOCKED_RUNWAY_PROHIBITED'));
+}
+check('Next roadmap retains independent ct086 gate without losing 3D plan',
+  nextRoadmap.includes('ct086-independent-artwork-gate.mjs')&&
+  nextRoadmap.includes('ANATOMY-MASTER-3D-001')&&
+  nextRoadmap.includes('MOTION-ANIM-001'));
+const ct086Script=read('scripts/ct086-independent-artwork-gate.mjs');
+check('Independent original ct086 requires actual source rights and clinician audit',
+ ct086Script.includes('INDEPENDENT_ORIGIN_RIGHTS_EVIDENCE_REQUIRED')&&
+ ct086Script.includes('SOURCE_BOUND_CLINICAL_REVIEW_REQUIRED')&&
+ ct086Script.includes('verifyPhysicalExamPreviewBinary')&&
+ ct086Script.includes('historical_restricted_provider_render_task'));
+check('Legacy ct086 source cannot enter old Preview connector',
+ read('scripts/physical-exam-preview-connect.mjs').includes('CT086_RESTRICTED_ORIGIN_2026_10_15'));
+check('Legacy source import path is disabled',
+ read('scripts/ct086-candidate5-hd-source-derivative.mjs').includes("fail('PROVIDER_BANNED_2026_10_15')"));
+check('App independently verifies non-restricted ct086 source before candidate visibility',
+ read('index.html').includes('independentCt086')&&
+ read('index.html').includes('independent_artwork_verified===true')&&
+ read('index.html').includes('blockedLegacyCt086'));
+
 const failed = checks.filter(x => !x.pass);
 console.log(`SUMMARY | ${checks.length - failed.length}/${checks.length} PASS`);
 if (failed.length) process.exit(1);

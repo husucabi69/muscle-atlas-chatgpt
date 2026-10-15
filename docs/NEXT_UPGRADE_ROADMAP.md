@@ -1,3 +1,10 @@
+## 2026-10-15 v12.74 — ct086 독립 소스 원본→HD→임상감리→Preview 등록 Gate 구현
+
+- `EXAM-REAL-001 ct086`의 금지 공급자 이력은 보존하되 사용·회수·재생성·Preview 등록 모두 차단. 새 독립 PNG/사용권 확인/인간 창작·편집 기록을 받는 등록·검증기 `scripts/ct086-independent-hd-import.mjs`, `scripts/ct086-independent-artwork-gate.mjs` 개발. 원본의 실제 1024×1536 이상, 2:3, PNG CRC/IDAT/sha256, 파생 HD WebP 픽셀차, 모든 임상 수락축, 권리·출처, 별도 사람 검수를 선행한다.
+- 모바일 앱 `index.html`은 이전 금지 공급자의 원본과 '승인된 듯한' 메타데이터를 계속 차단하며, 독립 출처의 실제 승인 전 후보도 정본성·증빙 필드 검증을 요구. CI에 회귀검사 2개 추가. 실제 새로운 그림 **아직 미제작** — `PIPELINE_CODE_READY / ACTUAL_ART_PENDING`.
+- 검수 양식: `docs/templates/CT086_INDEPENDENT_ORIGIN_TEMPLATE.json`, `docs/templates/CT086_INDEPENDENT_VISUAL_AUDIT_TEMPLATE.json`; 정식 실행방법 `docs/CT086_INDEPENDENT_SOURCE_RUNBOOK_2026-10-15.md`.
+- 다음 개발: 비-Runway 독립 의학 일러스트 실물 제작 또는 적법 원본 확보 → 의학적 사람 시각감리 → 안전한 GitHub Preview 후보 등록 → 의장님 승인 → ct087. ct088와 Claude 2판은 HOLD. `ANATOMY-KNOWLEDGE-001`, `ANATOMY-MASTER-3D-001`, `ANATOMY-IP-2D-001`, `ANATOMY-3D-VIEWER-001`, `ANATOMY-LAYER-001`, `MOTION-ANIM-001`, `IP-EVIDENCE-001`, `IP-REG-001`, `COPYRIGHT-GATE-0~5` Stage 23C 선행 LOCKED/MUST DEVELOP는 그대로.
+
 ## 2026-10-15 v12.73 — ct086 금지 서비스 이미지 UI 차단 / 기존 도해 유지
 
 - Runway 신규 조회/생성/기존 원본 회수 0. ct086 금지 서비스 후보가 fake approved/verified 필드를 갖더라도 화면에 표시되지 않게 앱 런타임 보호 및 단위 QA 강화. 390px 모바일에서도 기존 검사 도해와 상황 안내 확인. `docs/CT086_NON_RUNWAY_CLINICAL_ARTWORK_PATH_2026-10-15.md`는 비-Runway 독립 이미지 생성/검수·비용 승인 절차를 규정. 기존 필수 3D/Layer/Motion/CROS roadmap 순서 변경 없음.

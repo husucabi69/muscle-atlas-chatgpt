@@ -1,4 +1,4 @@
-// v12.73 development: Runway provider prohibited; ct086 truthful safe schematic fallback, preserved previous approval; stage24.56.
+// v12.74 development: independent ct086 artwork intake + rights review gate; historical provider remains prohibited; stage24.57.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

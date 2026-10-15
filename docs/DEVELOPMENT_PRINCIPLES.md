@@ -16,6 +16,12 @@
 - **지시 상태:** “중지/중단” 즉시 정지. 새 회차는 사용자에게 실제 개발을 시작하라는 새 지시가 있을 때만 시작. **문서 인계만 요청된 경우 새 기능 개발로 임의 확장하지 않는다.**
 - **자동 예방:** `scripts/development-governance-policy-qa.mjs`는 위 원칙이 정본에서 삭제·약화되면 CI FAIL을 낸다. 다만 CI는 실제 시각을 관찰하지 못하므로 각 회차의 시간 준수 PASS는 실측 보고로만 판정한다.
 
+## RUNWAY-PROHIBITED 2026-10-15 — 의장님 지정 서비스 사용금지
+
+- Runway 웹/플러그인/API, 이미지·영상 생성/편집/확대, 작업 조회·기존 출력물 다운로드/회수 포함 무료·유료 이용 전면 금지. 기존 ct086 Candidate 5는 역사적 비용·출처 증빙으로만 보존하며 그 원본을 쓰지 않는다. 서비스 실행·호출·기존 이미지 재이식 금지.
+- ct086 실무상 `BLOCKED_RUNWAY_PROHIBITED` 과거 자산 기록과 **새 독립 원본 제작 경로**를 엄격히 구분한다. 신규 원본의 인간 창작/권리·실물 바이너리·임상감리·의장님 승인 선행. 외부 유료 도구 자동 전환 금지.
+- 기존 Stage 23C 전 필수 3D Master·Rotation·Layer·근육 Action·CROS 저작권 단계는 유지. SUPER-LOCK 시간원칙과 ROADMAP-FIRST는 변경 없음.
+
 ## ROADMAP-FIRST 2026-10-14 — 매 회차 개발 착수 전 전체 정본 숙지 의무
 - 인계용 복붙과 HANDOFF_CURRENT는 요약이지 전체 개발의 기준문서가 아니다. **인계문에 빠진 항목도 원래 로드맵에서 유효하다.** 로드맵을 읽지 않은 채 자체 판단으로 개발·삭제·후순위 강등하지 않는다.
 - 모든 새로운 개발 회차는 실제 KST 계측 후 `AGENTS.md` → `docs/DEVELOPMENT_CONSTITUTION.md` → `docs/DEVELOPMENT_PRINCIPLES.md` → **`docs/MASTER_ROADMAP.md` 전체** → **`docs/NEXT_UPGRADE_ROADMAP.md` 전체** → ACTIVE 관련 계약 및 `docs/ANATOMY_IP_3D_MOTION_CONTRACT.md`·`docs/COPYRIGHT_REGISTRATION_STRATEGY.md`의 해당 의무 → `docs/HANDOFF_CURRENT.md` 순으로 실제 읽고 대조한 뒤 시작한다.

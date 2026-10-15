@@ -1,5 +1,16 @@
 # CURRENT HANDOFF — 2026-10-14 14:21 KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
 
+## 2026-10-15 v12.74 — EXAM-REAL ct086 비-Runway 원본 등록 체계 실제 개발
+
+- 새 제작도구 호출 없이 `ct086-independent-hd-import.mjs`(로컬 PNG 정확한 바이트·CRC·최소 2K·세로 2:3 검사→오프라인 Chromium WebP 변환·픽셀차 검사·SHA/Blob 기록), `ct086-independent-artwork-gate.mjs`(출처·권리·인간 편집·의학 시각감사·원본 SHA/Preview 정확 바이트·별도 후보 연결, 승인 전) 개발.
+- 기존 ct086 제한 공급자의 과거 원본은 어떤 새 제작 경로에도 사용하지 않는다. `ct086-candidate5-hd-source-derivative.mjs`의 과거 원본 임포트 진입점, `physical-exam-preview-connect.mjs`의 이전 공급자 ct086 연결은 명시 차단한다. 기존 생성/비용 증빙과 Original 87강·ct085 승인품/ct088 보류는 그대로 보존.
+- 앱 `index.html`: ct086 역사적 금지 공급자 후보 영구 비노출, 새 독립 자산도 provenance/계약/기존 source-history가 검증된 경우에만 Preview 미승인 후보를 표시하게 보강. 기존 390px 보류 안내 및 Stable-ID 도해는 유지. `ct086-live-preview-pixel-fidelity-e2e.mjs`에 독립 출처 gate 적용.
+- `scripts/ct086-independent-artwork-gate-qa.mjs`: 실물 파일 기반 무결성/인간검수 진술/저작권 출처 검증과 실패 케이스. `scripts/ct086-independent-hd-import-e2e.mjs`: **오프라인 합성 PNG 테스트 픽셀 전용**; 실제 환자 교육 그림 생성/승인은 아님. `.github/workflows/global-qa.yml`에 기존 job 단계 2개만 추가.
+- 원본·임상 감사 템플릿: `docs/templates/CT086_INDEPENDENT_ORIGIN_TEMPLATE.json`, `docs/templates/CT086_INDEPENDENT_VISUAL_AUDIT_TEMPLATE.json`. 상세 사용법 `docs/CT086_INDEPENDENT_SOURCE_RUNBOOK_2026-10-15.md`.
+- 앱: v12.74, `2026.10.15-stage24.57`, 캐시 `20261015-stage24-57`. **실제 ct086 새 독립 실사형 PNG는 아직 없음.** 상태 `PIPELINE_CODE_READY / ACTUAL_ART_PENDING`이고 전환 UI 및 검증 인프라만 구축. 의료인 실제 시각검수와 의장님 최종 승인 전에는 이미지 승격 금지.
+- **다음:** 실제 독립 3패널 의학 교육 원본 제작(기존 유료 공급자 자동 사용 금지), 정밀 출처·인체 검사 검수→원본/2K 변환 SHA 확보→Preview 후보 연결→의장님 확인. ct087 순서 대기. 3D Master·Layer·Motion·Copyright Gates 0–5 Stage 23C 필수 로드맵 불변.
+- GitHub Actions / Cloudflare SHA 확인은 HEAD 저장 후 실측 보고할 것. GitHub Push는 한 번만, Claude 2판 HOLD, main 동결, 35분 보고 SUPER-LOCK 준수.
+
 ## 2026-10-15 v12.73 — ct086 금지 공급자 후보 완전 비노출 / 비-Runway 경로 준비
 
 - **신규 개발 지시 '다음':** Runway 사용금지를 모든 서비스 조회/기능 포함 계속 엄수. `index.html`의 ct086 실사형 후보 렌더러는 역사적 in-flight generator가 Runway인 경우 **승인처럼 보이는 JSON이 들어와도 어떤 후보 원본·URL·이미지도 표시하지 않음**. '실사형 검사 도해 · 제작 경로 변경 중' 안내 + 원래 Stable-ID 단계별 검사 도해 유지.
