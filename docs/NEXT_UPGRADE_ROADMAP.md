@@ -1,3 +1,8 @@
+## 2026-10-17 v12.76 — ct086 합성 사진형 미승인 실물 이미지를 앱 리뷰 링크로 등록
+- ChatGPT 내 ImageGen 산출 PNG 원본 1214×1295와 3단 구도 편집 PNG 1024×1536을 `assets/physical-exam-realistic/drafts/`에 **실제 바이트** 저장; GitHub SHA·PNG 무결성 검사. Runway 호출/과거 원본 사용 0회. 편집본은 각 사진이 원래 저해상도 영역을 확대해 **네이티브 HD canonical 아님**. 화면은 '사진형 3장면 시안 크게 보기'와 원본 링크를 제공하면서 임상·저작권 검수 전/환자교육 사용금지 명시.
+- 작업 계약 `EXAM-REAL-001/ct086`. `docs/checkpoints/CT086_IMAGEGEN_REVIEW_PROVENANCE_2026-10-17.md`에 생성/원본/어시스턴트 패널 선택·편집/권리/인간 창작기여 미검증 근거 정리. 정본 profile `PENDING_GENERATION` / ct085 승인 보존. 다음: 의료진이 실물 시각검수로 한쪽 머리회전·몸통 고정·한정된 3 제목·적절한 검사자 개입을 교정하고 원본 고화질 사진형을 재확보 → 원본/rights/human editing Gate → Preview candidate → 의장님 승인 → ct087. ct088 HOLD.
+- 3D/Layer/Motion 첫 두판상근 Pilot `ANATOMY-MASTER-3D-001`, `ANATOMY-IP-2D-001`, `ANATOMY-3D-VIEWER-001`, `ANATOMY-LAYER-001`, `MOTION-ANIM-001` `IP-EVIDENCE-001` `IP-REG-001` 및 `COPYRIGHT-GATE-0~5` MUST DEVELOP/Stage 23C 선행 유지. Claude 2판 HOLD/Production main 동결.
+
 ## 2026-10-15 v12.75 — ct086 3패널 독립 벡터 동작 시안 **실제 앱 검토 링크** / NOT PHOTO-REAL
 
 - 환자·여성 검사자 위치와 능동 경추 좌우회전 등 **시각 구도 검토용 SVG 초안** 1024×1536 신규 추가: `assets/physical-exam-realistic/drafts/ct086-original-pose-layout-review-20261015.svg`. 프로그램 작성 SVG 원본으로 독립 경로에서 생성, 외부 사진·이전 금지 제공자 자산 차용 없음. 정식 사진형 의료 이미지로 승인/표현하지 않는다.

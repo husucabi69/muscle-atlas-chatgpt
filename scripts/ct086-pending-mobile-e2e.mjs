@@ -20,6 +20,9 @@ try{
    draftLinked:!!draft&&url.endsWith('ct086-original-pose-layout-review-20261015.svg'),
    draftServed:loaded,
    draftLabeledAsUnreviewed:(host?.textContent||'').includes('실사형 승인본이 아닙니다'),
+   photographicReviewLink:host?.querySelector('[data-clinical-photo-draft="ct086"]')?.getAttribute('href'),
+   originalProofLink:host?.querySelector('[data-clinical-photo-original="ct086"]')?.getAttribute('href'),
+   photographicDraftUnapproved:(host?.textContent||'').includes('실사형 승인본이나 환자교육 정본이 아닙니다'),
    note:!!host?.querySelector('[data-exam-realistic-provider-blocked="ct086"]'),
    unverified:!!host?.querySelector('[data-exam-realistic-candidate]'),
    schematic:!!host?.querySelector('[data-exam-illustration="custom"]'),
@@ -28,9 +31,18 @@ try{
    overflow:(host?.scrollWidth||0)-(host?.clientWidth||0)
   };
  });
- if(!actual.note||actual.unverified||!actual.schematic||!actual.clinicalText||!actual.honestProviderState||!actual.draftLinked||!actual.draftServed||!actual.draftLabeledAsUnreviewed||actual.overflow>2)
+ const validateReviewPNG=async url=>{
+  if(!url||!url.startsWith('./assets/physical-exam-realistic/drafts/'))return false;
+  const response=await page.request.get(new URL(url,page.url()).toString());
+  const bytes=await response.body();
+  return response.status()===200&&bytes.length>100_000&&
+   bytes.subarray(0,8).equals(Buffer.from('89504e470d0a1a0a','hex'));
+ };
+ const photoReviewOK=await validateReviewPNG(actual.photographicReviewLink);
+ const originalReviewOK=await validateReviewPNG(actual.originalProofLink);
+ if(!actual.note||actual.unverified||!actual.schematic||!actual.clinicalText||!actual.honestProviderState||!actual.draftLinked||!actual.draftServed||!actual.draftLabeledAsUnreviewed||!actual.photographicDraftUnapproved||!photoReviewOK||!originalReviewOK||actual.overflow>2)
   throw Error('CT086 MOBILE SAFETY FAIL '+JSON.stringify(actual));
  fs.mkdirSync('qa-artifacts/ct086-mobile',{recursive:true});
  await page.screenshot({path:'qa-artifacts/ct086-mobile/pending-390px.png',fullPage:true});
- console.log('CT086 MOBILE 390px PASS | existing schematic + independently drawn unapproved pose draft link (correctly labeled) + no banned candidate');
+ console.log('CT086 MOBILE 390px PASS | existing schematic + working photographic/schematic review links; source PNG bytes confirmed; no banned candidate');
 }finally{await browser.close();}

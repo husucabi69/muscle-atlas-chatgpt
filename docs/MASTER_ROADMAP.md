@@ -7,6 +7,12 @@
 정본 상태: Stage 0–12 COMPLETE / Stage 13 Android TWA COMPLETE / Stage 14 Play submission pack PREPARED
 통합 원칙: Muscle Atlas는 독립 학습 앱으로 유지하면서 동일 MSK Knowledge Core를 LYS OrthoOS가 read-only 방식으로 재사용한다.
 
+## 2026-10-17 v12.76 — ct086 비-Runway 합성 사진형 실제 PNG 원본 확보·검토 시안 연결
+
+- 실제 `ct086-imagegen-source-20261017.png` 합성 사진 원본 1214×1295, `ct086-imagegen-triptych-review-20261017.png` 1024×1536 편집 3장면 초안을 개발브랜치에 Git 바이너리로 추가. 앱의 ct086 검수 화면에서 별도 원본/시안 링크로 열람하며, 기존 공식 도해와 정본 레지스트리 승인 상태는 변경하지 않는다.
+- 인체·화살표·동일인물·내장문구 검수 **미통과**; 개별 사진은 확대되었으므로 네이티브 고해상도 승인품 아님; 사용자 승인 전/한국저작권위원회 등록 전. 환자교육에 사용하지 않는다. `docs/checkpoints/CT086_IMAGEGEN_REVIEW_PROVENANCE_2026-10-17.md`가 원본 hash/AI 생성 출처·편집 근거·임상/저작권 미승인 status를 보존한다.
+- **RUNWAY-PROHIBITED** 계속 적용. `EXAM-REAL-001/ct086` ACTIVE, ct087 다음, ct088 HOLD, Claude 2판 HOLD. `ANATOMY-KNOWLEDGE-001`/`ANATOMY-MASTER-3D-001`/`ANATOMY-IP-2D-001`/`ANATOMY-3D-VIEWER-001`/`ANATOMY-LAYER-001`/`MOTION-ANIM-001`/`IP-EVIDENCE-001`/`IP-REG-001`/`COPYRIGHT-GATE-0~5` Stage 23C 전 Must Develop 그대로.
+
 ## 2026-10-15 v12.75 — ct086 독립 2D 벡터 **동작 시안** 출품 (실사형 완제품 아님)
 
 - `EXAM-REAL-001/ct086` 검토 가능한 세패널 벡터 SVG와 앱 링크 추가. 이 그림은 실제 사람이 촬영된/사진같은 실사형 원본이 아니고, 의학 자세·저작권·사용자 승인을 통과하지 않았다. 프로덕션 및 canonical ct086 status 변화 없음.

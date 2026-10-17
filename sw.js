@@ -1,4 +1,4 @@
-// v12.75 development: ct086 independent vector pose layout review-only link; canonical image remains unapproved; stage24.58.
+// v12.76 development: ct086 synthetic photo-like raw PNG and independent 3-panel review draft; clinical/copyright approval remains PENDING; stage24.59.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};

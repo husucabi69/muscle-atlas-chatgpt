@@ -1,5 +1,14 @@
 # CURRENT HANDOFF — 2026-10-14 14:21 KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
 
+## 2026-10-17 v12.76 — ct086 합성 사진형 시안 실제 원본 + 편집본 앱 링크, 검수 전
+- 사용자 '다음' 실제 개발 회차. Runway 서비스 조회/사용 **0건**. ChatGPT 기본 ImageGen 도구로 생성한 **사진처럼 보이는 합성 임상도해 초안**을 비-Runway 파일로 확보. ImageGen `a8ebfc48-ced5-4bea-a08b-b55f9703603e` raw PNG 1214×1295 SHA256 `1217a8fcecbcca209a274757591d078a2eb12704513b6671aa38f88eac071663`, 1,943,231 bytes를 GitHub `assets/physical-exam-realistic/drafts/ct086-imagegen-source-20261017.png`에 binary 그대로 보존.
+- 원본 4사진을 중립 / 좌우 능동회전 / 제한·보상 3장면으로 재배열한 **사진형 미승인 시안** 1024×1536 PNG SHA256 `a86ec3f07765e7dfc87fdbaa39f19f6f31f48fa6ee457b8408845e001bb5d3a3`, 1,033,313 bytes를 `assets/physical-exam-realistic/drafts/ct086-imagegen-triptych-review-20261017.png`에 저장. 비-네이티브 컷 확대이므로 고해상도 canonical 완료 **아님**.
+- 앱 `index.html` → ct086 구 학습 도해 바로 옆 '사진형 3장면 시안 크게 보기' + '합성 생성 원본 확인' 두 직접 링크와 **AI합성, 의학·저작권·사용자 승인 전, 환자교육 정본 아님** 안내. `ct086-original-pose-layout-review-20261015.svg` 종전 벡터 시안도 별도 링크 유지. `data/physical-exam-realistic-assets-v1.json`의 ct086 `PENDING_GENERATION`/옛 공급자 보류/기존 ct085 승인본/ct088 보류 **불변**.
+- GitHub 및 Google Drive '의학' 폴더에 원본과 편집 PNG 실제로 보존. `docs/checkpoints/CT086_IMAGEGEN_REVIEW_PROVENANCE_2026-10-17.md`에 SHA256/Git blob/드라이브 백업/생성 출처/어시스턴트 편집·의학 검수 PENDING 기록. `scripts/ct086-imagegen-triptych-editor.py`는 편집과정을 보존. 인간 창작적 기여 확정/저작권 등록 완료라고 주장 금지.
+- 검증 `scripts/ct086-imagegen-draft-qa.mjs`: 원본·편집본 실제 PNG 전체 CRC/압축 무결성/해시·해상도, 앱 링크/미승인 표시, ct085/ct088 불변. `scripts/ct086-pending-mobile-e2e.mjs`는 390px 모바일에서 실물 PNG 다운로드/서명·SVG 기존 링크·정본 도해 검증. Global QA 기존 job 1단계만 추가, bundle 1 push.
+- **중요 미완료:** 원본에는 한국어/영어 설명이 생성되어 출처 문구 정확도·동일 인물/검사자/손·목·몸통 보상 방향·3제목 only 계약은 실제 임상 검수 미통과. 인공지능 생성+코드 편집만으로 저작권/저작물성 증빙 부족. 의료인 교정·자체 네이티브 HD 장면·저작권 증빙·사용자 승인 선행. `COPYRIGHT-GATE-0~5`와 2D/3D Layer/Motion 두판상근 필수 트랙 유지.
+- 버전 `v12.76` build `2026.10.17-stage24.59`, PWA cache `20261017-stage24-59`. Production/main 변경금지, Claude 2판 HOLD, ct087 이후, ct088 보류. Actions/Cloudflare 결과는 새로운 SHA에서 **실제 확인 후에만** PASS.
+
 ## 2026-10-15 v12.75 — ct086 독립 제작 3장면 **벡터 구도 시안** 최초 제공 / 실제 실사형은 미완료
 
 - 사용자 '다음' 개발: `assets/physical-exam-realistic/drafts/ct086-original-pose-layout-review-20261015.svg` **실제 파일**을 추가했다. 1024×1536, 3패널(1 중립/2 좌우 능동회전/3 제한·보상), 환자·여성 검사자 모티프, 강제 수동회전 없이 독립적인 SVG Path/Gradient로 제작. 온라인 서비스 호출 없음.
