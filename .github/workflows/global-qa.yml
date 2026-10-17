@@ -29,6 +29,8 @@ jobs:
           node-version: '20'
       - name: Enforce development governance policy
         run: node scripts/development-governance-policy-qa.mjs
+      - name: Enforce latest H3Y 35-minute reporting and 50-minute maximum execution protocol
+        run: node scripts/h3y-execution-protocol-qa.mjs
       - name: Verify measured development and report deadline contract
         run: node scripts/verify-development-time-report.mjs --self-test
       - name: Enforce Claude edition-two import pause and ct086 candidate honesty
@@ -123,6 +125,8 @@ jobs:
         run: node scripts/ct086-pose-draft-preview-qa.mjs
       - name: Validate ImageGen synthetic clinical photo draft with exact original and edited PNG hashes
         run: node scripts/ct086-imagegen-draft-qa.mjs
+      - name: Verify ct086 unapproved three-panel clinical review room and immutable source bytes
+        run: node scripts/ct086-review-workspace-qa.mjs
       - name: Run EXAM-REAL review lifecycle QA
         run: node scripts/exam-real-review-lifecycle-qa.mjs
       - name: Run EXAM-REAL lifecycle QA
@@ -232,6 +236,8 @@ jobs:
         run: node scripts/runtime-navigation-e2e.mjs
       - name: Verify ct086 pending clinical artwork mobile fallback
         run: node scripts/ct086-pending-mobile-e2e.mjs
+      - name: Verify ct086 clinical reviewer mobile and desktop view at exact Preview assets
+        run: node scripts/ct086-review-workspace-e2e.mjs
       - name: Verify ct086 registered source matches the exact clinical preview pixels
         run: node scripts/ct086-live-preview-pixel-fidelity-e2e.mjs
       - name: Run custom clinical exam illustration runtime E2E

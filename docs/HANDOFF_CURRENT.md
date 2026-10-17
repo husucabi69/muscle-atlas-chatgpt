@@ -1,5 +1,12 @@
 # CURRENT HANDOFF — 2026-10-14 14:21 KST · EXAM-REAL ct086 exact-HD candidate pipeline v12.72
 
+## 2026-10-17 신규 최상위 개발 운영헌장 — H3Y DEVELOPMENT EXECUTION PROTOCOL v1.0
+- 의장님 최신 지시 우선: 기본 **35분**, 최대 **50분**, **35분에는 반드시 중간/완료 보고**, 필요시 별도 연장승인 없이 50분까지 지속, **50분 HARD STOP 및 최종보고**. 시작/15분/30분/35분/45분/50분에 정해진 상태 점검 및 🟢/🟡/🔴/🔵 실제 활동 상태판을 사용한다.
+- 이 규정은 오래된 2026-10-11 35분 HARD STOP, 2구역 전용 보고, 25~30분 개발 최소시간보다 우선한다. 단, Runway 사용금지·Production/main 동결·ct086/ct085/ct088 승인/보류·Claude 2판 HOLD·Stage 23C 선행 3D/Layer/Motion/CROS Gate는 그대로 유지한다.
+- 상세 정본: `docs/H3Y_DEVELOPMENT_EXECUTION_PROTOCOL_V1.md`. ROADMAP-FIRST 숙독 의무·FAST 우선/묶음 Push/실측 보고 유지.
+- 이번 개발선 `EXAM-REAL-001 / ct086`: 검수 전 인공지능 합성 사진형 3장면 시안은 **의학 정본이 아님**. 별도 큰 화면 검수실 `ct086-review.html`은 원본 바이너리를 그대로 쓰는 **검토용 보기 기능**이며, 전문의 검수/저작권/사용자 승인 완료를 뜻하지 않는다.
+
+
 ## 2026-10-17 v12.76 — ct086 합성 사진형 시안 실제 원본 + 편집본 앱 링크, 검수 전
 - 사용자 '다음' 실제 개발 회차. Runway 서비스 조회/사용 **0건**. ChatGPT 기본 ImageGen 도구로 생성한 **사진처럼 보이는 합성 임상도해 초안**을 비-Runway 파일로 확보. ImageGen `a8ebfc48-ced5-4bea-a08b-b55f9703603e` raw PNG 1214×1295 SHA256 `1217a8fcecbcca209a274757591d078a2eb12704513b6671aa38f88eac071663`, 1,943,231 bytes를 GitHub `assets/physical-exam-realistic/drafts/ct086-imagegen-source-20261017.png`에 binary 그대로 보존.
 - 원본 4사진을 중립 / 좌우 능동회전 / 제한·보상 3장면으로 재배열한 **사진형 미승인 시안** 1024×1536 PNG SHA256 `a86ec3f07765e7dfc87fdbaa39f19f6f31f48fa6ee457b8408845e001bb5d3a3`, 1,033,313 bytes를 `assets/physical-exam-realistic/drafts/ct086-imagegen-triptych-review-20261017.png`에 저장. 비-네이티브 컷 확대이므로 고해상도 canonical 완료 **아님**.

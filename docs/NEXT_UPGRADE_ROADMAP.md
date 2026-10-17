@@ -1,4 +1,11 @@
 ## 2026-10-17 v12.76 — ct086 합성 사진형 미승인 실물 이미지를 앱 리뷰 링크로 등록
+
+## 2026-10-17 신규 최상위 개발 운영헌장 — H3Y DEVELOPMENT EXECUTION PROTOCOL v1.0
+- 의장님 최신 지시 우선: 기본 **35분**, 최대 **50분**, **35분에는 반드시 중간/완료 보고**, 필요시 별도 연장승인 없이 50분까지 지속, **50분 HARD STOP 및 최종보고**. 시작/15분/30분/35분/45분/50분에 정해진 상태 점검 및 🟢/🟡/🔴/🔵 실제 활동 상태판을 사용한다.
+- 이 규정은 오래된 2026-10-11 35분 HARD STOP, 2구역 전용 보고, 25~30분 개발 최소시간보다 우선한다. 단, Runway 사용금지·Production/main 동결·ct086/ct085/ct088 승인/보류·Claude 2판 HOLD·Stage 23C 선행 3D/Layer/Motion/CROS Gate는 그대로 유지한다.
+- 상세 정본: `docs/H3Y_DEVELOPMENT_EXECUTION_PROTOCOL_V1.md`. ROADMAP-FIRST 숙독 의무·FAST 우선/묶음 Push/실측 보고 유지.
+- 이번 개발선 `EXAM-REAL-001 / ct086`: 검수 전 인공지능 합성 사진형 3장면 시안은 **의학 정본이 아님**. 별도 큰 화면 검수실 `ct086-review.html`은 원본 바이너리를 그대로 쓰는 **검토용 보기 기능**이며, 전문의 검수/저작권/사용자 승인 완료를 뜻하지 않는다.
+
 - ChatGPT 내 ImageGen 산출 PNG 원본 1214×1295와 3단 구도 편집 PNG 1024×1536을 `assets/physical-exam-realistic/drafts/`에 **실제 바이트** 저장; GitHub SHA·PNG 무결성 검사. Runway 호출/과거 원본 사용 0회. 편집본은 각 사진이 원래 저해상도 영역을 확대해 **네이티브 HD canonical 아님**. 화면은 '사진형 3장면 시안 크게 보기'와 원본 링크를 제공하면서 임상·저작권 검수 전/환자교육 사용금지 명시.
 - 작업 계약 `EXAM-REAL-001/ct086`. `docs/checkpoints/CT086_IMAGEGEN_REVIEW_PROVENANCE_2026-10-17.md`에 생성/원본/어시스턴트 패널 선택·편집/권리/인간 창작기여 미검증 근거 정리. 정본 profile `PENDING_GENERATION` / ct085 승인 보존. 다음: 의료진이 실물 시각검수로 한쪽 머리회전·몸통 고정·한정된 3 제목·적절한 검사자 개입을 교정하고 원본 고화질 사진형을 재확보 → 원본/rights/human editing Gate → Preview candidate → 의장님 승인 → ct087. ct088 HOLD.
 - 3D/Layer/Motion 첫 두판상근 Pilot `ANATOMY-MASTER-3D-001`, `ANATOMY-IP-2D-001`, `ANATOMY-3D-VIEWER-001`, `ANATOMY-LAYER-001`, `MOTION-ANIM-001` `IP-EVIDENCE-001` `IP-REG-001` 및 `COPYRIGHT-GATE-0~5` MUST DEVELOP/Stage 23C 선행 유지. Claude 2판 HOLD/Production main 동결.

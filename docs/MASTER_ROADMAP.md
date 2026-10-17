@@ -1,5 +1,12 @@
 # Muscle Atlas → LYS OrthoOS 전신 개발 Master Roadmap
 
+## 2026-10-17 신규 최상위 개발 운영헌장 — H3Y DEVELOPMENT EXECUTION PROTOCOL v1.0
+- 의장님 최신 지시 우선: 기본 **35분**, 최대 **50분**, **35분에는 반드시 중간/완료 보고**, 필요시 별도 연장승인 없이 50분까지 지속, **50분 HARD STOP 및 최종보고**. 시작/15분/30분/35분/45분/50분에 정해진 상태 점검 및 🟢/🟡/🔴/🔵 실제 활동 상태판을 사용한다.
+- 이 규정은 오래된 2026-10-11 35분 HARD STOP, 2구역 전용 보고, 25~30분 개발 최소시간보다 우선한다. 단, Runway 사용금지·Production/main 동결·ct086/ct085/ct088 승인/보류·Claude 2판 HOLD·Stage 23C 선행 3D/Layer/Motion/CROS Gate는 그대로 유지한다.
+- 상세 정본: `docs/H3Y_DEVELOPMENT_EXECUTION_PROTOCOL_V1.md`. ROADMAP-FIRST 숙독 의무·FAST 우선/묶음 Push/실측 보고 유지.
+- 이번 개발선 `EXAM-REAL-001 / ct086`: 검수 전 인공지능 합성 사진형 3장면 시안은 **의학 정본이 아님**. 별도 큰 화면 검수실 `ct086-review.html`은 원본 바이너리를 그대로 쓰는 **검토용 보기 기능**이며, 전문의 검수/저작권/사용자 승인 완료를 뜻하지 않는다.
+
+
 > **최상위 우선권 — SUPER-LOCK 2026-10-11:** 기능/완성도/QA/배포보다 **작업시간 및 최종보고 전송시간 준수**가 우선. 수동 개발 25~30분, 30~35분 저장·검증·보고, 33분부터 보고 우선, **35분 HARD STOP + 35분 내 실제 최종보고 전송**. 실측 KST 시각 기재, 미계측은 PASS 아님, 사용자 중단은 USER_STOP_OVERRIDE. 자세한 규칙은 [개발 헌법](DEVELOPMENT_CONSTITUTION.md)과 [인계 정본](HANDOFF_2026-10-11_TIME_SUPREMACY.md)을 따른다.
 
 최초 시행일: 2026-09-24

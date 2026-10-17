@@ -1,4 +1,4 @@
-// v12.76 development: ct086 synthetic photo-like raw PNG and independent 3-panel review draft; clinical/copyright approval remains PENDING; stage24.59.
+// v12.77 development: ct086 synthetic photo-like raw PNG and independent 3-panel review draft; clinical/copyright approval remains PENDING; stage24.60.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -8,6 +8,8 @@ const RUNTIME_CACHE=CACHE_PREFIX+'runtime-'+RELEASE.cacheKey;
 const CORE=[
   './',
   './index.html',
+  './ct086-review.html',
+  './assets/physical-exam-realistic/drafts/ct086-imagegen-triptych-review-20261017.png',
   './app-version.js',
   './scripts/claude-native-muscle-audio-v1.js',
   './scripts/claude-native-muscle-recorded-audio-v1.js',
