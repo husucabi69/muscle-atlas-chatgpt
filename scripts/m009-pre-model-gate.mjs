@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+/**
+ * LYSOS m009 pre-model anatomy gate. Read-only; no external packages.
+ * A PASS means registry consistency only, NOT clinical or visual approval.
+ */
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { resolve, dirname } from 'node:path';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const read=(p)=>JSON.parse(readFileSync(resolve(root,p),'utf8'));
+const fail=[];
+const assert=(condition,message)=>{if(!condition)fail.push(message);};
+const muscles=read('data/muscles-v1.json');
+const registry=read('data/ip-asset-registry-v1.json');
+assert(Array.isArray(muscles),'muscles-v1 must be an array');
+const ids=new Set();
+for(const m of muscles){
+  assert(typeof m.id==='string'&&!ids.has(m.id),'duplicate/invalid ID '+m.id);
+  ids.add(m.id);
+}
+const muscle=muscles.find(m=>m.id==='m009');
+assert(Boolean(muscle),'m009 absent');
+assert(registry.stable_id==='m009','IP registry ID mismatch');
+assert(registry.source_registry==='data/muscles-v1.json','IP source mismatch');
+if(muscle){
+  assert(muscle.ko==='두판상근'&&muscle.en==='Splenius capitis','m009 identity mismatch');
+  for(const k of ['origin','insertion','function','nerve','blood'])assert(typeof muscle[k]==='string'&&muscle[k].length>0,'missing '+k);
+  assert(/동측/.test(muscle.function)&&/신전/.test(muscle.function),'laterality/function mismatch');
+}
+assert(registry.model?.editable_source===null&&registry.model?.gltf_export===null,'unreviewed master declared');
+assert(registry.clinical_review==='PENDING','clinical approval requires separate evidence');
+const warnings=[];
+if(muscles.length!==205)warnings.push('Canonical dataset contains '+muscles.length+' entries, not 205; reconcile coverage before claiming complete atlas.');
+if(muscle&&/주관절/.test(muscle.mmt))warnings.push('m009 MMT contains unrelated elbow-joint text; requires specialist correction.');
+if(!registry.external_anatomy_references_verified)warnings.push('Independent anatomy references not verified.');
+console.log(JSON.stringify({gate:'m009-pre-model',status:fail.length?'FAIL':'PASS_REGISTRY_ONLY',muscle_count:muscles.length,errors:fail,warnings},null,2));
+if(fail.length)process.exitCode=1;
