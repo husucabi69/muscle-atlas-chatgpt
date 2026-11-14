@@ -207,6 +207,20 @@ button,input{font:inherit} button{cursor:pointer}
 .claude-hosting-badge.pending{background:#fff8e8;border-color:#ead49b;color:#7b5a00}
 @media(max-width:720px){.odt-summary{grid-template-columns:1fr 1fr}}
 
+
+/* LYSOS dual light themes: White default, legacy Light retained. */
+html[data-lys-theme="white"]{--bg:#fff;--ink:#172534;--muted:#516273;--line:#dce3ea;--soft:#f6f8fa;--blue:#245b82;--shadow:0 8px 22px rgba(21,38,54,.045);color-scheme:light}
+html[data-lys-theme="white"] body{background:#fff;color:var(--ink)}
+html[data-lys-theme="white"] .header,html[data-lys-theme="white"] .modal-top{background:rgba(255,255,255,.98)}
+html[data-lys-theme="white"] :is(.card,.symptom-card,.symptom-group-choice,.muscle-btn,.region-muscle,.result-btn,.region-block,.region-choice,.drill-menu-item,.anatomy-detail-head,.anatomy-detail-tab,.modal,.box,.media,.pill,.tab,.backbtn,.tag,.region-back,.symptom-group-back){background:#fff;border-color:var(--line)}
+html[data-lys-theme="white"] :is(.tab.active,.anatomy-detail-tab.active){background:#245b82;color:#fff;border-color:#245b82}
+html[data-lys-theme="white"] :is(.primary){background:#245b82;color:#fff}
+html[data-lys-theme="white"] :is(input,textarea,select){background:#fff;color:var(--ink);border-color:var(--line)}
+html[data-lys-theme="white"] :is(.note,.greenbox,.amberbox,.pathbox){background:#f9fbfc}
+.lys-theme-picker{display:flex;align-items:center;gap:6px;flex-shrink:0;font-size:12px;color:var(--muted)}
+.lys-theme-picker select{font:inherit;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:8px 6px;max-width:110px}
+.lys-theme-picker select:focus-visible{outline:3px solid #8bb8df;outline-offset:2px}
+@media(max-width:850px){.head-inner{flex-wrap:wrap}.lys-theme-picker{margin-left:auto}.tabs{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap}}
 </style>
 </head>
 <body>
@@ -214,6 +228,7 @@ button,input{font:inherit} button{cursor:pointer}
 <div class="header">
   <div class="head-inner">
     <div class="brand"><img src="./assets/lysos-symbol.svg" alt="LYSOS · 이윤석정형외과 학술"><div><h1>이윤석정형외과 학술</h1><small><strong style="color:#0e766e">LYSOS</strong> · <span id="appVersionLabel">버전 확인 중…</span></small></div></div>
+    <label class="lys-theme-picker" for="lysThemeSelect">화면 <select id="lysThemeSelect" aria-label="화면 색상 선택"><option value="white">화이트</option><option value="light">기존 라이트</option></select></label>
     <div class="tabs">
       <button class="tab active" data-page="home">홈</button>
       <button class="tab patient-tab" data-page="education">환자 운동·스트레칭</button>
@@ -5914,5 +5929,21 @@ loadClaudeLibrary();
 <script src="./scripts/claude-native-muscle-series-v1.js"></script>
 <script src="./scripts/claude-compendium-native-reader-v1.js"></script>
 <script src="./scripts/lysos-global-academic-search-v1.js"></script>
+<script>
+/* Local-only preference: do not touch medical content or navigation. */
+(function(){
+  var key='lysos.theme.v1', value='white';
+  try { var saved=localStorage.getItem(key); if(saved==='white'||saved==='light')value=saved; } catch(_){}
+  document.documentElement.setAttribute('data-lys-theme',value);
+  var picker=document.getElementById('lysThemeSelect');
+  if(!picker)return;
+  picker.value=value;
+  picker.addEventListener('change',function(){
+    if(picker.value!=='white'&&picker.value!=='light')return;
+    document.documentElement.setAttribute('data-lys-theme',picker.value);
+    try{localStorage.setItem(key,picker.value)}catch(_){}
+  });
+})();
+</script>
 </body>
 </html>
