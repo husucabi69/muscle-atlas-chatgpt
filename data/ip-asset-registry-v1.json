@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "asset_family": "splenius-capitis-pilot",
+  "stable_id": "m009",
+  "name_ko": "두판상근",
+  "name_en": "Splenius capitis",
+  "status": "knowledge_reconciled_review_pending",
+  "human_author_editor": {
+    "designation": "의장님 (사용자 승인에 따른 예정 표기)",
+    "identity_legal_name": "TO_CONFIRM_BEFORE_FILING",
+    "creative_contribution_evidence": "NOT_YET_DOCUMENTED",
+    "authorship_claim": "PENDING_ACTUAL_HUMAN_CREATIVE_INPUT"
+  },
+  "rights_owner": "UNDECIDED_BEFORE_FILING",
+  "source_registry": "data/muscles-v1.json",
+  "source_registry_sha": "3a01b40fbe0390c9246f5ac46e569651a66fda3e",
+  "knowledge_doc": "docs/anatomy/splenius-capitis-knowledge-v1.md",
+  "evidence_doc": "docs/ip-evidence/splenius-capitis-pilot-v1.md",
+  "external_anatomy_references_verified": false,
+  "clinical_review": "PENDING",
+  "known_content_issue": {
+    "field": "mmt",
+    "source_text": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+    "assessment": "Apparent unrelated elbow-extension examination text; specialist review required",
+    "source_data_modified": false
+  },
+  "model": {
+    "editable_source": null,
+    "gltf_export": null,
+    "sha256": null,
+    "anatomical_review": "PENDING",
+    "visual_review": "PENDING"
+  },
+  "plate_2d": null,
+  "layer_scene": null,
+  "motion": null,
+  "cros_filing": null,
+  "tool_usage": [
+    "AI-assisted anatomy drafting",
+    "GitHub API text edits"
+  ],
+  "copyright_caution": "No claim of AI-only authorship or completed original mesh."
+}
