@@ -2,7 +2,7 @@
 Status: DRAFT / SPECIALIST REVIEW REQUIRED / NOT AN APPROVED MODEL
 Date: 2026-11-15 KST
 Parent: docs/ANATOMY_IP_3D_MOTION_CONTRACT.md
-Stable ID: UNRESOLVED — must match existing canonical 205-muscle registry; do not assign a new m### by assumption.
+Stable ID: **m009** — verified against `data/muscles-v1.json` on `preview/development` (2026-11-15).
 
 ## 1. Anatomical facts — provisional, cross-reference required
 - Korean: 두판상근; Latin: musculus splenius capitis; English: splenius capitis.
@@ -32,11 +32,22 @@ Stable ID: UNRESOLVED — must match existing canonical 205-muscle registry; do 
 | Fiber course and depth | Cross-sectional/dissection-based factual references | PENDING |
 | Dorsal rami and vascular adjacency | Anatomical references, level-specific uncertainty documented | PENDING |
 | Bilateral and unilateral actions | Functional anatomy references | PENDING |
-| Canonical Stable ID/O-I-F-N agreement | Existing app registry and Claude content mapping | PENDING |
+| Canonical Stable ID and O/I/F/N source | `data/muscles-v1.json` entry `m009` located and transcribed; external verification remains outstanding | PARTIAL |
 | Human clinical review | Orthopedic specialist recorded sign-off | PENDING |
 | Human modeling authorship | Editable model, decisions and revision history | PENDING |
 
 Reference candidates for *fact checking*, not copied illustrations: standard clinical anatomy texts and peer-reviewed anatomical literature. Exact edition/page/URL and independently checked claims must be added before the clinical gate. No source was independently verified in this document.
+
+## 3A. Canonical data reconciliation — 2026-11-15
+Existing `data/muscles-v1.json` entry `m009`:
+- Origin: 항인대 하반, C7-T3/4 극돌기.
+- Insertion: 유양돌기, 상항선 외측 1/3.
+- Function: 양측 신전; 편측 동측 회전·측굴.
+- Nerve: 경신경 후지(주로 C3-C4), **level-specific attribution unverified**.
+- Blood: 상행경동맥·심경동맥·후두/척추동맥의 근육가지 — **vessel naming and attribution require independent clinical review before reuse**.
+- **Existing MMT field contains an apparent copy/paste error:** "주관절의 주신전 방향에 반대 저항" describes elbow extension, not cervical muscle testing. This is a documented clinical-content defect; do not use it to build motion or examination guidance. Existing production data is left unchanged pending review.
+- Existing anatomy media for `m009` is a third-party historical illustration; it must not be used as the texture, tracing basis or original 3D IP master.
+- Exact references and anatomical review remain pending. This is reconciliation, **not** clinical approval.
 
 ## 4. Acceptance criteria for first editable 3D master
 1. Reproducible source project plus glTF/GLB export, same anatomy and stable ID.
