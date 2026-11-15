@@ -5,7 +5,7 @@
 :root{color-scheme:light;font:16px/1.6 system-ui,-apple-system,"Noto Sans KR",sans-serif;background:#fff;color:#17212b}
 *{box-sizing:border-box}body{margin:0 auto;padding:20px;max-width:1100px}
 header{border-bottom:1px solid #dce3e9;padding-bottom:12px}h1{font-size:1.55rem;margin:8px 0}
-small,.muted{color:#52606d}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}
+small,.muted{color:#52606d}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:20px 0}
 .stat{background:#f2f6f9;border:1px solid #dfe8ed;border-radius:10px;padding:12px;text-align:center}
 .stat strong{display:block;font-size:1.65rem}label{display:block;font-weight:600;margin:12px 0 4px}
 input,select{font:inherit;border:1px solid #9aabb9;border-radius:8px;padding:11px;width:100%;background:#fff;color:inherit}
@@ -13,12 +13,12 @@ input,select{font:inherit;border:1px solid #9aabb9;border-radius:8px;padding:11p
 table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid #e2e8ed;text-align:left;vertical-align:top}
 th{background:#f3f6f8;position:sticky;top:0}.tag{font-size:.79rem;padding:3px 7px;border-radius:6px;background:#e7f1ed;color:#145941;white-space:nowrap}
 .tag.pending{background:#fff1d7;color:#7b4b04}.table-wrap{overflow-x:auto}a{color:#125e96}
-@media(max-width:580px){.controls{grid-template-columns:1fr}body{padding:12px}th,td{padding:8px;font-size:.89rem}.stat strong{font-size:1.3rem}}
+@media(max-width:580px){.stats{grid-template-columns:repeat(2,1fr)}.controls{grid-template-columns:1fr}body{padding:12px}th,td{padding:8px;font-size:.89rem}.stat strong{font-size:1.3rem}}
 </style></head><body>
 <header><a href="./index.html">← LYSOS 메인으로</a><h1>해부학 데이터 검증실</h1><p class="muted">실제 앱의 Knowledge Core 205개 근육 기록을 우선 확인합니다. 파일 로딩 실패 시 제한된 예비 데이터로 전환합니다.</p></header>
-<div class="stats" aria-live="polite"><div class="stat"><strong id="all">—</strong><small>식별자 합계</small></div><div class="stat"><strong id="full">—</strong><small>기본정보 포함</small></div><div class="stat"><strong id="pending">—</strong><small>기본정보 미포함</small></div></div>
+<div class="stats" aria-live="polite"><div class="stat"><strong id="all">—</strong><small>식별자 합계</small></div><div class="stat"><strong id="full">—</strong><small>기본정보 포함</small></div><div class="stat"><strong id="pending">—</strong><small>기본정보 미포함</small></div><div class="stat"><strong id="held">—</strong><small>근력검사 보류</small></div></div>
 <div class="notice">주의: 실제 Knowledge Core에는 205개 근육의 기시·정지·기능·신경지배 기록이 있습니다. 다만 전체 전문의 검증 완료를 뜻하지 않습니다. 38개 근육의 잘못된 근력검사 문구는 임상 사용 보류 처리되었습니다.</div>
-<div class="controls"><div><label for="query">근육명·영문명·ID 검색</label><input id="query" type="search" placeholder="예: 두판상근, Splenius, m009" autocomplete="off"></div><div><label for="filter">상태</label><select id="filter"><option value="all">전체</option><option value="existing">기본정보 있음</option><option value="pending">기본정보 없음</option></select></div></div>
+<div class="controls"><div><label for="query">근육명·영문명·ID 검색</label><input id="query" type="search" placeholder="예: 두판상근, Splenius, m009" autocomplete="off"></div><div><label for="filter">상태</label><select id="filter"><option value="all">전체</option><option value="existing">기본정보 있음</option><option value="pending">기본정보 없음</option><option value="held">근력검사 보류</option></select></div></div>
 <p id="count" role="status"></p><div class="table-wrap"><table><thead><tr><th>ID</th><th>근육 (한글 / English)</th><th>데이터 상태</th></tr></thead><tbody id="rows"></tbody></table></div>
 <p class="muted">실제 런타임 원본: data/knowledge-core-v1.json. 예비 데이터: data/muscles-v1.json + 22개 명칭 목록. 임상 검수·3D Master·CROS 등록·실기기 QA는 별도입니다.</p>
 <script type="module">
@@ -28,13 +28,14 @@ let muscles=[];
 let source='';
 function render(){
  const q=$('query').value.trim().toLocaleLowerCase(),f=$('filter').value;
- const filtered=muscles.filter(m=>(f==='all'||(f==='pending')===(!clinicalDetailsAvailable(m)))&&[m.id,m.ko,m.en].some(s=>s.toLocaleLowerCase().includes(q)));
+ const filtered=muscles.filter(m=>(f==='all'||(f==='held'?(m.mmt||'').includes('임상 사용을 보류'):(f==='pending')===(!clinicalDetailsAvailable(m))))&&[m.id,m.ko,m.en].some(s=>s.toLocaleLowerCase().includes(q)));
  $('count').textContent=filtered.length+'개 항목 표시 · '+source;
  $('rows').replaceChildren(...filtered.map(m=>{
   const tr=document.createElement('tr'),id=document.createElement('td'),name=document.createElement('td'),status=document.createElement('td'),tag=document.createElement('span');
   id.textContent=m.id;name.textContent=m.ko+' ('+m.en+')';
   const pending=!clinicalDetailsAvailable(m);
-  tag.className='tag'+(pending?' pending':'');tag.textContent=pending?'기본정보 없음':'기본정보 있음';status.append(tag);tr.append(id,name,status);return tr;
+  tag.className='tag'+(pending?' pending':'');tag.textContent=pending?'기본정보 없음':'기본정보 있음';status.append(tag);
+  if((m.mmt||'').includes('임상 사용을 보류')){const warn=document.createElement('span');warn.className='tag pending';warn.textContent='MMT 보류';warn.style.marginLeft='4px';status.append(warn);}tr.append(id,name,status);return tr;
  }));
 }
 $('query').addEventListener('input',render);$('filter').addEventListener('change',render);
@@ -50,7 +51,7 @@ try{
    source='예비 데이터 (Knowledge Core 로딩 실패)';
  }
  const count=muscles.filter(clinicalDetailsAvailable).length;
- $('all').textContent=muscles.length;$('full').textContent=count;$('pending').textContent=muscles.length-count;
+ $('all').textContent=muscles.length;$('full').textContent=count;$('pending').textContent=muscles.length-count;$('held').textContent=muscles.filter(m=>(m.mmt||'').includes('임상 사용을 보류')).length;
  render();
 }catch(e){$('count').textContent='데이터 로딩 실패: '+String(e.message||e);$('count').style.color='#a22'}
 
