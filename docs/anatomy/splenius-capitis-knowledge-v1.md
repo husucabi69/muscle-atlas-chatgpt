@@ -26,6 +26,13 @@ Checked independent sources for **splenius capitis (m009)**:
 - No source images/figures have been copied into the project; licensed reference visuals must be evaluated separately.
 - This cross-check does **not** constitute approval of original 3D proportions, rig, animation, clinical treatment, copyright authorship or CROS filing.
 
+## 2026-11-15 connected Claude OS cervical textbook comparison
+- Source located and read in the user's Google Drive: `클로드_근육학_08권_경추.html`, section **s5 판상근**, file ID `1hKJNbP1K3qwvQZSOKSmZItEmDiRvO0BW`. Reference link: https://drive.google.com/file/d/1hKJNbP1K3qwvQZSOKSmZItEmDiRvO0BW/view
+- It independently describes lower nuchal ligament/C7–T3/T4 origin, mastoid/lateral superior nuchal line insertion, superolateral course, deep relation to trapezius and superficial relation to semispinalis capitis, bilateral extension and ipsilateral rotation/lateral flexion.
+- Its **C3–C5** innervation description differs from the NCBI/Elsevier **C2–C3** description and the current runtime **C3–C4**. This is a **documented source disagreement**, not grounds to assert any single level as certain without specialist adjudication.
+- Its clinical movement examination describes resistance against combined ipsilateral rotation and extension; this is useful as a proposed functional assessment, **not evidence of a validated isolated splenius capitis MRC grade**.
+- The source HTML includes embedded raster figures. They were **not copied** into original 3D or 2D master assets; rights/provenance must be checked separately.
+
 ## 1. Anatomical facts — provisional, cross-reference required
 - Korean: 두판상근; Latin: musculus splenius capitis; English: splenius capitis.
 - Region: posterior cervical musculature; deep to trapezius and sternocleidomastoid in relevant portions, superficial to deeper intrinsic cervical muscles.
