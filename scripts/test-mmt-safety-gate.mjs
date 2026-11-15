@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Patient-safety gate: 38 copied elbow MMT instructions are quarantined in
- * canonical JSON and embedded offline PWA fallback. Does not approve new MMT.
+ * the 205-record runtime core, 183-record legacy export and offline PWA fallback. Does not approve new MMT.
  */
 import {strict as assert} from 'node:assert';
 import {readFileSync} from 'node:fs';
