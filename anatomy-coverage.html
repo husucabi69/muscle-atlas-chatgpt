@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LYSOS 해부학 데이터 검증실 — 205 ID</title>
+<style>
+:root{color-scheme:light;font:16px/1.6 system-ui,-apple-system,"Noto Sans KR",sans-serif;background:#fff;color:#17212b}
+*{box-sizing:border-box}body{margin:0 auto;padding:20px;max-width:1100px}
+header{border-bottom:1px solid #dce3e9;padding-bottom:12px}h1{font-size:1.55rem;margin:8px 0}
+small,.muted{color:#52606d}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}
+.stat{background:#f2f6f9;border:1px solid #dfe8ed;border-radius:10px;padding:12px;text-align:center}
+.stat strong{display:block;font-size:1.65rem}label{display:block;font-weight:600;margin:12px 0 4px}
+input,select{font:inherit;border:1px solid #9aabb9;border-radius:8px;padding:11px;width:100%;background:#fff;color:inherit}
+.controls{display:grid;grid-template-columns:2fr 1fr;gap:12px}.notice{padding:12px;border-left:4px solid #a86b13;background:#fff8ea;margin:15px 0}
+table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid #e2e8ed;text-align:left;vertical-align:top}
+th{background:#f3f6f8;position:sticky;top:0}.tag{font-size:.79rem;padding:3px 7px;border-radius:6px;background:#e7f1ed;color:#145941;white-space:nowrap}
+.tag.pending{background:#fff1d7;color:#7b4b04}.table-wrap{overflow-x:auto}a{color:#125e96}
+@media(max-width:580px){.controls{grid-template-columns:1fr}body{padding:12px}th,td{padding:8px;font-size:.89rem}.stat strong{font-size:1.3rem}}
+</style></head><body>
+<header><a href="./index.html">← LYSOS 메인으로</a><h1>해부학 데이터 검증실</h1><p class="muted">205개 Stable ID와 임상 기본정보 보유 상태를 분리해 표시합니다. 도해 감사는 임상 내용 검증과 다릅니다.</p></header>
+<div class="stats" aria-live="polite"><div class="stat"><strong id="all">—</strong><small>식별자 합계</small></div><div class="stat"><strong id="full">—</strong><small>기존 O/I/F/N 기록</small></div><div class="stat"><strong id="pending">—</strong><small>명칭만 복원</small></div></div>
+<div class="notice">주의: 기존 183개도 전문의 개별 검증 완료를 의미하지 않습니다. 추가 22개는 기시·정지·기능·신경지배가 비어 있으며 임상 안내에 사용해서는 안 됩니다.</div>
+<div class="controls"><div><label for="query">근육명·영문명·ID 검색</label><input id="query" type="search" placeholder="예: 두판상근, Splenius, m009" autocomplete="off"></div><div><label for="filter">상태</label><select id="filter"><option value="all">전체</option><option value="existing">기존 기본정보 있음</option><option value="pending">명칭만 복원</option></select></div></div>
+<p id="count" role="status"></p><div class="table-wrap"><table><thead><tr><th>ID</th><th>근육 (한글 / English)</th><th>데이터 상태</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">원본: data/muscles-v1.json + data/m184-m205-recovery-inventory-v1.json. 원본 3D Master·CROS 등록·실기기 QA는 이 화면과 별도입니다.</p>
+<script type="module">
+import {resolveMuscleAtlas} from './src/anatomy/canonical-muscle-resolver.mjs';
+const $=id=>document.getElementById(id);
+let muscles=[];
+function render(){
+ const q=$('query').value.trim().toLocaleLowerCase(),f=$('filter').value;
+ const filtered=muscles.filter(m=>(f==='all'||(f==='pending')===(m.clinical_data_status==='IDENTITY_ONLY_NO_OIFN'))&&[m.id,m.ko,m.en].some(s=>s.toLocaleLowerCase().includes(q)));
+ $('count').textContent=filtered.length+'개 항목 표시';
+ $('rows').replaceChildren(...filtered.map(m=>{
+  const tr=document.createElement('tr'),id=document.createElement('td'),name=document.createElement('td'),status=document.createElement('td'),tag=document.createElement('span');
+  id.textContent=m.id;name.textContent=m.ko+' ('+m.en+')';
+  const pending=m.clinical_data_status==='IDENTITY_ONLY_NO_OIFN';
+  tag.className='tag'+(pending?' pending':'');tag.textContent=pending?'명칭만 복원':'기존 기본정보';status.append(tag);tr.append(id,name,status);return tr;
+ }));
+}
+$('query').addEventListener('input',render);$('filter').addEventListener('change',render);
+try{
+ const [a,b]=await Promise.all(['./data/muscles-v1.json','./data/m184-m205-recovery-inventory-v1.json'].map(async p=>{const r=await fetch(p,{cache:'no-store'});if(!r.ok)throw Error(p+' HTTP '+r.status);return r.json()}));
+ muscles=resolveMuscleAtlas(a,b);
+ $('all').textContent=muscles.length;$('full').textContent=a.length;$('pending').textContent=b.records.length;render();
+}catch(e){$('count').textContent='데이터 로딩 실패: '+String(e.message||e);$('count').style.color='#a22'}
+</script></body></html>
