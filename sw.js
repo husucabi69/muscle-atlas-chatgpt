@@ -1,4 +1,4 @@
-// v12.77 development: ct086 synthetic photo-like raw PNG and independent 3-panel review draft; clinical/copyright approval remains PENDING; stage24.60.
+// v12.78 preview: anatomy 205 runtime Knowledge Core and clinical MMT safety holds; no production or specialist approval.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -8,6 +8,10 @@ const RUNTIME_CACHE=CACHE_PREFIX+'runtime-'+RELEASE.cacheKey;
 const CORE=[
   './',
   './index.html',
+  './anatomy-coverage.html',
+  './src/anatomy/canonical-muscle-resolver.mjs',
+  './data/muscles-v1.json',
+  './data/m184-m205-recovery-inventory-v1.json',
   './ct086-review.html',
   './assets/physical-exam-realistic/drafts/ct086-imagegen-triptych-review-20261017.png',
   './app-version.js',
@@ -302,7 +306,8 @@ self.addEventListener('fetch',event=>{
     return;
   }
   if(isNavigation){
-    event.respondWith(networkFirst(event.request,'./index.html'));
+    const isAnatomyCoverage=path.endsWith('/anatomy-coverage.html')||path.endsWith('/anatomy-coverage');
+    event.respondWith(networkFirst(event.request,isAnatomyCoverage?'./anatomy-coverage.html':'./index.html'));
     return;
   }
 
@@ -310,7 +315,7 @@ self.addEventListener('fetch',event=>{
   // cached script once on PWA startup mixes new HTML with old runtime code.
   // Load app assets from the network on every online launch, falling back to
   // the verified cache only when offline. Original HTML has its separate SHA gate.
-  const isAppShellAsset=/\.(?:js|css)$/i.test(path);
+  const isAppShellAsset=/\.(?:js|mjs|css)$/i.test(path);
   if(isFreshnessCritical||isAppShellAsset){
     event.respondWith(networkFirst(event.request));
     return;
