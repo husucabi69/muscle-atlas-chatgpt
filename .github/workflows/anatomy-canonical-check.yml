@@ -8,6 +8,8 @@ on:
       - 'data/mmt-safety-hold-v1.json'
       - 'index.html'
       - 'anatomy-coverage.html'
+      - 'sw.js'
+      - 'app-version.js'
       - 'data/m184-m205-recovery-inventory-v1.json'
       - 'data/muscle-illustration-audit-v1.json'
       - 'docs/CLAUDE_186_AUDIT.md'
@@ -18,6 +20,7 @@ on:
       - 'scripts/test-mmt-safety-gate.mjs'
       - 'scripts/test-knowledge-core-legacy-sync.mjs'
       - 'scripts/test-anatomy-coverage-page.mjs'
+      - 'scripts/test-anatomy-pwa-cache.mjs'
       - '.github/workflows/anatomy-canonical-check.yml'
   workflow_dispatch:
 permissions:
@@ -34,6 +37,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify preview PWA cache and offline navigation
+        run: node scripts/test-anatomy-pwa-cache.mjs
       - name: Verify Galaxy coverage page syntax and source routing
         run: node scripts/test-anatomy-coverage-page.mjs
       - name: Verify 205 identity resolution without invented clinical details
