@@ -21,6 +21,7 @@ on:
       - 'scripts/test-knowledge-core-legacy-sync.mjs'
       - 'scripts/test-anatomy-coverage-page.mjs'
       - 'scripts/test-anatomy-pwa-cache.mjs'
+      - 'scripts/auto-update-qa.mjs'
       - '.github/workflows/anatomy-canonical-check.yml'
   workflow_dispatch:
 permissions:
@@ -37,6 +38,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify existing PWA auto-update contract
+        run: node scripts/auto-update-qa.mjs
       - name: Verify preview PWA cache and offline navigation
         run: node scripts/test-anatomy-pwa-cache.mjs
       - name: Verify Galaxy coverage page syntax and source routing
