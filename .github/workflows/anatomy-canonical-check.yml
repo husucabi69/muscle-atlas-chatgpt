@@ -26,6 +26,7 @@ on:
       - 'scripts/test-mmt-safety-gate.mjs'
       - 'scripts/test-knowledge-core-legacy-sync.mjs'
       - 'scripts/test-anatomy-coverage-page.mjs'
+      - 'scripts/test-galaxy-compact-nav.mjs'
       - 'scripts/test-anatomy-pwa-cache.mjs'
       - 'scripts/auto-update-qa.mjs'
       - '.github/workflows/anatomy-canonical-check.yml'
@@ -50,6 +51,8 @@ jobs:
         run: node scripts/test-anatomy-pwa-cache.mjs
       - name: Verify Galaxy coverage page syntax and source routing
         run: node scripts/test-anatomy-coverage-page.mjs
+      - name: Verify Galaxy compact horizontal navigation
+        run: node scripts/test-galaxy-compact-nav.mjs
       - name: Verify 205 identity resolution without invented clinical details
         run: node scripts/test-canonical-muscle-resolver.mjs
       - name: Verify 205 runtime and 183 legacy records remain synchronized
