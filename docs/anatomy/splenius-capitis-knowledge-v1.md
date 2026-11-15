@@ -4,6 +4,12 @@ Date: 2026-11-15 KST
 Parent: docs/ANATOMY_IP_3D_MOTION_CONTRACT.md
 Stable ID: **m009** — verified against `data/muscles-v1.json` on `preview/development` (2026-11-15).
 
+## 2026-11-15 clinical source correction and safety hold
+- **Actual runtime source:** `data/knowledge-core-v1.json` has 205 O/I/F/N muscle records, including `m009`. The 183-record `data/muscles-v1.json` and embedded array are legacy fallback mirrors. This supersedes earlier suggestions that 22 full runtime records were missing.
+- The `m009` MMT field formerly described resisted elbow extension. It is now explicitly **held for specialist review** in runtime, legacy, and offline fallback. `data/mmt-safety-hold-v1.json` records the original unsafe text and 37 additional non-elbow muscles with the same template error.
+- **No validated replacement isolated MMT** is asserted for splenius capitis. The current hold text is a safety notice, not an examination protocol.
+- Independent anatomy references, specialist review, original 3D Master and CROS registration remain PENDING.
+
 ## 1. Anatomical facts — provisional, cross-reference required
 - Korean: 두판상근; Latin: musculus splenius capitis; English: splenius capitis.
 - Region: posterior cervical musculature; deep to trapezius and sternocleidomastoid in relevant portions, superficial to deeper intrinsic cervical muscles.
