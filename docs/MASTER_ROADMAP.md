@@ -1,5 +1,15 @@
 # Muscle Atlas → LYS OrthoOS 전신 개발 Master Roadmap
 
+## 2026-11-15 09:20 KST — Latest: ANATOMY-205-SAFE-RESOLVER + MOBILE COVERAGE QA SCREEN
+- **Implemented, preview/development only**: `src/anatomy/canonical-muscle-resolver.mjs` merges 183 existing full-data records with 22 identity-only recovered records, preserving null O/I/F/N for unverified 22; throws on duplicate IDs and malformed identity.
+- `scripts/test-canonical-muscle-resolver.mjs` covers 205 ID sequence, 183 existing, 22 identity-only, no fabricated O/I/F/N, duplicate/malformed guards. `.github/workflows/anatomy-canonical-check.yml` provides Node 22 CI with m009 and coverage audit. **Actual GitHub Actions status NOT CONFIRMED; never claim Node PASS without logs**.
+- `anatomy-coverage.html` is a real Galaxy-responsive read-only inspection screen with search/status filter, live data fetching and safe textContent. `index.html` links to it and corrects previously misleading public claims of 205 full O/I/F/N and blanket QA. **Preview deployment and Galaxy QA NOT CONFIRMED**.
+- Source research: m184–m205 historical ID/name coverage exists in illustration audit and `docs/CLAUDE_186_AUDIT.md`, but canonical `data/muscles-v1.json` and embedded `index.html` have only m001–m183; checked older branches dev/v8.0, dev/v8.1, dev/v8.2 and main: same 183-entry blob. Do not fabricate missing 22 O/I/F/N.
+- Static cross-file inspection via GitHub connector passed: 183+22=205, no duplicate/missing ID, no name mismatch with illustration audit. This is **not** a substitute for Node execution or mobile QA.
+- **Next exact unit**: inspect GitHub Actions results for workflow, correct failures, verify preview deployment and Galaxy real device; then locate verified O/I/F/N for 22 from authorized medical sources, with specialist sign-off. m009 original editable photorealistic 3D master remains NOT BUILT, CROS NOT FILED.
+- Latest code commit before handoff: `47794243037670579b553eee9dab6e3221b1df7d`. Main/production frozen; no user approval to promote.
+
+
 ## 2026-11-15 09:17 KST — ANATOMY-205-RECOVERY-INVENTORY (latest workline)
 - User-mandated workflow: actual KST start/end/duration, one meaningful >=25min target, no micro-task reports, finish with what/results/next, always update this handoff + roadmap. Never fabricate elapsed time; actual session constraints may cause an explicit shortfall.
 - **Source reconciliation advanced**: `data/muscles-v1.json` has 183 O/I/F/N entries; `docs/CLAUDE_186_AUDIT.md` identifies m184–m205; `data/muscle-illustration-audit-v1.json` independently contains all 22 IDs, Korean/English names and illustration review statuses. These are real legacy references, **not 22 full anatomical master records**.
