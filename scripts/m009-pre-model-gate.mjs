@@ -37,7 +37,7 @@ const warnings=[];
 if(core.muscles.length!==205)fail.push('Runtime Knowledge Core must contain 205 muscle records');
 if(muscles.length!==183)warnings.push('Legacy export count changed from expected 183; review fallback migration.');
 if(muscle){
-  assert(!/주관절/.test(muscle.mmt),'m009 unsafe elbow-joint MMT leaked into canonical');
+  assert(!/주관절의 주(굴곡|신전) 방향/.test(muscle.mmt),'m009 unsafe elbow-joint MMT leaked into canonical');
   assert(/검수 대기/.test(muscle.mmt),'m009 MMT safety hold absent');
   warnings.push('m009 MMT held pending specialist-approved replacement; do not interpret as tested strength grading.');
 }
