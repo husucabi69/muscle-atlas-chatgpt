@@ -23,7 +23,7 @@ check('old release caches are deleted',sw.includes("key.startsWith(CACHE_PREFIX)
 check('manual safe activation supported',sw.includes("message.type==='SKIP_WAITING'")&&sw.includes('self.skipWaiting()'));
 check('install does not take over a live lecture',!sw.slice(sw.indexOf("self.addEventListener('install'"),sw.indexOf("self.addEventListener('activate'")).includes('skipWaiting()'));
 check('clients.claim enabled',sw.includes('self.clients.claim()'));
-check('navigation is network-first',sw.includes("if(isNavigation)")&&sw.includes("networkFirst(event.request,'./index.html')"));
+check('navigation is network-first with correct offline fallback',sw.includes("if(isNavigation)")&&sw.includes("networkFirst(event.request,isAnatomyCoverage?'./anatomy-coverage.html':'./index.html')"));
 check('fresh JSON/version resources are network-first',sw.includes("path.endsWith('.json')")&&sw.includes("path.endsWith('/app-version.js')")&&sw.includes('networkFirst(event.request)'));
 check('network-first bypasses HTTP cache',sw.includes("fetch(request,{cache:'no-store'})"));
 check('static resources retain offline stale-while-revalidate',sw.includes('staleWhileRevalidate(event.request)'));
