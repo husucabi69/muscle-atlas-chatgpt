@@ -46,5 +46,13 @@
   "runtime_registry": "data/knowledge-core-v1.json",
   "runtime_registry_sha": "d6ef1c6c2a9ca97900ff97cdf8d6a9d975c553b3",
   "source_registry_role": "legacy_fallback_mirror",
-  "runtime_oinf_presence": "PRESENT_UNREVIEWED"
+  "runtime_oinf_presence": "PRESENT_UNREVIEWED",
+  "anatomy_literature_crosscheck": {
+    "status": "PARTIAL_DOCUMENTARY_REVIEW",
+    "attachments_actions_depth": "CROSS_CHECKED_TEXT_ONLY",
+    "innervation": "SOURCE_DISCREPANCY_C2_C3_VS_C3_C4_AND_VARIANTS",
+    "vascular": "REVIEW_REQUIRED",
+    "specialist_signoff": false,
+    "reference_document": "docs/anatomy/splenius-capitis-knowledge-v1.md"
+  }
 }
