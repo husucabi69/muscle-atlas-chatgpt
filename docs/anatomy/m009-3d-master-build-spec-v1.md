@@ -4,6 +4,20 @@ Branch: preview/development
 Stable ID: m009
 Date: 2026-11-15 KST
 
+## 2026-11-15 reference-driven modeling gate (pre-sculpt)
+The original editable 3D mesh remains **NOT BUILT**. Modeling must start only after an anatomical reviewer confirms the following:
+- Posterior midline origins: nuchal ligament inferior half and spinous process/adjacent ligament regions C7–T3/T4; avoid a floating single-point attachment.
+- Superolateral course and broad tendon to ipsilateral mastoid process and lateral superior nuchal line; verify transition near upper sternocleidomastoid.
+- Posterior neck depth: trapezius superficial to splenius capitis, semispinalis capitis and longissimus capitis deeper; relationships change along cranio-caudal course.
+- Bilateral extension and ipsilateral rotation/lateral flexion without artificial contralateral inversion.
+- Axial MRI cross-reference for depth, not an imported image texture or copied mesh: https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/
+- User Claude OS cervical textbook section s5: https://drive.google.com/file/d/1hKJNbP1K3qwvQZSOKSmZItEmDiRvO0BW/view
+- Independent anatomy sources: https://www.ncbi.nlm.nih.gov/books/NBK537074/ and https://www.elsevier.com/resources/anatomy/muscular-system/muscles-of-back/splenius-capitis-muscle/24194
+- Innervation C2–C3 vs C3–C4/C3–C5 and vascular supply are **not settled**; do not embed precise unreviewed levels or vessel adjacency as authoritative geometry.
+- Explicitly prohibit use of embedded Claude OS raster figures as 3D texture or traced model unless separate rights clearance is documented.
+
+**Model QA gate:** a code-only scene graph or viewer is not an editable original 3D Master. Require actual original mesh + editable source + rig + hash + anatomical reviewer before labeling 3D complete.
+
 ## Input integrity
 - Canonical source: data/muscles-v1.json, `m009`.
 - IP provenance: data/ip-asset-registry-v1.json.
