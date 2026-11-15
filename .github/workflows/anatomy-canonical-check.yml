@@ -49,5 +49,5 @@ jobs:
         run: node scripts/test-mmt-safety-gate.mjs
       - name: Check m009 pre-model registry
         run: node scripts/m009-pre-model-gate.mjs
-      - name: Audit legacy 205 coverage and known 22 clinical gaps
+      - name: Audit 205 runtime records and intentional 183 legacy export
         run: node scripts/canonical-muscle-coverage-audit.mjs
