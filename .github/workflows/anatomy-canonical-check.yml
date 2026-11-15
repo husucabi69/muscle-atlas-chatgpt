@@ -15,6 +15,7 @@ on:
       - 'scripts/m009-pre-model-gate.mjs'
       - 'scripts/test-canonical-muscle-resolver.mjs'
       - 'scripts/test-mmt-safety-gate.mjs'
+      - 'scripts/test-knowledge-core-legacy-sync.mjs'
       - '.github/workflows/anatomy-canonical-check.yml'
   workflow_dispatch:
 permissions:
@@ -33,6 +34,8 @@ jobs:
           node-version: '22'
       - name: Verify 205 identity resolution without invented clinical details
         run: node scripts/test-canonical-muscle-resolver.mjs
+      - name: Verify 205 runtime and 183 legacy records remain synchronized
+        run: node scripts/test-knowledge-core-legacy-sync.mjs
       - name: Verify patient-safety holds in online and offline muscle records
         run: node scripts/test-mmt-safety-gate.mjs
       - name: Check m009 pre-model registry
