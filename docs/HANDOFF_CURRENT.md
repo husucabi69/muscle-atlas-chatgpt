@@ -1,5 +1,15 @@
 # CURRENT HANDOFF — 2026-11-15 · ANATOMY-205-RUNTIME-SAFETY
 
+## 2026-11-15 code-freeze checkpoint — last code SHA `2c3931a356f18a9ce9779e2c5991fd9582f4bcb7`
+- Final static source-of-truth check: runtime Knowledge Core 205 records with nonempty O/I/F/N, legacy export 183, 38 MMT holds in runtime+legacy+offline, 7 additional MMT specialist-review candidates.
+- Runtime hydration is invoked and replaces embedded fallback; added regression check to prevent reverting to 183-only runtime.
+- Preview PWA version `v12.78-preview`, offline coverage page and original module precached. Security check: read-only QA page uses textContent, no innerHTML or POST.
+- m009 evidence includes independent NCBI/Elsevier/MRI plus user Claude OS cervical s5, unresolved nerve and vessel differences, correct right-handed RAS/LPS coordinate transforms. Original editable 3D Master and CROS remain absent.
+- Source/static checks and V8 syntax parsing were performed; **GitHub Actions execution, Cloudflare Preview deployment and Galaxy real-device PASS are unverified**. Main/production unchanged.
+- Next concrete task: inspect actual Actions run and Preview deployment, resolve failures, request user Preview URL if needed, then Galaxy/PC acceptance; clinical review of m009 and seven MMT candidates; start actual original 3D sculpting only after verified landmark/source workflow.
+- Session started 2026-11-15 **09:26 KST (minute precision)**. Final completion time must be measured at/after 09:52 KST to guarantee at least 25 minutes despite unknown start seconds.
+
+
 ## 2026-11-15 final-stage QA addendum (before time-gated completion)
 - Claim-level m009 evidence added: `data/anatomy/m009-claim-evidence-v1.json`; specialist/nerve/vascular/MMT disputes remain explicit. IP ledger links it and preserves exact core/legacy Git blob SHA.
 - 3D coordinate gate now tests RAS/LPS conversion matrices have determinant +1, preventing left/right mirror inversion. Verified mathematical determinant independently in local Node; **this does not validate actual anatomical mesh**.
