@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Fail-closed safety suppression for mechanically copied elbow MMT instructions in unrelated muscles; not a replacement clinical protocol",
+  "source": "data/muscles-v1.json",
+  "source_sha": "3a01b40fbe0390c9246f5ac46e569651a66fda3e",
+  "review_status": "PENDING_SPECIALIST",
+  "clinical_approval": false,
+  "excluded_anatomically_relevant_elbow_mmt_ids": [
+    "m080",
+    "m081",
+    "m091"
+  ],
+  "flagged": [
+    {
+      "id": "m005",
+      "ko": "두장근",
+      "region": "경추·후두하부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m006",
+      "ko": "경장근",
+      "region": "경추·후두하부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m009",
+      "ko": "두판상근",
+      "region": "경추·후두하부",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m010",
+      "ko": "경판상근",
+      "region": "경추·후두하부",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m021",
+      "ko": "흉장늑근",
+      "region": "흉추·흉벽·호흡근",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m022",
+      "ko": "흉최장근",
+      "region": "흉추·흉벽·호흡근",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m023",
+      "ko": "흉극근",
+      "region": "흉추·흉벽·호흡근",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m038",
+      "ko": "요장늑근",
+      "region": "요추·천추·심부고관절·골반저",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m039",
+      "ko": "요최장근",
+      "region": "요추·천추·심부고관절·골반저",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m040",
+      "ko": "요극근",
+      "region": "요추·천추·심부고관절·골반저",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m048",
+      "ko": "소요근",
+      "region": "요추·천추·심부고관절·골반저",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m049",
+      "ko": "장골근",
+      "region": "요추·천추·심부고관절·골반저",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m059",
+      "ko": "미골근",
+      "region": "요추·천추·심부고관절·골반저",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m084",
+      "ko": "요측수근굴근",
+      "region": "전완부 - 굴곡·회내군",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m085",
+      "ko": "장장근",
+      "region": "전완부 - 굴곡·회내군",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m086",
+      "ko": "척측수근굴근",
+      "region": "전완부 - 굴곡·회내군",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m087",
+      "ko": "천지굴근",
+      "region": "전완부 - 굴곡·회내군",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m092",
+      "ko": "장요측수근신근",
+      "region": "전완부 - 신전·회외군",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m093",
+      "ko": "단요측수근신근",
+      "region": "전완부 - 신전·회외군",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m094",
+      "ko": "지신근",
+      "region": "전완부 - 신전·회외군",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m095",
+      "ko": "소지신근",
+      "region": "전완부 - 신전·회외군",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m096",
+      "ko": "척측수근신근",
+      "region": "전완부 - 신전·회외군",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m099",
+      "ko": "단무지신근",
+      "region": "전완부 - 신전·회외군",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m101",
+      "ko": "시지신근",
+      "region": "전완부 - 신전·회외군",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m129",
+      "ko": "외측광근",
+      "region": "대퇴부",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m131",
+      "ko": "중간광근",
+      "region": "대퇴부",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m132",
+      "ko": "무릎관절근",
+      "region": "대퇴부",
+      "source_mmt": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m140",
+      "ko": "대퇴이두근-단두",
+      "region": "대퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m142",
+      "ko": "반막양근",
+      "region": "대퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m145",
+      "ko": "장지신근",
+      "region": "하퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m146",
+      "ko": "제3비골근",
+      "region": "하퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m148",
+      "ko": "단비골근",
+      "region": "하퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m150",
+      "ko": "비복근-외측두",
+      "region": "하퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m152",
+      "ko": "족척근",
+      "region": "하퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m153",
+      "ko": "슬와근",
+      "region": "하퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m155",
+      "ko": "장지굴근",
+      "region": "하퇴부",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m181",
+      "ko": "외복사근",
+      "region": "복벽",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    },
+    {
+      "id": "m182",
+      "ko": "내복사근",
+      "region": "복벽",
+      "source_mmt": "주관절의 주굴곡 방향에 반대 저항을 가해 MRC 0-5로 평가; 인접 관절 보상 최소화.",
+      "reason": "Elbow joint resisted flexion/extension wording conflicts with target muscle anatomical action or clinical isolation"
+    }
+  ]
+}
