@@ -16,6 +16,8 @@ on:
       - 'src/anatomy/**'
       - 'scripts/canonical-muscle-coverage-audit.mjs'
       - 'scripts/m009-pre-model-gate.mjs'
+      - 'scripts/m009-original-3d-ip-gate.mjs'
+      - 'data/ip-asset-registry-v1.json'
       - 'scripts/test-canonical-muscle-resolver.mjs'
       - 'scripts/test-mmt-safety-gate.mjs'
       - 'scripts/test-knowledge-core-legacy-sync.mjs'
@@ -52,5 +54,7 @@ jobs:
         run: node scripts/test-mmt-safety-gate.mjs
       - name: Check m009 pre-model registry
         run: node scripts/m009-pre-model-gate.mjs
+      - name: Guard original 3D and IP evidence integrity (pending asset is not completion)
+        run: node scripts/m009-original-3d-ip-gate.mjs
       - name: Audit 205 runtime records and intentional 183 legacy export
         run: node scripts/canonical-muscle-coverage-audit.mjs
