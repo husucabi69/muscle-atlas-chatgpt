@@ -15,6 +15,8 @@ assert(main.includes('href="./anatomy-coverage.html"'),'main link missing');
 assert(script[1].includes('resolveMuscleAtlasFromKnowledgeCore(core)'),'actual runtime source must be preferred');
 assert(script[1].includes("source='예비 데이터"),'fallback source disclosure missing');
 assert(script[1].includes('textContent'),'safe text rendering missing');
+assert(!script[1].includes('innerHTML'),'untrusted anatomy content must not be inserted via innerHTML');
+assert(!/fetch\([^)]*method\s*:\s*['\"]POST/.test(script[1]),'read-only QA screen must not POST data');
 assert(script[1].includes("value=\"held\"")===false,'filter must be in HTML, not injected in JS');
 assert(html.includes('value="held"'),'MMT hold filter missing');
 assert(html.includes('id="detail"'),'muscle detail panel missing');
