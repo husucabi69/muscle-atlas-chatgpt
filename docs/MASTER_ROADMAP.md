@@ -1,5 +1,15 @@
 # Muscle Atlas → LYS OrthoOS 전신 개발 Master Roadmap
 
+## 2026-11-15 10:12 KST — Galaxy compact navigation v12.79 preview (device verification pending)
+- Chair's Galaxy screenshots: stable preview loads; 205 IDs/205 O-I-F-N/0 missing/38 MMT holds display; individual anatomy navigation works. Do not infer specialist signoff, offline PASS or full dataset clinical correctness.
+- Changed `index.html` responsive header at <=850px and <=520px: replace vertically wrapped oversized navigation with **one-row horizontally scrollable** 10-tab navigation; 44px touch targets, keyboard focus, snap and text no-wrap; preserve white theme, existing routes and production/main.
+- New `scripts/test-galaxy-compact-nav.mjs` static guard; integrated into `.github/workflows/anatomy-canonical-check.yml`.
+- Bumped `app-version.js` to **v12.79-preview** and unique service worker cache key; synchronized `data/clinical-safety-patch-manifest-20261115.json`. Core 205, legacy 183, MMT holds 38, clinical approval=false, original 3D=false unchanged.
+- GitHub writes target only `preview/development`; actual Node Actions PASS, Cloudflare deploy, Galaxy compact-nav rendering and offline update are **UNVERIFIED**.
+- **Next exact workline**: inspect CI and Cloudflare preview deployment, obtain one Galaxy screenshot of top navigation and verify single-row horizontal swipe; fix any failures; then tackle m009 clinical source review and original editable 3D master with real landmark evidence. Do not claim 25-minute session unless clock independently confirms it.
+- Work began 2026-11-15 10:12:51 KST; completion time must be recorded from a fresh KST clock at final report.
+
+
 ## 2026-11-15 09:52 KST — functional unit completion / 25-minute minimum satisfied
 - Work start recorded at 09:26 KST (minute precision); work completion at or after 09:52 KST. **At least 25 minutes elapsed** even if start occurred at 09:26:59. No false seconds or unexecuted CI PASS.
 - Completed unit: actual 205 runtime Knowledge Core source reconciliation; 38 unsafe MMT holds across runtime/legacy/offline plus Oral Viva exclusion; 7 specialist-review candidates; Galaxy-responsive coverage QA page with O/I/F/N details and offline PWA v12.78-preview; claim-level m009 anatomy/IP provenance; right-handed 3D coordinate and RAS/LPS checks; targeted Node CI scripts and workflow.
