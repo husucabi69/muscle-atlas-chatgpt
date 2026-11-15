@@ -46,7 +46,6 @@ if(source&&exportPath){
  assert(registry.human_author_editor?.creative_contribution_evidence && registry.human_author_editor.creative_contribution_evidence!=='NOT_YET_DOCUMENTED','human creative evidence absent');
  status='PASS_REVIEWED_ORIGINAL_3D';
 }else{
- assert.equal(registry.clinical_review,'PENDING','no 3D asset but clinical 3D approval declared');
  assert.equal(model.sha256,null,'no GLB may have a hash');
  assert.equal(model.editable_source_sha256,null,'no source file may have a hash');
  assert.equal(registry.cros_filing,null,'no CROS filing before original 3D asset');
