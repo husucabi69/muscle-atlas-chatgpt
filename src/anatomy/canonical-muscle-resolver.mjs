@@ -26,3 +26,26 @@ export function clinicalDetailsAvailable(muscle) {
   return Boolean(muscle && muscle.clinical_data_status!=='IDENTITY_ONLY_NO_OIFN' &&
     ['origin','insertion','function','nerve'].every(key=>typeof muscle[key]==='string'&&muscle[key].trim()));
 }
+
+/**
+ * Actual runtime source of truth: data/knowledge-core-v1.json.
+ * The 183+22 identity-only merger above is strictly an offline fallback.
+ */
+export function resolveMuscleAtlasFromKnowledgeCore(core) {
+  if (!core || !Array.isArray(core.muscles)) throw new TypeError('Invalid knowledge core');
+  const seen=new Set();
+  return core.muscles.map(m=>{
+    const id=m.muscle_id;
+    if (!/^m\d{3}$/.test(id)||seen.has(id)) throw new Error('Invalid or duplicate knowledge-core ID: '+id);
+    seen.add(id);
+    const a=m.anatomy||{};
+    return {
+      id,ko:m.name_ko,en:m.name_en,region:m.region_id,
+      origin:a.origin||null,insertion:a.insertion||null,function:a.function||null,
+      nerve:m.innervation_text||null,blood:m.blood_supply_text||null,
+      mmt:m.mmt_text||null,
+      source:'data/knowledge-core-v1.json',
+      clinical_data_status:'EXISTING_UNREVIEWED'
+    };
+  }).sort((a,b)=>a.id.localeCompare(b.id));
+}
