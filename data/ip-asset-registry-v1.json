@@ -24,7 +24,8 @@
     "assessment": "Original unrelated elbow-extension MMT quarantined with clinical hold; no replacement muscle-specific MMT approved",
     "source_data_modified": true,
     "status": "SAFETY_HOLD_PENDING_SPECIALIST",
-    "safety_hold_ledger": "data/mmt-safety-hold-v1.json"
+    "safety_hold_ledger": "data/mmt-safety-hold-v1.json",
+    "runtime_data_modified": true
   },
   "model": {
     "editable_source": null,
@@ -41,5 +42,9 @@
     "AI-assisted anatomy drafting",
     "GitHub API text edits"
   ],
-  "copyright_caution": "No claim of AI-only authorship or completed original mesh."
+  "copyright_caution": "No claim of AI-only authorship or completed original mesh.",
+  "runtime_registry": "data/knowledge-core-v1.json",
+  "runtime_registry_sha": "d6ef1c6c2a9ca97900ff97cdf8d6a9d975c553b3",
+  "source_registry_role": "legacy_fallback_mirror",
+  "runtime_oinf_presence": "PRESENT_UNREVIEWED"
 }
