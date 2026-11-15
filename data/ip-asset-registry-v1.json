@@ -55,5 +55,6 @@
     "vascular": "REVIEW_REQUIRED",
     "specialist_signoff": false,
     "reference_document": "docs/anatomy/splenius-capitis-knowledge-v1.md"
-  }
+  },
+  "anatomy_claim_evidence": "data/anatomy/m009-claim-evidence-v1.json"
 }
