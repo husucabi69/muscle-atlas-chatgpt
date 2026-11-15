@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Recovery inventory for historical m184-m205 identifiers, NOT anatomy O/I/F/N source",
+  "source": "data/muscle-illustration-audit-v1.json",
+  "source_sha": "439b6f9871aefa1ca32d54ce0be7ee82c53e3227",
+  "source_historical_document": "docs/CLAUDE_186_AUDIT.md",
+  "clinical_content_verified": false,
+  "records": [
+    {
+      "id": "m184",
+      "ko": "광경근",
+      "en": "Platysma",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m185",
+      "ko": "이복근",
+      "en": "Digastric",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m186",
+      "ko": "경돌설골근",
+      "en": "Stylohyoid",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m187",
+      "ko": "하악설골근",
+      "en": "Mylohyoid",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m188",
+      "ko": "이설골근",
+      "en": "Geniohyoid",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m189",
+      "ko": "흉골설골근",
+      "en": "Sternohyoid",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m190",
+      "ko": "흉골갑상근",
+      "en": "Sternothyroid",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m191",
+      "ko": "갑상설골근",
+      "en": "Thyrohyoid",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m192",
+      "ko": "견갑설골근",
+      "en": "Omohyoid",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m193",
+      "ko": "최소사각근",
+      "en": "Scalenus minimus",
+      "illustration_audit_status": "no_suitable_public_source",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m194",
+      "ko": "경장늑근",
+      "en": "Iliocostalis cervicis",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m195",
+      "ko": "두최장근",
+      "en": "Longissimus capitis",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m196",
+      "ko": "경최장근",
+      "en": "Longissimus cervicis",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m197",
+      "ko": "경극근",
+      "en": "Spinalis cervicis",
+      "illustration_audit_status": "no_suitable_public_source",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m198",
+      "ko": "외항문괄약근",
+      "en": "External anal sphincter",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m199",
+      "ko": "구해면체근",
+      "en": "Bulbospongiosus",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m200",
+      "ko": "좌골해면체근",
+      "en": "Ischiocavernosus",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m201",
+      "ko": "천회음횡근",
+      "en": "Superficial transverse perineal",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m202",
+      "ko": "심회음횡근",
+      "en": "Deep transverse perineal",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m203",
+      "ko": "외요도괄약근",
+      "en": "External urethral sphincter",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m204",
+      "ko": "거고근",
+      "en": "Cremaster",
+      "illustration_audit_status": "reviewed",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    },
+    {
+      "id": "m205",
+      "ko": "주관절근",
+      "en": "Articularis cubiti (subanconeus)",
+      "illustration_audit_status": "no_suitable_public_source",
+      "anatomy_oinf_status": "UNVERIFIED_IN_MUSCLES_V1"
+    }
+  ]
+}
