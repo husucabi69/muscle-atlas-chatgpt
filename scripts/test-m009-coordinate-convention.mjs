@@ -16,4 +16,7 @@ const lpsToEngine=([L,P,S])=>[-L,S,P];
 assert.deepEqual(rasToEngine([1,2,3]),[1,3,-2],'RAS mapping');
 assert.deepEqual(lpsToEngine([-1,-2,3]),[1,3,-2],'LPS mapping');
 assert(spec.includes('[R,S,-A]')&&spec.includes('[-L,S,P]'),'medical image coordinate conversion absent');
+const det=m=>m[0][0]*(m[1][1]*m[2][2]-m[1][2]*m[2][1])-m[0][1]*(m[1][0]*m[2][2]-m[1][2]*m[2][0])+m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0]);
+assert.equal(det([[1,0,0],[0,0,1],[0,-1,0]]),1,'RAS conversion must preserve handedness');
+assert.equal(det([[-1,0,0],[0,0,1],[0,1,0]]),1,'LPS conversion must preserve handedness');
 console.log(JSON.stringify({test:'m009-coordinate-convention',status:'PASS',right_handed:true,posterior_view_patient_right_on_screen_right:true,mesh_review:'PENDING'}));
