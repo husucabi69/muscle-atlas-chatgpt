@@ -4,6 +4,7 @@ on:
     branches: [preview/development]
     paths:
       - 'data/muscles-v1.json'
+      - 'data/knowledge-core-v1.json'
       - 'data/mmt-safety-hold-v1.json'
       - 'index.html'
       - 'data/m184-m205-recovery-inventory-v1.json'
