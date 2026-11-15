@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "source": "data/knowledge-core-v1.json",
+  "source_sha": "d6ef1c6c2a9ca97900ff97cdf8d6a9d975c553b3",
+  "purpose": "Additional MMT review candidates beyond the 38 copied-elbow holds. Review only; not yet changed.",
+  "clinical_approval": false,
+  "records": [
+    {
+      "id": "m051",
+      "ko": "폐쇄내근",
+      "function": "고관절 외회전; 굴곡 시 외전; 관절 안정화",
+      "current_mmt": "해당 관절을 중립에 가깝게 고정하고 외전 방향의 등척성 수축에 반대 저항을 가해 좌우 비교.",
+      "review_reason": "Hip abduction in neutral does not represent principal external-rotation function and does not isolate this deep rotator",
+      "status": "SPECIALIST_REVIEW_REQUIRED"
+    },
+    {
+      "id": "m052",
+      "ko": "상쌍자근",
+      "function": "외회전; 굴곡 시 외전; 관절 안정화",
+      "current_mmt": "해당 관절을 중립에 가깝게 고정하고 외전 방향의 등척성 수축에 반대 저항을 가해 좌우 비교.",
+      "review_reason": "Hip abduction in neutral does not represent principal external-rotation function and does not isolate this deep rotator",
+      "status": "SPECIALIST_REVIEW_REQUIRED"
+    },
+    {
+      "id": "m053",
+      "ko": "하쌍자근",
+      "function": "외회전; 굴곡 시 외전; 관절 안정화",
+      "current_mmt": "해당 관절을 중립에 가깝게 고정하고 외전 방향의 등척성 수축에 반대 저항을 가해 좌우 비교.",
+      "review_reason": "Hip abduction in neutral does not represent principal external-rotation function and does not isolate this deep rotator",
+      "status": "SPECIALIST_REVIEW_REQUIRED"
+    },
+    {
+      "id": "m054",
+      "ko": "폐쇄외근",
+      "function": "고관절 외회전; 대퇴골두 안정화, 약한 내전",
+      "current_mmt": "해당 관절 내전에 반대 저항을 가해 MRC 0-5로 평가; 주변 근육 보상 확인.",
+      "review_reason": "Hip adduction is only a weak secondary action; does not isolate obturator externus primary external rotation",
+      "status": "SPECIALIST_REVIEW_REQUIRED"
+    },
+    {
+      "id": "m076",
+      "ko": "상완이두근-단두",
+      "function": "전완 회외·주관절 굴곡; 어깨 굴곡/내전 보조",
+      "current_mmt": "해당 관절 내전에 반대 저항을 가해 MRC 0-5로 평가; 주변 근육 보상 확인.",
+      "review_reason": "Shoulder adduction test cannot isolate biceps short head and neglects primary elbow flexion/supination",
+      "status": "SPECIALIST_REVIEW_REQUIRED"
+    },
+    {
+      "id": "m082",
+      "ko": "주근",
+      "function": "주관절 신전 보조; 관절 안정화; 회내 시 척골 약간 외전",
+      "current_mmt": "해당 관절을 중립에 가깝게 고정하고 외전 방향의 등척성 수축에 반대 저항을 가해 좌우 비교.",
+      "review_reason": "Resisted abduction does not test anconeus elbow extension; high-priority likely erroneous",
+      "status": "SPECIALIST_REVIEW_REQUIRED"
+    },
+    {
+      "id": "m127",
+      "ko": "봉공근",
+      "function": "고관절 굴곡·외전·외회전; 무릎 굴곡 및 굴곡 시 경골 내회전",
+      "current_mmt": "해당 관절을 중립에 가깝게 고정하고 외전 방향의 등척성 수축에 반대 저항을 가해 좌우 비교.",
+      "review_reason": "Hip abduction alone cannot isolate multi-action sartorius",
+      "status": "SPECIALIST_REVIEW_REQUIRED"
+    }
+  ]
+}
