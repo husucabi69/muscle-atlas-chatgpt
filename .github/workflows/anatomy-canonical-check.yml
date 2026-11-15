@@ -4,6 +4,8 @@ on:
     branches: [preview/development]
     paths:
       - 'data/muscles-v1.json'
+      - 'data/mmt-safety-hold-v1.json'
+      - 'index.html'
       - 'data/m184-m205-recovery-inventory-v1.json'
       - 'data/muscle-illustration-audit-v1.json'
       - 'docs/CLAUDE_186_AUDIT.md'
@@ -11,6 +13,7 @@ on:
       - 'scripts/canonical-muscle-coverage-audit.mjs'
       - 'scripts/m009-pre-model-gate.mjs'
       - 'scripts/test-canonical-muscle-resolver.mjs'
+      - 'scripts/test-mmt-safety-gate.mjs'
       - '.github/workflows/anatomy-canonical-check.yml'
   workflow_dispatch:
 permissions:
@@ -29,6 +32,8 @@ jobs:
           node-version: '22'
       - name: Verify 205 identity resolution without invented clinical details
         run: node scripts/test-canonical-muscle-resolver.mjs
+      - name: Verify patient-safety holds in online and offline muscle records
+        run: node scripts/test-mmt-safety-gate.mjs
       - name: Check m009 pre-model registry
         run: node scripts/m009-pre-model-gate.mjs
       - name: Audit legacy 205 coverage and known 22 clinical gaps
