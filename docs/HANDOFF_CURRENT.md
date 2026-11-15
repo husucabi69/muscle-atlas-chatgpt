@@ -1,5 +1,15 @@
 # CURRENT HANDOFF — 2026-11-15 · ANATOMY-205-RUNTIME-SAFETY
 
+## 2026-11-15 final-stage QA addendum (before time-gated completion)
+- Claim-level m009 evidence added: `data/anatomy/m009-claim-evidence-v1.json`; specialist/nerve/vascular/MMT disputes remain explicit. IP ledger links it and preserves exact core/legacy Git blob SHA.
+- 3D coordinate gate now tests RAS/LPS conversion matrices have determinant +1, preventing left/right mirror inversion. Verified mathematical determinant independently in local Node; **this does not validate actual anatomical mesh**.
+- `scripts/test-anatomy-coverage-page.mjs` additionally prohibits `innerHTML` and POST in the read-only QA screen; static source check confirmed safe textContent and no POST.
+- `data/clinical-safety-patch-manifest-20261115.json` pins preview content revision without changing OrthoOS dataset version pins or production.
+- Latest substantive test commit prior to this handoff update: `d3c0f3195f22693ced035bb36a3c23ca06e963f6`. Final exact session end KST to be measured after 25-minute minimum.
+- **Remaining unverified**: GitHub Actions Node execution, Cloudflare Preview URL and deployment, Galaxy/PC real-device QA, clinical specialist sign-off, original editable 3D Master, CROS filing. Main/production unchanged.
+- Next immediate unit: obtain verified GitHub Actions/Preview status and fix failures, then run Galaxy acceptance checklist; ask chair for Preview URL if no connected deployment reference can be retrieved. Continue original 3D model source/authoring only after anatomy/IP gate.
+
+
 ## 2026-11-15 latest addendum — ANATOMY-205-SAFETY-IP-GATE
 - Added `data/clinical-safety-patch-manifest-20261115.json` with verified Git blob SHA provenance for 205 runtime core, 183 legacy and 38 MMT holds. No production approval; OrthoOS dataset version pins intentionally preserved.
 - Added `data/anatomy/m009-claim-evidence-v1.json` mapping origin, insertion, fiber course, depth, action, contested C2–C3/C3–C4/C3–C5 innervation, vascular uncertainty and held MMT to independently checked sources and Claude OS section s5.
