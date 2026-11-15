@@ -10,6 +10,22 @@ Stable ID: **m009** — verified against `data/muscles-v1.json` on `preview/deve
 - **No validated replacement isolated MMT** is asserted for splenius capitis. The current hold text is a safety notice, not an examination protocol.
 - Independent anatomy references, specialist review, original 3D Master and CROS registration remain PENDING.
 
+## 2026-11-15 independent anatomical literature cross-check (documentary, not specialist sign-off)
+Checked independent sources for **splenius capitis (m009)**:
+
+1. NCBI Bookshelf, *Anatomy, Back, Muscles*: https://www.ncbi.nlm.nih.gov/books/NBK537074/ — origin C7–T3/T4, mastoid and lateral superior nuchal line insertion, ipsilateral rotation and bilateral extension, deep to trapezius and superficial to semispinalis/longissimus. Describes innervation as **C2–C3 dorsal rami lateral branches**.
+2. Elsevier Complete Anatomy, *Splenius Capitis Muscle*: https://www.elsevier.com/resources/anatomy/muscular-system/muscles-of-back/splenius-capitis-muscle/24194 — confirms nuchal ligament/C7–T3, mastoid/superior nuchal line, dorsal rami C2–C3, occipital and deep cervical arterial branches.
+3. Peer-reviewed pictorial essay, *Pictorial Essay on Ultrasound and Magnetic Resonance Imaging of Paraspinal Muscles for Myofascial Pain Syndrome*: https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/ — cross-sectional MRI relationship to semispinalis and longissimus, deep to trapezius, cranially under sternocleidomastoid.
+4. *Daniels and Worthingham's Muscle Testing* historical text: https://elsevier-elibrary.com/contents/fullcontent/71288/epubcontent_v2/OEBPS/xhtml/B9781416023500500135.htm — describes a wider variable cervical dorsal-ramus segmental attribution (C3–C6), supporting a **source discrepancy rather than a single certain level**.
+
+**Conclusions and restrictions**
+- Origin/insertion, superolateral fiber course, broad depth relationships and bilateral/ipsilateral motion: **independently cross-checked in text**, pending the user's clinical sign-off and 3D landmark review.
+- **Innervation discrepancy:** current canonical m009 text says “주로 C3-C4,” whereas NCBI/Elsevier/Kenhub describe C2–C3 and other muscle testing texts describe broader variation. **Do not present C3–C4 as independently verified**. Mark for specialist resolution before public clinical publication.
+- **Arterial discrepancy:** canonical text includes ascending cervical/vertebral branches; independent references emphasize occipital and deep cervical branches. Exact supply and variation require review.
+- **MMT:** original copied elbow-extension instruction is quarantined. No validated isolated MMT is established by the sources above.
+- No source images/figures have been copied into the project; licensed reference visuals must be evaluated separately.
+- This cross-check does **not** constitute approval of original 3D proportions, rig, animation, clinical treatment, copyright authorship or CROS filing.
+
 ## 1. Anatomical facts — provisional, cross-reference required
 - Korean: 두판상근; Latin: musculus splenius capitis; English: splenius capitis.
 - Region: posterior cervical musculature; deep to trapezius and sternocleidomastoid in relevant portions, superficial to deeper intrinsic cervical muscles.
