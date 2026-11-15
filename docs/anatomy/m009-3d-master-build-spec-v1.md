@@ -37,6 +37,8 @@ The original editable 3D mesh remains **NOT BUILT**. Modeling must start only af
 - Neutral anatomical reference pose; skull and C1–T4 osseous landmarks are mandatory, not optional approximations.
 - Left and right are patient anatomical laterality, never screen left/right.
 - All anchors defined relative to named, independently reviewed bone surface regions; avoid guessed numeric coordinates.
+- **Medical imaging conversion (if licensed DICOM segmentation is later imported):** RAS (Right, Anterior, Superior) → engine (+X right, +Y superior, +Z posterior) by `[x_engine,y_engine,z_engine]=[R,S,-A]`. LPS (Left, Posterior, Superior) → engine by `[-L,S,P]`. Both preserve right-handedness; record source affine/units and verify with asymmetric patient-left/right landmarks before importing meshes. Never silently flip an axis.
+
 - Skull/cervical motion parent transforms and muscle deformation are separate; model must not translate the mastoid attachment independently from skull motion.
 
 ## Scene graph (design, not an implemented mesh)
