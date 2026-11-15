@@ -18,6 +18,8 @@ on:
       - 'scripts/canonical-muscle-coverage-audit.mjs'
       - 'scripts/m009-pre-model-gate.mjs'
       - 'scripts/m009-original-3d-ip-gate.mjs'
+      - 'scripts/test-m009-coordinate-convention.mjs'
+      - 'docs/anatomy/m009-3d-master-build-spec-v1.md'
       - 'data/ip-asset-registry-v1.json'
       - 'scripts/test-canonical-muscle-resolver.mjs'
       - 'scripts/test-mmt-safety-gate.mjs'
@@ -55,6 +57,8 @@ jobs:
         run: node scripts/test-mmt-safety-gate.mjs
       - name: Check m009 pre-model registry
         run: node scripts/m009-pre-model-gate.mjs
+      - name: Verify right-handed m009 3D coordinate and laterality convention
+        run: node scripts/test-m009-coordinate-convention.mjs
       - name: Guard original 3D and IP evidence integrity (pending asset is not completion)
         run: node scripts/m009-original-3d-ip-gate.mjs
       - name: Audit 205 runtime records and intentional 183 legacy export
