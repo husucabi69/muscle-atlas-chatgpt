@@ -18,6 +18,13 @@ The original editable 3D mesh remains **NOT BUILT**. Modeling must start only af
 
 **Model QA gate:** a code-only scene graph or viewer is not an editable original 3D Master. Require actual original mesh + editable source + rig + hash + anatomical reviewer before labeling 3D complete.
 
+## 2026-11-15 source-asset inventory
+- GitHub repository code search found no `.glb`, `.gltf`, Three.js/GLTFLoader or existing original m009 3D source.
+- Connected Google Drive filename search for `.blend`, `.glb`, `.gltf`, `.fbx`, `.obj` and `.stl` returned no matching files in the accessible scope.
+- These searches do **not** prove no 3D source exists anywhere; they establish that no usable editable source was identified by these checks.
+- Claude OS cervical textbook contains embedded 2D raster figures; they cannot be relabeled as original editable 3D or used without provenance/rights review.
+- **Blocking dependency for actual model:** independently authored or appropriately licensed anatomical bone/landmark source and original sculpting/rigging workflow, with the chair's anatomical/creative decisions recorded. Do not fill the gap with cylinders or other fake clinical anatomy.
+
 ## Input integrity
 - Canonical source: data/muscles-v1.json, `m009`.
 - IP provenance: data/ip-asset-registry-v1.json.
