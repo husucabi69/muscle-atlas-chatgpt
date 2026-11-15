@@ -7,6 +7,7 @@ on:
       - 'data/knowledge-core-v1.json'
       - 'data/mmt-safety-hold-v1.json'
       - 'index.html'
+      - 'anatomy-coverage.html'
       - 'data/m184-m205-recovery-inventory-v1.json'
       - 'data/muscle-illustration-audit-v1.json'
       - 'docs/CLAUDE_186_AUDIT.md'
@@ -16,6 +17,7 @@ on:
       - 'scripts/test-canonical-muscle-resolver.mjs'
       - 'scripts/test-mmt-safety-gate.mjs'
       - 'scripts/test-knowledge-core-legacy-sync.mjs'
+      - 'scripts/test-anatomy-coverage-page.mjs'
       - '.github/workflows/anatomy-canonical-check.yml'
   workflow_dispatch:
 permissions:
@@ -32,6 +34,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify Galaxy coverage page syntax and source routing
+        run: node scripts/test-anatomy-coverage-page.mjs
       - name: Verify 205 identity resolution without invented clinical details
         run: node scripts/test-canonical-muscle-resolver.mjs
       - name: Verify 205 runtime and 183 legacy records remain synchronized
