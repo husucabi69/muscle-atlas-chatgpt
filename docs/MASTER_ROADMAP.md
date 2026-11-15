@@ -1,5 +1,16 @@
 # Muscle Atlas → LYS OrthoOS 전신 개발 Master Roadmap
 
+## 2026-11-15 latest addendum — ANATOMY-205-SAFETY-IP-GATE
+- Added `data/clinical-safety-patch-manifest-20261115.json` with verified Git blob SHA provenance for 205 runtime core, 183 legacy and 38 MMT holds. No production approval; OrthoOS dataset version pins intentionally preserved.
+- Added `data/anatomy/m009-claim-evidence-v1.json` mapping origin, insertion, fiber course, depth, action, contested C2–C3/C3–C4/C3–C5 innervation, vascular uncertainty and held MMT to independently checked sources and Claude OS section s5.
+- Updated `docs/ip-evidence/splenius-capitis-pilot-v1.md`, `data/ip-asset-registry-v1.json` and `scripts/m009-original-3d-ip-gate.mjs` to record actual m009 source IDs and SHA, prohibit false editable 3D/CROS completion, require future original editable source and GLB/glTF SHA-256, specialist and human-creative evidence.
+- Corrected earlier **left-handed 3D axis mistake**: glTF/Three.js right-handed convention +X patient right, +Y superior, +Z posterior. RAS→engine [R,S,-A], LPS→engine [-L,S,P]. `scripts/test-m009-coordinate-convention.mjs` added to CI.
+- Added `docs/anatomy/GALAXY_205_SAFETY_PREVIEW_QA_20261115.md` with 205/205/0/38, m009 detail, Oral Viva exclusion and offline PWA real-device acceptance steps. **No device PASS or Cloudflare Preview deployment confirmed**.
+- Source check: user Google Drive `클로드_근육학_08권_경추.html` section s5 read; its figures NOT imported. No editable `.blend/.glb/.gltf/.fbx/.obj/.stl` master identified by accessible Drive filename search.
+- GitHub connector static cross-checks passed for 205 O/I/F/N presence, 183×9 mirrored fields, 38 holds, provenance SHAs, PWA source routing; 10 Node script bodies parsed in V8. **These are not actual Node CI runs.** Combined status/PR-filtered runs returned no evidence of push-triggered Actions result.
+- Next: verify GitHub Actions run logs and actual Cloudflare Preview URL, then request Galaxy real-device QA. Specialist sign-off on m009 nerve/vascular and 7 extra MMT candidates. Begin original editable 3D only with verified anatomical landmarks/source and human review. Production/main frozen.
+
+
 ## 2026-11-15 09:26 KST start — ANATOMY-205-RUNTIME-RECONCILIATION + MMT SAFETY + GALAXY QA (latest)
 **Execution discipline:** User requires a single meaningful >=25-minute work unit, actual KST start/end/elapsed, no micro-task reports, end-of-unit consolidated ① what ② result ③ next, highest available analytical rigor, and mandatory update to this handoff and MASTER_ROADMAP. Actual start measured at **09:26 KST**; do not invent exact seconds not measured in this tool result. The session's exact elapsed time must be checked before final report.
 
