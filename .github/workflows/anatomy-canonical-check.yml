@@ -21,6 +21,7 @@ on:
       - 'scripts/test-m009-coordinate-convention.mjs'
       - 'docs/anatomy/m009-3d-master-build-spec-v1.md'
       - 'data/ip-asset-registry-v1.json'
+      - 'data/anatomy/m009-claim-evidence-v1.json'
       - 'scripts/test-canonical-muscle-resolver.mjs'
       - 'scripts/test-mmt-safety-gate.mjs'
       - 'scripts/test-knowledge-core-legacy-sync.mjs'
