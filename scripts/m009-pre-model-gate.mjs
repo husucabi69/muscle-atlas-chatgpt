@@ -45,8 +45,13 @@ if(core.muscles.length!==205)fail.push('Runtime Knowledge Core must contain 205 
 if(muscles.length!==183)warnings.push('Legacy export count changed from expected 183; review fallback migration.');
 if(muscle){
   assert(!/주관절의 주(굴곡|신전) 방향/.test(muscle.mmt),'m009 unsafe elbow-joint MMT leaked into canonical');
-  assert(/검수 대기/.test(muscle.mmt),'m009 MMT safety hold absent');
-  warnings.push('m009 MMT held pending specialist-approved replacement; do not interpret as tested strength grading.');
+  if(claims.claim_map.mmt.status==='SAFETY_HOLD_NO_VALIDATED_ISOLATED_PROTOCOL'){
+    assert(/검수 대기/.test(muscle.mmt),'m009 MMT safety hold absent');
+    warnings.push('m009 MMT held pending specialist-approved replacement; do not interpret as tested strength grading.');
+  }else{
+    assert(claims.human_review.specialist_signed===true,'MMT approval without specialist review');
+    assert(muscle.mmt&&!muscle.mmt.includes('임상 사용을 보류'),'approved MMT missing or still held');
+  }
 }
 if(!registry.external_anatomy_references_verified)warnings.push('Independent anatomy references not verified.');
 console.log(JSON.stringify({gate:'m009-pre-model',status:fail.length?'FAIL':'PASS_REGISTRY_ONLY',legacy_muscle_count:muscles.length,runtime_muscle_count:core.muscles.length,errors:fail,warnings},null,2));
