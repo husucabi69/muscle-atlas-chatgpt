@@ -10,6 +10,9 @@ import {fileURLToPath} from 'node:url';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
 const canonical=JSON.parse(read('data/muscles-v1.json'));
+const knowledgeCore=JSON.parse(read('data/knowledge-core-v1.json'));
+assert.equal(knowledgeCore.muscles.length,205,'runtime must contain 205 records');
+const coreById=new Map(knowledgeCore.muscles.map(m=>[m.muscle_id,m]));
 const ledger=JSON.parse(read('data/mmt-safety-hold-v1.json'));
 const html=read('index.html');
 const begin=html.indexOf('const muscles=')+'const muscles='.length;
@@ -26,13 +29,18 @@ for(const m of canonical){
  const fallback=byId.get(m.id);
  assert(fallback,'missing embedded ID '+m.id);
  assert.equal(fallback.mmt,m.mmt,'fallback MMT mismatch '+m.id);
+ const runtime=coreById.get(m.id);
+ assert(runtime,'runtime missing '+m.id);
+ assert.equal(runtime.mmt_text,m.mmt,'runtime MMT mismatch '+m.id);
  if(holdIds.has(m.id)){
   assert(m.mmt.includes('검수 대기')&&m.mmt.includes('임상 사용을 보류'),'unsafe MMT not quarantined '+m.id);
   assert(!/주관절의 주(굴곡|신전) 방향/.test(m.mmt),'copied elbow text still displayed '+m.id);
  }
 }
 for(const f of ledger.flagged){
+ const core=coreById.get(f.id);
+ assert(core?.mmt_text?.includes('임상 사용을 보류'),'unsafe runtime MMT '+f.id);
  assert(/주관절의 주(굴곡|신전) 방향/.test(f.source_mmt),'original audit evidence missing '+f.id);
 }
 for(const id of ['m080','m081','m091'])assert(!holdIds.has(id),'clinically elbow-related muscle wrongly quarantined '+id);
-console.log(JSON.stringify({test:'mmt-patient-safety-gate',status:'PASS',flagged:holdIds.size,canonical:canonical.length,embedded:embedded.length,clinical_signoff:false}));
+console.log(JSON.stringify({test:'mmt-patient-safety-gate',status:'PASS',flagged:holdIds.size,canonical:canonical.length,embedded:embedded.length,runtime:knowledgeCore.muscles.length,clinical_signoff:false}));
