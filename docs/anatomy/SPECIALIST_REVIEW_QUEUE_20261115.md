@@ -7,7 +7,7 @@ Status: AWAITING HUMAN CLINICAL REVIEW. Do not interpret AI drafts as approved c
 - MMT: old unrelated elbow-extension wording has been quarantined in all 3 data layers. Proposed review direction only: resisted cervical extension/ipsilateral rotation with awareness of synergists and pain, **not** a validated isolated MRC 0–5 test.
 - Innervation: canonical “주로 C3-C4” conflicts with NCBI/Elsevier C2–C3 and broader descriptions in some muscle-testing sources. Specialist to approve level wording or explicit variation note.
 - Arterial supply: independent sources emphasize occipital and deep cervical branches; canonical includes ascending cervical/vertebral muscular branches. Specialist to review specificity.
-- Sources and links: `docs/anatomy/splenius-capitis-knowledge-v1.md`.
+- Sources and links: `docs/anatomy/splenius-capitis-knowledge-v1.md`. User Claude OS cervical textbook (`클로드_근육학_08권_경추.html`, section s5) also checked: describes C3–C5 and resisted ipsilateral rotation/extension; do not mistake this for validated isolated MRC grading.
 - Sign-off fields: [ ] O/I [ ] function/laterality [ ] nerve [ ] vascular [ ] MMT safety [ ] 3D attachment landmarks. No boxes checked yet.
 
 **A2 — 38 copied elbow-MMT instructions**
