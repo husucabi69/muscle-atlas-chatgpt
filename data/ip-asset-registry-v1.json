@@ -13,7 +13,7 @@
   },
   "rights_owner": "UNDECIDED_BEFORE_FILING",
   "source_registry": "data/muscles-v1.json",
-  "source_registry_sha": "3a01b40fbe0390c9246f5ac46e569651a66fda3e",
+  "source_registry_sha": "278f2f153f582d6ae28f94cc05a12e7cca5832a6",
   "knowledge_doc": "docs/anatomy/splenius-capitis-knowledge-v1.md",
   "evidence_doc": "docs/ip-evidence/splenius-capitis-pilot-v1.md",
   "external_anatomy_references_verified": false,
@@ -21,8 +21,10 @@
   "known_content_issue": {
     "field": "mmt",
     "source_text": "주관절의 주신전 방향에 반대 저항을 가해 MRC 0-5로 평가; 좌우 비교.",
-    "assessment": "Apparent unrelated elbow-extension examination text; specialist review required",
-    "source_data_modified": false
+    "assessment": "Original unrelated elbow-extension MMT quarantined with clinical hold; no replacement muscle-specific MMT approved",
+    "source_data_modified": true,
+    "status": "SAFETY_HOLD_PENDING_SPECIALIST",
+    "safety_hold_ledger": "data/mmt-safety-hold-v1.json"
   },
   "model": {
     "editable_source": null,
