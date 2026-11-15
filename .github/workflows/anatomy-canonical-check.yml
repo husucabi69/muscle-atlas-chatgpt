@@ -1,0 +1,35 @@
+name: Anatomy canonical source checks
+on:
+  push:
+    branches: [preview/development]
+    paths:
+      - 'data/muscles-v1.json'
+      - 'data/m184-m205-recovery-inventory-v1.json'
+      - 'data/muscle-illustration-audit-v1.json'
+      - 'docs/CLAUDE_186_AUDIT.md'
+      - 'src/anatomy/**'
+      - 'scripts/canonical-muscle-coverage-audit.mjs'
+      - 'scripts/m009-pre-model-gate.mjs'
+      - 'scripts/test-canonical-muscle-resolver.mjs'
+      - '.github/workflows/anatomy-canonical-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: anatomy-canonical-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify 205 identity resolution without invented clinical details
+        run: node scripts/test-canonical-muscle-resolver.mjs
+      - name: Check m009 pre-model registry
+        run: node scripts/m009-pre-model-gate.mjs
+      - name: Audit legacy 205 coverage and known 22 clinical gaps
+        run: node scripts/canonical-muscle-coverage-audit.mjs
