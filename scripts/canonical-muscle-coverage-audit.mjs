@@ -7,7 +7,7 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const muscles=JSON.parse(readFileSync(resolve(root,'data/muscles-v1.json'),'utf8'));
 const expected=205;
 const auditText=readFileSync(resolve(root,'docs/CLAUDE_186_AUDIT.md'),'utf8');
-const auditedIds=[...auditText.matchAll(/m(18[4-9]|19\\d|20[0-5])\\b/g)].map(m=>'m'+m[1]);
+const auditedIds=[...auditText.matchAll(/m(18[4-9]|19\d|20[0-5])\b/g)].map(m=>'m'+m[1]);
 const auditedRoster=[...new Set(auditedIds)];
 const ids=muscles.map(m=>m.id);
 const counts=new Map();
