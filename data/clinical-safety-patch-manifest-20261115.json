@@ -21,11 +21,12 @@
     "oral_viva_excluded": true
   },
   "additional_review_candidates": 7,
-  "preview_app_version": "v12.78-preview",
+  "preview_app_version": "v12.79-preview",
   "clinical_approval": false,
   "original_3d_master": false,
   "cros_filing": false,
   "contains_phi": false,
   "production_approved": false,
-  "compatibility_note": "OrthoOS pinned dataset_version remains unchanged; this patch manifest records preview content revision separately. Do not infer production deployment."
+  "compatibility_note": "OrthoOS pinned dataset_version remains unchanged; this patch manifest records preview content revision separately. Do not infer production deployment.",
+  "ui_release_note": "Galaxy one-row horizontally scrollable navigation; clinical safety holds unchanged; device verification pending."
 }
