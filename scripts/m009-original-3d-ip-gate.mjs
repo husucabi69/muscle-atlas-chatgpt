@@ -13,7 +13,7 @@ const read=p=>JSON.parse(readFileSync(resolve(root,p),'utf8'));
 const registry=read('data/ip-asset-registry-v1.json');
 assert.equal(registry.stable_id,'m009','stable ID');
 assert.equal(registry.runtime_registry,'data/knowledge-core-v1.json','actual runtime canonical source');
-const gitBlobSha=path=>{const bytes=readFileSync(resolve(root,path));return createHash('sha1').update(Buffer.from('blob '+bytes.length+'\\0')).update(bytes).digest('hex')};
+const gitBlobSha=path=>{const bytes=readFileSync(resolve(root,path));return createHash('sha1').update(Buffer.from('blob '+bytes.length+'\0')).update(bytes).digest('hex')};
 assert.equal(gitBlobSha(registry.runtime_registry),registry.runtime_registry_sha,'runtime core Git blob SHA drift');
 assert.equal(gitBlobSha(registry.source_registry),registry.source_registry_sha,'legacy export Git blob SHA drift');
 assert(['PENDING','APPROVED'].includes(registry.clinical_review),'unknown specialist review status');
