@@ -1,4 +1,13 @@
-# CURRENT HANDOFF — 2026-11-15 09:13 KST · ANATOMY-205-SOURCE-RECONCILIATION
+# CURRENT HANDOFF — 2026-11-15 09:17 KST · ANATOMY-205-RECOVERY-INVENTORY
+
+## 2026-11-15 09:17 KST — ANATOMY-205-RECOVERY-INVENTORY (latest workline)
+- User-mandated workflow: actual KST start/end/duration, one meaningful >=25min target, no micro-task reports, finish with what/results/next, always update this handoff + roadmap. Never fabricate elapsed time; actual session constraints may cause an explicit shortfall.
+- **Source reconciliation advanced**: `data/muscles-v1.json` has 183 O/I/F/N entries; `docs/CLAUDE_186_AUDIT.md` identifies m184–m205; `data/muscle-illustration-audit-v1.json` independently contains all 22 IDs, Korean/English names and illustration review statuses. These are real legacy references, **not 22 full anatomical master records**.
+- Added `data/m184-m205-recovery-inventory-v1.json` derived from existing illustration registry with source blob SHA and explicit unverified clinical status. No invented O/I/F/N.
+- Extended `scripts/canonical-muscle-coverage-audit.mjs` to compare historic audit roster, recovery inventory and illustration registry; warning remains for 22 missing clinical records. Node CLI and CI not run; no clinical PASS claimed.
+- Next coherent feature unit: trace runtime canonical source / historical 205-record migration, decide whether to recover original O/I/F/N from authorized prior sources or mark pending. Run Node audit in actual checkout/CI. For m009: cross-check references and correct elbow MMT defect after clinical review; build editable photorealistic master only after anatomy and IP gates.
+- Main/production frozen; no deployment or real-device verification. Latest code commit prior to handoff: `919e2c0c9463424079e3064afc79c32b810580a9`.
+
 
 ## 2026-11-15 09:13 KST — 최신 실행선: ANATOMY-205-SOURCE-RECONCILIATION / m009 3D 선행 검증
 - **최신 의장님 지시**: KST 실측 후 기능 단위 설정, 25분 이상 실질 작업 목표, 소규모 작업마다 보고 금지, 최종보고는 시작/종료/경과 및 ①무엇 ②결과 ③다음. 작업 종료 전 이 정본과 MASTER_ROADMAP 갱신, 최고 수준의 분석·반례·검증. 상세 `docs/H3Y_DEVELOPMENT_EXECUTION_PROTOCOL_V1.md`.
