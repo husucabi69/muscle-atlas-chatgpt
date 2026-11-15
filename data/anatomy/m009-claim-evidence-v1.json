@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "stable_id": "m009",
+  "name_ko": "두판상근",
+  "name_en": "Splenius capitis",
+  "review_status": "SPECIALIST_SIGNOFF_PENDING",
+  "claim_map": {
+    "origin": {
+      "claim": "Lower nuchal ligament and C7–T3/T4 spinous process/ligament attachments",
+      "status": "INDEPENDENT_TEXT_CROSSCHECK",
+      "sources": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK537074/",
+        "https://www.elsevier.com/resources/anatomy/muscular-system/muscles-of-back/splenius-capitis-muscle/24194",
+        "https://drive.google.com/file/d/1hKJNbP1K3qwvQZSOKSmZItEmDiRvO0BW/view"
+      ]
+    },
+    "insertion": {
+      "claim": "Ipsilateral mastoid process and lateral superior nuchal line",
+      "status": "INDEPENDENT_TEXT_CROSSCHECK",
+      "sources": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK537074/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/"
+      ]
+    },
+    "fiber_course": {
+      "claim": "Superolateral from lower posterior midline",
+      "status": "INDEPENDENT_TEXT_CROSSCHECK",
+      "sources": [
+        "https://www.elsevier.com/resources/anatomy/muscular-system/muscles-of-back/splenius-capitis-muscle/24194",
+        "https://www.ncbi.nlm.nih.gov/books/NBK537074/"
+      ]
+    },
+    "depth": {
+      "claim": "Deep to trapezius and partly sternocleidomastoid, superficial to semispinalis capitis and longissimus capitis",
+      "status": "INDEPENDENT_TEXT_CROSSCHECK",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11051048/",
+        "https://www.ncbi.nlm.nih.gov/books/NBK537074/"
+      ]
+    },
+    "action": {
+      "claim": "Bilateral extension; unilateral ipsilateral rotation and lateral flexion",
+      "status": "INDEPENDENT_TEXT_CROSSCHECK",
+      "sources": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK537074/",
+        "https://www.elsevier.com/resources/anatomy/muscular-system/muscles-of-back/splenius-capitis-muscle/24194"
+      ]
+    },
+    "innervation": {
+      "status": "DISPUTED_LEVELS_SPECIALIST_REVIEW",
+      "runtime_wording": "경신경 후지(주로 C3-C4)",
+      "reported_alternatives": [
+        "C2–C3 dorsal rami lateral branches (NCBI/Elsevier)",
+        "C3–C5 posterior rami (user Claude OS cervical textbook)",
+        "broader variable dorsal-ramus descriptions in muscle-testing texts"
+      ],
+      "sources": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK537074/",
+        "https://www.elsevier.com/resources/anatomy/muscular-system/muscles-of-back/splenius-capitis-muscle/24194",
+        "https://drive.google.com/file/d/1hKJNbP1K3qwvQZSOKSmZItEmDiRvO0BW/view"
+      ]
+    },
+    "blood_supply": {
+      "status": "DISPUTED_BRANCHES_SPECIALIST_REVIEW",
+      "note": "Occipital and deep cervical branches commonly cited; runtime includes additional ascending cervical/vertebral branches",
+      "sources": [
+        "https://www.elsevier.com/resources/anatomy/muscular-system/muscles-of-back/splenius-capitis-muscle/24194"
+      ]
+    },
+    "mmt": {
+      "status": "SAFETY_HOLD_NO_VALIDATED_ISOLATED_PROTOCOL",
+      "source": "data/mmt-safety-hold-v1.json"
+    }
+  },
+  "human_review": {
+    "specialist_signed": false,
+    "reviewer_identity": null,
+    "reviewed_at": null
+  },
+  "model": {
+    "original_editable_mesh": false,
+    "glb_export": false,
+    "anatomical_geometry_verified": false
+  },
+  "rights": {
+    "source_images_imported": false,
+    "cros_filed": false
+  }
+}
