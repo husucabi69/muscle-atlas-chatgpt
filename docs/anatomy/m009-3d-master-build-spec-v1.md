@@ -33,7 +33,7 @@ The original editable 3D mesh remains **NOT BUILT**. Modeling must start only af
 - `m009.mmt` has elbow-extension wording. It is flagged and must not be reproduced in clinical content or 3D motion instructions until specialist correction.
 
 ## Spatial convention and anatomical coordinate system
-- World coordinates: meters; +X patient left, +Y cranial, +Z anterior. Posterior view camera looks toward +Z; display orientation must be checked on actual renderer.
+- **Right-handed world coordinates (Three.js/glTF-compatible):** meters; **+X patient right, +Y cranial/superior, +Z posterior**. Verify X×Y=Z. Posterior camera is at +Z looking toward −Z with +Y as up; patient-right must appear on viewer-right. Anterior camera is at −Z looking toward +Z, where screen right corresponds to patient-left. Do not mix with medical DICOM LPS/RAS axes without an explicit conversion matrix.
 - Neutral anatomical reference pose; skull and C1–T4 osseous landmarks are mandatory, not optional approximations.
 - Left and right are patient anatomical laterality, never screen left/right.
 - All anchors defined relative to named, independently reviewed bone surface regions; avoid guessed numeric coordinates.
