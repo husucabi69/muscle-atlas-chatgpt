@@ -32,7 +32,8 @@
     "gltf_export": null,
     "sha256": null,
     "anatomical_review": "PENDING",
-    "visual_review": "PENDING"
+    "visual_review": "PENDING",
+    "editable_source_sha256": null
   },
   "plate_2d": null,
   "layer_scene": null,
