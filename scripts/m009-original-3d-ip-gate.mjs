@@ -43,12 +43,17 @@ if(source&&exportPath){
  assert.equal(registry.external_anatomy_references_verified,true,'independent anatomy references must be verified');
  assert.equal(model.anatomical_review,'APPROVED','anatomical review pending');
  assert.equal(model.visual_review,'APPROVED','visual review pending');
- assert.notEqual(registry.human_author_editor?.creative_contribution_evidence,'NOT_YET_DOCUMENTED','human creative evidence absent');
+ assert(registry.human_author_editor?.creative_contribution_evidence && registry.human_author_editor.creative_contribution_evidence!=='NOT_YET_DOCUMENTED','human creative evidence absent');
  status='PASS_REVIEWED_ORIGINAL_3D';
 }else{
  assert.equal(registry.clinical_review,'PENDING','no 3D asset but clinical 3D approval declared');
  assert.equal(model.sha256,null,'no GLB may have a hash');
  assert.equal(model.editable_source_sha256,null,'no source file may have a hash');
  assert.equal(registry.cros_filing,null,'no CROS filing before original 3D asset');
+}
+if(registry.cros_filing){
+ assert.equal(status,'PASS_REVIEWED_ORIGINAL_3D','CROS filing without reviewed original model');
+ assert(registry.rights_owner&&registry.rights_owner!=='UNDECIDED_BEFORE_FILING','rights owner missing for CROS');
+ assert(registry.human_author_editor?.identity_legal_name&&registry.human_author_editor.identity_legal_name!=='TO_CONFIRM_BEFORE_FILING','legal human identity missing for CROS');
 }
 console.log(JSON.stringify({gate:'m009-original-3d-ip',status,source:source||null,glb:exportPath||null,cros_filing:registry.cros_filing||null}));
