@@ -4,6 +4,7 @@
 - **최신 의장님 지시**: KST 실측 후 기능 단위 설정, 25분 이상 실질 작업 목표, 소규모 작업마다 보고 금지, 최종보고는 시작/종료/경과 및 ①무엇 ②결과 ③다음. 작업 종료 전 이 정본과 MASTER_ROADMAP 갱신, 최고 수준의 분석·반례·검증. 상세 `docs/H3Y_DEVELOPMENT_EXECUTION_PROTOCOL_V1.md`.
 - 이번 작업은 **205개 데이터 소스 정합성**을 추적. `data/muscles-v1.json`에는 m001–m183 183건만 있으나 `docs/CLAUDE_186_AUDIT.md`에는 m184–m205 22건의 실명 명단 및 과거 편입 완료가 기록되어 있음. **기존 205개 통합 성과를 삭제·무효 판정하지 말 것.** 현상은 파일 간 소스 불일치로 분류; 다른 데이터·빌드 단계/마이그레이션/브랜치 역사 확인이 우선.
 - 검사 코드: `scripts/canonical-muscle-coverage-audit.mjs`에 과거 22개 roster 대조 추가. JS 논리 확인: 183건, 역사적 roster 22건, v1에 없는 ID 22건. **Node CLI/CI는 아직 미실행**.
+- **추가 실측:** GitHub 코드검색에서 `m205`의 명시적 언급은 과거 감사 문서·근육 일러스트 감사·환자 운동 라이브러리 등에 존재하지만, `data/muscles-v1.json`의 실체 레코드는 찾지 못함. 과거 커밋 `f23e713` 및 `792cb5b`의 동일 파일도 각각 183건. 문서상 205개 완료와 파일상 183개의 불일치는 단순 신규 22개 개발로 간주 금지. 현재 검토한 경로 외 다른 소스 가능성은 남아 있음.
 - m009 두판상근은 v1에 존재. `docs/anatomy/splenius-capitis-knowledge-v1.md`, `docs/anatomy/m009-3d-master-build-spec-v1.md`, `data/ip-asset-registry-v1.json` 및 `docs/ip-evidence/splenius-capitis-pilot-v1.md`로 연결. 기존 m009 MMT의 주관절 신전 문구는 의학 오류 후보로 보류. 외부 근거 교차검증/전문의 검수/편집 가능한 실사형 3D Master 미완료.
 - **최종 다음 작업 단위**: (1) m184–m205의 실제 저장 경로/런타임 사용 경로를 코드·과거 변경에서 확인하여 단일 정본 정합성 회복, (2) 읽기 전용 audit Node 실행 및 CI 검증, (3) m009 해부학 교차검증 후 실제 편집 가능한 3D source 구축. 가짜 placeholder 3D 금지.
 - 저작자/편집책임자: 의장님 표기 방향 승인, 실제 인간 창작 기여 증빙 별도. CROS 법적 권리주체 미결정. Production/main 동결. 갤럭시 QA 미실시. Runway/TinyFish 금지.
