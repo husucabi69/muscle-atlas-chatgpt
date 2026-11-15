@@ -27,7 +27,7 @@ Source: `data/mmt-specialist-review-backlog-v1.json`.
 ## C. Anatomy 3D Master release gates
 1. Human specialist verifies mastoid process, lateral superior nuchal line, nuchal ligament and C7–T3/T4 attachments.
 2. Review fiber direction and anatomical depth against cross-sectional MRI/dissection sources.
-3. Record patient left/right and neutral anatomical pose in editable source.
+3. Record patient left/right and neutral anatomical pose in editable source. The engineering convention is right-handed +X patient right, +Y cranial, +Z posterior; posterior view must display patient-right on screen-right. This is a technical convention, **not** a specialist approval of model anatomy.
 4. Review original mesh, tendon transitions, layer transparency and motion before deriving 2D plates.
 5. Record genuine human creative contributions and IP ownership before CROS filing.
 6. Galaxy real-device QA is separate from automated code checks.
