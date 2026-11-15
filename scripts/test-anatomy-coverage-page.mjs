@@ -17,6 +17,9 @@ assert(script[1].includes("source='예비 데이터"),'fallback source disclosur
 assert(script[1].includes('textContent'),'safe text rendering missing');
 assert(script[1].includes("value=\"held\"")===false,'filter must be in HTML, not injected in JS');
 assert(html.includes('value="held"'),'MMT hold filter missing');
+assert(html.includes('id="detail"'),'muscle detail panel missing');
+assert(script[1].includes("['기시',m.origin]")&&script[1].includes("['신경지배',m.nerve]"),'O/I/F/N details missing');
+assert(script[1].includes("open.addEventListener('click',()=>showDetails(m))"),'muscle detail button not interactive');
 const temp=mkdtempSync(join(tmpdir(),'lysos-anatomy-'));
 try{
  const file=join(temp,'coverage.mjs');
