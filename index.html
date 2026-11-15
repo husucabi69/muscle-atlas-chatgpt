@@ -221,6 +221,23 @@ html[data-lys-theme="white"] :is(.note,.greenbox,.amberbox,.pathbox){background:
 .lys-theme-picker select{font:inherit;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:8px 6px;max-width:110px}
 .lys-theme-picker select:focus-visible{outline:3px solid #8bb8df;outline-offset:2px}
 @media(max-width:850px){.head-inner{flex-wrap:wrap}.lys-theme-picker{margin-left:auto}.tabs{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap}}
+
+/* Galaxy compact header: one-line navigation, preserve all tabs and keyboard access. */
+@media(max-width:850px){
+  .head-inner{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:9px 12px}
+  .brand{min-width:0;flex:1 1 auto}
+  .brand h1{font-size:clamp(17px,4.3vw,21px);line-height:1.2}
+  .brand small{max-width:65vw}
+  .lys-theme-picker{flex:0 0 auto;margin-left:auto}
+  .tabs{order:3;display:flex;flex:0 0 100%;width:100%;max-width:100%;min-width:0;gap:7px;overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;grid-template-columns:none;scrollbar-width:thin;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:2px 0 7px}
+  .tabs .tab{flex:0 0 auto;min-width:0;max-width:none;white-space:nowrap;word-break:keep-all;overflow-wrap:normal;writing-mode:horizontal-tb;line-height:1.25;padding:10px 13px;min-height:44px;scroll-snap-align:start}
+  .tabs .tab:focus-visible{outline:3px solid #2677ac;outline-offset:2px}
+}
+@media(max-width:520px){
+  .head-inner{flex-direction:row;align-items:center;gap:8px;padding:9px 10px}
+  .tabs{display:flex;grid-template-columns:none;gap:6px}
+  .tabs .tab{padding:9px 12px;min-height:44px}
+}
 </style>
 </head>
 <body>
