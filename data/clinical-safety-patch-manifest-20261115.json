@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "revision": "2026-11-15-anatomy205-mmt-safety-preview",
+  "scope": "preview/development",
+  "runtime_knowledge_core": {
+    "path": "data/knowledge-core-v1.json",
+    "git_blob_sha": "d6ef1c6c2a9ca97900ff97cdf8d6a9d975c553b3",
+    "muscles": 205,
+    "oinf_present": 205
+  },
+  "legacy_fallback": {
+    "path": "data/muscles-v1.json",
+    "git_blob_sha": "278f2f153f582d6ae28f94cc05a12e7cca5832a6",
+    "muscles": 183
+  },
+  "clinical_hold": {
+    "path": "data/mmt-safety-hold-v1.json",
+    "git_blob_sha": "149fdfb565f71d21133f4f9270e885dae0a65c9d",
+    "count": 38,
+    "specialist_review": "PENDING",
+    "oral_viva_excluded": true
+  },
+  "additional_review_candidates": 7,
+  "preview_app_version": "v12.78-preview",
+  "clinical_approval": false,
+  "original_3d_master": false,
+  "cros_filing": false,
+  "contains_phi": false,
+  "production_approved": false,
+  "compatibility_note": "OrthoOS pinned dataset_version remains unchanged; this patch manifest records preview content revision separately. Do not infer production deployment."
+}
