@@ -15,9 +15,10 @@ const registry=read('data/ip-asset-registry-v1.json');
 const core=read('data/knowledge-core-v1.json');
 const claims=read('data/anatomy/m009-claim-evidence-v1.json');
 assert(claims.stable_id==='m009','claim evidence ID mismatch');
-assert(claims.claim_map?.innervation?.status==='DISPUTED_LEVELS_SPECIALIST_REVIEW','innervation disagreement must remain visible');
-assert(claims.claim_map?.mmt?.status==='SAFETY_HOLD_NO_VALIDATED_ISOLATED_PROTOCOL','MMT hold claim missing');
-assert(claims.human_review?.specialist_signed===false,'specialist signoff not independently recorded');
+assert(['DISPUTED_LEVELS_SPECIALIST_REVIEW','SPECIALIST_RESOLVED'].includes(claims.claim_map?.innervation?.status),'innervation status must be explicit');
+assert(['SAFETY_HOLD_NO_VALIDATED_ISOLATED_PROTOCOL','SPECIALIST_APPROVED_PROTOCOL'].includes(claims.claim_map?.mmt?.status),'MMT status must be explicit');
+assert(typeof claims.human_review?.specialist_signed==='boolean','specialist signoff flag missing');
+if(claims.human_review.specialist_signed){assert(Boolean(claims.human_review.reviewer_identity)&&Boolean(claims.human_review.reviewed_at),'specialist identity/date evidence required');}
 assert(Array.isArray(muscles),'muscles-v1 must be an array');
 const ids=new Set();
 for(const m of muscles){
