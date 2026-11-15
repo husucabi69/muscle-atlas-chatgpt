@@ -38,7 +38,8 @@ if(muscle){
   assert(/동측/.test(muscle.function)&&/신전/.test(muscle.function),'laterality/function mismatch');
 }
 assert(registry.model?.editable_source===null&&registry.model?.gltf_export===null,'unreviewed master declared');
-assert(registry.clinical_review==='PENDING','clinical approval requires separate evidence');
+assert(['PENDING','APPROVED'].includes(registry.clinical_review),'clinical review status must be explicit');
+if(registry.clinical_review==='APPROVED')assert(claims.human_review.specialist_signed===true,'registry approval without specialist evidence');
 const warnings=[];
 if(core.muscles.length!==205)fail.push('Runtime Knowledge Core must contain 205 muscle records');
 if(muscles.length!==183)warnings.push('Legacy export count changed from expected 183; review fallback migration.');
