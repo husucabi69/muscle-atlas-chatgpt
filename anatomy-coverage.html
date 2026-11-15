@@ -29,7 +29,7 @@ let source='';
 function render(){
  const q=$('query').value.trim().toLocaleLowerCase(),f=$('filter').value;
  const filtered=muscles.filter(m=>(f==='all'||(f==='pending')===(!clinicalDetailsAvailable(m)))&&[m.id,m.ko,m.en].some(s=>s.toLocaleLowerCase().includes(q)));
- $('count').textContent=filtered.length+'개 항목 표시';
+ $('count').textContent=filtered.length+'개 항목 표시 · '+source;
  $('rows').replaceChildren(...filtered.map(m=>{
   const tr=document.createElement('tr'),id=document.createElement('td'),name=document.createElement('td'),status=document.createElement('td'),tag=document.createElement('span');
   id.textContent=m.id;name.textContent=m.ko+' ('+m.en+')';
@@ -51,7 +51,7 @@ try{
  }
  const count=muscles.filter(clinicalDetailsAvailable).length;
  $('all').textContent=muscles.length;$('full').textContent=count;$('pending').textContent=muscles.length-count;
- render();$('count').textContent+=' · '+source;
+ render();
 }catch(e){$('count').textContent='데이터 로딩 실패: '+String(e.message||e);$('count').style.color='#a22'}
 
 </script></body></html>
