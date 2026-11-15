@@ -31,7 +31,11 @@ assert(registry.model?.editable_source===null&&registry.model?.gltf_export===nul
 assert(registry.clinical_review==='PENDING','clinical approval requires separate evidence');
 const warnings=[];
 if(muscles.length!==205)warnings.push('Canonical dataset contains '+muscles.length+' entries, not 205; reconcile coverage before claiming complete atlas.');
-if(muscle&&/주관절/.test(muscle.mmt))warnings.push('m009 MMT contains unrelated elbow-joint text; requires specialist correction.');
+if(muscle){
+  assert(!/주관절/.test(muscle.mmt),'m009 unsafe elbow-joint MMT leaked into canonical');
+  assert(/검수 대기/.test(muscle.mmt),'m009 MMT safety hold absent');
+  warnings.push('m009 MMT held pending specialist-approved replacement; do not interpret as tested strength grading.');
+}
 if(!registry.external_anatomy_references_verified)warnings.push('Independent anatomy references not verified.');
 console.log(JSON.stringify({gate:'m009-pre-model',status:fail.length?'FAIL':'PASS_REGISTRY_ONLY',muscle_count:muscles.length,errors:fail,warnings},null,2));
 if(fail.length)process.exitCode=1;
