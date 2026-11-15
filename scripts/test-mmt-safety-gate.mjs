@@ -43,4 +43,10 @@ for(const f of ledger.flagged){
  assert(/주관절의 주(굴곡|신전) 방향/.test(f.source_mmt),'original audit evidence missing '+f.id);
 }
 for(const id of ['m080','m081','m091'])assert(!holdIds.has(id),'clinically elbow-related muscle wrongly quarantined '+id);
+const elbowTemplate=/주관절의 주(굴곡|신전) 방향에 반대 저항/;
+const allowedElbow=new Set(['m080','m081','m091']);
+for(const m of knowledgeCore.muscles){
+ if(elbowTemplate.test(m.mmt_text||'')&&!allowedElbow.has(m.muscle_id))throw new Error('New unrelated elbow-MMT copy detected: '+m.muscle_id);
+}
+
 console.log(JSON.stringify({test:'mmt-patient-safety-gate',status:'PASS',flagged:holdIds.size,canonical:canonical.length,embedded:embedded.length,runtime:knowledgeCore.muscles.length,clinical_signoff:false}));
