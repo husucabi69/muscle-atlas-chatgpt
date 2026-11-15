@@ -13,6 +13,11 @@ const assert=(condition,message)=>{if(!condition)fail.push(message);};
 const muscles=read('data/muscles-v1.json');
 const registry=read('data/ip-asset-registry-v1.json');
 const core=read('data/knowledge-core-v1.json');
+const claims=read('data/anatomy/m009-claim-evidence-v1.json');
+assert(claims.stable_id==='m009','claim evidence ID mismatch');
+assert(claims.claim_map?.innervation?.status==='DISPUTED_LEVELS_SPECIALIST_REVIEW','innervation disagreement must remain visible');
+assert(claims.claim_map?.mmt?.status==='SAFETY_HOLD_NO_VALIDATED_ISOLATED_PROTOCOL','MMT hold claim missing');
+assert(claims.human_review?.specialist_signed===false,'specialist signoff not independently recorded');
 assert(Array.isArray(muscles),'muscles-v1 must be an array');
 const ids=new Set();
 for(const m of muscles){
