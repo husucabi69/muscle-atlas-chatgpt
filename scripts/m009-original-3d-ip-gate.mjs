@@ -24,19 +24,28 @@ if(source&&exportPath){
   assert(!p.startsWith('/')&&!p.includes('..'),'unsafe model path '+p);
   assert(existsSync(resolve(root,p)),'declared model file missing '+p);
  }
- const glb=readFileSync(resolve(root,exportPath));
- assert(glb.length>=20,'3D export too small');
- assert.equal(glb.subarray(0,4).toString('ascii'),'glTF','not a GLB');
- assert.equal(glb.readUInt32LE(4),2,'GLB must be version 2');
- assert.equal(glb.readUInt32LE(8),glb.length,'GLB byte count mismatch');
- const digest=createHash('sha256').update(glb).digest('hex');
- assert.equal(digest,model.sha256,'GLB digest mismatch');
+ const sourceBytes=readFileSync(resolve(root,source));
+ const sourceDigest=createHash('sha256').update(sourceBytes).digest('hex');
+ assert.equal(sourceDigest,model.editable_source_sha256,'editable source digest mismatch');
+ const exported=readFileSync(resolve(root,exportPath));
+ if(exportPath.endsWith('.glb')){
+  assert(exported.length>=20,'3D export too small');
+  assert.equal(exported.subarray(0,4).toString('ascii'),'glTF','not a GLB');
+  assert.equal(exported.readUInt32LE(4),2,'GLB must be version 2');
+  assert.equal(exported.readUInt32LE(8),exported.length,'GLB byte count mismatch');
+ }else if(exportPath.endsWith('.gltf')){
+  const gltf=JSON.parse(exported.toString('utf8'));
+  assert.equal(gltf.asset?.version,'2.0','glTF JSON must be version 2.0');
+ }else throw new Error('Export must be .glb or .gltf');
+ const digest=createHash('sha256').update(exported).digest('hex');
+ assert.equal(digest,model.sha256,'export digest mismatch');
  assert.equal(model.anatomical_review,'APPROVED','anatomical review pending');
  assert.equal(model.visual_review,'APPROVED','visual review pending');
  assert.notEqual(registry.human_author_editor?.creative_contribution_evidence,'NOT_YET_DOCUMENTED','human creative evidence absent');
  status='PASS_REVIEWED_ORIGINAL_3D';
 }else{
  assert.equal(model.sha256,null,'no GLB may have a hash');
+ assert.equal(model.editable_source_sha256,null,'no source file may have a hash');
  assert.equal(registry.cros_filing,null,'no CROS filing before original 3D asset');
 }
 console.log(JSON.stringify({gate:'m009-original-3d-ip',status,source:source||null,glb:exportPath||null,cros_filing:registry.cros_filing||null}));
