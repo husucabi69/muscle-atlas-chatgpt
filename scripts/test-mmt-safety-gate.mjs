@@ -16,6 +16,7 @@ const begin=html.indexOf('const muscles=')+'const muscles='.length;
 const end=html.indexOf(';\nconst usInfo=',begin);
 assert(begin>20&&end>begin,'embedded fallback array location');
 const embedded=JSON.parse(html.slice(begin,end));
+assert(html.includes("if(m.mmt&&!m.mmt.includes('임상 사용을 보류'))candidates.push"),'held MMT must not generate Oral Viva exam questions');
 assert.equal(canonical.length,embedded.length,'canonical/fallback count');
 const byId=new Map(embedded.map(m=>[m.id,m]));
 const holdIds=new Set(ledger.flagged.map(m=>m.id));
