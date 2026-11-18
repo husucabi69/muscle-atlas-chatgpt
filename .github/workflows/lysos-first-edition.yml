@@ -47,6 +47,17 @@ jobs:
         run: |
           node scripts/hierarchical-navigation-qa.mjs
           node scripts/real-device-offline-qa.mjs
+      - name: Preserve first-edition source and website as an original ZIP artifact
+        run: |
+          mkdir -p artifacts/lysos-first-edition
+          git archive --format=zip HEAD -o artifacts/lysos-first-edition/LYSOS-first-edition-preserved-source.zip
+          ls -lh artifacts/lysos-first-edition/
+      - name: Upload first-edition self-contained preserved source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: LYSOS-first-edition-preserved-site-zip
+          path: artifacts/lysos-first-edition/LYSOS-first-edition-preserved-source.zip
+          retention-days: 30
       - name: Install real Chromium for source-backed mobile / desktop review
         run: |
           npm install --no-save playwright@1.55.0
@@ -55,11 +66,6 @@ jobs:
         run: |
           python3 -m http.server 8781 --bind 127.0.0.1 >/tmp/lysos-http.log 2>&1 &
           node scripts/first-release-browser-smoke.mjs
-      - name: Preserve first-edition source and website as an original ZIP artifact
-        run: |
-          mkdir -p artifacts/lysos-first-edition
-          git archive --format=zip HEAD -o artifacts/lysos-first-edition/LYSOS-first-edition-preserved-source.zip
-          ls -lh artifacts/lysos-first-edition/
       - name: Upload app bundle, visual screenshots and audit evidence
         if: always()
         uses: actions/upload-artifact@v4
