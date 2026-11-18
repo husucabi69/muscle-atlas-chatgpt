@@ -14,9 +14,15 @@ const docs=read('docs/REAL_DEVICE_OFFLINE_QA.md');
 
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
+// Stage-number version labels were retired. v12+ contains the Stage 23
+// capabilities tested by the independent checks below.
 const releaseStage=Number(version.match(/buildVersion:'[^']*-stage(\d+)\./)?.[1]||0);
+const releaseLabel=version.match(/displayVersion:'v(\d+)\.(\d+)(?:-preview)?'/);
+const major=Number(releaseLabel?.[1]||0),minor=Number(releaseLabel?.[2]||0);
+check('Stage 23 feature contracts retained in current release',
+  releaseStage>=23 || (major>=12 && minor>=0),
+  releaseLabel?.[0] || 'legacy stage '+releaseStage);
 
-check('Stage 23 release active',releaseStage>=23,String(releaseStage));
 check('Manifest fullscreen',manifest.display==='fullscreen',manifest.display);
 check('Manifest orientation any',manifest.orientation==='any',manifest.orientation);
 check('Manifest 192 icon',(manifest.icons||[]).some(x=>x.sizes==='192x192'));
