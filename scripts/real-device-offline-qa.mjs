@@ -37,7 +37,9 @@ check('Service worker exposes cache diagnostics',
 check('Offline shell contains canonical knowledge',sw.includes("'./data/knowledge-core-v1.json'"));
 check('Offline shell contains patient exercise',sw.includes("'./data/patient-exercise-library-v1.json'")&&sw.includes("'./data/patient-exercise-illustration-v2.json'"));
 check('Offline shell contains ultrasound guidance',sw.includes("'./data/ultrasound-probe-guidance-v2.json'"));
-check('Offline navigation fallback exists',sw.includes("networkFirst(event.request,'./index.html')"));
+check('Offline navigation fallback exists',sw.includes("networkFirst(event.request,'./index.html')") ||
+  (sw.includes("isAnatomyCoverage?'./anatomy-coverage.html':'./index.html'") &&
+   sw.includes("'./anatomy-coverage.html'") && sw.includes("'./index.html'")));
 check('Online recovery triggers automatic fresh update check',index.includes("window.addEventListener('online',()=>requestAppUpdateCheck('online',true))"));
 check('Offline runtime hook exists',index.includes("window.addEventListener('offline'"));
 check('Update path preserves learning storage',!sw.includes('localStorage.clear')&&!index.includes('localStorage.clear'));
