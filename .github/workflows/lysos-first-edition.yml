@@ -1,0 +1,76 @@
+name: LYSOS First Edition — Original-Preserving Release Gate
+on:
+  push:
+    branches: [release/lysos-first-complete-20261118]
+  pull_request:
+    branches: [preview/development]
+    paths:
+      - 'first-release.html'
+      - 'index.html'
+      - 'sw.js'
+      - 'scripts/first-release-*.mjs'
+      - 'scripts/test-anatomy-pwa-cache.mjs'
+      - 'scripts/hierarchical-navigation-qa.mjs'
+      - 'scripts/real-device-offline-qa.mjs'
+      - 'data/**'
+      - '.github/workflows/lysos-first-edition.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: lysos-first-edition-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Canonical original content and safety manifest (205 / 38 / 7)
+        run: node scripts/first-release-qa.mjs
+      - name: Muscle runtime and legacy source parity
+        run: node scripts/test-knowledge-core-legacy-sync.mjs
+      - name: Clinically unsafe MMT quarantine
+        run: node scripts/test-mmt-safety-gate.mjs
+      - name: Gallery and original study source audit
+        run: node scripts/canonical-muscle-coverage-audit.mjs
+      - name: First-edition PWA cache, Galaxy nav and anatomy page
+        run: |
+          node scripts/test-anatomy-pwa-cache.mjs
+          node scripts/test-galaxy-compact-nav.mjs
+          node scripts/test-anatomy-coverage-page.mjs
+          node scripts/auto-update-qa.mjs
+      - name: Preserve interactive anatomy view and offline device contracts
+        run: |
+          node scripts/hierarchical-navigation-qa.mjs
+          node scripts/real-device-offline-qa.mjs
+      - name: Preserve first-edition source and website as an original ZIP artifact
+        run: |
+          mkdir -p artifacts/lysos-first-edition
+          git archive --format=zip HEAD -o artifacts/lysos-first-edition/LYSOS-first-edition-preserved-source.zip
+          ls -lh artifacts/lysos-first-edition/
+      - name: Upload first-edition self-contained preserved source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: LYSOS-first-edition-preserved-site-zip
+          path: artifacts/lysos-first-edition/LYSOS-first-edition-preserved-source.zip
+          retention-days: 30
+      - name: Install real Chromium for source-backed mobile / desktop review
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Real-browser mobile and desktop first-edition smoke
+        run: |
+          python3 -m http.server 8781 --bind 127.0.0.1 >/tmp/lysos-http.log 2>&1 &
+          node scripts/first-release-browser-smoke.mjs
+      - name: Upload app bundle, visual screenshots and audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: LYSOS-first-edition-candidate-and-visual-QA
+          path: artifacts/lysos-first-edition/
+          if-no-files-found: ignore
+          retention-days: 30

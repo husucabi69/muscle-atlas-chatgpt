@@ -1,4 +1,4 @@
-// v12.78 preview: anatomy 205 runtime Knowledge Core and clinical MMT safety holds; no production or specialist approval.
+// LYSOS first-edition release candidate: original Knowledge Core + 38 MMT holds; no production or specialist approval.
 importScripts('./app-version.js');
 
 const RELEASE=self.LYS_APP_RELEASE||{buildVersion:'unknown',cacheKey:'fallback'};
@@ -9,6 +9,7 @@ const CORE=[
   './',
   './index.html',
   './anatomy-coverage.html',
+  './first-release.html',
   './src/anatomy/canonical-muscle-resolver.mjs',
   './data/muscles-v1.json',
   './data/m184-m205-recovery-inventory-v1.json',

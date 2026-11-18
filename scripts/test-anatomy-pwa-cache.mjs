@@ -16,6 +16,11 @@ for(const path of [
 ])assert(sw.includes("'"+path+"'"),'not in offline CORE: '+path);
 assert(sw.includes("isAnatomyCoverage?'./anatomy-coverage.html':'./index.html'"),'wrong offline navigation fallback');
 assert(sw.includes("(?:js|mjs|css)"),'module files not network-first');
-assert(ver.includes("20261115-anatomy205-safety-preview"),'cache key not rotated');
-assert(ver.includes("v12.78-preview"),'preview version not labeled');
+const patch=JSON.parse(readFileSync(resolve(root,'data/clinical-safety-patch-manifest-20261115.json'),'utf8'));
+const cacheKey=ver.match(/cacheKey:'([^']+)'/)?.[1];
+const displayVersion=ver.match(/displayVersion:'([^']+)'/)?.[1];
+assert.equal(displayVersion,patch.preview_app_version,'version must match safety patch');
+assert(/^2026\d{4}-[a-z0-9-]+-preview$/.test(cacheKey||''),'release must use a rotated preview cache key');
+assert.equal(cacheKey,'20261115-galaxy-compact-nav-preview','cache key must match reviewed release');
+assert.equal(displayVersion,'v12.79-preview','latest reviewed preview version missing');
 console.log(JSON.stringify({test:'anatomy-pwa-cache-gate',status:'PASS',preview_only:true}));

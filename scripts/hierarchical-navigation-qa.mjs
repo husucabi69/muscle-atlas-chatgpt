@@ -7,8 +7,14 @@ const version=fs.readFileSync('app-version.js','utf8');
 const checks=[];
 const check=(name,pass,detail='')=>checks.push({name,pass:Boolean(pass),detail});
 
-const releaseStage=Number(version.match(/buildVersion:'[^']*-stage(\d+)\./)?.[1]||0);
-check('Hierarchical navigation survives later releases',releaseStage>=16,String(releaseStage));
+// Version labels were migrated from "stage16.x" to "v12.79-preview".
+// Verify the actual released version AND independently assert the hierarchical
+// view/state contracts below; do not silently treat the new label as stage 0.
+const label=version.match(/displayVersion:'v(\d+)\.(\d+)(?:-preview)?'/);
+const releaseMajor=Number(label?.[1]||0),releaseMinor=Number(label?.[2]||0);
+check('Hierarchical navigation survives later releases',
+  releaseMajor>11||(releaseMajor===11&&releaseMinor>=14),
+  label?.[0]||'unrecognized version');
 check('Canonical muscles still 205',(core.muscles||[]).length===205,String((core.muscles||[]).length));
 
 for(const id of ['regionChooserView','regionMusclesView','regionDetailView','regionMuscleDetailHead','regionMuscleDetailContent']){
